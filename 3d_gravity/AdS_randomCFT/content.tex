@@ -1,0 +1,151 @@
+% 这里我们记录我们为了读懂文章需要补充的知识点。
+% ---
+% tags:
+%   - 3Dgrav
+%   - RandomMatrix
+% paper:
+%   - “AdS3 gravity and random CFT” (Cotler和Jensen, 2021, p. 0) (pdf)
+% ---
+
+这主要是阅读文章：“AdS3 gravity and random CFT” (\href{zotero://select/library/items/ZZMNXYQQ}{Cotler和Jensen, 2021, p. 0}) (\href{zotero://open-pdf/library/items/Y2QTGF9W?page=1}{pdf})。这个文章计算了一个特殊的AdS3的引力路径积分，并且说明了这个或许对偶一个CFT2的ensemble。这篇文章是认为开始通过Random CFT试图理解三维量子引力的基础工作。后面大家存在逐渐构建出来一些random model试图对偶上面AdS的理论。
+
+之后一个值得阅读的文章是：“Approximate CFTs and Random Tensor Models” (\href{zotero://select/library/items/ULWDASI3}{Belin 等, 2024, p. 0}) (\href{zotero://open-pdf/library/items/PNTMCKK4?page=1}{pdf})。这里出不构建了一个CFT data的矩阵模型。并且在其fol up文章：“3d Gravity as a random ensemble” (\href{zotero://select/library/items/2UWN4HVR}{Jafferis 等, 2024, p. 0}) (\href{zotero://open-pdf/library/items/2TMHVB25?page=1}{pdf})。里面有仔细对于引力对偶的说明。对于这个模型计算我们\verb|[[Random CFT matrix model to AdS]]|里面考虑。
+
+我们现在fol Cotler的文章关于最原始的模型
+
+\section*{Introduction简介}
+
+\subsection*{二维引力的回顾}
+
+我们知道JT引力对偶于矩阵模型，其精确对偶说的是：
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.7\textwidth]{IMG-20250606202149089.png}
+  \caption{由 JT 引力对偶矩阵模型的图示（示意）}
+  \label{fig:jt-dual}
+\end{figure}
+
+其中，图灰色的圈圈意味着对于所有可能的几何和拓扑进行求和。同时，如果我们考虑两点函数那么有下面的展开。并且，这个两点函数connected的项的leading term对应着connected的几何，也就是欧几里得虫洞Euclidean wormhole 
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.7\textwidth]{IMG-20250606202149098.png}
+  \caption{两点函数的几何展开与欧几里得虫洞}
+  \label{fig:wormhole-expansion}
+\end{figure}
+
+所以，Euclidean虫洞是一个比较重要的模型。但是这个模型对与AdS/CFT的语境存在矛盾：
+\begin{enumerate}
+  \item 存在两个边界意味着，存在两个可以factorize的local CFT
+  \item 但，几何的联通意味着存在不能factorize称为两边的关联函数
+\end{enumerate}
+
+\textbf{我们解决这个问题的方式，是并不认为边界上的CFT是一个单独的模型，而是一系列的CFT ensemble。} 这样子，在Ensemble average的语境下可以给出两个CFT之间的关联。所以我们的 $ \mathrm{tr}(e^{-\beta H}) $ 并不是一个确定的数值，而是一个random variable，只用在ensemble平均下面给出一个具体的数值。
+
+\subsection*{三维引力基本回顾}
+
+AdS3静电引力的经典解已经解决，参考文章 “2 + 1 DIMENSIONAL GRAVITY AS AN EXACTLY SOLUBLE SYSTEM” (\href{zotero://select/library/items/KJIFCLZF}{Witten, 1988, p. 46}) (\href{zotero://open-pdf/library/items/NUVLF86R?page=1}{pdf}) 【虽然有可能是错的】我们认为三维引力没有local自由度，但是我们有edge mode。
+
+在Witten和Malony文章（Quantum Gravity Partition Functions in Three Dimensions, J）之中，计算了，边界是 $\tau$ 的torus上面的leading term引力路径积分。他们其实就是求和saddle point。这些几何在图像上基本上等价于一个disk乘上一个circle，基本上就是一个填满的torus。但结果上并没有给出一个合理的CFT的spectrum。
+
+但是，这个理论在Bulk和Boundary基本上都是不对的。
+\begin{itemize}
+  \item Bulk里面，我们不能仅仅对于saddle point进行求和，或许一些off shell的情况会给出很大的影响
+  \item Boundary里面，或许一个CFT不是physical的，而是Ensemble of CFT。
+\end{itemize}
+
+本文正是在探讨这样的可能性。
+
+\subsection*{本文内容基本概述}
+
+我们希望计算对于一个Torus times time interval的三维引力，我们推测这个或许可以作为某个矩阵模型在某个ensemble average下面的平均：
+\[
+\langle Z(\tau_1)Z(\tau_2)\rangle_{\mathrm{conn}}=Z_{\mathbb{T}^2\times I}(\tau_1,\tau_2)+\cdots,
+\]
+
+我们认为如果dual to一个单独的理论，那么右边计算出来的第一项是0 ==【我并未懂呃呃呃】==
+
+文章的结论给出计算结果是：
+\[
+Z_{\mathbb{T}^{2}\times I}(\tau_{1},\tau_{2})=\frac{1}{2\pi^{2}}Z_{0}(\tau_{1})Z_{0}(\tau_{2})\sum_{\gamma\in PSL(2;\mathbb{Z})}\frac{\mathrm{Im}(\tau_{1})\mathrm{Im}(\gamma\tau_{2})}{|\tau_{1}+\gamma\tau_{2}|^{2}},\quad Z_{0}(\tau)=\frac{1}{\sqrt{\mathrm{Im}(\tau)}|\eta(\tau)|^{2}}.
+\]
+
+其中 $Z_{0}$ 是一个non-compact波色子的配分函数。并且其中特殊函数 $\eta$ 定义为：$\eta(\tau)=q^{1/24}\prod_{n=1}^\infty(1-q^n)$ 并且 $q = e^{2 \pi i \tau}$；以及 $\gamma$ 是modular transformation 也就是 $\gamma\tau=\frac{a\tau+b}{c\tau+d}$ 其中满足 $ad-bc = 0$。
+
+\hrulefill
+
+下文讲了半天作者是怎么计算出这个配分函数的结论的。
+
+\hrulefill
+
+下面，作者分析了一下这个配分函数的性质：
+\begin{enumerate}
+  \item 存在modular的对称性
+  \item 可以按照Virasoro代数分解成Primaries的部分；并且可以通过spin进行分类
+\end{enumerate}
+
+\[
+Z^P(\tau_1,\tau_2)=\frac{1}{2\pi^2\sqrt{\mathrm{Im}(\tau_1)\mathrm{Im}(\tau_2)}}\sum_{\gamma\in PSL(2;\mathbb{Z})}\frac{\mathrm{Im}(\tau_1)\mathrm{Im}(\gamma\tau_2)}{|\tau_1+\gamma\tau_2|^2}.
+\]
+
+并且还可以根据固定的spin进行展开得到：
+\[
+Z_{s_1,s_2}^P(\beta_1,\beta_2)=\frac{1}{2\pi}\frac{\sqrt{\beta_1\beta_2}}{\beta_1+\beta_2}e^{-E_{s_1}\beta_1-E_{s_2}\beta_2}\left(\delta_{s_1,s_2}+O\left(\frac{1}{\beta}\right)\right),\quad E_s=2\pi\left(|s|-\frac{1}{12}\right)
+\]
+
+并且这个行为可以很好的RMT进行对应。
+
+\section*{基础知识回顾}
+
+首先，所有计算基于 first order formalism of gravity。这个体系下，我们可以理解引力是有约束的相空间路径积分。
+
+\subsection*{相空间路径积分以及constrain first量子化}
+
+相空间路径积分意味着一个模型：
+\begin{enumerate}
+  \item 哈密顿量只有时间一阶导数，比如：$L = \dot{q}^2 -V$ 
+  \item 我们的路径积分仅仅做在相空间 $(p_{i},q_{i})$，而不是构型空间 $q_{i}$
+\end{enumerate}
+
+一个经典的例子就是：
+对于作用量 $L = \dot{q}^2 - V$ 在构型空间上面的路径积分其实等价于 $L = p \dot{q} - H(p,q)$ 在相空间的路径积分。
+
+这个理论其实是有约束的路径积分的理论。
+
+\subsection*{Yang-Mills理论的哈密顿形式}
+
+对于一个Yang-Mills理论来说，我们可以写出作用量以及配分函数：
+\[
+Z=\int\frac{[dA_\mu]}{\mathrm{gauge}}e^{iS_{\mathrm{YM}}},\quad S_{\mathrm{YM}}=-\frac{1}{4g^2}\int d^dx\operatorname{tr}(F^2),
+\]
+这个时候，我们仅仅是对于势能进行场构型的路径积分。但是，如果我们并不积分电场强度，那么就可以给出一个相空间的路径积分的形式。
+
+% \idea{一个你太难伟大的想法}{
+%     这就是我的想法捏！
+% }
+
+% \ques{问题呀}{
+%     这是一个问题呀！
+%     \itm{
+%         \pt{\textbf{这个问题一个解决思路就是}}
+%     }
+% }
+% \imp{一个重要的内容}{
+%     这是一个重要的内容！
+% }
+
+% \conclusion{%
+% 这是一个重要的结论。我们证明了该定理成立，并且可以应用于多个场景。
+% }
+
+% \attention{%
+% 请特别注意，这里的假设条件是关键，否则后续结论不成立。
+% }
+
+% \tip{%
+% 使用这个技巧可以大大简化计算过程，提升效率。
+% }
+
+% \questionbox{%
+% 该问题的关键难点在于理解边界条件的选择，欢迎大家讨论。
+% }

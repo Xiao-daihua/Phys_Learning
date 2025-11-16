@@ -1,0 +1,23 @@
+\contentsline {chapter}{\numberline {1}Geometric Quantization}{3}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Fundamental Sympletic Geometry}{3}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}基础sympletic geometry concept}{3}{subsection.1.1.1}%
+\contentsline {subsection}{\numberline {1.1.2}Sympletic Structure and Hamiltonian Mechanics}{3}{subsection.1.1.2}%
+\contentsline {subsection}{\numberline {1.1.3}Questions and thought}{3}{subsection.1.1.3}%
+\contentsline {chapter}{\numberline {2}Quantization of Teichmuller Theory and CFT}{4}{chapter.2}%
+\contentsline {subsection}{\numberline {2.0.1}如何量子化Teichmuller空间}{4}{subsection.2.0.1}%
+\contentsline {chapter}{\numberline {3}Sup: Complex Geometry}{6}{chapter.3}%
+\contentsline {section}{\numberline {3.1}基础的复几何的概念}{6}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}黎曼曲面基础}{6}{subsection.3.1.1}%
+\contentsline {section}{\numberline {3.2}黎曼曲面的流形结构}{13}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}黎曼曲面的曲率结构}{13}{subsection.3.2.1}%
+\contentsline {subsubsection}{黎曼曲面的共形结构}{14}{section*.2}%
+\contentsline {section}{\numberline {3.3}Torus上面的Teichmuller Space}{15}{section.3.3}%
+\contentsline {subsubsection}{从Marking的角度定义Teichmuller 空间}{16}{section*.3}%
+\contentsline {subsubsection}{从微分同胚的角度定义Teichmuller 空间}{18}{section*.4}%
+\contentsline {section}{\numberline {3.4}Teichmuller theory的基本定义}{18}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Teichmuller theory}{20}{section.3.5}%
+\contentsline {chapter}{\numberline {4}Sup: Chern-Simons of Classical Gravity}{21}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Vielbein and spin connection Formalism}{21}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Einstein Hilbert Action}{25}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Chern-Simons Theory}{26}{subsection.4.1.2}%
+\contentsline {chapter}{\numberline {5}Scratch Book}{29}{chapter.5}%

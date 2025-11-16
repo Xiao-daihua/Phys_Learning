@@ -1,0 +1,11 @@
+\contentsline {section}{\numberline {1}Introduction}{1}{section.1}%
+\contentsline {section}{\numberline {2}Information theory in Quantum Gravity}{2}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Ryu-Takayanagi proposal}{2}{subsection.2.1}%
+\contentsline {section}{\numberline {3}What is a HEC}{2}{section.3}%
+\contentsline {section}{\numberline {4}how to get a HEC}{2}{section.4}%
+\contentsline {subsection}{\numberline {4.1}known holographic entropy cone}{2}{subsection.4.1}%
+\contentsline {section}{\numberline {5}Basic properties of the HEC}{2}{section.5}%
+\contentsline {section}{\numberline {6}rearrangement of HEI}{2}{section.6}%
+\contentsline {subsection}{\numberline {6.1}S,I,K basis}{2}{subsection.6.1}%
+\contentsline {subsubsection}{\numberline {6.1.1}I basis of entropy}{2}{subsubsection.6.1.1}%
+\contentsline {section}{\numberline {7}Time dependent HEC}{3}{section.7}%

@@ -1,0 +1,52 @@
+
+\newpage
+\section{Tensor Algebra}\label{sec:Tensor Algebra} % (fold)
+
+\subsection{General Covariance原理}
+
+\hlr{怎么推出Geodesic equation对于一切参考系成立}
+
+我们已经知道了物理规律需要满足EEP。并且我们之前已经通过EEP给出了一般粒子甚至光在一般有引力是空的运动。现在我们希望一个更加一般的原理。
+
+回顾Geodesic的讨论，我们知道：我们论证这个方程在SR成立；并且论证这个方程是general covariance的。所以我们有理由相信这个方程在GR的情况下也是成立的。我们下面给出证明：
+\begin{itemize}
+  \item 首先，我们对于一般情况写出方程；我们总可以变换称为一个local inertial coordinate下面的样子。
+  \item 我们根据EEP知道，local inertial coordinate下面的方程和SR的方程是一样的。所以这个方程成立
+  \item 根据General Covriance我们又知道这个方程对于所有坐标系都成立的。
+\end{itemize}
+
+我们给出结论\textbf{EEP保证了，我们可以数学上知道一个方程对于inertial coordinate成立，并且这个方程是general covariant的，那么这个方程对于所有coordinate都成立}。
+
+\bigskip
+\hlr{Principle of General Covariance}
+
+上方的讨论我们知道应该对于一切物理方程都是合法的。我们把结论总结为：【这是一个推广出GR的方程的办法】
+\imp{Principle of General Covariance}{
+  一个物理方程如果在有引力的情况下成立需要满足下面的条件：
+  \begin{enumerate}
+    \item 方程在没有引力的情况下成立$ g = 0 $并且$ \Gamma = 0 $
+    \item 方程是general covariant的，也就是方程形式在所有的坐标系下面不变。
+  \end{enumerate}
+}
+
+对于第二个条件更正确的表述是，方程在一个坐标系下成立则在其他坐标系下都成立「方程形式可能会乘上一个可逆的矩阵」；
+
+对于第一个要小心：我们其实local inertial frame并不是没有引力的情况，所以没有引力情况下的并不一定是local inertial frame下面的。但是很多情况下两者是很像的，所以我们这里的讨论就忽略这个区别。但是有的时候并不可以忽略的。【我们强调这一点，是因为我们上面的Principle of General Covariance利用EEP进行证明的时候一定需要从0 gravity过度到LLF，但是两者其实是有区别的。】
+
+\subsection{Tensors：实现General Covariance的工具}
+\bigskip
+\hlr{Tensor Algebra}
+
+为了满足Principle of General Covariance，我们需要使用tensor algebra来描述物理量。我们知道tensor是一个在坐标变换下面有良好变换性质的数学对象，他们自然满足第二个条件也就是general covariant。
+
+\hlr{本章其余部分我们跳过阅读；建议阅读参考lcb学习其中tensor的内容}
+
+
+\subsection{Vierbein以及orthonormal frame}
+
+
+
+
+% section Tensor Algebra (end)
+
+

@@ -1,0 +1,251 @@
+\documentclass[a4paper,11pt]{article}
+%%\pdfoutput=1 % if your are submitting a pdflatex (i.e. if you have
+             % images in pdf, png or jpg format)
+\usepackage{jheppub} % for details on the use of the package, please
+                     % see the JHEP-author-manual
+
+\usepackage[T1]{fontenc} % if needed
+\usepackage{hyperref}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{framed}
+
+\usepackage{amsthm}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\swapnumbers
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
+
+\def\mA{\mathcal{A}}
+\def\mB{\mathcal{B}}
+\def\mC{\mathcal{C}}
+\def\mD{\mathcal{D}}
+\def\mE{\mathcal{E}}
+\def\mF{\mathcal{F}}
+\def\mG{\mathcal{G}}
+\def\mH{\mathcal{H}}
+\def\mI{\mathcal{I}}
+\def\mJ{\mathcal{J}}
+\def\mK{\mathcal{K}}
+\def\mL{\mathcal{L}}
+\def\mM{\mathcal{M}}
+\def\mN{\mathcal{N}}
+\def\mO{\mathcal{O}}
+\def\mP{\mathcal{P}}
+\def\mQ{\mathcal{Q}}
+\def\mR{\mathcal{R}}
+\def\mS{\mathcal{S}}
+
+% \begin{equation}
+%     \cB \ is \ great
+% \end{equation}
+\def\Tr{\mathrm{Tr}}
+\newcommand{\drt}[2]{
+    \frac{d #1}{d #2}
+}
+\newcommand{\drtn}[3]{
+    \frac{d^{#3} #1}{d #2^{#3}}
+}
+\newcommand{\ptl}[2]{
+    \frac{\partial #1}{\partial #2}
+}
+\newcommand{\ptln}[3]{
+    \frac{\partial^{#3} #1}{\partial #2^{#3}}
+}
+
+\newcommand{\bbar}{\begin{leftbar}}
+\newcommand{\ebar}{\end{leftbar}}
+\newcommand{\rmk}[1]{\bbar\textbf{注释：}
+
+#1 \ebar}
+\newcommand{\eq}[1]{
+    \begin{align}
+        #1
+    \end{align}
+}
+\newcommand{\seq}[1]{
+    $ #1 $
+}
+\newcommand{\defi}[1]{
+    \begin{definition}
+        #1
+    \end{definition} 
+}
+\newcommand{\thm}[1]{
+    \begin{theorem}
+        #1
+    \end{theorem}
+}
+\newcommand{\hdt}[1]{
+    \textbf{#1}
+}
+\newcommand{\pict}[2]{
+    \begin{figure}[H]
+        \centerline{\includegraphics[width= #2 \linewidth]{#1}}
+        \centering
+    \end{figure}
+}
+
+
+
+
+
+
+
+%%-----------------------------------------------------------------
+
+
+\title{\boldmath Selected topics of hologrpaphic entropy cone}
+
+
+%% %simple case: 2 authors, same institution
+%% \author{A. Uthor}
+%% \author{and A. Nother Author}
+%% \affiliation{Institution,\\Address, Country}
+
+% more complex case: 4 authors, 3 institutions, 2 footnotes
+\author[a]{Y. Liu}
+
+% The "\note" macro will give a warning: "Ignoring empty anchor..."
+% you can safely ignore it.
+
+\affiliation[a]{department of physics, Tsinghua University}
+
+% e-mail addresses: one for each author, in the same order as the authors
+\emailAdd{yuliu21012858@gmail.com}
+
+
+
+
+
+\abstract{this paper gives an introduction to some important facts and recent developments on the topic of the holographic entanglement entropy cone. Besides, I'll give out some idea on the furtherment of relevant topic.}
+
+
+\begin{document} 
+
+\maketitle
+\flushbottom
+%%------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\section{Introduction}
+Its a long road for human to investigate on gravity. Long time from now 
+Newton has developed the formula for gravitational force and combined with the 
+Newton's equation of motion, we can introduce a theory involving gravity:
+\eq{
+    F = \frac{G Mm}{r^2} \quad F = m \drtn{x}{t}{2}
+} 
+
+However, as the development of physics general relativity emerged as another theory for gravity
+which describes more interesting phenominons for gravity:
+\eq{
+    R_{\mu\nu} - \frac{1}{2}R g_{\mu\nu} = \kappa T_{\mu\nu}
+}
+However, evidence have shown that the furtherment of the theory of gravity needs more.
+
+A general task lead to quantum gravity, in which the goal is to conciliate two distinct theories, quantum field theory and general relativity.
+
+Many attempts have been made, and now a theory is developed (but not fully developed). 
+We can use the language of quantum information to describe gravity! In the following sections,
+I'll briefly introduce the recent development of quantum gravity (mostly on AdS/CFT duality and more about it), and I'll turn to focus on the holographic entanglement entropy cone (HEC) 
+and give out a quite thorough introduction to this area of interest.
+
+
+%%------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\section{Information theory in Quantum Gravity}
+In this section, I'll give out an introduction of how people use the language of 
+quantum information theory to describe gravity
+
+\subsection{Ryu-Takayanagi proposal}
+One of the most important understanding of quantum gravity is revealed by a simple formula
+proposed by Ryu and Takayanagi. We name it the RT formula. To describe the formula, I have to give it a good
+
+
+
+%%------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\section{What is a HEC}
+
+
+
+
+
+
+%%------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\section{how to get a HEC}
+the major problems are how to get a holographic entropy cone. First in \S 4.1 we will introduce 
+
+\subsection{known holographic entropy cone}
+
+%%------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\section{Basic properties of the HEC}
+
+
+%%------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\section{rearrangement of HEI}
+In fact using the entropy S as the basis and write all information by entropy is not that sensible. Not only are they really long and difficult to read and write, but also do they
+shows little about symmetry and other properties of the HEC. In this section, I will introduce some method to rearrange the HEIs and some useful properties that can be manifested by
+the rearrangement.
+
+\subsection{S,I,K basis}
+
+Instead of using S basis (which we mean that expressing the information quantity with entropies), we can use two much more powerful basis.
+those are called K basis and I basis first introduced in \cite{he2019holographic}
+. In this subsection we will focus on those two basis and some general properties about it.
+
+\subsubsection{I basis of entropy}
+As defined in the former sections, we know that the mutual information can be defined as:
+\begin{equation}
+    I(A:B) = S_A +S_B - S_{AB}
+\end{equation}
+following this definition, in fact, we can construct a series of multipartite information. The definition is as following:
+\begin{definition}
+    
+\end{definition}
+
+
+
+
+
+
+
+%%------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\section{Time dependent HEC}
+hahahahahahxixixi
+
+
+
+%%\appendix
+%%\section{Some title}
+
+
+
+
+
+
+%%\acknowledgments
+
+
+
+
+
+
+% The bibliography will probably be heavily edited during typesetting.
+% We'll parse it and, using the arxiv number or the journal data, will
+% query inspire, trying to verify the data (this will probalby spot
+% eventual typos) and retrive the document DOI and eventual errata.
+% We however suggest to always provide author, title and journal data:
+% in short all the informations that clearly identify a document.
+%%------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\bibliographystyle{JHEP}
+\bibliography{hyperref.bib}
+
+
+
+% Please avoid comments such as "For a review'', "For some examples",
+% "and references therein" or move them in the text. In general,
+% please leave only references in the bibliography and move all
+% accessory text in footnotes.
+
+% Also, please have only one work for each \bibitem.
+
+
+\end{document}

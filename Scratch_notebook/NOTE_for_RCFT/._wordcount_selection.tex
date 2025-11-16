@@ -1,0 +1,60 @@
+\section{Chiral Vertex Operator}
+我们研究一个量子场论最重要的一个东西就是量子场，也就是我们的关联函数。对于二维的共形场论求解关联函数可以通过一个“积木”来实现。也就是conformal block。可以像是一点点搭积木一样拼凑成为一个二维的共形场论的关联函数。
+
+对于共形场论来说，我们一般求解的“场”。其实就是vertex operator。因为，这个算符或者说场对应了Virasoro代数的表示的量子态。我们知道一个量子态其实是希尔伯特空间的一个向量。对于共形场论来说希尔伯特空间是Vir代数的表示的直和。
+
+在认识到上面基本的知识之后，我们接下来介绍我们的目的。我们要研究RCFT之中包含的一个特殊的数学结构。这个数学结构使得我们的对偶是可能的。其中很重要的一个两就是我们的Chiral Vertex Operator。
+\line
+接下来我们一点点定义我们的Chiral Vertex Operator：
+\defi{Chiral Vertex Operator
+
+\itm{
+    \pt{CVO是一个从Vir代数的表示到另一个Vir代数的表示的映射：
+    \eq{
+        \Phi_{i,k}^{j,\beta}(z):H_i \to H_k
+    }
+    这个算符是由另一个表示空间j之中的一个量子态\seq{\beta}标记的。从表示空间i到表示空间k的映射
+    }
+    \pt{
+        对于primary state标记的CVO的矩阵元素，当对于primary state的元素。我们有定义:
+        \eq{
+            <i|\Phi_{i,k}^{j}(z)|k>=\|\Phi_{i,k}^j\|z^{-(\Delta_j+\Delta_k-\Delta_i)}
+        }
+    }
+    \pt{
+        对于primary state标记的CVO的矩阵元素，当对于descendents的元素。我们可以求解:
+        \eq{
+            \left[L_n,\Phi_{ik}^{j,\beta}(z)\right]=\left(z^{n+1}\frac d{dz}+(n+1)z^n\Delta(\beta)\right)\Phi_{i,k}^{j,\beta}(z) .
+        }
+        方程得到。
+    }
+    \pt{
+        对于descendent标记的CVO我们可以直接把\seq{L_{-\mI}}作用在CVO上面（因为，CVO可以认为是VIr代数表示对应的量子场）得到：
+        \eq{
+            \Phi_{ik}^{j,\beta}(z) = L_{-\mI}^{(z)}\Phi_{ik}^{j}(z)
+        }其中\seq{\Phi_{ik}^{j}(z)}指primary field标记的CVO。此外对于V代数作用在场上面其实就是进行一个留数积分:
+        \eq{
+            \Phi_{ik}^{j,\beta}(z)\equiv\oint d\xi_1(\xi_1-z)^{n_1+1}T(\xi_1)...\oint d\xi_\ell(\xi_\ell-z)^{n_\ell+1}T(\xi_\ell)\Phi_{ik}^{j,|j\rangle}(z) .
+        }
+    }
+}
+}
+
+
+下面是一个简单的计算的例子，可以熟悉相关V代数的计算。我们计算一个\seq{\Delta_\phi \neq 0}的表示的CVO在真空态下面的元素:
+\eq{
+    \bra{0}[L_{-1},\Phi_{0,0}^{\phi}]\ket{0} = \partial_z \bra{0}\Phi_{0,0}^{\phi} \ket{0} = \left\lVert \Phi_{0,0}^{\phi}\right\rVert (-\Delta_\phi) z^{-\Delta_\phi-1} = 0
+}
+最后等于0是因为，我们已知真空态是\seq{\Delta =0}的表示的primary state。这个其实它自己也是一个degenerate state。满足关系:\seq{L_{-1}\ket{0} = 0}。因此可以求出来:\seq{\left\lVert \Phi_{0,0}^{\phi}\right\rVert = 0}。
+
+\section{Modular Tensor Categories description of RCFT}
+本章我们给出一个很强的结论！
+\thm{RCFT是群理论的推广
+
+我们认为RCFT对应着Modular Tensor Category；群理论对应着Tanniaka Category。而Modular Tensor Category是T Category的推广。因此我们认为，RCFT是群理论的推广！
+}
+为了说明这个定理，我们首先考虑群理论的结构的另一种表达，称为Tanniaka-Klein Theory
+为此我们考虑的一个对象是一个群的所有有限维度的表示:
+\eq{
+    \mathrm{Rep}(\mathcal{G})=\{V|V\text{ is finite dimensional representation of }\mathcal{G}\}
+}

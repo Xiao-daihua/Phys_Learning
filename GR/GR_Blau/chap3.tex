@@ -1,0 +1,345 @@
+
+\newpage
+\section{Geodesic and Motion in Gravity}\label{sec:Geodesic and Motion in Gravity} % (fold)
+
+
+\subsection{Euler Lagrange方程的结论}
+\hlr{ S1 作用量导出的物理}
+
+对于一个作用量原理描述的粒子，我们会知道如果有对称性那么会给出一个在运动方程上的守恒量。首先，一个很显然的对称性是，如果lagrangian不显含一个坐标「循环坐标」，那么变分原理告诉我们这个坐标对应的共轭动量是守恒的。或者我们说存在一个守恒的geodesic equation一次积分结果。
+\begin{align}
+  p_1=\partial\mathcal{L}/\partial\dot{x}^1=g_{1\nu}\dot{x}^\nu
+\end{align}
+
+比如不依赖时间坐标的metric自然会给出守恒量：
+\begin{align}
+  \large p_0=g_{0\nu}\dot{x}^\nu\equiv-E 
+\end{align}
+我们把这个守恒量称为能量「注意能量是一个Hamiltonian力学的概念，我们现在还没有引入广相之中的Hamiltonian力学」但是我们不妨这么定义这个守恒量捏，并且我们已经暗含了【propertime是时间方向】这个事实。
+
+\bigskip
+\hlr{Metric形式瞪眼Chris Symbol}
+
+有一些metric的形式，我们可以直接看出Chris Symbol的形式！！比如对角metric...
+
+
+\bigskip
+\hlr{使用Euler-Lagrange方程给出Chris Symbol}
+
+不要笨笨的用定义求Chris Symbol！用Euler Lagrange方程瞪眼出来！！
+
+\subsection{引力中的粒子Lagrangian：对称性以及守恒量初探}
+
+\hlr{守恒荷和Killing Vector：初探}
+
+这一章的探讨和引入是混乱并且绕远的！！！请不要试图理解（（但是结论是正确的，可以验证的（（我们概括一个结论，我们就当突然说了这样一个结论，我们验证了一下就是对的！！
+\begin{itemize}
+  \item 如果一个矢量场$ V^\mu $满足Killing Equation $ \delta_V g = 0 $或者是$ L_V g = 0 $那么这个矢量场generate一个坐标变换。这个坐标变换是一个symmetry。这个变换写出来的形式是：
+\begin{align}
+  \delta x^\alpha &=\epsilon V^\alpha(x)\\ 
+  \delta g_{\mu\nu} & = 0
+\end{align}
+  \item 使用noether's theorem这个变换会给出一个守恒量$ Q_V = p_\mu V^\mu $ 也就是粒子沿着$ V^\mu $方向的动量是守恒的。【本书中并没有仔细说明，我也不建议在这里搞清楚】
+\end{itemize}
+
+\tip{守恒量公式}{
+  如果一个连续变换导致了Lagrangian最后只差了一个全微分的话，这就是一个对称性变换。守恒量是：
+  \begin{equation}
+    \begin{aligned}
+      L\to L+\epsilon\frac{dF}{dt},\\ 
+      Q = \frac{\partial L}{\partial \dot{q}^i}\delta q^i - F
+    \end{aligned}
+    \label{eq:conservedquantity}
+  \end{equation}
+}
+
+btw: 考虑弦论里面的polyakov action也是可以考虑这么一个坐标变换的协变：
+\begin{align}
+  \begin{aligned}&\delta X^\mu=a^\mu{}_\nu X^\nu+b^\mu\\&\delta h_{\alpha\beta}=0\end{aligned}
+\end{align}
+如果我们考虑这么个变换，需要变换的向量正好满足Killing equation才能保证$ \delta h_{\mu\nu} = 0 $。
+
+
+\subsection{牛顿引力极限}
+\bigskip
+\hlr{牛顿引力极限！！}
+
+我们讨论GR和牛顿引力关系我们需要有三个假设：
+\begin{itemize}
+  \item 弱弱的场！
+  \item 慢慢的运动
+  \item 并且引力场不随着时间很快的变换「stationary field」
+\end{itemize}
+给出重要的结论就是；
+\begin{align}
+  \large g_{00}=-(1+2\phi)
+\end{align}
+一个合理的「满足Einstein 场方程」并且球形引力的就是：
+\begin{align}
+  ds^2=-\left(1-\frac{2G_NM}{c^2r}\right)c^2dt^2+\left(1-\frac{2G_NM}{c^2r}\right)^{-1}dr^2+r^2d\Omega^2. 
+\end{align}
+
+\bigskip
+\hlr{复习Rindler时空}
+
+也就是复习Rindler时空并且知道了很多奇奇怪怪的坐标系！
+
+\subsection{引力红移以及引力之下无质量粒子运动}
+\bigskip 
+\hlr{Gravitational Redshift 推导1}
+
+我们算一下发出两个光信号，收到的固有时差多少。比对一下就可以得到频率区别。
+
+
+\bigskip
+\hlr{Gravitational Redshift 推导2}
+
+我们仔细说明一下书中Argument 2的推导。我们首先研究光波相对论描述性质：
+\imp{光波描述性质}{
+我们研究相对论语境下面光的行为我们可以知道。【选定一个坐标系】：
+\begin{enumerate}
+  \item 然后光的运动可以通过一个Null Vector进行描述$ k^a = (\omega,k) $，满足$ k^a k_a= 0 $
+  \item 量子力学告诉我们这个null Vector正比于光的4-动量：$ p^a = \hbar k^a $。
+  \item 同时因为波矢指向光子运动的方向，我们一般使用下面的参数化$ k^a = \displaystyle\frac{d}{d \lambda} x^a(\lambda)$这个$ x^a(\lambda) $描述了光子的运动。
+\end{enumerate}
+}
+在上方基础性质的基础上我们讨论，这个参考系之中不同的观察者测量到的光波频率。我们推广狭义相对论的结果，认为，对于所有的参考者来说光的频率是：
+\begin{equation}
+  \omega=-u^\alpha k_\alpha\mathrm{~.}
+  \label{eq:frequencyforgeneral}
+\end{equation}
+\line
+在上面的讨论基础上我们考虑下面的红移问题。对于一个静止在某一个球对称metric $ r_a, r_B $位置的观察者来说。
+\begin{align}
+  ds^2=g_{00}(r)dt^2+g_{rr}(r)dr^2+r^2d\Omega^2\quad,
+\end{align}
+如果$ r_A $处的物体发射了一个光波给$ r_B $处的物体，那么我们分别考虑这两个观察者观察到的频率不同。
+我们假设光波在这个参考系下面的波矢是$ k^a(\lambda) $并且运动轨迹可以用$ x^a(\lambda) $进行描述满足$ k^a = d/d \lambda \ x^a $。
+为了计算频率我们计算$ \omega = -u^ak_a $：
+\begin{itemize}
+  \item 对于两个观察者来说，他们的4速度是：
+    \begin{align}
+      u_A^a = \left(\frac{1}{\sqrt{-g_{00}(r_A)}},0,0,0\right),\quad u_B^a = \left(\frac{1}{\sqrt{-g_{00}(r_B)}},0,0,0\right)\quad.
+    \end{align}
+  \item 对于两个观察者来说，他们测量到的频率是：
+    \begin{align}
+      \omega_A = -u_A^a k_a = \frac{k_0}{\sqrt{-g_{00}(r_A)}},\quad \omega_B = -u_B^a k_a = \frac{k_0}{\sqrt{-g_{00}(r_B)}}\quad.
+    \end{align}
+\end{itemize}
+下面我们需要考虑$ k_0 $是什么。我们进行一个类光粒子的lagrangian处理，我们进行一个形式化的变分研究！我们使用之前讨论的参数化，考虑Lagrangian $ \mathcal{L}=\frac{1}{2}g_{\alpha\beta}x^{\prime\alpha}x^{\prime\beta} $然后进行变分。我们发现这个Lagrangian不依赖于$ t $，所以根据Noether theorem，我们知道：
+\begin{align}
+  Q_t = \frac{\partial \mathcal{L}}{\partial t'} = g_{00}t' = k_0 = \text{const}\quad.
+\end{align}
+也就是说，$ k_0 $是一个常数。
+
+于是我们有：
+\begin{align}
+  \frac{\omega_B}{\omega_A} = \sqrt{\frac{g_{00}(r_A)}{g_{00}(r_B)}}\quad.
+\end{align}
+这个就是Gravitational Redshift的结果。
+
+\tip{关于$ k_0 $的interpretation}{
+  我们会发现这个量其实可以理解为我们选定的参考系下面观察到的光波频率。【但注意，这个参考系并不一定属于某个观察者捏！！】
+}
+
+\bigskip
+\hlr{第三种推导：一般时空的两个static observer之间的redshift推导！}
+
+首先，我们需要定义一个一般时空下更广义的“static observer”的概念。狭义上我们感觉这样的观察者在空间位置并不变换而时间位置发生变化。好像就是在且仅仅在一个「很像时间的方向」进行运动。下面我们的难题是，怎么定义「很像时间的方向」？
+
+\imp{怎么定义「很像时间的方向」}{
+  我们可以使用Killing vector field来定义「很像时间的方向」。我们说一个Killing vector field是timelike的，如果在某一个区域之中这个Killing vector field的模长是负的。也就是$ g_{\mu\nu}V^\mu V^\nu < 0 $。那么我们就说这个区域之中存在一个timelike Killing vector field。
+}
+所以下面我们定义static observer为：
+\defi{
+  static observer
+
+  如果一个观察者的4速度和某一个timelike Killing vector field平行，那么我们说这个观察者是static observer。
+}
+
+下面我们推导这样的观察者是观测到的光是什么样子的。我们知道光子是必须满足测地线方程的，同时如果一个向量是Killing vector，根据之前的讨论意味着这个向量方向进行变分对于粒子运动的Lagrangian是一个Symmetry。所以，根据Noether theorem，我们知道沿着Killing vector方向的光子动量是守恒的：
+\begin{align}
+  Q_V = k_\mu V^\mu = \text{const}\quad.
+\end{align}
+接下来我们计算static observer测量到的频率，对于一个static observer来说：
+\begin{align}
+  u^\mu = \frac{V^\mu}{\sqrt{-V^\nu V_\nu}}\quad.
+\end{align}
+所以我们有：
+\begin{align}
+  \omega = -u^\mu k_\mu = -\frac{1}{\sqrt{-V^\nu V_\nu}}k_\mu V^\mu = -\frac{Q_V}{\sqrt{-V^\nu V_\nu}}\quad.
+\end{align}
+所以我们有结论，两个static observer之间的redshift是：
+\begin{align}
+  \frac{\omega_B}{\omega_A} = \sqrt{\frac{V^\nu V_\nu|_A}{V^\nu V_\nu|_B}}\quad.  
+\end{align}
+
+\subsection{寻找Local Inertial Frame}
+\bigskip
+\hlr{等价原理以及Local inertial frame}
+
+EEP告诉我们对于任意有引力的时空，我们可以找到一个坐标系，保证这个坐标系locally是类似于Minkowski的：
+\begin{itemize}
+  \item $ g_{ab}(p) = \eta_{ab} $
+  \item 同时$ \Gamma^a{}_{bc}  = 0$或者等价的说$ \partial_\mu g_{\alpha\beta}(p) = 0 $
+\end{itemize}
+
+下面有一些comment：
+\begin{enumerate}
+  \item 显然对于free fall observer来说其geodesic上面每一个点附近，可以找到一个这样子的坐标系【fermi normal coordinate】
+  \item 我们仅仅能对于0，1阶导数进行限制，二阶导数是不能限制的。我们可以理解二阶导数是曲率的体现，曲率是张量不能随便消除的。
+  \item EEP只能适用于local的，因为我们需要足够小来保证曲率不会起作用「tidal force」
+\end{enumerate}
+下面给出三个寻中这样的coordinate的方法以及comment
+
+\bigskip
+\hlr{强行展开坐标变换并寻找}
+
+我们给出如果强行把一个坐标变换展开，local lorentz frame能给出多少的信息。我们的结论是能够固定前两阶的展开系数，后面有很大的任意性！
+\begin{align}
+  \xi^a(x)=\xi_0^a+(x-x_0)^\alpha e_\alpha^a+\frac{1}{2}(x-x_0)^\beta(x-x_0)^\gamma e_\alpha^a\Gamma_{\beta\gamma}^\alpha(x_0)+\ldots
+\end{align}
+
+\bigskip
+\hlr{Riemann Normal Coordinate}
+
+下面给出一个canonical的构造方法，保证满足local inertial frame的要求。这个方法是使用geodesic进行构造的。
+
+我们对于一个geodesic的解进行taylor expension：
+\begin{align}
+  x^\alpha(\tau)=x_0^\alpha+\tau u_0^\alpha-\frac{1}{2}\tau^2\Gamma_{\beta\gamma}^\alpha(x_0)u_0^\beta u_0^\gamma+\ldots.
+\end{align}
+然后我们进行一个变量替换：
+\begin{align}
+  u_0^\alpha=\lambda^ae_a^\alpha\quad,\quad g_{\alpha\beta}(x_0)e_a^\alpha e_b^\beta=\eta_{ab}\quad.
+\end{align}
+通过这两部我们可以构造一个坐标变换，正好满足local inertial frame的要求。并且构造方法已经在选择一个geodesic的时候固定了所有的信息：
+\begin{align}
+  x^\alpha(\xi)=x_0^\alpha+(\xi-\xi_0)^ae_a^\alpha-\frac{1}{2}(\xi-\xi_0)^b(\xi-\xi_0)^c\Gamma_{\beta\gamma}^\alpha(x_0)e_b^\beta e_c^\gamma+\ldots
+\end{align}
+
+
+\bigskip
+\hlr{数一下自由度}
+
+我们可以通过数一下自由度理解为什么metric的0,1阶导数可以被固定但是第二阶就不行。
+
+我们研究不同阶导数在坐标变换下面的行为。发现二阶导数如果要限制，写出来的方程数目大于变换矩阵的自由度数目。所以我们知道，metric的二阶导数在坐标变换下面是不能被固定的。
+
+
+
+
+\subsection{Questions and discussions}
+
+
+\question{怎么理解我们的$ \mathcal{L} = \displaystyle\frac{1}{2} g_{\mu\nu}\dot{x}^\mu \dot{x}^\nu $，这到是几何概念还是物理？？}
+
+这个lagrangian其实是为了得到Geodesic quation计算方便给出的工具。
+
+几何上理解也就是这个Lagrangian对应的变分原理是某两点在一个流形上面的“最短距离”的曲线方程。我用引号是因为最短距离本身不是一个严格定义的东西，我们不妨就是把这个lagrangian的积分变分为0定义成为最短距离。
+
+
+但是物理上理解是，对于选Alffine parameter作为参数化的粒子坐标。这个给出了任意metric下面的自由粒子的运动方程。虽然有时候我们会觉得这个lagrangian没有任何物理量。但是我们要记住，这可以是一个粒子的动力学等效lagrangian！！
+
+所以，这样子我们发现我们统一了物理上的自由粒子运动曲线和几何上的“最短距离”的概念。所以可以信誓旦旦的说，自由离子在引力场中按照最短距离进行运动。
+\qed 
+
+\bigskip
+\question{在对于$ L = g_{\mu\nu} \dot{x}^\mu \dot{x}^\nu $进行变分的过程之中，我们为什么认为$ g_{\mu\nu} $是不变的？？}
+
+本文之中，讨论其实不是一个约束系统的坐标变换。而是一个循环坐标我们的运动方程能够推出一个守恒量。呃呃呃呃呃...Blau哥成功避开了这个问题。
+
+\question{对于标量力学的说明捏！！}
+
+我们一般说分析力学是标量力学。因为我们说分析力学的动力学量的generator是标量。但是实际上！！！在相对论意义下，只有Lagrangian是标量，Hamiltonian不是标量！！！！每当我们说一个Hamiltonian，或者一个能量的时候，我们说的都是某一个参考系下等时间面的Hamiltonian！！
+\qed 
+
+\tip{所谓“时间坐标”}{
+  我们在GR之中所有坐标都是等价的。没有说有所谓“时间坐标”。但是！！如果我们选择一个坐标系，然后发现其中一个坐标的行为和我们在狭义相对论之中理解的“时间”十分类似，那么我们可以说这个坐标表征了一个坐标系下看某一个粒子运动的时间。
+
+  但是，问题是，我们选择的一般的坐标系并不一定拥有这么好的一个坐标方向捏！！
+}
+
+
+\bigskip
+\question{
+我们经常说的时间平移变换的generator 或者其他平移变换各种变换的generator是什么？？$ \partial_t $到底是什么意思，是个什么数学object，对物理有什么用？？？
+}
+
+
+\bigskip
+\question{什么叫 metric is addapted to the hyperboloid???什么叫度规正好适应了一种几何？？}
+
+我们有的时候会用这样的语言指代，比如我们对Minkowski 时空进行下面的变换：
+\begin{equation}
+  (t,r)=(\rho\sinh\tau,\rho\cosh\tau)
+  \label{eq:trans}
+\end{equation}
+并不是所有$ (t,r) $都可以这样变换的，因为这样变换有一个自然约束条件就是$ r^2 - t^2 = \rho $，所以我们基本上使用$ \rho $“刻画”了不同的双曲面，对应着是不同的加速度的从负无穷进行加速到正无穷的物体。
+
+这种情况下，我们认为这个metric自然适应了双曲面这样的几何。
+
+
+\imp{怎么理解某一个坐标系下固有时间}{
+  我们怎么理解下面这个式子：
+  \begin{align}
+    d\tau^2=-g_{\alpha\beta}(x)dx^\alpha dx^\beta 
+  \end{align}
+  我们可以说某一个参考系下面我们计算不同位置的粒子的固有时的方法和位置相关。
+
+  \bigskip
+  要记住：狭义相对论里面我们每一个惯性参考系都可以理解为一个观察者通过对钟的方法观测世界使用的结果的参考系。但是GR之中，我们的参考系更加任意，并不一定对应任何观察者的随动。所以，我们不能对一个参考系引入一个像是狭义相对论的“观测”定义，我们只能说使用一个参考系来描述粒子运动，这个粒子看自己的时间流逝可以通过上面方法计算出来！！
+}
+
+
+\tip{相对论中的测量结果}{
+  在一般的物理之中，我们经常不经意的使用一个参考系得到的数字来预测另一个观察者的测量结果。这是显然不对的，能得出正确的结论是因为参考系变换是trivial的，所以我们不小心就对了。
+\bigskip
+
+但是，GR之中，如果我们希望预测一个观察者的测量结果，务必使用这个观察者的随动参考系！！！对于一切某个参考系下面得到的结果，我们务必变换到随动参考系之中才能得到正确的数值！！
+}
+
+
+\bigskip
+\question{
+  我们考虑Lagrangian $ L= \displaystyle\frac{1}{2} g_{\mu\nu}x'^\mu x'^\nu $ 是怎么描述类光粒子的运动的？？更准确的说，我们应该使用哪个参数化？？「显然似乎使用Alffine parameter看上去是没有意义的，因为这是一个常数参数化 $ \tau = 0 $」
+}
+
+\hlr{使用 L 研究类时粒子的运动}
+
+我们选择一个Alfine parameter「一般都是使用$ \tau $」作为参数化，这个Lagrangian才能够正确描述类时粒子的运动。然后进行研究就好！！
+
+\bigskip
+\hlr{使用 L 研究类光粒子的运动}
+
+对于类光粒子来说，我们也可以等效的使用这个lagangian进行描述。第一个问题是，参数化应该选什么？我们会发现，类光粒子没有Alfine parameter的定义，因为我们之前定义为$ \lambda = a \tau +b $的参数化，但是没有质量粒子来说固有时永远是0。
+
+但是神奇的是，我们会发现类光粒子来说：$ S_1 = \int L d \lambda  $永远是一个0！说明这个action对于任意轨迹都是stationary的，也就是【测地线方程「原型」】【对于所有参数化，不仅仅是alfine parameter】【对于无质量粒子】都成立！！
+
+但是对于类光粒子我们有一个特别好的参数化。在这个参考系之中我们粒子的能量是$ k^a $的话【对于有物理意义的参考系这个是可以具体测量得到的】，我们使用$ k^a = \displaystyle\frac{d}{d \lambda} x^a $成立的参数化！「前面的例子之中我们就是这么描述的！」
+
+\imp{光波描述性质}{
+我们研究相对论语境下面光的行为我们可以知道。【选定一个坐标系】：
+\begin{enumerate}
+  \item 然后光的运动可以通过一个Null Vector进行描述$ k^a = (\omega,k) $，满足$ k^a k_a= 0 $
+  \item 量子力学告诉我们：这个null Vector正比于光的4-动量：$ p^a = \hbar k^a $。
+  \item 因为波矢量指向光子运动方向，我们一般使用下面的参数化$ k^a = \displaystyle\frac{d}{d \lambda} x^a(\lambda)$这个$ x^a(\lambda) $描述了光子的运动。
+\end{enumerate}
+}
+\imp{研究无质量粒子Lagrangian}{
+  分为下面几个步骤：
+  \begin{enumerate}
+    \item 选择一下$ k^a = \displaystyle\frac{d}{d \lambda} x^a $成立的参数化！
+    \item 形式化的使用各种原理就好！！我们只需要最后引入无质量的条件，否则一切都trivial了！！
+  \end{enumerate}
+}
+\qed 
+\bigskip
+
+\question{我们说的local inertial frame不会就是粒子随动参考系吧？}
+
+显然不是！！！！请不要混淆，local inertial frame是某一个点的一个等效locally没有引力的参考系！！这个参考系并不一定是某一个粒子的随动参考系！！
+\qed 
+
+
+

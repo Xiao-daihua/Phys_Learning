@@ -1,0 +1,263 @@
+\section{Chern-Simons Formalism}
+首先我们讲一个经典的AdS3的引力可以和Chern-Simons theory有一个对偶！！！我们现在开始仔细的构造这个东西。
+
+\subsection{Vielbein and spin connection Formalism}
+我们考虑的是first-order formalism。也就是说我们并不会使用metric $ g_{\mu\nu} $作为一个基本的场，而是选择另外一个场$ e_\mu^a $作为一个基本的场，也就是\textbf{frame field}或者在三维里面我们成为dreibein。
+\imp{Dreibein Formalism}{
+    我们定义一些矩阵称之为dreibein，如下：
+    \eq{
+        g_{\mu\nu}(x)=e_\mu^a(x)\eta_{ab}e_\nu^b(x),
+    }
+    下面我们给出一些性质：
+    \itm{
+        \pt{$ e_\mu^a $矩阵可以理解为一个坐标变换矩阵，是对偶矢量的基的坐标变换矩阵。$ e^a = e_\mu^a dx^\mu $  }
+        \pt{e矩阵的行列式一定是非零的，因为这是行列式定义决定的，我们把定义式写成矩阵形式就是：$ g = e^T \eta e $ 
+        所以行列式的关系就是：$ \det(g) = - \det(e)^2 $ 
+        我们可以如下进行定义：
+        \eq{
+            e = \det(e) = \sqrt{- \det(g)}
+        }
+        }
+        \pt{由于横列式不为0，我们可以定义逆矩阵，也就是inverse frame field满足下面关系：
+        \eq{
+            e_\mu^ae_b^\mu=\delta_b^a\mathrm{~and~}e_a^\mu e_\nu^a=\delta_\nu^\mu.
+        }
+        }
+        \pt{
+            很容易发现对于$ e_\mu^a $的构造并不是唯一的。由于洛伦兹群并不改变minkovski度规，所以我们对$ e_\mu^a $进行一个洛伦兹变换其实完全也满足定义式子，所以我们会发现不同的$ e_\mu^a $满足下面关系:
+            \eq{
+                e_\mu^{\prime a}=\Lambda_b^{-1a}(x)e_\mu^b(x)\mathrm{~with~}\Lambda\in SO(2,1)
+            }   
+        }
+    }
+}  
+下面我们希望做流形上的微积分，毕竟所有的action其实都是流行上的微积分的结果。为此，我们需要通过dreibein写出微分形式之中的重要组成部分。我们有下面的构造：
+\itm{
+    \pt{\textbf{1-form}：首先很显然可以构造一个1-form就相当于新的坐标的基：
+    \eq{
+        e^a\equiv e_\mu^adx^\mu
+    }
+    }
+    \pt{
+        \textbf{levi-civita Symbol}:这个可以显然通过$ e \epsilon_{\mu\nu\rho} $ 是一个张量，并进行坐标变换得到！
+        \eq{
+\epsilon_{\mu\nu\rho}&\equiv e^{-1}\epsilon_{abc}e_{\mu}^{a}e_{\nu}^{b}e_{\rho}^{c},\\\epsilon^{\mu\nu\rho}&\equiv e\operatorname{\epsilon}^{abc}e_{a}^{\mu}e_{b}^{\nu}e_{c}^{\rho}.
+        }
+        \textbf{注意，我们这里虽然都没有加帽子，这些$ \epsilon_{\mu\nu\rho} $都是symbol并不是tensor！！！！}
+    }
+}
+下面我们定义新的坐标下面的协变导数（注意我们的spin connection在坐标变换下面并不是按照tensor变换的。）。我们可以定义connection coefficient：
+\defi{
+    connection coefficient
+
+    对于某一个度规我们可以给出一个协变导数的connection coefficient，也就是我们的Christoffel symbol在坐标变换下面的结果：
+    \eq{
+        \left(e_{\tau}\right)^{b}\nabla_{b}(e_{\mu})^{a}=\gamma^{\sigma}{}_{\mu\tau}(e_{\sigma})^{a}
+    }
+    或者说：
+    \eq{
+        \gamma^\nu{}_{\mu\tau}=(e^\nu)_a(e_\tau)^b\nabla_b(e_\mu)^a.
+    }
+    这个式子等价于Chirstoffel symbol的坐标变换关系，也就是说，$ \gamma^\nu{}_{\mu\tau} $本质上就是新的基的联络：
+    \eq{
+        \Gamma_{\mu^{\prime}\lambda^{\prime}}^{\nu^{\prime}}=\frac{\partial x^\mu}{\partial x^{\mu^{\prime}}}\frac{\partial x^\lambda}{\partial x^{\lambda^{\prime}}}\frac{\partial x^{\nu^{\prime}}}{\partial x^\nu}\Gamma_{\mu\lambda}^\nu-\frac{\partial x^\mu}{\partial x^{\mu^{\prime}}}\frac{\partial x^\lambda}{\partial x^{\lambda^{\prime}}}\frac{\partial^2x^{\nu^{\prime}}}{\partial x^\mu\partial x^\lambda}.
+    }
+    \textbf{还有另一套记号我觉得更方便一点点：}
+    我们定义connection coefficient满足下面的关系：
+    \eq{
+        e_a^\mu\nabla_\mu e_b=\nabla_ae_b=e_c\omega_{ab}^c
+    }
+    或者说：
+    \eq{
+        \omega^{c}{}_{ab}=e^{c}{}_{\nu}e_{a}{}^{\mu}(\partial_{\mu}e_{b}{}^{\nu}+e_{b}{}^{\alpha}\Gamma_{\mu\alpha}^{\nu})=e^{c}{}_{\nu}e_{a}{}^{\mu}\nabla_{\mu}e_{b}{}^{\nu}.
+    }
+}
+\imp{Spin Connection}{
+    从connection coefficient出发我们可以定义一个1-form，我们称之为spin connection 1-form：
+\defi{
+    spin connection
+
+    我们定义一个1-form为：
+    \eq{
+        \omega^c_b = \omega^c_{ab} e^a
+    }
+    \textbf{注意！！！我们这里是对第二个指标进行求和。很多很多很多讲义写成了对第三个指标求和，这是错的！！}
+    这个1-form和Dreibein的关系是：
+    \eq{
+        \omega^c_b =  e^{c}{}_{\nu}e_{a}{}^{\mu}(\nabla_{\mu}e_{b}{}^{\nu} ) e^a_\eta dx^\eta = e^{c}{}_{\nu}(\nabla_{\mu}e_{b}{}^{\nu} )  dx^\mu
+    }
+}
+
+我们会发现另外的一个性质，由于我们的dreibein有一个lorenzian的对称性，所以进行洛伦兹变换之后的spin connection也是可以求出来的。通过下面的推导我们会发现满足下面的变换关系：
+\eq{
+    \omega^{\prime a}{}_{b}=\Lambda^{a}{}_{c}\omega^{c}{}_{d}(\Lambda)^{d}{}_{b}+\Lambda^{a}{}_{c}(d\Lambda)^{c}{}_{b}.
+}
+推导过程如下：
+\pict{2025-03-10-18-15-14.png}{1}
+这里提示一下，这个变换关系显然满足一个
+}
+
+下面我们给出两个Cartan Structure的结论，我们会发现second cartan structure其实和曲率张量有关系。我们下面进行说明：
+\thm{first Cartan structure equation
+
+我们可以通过组合spin connection和Dreibein组合出来一个2-form。并且可以证明这个2-form：
+\eq{
+    T^a\equiv de^a+\omega^a{}_b\wedge e^b\mathrm{~,}
+}
+很容易发现这个式子满足下面的性质：
+\itm{
+    \pt{$ T^a = 0 $恒成立。这个就是第一cartan结构方程}
+    \pt{这个量按照lorenzian变换：
+    \eq{
+        T^a\to\Lambda^{a}{}_bT^b
+    }
+    }
+}
+}
+
+下面一些证明：
+\pict{2025-03-10-18-22-47.png}{0.8}
+
+\thm{
+    second Cartan structure equation
+
+    这个方程说的是我们的spin connection和Riemann tensor之间的关系，是这样的：
+
+    我们首先可以从黎曼张量构建出来一个量：
+    \eq{
+        R_{\mu\nu b}{}^{a} =  R_{\mu\nu \rho}{}^{\eta} e^a_\eta e^\rho_b 
+    }
+    这个时候我们可以认为构建了一个2-form：
+    \eq{
+        R^a_b =  R_{\mu\nu \rho}{}^{\eta} e^a_\eta e^\rho_b dx^\mu \wedge dx^\nu
+    }
+    这是因为黎曼曲率张量的前两个指标是反对称的指标。下面是一些关系的另一个notation的重写：
+    \eq{
+        &R^{ab}=\frac{1}{2}R_{\mu\nu}^{ab}(x)dx^\mu\wedge dx^\nu,\\&R^{\lambda\sigma}{}_{\mu\nu}=e_a^\lambda e_b^\sigma R^{ab}{}_{\mu\nu}.
+    }
+}
+
+\subsection{Einstein Hilbert Action}
+对于E-H action（我们暂时并不考虑边界项）
+\eq{
+    S_{\mathrm{EH}}[g]\equiv\frac{1}{16\pi G}\int_{\mathcal{M}}d^3x\sqrt{-g}\left(R-2\Lambda\right)+B,
+}
+我们可以用上面的formalism进行改写，变成：
+\eq{
+    S_{\mathrm{EH}}[e,\omega]=\frac{1}{16\pi G}\int_{\mathcal{M}}\epsilon_{abc}\left(e^a\wedge R^{bc}[\omega]-\frac{\Lambda}{3}e^a\wedge e^b\wedge e^c\right).
+}
+下面我们进行证明：
+\eq{
+    d^3x\sqrt{-g}&=edx^0dx^1dx^2=\frac{1}{3!}e\epsilon_{\mu\nu\rho}dx^\mu\wedge dx^\nu\wedge dx^\rho\\&=\frac{1}{3!}\epsilon_{abc}e^a\wedge e^b\wedge e^c;
+}
+以及
+\eq{
+    \epsilon_{abc}e^a\wedge R^{bc} &=\frac{1}{2}e\epsilon_{\mu\alpha\beta}R_{\nu\rho}^{\alpha\beta}\epsilon^{\mu\nu\rho}d^3x\\
+    &=d^{3}x\sqrt{-g}R.
+}
+\qed
+
+
+在三维情况下我们有一个特殊的性质，就是任何一个二维的全反对称张量，我们可以使用一个一维的向量来进行描述。也就是dual notation。下面就是定义：
+\eq{
+    R_a\equiv\frac{1}{2}\epsilon_{abc}R^{bc}\leftrightarrow R^{ab}\equiv-\epsilon^{abc}R_c,\quad \omega_a\equiv\frac{1}{2}\epsilon_{abc}\omega^{bc}\leftrightarrow\omega^{ab}\equiv-\epsilon^{abc}\omega_c.
+}
+使用dual notation我们的EH action可以写成：
+\eq{
+    S_{\mathrm{EH}}[e,\omega]=\frac{1}{16\pi G}\int_{\mathcal{M}}\left(2e^a\wedge R_a[\omega]-\frac{\Lambda}{3}\epsilon_{abc}e^a\wedge e^b\wedge e^c\right).
+}
+
+
+\subsection{Chern-Simons Theory}
+我们讨论一下Chern Simons theory到底是什么。
+\imp{Chern-Simons Theory}{
+    对于一个三维的流形上面我们可以赋予一个李群，并保证每一点赋予的李群都是一样的 G。这个群有个李代数称之为g。我们可以写出下面的action：
+    \eq{
+        S_{\mathrm{CS}}[A]=\frac{k}{4\pi}\int_{\mathcal{M}}\mathrm{Tr}\left[A\wedge dA+\frac{2}{3}A\wedge A\wedge A\right],
+    }
+    \itm{
+        \pt{k 被称为这个理论的level}
+        \pt{A 是一个1-form。但是这个1-form的系数$ A = A_\mu dx^\mu $中的$ A_\mu $是李代数g之中的一个元素。  }
+        \pt{Tr 指的是这个李代数的一个合理的non-degenerate bilinear form结构。我们目前还没有定义，后面具体计算需要给出具体的定义。我们不妨作出这个假设，我们用李代数的基展开$ A_\mu = A^a_\mu T_a $。并且给李代数赋予一个Tr，$ d_{ab} = Tr(T_aT_b) $。那么这就相当于赋予李代数一个g的结构。当然这个可以任意赋予的。只有存在这样的结构的规范群，才能有CS理论  
+        }
+    }
+    
+}
+
+这个理论的运动方程是：
+    \eq{
+        F\equiv dA+A\wedge A=0,
+    }
+    这个运动方程意味着：
+    \eq{
+        A = G^{-1} dG
+    }
+    也就是说这个$ A $其实是规范等价于这个李群（规范群）的单位元的。这就意味着这个理论其实并没有有意义的解，是一个topological的解。 
+
+接下来我们给出一个重要的结论：
+\imp{CS \& Einstein-Hilbert}{
+    对于三维引力来说，我们的action对偶于一些有特殊的规范群的Chern-Simons理论：
+    \itm{
+        \pt{AdS：SO(2,2)}
+        \pt{$ \Lambda = 0 $：ISO(2,1) }
+        \pt{dS：SO(3,1)}
+    }
+}
+下面我们仔细考虑AdS3的情况进行证明。首先我们需要讨论$ SO(2,2) $群是什么。
+\imp{$ SO(2,2) $ Group }{
+    这是一个有六个生成元（李代数元素）的李群。并且这六个生成元满足下面的对易关系：
+    \eq{
+        [J_a,J_b]=\epsilon_{abc}J^c,\quad [J_a,P_b]=\epsilon_{abc}P^c,\quad [P_a,P_b]=\epsilon_{abc}J^c,
+    }
+    其中$ a,b,c \in \{0,1,2\} $并且这些指标的升降我们可以用minkovski度规来定义。也就是说我们这个李群上的流形结构的度规赋予的是minkovski的。 
+
+    也就是说他们的Tr的定义如下：
+    \eq{
+        (J_a,P_b)=\eta_{ab}\mathrm{~,~~~~~}(J_a,J_b)=0=(P_a,P_b).
+    }
+    并且三维的时候我们自然可以把二阶张量写成一阶的，我们会发现其实这个群就是三维的洛伦兹群：
+    \eq{
+        J_a\equiv\frac{1}{2}\epsilon_{abc}J^{bc}\leftrightarrow J^{ab}\equiv-\epsilon^{abc}J_c,
+    }
+    J是旋转，P是boost
+} 
+下面我们构造一个Gauge Field。通过我们之前定义的两个1-form：
+\eq{
+    A_\mu\equiv\frac{1}{\ell}e_\mu^aP_a+\omega_\mu^aJ_a.
+}
+我们根据这个定义我们可以写出一个SO(2,2)CS理论也就是：
+\eq{
+    \mathrm{Tr}[A\wedge dA]&\begin{aligned}&=(\frac{1}{\ell}e^aP_a+\omega^aJ_a,\frac{1}{\ell}de^bP_b+d\omega^bJ_b)\end{aligned}\\&=\frac{1}{\ell}\left(e^a\wedge d\omega^b+\omega^a\wedge de^b\right)\eta_{ab}=\frac{2}{\ell}e^a\wedge d\omega_a,
+}
+以及：
+\eq{
+    \frac{2}{3}\mathrm{Tr}[A\wedge A\wedge A]&=\frac{1}{3}\mathrm{Tr}[[A,A]\wedge A]\\&=\frac{1}{3\ell}\left(\frac{1}{\ell^2}e^a\wedge e^b\wedge e^c+3\epsilon_{abc}e^a\wedge\omega^b\wedge\omega^c\right).
+}
+整体上我们就得到了AdS3的Chern-Simons理论。
+\eq{
+    S_{\mathrm{CS}}[e,\omega]=\frac{k}{4\pi\ell}\int_{\mathcal{M}}\left.\left(2e^a\wedge R_a[\omega]+\frac{1}{3\ell^2}\epsilon_{abc}\right.e^a\wedge e^b\wedge e^c\right),
+}
+其中：
+\eq{
+    R_a=d\omega_a+\frac{1}{2}\epsilon_{abc}\omega^b\wedge\omega^c.
+}
+其level是：$ k = \frac{l}{4G} $ ; $ \Lambda = -\frac{1}{l^2} $ 我们需要知道在bulk考虑下似乎这个理论就是trivial的但是，考虑到边界条件，我们会发现我们有无穷维度的自由度在边界上！！并且边界条件其实并不是唯一的。边界上存在着对称性，我们称之为global symmetry或者asymptotic symmetry。正是boundary上的global symmetry应该求和导致了有着无穷的自由度。
+
+接下来一个比较重要的事实，就是$ SO(2,2) $是一个半单李代数，也就是他可以写成单李代数的直和：
+\eq{
+    so(2,2)\boldsymbol{\approx}sl(2,\mathbb{R})\oplus sl(2,\mathbb{R})
+} 
+我们可以定义另一套生成元：
+\eq{
+    J_a^\pm\equiv\frac{1}{2}(J_a\pm P_a),
+}
+这些生成元满足下面的代数关系：
+\eq{
+    [J_{a}^{+},J_{b}^{+}]=\epsilon_{abc}J^{+c},\quad[J_{a}^{-},J_{b}^{-}]=\epsilon_{abc}J^{-c},\quad[J_{a}^{+},J_{b}^{-}]=0.
+}
+因此，我们可以构造两个$ SL(2,\mathbb{R}) $的Chern-Simons connection：
+\eq{
+    A=(e^a/\ell+\omega^a)T_a\mathrm{~,~~~~~~}\bar{A}=(e^a/\ell-\omega^a)T_a,
+} 
+我们的action和运动方程是如下的：
+\pict{2025-03-10-22-57-32.png}{1}

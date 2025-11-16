@@ -1,0 +1,96 @@
+\newpage
+\section{Metric Geometry and Geodesic}
+
+\subsection{章节内容 take home message}
+
+上一章我们知道了类比加速参考系我们描述引力(其实是，引力影响下物体的动力学)可以固定一个线元然后使用一个特殊的度规矩阵进行描述。下面我们讨论一般度规下面，粒子的动力学应该是什么样子的。
+\rmk{注意，我们这里讨论的并不是引力场本身的动力学。或者度规本身的动力学。而是一个在一个特殊度规场之中的粒子的动力学。}
+
+\hlr{Metric的基本介绍}
+
+我们介绍了Metric的定义以及基本性质。【不再赘述】
+
+并且我们知道，Metric可以通过有约束的embed在一个更加高维的时空进行构造！！（比如把一个球面embed在一个三维时空之中）这个操作几个重要的发现是：
+\begin{itemize}
+  \item 不同的metric可以描述同样的时空，仅仅是坐标系不同。
+  \item 不同的embed方式可以得到同样的时空的不同坐标系的metric；同时不同的embed方式也可能得到不同的时空metric。
+  \item 有些时空metric只能embed在minkowski之中产生；而有些只能Euclidean！
+\end{itemize}
+\bigskip
+
+\hlr{Geodesic Equation作为运动方程的构造}
+
+我们使用$ \tau $作为参数化，研究有质量粒子的作用量
+\begin{align}
+  S_0=-m\int d\tau\mathrm{~.}
+\end{align}
+可以得到有质量粒子的运动方程。也就是
+\begin{align}
+  \Large\frac{d^2x^\mu}{d\tau^2}+\Gamma_{\nu\lambda}^\mu\frac{dx^\nu}{d\tau}\frac{dx^\lambda}{d\tau}=0. 
+\end{align}
+最重要的是研究了Christoffel symbol的定义以及性质。发现这个量并非tensor但是geodesic equation是一个tensor equation。我们给出Christoffel symbol的变换关系：
+\begin{align}
+  \Gamma_{\beta\gamma}^\alpha=\Gamma_{\nu\lambda}^\mu\frac{\partial y^\alpha}{\partial x^\mu}\frac{\partial x^\nu}{\partial y^\beta}\frac{\partial x^\lambda}{\partial y^\gamma}+\frac{\partial y^\alpha}{\partial x^\mu}\frac{\partial^2x^\mu}{\partial y^\beta\partial y^\gamma},\Gamma_{\beta\gamma}^\alpha=J_\mu^\alpha J_\beta^\nu J_\gamma^\lambda\Gamma_{\nu\lambda}^\mu+J_\mu^\alpha\partial_\beta J_\gamma^\mu.
+\end{align}
+以及整个geodesic equation的变换关系：
+\begin{align}
+  \frac{d^2y^\alpha}{d\tau^2}+\Gamma_{\beta\gamma}^\alpha\frac{dy^\beta}{d\tau}\frac{dy^\gamma}{d\tau}=\frac{\partial y^\alpha}{\partial x^\mu}\left[\frac{d^2x^\mu}{d\tau^2}+\Gamma_{\nu\lambda}^\mu\frac{dx^\nu}{d\tau}\frac{dx^\lambda}{d\tau}\right]\quad.
+\end{align}
+
+\bigskip
+\hlr{计算辅助作用量}
+
+我们定义一个新的作用量辅助计算，这个作用量【和参数化有关！】但是【只会给出标准测地线方程】：
+\begin{align}
+  \mathcal{L}=\frac{1}{2}g_{\alpha\beta}\frac{dx^\alpha}{d\lambda}\frac{dx^\beta}{d\lambda}\\
+  S_1[x]=\int d\lambda\left.\mathcal{L}\right.
+\end{align}
+\begin{itemize}
+  \item 这个作用量对于有质量粒子，对于所有Alfine parameter都是有意义的并且等效的「虽然我们一般使用固有时参数化」
+  \item 这个作用量可以描述无质量粒子；对于无质量粒子，这个作用量对于所有参数化都是有意义的并且等效的「虽然我们一般使用和动量匹配的参数化」。并且无质量粒子，无论什么参数化，标准测地线方程都是满足的，哪怕方程换了一个参数化，我们永远可以证明「只要新的参数化还是满足null的条件」这个多出来的部分是0。
+\end{itemize}
+同时一个重要的结论是，我们的测地线方程能够导出这个作用量的lagrangian是一个EoM的守恒量。
+\begin{align}
+  \frac{d^2x^\gamma}{d\lambda^2}+\Gamma_{\alpha\beta}^\gamma\frac{dx^\alpha}{d\lambda}\frac{dx^\beta}{d\lambda}=0\quad\Rightarrow\quad\frac{d}{d\lambda}\left(g_{\alpha\beta}\frac{dx^\alpha}{d\lambda}\frac{dx^\beta}{d\lambda}\right)=0\quad.
+\end{align}
+这个守恒量也可以理解为这个Action是对于参数化平移不变的。也就是$ \lambda \to \lambda +a $变换下参数化不变！！「可以理解为参数化一维流形的平移不变形」
+
+
+\bigskip
+\hlr{两个作用量原理的关系}
+
+数学上这两个作用量原理可以通过一个生成函数互相联系起来。这个生成函数是【与参数化无关的】！！
+
+\bigskip
+\hlr{Alfine Parameter的选择}
+
+\begin{itemize}
+  \item 测地线方程对于参数化是敏感的，只有使用Alfine parameter这个方程才是有物理意义的「也就是作为运动方程的意义」。如果用其他参数化需要加一项。
+  \item 作用量$ S_0 $对于参数化无关；作用量$ S_1 $和参数化有关，并且我们只有使用
+    \begin{itemize}
+    \item 有质量粒子使用Alfine parameter
+    \item 无质量粒子使用切矢量正好给出动量的参数化
+  \end{itemize}
+\end{itemize}
+
+
+\bigskip
+\hlr{算点例子；不同metric下面的geodesic equation}
+
+我们会发现一些特殊形式的metric的geodesic 是有某些特殊样子的！请看讲义！
+
+\subsection{Questions and discussions}
+
+\question{我们既然知道测地线方程是和Reparametrization有关的，那么三种给出测地线方程的Lagrangian的写法哪些和reparametrization有关？}
+
+上面正文已经回答\qed 
+
+
+\question{我们知道测地线方程是和Parameter有关的，那么我们最开始是怎么得到这个方程的？(sec:2.7)}
+
+我们最开始是计算一个任意参考系下面的运动方程得到的。同时我们也证明对于一般参考系系统我们使用$ S = -m \int d\tau $的action进行变分，并同时【使用$ \tau $进行参数化】得到的。无论哪种其实我们都下意识的使用了一个固定的参数化也就是$ \tau $
+
+2.7开始就是需要讨论这个参数化如果选择另一个参数会发生什么。
+\qed 
+
+
