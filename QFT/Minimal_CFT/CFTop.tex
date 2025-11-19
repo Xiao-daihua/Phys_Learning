@@ -1,0 +1,519 @@
+\subsection{Radial Quantization}
+
+The above discussion is purely from the path-integral formalism. However, we can also understand CFT from the canonical quantization approach. This approach is called Radial Quantization and the result is called Operator Formalism. 
+
+\subsubsection{Radial Quantization Setup}
+
+\axm{
+  \textbf{Radial Quantization}
+
+  In 2D CFT we use radial direction as the time direction. The Hilbert Space is defined on a circle with fixed radius. 
+}
+If you want to ask why we do this, well, because this is the only way that gives us amazing results in CFT... 
+Now we can make everything look like normal canonical quantization:
+\begin{itemize}
+  \item We make all field an operator on the Hilbert Space! though knowing nothing about their commutation relation or even the Hilbert Space structure yet.
+  \item We make the Diation Operator (though we doesn't know what the hell it is) the Hamiltonian in radial quantization. 
+  \item We define time ordering as radial ordering, which orders operators according to their radius (the smaller radius operator is on the right).
+  \item ...
+\end{itemize}
+And just like normal QFT, we often define operators at a radius by a contour integral of operators on the radius (for example the mode operators in QFT is defined by a integral on a time slice). For example, we can define an operator $ A_1 $ from an operator $ a(z) $ as
+\begin{align}
+  A_1=\oint a(z)dz
+\end{align}
+
+\subsubsection{Hermite Conjugation in Radial Quantization}\label{sec:Hermite Conjugation in Radial Quantization}
+
+In normal canonical quantization, we define the Hermite Conjugation of operators. In radial quantization, we can define the Hermite Conjugation as well but a natural definition is a bit different:
+\defi{
+  \textbf{Hermite Conjugation of Primary Field in Radial Quantization}
+
+  For Primary Field $ phi(z,\bar{z}) $ with conformal dimension $ (h,\bar{h}) $, its Hermite Conjugation is defined as:
+  \begin{align}
+    [\phi(z,\bar{z})]^\dagger=\bar{z}^{-2h}z^{-2\bar{h}}\phi(1/\bar{z},1/z)
+  \end{align}
+}
+This is a strange definition, but it works in many places, so I won't claim more on it. \YL{[I don't think I fully understand this]}
+
+
+\subsubsection{Mode Expansion in Radial Quantization}
+
+In normal QFT, we often expand field operators in terms of mode operators. In radial quantization, we can do the same thing. For example, for a Primary Field $ \phi(z,\bar{z}) $ with conformal dimension $ (h,\bar{h}) $, we can make a Laurent expansion:
+\defi{\label{defi:Mode Expansion of Primary Field in Radial Quantization}
+  \textbf{Mode Expansion of Primary Field in Radial Quantization}
+
+  The Mode Expansion of a Field $ \phi(z,\bar{z}) $ with conformal dimension $ (h,\bar{h}) $ is given by:
+\begin{align}
+  &\phi(z,\bar{z})=\sum_{m\in\mathbf{Z}}\sum_{n\in\mathbf{Z}}z^{-m-h}\bar{z}^{-n-\bar{h}}\phi_{m,n}\\
+  &\phi_{m,n}=\frac{1}{2\pi i}\oint dzz^{m+h-1}\frac{1}{2\pi i}\oint d\bar{z}\bar{z}^{n+\bar{h}-1}\phi(z,\bar{z})
+\end{align}
+}
+We use this definition for convention, we will then see its convenience through the Hermite Conjugation of Mode Operators and commutation calculations. We then calculate the Hermite Conjugation of Mode Operators:
+\thm{\label{thm:Hermite Conjugation of Mode Operators}
+  \textbf{Hermite Conjugation of Mode Operators}
+
+  The Hermite Conjugation of the Mode Operators $ \phi_{m,n} $ of a Field $ \phi(z,\bar{z}) $ with conformal dimension $ (h,\bar{h}) $ is given by:
+  \begin{align}
+    \phi_{m,n}^\dagger=\phi_{-m,-n}
+  \end{align}
+}
+
+
+\subsubsection{OPE in Radial Quantization}
+
+In path-integral formalism we define OPE within the correlation functions and say nothing about operators (because we don't have operators in path-integral formalism). However, in radial quantization we have operators, thus we can define OPE as an operator relation:
+\thm{
+  \textbf{OPE as Operator Relation}
+
+  Consider two operators $ A(z) $ and $ B(w) $, their OPE is defined as the operator relation
+  \begin{align}
+    \mathcal{R}A(z)B(w)=\sum_{n=-\infty}^N\frac{\left\{AB\right\}_n(w)}{(z-w)^n}
+  \end{align}
+  where $ \mathcal{R} $ is the radial ordering operator, which orders operators according to their radius (the smaller radius operator is on the right).
+}
+Proof: due to the relation between correlation functions in path integral formalism and canonical formalism, we can see that this result is straightforward.
+
+The Radial Ordering property of OPE is very important for it naturally generates a commutator structure, which leads to a pronound result.
+
+\subsubsection{Commutator from OPE}
+
+The first amazing result of radial quantization is that we can get the commutator of two operators from their OPE. We first consider an equality:
+\thm{
+  \textbf{Commutators of local operators from OPE}
+
+Consider two local operators $ a(z) $ and $ b(w) $, and an operator $ A $ defined as:
+\begin{align}
+  A=\oint dz a(z)
+\end{align}
+Then we have:
+\begin{align}\label{eq:Commutator from OPE basic}
+  \oint_wdz \mathcal{R}a(z)b(w)=\oint_{C_1}dza(z)b(w)-\oint_{C_2}dzb(w)a(z)=[A,b(w)]
+\end{align}
+}
+The Proof is quite straightforward. We note that in the middow part we have to change the order of the operators because of the definition of radial ordering. We can generalize this to get the commutator of two operators from their OPE:
+\thm{
+  \textbf{Commutator from OPE}
+
+Consider two operators on a radial quantization Hilbert Space $ A(z) $ and $ B(w) $, their commutator is given by:
+\begin{align}
+  [A,B]=\oint_0dw\oint_wdz \mathcal{R}a(z)b(w)
+\end{align}
+Where $ \mathcal{R}a(z)b(w) $ is exatly the OPE of these two local operaators.
+}
+
+
+\subsection{Symmetry Operator of CFT}
+
+\subsubsection{Symmetry Charges and Algebra}
+
+In canonical quantization, we define the symmetry charge as the quantization of the noether charge which is also the generator of symmetry transformation by commutators. The properyty of OPE between general fields \cref{axm:conformal ward identity} leads to that:
+\begin{align}
+  \delta_\epsilon\Phi(w)=-[Q_\epsilon,\Phi(w)]
+\end{align}
+where $ Q_\epsilon $ is:
+\begin{align}
+  Q_\epsilon=\frac{1}{2\pi i}\oint dz\epsilon(z)T(z)
+\end{align}
+Proof: we just plug in the conformal ward identity to \cref{eq:Commutator from OPE basic}.
+
+Then we get the theorem:
+\thm{
+  \textbf{Symmetry Chages in Radial Quantized CFT}
+
+  The Symmetry Charge associated to a conformal transformation $ z\to z+\epsilon(z) $ is given by:
+  \begin{align}
+    Q_\epsilon=\frac{1}{2\pi i}\oint dz\epsilon(z)T(z)
+  \end{align}
+  We can as well analogue the following as sort of "Symmetry Current":
+  \begin{align}
+    J_\epsilon(z)=\epsilon(z)T(z)
+  \end{align}
+}
+We notice that this is a superposition of infinite many symmetry charges. Thus, to make its mathematical structure clear, we can make a Laurent expansion of $ T(z) $, canonically we use the lorant expansion defined above \cref{defi:Mode Expansion of Primary Field in Radial Quantization}:
+\begin{align}
+  T(z)=\sum_{n\in\mathbf{Z}}z^{-n-2}L_n\quad L_n=\frac{1}{2\pi i}\oint dzz^{n+1}T(z)\\
+\bar{T}(\bar{z})=\sum_{n\in\mathbf{Z}}\bar{z}^{-n-2}\bar{L}_n\quad\bar{L}_n=\frac{1}{2\pi i}\oint d\bar{z}\bar{z}^{n+1}\bar{T}(\bar{z})
+\end{align}
+Thus the Symmetry Charge can be written as:
+\begin{align}
+  Q_\epsilon=\sum_{n\in\mathbf{Z}}\epsilon_nL_n \quad \epsilon(z)=\sum_{n\in\mathbf{Z}}\epsilon_nz^{n+1}
+\end{align}
+We thus can see that the true internal structure of the conformal symmetry is given by the operators $ L_n $ and $ \bar{L}_n $. 
+\thm{
+  \textbf{Geniune Symmetry Chages and Symmetry Algebra}
+
+  The Symmetry Charge of Radial Quantized CFT is generated by the operators $ L_n $ and $ \bar{L}_n $, which satisfy the Virasoro Algebra:
+  \begin{align}
+    &[L_n,L_m]=(n-m)L_{n+m}+\frac{c}{12}n(n^2-1)\delta_{n+m,0}\\
+&[L_n,\bar{L}_m]=0\\
+&[\bar{L}_n,\bar{L}_m]=(n-m)\bar{L}_{n+m}+\frac{c}{12}n(n^{2}-1)\delta_{n+m,0}
+  \end{align}
+}
+Proof, we just use the OPE trick of EM Tensor to calculate the commutators.
+
+\bigskip
+Another important statement is the Hermite Conjugation of Symmetry Charges. From \cref{thm:Hermite Conjugation of Mode Operators} we can directly get:
+\thm{
+  \textbf{Hermite Conjugation of Symmetry Charges}
+
+  The Hermite Conjugation of the Symmetry Charges $ L_n $ and $ \bar{L}_n $ are given by:
+\begin{align}
+  L_n^\dagger=L_{-n}\quad \bar{L}_n^\dagger=\bar{L}_{-n}
+\end{align}
+}
+
+\subsubsection{Symmetry Generators in Radial Quantization}
+
+More importantly, we now can see that the Diation Operator in radial quantization is given by:
+\thm{
+  \textbf{Hamiltonian (Dialation Operator) in Radial Quantization} 
+
+  The Hamiltonian (Dialation Operator) in Radial Quantization is given by:
+  \begin{align}
+    H=L_0+\bar{L}_0
+  \end{align}
+  In terms of EM Tensor, it is given by:
+  \begin{align}
+    H = \frac{1}{2\pi i}\oint_C dz \; z \, T(z)
+  \;+\; \frac{1}{2\pi i}\oint_C d\bar z \; \bar z \, \bar T(\bar z)
+  = L_0 + \bar L_0
+  \end{align}
+}
+Proof: we can see this easily from the conformal ward identity that it act on primary fields just generates scaling transformation. Which means it is the Diation Operator.
+\rmk{
+  Note that though we see this from primary fields, this is independent of the field we act on.
+}
+Similarly, we can see that the Momentum Operator in radial quantization is given by:
+\thm{
+  \textbf{Momentum Operator in Radial Quantization} 
+
+  The Momentum Operator in Radial Quantization is given by:
+  \begin{align}
+    P=i(L_0-\bar{L}_0)
+  \end{align}
+  Which corresponds to rotation around the origin. 
+}
+Moreover, we can see that the space-time translation operators in radial quantization are given by:
+\thm{
+  \textbf{Translation Operators in Radial Quantization} 
+
+  The Translation Operators in Radial Quantization are given by:
+  \begin{align}
+    P_z=L_{-1}\quad P_{\bar{z}}=\bar{L}_{-1}
+  \end{align}
+  Which corresponds to translation in $ z $ and $ \bar{z} $ direction respectively.
+}
+
+\subsection{Hilbert Space of CFT}
+
+\subsubsection{Hilbert Space Structure}
+
+From usual QM we know that the Hilbert Space shall form a representation of the symmetry algebra of the theory. This is sort of a empirical fact, but it works very well in QFT. Thus, we can make it a axiom in CFT:
+\axm{
+  \textbf{Hilbert Space as Virasoro Algebra Representation}
+
+  The Hilbert Space of a 2D CFT forms a representation of the Virasoro Algebra generated by $ L_n $ and $ \bar{L}_n $. Which may be constructed by the highest weight representation of the Virasoro Algebra.
+}
+The representation of 2 virasoro algebras can be constructed by the tensor product of two single Virasoro Algebra representations. Thus, we only need to consider the representation of a single Virasoro Algebra. 
+
+We further introduce the concept of Heighest Weight Representation to build the representation of the Virasoro Algebra:
+\begin{itemize}
+  \item \textbf{Highest Weight State}: assume there exists a state $ |h,\bar{h}\rangle $ in the Hilbert Space such that:
+    \begin{align}
+      L_0|h\rangle=h|h\rangle \quad L_n|h\rangle=0\quad n>0
+    \end{align}
+\item \textbf{Highest Weight Representation}: we can build a representation of the Virasoro Algebra by acting the lowering operators $ L_{-n} $ ($ n>0 $) on the highest weight state $ |h\rangle $. The states in this representation are called Descendant States.
+\item \textbf{General Representation Space}: The representation space of the Virasoro Algebra is given by the direct sum of all highest weight representations:
+  \begin{align}
+    \mathcal{R}=\bigoplus_{h,\bar{h}}\mathcal{V}_{h}\otimes\bar{\mathcal{V}}_{\bar{h}}
+  \end{align} 
+\end{itemize}
+\rmk{
+  This subsubsection what we discuss is pure math and $ L_n $ is just abstract lie algebra. By "state" we just mean an abstract vector in a vector space. We haven't yet connect this math structure to the physical operators and states in CFT. This will be done in the next subsubsection.
+}
+Then we want to find a pysical realization of this math structure in CFT.
+
+\subsubsection{Hilbert Space Realization}
+
+From normal QFT, we know that we can assume a well defined vacuum state $ |0\rangle $ in the Hilbert Space. And then we act all possible operators on the vacuum to get all kinds of states in the Hilbert Space. In this general CFT construction, we know that the only operators we have now is:
+\begin{itemize}
+  \item The Symmetry Charges $ L_n $ and $ \bar{L}_n $
+  \item The Primary Fields $ \phi(z,\bar{z}) $ 
+\end{itemize}
+\textbf{
+The question is that can we get the structure of direct sum over highest weight representations (Virasoro Algebra Representation) by acting these operators on some vacuum? The answer is yes, we can. 
+}
+
+\begin{itemize}
+  \item \textbf{Step 1: Define the Vacuum State}
+\end{itemize}
+we first define the vacuum state $ |0\rangle $ as the state invariant under all global conformal transformations:
+\defi{
+  \textbf{Vacuum State in CFT}  
+
+  The Vacuum State $ |0\rangle $ in CFT is defined as the state invariant under all global conformal transformations and well defined when acted on by all local operators. In terms of Symmetry Charges, it satisfies:
+  \begin{align}
+    L_{-1}|0\rangle=L_0|0\rangle=L_1|0\rangle=0\\
+\bar{L}_{-1}|0\rangle=\bar{L}_0|0\rangle=\bar{L}_1|0\rangle=0
+  \end{align}
+  If we assume that the E-M Tensor act well on vacuum, then we have:
+  \begin{align}
+    T(0)|0\rangle=\bar{T}(0)|0\rangle=0
+  \end{align}
+  which gives us:
+  \begin{align}
+    L_n|0\rangle=\bar{L}_n|0\rangle=0\quad n\geq -1
+  \end{align}
+}
+This also means that the vacuum energy is zero:
+\begin{align}
+  \langle0|T(z)|0\rangle=\langle0|\bar{T}(\bar{z})|0\rangle=0
+\end{align}
+
+\begin{itemize}
+  \item \textbf{Step 2: Define Primary States}
+\end{itemize}
+
+We then try to act Primary Fields on the vacuum to get some states. We define:
+\defi{
+  \textbf{Primary State in CFT}
+
+  The Primary State $ |h,\bar{h}\rangle $ associated to a Primary Field $ \phi(z,\bar{z}) $ with conformal dimension $ (h,\bar{h}) $ is defined as:
+  \begin{align}
+    |h,\bar{h}\rangle=\phi(0,0)|0\rangle
+  \end{align} 
+}
+This state has real unique properties. To show this we first calculate the operator commutator between $ L_n $ and $ \phi(z,\bar{z}) $:
+\begin{align}
+  [L_n,\phi(z,\bar{z})]=z^{n}\left( (n+1)h+z\partial_z \right)\phi(z,\bar{z}) \quad n \geq -1\\ 
+  [\bar{L}_n,\phi(z,\bar{z})]=\bar{z}^{n}\left( (n+1)\bar{h}+\bar{z}\partial_{\bar{z}} \right)\phi(z,\bar{z}) \quad n \geq -1
+\end{align}
+With these commutators we can calculate the action of $ L_n $ and $ \bar{L}_n $ on the Primary State:
+\begin{align}
+  L_0|h,\bar{h}\rangle=h|h,\bar{h}\rangle\quad\bar{L}_0|h,\bar{h}\rangle=\bar{h}|h,\bar{h}\rangle \\ 
+  L_n|h,\bar{h}\rangle=\bar{L}_n|h,\bar{h}\rangle=0\quad n>0
+\end{align}
+This means that:
+\thm{
+  \textbf{Primary State as Highest Weight State}
+
+  The Primary State $ |h,\bar{h}\rangle $ associated to a Primary Field $ \phi(z,\bar{z}) $ with conformal dimension $ (h,\bar{h}) $ behaves like a Highest Weight State of the Virasoro Algebra with highest weight $ (h,\bar{h}) $.
+}
+
+\begin{itemize}
+  \item \textbf{Step 3: Build the Hilbert Space}
+\end{itemize}
+Naturally, we then find all the primary states and act the lowering operators onto them to build a representation of the Virasoro Algebra. 
+States corresponds to Virasoro Generators acting on Primary States are called Descendant States:
+\thm{
+  \textbf{Descendant State in CFT}
+
+  The Descendant States in CFT are defined as the states obtained by acting the lowering operators $ L_{-n} $ ($ n>0 $) and $ \bar{L}_{-n} $ ($ n>0 $) on Primary States.
+  \begin{align}
+    L_{-k_1}L_{-k_2}\cdots L_{-k_n}|h\rangle\quad(1\leq k_1\leq\cdots\leq k_n)\\ 
+    \bar{L}_{-l_1}\bar{L}_{-l_2}\cdots \bar{L}_{-l_m}|\bar{h}\rangle\quad(1\leq l_1\leq\cdots\leq l_m)
+  \end{align}
+}
+
+We then take the direct sum of all these representations to build the Hilbert Space. 
+\defi{
+  \textbf{Hilbert Space of CFT}
+
+  The Hilbert Space $ \mathcal{H} $ of a CFT is given by the direct sum of all highest weight representations of the Virasoro Algebra built from all Primary States:
+  \begin{align}
+    \mathcal{H}=\bigoplus_{h,\bar{h}}\mathcal{V}_{h}\otimes\bar{\mathcal{V}}_{\bar{h}} = \bigoplus_{h,\bar{h}}\left\{L_{-k_1}L_{-k_2}\cdots L_{-k_n}|h,\bar{h}\rangle\quad(1\leq k_1\leq\cdots\leq k_n)\right\}
+  \end{align} 
+}
+
+\begin{itemize}
+  \item \textbf{Final Step: Test? is it done?}
+\end{itemize}
+
+We finally show that all states generated by primary fields and E-M tensor acting randomly on the vacuum can be expressed as linear combinations of the above defined states in the Hilbert Space. I want to discuss a few cases:
+\begin{enumerate}
+  \item \textbf{Case 0: Single Primary and many Virasoro Generators}  
+
+    We only have to commute them to the right order to get the canonical form.
+  \item \textbf{Case 1: Many Primaries} consider a state generated by many primary fields acting on the vacuum:
+    \begin{align}
+      |\psi\rangle=\phi_1(z_1,\bar{z}_1)\phi_2(z_2,\bar{z}_2)\cdots\phi_n(z_n,\bar{z}_n)|0\rangle
+    \end{align}
+    We can use the OPE of primary fields (Though we haven't yet discussed it) but consistenely make it a sum of single primary field and descendents acting on the vacuum.
+  \item \textbf{Case 2: Only E-M Tensor} consider a state generated only by E-M Tensor acting on the vacuum. In fact by definition:
+    \begin{align}
+      T(0)|0\rangle = L_{-2}|0\rangle 
+    \end{align}
+    In fact we can view the vaccum as a primary field with conformal dimension $ (0,0) $, thus E-M tensor is the 2nd level descendent of the vacuum primary field. Thus it has nothing different from the zero and first case.
+  \item \textbf{Case 3: Field on Points other than 0} consider a state generated by a field acting on a point other than 0:
+    \begin{align}
+      |\psi\rangle=\phi(z,\bar{z})|0\rangle\quad z\neq 0
+    \end{align}
+    We can use the translation symmetry generated by $ L_{-1} $ and $ \bar{L}_{-1} $ to translate the point to 0:
+    \begin{align}
+      \phi(z+w,\bar{z}+\bar{w})=e^{zL_{-1}+\bar{z}\bar{L}_{-1}}\phi(w,\bar{w})e^{-zL_{-1}-\bar{z}\bar{L}_{-1}}
+    \end{align}
+    Then due to the vacuum is invariant under translation, we have:
+    \begin{align}
+      \phi(z,\bar{z})|0\rangle=e^{zL_{-1}+\bar{z}\bar{L}_{-1}}\phi(0,0)|0\rangle
+    \end{align}
+    which is in the Hilbert Space.
+\end{enumerate}
+Thus we can argue that all states generated by primary fields and E-M tensor acting randomly on the vacuum can be expressed as linear combinations of the states in the Hilbert Space defined above.
+
+\YL{[Nearly all textbook skips this part, but it is really important ]}
+\rmk{
+  Though we write the Hilbert Space as a theorem. Its in fact more like something we only know because we only have the knowledge of primary field and E-M tensor. So in fact it is more like an axiom than a theorem.
+}
+
+\subsubsection{Inner Product}
+
+As a valid Hilbert Space, we also need to define an inner product. We find that the above definition of Hermite Conjugation in radial quantization \cref{sec:Hermite Conjugation in Radial Quantization} gives us a natural inner product:
+\defi{
+  \textbf{Inner Product in Radial Quantization}
+
+  The Inner Product between two states $ |\psi_1\rangle $ and $ |\psi_2\rangle $ in Radial Quantization is defined as:
+  \begin{align}
+    \langle\psi_1|\psi_2\rangle = \langle0|[\psi_1]^\dagger \psi_2|0\rangle
+  \end{align}
+}
+Pratically we can calculate the inner product by commuting all the Virasoro Generators and make the Lowering Operators to act on Primary States. Then we compute the inner product between Primary States:
+\thm{
+  \textbf{Inner Product between Primary States}
+
+  The inner product between two primary states 
+  $|h_1,\bar{h}_1\rangle=\phi_1(0,0)|0\rangle$ 
+  and 
+  $|h_2,\bar{h}_2\rangle=\phi_2(0,0)|0\rangle$
+  is determined by the two--point function of their corresponding primary fields:
+  \begin{align}
+    \langle h_1,\bar{h}_1 \mid h_2,\bar{h}_2\rangle
+    &=\lim_{z,\bar z,w,\bar w\to 0}
+      \langle 0|\phi_1(z,\bar z)^\dagger\,\phi_2(w,\bar w)|0\rangle \\[6pt]
+    &=\lim_{z,\bar z,w,\bar w\to 0}
+      z^{-2h_1}\bar z^{-2\bar h_1}
+      \Big\langle 0\Big|
+        \phi_1\!\Big(\tfrac1{\bar z},\tfrac1z\Big)
+        \phi_2(w,\bar w)
+      \Big|0\Big\rangle \\[6pt]
+    &=\lim_{\xi,\bar\xi\to\infty}
+      \bar\xi^{2h_1}\xi^{2\bar h_1}\,
+      \langle 0|\phi_1(\bar\xi,\xi)\phi_2(0,0)|0\rangle ,
+      \qquad
+      (\xi=1/\bar z,\;\bar\xi=1/z) \\[6pt]
+    &=C_{12},
+  \end{align}
+  where $C_{12}$ is the coefficient of the two--point function 
+  $\langle \phi_1(z,\bar z)\phi_2(0,0)\rangle
+    =C_{12}\,z^{-2h_1}\bar z^{-2\bar h_1}$.
+  In particular, primary states are orthogonal unless they share the same conformal dimensions:
+  \begin{align}
+    \langle h_1,\bar h_1 \mid h_2,\bar h_2\rangle
+    = C_{12}\,\delta_{h_1,h_2}\,\delta_{\bar h_1,\bar h_2}.
+  \end{align}
+}
+
+
+
+\subsection{Primary and Descendent Fields}
+We can see that the Hilbert space is made by Primaries and Descendents. In fact, the operators in CFT also have the same structure. We then further this in this subsection.
+
+\subsubsection{State-Operator Correspondence}
+
+We now notice that we assume the spectrum is exactly given by states at 0 point acting on the vaccum. This leads to a amazing result called State-Operator Correspondence:
+\thm{
+  \textbf{State-Operator Correspondence in CFT}
+
+  There is a one-to-one correspondence between local operators $ \mathcal{O}(z,\bar{z}) $ in CFT and states $ |\mathcal{O}\rangle $ in the Hilbert Space given by the following relation:
+  \begin{align}
+    |\mathcal{O}\rangle=\mathcal{O}(0,0)|0\rangle
+  \end{align}
+}
+
+\subsubsection{Descendent Operators}
+We then notice that we can define an operator correspong to the descendant states as well:
+\defi{
+  \textbf{Descendant Operator in CFT}
+
+  The Descendant Field of a Primary Field $ \phi(z,\bar{z}) $ with conformal dimension $ (h,\bar{h}) $ is defined as the operator obtained by acting the Virasoro Generators $ L_{-n} $ ($ n>0 $) and $ \bar{L}_{-n} $ ($ n>0 $) on the Primary Field:\begin{align}
+    \phi^{(-n)}(w)\equiv(L_{-n}\phi)(w)=\frac{1}{2\pi i}\oint_wdz\frac{1}{(z-w)^{n-1}}T(z)\phi(w)
+  \end{align}
+  Generally we can act many Virasoro Generators to get higher level descendant fields:
+  \begin{align}
+    \phi^{(-k,-n)}(w)\equiv(L_{-k}L_{-n}\phi)(w)=\frac{1}{2\pi i}\oint_wdz\left(z-w\right)^{1-k}T(z)(L_{-n}\phi)(w)
+  \end{align}
+}
+In particular, we have:
+\begin{align}
+  \phi^{(0)}(w)=h\phi(w)\quad\mathrm{and}\quad\phi^{(-1)}(w)=\partial\phi(w)
+\end{align}
+
+\subsubsection{Operator Data of CFT}
+
+Thus more as a assumption, but with good reason (just like the Hilbert Space is), we define the Operator content of CFT as:
+\thm{
+  \textbf{Operator Content of CFT}
+
+  The Operator Content of a CFT is given by all Primary Fields and their Descendant Fields.
+}
+
+\subsubsection{Correlation Functions with Descendant Operators}
+
+Using the conformal ward identity of primary fields we can construct a relation between correlation functions with descendant operators and correlation functions with only primary fields:
+\thm{
+  \textbf{Correlation Functions with Descendant Operators(1)}
+
+  The Correlation Functions with Descendant Operators can be expressed as differential operators acting on correlation functions with only primary fields. 
+
+  For a descendant operator $ \phi^{(-n)}(z) $ of a primary field $ \phi(z) $ with conformal dimension $ h $, and a series of Pirmary Fields $ X $ we have:
+  \begin{align}
+\langle \phi^{(-n)}(w)\,X \rangle = \mathcal{L}_{-n}\,\langle \phi(w)\,X\rangle ,
+\qquad (n\ge 1) 
+  \end{align}
+  Where:
+  \begin{align}
+    \mathcal{L}_{-n}=\sum_i\left\{\frac{(n-1)h_i}{(w_i-w)^n}-\frac{1}{(w_i-w)^{n-1}}\partial_{w_i}\right\}
+  \end{align}
+}
+Proof: see the following calculation:
+  \begin{align}
+\langle \phi^{(-n)}(w)\,X \rangle
+&= \frac{1}{2\pi i}\oint_{w} dz\,(z-w)^{\,1-n}\,
+   \langle T(z)\,\phi(w)\,X \rangle \\[6pt]
+&= -\,\frac{1}{2\pi i}
+   \oint_{\{w_i\}} dz\,(z-w)^{\,1-n}
+   \sum_i \left[
+      \frac{1}{z-w_i}\,\partial_{w_i}\langle \phi(w)\,X\rangle
+      + \frac{h_i}{(z-w_i)^2}\,\langle \phi(w)\,X\rangle
+   \right] \\[6pt]
+& = \mathcal{L}_{-n}\,\langle \phi(w)\,X\rangle ,
+\qquad (n\ge 1) 
+  \end{align}
+We can generalize to higher level descendant operators and even to the case $ X $ containing descendant operators as well:
+\thm{
+  \textbf{Correlation Functions with Descendant Operators(2)}
+
+  The Correlation Functions with Descendant Operators can be expressed as differential operators acting on correlation functions with only primary fields. 
+
+  For a descendant operator $ \phi^{(-k,-n)}(z) $ of a primary field $ \phi(z) $ with conformal dimension $ h $, and a series of Pirmary Fields $ X $ we have:
+  \begin{align}
+    \langle \phi^{(-k,-n)}(w)\,X \rangle = \mathcal{L}_{-k}\mathcal{L}_{-n}\,\langle \phi(w)\,X\rangle ,
+\qquad (k,n\ge 1)
+  \end{align}
+  Where $ \mathcal{L}_{-n} $ is defined as above. More generally, we have:
+  \begin{align}
+    \langle\phi^{(-k_1,...,-k_n)}(w)X\rangle=\mathcal{L}_{-k_1}\cdots\mathcal{L}_{-k_n}\langle\phi(w)X\rangle
+  \end{align}
+}
+In general, a correlation function we many descendant operators can be expressed as differential operators acting on correlation functions with only primary fields, but may take more detailed consideration.
+
+\subsubsection{OPE with Descendant Operators}
+
+Similar to the Primaries, we can calculate the OPE of Descendant fields and the E-M Tensor. Please refer to yellow book 6.6.2 for details. 
+
+We can also calculate the full OPE between two Primary Fields including all descendant fields. Please refer to yellow book 6.6.3 for details.
+
+
+
+
+
+

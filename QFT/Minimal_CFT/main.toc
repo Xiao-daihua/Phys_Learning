@@ -1,0 +1,57 @@
+\contentsline {section}{\numberline {1}Fundamental QFT}{3}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Symmetry and Conserved Current}{3}{subsection.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.1}A more standard definition of Symmetry}{3}{subsubsection.1.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.2}Noether's Theorem and Conserved Current}{4}{subsubsection.1.1.2}%
+\contentsline {subsubsection}{\numberline {1.1.3}Series of Conserved Currents}{5}{subsubsection.1.1.3}%
+\contentsline {subsection}{\numberline {1.2}Energy-Momentum Tensor}{5}{subsection.1.2}%
+\contentsline {subsubsection}{\numberline {1.2.1}Canonical Energy-Momentum Tensor}{5}{subsubsection.1.2.1}%
+\contentsline {subsubsection}{\numberline {1.2.2}Symmetric Traceless Energy-Momentum Tensor}{5}{subsubsection.1.2.2}%
+\contentsline {subsection}{\numberline {1.3}Euclidean Formalism of Path Integral}{6}{subsection.1.3}%
+\contentsline {subsubsection}{\numberline {1.3.1}Correlation Functions in QFT}{6}{subsubsection.1.3.1}%
+\contentsline {subsubsection}{\numberline {1.3.2}Euclidean Path Integral as vaccum Expectation Value}{7}{subsubsection.1.3.2}%
+\contentsline {subsubsection}{\numberline {1.3.3}Wick Theorem}{7}{subsubsection.1.3.3}%
+\contentsline {subsection}{\numberline {1.4}Symmetry Transformation of Correlation Functions}{7}{subsection.1.4}%
+\contentsline {subsubsection}{\numberline {1.4.1}Transformation of Correlation Functions under Symmetry}{7}{subsubsection.1.4.1}%
+\contentsline {subsubsection}{\numberline {1.4.2}Ward Identity}{8}{subsubsection.1.4.2}%
+\contentsline {subsubsection}{\numberline {1.4.3}Conserved Charge as Generator of Symmetry}{9}{subsubsection.1.4.3}%
+\contentsline {section}{\numberline {2}CFT Path-Integral Formalism}{10}{section.2}%
+\contentsline {subsection}{\numberline {2.1}2D Conformal Transformation}{10}{subsection.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}Holomorphic function as conformal transformation}{10}{subsubsection.2.1.1}%
+\contentsline {subsubsection}{\numberline {2.1.2}Holomorphic Coordinate}{10}{subsubsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.2}Primary Fields}{10}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}Definition of Primary Fields}{10}{subsubsection.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.2}Correlation Function of Primary Fields}{11}{subsubsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.3}Ward Identity of Primary Fields}{11}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}Ward Identity in Normal Coordinate}{11}{subsubsection.2.3.1}%
+\contentsline {subsubsection}{\numberline {2.3.2}Ward Identity in Holomorphic Coordinate}{12}{subsubsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.4}Conformal Ward Identity}{14}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}OPE Structure}{14}{subsection.2.5}%
+\contentsline {subsubsection}{\numberline {2.5.1}Definition of OPE}{14}{subsubsection.2.5.1}%
+\contentsline {subsubsection}{\numberline {2.5.2}OPE in CFT}{15}{subsubsection.2.5.2}%
+\contentsline {subsection}{\numberline {2.6}Complementary Remarks}{16}{subsection.2.6}%
+\contentsline {subsubsection}{\numberline {2.6.1}Transformation Rules of E-M Tensor}{16}{subsubsection.2.6.1}%
+\contentsline {section}{\numberline {3}CFT Operator Formalism}{18}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Radial Quantization}{18}{subsection.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}Radial Quantization Setup}{18}{subsubsection.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.2}Hermite Conjugation in Radial Quantization}{18}{subsubsection.3.1.2}%
+\contentsline {subsubsection}{\numberline {3.1.3}Mode Expansion in Radial Quantization}{18}{subsubsection.3.1.3}%
+\contentsline {subsubsection}{\numberline {3.1.4}OPE in Radial Quantization}{19}{subsubsection.3.1.4}%
+\contentsline {subsubsection}{\numberline {3.1.5}Commutator from OPE}{19}{subsubsection.3.1.5}%
+\contentsline {subsection}{\numberline {3.2}Symmetry Operator of CFT}{20}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Symmetry Charges and Algebra}{20}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Symmetry Generators in Radial Quantization}{21}{subsubsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.3}Hilbert Space of CFT}{22}{subsection.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.1}Hilbert Space Structure}{22}{subsubsection.3.3.1}%
+\contentsline {subsubsection}{\numberline {3.3.2}Hilbert Space Realization}{23}{subsubsection.3.3.2}%
+\contentsline {subsubsection}{\numberline {3.3.3}Inner Product}{25}{subsubsection.3.3.3}%
+\contentsline {subsection}{\numberline {3.4}Primary and Descendent Fields}{26}{subsection.3.4}%
+\contentsline {subsubsection}{\numberline {3.4.1}State-Operator Correspondence}{26}{subsubsection.3.4.1}%
+\contentsline {subsubsection}{\numberline {3.4.2}Descendent Operators}{26}{subsubsection.3.4.2}%
+\contentsline {subsubsection}{\numberline {3.4.3}Operator Data of CFT}{27}{subsubsection.3.4.3}%
+\contentsline {subsubsection}{\numberline {3.4.4}Correlation Functions with Descendant Operators}{27}{subsubsection.3.4.4}%
+\contentsline {subsubsection}{\numberline {3.4.5}OPE with Descendant Operators}{28}{subsubsection.3.4.5}%
+\contentsline {section}{\numberline {4}Summary: General Structure of CFT}{29}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Hilbert Space and Operator Contents}{29}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Correlation Functions}{29}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Conformal Boostrap}{29}{subsection.4.3}%
+\contentsline {section}{\numberline {5}Operator Algebra Formalism}{30}{section.5}%

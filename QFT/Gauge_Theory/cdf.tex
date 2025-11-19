@@ -1,0 +1,232 @@
+\subsection{Convention of Exp Map and Algebra}
+
+我们知道，合理的场按照Lorentz Group的表示进行场的协变。但是Lorentz Group的表示在不同书上有着不同的定义，这是因为；
+\begin{itemize}
+  \item 物理人喜欢随便定义Exp Map！！然后不同的Exp Map给出了不同的Lorentz Algebra，但是由于Exp Map不同所以给出了同样的群。这很傻逼
+\end{itemize}
+为了避免混乱，我们列举一下常见的Exp Map定义:
+\begin{itemize}
+  \item \textbf{第一种anti-Hermite定义}：
+
+    \begin{itemize}
+      \item \textbf{Exp Map定义}：$\Lambda = \exp(\displaystyle\frac{1}{2}\omega_{\mu\nu}M^{\mu\nu})$
+      \item \textbf{Lorentz Algebra}: 生成元代数为：
+        \begin{align}
+          \large[\mathcal{M}^{\rho\sigma},\mathcal{M}^{\tau\nu}]=\eta^{\sigma\tau}\mathcal{M}^{\rho\nu}-\eta^{\rho\tau}\mathcal{M}^{\sigma\nu}+\eta^{\rho\nu}\mathcal{M}^{\sigma\tau}-\eta^{\sigma\nu}\mathcal{M}^{\rho\tau}
+        \end{align}
+    \end{itemize}
+  \item \textbf{第二种Hermite定义}：
+    \begin{itemize}
+      \item \textbf{Exp Map定义}：$\Lambda = \exp(-i \displaystyle\frac{1}{2}\omega_{\mu\nu}M^{\mu\nu})$
+      \item \textbf{Lorentz Algebra}: 生成元代数为：
+        \begin{align}
+          \large[\mathcal{M}^{\rho\sigma},\mathcal{M}^{\tau\nu}]=i(\eta^{\sigma\tau}\mathcal{M}^{\rho\nu}-\eta^{\rho\tau}\mathcal{M}^{\sigma\nu}+\eta^{\rho\nu}\mathcal{M}^{\sigma\tau}-\eta^{\sigma\nu}\mathcal{M}^{\rho\tau})
+        \end{align}
+    \end{itemize}
+\end{itemize}
+我们使用第一种anti-Hermite定义适用于本书之中的推导。毕竟Clifford Algebra和这个定义更加适配。
+
+\subsection{Dirac Field}
+
+\subsubsection{Clifford Algebra and Rep of Lorentz Group}
+
+\bigskip
+\hlr{Clifford Algebra and Representation}
+
+我们可以从一个Clifford代数给出一个衍生的Lorentz代数。因而通过Clifford代数的表示给出Lorentz Algebra的表示。
+\defi{
+  Clifford Algebra 
+
+  我们定义一组生成元$\gamma^\mu$，$ \mu = \{0,1,2,3\} $，满足:
+  \begin{align}
+    \{\gamma^{\mu},\gamma^{\nu}\}\equiv\gamma^{\mu}\gamma^{\nu}+\gamma^{\nu}\gamma^{\mu}=2\eta^{\mu\nu}1
+  \end{align}
+  其中，$ \eta^{\mu \nu} $是Minkowski度规。上述反对易关系定义了一个Clifford代数，记作$ Cl_{1,3}(\mathbb{R}) $。
+}
+对于这个代数有一个简单的四维表示，Weyl Representation：
+\begin{align}
+  \gamma^{0}=\begin{pmatrix}0&1\\1&0\end{pmatrix}\quad,\quad\gamma^{i}=\begin{pmatrix}0&\sigma^{i}\\-\sigma^{i}&0\end{pmatrix}
+\end{align}
+
+\bigskip
+\hlr{Lorentz Algebra from Clifford Algebra}
+
+从Clifford代数出发，我们可以定义其包络代数之中的一组代数元素为：
+\begin{align}
+  S^{\rho\sigma}=\frac{1}{4}\left[\gamma^{\rho},\gamma^{\sigma}\right]=\begin{Bmatrix}0&\rho=\sigma\\\frac{1}{2}\gamma^{\rho}\gamma^{\sigma}&\rho\neq\sigma\end{Bmatrix}=\frac{1}{2}\gamma^{\rho}\gamma^{\sigma}-\frac{1}{2}\eta^{\rho\sigma}
+\end{align}
+可以证明，这组生成元满足Lorentz代数的对易关系：
+\begin{align}
+ [S^{\mu\nu},S^{\rho\sigma}]=S^{\mu\sigma}\eta^{\nu\rho}-S^{\nu\sigma}\eta^{\rho\mu}+S^{\rho\mu}\eta^{\nu\sigma}-S^{\rho\nu}\eta^{\sigma\mu} 
+\end{align}
+此外我们也有：
+\begin{align}
+  [S^{\mu\nu},\gamma^{\rho}]=\gamma^{\mu}\eta^{\nu\rho}-\gamma^{\nu}\eta^{\rho\mu}
+\end{align}
+
+\subsubsection{Dirac Spinor Field}
+
+\hlr{Dirac Spinor Field}
+
+我们意识到Clifford代数的四维表示给出了一个Lorentz代数的四维表示。因而我们可以定义一个四分量的场$\psi_a(x)$，$a=\{1,2,3,4\}$，按照这个表示协变。这个场称为Dirac Spinor Field。
+
+\defi{
+  Dirac Spinor Field 
+
+  我们定义一个四分量的场$\psi^\alpha(x)$，$\alpha=\{1,2,3,4\}$，按照Clifford代数的四维表示所给出的Lorentz代数表示协变:
+  \begin{align}
+    \psi^\alpha(x)\to S[\Lambda]^\alpha{}_\beta\psi^\beta(\Lambda^{-1}x)
+  \end{align}
+  其中：
+  \begin{align}
+    S[\Lambda]=\exp\left(\frac{1}{2}\Omega_{\rho\sigma}S^{\rho\sigma}\right)
+  \end{align}
+}
+\YL{[省略对于boost和rotation具体形式计算]}
+
+
+\hlr{non-Unitary of Representation}
+
+我们注意到，使用Clifford Algebra构建的Lorentz Group Representation都不是Unitary Representation。我们知道，使用我们的anti-Hermite的Exp Map的定义，表示是Unitary则意味着，$ S^{\mu \nu} $需要是anti-Hermite的。
+
+\thm{
+  non-Unitary of Representation from Clifford Algebra
+
+  对于Clifford Algebra构建的$ S_{\mu \nu} $必然是非anti-Hermite的，因而Clifford Algebra构建的Lorentz Group Representation必然是非Unitary的。
+}
+我们实际进行计算发现：
+\begin{align}
+  (S^{\mu\nu})^\dagger=-\frac{1}{4}[(\gamma^\mu)^\dagger,(\gamma^\nu)^\dagger]
+\end{align}
+那么我们需要知道$ (\gamma^\mu)^\dagger $是anti-Hermite才可以，但是根据Clifford Algebra：
+\begin{align}
+  \begin{aligned}(\gamma^0)^2&=1\quad\Rightarrow\quad\text{Real Eigenvalues}\\(\gamma^i)^2&=-1\quad\Rightarrow\quad\text{Imaginary Eigenvalues}\end{aligned}
+\end{align}
+所以Clifford Algebra构建出来的$ \gamma^\mu $不可能都是anti-Hermite的，因而$ S^{\mu \nu} $也不可能是anti-Hermite的。
+
+\bigskip
+\hlr{Hermition的选择}
+
+我们选择一个Clifford代数表示保证：
+\begin{itemize}
+  \item $(\gamma^0)^\dagger = \gamma^0$ 是Hermite矩阵
+    \item $(\gamma^i)^\dagger = -\gamma^i$ 是anti-Hermite矩阵
+\end{itemize}
+Weyl表示正好就是满足这个条件的！\textbf{【从此开始我们严格选择Weyl Representation】}
+
+
+\subsubsection{Lagrangian of Dirac Spinor Field}
+
+\hlr{Scalar from Dirac Spinor Field}
+
+之前我们构建action都是构造一个这个场能够给出的描述动力学「有导数什么的」的标量。naively我们可以认为下面的形式给出标量：
+\begin{align}
+  \psi^\dagger(x)\psi(x)\to\psi^\dagger(\Lambda^{-1}x)S[\Lambda]^\dagger S[\Lambda]\psi(\Lambda^{-1}x)
+\end{align}
+但问题是，$ S[\Lambda]^\dagger S[\Lambda]\neq 1 $，所以这个形式并不是标量。我么发现通过下面的引入可以构造出来一个$ S[\Lambda] $的逆矩阵和dagger的关系：
+\begin{align}
+  S[\Lambda]^{\dagger}=\exp\left(\frac{1}{2}\Omega_{\rho\sigma}(S^{\rho\sigma})^{\dagger}\right)=\gamma^0S[\Lambda]^{-1}\gamma^0
+\end{align}
+因此我们重新定义一个共轭，保证能够给出标量：
+\defi{
+  Dirac Conjugate
+
+  我们定义Dirac共轭为：
+  \begin{align}
+    \bar{\psi}(x)=\psi^\dagger(x)\gamma^0
+  \end{align}
+}
+因此我们构建出了一系列的Lorentz Scalar和Lorentz Vector：
+\begin{itemize}
+  \item Lorentz Scalar: $\bar{\psi}(x)\psi(x)$
+  \item Lorentz Vector: $\bar{\psi}(x)\gamma^\mu\psi(x)$ 
+  \item Lorentz Tensor: $\bar{\psi}(x)S^{\mu\nu}\psi(x)$
+\end{itemize}
+
+
+\bigskip
+\hlr{Dirac Lagrangian}
+
+有了这些Lorantz Tensor我们可以顺利构造一些有动力学的Lorentz Scalar作为action。我们最终给出：
+\defi{
+  Dirac Lagrangian
+
+  Dirac Spinor Field的Lagrangian为：
+  \begin{align}
+    S=\int d^4x\bar{\psi}(x)(i\gamma^\mu\partial_\mu-m)\psi(x)
+  \end{align}
+}
+
+\hlr{Dirac Equation from Euler-Lagrange Equation}
+
+给定上面的Lagrangian我们可以通过Euler-Lagrange方程得到场的运动方程：
+\begin{itemize}
+  \item 对于$ \bar{\psi} $:
+    \begin{align}
+      (i\gamma^\mu\partial_\mu - m)\psi(x) = 0
+    \end{align}
+  \item 对于$ \psi $:
+    \begin{align}
+      \bar{\psi}(x)(i\gamma^\mu\partial_\mu + m) = 0
+    \end{align}
+\end{itemize}
+
+
+\subsection{Chiral Fermion}
+
+\subsubsection{Weyl Representation}
+
+\hlr{Decomposition in Weyl Representation}
+
+观察Weyl Representation下面的$ S[\Lambda] $的行为我们会发现，对于Lorentz Transformation这个表示是Block diagonal的：
+\begin{align}
+  S[\Lambda_{\mathrm{rot}}]=\begin{pmatrix}e^{+i\cdot\vec{\varphi}\cdot\vec{\sigma}/2}&0\\0&e^{+i\vec{\varphi}\cdot\vec{\sigma}/2}\end{pmatrix}\quad\mathrm{and}\quad S[\Lambda_{\mathrm{boost}}]=\begin{pmatrix}e^{+\vec{\chi}\cdot\vec{\sigma}/2}&0\\0&e^{-\vec{\chi}\cdot\vec{\sigma}/2}\end{pmatrix}
+\end{align}
+也就是说这个是两个不可约表示的直和。可以认为Dirac Spinor Field实际上是两个Weyl Spinor Field的直和：
+\defi{
+  Weyl Spinor Field
+
+  我们定义两个二分量的场$u_+(x)$和$u_-(x) $分别按照下面的表示协变:
+  \begin{align}
+    u_\pm\to e^{i\vec{\varphi}\cdot\vec{\sigma}/2}u_\pm \quad \mathrm{and}\quad u_\pm\to e^{\pm\vec{\chi}\cdot\vec{\sigma}/2}u_\pm
+  \end{align}
+  Dirac Spinor Field可以表示为这两个Weyl Spinor Field的直和:
+  \begin{align}
+    \psi=\binom{u_+}{u_-}
+  \end{align}
+}
+
+\bigskip
+\hlr{Chiral Weyl Equation}
+
+我们考虑使用Weyl Spinor来书写Lagrangian以及EoM。我们发现Lagrangian写作：
+\begin{align}
+  \mathcal{L}=\bar{\psi}(i \slashed{\partial}-m)\psi=iu_\sigma^{\mu}\partial_{\mu}u_{-}+iu_{+}^{\dagger}\bar{\sigma}^{\mu}\partial_{\mu}u_{+}-m(u_{+}^{\dagger}u_{-}+u_{-}^{\dagger}u_{+})=0
+\end{align}
+其中：
+\begin{align}
+  \sigma^\mu=(1,\sigma^i)\quad\mathrm{and}\quad\bar{\sigma}^\mu=(1,-\sigma^i)
+\end{align}
+
+
+\bigskip
+\hlr{数一下自由度}
+
+表面上$ \psi $是一个四维的复向量，因此存在8个实自由度。但是一个动力学系统的自由度往往会比我们表面上描述动力学变量的自由度要少，因为我们可能会存在一些没有意识到的冗余。常常使用Hamiltonian Formalism来帮我们意识到这些冗余。比如：
+\begin{align}
+  \pi_\psi=\partial\mathcal{L}/\partial\dot{\psi}=i\psi^\dagger
+\end{align}
+因此我们会发现，本身认为独立的$ \psi $以及$ \psi^\dagger $共同构成了相空间。所以其实，真正的自由度是4个实自由度。
+
+因而对于Weyl Spinor Field来说，我们实际上只有2个实自由度。
+
+
+\subsubsection{General Clifford Representation}
+
+
+\subsection{Majorana Fermion}
+
+\subsubsection{Majorana Representation}
+
+
+\subsubsection{General Clifford Representation}

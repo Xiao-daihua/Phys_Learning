@@ -1,0 +1,323 @@
+\subsection{Symmetry and Conserved Current}
+
+\subsubsection{A more standard definition of Symmetry}
+
+In Prof. Rattazzi's lecture the symmetry of a field theory is defined as:
+\defi{
+  \textbf{Symmetry(QFT EPFL)}
+
+  Consider a field theory with a series of dynamical fields $ \phi_a(x) $ and a dynamical Lagrangian $ \mathcal{L}[\phi] $. A symmetry of the action is a transformation with parameters $ \alpha $:
+  \begin{align}
+    &x^{\prime\mu}=f^{\mu}(x,\alpha)\\ 
+    &\phi_a^{\prime}(x^{\prime})=F_a(\phi(x),\alpha)
+  \end{align}
+  so that satisfy that:
+  \begin{align}
+  d^4x\left[\mathcal{L}(\phi_a(x),\partial\phi_a(x))\right]=d^4x^{\prime}\left[\mathcal{L}(\phi_a^{\prime}(x^{\prime}),\partial^{\prime}\phi_a^{\prime}(x^{\prime}))+\partial_\mu^{\prime}K^\mu(\phi^{\prime})\right]
+  \end{align}
+}
+\rmk{
+  We haven't say anything about what \textbf{transformation} physically means. Because it has 2 understandings with exactly the same mathematical expression:
+  \begin{itemize}
+    \item \textbf{Active Transformation}: The coordinates are fixed, but the fields are transformed.
+    \item \textbf{Passive Transformation}: The coordinates are transformed, and the field transform covariantly.
+  \end{itemize}
+}
+This definition can be rewrite a bit more elegantly when we define the change of Action under this coordinate transformtaion:
+\defi{
+  \textbf{Induced Change of Field and Acton under Transformation}
+
+  Consider a field theory with dynamical fields $ \phi_a $ and a action $ S $ that takes the form:
+\begin{align}
+    S=\int d^dx\ \mathcal{L}(\phi(x),\partial_\mu\phi(x))
+\end{align}
+Form a transformation:
+  \begin{align}
+    &x^{\prime\mu}=f^{\mu}(x,\omega)\\ 
+    &\phi^{\prime}(x^{\prime})=F(\phi(x),\omega)
+  \end{align}
+  We can induce a \textbf{change of the field configuration}:
+\begin{align}
+  \phi(x)\to \phi^{\prime}(x)=F(\phi(f^{-1}(x)),\omega)
+\end{align}
+We define the action after the as:
+  \begin{align}
+    S^{\prime}=\int d^dx\ \mathcal{L}(\phi^{\prime}(x),\partial_\mu\phi^{\prime}(x))
+  \end{align}
+}
+ We define Symmetry as:
+\defi{
+  \textbf{Symmetry(QFT standard)}
+
+  A transformation is a symmetry of the action if the action is invariant up to a total derivative:
+  \begin{align}\label{eq:Symmetry definition standard}
+    S^{\prime}=S+\int d^dx\ \partial_\mu K^\mu
+  \end{align}
+  Pluging in the definition of action we have:
+  \begin{align}
+    \delta S[\phi] = \text{Boundary Term}
+  \end{align}
+  For we can see that $ S^\prime - S $ is the standard definition of variation of action functional induced by the transformation.Thus we can rephrase as:
+  \textbf{A transformation is a symmetry if the induced variation of the action functional is a boundary term.}
+}
+We can Prove that these two definitions are equivalent.We consider \cref{eq:Symmetry definition standard} and do a variable substitution $ x\to x^{\prime} $, we have:
+\begin{align}
+  S^{\prime}=\int d^dx^{\prime} \mathcal{L}(\phi^{\prime}(x^{\prime}),\partial_\mu^{\prime}\phi^{\prime}(x^{\prime}))+\int d^dx^{\prime}\ \partial_\mu^{\prime} K^\mu = S = \int d^dx\ \mathcal{L}(\phi(x),\partial_\mu\phi(x))
+\end{align}
+Thus we compare the integrands and get the first definition.
+
+\rmk{
+  Why do we use the Second definition?
+  Because in the path integral formalism this is more natural and make the derivation more clean. However, the first definition is more intuitive easier to understand.
+}
+
+\subsubsection{Noether's Theorem and Conserved Current}
+
+Consider a transformation that is a \textbf{Symmetry of Rigid Parameters}, we can have a Coserved Current and the form of the current is related to the variation of action functional. 
+
+\thm{
+  \textbf{Noether's Theorem(Field Theory Standard)}
+
+  Consider a field theory with dynamical fields $ \phi_a $ and a action $ S $ that takes the standard form. Assume that we have a transformation that is a symmetry:
+  \begin{align}
+    x^{\prime\mu}&=x^\mu+\omega_a\frac{\delta x^\mu}{\delta\omega_a}\\ 
+    \phi^{\prime}(x^{\prime})&=\phi(x)+\omega_a\frac{\delta\mathcal{F}}{\delta\omega_a}(x)
+  \end{align}
+  where $ \omega_a $ are \textbf{rigid parameters}. Then there exists a conserved current $ J^\mu{}_{a} $ that satisfies, if we \textbf{lift the rigid parameters to local parameters} $ \omega_a(x) $:
+  \begin{align}
+    \delta S=-\int dxJ^\mu{}_a\partial_\mu\omega_a + \text{Boundary Terms}
+  \end{align}
+  We only have the derivative term $ \partial_{\mu} \omega_a $ this is because the transformation is a symmetry for rigid parameters. One explicit form of $ J^\mu{}_a $ is (\textbf{Canonical Form}):
+  \begin{align}
+    J^\mu{}_a=\left\{\frac{\partial\mathcal{L}}{\partial(\partial_\mu\phi)}\partial_\nu\phi-\delta_\nu^\mu\mathcal{L}\right\}\frac{\delta x^\nu}{\delta\omega_a}-\frac{\partial\mathcal{L}}{\partial(\partial_\mu\phi)}\frac{\delta\mathcal{F}}{\delta\omega_a}
+  \end{align}
+If the EoM is satisfied, we have the conservation equation:
+  \begin{align}
+    \partial_\mu J^\mu{}_a =0
+  \end{align}
+}
+\textbf{Proof:}
+
+\YL{[leave it for later. Its real standard]}
+
+
+\subsubsection{Series of Conserved Currents}
+
+  The Conserved Current is not Unique. We can always add a term of the form:
+  \begin{align}
+    J^\mu{}_a\to J^\mu{}_a + \partial_\nu B^{\mu\nu}{}_a \quad \text{where}\quad B^{\mu\nu}{}_a = -B^{\nu\mu}{}_a
+  \end{align}
+  Then it is also a conserved current and Satisfy the relation with the variation of action functional. This is because:
+  \begin{align}
+    \int d^dx\ \partial_\nu B^{\mu\nu}{}_a \partial_\mu \omega_a = \int d^dx\ \partial_\mu\left(B^{\mu\nu}{}_a \partial_\nu \omega_a\right) - \int d^dx\ B^{\mu\nu}{}_a \partial_\mu\partial_\nu \omega_a
+  \end{align}
+  The first term is a boundary term and the second term is symmetric in $ \mu\nu $ while $ B^{\mu\nu}{}_a $ is antisymmetric in $ \mu\nu $ thus it vanishes.  
+
+\subsection{Energy-Momentum Tensor}
+
+\subsubsection{Canonical Energy-Momentum Tensor}
+
+Consider the spacetime translation symmetry:
+\begin{align}
+  &x^{\prime\mu}=x^\mu + \epsilon^\mu\\ 
+  &\phi^{\prime}(x^{\prime})=\phi(x)
+\end{align}
+We can construct its Canonical Conserved Current which is defined as the canonical
+\defi{
+  \textbf{Canonical Energy-Momentum Tensor}
+
+  The Canonical Energy-Momentum Tensor is defined as the conserved current of spacetime translation symmetry:
+  \begin{align}
+    T_c^\mu{}_\nu = \frac{\partial\mathcal{L}}{\partial(\partial_\mu\phi)}\partial_\nu\phi - \delta^\mu_\nu \mathcal{L}
+  \end{align}
+}
+According to the Noether's Theorem, we can see that if a theory has translation symmetry, we lift the rigid translation parameters $ \epsilon^\mu $ to local parameters $ \epsilon^\mu(x) $, we have:
+\begin{align}
+  \delta S = -\int d^dx\ T_c^\mu{}_\nu \partial_\mu \epsilon^\nu + \text{Boundary Terms}
+\end{align}
+and if the EoM is satisfied, we have the conservation equation:
+\begin{align}
+  \partial_\mu T_c^\mu{}_\nu =0
+\end{align}
+This is generally, the canonical E-M tensor is \textbf{not symmetric} in its indices and has a \textbf{non-vanishing trace}.
+
+\subsubsection{Symmetric Traceless Energy-Momentum Tensor}
+
+If the theory has Lorentz Symmetry and Scale Symmetry, we can always construct a symmetric traceless energy-momentum tensor from the canonical one by adding an improvement term. 
+
+\thm{
+  \textbf{Symmetric Traceless Energy-Momentum Tensor}
+
+  Consider a field theory with Lorentz and Scale Symmetry. We can construct a \textbf{Symmetric and Traceless} Energy-Monentum Tensor:
+  \begin{align}
+    T^{\mu\nu}=T_c^{\mu\nu}+\partial_\rho B^{\rho\mu\nu}+\frac{1}{2}\partial_\lambda\partial_\rho X^{\lambda\rho\mu\nu}
+  \end{align}
+  where $ B $ and $ X $ are constructed tensors. Moreover, the Lorentz and Scale Conserved Currents can be constructed from this symmetric traceless energy-momentum tensor as:
+  \begin{align}
+    J_{Lorentz}^{\mu\rho\sigma} &= T^{\mu\rho}x^\sigma - T^{\mu\sigma}x^\rho\\ 
+    J_{Scale}^\mu &= T^{\mu\nu}x_\nu
+  \end{align}
+}
+\rmk{
+  The above statement is a bit rouph. 
+  \begin{itemize}
+    \item If the system has \textbf{Lorentz Symmetry}, we can always construct a symmetric energy-momentum tensor by adding an improvement term $ \partial_\rho B^{\rho\mu\nu} $ where $ B^{\rho\mu\nu}=-B^{\mu\rho\nu} $. This is called \textbf{Belinfante-Rosenfeld procedure}.
+    \item If the system has \textbf{Scale Symmetry}, we can only consturct a traceless energy-momentum tensor when the \textbf{Virial Current} is a total derivative.
+\begin{align}
+  V^\mu=\partial_\alpha\sigma^{\alpha\mu}
+\end{align}
+      In this case we can add the second improvement term $ \frac{1}{2}\partial_\lambda\partial_\rho X^{\lambda\rho\mu\nu} $ to make the energy-momentum tensor traceless.
+  \end{itemize}
+}
+
+Proof: See yellow book chap 4.2.2 and chap 2.5.1. 
+
+
+\begin{itemize}
+  \item \textbf{From now on we will always use the symmetric traceless energy-momentum tensor when we talk about energy-momentum tensor.}
+\end{itemize}
+
+\subsection{Euclidean Formalism of Path Integral}
+
+
+\subsubsection{Correlation Functions in QFT}
+
+In QFT, we focus on the vaccum expectation value of operators as observables. Instead of working canonically we can use Euclidean path integral formalism to compute these vaccum expectation values. 
+\defi{
+  \textbf{Correlation Function in Canonical Formalism}
+
+  In canonical formalism, we define the correlation function of operators \{quantized classical observables\} $ \mathcal{O}_1(x_1),\mathcal{O}_2(x_2),\cdots,\mathcal{O}_n(x_n) $ as the vaccum expectation value:
+  \begin{align}
+    \langle \mathcal{O}_1(x_1)\mathcal{O}_2(x_2)\cdots\mathcal{O}_n(x_n)\rangle = \langle 0 | T\{\mathcal{O}_1(x_1)\mathcal{O}_2(x_2)\cdots\mathcal{O}_n(x_n)\} | 0 \rangle
+  \end{align}
+}
+Note it is important to have the time-ordering operator $ T\{\cdots\} $ here, without it we cannot have a well-defined interpretation of correlation function.
+
+
+
+\subsubsection{Euclidean Path Integral as vaccum Expectation Value}
+
+We can obtain the correlation function in Euclidean path integral formalism as:
+\thm{\label{eq:correlation function path integral}
+  \textbf{Correlation Function in Euclidean Path Integral Formalism}
+
+  In Euclidean path integral formalism, we can compute the correlation function from classical observables $ \mathcal{O}_1(x_1),\mathcal{O}_2(x_2),\cdots,\mathcal{O}_n(x_n) $ as:
+  \begin{align}
+    \langle \mathcal{O}_1(x_1)\mathcal{O}_2(x_2)\cdots\mathcal{O}_n(x_n)\rangle = \frac{\int D\phi\ \mathcal{O}_1(x_1)\mathcal{O}_2(x_2)\cdots\mathcal{O}_n(x_n) e^{-S_E[\phi]}}{\int D\phi\ e^{-S_E[\phi]}}
+  \end{align}
+  where $ S_E[\phi] $ is the Euclidean action functional and $ \mathcal{O}(x) $ on the right hand side are classical functionals of fields $ \phi $ instead of operators.
+}
+From now on we will always use the Euclidean path integral formalism to compute correlation functions and we will use $ S $ which should denote the Euclidean action functional.
+
+
+\subsubsection{Wick Theorem}
+
+In canonical formalism, we define the correlation function with a time ordering or operators. However, it is difficult to calculate the time ordering operators vaccum expectation values. However, we can define another ordering of operators called \textbf{Normal Ordering} 
+
+\defi{
+  \textbf{Normal Ordering}
+
+  Consider a set of creation and annihilation operators $ a_i^\dagger,a_i $ as the canonical value of the theory.
+
+  The normal ordering of a operator product $ \mathcal{O} $ denoted as $ :\mathcal{O}: $ is defined as the operator product with all the creation operators moved to the left of all the annihilation operators.
+}
+\begin{itemize}
+  \item Vaccum expectation value of a normal ordered operator product is zero.
+\end{itemize}
+The Wick Theorm states that :
+\thm{
+  \textbf{Wick Theorem} 
+
+  We first define the notation of contraction:
+  \begin{align}
+    :\wick{\c1\phi_1 \phi_2 \c1\phi_3 \phi_4}:
+    = :\phi_1\phi_3:\,\langle\phi_2\phi_4\rangle
+  \end{align}
+  The relation between time ordering and normal ordering of operator products is given by:
+  \begin{align}
+    T\{\phi_1\phi_2\cdots\phi_n\} = :\phi_1\phi_2\cdots\phi_n: + \text{all possible contractions} 
+  \end{align}
+}
+
+
+\subsection{Symmetry Transformation of Correlation Functions}
+
+\subsubsection{Transformation of Correlation Functions under Symmetry}
+
+Consider a correlation function of fields of the following form:
+\begin{align}
+  \langle\Phi(x_1)\cdots\Phi(x_n)\rangle=\frac{1}{Z}\int[d\Phi]\Phi(x_1)\cdots\Phi(x_n)\exp-S[\Phi]
+\end{align}
+We have a theorem of its transformation under a symmetry transformation:
+\thm{\label{thm:correlation function symmetry}
+  \textbf{Correlation Functions under Symmetry}
+
+  If we have a symmetry transformation of classical fields $ \Phi(x)\to\Phi^{\prime}(x^{\prime})=F(\Phi(x),\alpha) $ with $ x^{\prime\mu}=f^\mu(x,\alpha) $, then the correlation function have the following identity:
+  \begin{align}
+    \langle\Phi(x_1^{\prime})\cdots\Phi(x_n^{\prime})\rangle=\langle F(\Phi(x_1))\cdots F(\Phi(x_1))\rangle
+  \end{align}
+}
+If we rewrite $ x_i = f^{-1} x_i' $, then it means that:
+\begin{align}
+  \langle \Phi(x_1)\cdots\Phi(x_n)\rangle = \langle F(\Phi(f^{-1}(x_1)))\cdots F(\Phi(f^{-1}(x_n)))\rangle
+\end{align}
+In the infinitesimal form, we can define the quantum variation operator as:
+
+\defi{
+  \textbf{Quantum Variation Operator}
+
+  Consider a symmetry transformation of classical fields $ \Phi(x)\to\Phi^{\prime}(x^{\prime})=F(\Phi(x),\omega) $ with $ x^{\prime\mu}=f^\mu(x,\omega) $. We define the generator of the transformation as $ G_a $ where:
+  \begin{align}
+    \Phi^\prime(x) - \Phi(x) = -i \omega_a G_a \Phi(x)
+  \end{align}
+  Then we define the quantum variation of the correlation function as:
+  \begin{align}
+  \delta_\omega\langle\Phi(x_1)\cdots\Phi(x_n)\rangle\equiv-i\omega_a\sum_{i=1}^n\langle\Phi(x_1)G_a\Phi(x_i)\cdots\Phi(x_n)\rangle
+  \end{align}
+}
+Then we can rewrite \cref{thm:correlation function symmetry} in the infinitesimal form as:
+\begin{align}\label{eq:preward}
+  \delta_\omega \langle \Phi(x_1)\cdots\Phi(x_n)\rangle = 0
+\end{align}
+\rmk{
+  Note that here we \textbf{only vary the field configuration like the classical case. We do not vary the action functional} because the transformation is a symmetry of the action, the variation of action functional is a boundary term which does not contribute to the path integral.
+}
+
+\subsubsection{Ward Identity}
+
+The above identity \cref{eq:preward} can be rewrite in another form when we use the trick of lifting the rigid parameters to local parameters. We have:
+\thm{
+  \textbf{Ward Identity}\label{eq:Ward Identity}
+
+  Consider a symmetry transformation of classical fields $ \Phi(x)\to\Phi^{\prime}(x^{\prime})=F(\Phi(x),\omega) $ with $ x^{\prime\mu}=f^\mu(x,\omega) $. If we lift the rigid parameters $ \omega_a $ to local parameters $ \omega_a(x) $, then the variation of action functional is given by:
+  \begin{align}
+    \delta_\omega S[\Phi] = -\int d^dx\ J^\mu{}_a \partial_\mu \omega_a(x)
+  \end{align}
+  where $ J^\mu{}_a $ is the conserved current associated to this symmetry. Then the Ward Identity states that:
+  \begin{align}
+    \partial_\mu \langle J^\mu{}_a(x) \Phi(x_1)\cdots\Phi(x_n)\rangle = i\sum_{i=1}^n \delta(x-x_i) \langle \Phi(x_1)\cdots G_a\Phi(x_i)\cdots\Phi(x_n)\rangle
+  \end{align}
+}
+Proof: See yellow book chap 2.4.4. we use the fact that:
+\begin{align}
+  \langle X\rangle=\frac{1}{Z}\int[d\Phi^{\prime}]\left(X+\delta X\right)\exp-\left\{S[\Phi]+\int dx\mathrm{~}\partial_\mu j_a^\mu\omega_a(x)\right\}
+\end{align}
+
+\subsubsection{Conserved Charge as Generator of Symmetry}
+
+From the Canonical Formalism of QFT, we know that the conserved charge is the generator of symmetry transformation. We can also see this from the Ward Identity.
+
+To match the canonical formalism, we first have to define "time", and then we define the conserved charge as: 
+\begin{align}
+  Q_a = \int d^{d-1}x\ J^0{}_a(t,\vec{x})
+\end{align}
+Then we integrate the Ward Identity over the box between $ t-\epsilon $ and $ t+\epsilon $ and take the limit $ \epsilon\to 0^+ $, where $ t = x_1^0 $ we have:
+\begin{align}
+  \langle Q_a(t_+)\Phi(x_1)Y\rangle-\langle Q_a(t_-)\Phi(x_1)Y\rangle=-i\langle G_a\Phi(x_1)Y\rangle
+\end{align}
+This is exactly the canonical formalism statement if we use \cref{eq:correlation function path integral}:
+\begin{align}
+  [Q_a,\Phi]=-iG_a\Phi
+\end{align}
+Where we come back to the standard result of canonical formalism.
+

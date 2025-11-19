@@ -1,0 +1,324 @@
+Follow chapter 5 of the yellow book.
+
+\subsection{2D Conformal Transformation}
+
+\subsubsection{Holomorphic function as conformal transformation}
+
+We consider a general transformation on 2D metric:
+\begin{align}
+  g^{\mu\nu}\to\left(\frac{\partial w^\mu}{\partial z^\alpha}\right)\left(\frac{\partial w^\nu}{\partial z^\beta}\right)g^{\alpha\beta}
+\end{align}
+Then we say this transformation is conformal if:
+\begin{align}
+  g_{\mu\nu}\to\Lambda(z)g_{\mu\nu}
+\end{align}
+\thm{
+  In 2D, any transformation that is holomorphic (antiholomorphic) is conformal.
+}
+
+
+\subsubsection{Holomorphic Coordinate}
+
+We use the holomorphic coordinate to express everything in 2D:
+\begin{align}
+  & z = z^0 + i z^1, \quad \bar{z} = z^0 - i z^1, \quad z^0 = \frac{z + \bar{z}}{2}, \quad z^1 = \frac{z - \bar{z}}{2i};\\
+& \partial = \frac{1}{2} (\partial_0 - i \partial_1), \quad 
+\bar{\partial} = \frac{1}{2} (\partial_0 + i \partial_1), \quad \partial_0 = \partial + \bar{\partial}, \quad 
+\partial_1 = i (\partial - \bar{\partial}).
+\end{align}
+
+\subsection{Primary Fields}
+
+In the context of conformal field theory, we call every observable a field, not just the dynamical field in normal QFT.
+
+\subsubsection{Definition of Primary Fields}
+There are fields transform covariantly under all conformal transformation, which are called \textbf{Primary Fields}. They should be a generalization of fields within lorentz representation with a dimension.
+\defi{
+  \textbf{Primary Field (normal coordinate)}
+  
+  A field $ \phi(x) $ is called Primary field if under conformal transformation $ x\to x^{\prime} $, it transforms as:
+  \begin{align}
+    \phi^{\prime}(x^{\prime})=\Omega(x)^{-\Delta}e^{-is\Theta(x)}\phi(x).
+  \end{align}
+  with $ \Delta $ the scaling dimension and $ s $ the conformal spin. And:
+  \begin{align}
+    J^{\mu}{}_{\nu}(x)=\frac{\partial x^{\prime\mu}}{\partial x^{\nu}}.\quad \Omega(x)\equiv\sqrt{\det J(x)}\quad,
+  \end{align}
+  $ \Theta $ can be get by solving $ \operatorname{Tr}J=2\Omega\cos\Theta\quad \varepsilon^{\alpha\beta}J_{\alpha\beta}=2\Omega\sin\Theta $
+}
+
+If a field has scaling dimension $ \Delta $ and conformal spin $ s $, we can define its holomorphic and antiholomorphic dimensions as:
+\begin{align}
+  h=\frac{1}{2}(\Delta+s) \quad \bar{h}=\frac{1}{2}(\Delta-s)
+\end{align}
+\defi{
+  \textbf{Primary Field (holomorphic coordinate)}
+  
+  A field $ \phi(z,\bar{z}) $ is called Primary field if under conformal transformation $ z\to w(z) $, it transforms as:
+  \begin{align}
+    \phi^{\prime}(w,\bar{w})=\left(\frac{dw}{dz}\right)^{-h}\left(\frac{d\bar{w}}{d\bar{z}}\right)^{-\bar{h}}\phi(z,\bar{z})
+  \end{align}
+}
+
+We can write the infinitesimal version of the transformation as:
+\begin{align}
+  \delta_{\epsilon,\bar{\epsilon}}\phi\equiv\phi^{\prime}(z,\bar{z})-\phi(z,\bar{z})=-(h\phi\partial\epsilon+\epsilon\partial\phi)- (\bar{h}\phi\bar\partial\bar{\epsilon}+\bar{\epsilon}\bar\partial\phi)
+\end{align}
+If we write it in the normal coordinate $ (z^0,z^1) $, we have:
+\begin{align}
+  \delta\phi=\epsilon^\mu\partial_\mu\phi-\frac{\Delta}{2}\phi\partial_\mu\epsilon^\mu-\frac{is}{2}\phi\varepsilon^{\alpha\beta}\partial_\alpha\epsilon_\beta.
+\end{align}
+Which is exactly a field with scaling dimension $ \Delta $ and spin $ s $ under general coordinate transformation. Thus we can see that the two definitions are equivalent.
+
+
+\subsubsection{Correlation Function of Primary Fields}
+
+If the theory has conformal symmetry then we know that the correlation function of Primary Fields should satisfy the condition \cref{thm:correlation function symmetry} or the infinitesti,al version \cref{eq:preward}. These forms a constraint on the correlation functions of Primary fields. 
+\thm{\label{thm:correlation function symmetry}
+  \textbf{Correlation Function of Primary Fields}
+  
+  If a theory has conformal symmetry, then the correlation function of Primary fields should satisfy:
+  \begin{align}
+    \langle\phi_1(z_1,\bar{z}_1)\phi_2(z_2,\bar{z}_2)\rangle&=\frac{C_{12}}{(z_1-z_2)^{2h}(\bar{z}_1-\bar{z}_2)^{2\bar{h}}}\quad\text{if}\quad\begin{cases}h_1=h_2=h\\\bar{h}_1=\bar{h}_2=\bar{h}&\end{cases} \\ 
+    \langle\phi_{1}(x_{1})\phi_{2}(x_{2})\phi_{3}(x_{3})\rangle&=C_{123}\frac{1}{z_{12}^{h_{1}+h_{2}-h_{3}}z_{23}^{h_{2}+h_{3}-h_{1}}z_{13}^{h_{3}+h_{1}-h_{2}}}\times\frac{1}{\bar{z}_{12}^{\bar{h}_{1}+\bar{h}_{2}-\bar{h}_{3}}\bar{z}_{23}^{\bar{h}_{2}+\bar{h}_{3}-\bar{h}_{1}}\bar{z}_{13}^{\bar{h}_{3}+\bar{h}_{1}-\bar{h}_{2}}}
+  \end{align}
+}
+These are standard results. We note tht the function are fully fixed up to a factor $ C_{12} $ and $ C_{123} $. In fact these two factor are not independent, if we make $ \phi_3 $ a identity operator and put it to infinity then we can find that $ C_{123} $ reduces to $ C_{12} $.
+
+These constant $ C_{123} $ are called the \textbf{Structure Constants} of the theory.
+
+\subsection{Ward Identity of Primary Fields}
+
+\subsubsection{Ward Identity in Normal Coordinate}
+
+If a theory contains Primary field has conformal symmetry, then we can write down the Ward identity for the correlation function of Primary fields from \cref{eq:Ward Identity}, where $ X=\prod_{i=1}^n\phi_i(x_i) $ is a series of Primary fields with scaling dimension $ \Delta_i $ and conformal spin $ s_i $:
+\begin{align}\label{eq:Ward Identitycft}
+  \frac{\partial}{\partial x^\mu}\langle T_\nu^\mu(x)X\rangle&=-\sum_{i=1}^n\delta(x-x_i)\frac{\partial}{\partial x_i^\nu}\langle X\rangle\\
+  \varepsilon_{\mu\nu}\langle T^{\mu\nu}(x)X\rangle&=-i\sum_{i=1}^n\delta(x-x_i) s_i\langle X\rangle\\
+  \langle T_\mu^\mu(\mathbf{x})X\rangle&=-\sum_{i=1}^n\delta(x-x_i)\Delta_i\langle X\rangle
+\end{align}
+Remember that we use the symmetric traceless energy-momentum tensor here. This is a standard result which can be found in yellow book 5.2.1
+
+\subsubsection{Ward Identity in Holomorphic Coordinate}
+
+\YL{[here I make it more concise than the yellow book]}
+
+We can also rewrite them in holomorphic coordinate. First we rewrite the energy-momentum tensor in holomorphic coordinate, we take the following definition:
+\begin{align}
+  T(z)&= -2\pi T_{zz}(z)=-\pi(T_{00}-T_{11}-2iT_{01})\\
+  \bar{T}(\bar{z})&=-2\pi T_{\bar{z}\bar{z}}(\bar{z})=-\pi(T_{00}-T_{11}+2iT_{01})\\
+  T_{z\bar{z}}&=-\frac{\pi}{2}T^\mu{}_\mu
+\end{align}
+The Traceless condition $ T^\mu{}_\mu=0 $ means $ T_{z\bar{z}}=0 $. And the conservation condition $ \partial_\mu T^{\mu\nu}=0 $ means:
+\begin{align}
+  \bar{\partial}T(z,\bar{z})=0,\quad \partial\bar{T}(z,\bar{z})=0
+\end{align}
+Thus we see that $ T(z) $ is holomorphic and $ \bar{T}(\bar{z}) $ is antiholomorphic. 
+
+\rmk{
+  These are all classical results, till now we don't know that in coorelation functions these properties still hold. But we will see that they only need little modification.
+}
+
+Then we wish to put the ward identity in holomorphic coordinate. We need some important complex analysis results:
+\begin{itemize}
+  \item Total derivative in holomorphic coordinate:
+    \begin{align}
+      \int_{M}d^{2}x\partial_{\mu}F^{\mu}=\frac{1}{2}i\int_{\partial M}\left(-dzF^{\bar{z}}+d\bar{z}F^{z}\right)
+    \end{align}
+    \item Detla function times a function from residue theorem:
+      \begin{align}
+  \frac{1}{2\pi i}\oint_{C_i}dw\frac{\epsilon(w)}{(w-w_i)^2}=\partial\epsilon(w_i),\quad\frac{1}{2\pi i}\oint_{C_i}dw\frac{\epsilon(w)}{w-w_i}=\epsilon(w_i)
+      \end{align}
+\end{itemize}
+With these in mind we notice that the LHS of the above three ward identities can be combined into a total derivative according to the properties of conformal transoformation:
+\begin{align}\label{eq:derivative trick}
+  \partial_\mu(\epsilon_\nu T^{\mu\nu})=\epsilon_\nu\partial_\mu T^{\mu\nu}+\frac{1}{2}(\partial_\rho\epsilon^\rho)\eta_{\mu\nu}T^{\mu\nu}+\frac{1}{2}\varepsilon^{\alpha\beta}\partial_\alpha\epsilon_\beta\varepsilon_{\mu\nu}T^{\mu\nu}
+\end{align}
+\rmk{
+  Here we use the fact that in 2D conformal transformation we have:
+  \begin{align}
+    \partial_\mu\epsilon_\nu+\partial_\nu\epsilon_\mu=\eta_{\mu\nu}\partial_\rho\epsilon^\rho
+  \end{align}
+}
+\rmk{We notice that classically $ T^\mu{}_\mu=0 $ and $ \varepsilon_{\mu\nu}T^{\mu\nu}=0 $, thus the last two terms vanish. However, in quantum case these two terms may not vanish thus we never should ingnore them.}
+Then we integrate the LHS of \cref{eq:derivative trick} over a region $ M $ the left hand side becomes:
+\begin{align}
+  LHS=\int_Md^2x\mathrm{~}\partial_\mu\langle T^{\mu\nu}(x)\epsilon_\nu(x)X\rangle
+\end{align}
+we use the above trick to rewrite it as a contour integral:
+\begin{align}
+  LHS = \frac{1}{2}i\int_{C}\left(-dz\langle T^{\bar{z}\bar{z}}\epsilon_{\bar{z}}X\rangle+d\bar{z}\langle T^{zz}\epsilon_{z}X\rangle\right)
+\end{align}
+We note that according to \cref{eq:Ward Identitycft} the $ \langle T^{\mu}{}_\mu X\rangle $ vanishes on the contour, thus we don't have the $ T_{z\bar{z}} $ term here. With a rewrite we can have:
+\begin{align}
+ LHS = -\frac{1}{2\pi i}\oint_{C}dz\mathrm{~}\epsilon(z)\langle T(z)X\rangle+\frac{1}{2\pi i}\oint_{C}d\bar{z}\mathrm{~}\bar{\epsilon}(\bar{z})\langle\bar{T}(\bar{z})X\rangle
+\end{align}
+Then we Tackle the RHS of \cref{eq:derivative trick}, we plug in the ward identities \cref{eq:Ward Identitycft} and get:
+\begin{align}
+  RHS=&\sum_{i=1}^n\int_Md^2x\delta(x-x_i)\left[-\epsilon^\nu(x)\frac{\partial}{\partial x_i^\nu}-\frac{\Delta_i}{2}\partial_\mu\epsilon^\mu(x)-\frac{is_i}{2}\varepsilon^{\alpha\beta}\partial_\alpha\epsilon_\beta(x)\right]\langle X\rangle\\
+  =&\sum_{i=1}^n\left[-\epsilon^\nu(x_i)\frac{\partial}{\partial x_i^\nu}-\frac{\Delta_i}{2}\partial_\mu\epsilon^\mu(x_i)-\frac{is_i}{2}\varepsilon^{\alpha\beta}\partial_\alpha\epsilon_\beta(x_i)\right]\langle X\rangle  \\ 
+  = & \sum_{i=1}^n\left[-\epsilon(z_i)\partial-h_i\partial\epsilon(z_i)-\bar{\epsilon}(\bar{z}_i)\bar\partial-\bar{h}_i\bar{\partial}\bar{\epsilon}(\bar{z}_i)\right]\langle X\rangle
+\end{align}
+If we use the second mathematical trick we mentioned above, we can rewrite it in a contour integral form:
+\begin{align}
+  RHS=&-\frac{1}{2\pi i}\oint_{C}dw\mathrm{~}\epsilon(w)\sum_{i=1}^n\left[\frac{1}{w-z_i}\partial_{z_i}+\frac{h_i}{(w-z_i)^2}\right]\langle X\rangle\\
+  &-\frac{1}{2\pi i}\oint_{C}d\bar{w}\mathrm{~}\bar{\epsilon}(\bar{w})\sum_{i=1}^n\left[\frac{1}{\bar{w}-\bar{z}_i}\partial_{\bar{z}_i}+\frac{\bar{h}_i}{(\bar{w}-\bar{z}_i)^2}\right]\langle X\rangle
+\end{align}
+\begin{itemize}
+  \item \textbf{Decouple of Holomorphic and Antiholomorphic Part}
+
+    We know that the holomorphic and antiholomorphic parts are dependent, and we have $ \epsilon(z)^* = \bar\epsilon(\bar{z}) $. However, we manually decouple them and keep in mind that the theory is meaningful only when we combine them back. 
+\end{itemize}
+
+Thus we have the Conformal Ward Identity for Primary fields decompled into holomorphic and antiholomorphic parts:
+\thm{
+  \textbf{Conformal Ward Identity for Primary Fields}
+
+  For a series of primary fields $ X=\prod_{i=1}^n\phi_i(z_i,\bar{z}_i) $ with holomorphic and antiholomorphic dimensions $ (h_i,\bar{h}_i) $, we have:
+\begin{align}
+  -\frac{1}{2\pi i}\oint_{C}dz\mathrm{~}\epsilon(z)\langle T(z)X\rangle&=-\frac{1}{2\pi i}\oint_{C}dw\mathrm{~}\epsilon(w)\sum_{i=1}^n\left[\frac{1}{w-z_i}\partial_{z_i}+\frac{h_i}{(w-z_i)^2}\right]\langle X\rangle\\
+  -\frac{1}{2\pi i}\oint_{C}d\bar{z}\mathrm{~}\bar{\epsilon}(\bar{z})\langle \bar{T}(\bar{z})X\rangle&=-\frac{1}{2\pi i}\oint_{C}d\bar{w}\mathrm{~}\bar{\epsilon}(\bar{w})\sum_{i=1}^n\left[\frac{1}{\bar{w}-\bar{z}_i}\partial_{\bar{z}_i}+\frac{\bar{h}_i}{(\bar{w}-\bar{z}_i)^2}\right]\langle X\rangle
+\end{align}
+More conveniently, we can write them in the following local form:
+\begin{align}
+  \langle T(z)X\rangle&=\sum_{i=1}^n\left[\frac{h_i}{(z-z_i)^2}+\frac{1}{z-z_i}\partial_{z_i}\right]\langle X\rangle\\
+  \langle \bar{T}(\bar{z})X\rangle&=\sum_{i=1}^n\left[\frac{\bar{h}_i}{(\bar{z}-\bar{z}_i)^2}+\frac{1}{\bar{z}-\bar{z}_i}\partial_{\bar{z}_i}\right]\langle X\rangle
+\end{align}
+However, we should keep in mind that this local form is only valid within contour integrals of arbitrary holomorphic (antiholomorphic) functions.
+}
+
+
+
+\subsection{Conformal Ward Identity}
+
+Our above discussion is limited to Primary fields. However, we can extend it to general fields we take the following as a axiom or assumption. We define the infinitesimal variation of the correlation containing general fields:
+\axm{\label{axm:conformal ward identity}
+  \textbf{Conformal Ward Identity for General Fields}
+
+  For a series of general fields $ X=\prod_{i=1}^n\phi_i(z_i,\bar{z}_i) $ with holomorphic and antiholomorphic dimensions $ (h_i,\bar{h}_i) $, we have:
+  \begin{align}
+    \delta_{\epsilon}\langle X\rangle=-\frac{1}{2\pi i}\oint_Cdz\epsilon(z)\langle T(z)X\rangle \\ 
+    \delta_{\bar{\epsilon}}\langle X\rangle=-\frac{1}{2\pi i}\oint_Cd\bar{z}\bar{\epsilon}(\bar{z})\langle \bar{T}(\bar{z})X\rangle
+  \end{align}
+}
+We will see that in a CFT, we may have other fields that we only know their correlation function but have no idea of their transformation properties, thus we will turn to this definition.
+
+
+\subsection{OPE Structure}
+
+\subsubsection{Definition of OPE}
+
+Above we notice from the conformal Ward Identity of Primary fields that the correlation function of primary fields and E-M tensor has a divergence structure when they approach each other. This is a general feature of QFT, which can be captured by the Operator Product Expansion (OPE). 
+\rmk{
+  In fact, we will finally notice that this structure can both give us the data of the correlation functions and the operator commutation relation between fields.
+}
+
+\defi{
+  \textbf{Operator Product Expansion (OPE)}
+
+  In a QFT, when two fields $ A(z) $ and $ B(w) $ in a correlation function approach each other, their product can be expanded as:
+  \begin{align}
+    A(z)B(w)=\sum_{n=-\infty}^N\frac{\left\{AB\right\}_n(w)}{(z-w)^n}
+  \end{align}
+  We understand this equation in the sense of correlation functions. Normally, we negelect the regular part $ n\leq 0 $ and only keep the singular part $ n>0 $. and we write $ \sim $ instead of $ = $ to emphasize this point.
+}
+
+
+\subsubsection{OPE in CFT}
+
+From the above discussions of E-M tensor and Primary fields, we can write down th e EM-Primary OPE and Primary-Primary OPE in CFT. 
+
+\thm{
+  \textbf{E-M Tensor - Primary Field OPE}
+
+  For a CFT the OPE between E-M tensor and Primary field $ \phi(z,\bar{z}) $ with holomorphic and antiholomorphic dimensions $ (h,\bar{h}) $ is:
+  \begin{align}
+    T(z)\phi(w,\bar{w})\sim\frac{h}{(z-w)^2}\phi(w,\bar{w})+\frac{1}{z-w}\partial_w\phi(w,\bar{w})\\
+\bar{T}(\bar{z})\phi(w,\bar{w})\sim\frac{\bar{h}}{(\bar{z}-\bar{w})^2}\phi(w,\bar{w})+\frac{1}{\bar{z}-\bar{w}}\partial_{\bar{w}}\phi(w,\bar{w})
+  \end{align}
+}
+This is a direct result of the conformal Ward identity for Primary fields. Moreover we can write down the Primary-Primary OPE. We observe the correlation function between Primary fields \cref{thm:correlation function symmetry} and we notice that we have a natural normalization for Primary fields:
+\defi{
+  \textbf{Nomralization of Primary Fields}
+
+  We often take the normalization of Primary fields such that:
+  \begin{align}
+    \langle\phi_j(z_j,\bar{z}_j)\phi_k(z_k,\bar{z}_k)\rangle=\delta_{jk}/(z_j-z_k)^{2h_j}(\bar{z}_j-\bar{z}_k)^{2\bar{h}_j}.
+  \end{align}
+}
+Thus, under this normalization, if we want \cref{thm:correlation function symmetry} to hold, we have to take the Primary-Primary OPE as:
+\thm{
+  \textbf{Primary Field - Primary Field OPE}
+
+  For a CFT the OPE between two Primary fields $ \phi_i(z,\bar{z}) $ and $ \phi_j(z,\bar{z}) $ with holomorphic and antiholomorphic dimensions $ (h_i,\bar{h}_i) $ and $ (h_j,\bar{h}_j) $ is:
+  \begin{align}
+    \phi_i(z_1,\bar{z}_1)\cdot\phi_j(z_2,\bar{z}_2) \sim \sum_kC_{ijk}(z_1-z_2)^{-h_i-h_j+h_k}(\bar{z}_1-\bar{z}_2)^{-\bar{h}_i-\bar{h}_j+\bar{h}_k}\phi_k(z_1,\bar{z}_1)+\cdots,
+  \end{align}
+}
+Proof: \textbf{I notice that in many textbooks this proof is missing, so I write it down here for completeness.}
+
+Consider the three-Point function, we expend it by assuming $ z_{12} $ is very small:
+\begin{align}
+  G_{123}(z_1,z_2,z_3)=C_{123}\ z_{12}^{h_3-h_1-h_2}z_{23}^{h_1-h_2-h_3}z_{13}^{h_2-h_1-h_3},
+\end{align}
+we make a change of variable $ z_{13}=z_1-z_3=(z_2-z_3)+z_{12}=z_{23}+z_{12}. $Then we can expand it as:
+\begin{align}
+  z_{13}^{h_2-h_1-h_3}=(z_{23}+z_{12})^{h_2-h_1-h_3}=z_{23}^{h_2-h_1-h_3}\left(1+\frac{z_{12}}{z_{23}}\right)^{h_2-h_1-h_3}
+\end{align}
+We plug it back to the three-point function and consider the leading order term:
+\begin{align}
+  G_{123}=C_{123}z_{12}^{h_3-h_1-h_2}z_{23}^{h_1-h_2-h_3}z_{23}^{h_2-h_1-h_3}
+\end{align}
+then through an observation that we can see $ (h_1-h_2-h_3)+(h_2-h_1-h_3)=-2h_3. $So we have in the leading order:
+\begin{align}
+  G_{123}=C_{123}\left.z_{12}^{h_3-h_1-h_2}\right.z_{23}^{-2h_3} 
+\end{align}
+There is another way to calculate this three-point function. We can first use the OPE between $ \phi_1(z_1) $ and $ \phi_2(z_2) $ and calculate the two-point function between the result and $ \phi_3(z_3) $. 
+
+The OPE of $ \phi_1, \phi_2 $ to produce $ \phi_3 $ must have the position dependence $ z_{12}^{-h_1-h_2+h_3} $ to make the three-point function conformally invariant. So we take an ansatz for the OPE:
+\begin{align}
+  \phi_1(z_1)\cdot\phi_2(z_2)\sim\sum_k K_{12k}\ z_{12}^{-h_1-h_2+h_k}\phi_k(z_2)+\cdots
+\end{align}
+We plug the ansatz into the three-point function and get:
+\begin{align}
+  G_{123}&=\langle\phi_1(z_1)\phi_2(z_2)\phi_3(z_3)\rangle\sim\sum_k K_{12k}\ z_{12}^{-h_1-h_2+h_k}\langle\phi_k(z_2)\phi_3(z_3)\rangle\\ 
+         &=\sum_k K_{12k}\ z_{12}^{-h_1-h_2+h_k} \delta_{k3}z_{23}^{-2h_3}\\ 
+         &= K_{123}\ z_{12}^{-h_1-h_2+h_3} z_{23}^{-2h_3}
+\end{align}
+Thus we can conclude that $ K_{123}=C_{123} $. 
+
+\qed 
+
+\rmk{
+  The Above proof I only use the holomorphic part, but the antiholomorphic part is completely analogous.
+}
+
+\rmk{
+  Sadly, not all paper take this normalization, so we have to becareful to distingguish the difference between OPE coefficients and correlation function structure constants. So sometimes we see:
+  \begin{align}
+    \phi_i \cdot \phi_j \sim \displaystyle\frac{C_{ijk}}{C_{kk}}\phi_k+\cdots
+  \end{align}
+}
+
+\subsection{Complementary Remarks}
+
+\subsubsection{Transformation Rules of E-M Tensor}
+
+From the definition of OPE between E-M tensors and the definition of general conformal Ward identity, we can deduce the transformation rules of E-M tensor under conformal transformation. We take an infinitesimal conformal transformation $ z\to z+\epsilon(z) $, then we have:
+\thm{
+  \textbf{Transformation Rules of E-M Tensor}
+
+  Under an infinitesimal conformal transformation $ z\to w(z) $, the E-M tensor transforms as:
+  \begin{align}
+    T^{\prime}(w)=\left(\frac{dw}{dz}\right)^{-2}\left[T(z)-\frac{c}{12}\{w;z\}\right]
+  \end{align}
+  where $ \{w;z\} $ is the Schwarzian derivative defined as:
+  \begin{align}
+    \{w;z\}=\frac{(d^3w/dz^3)}{(dw/dz)}-\frac{3}{2}\left(\frac{d^2w/dz^2}{dw/dz}\right)^2
+  \end{align}
+}
+We notice that the schwarzian term vanishes for global conformal transformation, thus the E-M tensor transforms as a quasi-primary field with holomorphic dimension $ h=2 $.
+
+
+
+
