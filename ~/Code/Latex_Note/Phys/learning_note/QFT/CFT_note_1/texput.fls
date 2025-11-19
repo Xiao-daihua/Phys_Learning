@@ -1,5 +1,0 @@
-PWD /Users/xiaodaihua/Code/Latex_Note/THU_phys/learning_note/02_QFT/CFT_note_1
-INPUT /usr/local/texlive/2025/texmf.cnf
-INPUT /usr/local/texlive/2025/texmf-dist/web2c/texmf.cnf
-INPUT /usr/local/texlive/2025/texmf-var/web2c/xetex/xelatex.fmt
-OUTPUT texput.log
