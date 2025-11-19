@@ -1,0 +1,64 @@
+本章我们会讨论一些比较数学的内容。我们会随着我自己学习的路径逐渐丰富对于Fusion Category和量子场论，特别是共形场论还有拓扑量子场论的理解。并且很多内容其实来源于我自己的科研的内容。
+
+我希望这个讲义的教学性质更多。但是，由于很多内容是科研学习的随笔，会写的比较乱。但是希望有一天能够更加仔细的整理这个部分的内容。同时，为了科研的方便我也会把内容列成知识的专题，同时在旁边标注出来reference。
+\section{Fusion Category}
+
+
+\section{Turaev Viro Model}
+对于TV Model是一种使用范畴论的语言构建了起来的2+1维的TQFT。他给出了一种构建方法，就是给定一个Fusion Category，我们可以为任意一个3维的Manifold赋予一个数或者一个向量空间。这个流形如果是没有边界的，那么就会被赋予一个数；如果是有边界的，那么就会被赋予一个向量空间
+
+\subsection{closed 3-manifold}
+
+首先，我们讨论closed 3-manifold下面的TQFT。我们使用下方的步骤进行构建:
+\itm{
+    \pt{\hdt{STEP 1:} 对于一个3-Manifold进行cell decomposition并且保证cell-decomposition对偶于一个三角刨分。这个就意味着需要满足下面的两个规则：（规则可以看下面的图片）
+    
+    1. 任意1-cell需要是三个2-cell的共同边界。
+    
+    2. 任意0-cell需要是6个2-cell和4个1-cell的共同边界。}
+    \pict{2025-02-07-10-01-18.png}{0.5}
+
+    \pt{\hdt{STEP 2:} 对于每一个2-cell我们赋予一个Simple Object \seq{x_f \in \mC}
+    
+    下图之中就是展示一个0-cell v周边的6个 2-cell 和 4个 1-cell。并且这6个2-cell我们用simple object a,b,c,x,y,z来表示。} 
+    \pict{2025-02-07-10-02-29.png}{0.5}
+    \pt{\hdt{STEP 3:}我们给出这个流形的配分函数，并且有数学定理保证这个配分函数和流形的细节并没有关系。
+    \eq{
+        Z_{\mathrm{TVBW}}(\mathcal{M})=\mathcal{D}^{-2N_{\mathrm{3-cells}}}\sum_{\begin{array}{c}\{x_{f}\}\end{array}}\prod_{\begin{array}{c}2\mathrm{-cells}\end{array}}d_{x_{f}}\prod_{\begin{array}{c}0\mathrm{-cells}\end{array}\mathrm{v}}\mathrm{Tet(v)}
+    } 
+    其中:
+    \eq{
+        \mathcal{D}^2 = \sum_{x\in \mC}d_x^2
+    }
+    \eq{
+        \mathrm{Tet(v)}=\begin{bmatrix}a&b&c\\x&y&z\end{bmatrix}
+    }
+    注意：这个6-j symbol的label的顺序是按照上面图中的label的顺序来的。
+    }
+}
+\rmk{
+    我们不难发现上面图中的label正好和6-j symbol的定义中的label对偶。也就是我们把一个面对偶。我们回顾6-j symbol的定义，我们有:
+    \pict{2025-02-07-10-18-22.png}{0.5}
+    我们会发现两个图正好对应了！！
+    \pict{2025-02-07-10-22-05.png}{0.5}
+}
+\subsection{open 3-manifold}
+
+接下来，我们讨论如果这个流形是有边界的那么是怎样对应一个向量空间的！
+
+
+
+
+
+
+
+
+
+
+\section{Topological defect and TV
+ Model}
+
+
+
+\section{Fermion Condensation and Fusion Category}
+本章节我们主要学习Fermion Condensation的概念以及其中怎和Category进行联系的

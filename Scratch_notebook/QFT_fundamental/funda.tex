@@ -1,0 +1,200 @@
+这里我们跟随更加现代的讲义重新回顾QFT是什么！！我准备主要fol Peskin的教材之中的内容！学习基础的第一部分的知识！！
+
+\section{基础探讨}
+\imp{量子场论核心}{量子场论的核心是认为相比于粒子，场是世界的本质，并且所有的例子都是场的量子化之后的结果。}
+经典的我们要学习场论，如麦克斯韦的电磁场理论，以及爱因斯坦的引力场理论是因为，我们认为相互作用是local的。不存在超距的相互作用。
+
+而对于量子场论，有下面的原因：
+\itm{
+    \pt{狭义相对论和量子力学的结合意味着粒子数并不守恒，所以粒子是可以从真空之中随意产生湮灭的}
+}
+我们意识到，根据不确定性原理，$ \Delta p L \sim \hbar  $。根据狭义相对论，我们知道能量和动量是同阶的，也就是两者差不多 $ \Delta E \sim \frac{hc}{L} $。所以当我们考虑的尺度接近：$ \lambda = \frac{\hbar}{mc} $ 的时候，真空可能会湮灭和产生粒子。这个波长是Compton wavelength。
+
+所以，我们不可能写下一个相对论的薛定谔方程，因为我们无法定义单个粒子！！
+
+\itm{
+    \pt{粒子具有全同性}
+}
+也就是每一个同种粒子，都是\textbf{同一个粒子}！！这是一个统计的假设，但是这个假设推导出了很多正确的结论，只是量子力学的角度我们并不能理解为什么要这么假设。而对于量子场论，其激发自然让粒子满足这样的统计规律的假设和全同性的假设！！
+\line
+此外，Peskin 也给出了对于相同的内容的另外两个不同角度的论述：
+
+\itm{
+    \pt{单例子相对论量子力学不成立}
+}
+也就是相对论粒子的运动方程会导致有bug
+\itm{
+    \pt{Causality的缘故}
+}
+其实经典场论我们为了解释为什么场来描述，也是因为不能超距的作用，会有因果论的问题。考虑一个单粒子态的演化：
+\eq{
+    \begin{aligned}U(t)&=\left\langle\mathbf{x}\right|e^{-i(\mathbf{p}^2/2m)t}\left|\mathbf{x}_0\right\rangle\\&=\int\frac{d^3p}{(2\pi)^3}\left\langle\mathbf{x}\right|e^{-i(\mathbf{p}^2/2m)t}\left|\mathbf{p}\right\rangle\left\langle\mathbf{p}\right|\mathbf{x}_0\rangle\\&=\frac{1}{(2\pi)^3}\int d^3pe^{-i(\mathbf{p}^2/2m)t}\cdot e^{i\mathbf{p}\cdot(\mathbf{x}-\mathbf{x}_0)}\\&=\left(\frac{m}{2\pi it}\right)^{3/2}e^{im(\mathbf{x-x}_0)^2/2t}.\end{aligned}
+}
+我们意识到，对于任何时间和位置，这个振幅都是有取值的。也就是例子传播没有被因果所限制住。但是对于量子场论，我们意识到，一个粒子在类空世界线上面传播等价于反粒子反向传播。所以抵消了！！
+
+\imp{什么是QFT}{
+    量子场论其实就是场的量子化。量子力学是我们把经典自由度（位置，动量，能量）变成算符；量子场论是把时空间连续分布的自由度变成算符，构建一堆\textbf{算符取值的时空函数}。
+
+量子场论的相互作用存在着很多的约束：
+\itm{
+    \pt{locality局域性约束}
+    \pt{对称性约束}
+    \pt{renormalize group flow}
+}
+这些保证了量子场论只有很少的合理方式让场进行相互作用。所以给出一个合理的理论。
+}
+世界上存在三个基本的油量纲的常数，这些常数能够帮助我们给出一些基本的量的标准定义。
+\eq{
+[c]&=LT^{-1}\\
+[\hbar]&=L^2MT^{-1}\\
+[G]&=L^3M^{-1}T^{-2}
+}
+对于这个我们选择 $ c = \hbar = 1 $这个样子，我们只需要选择另外一个物理量的单位就可以表达所有物理量的单位了。我们一般选择质量 m 作为单位。根据公式 $ E = mc^2 $ 我们知道，我们也给定了能量的单位。
+
+\rmk{
+    这相当于，我们定义所有速度都是计量几个光速；所有质量乘以长度都是计量几个$ \hbar/c $。在这个计量体系下，我们还需要定义，能量是几个标准单位才可以。我们一般使用的是eV，电子伏特。 
+}
+这个基础上，我们可以给出一个长度的标准计量单位是：
+\eq{
+    \lambda = \frac{\hbar}{mc}
+}
+物理上，我们忘记 $ \hbar  $以及 $ c $的量纲，但是我们记住质量的量纲。也就是忽略这两个有量纲常数引发的量纲变换，因为这个是可以被recover的，但是计量一个可以任意选取量纲的质量的量纲。我们定义\textbf{mass dimension}。比如：$ [G] = -2 $因为 $ G=\frac{\hbar c}{M_p^2}=\frac{1}{M_p^2} $。
+
+\rmk{
+    我们会发现，世界可以被尺度决定。确定我们研究问题的尺度，可以给出一个能量的量级。
+
+    注意！这是一个物理定律，因为我们知道不确定性原理和引力定律什么的，我们才可以用这样的常数刻画一个特征长度。所以，我们才可以用质量描述所有物理量的量级捏！！
+}
+\newpage
+\section{经典场论}
+这里主要fol EPFL的讲义以及Peskin的讲解捏
+\subsection{回顾经典Lagrangian
+和Hamiltonian}
+\imp{经典力学总论}{
+    经典力学我们核心是解决满足「最小作用量原理」的运动。
+
+    \textbf{最小作用量原理说的是，在给定自由度初始和结束的大小（不需要确定自由度初始和结束的变化量）。我们可以知道演化过程中作用量变分为0}
+
+    但是，这个积分方程真的不会解。\textbf{我们一般假设一些【边界条件】然后把积分方程变成微分方程。}（一般使用自由度在边界上变分为0的假设）变化后，有两个等价的微分方程：
+    \itm{
+        \pt{拉格朗日方程}
+        \pt{哈密顿方程}
+    }
+}
+拉格朗日方程的公理体系推导我默认已经熟悉，我们这个时候等价的给出哈密顿方程。我们的操作是对于拉格朗日量进行legendre变换，选择共轭量是：$ p_a\equiv\frac{\partial L}{\partial\dot{q}_a} $。然后认为世界的自由度是通过$ (q_i,p_i) $这个相空间的自由度进行描述的。并且给出变换后的哈密顿量：
+\eq{
+    H\equiv H(q,p,t)=p_a\dot{q}_a-L(q,\dot{q})
+}  
+在上面的搭建之后，我们给出一个等价的方程：
+\eq{
+    \begin{aligned}\dot{q}_a&=\frac{\partial H}{\partial p_a}\\\dot{p}_a&=-\frac{\partial H}{\partial q_a}\end{aligned}
+}
+这里我们给出了相空间的概念。仿佛这个空间才是「自由度真正所在」。对于相空间上面的函数我们可以定义 Posson braket：
+\eq{
+    \{A,B\}\equiv\frac{\partial A}{\partial p_a}\frac{\partial B}{\partial q_a}-\frac{\partial A}{\partial q_a}\frac{\partial B}{\partial p_a}\mathrm{~.}
+}
+这个定义满足两个性质，反对易以及Jacobi恒等式：
+\eq{
+    \begin{aligned}\{A,B\}+\{B,A\}=&0\\\{A,\{B,C\}\}+\{B,\{C,A\}\}+\{C,\{A,B\}\}=&0\end{aligned}
+}
+我们注意到，所有相空间上面的实函数构成了一个线性空间。Posson Braket正好就定义了这个空间上的一组“乘法”。\textbf{满足反对易和Jacobi恒等式的惩罚关系的线性空间，我们认为构成了一组李代数}。
+
+我们会发现，任意相空间的函数可以帮助我们定义一个\textbf{「相空间上的点的正则变换」}。我们给出函数 $ A(p,q) $把正则的变换定义为，相空间的点根据变化一个 $ \epsilon $尺度成为 ：
+\eq{
+    \begin{aligned}q_a^{\prime}\equiv q_a+\epsilon\left\{A,q_a\right\}&&&&p_a^{\prime}\equiv p_a+\epsilon\left\{A,p_a\right\}\end{aligned}
+}
+我们这里 $ q_a' $其实是一个相空间上面的函数 $ q_a'(p_a,q_a) $ 这个函数把相空间上面的一个点映射到另外一个点。并且这个函数满足：$ \{p_a^{\prime},q_b^{\prime}\}=\delta_{ab}+O(\epsilon^2). $  。之后，我们会定义一种特殊的正则变换称为\textbf{「对称性变换」}。
+
+我们会发现哈密顿量是一个相空间的函数，也可以给出一个正则变换。我们会发现，根据哈密顿方程，哈密顿量给出的正则变换正好是相空间上的点随时间演化的结果。也就是哈密顿量完成了把一切从一个等时面平移到另一个等时面的作用「时间平移」。
+\eq{
+    \begin{aligned}\dot{q}_a&=\{H,q_a\}\\\dot{p}_a&=\{H,p_a\}\end{aligned}
+}
+此外，如果我们对于算符来说：
+\eq{
+    \begin{aligned}\frac{d}{dt}O&=\frac{\partial O}{\partial p_i}\dot{p}_a+\frac{\partial O}{\partial q_a}\dot{q}_a\\&=-\frac{\partial O}{\partial p_a}\frac{\partial H}{\partial q_a}+\frac{\partial O}{\partial q_a}\frac{\partial H}{\partial p_a}=\{H,O\}\end{aligned}
+}
+我们总结一下
+\imp{变化的代数表达}{
+    Posson Braket的结构，让我们可以使用代数来描述代数的元素的变化。我们可以通过定义一个代数元素，表征一个正则变换。通过Posson括号的作用让其他代数元素变成另外一个样子。
+
+    比如：H让p和q这个元素变换成为了「满足运动方程的下一时刻的样子」，让任意函数O变成了「满足运动方程的下一时刻的样子」；此外还有L，让我们相空间变成「稍微转一下头看到的样子」。
+
+    这样的特殊的代数元素（相空间上面的方程）我们称为「生成元」。
+}
+这个结构在量子化之后依旧存在。我们的量子化是「把自由度变成算符」「把客观测量变成算符」的过程（其实自由度是一个最基础的可观测量）。而变成算符之后我们发现也有consistent的关系，也就是对易关系。
+\imp{量子化讨论}{
+    量子化存在两种操作，使用hamiltonian进行量子化是正则量子化。但问题是，这个把时空对称性掩盖了，Hamiltonian是建立在等时面上面的，但问题是这样强行剥离时空是会破坏对称性的。
+
+    所以我们也有路径积分量子化。虽然，对于量子化更加困难，但是更方便的给出了时空协变的理论。
+}
+
+\subsection{场的lagrangian}
+
+对于一个场来说我们存在两个label：
+\eq{
+    \phi_a(x,t)
+}
+其中a和x都是对于自由度的label而t是这个自由度随着时间的演化。注意，对于场来说，位置不是动力学自由度而是自由的label。
+
+对于经典力学，我们的lagrangian是自由度以及自由度对时间的导数给出的函数。\textbf{但是对于场来说，我们的自由度可能存在对于空间的导数（注意这个是个自由度的连续label的导数）。}
+\rmk{「这并不奇怪，因为场对于空间的导数其实可以理解为离散的自由度之间的差距的一种推广，我们离散的时候也经常 $ q_1 - q_2$ 对于场也就是」拉格朗日量作为一个动力学变量永远是时间的函数以及自由度的泛函。}
+
+就像基本的拉格朗日量一样，我们把不同的粒子的拉格朗日量加在一起。对于场来说，我们是把不同空间分布的自由度积分在一起，很自然可以有拉格朗日量密度的概念：
+\eq{
+    L(t)=\int d^3x\mathrm{~}\mathcal{L}(\phi_a,\partial_\mu\phi_a)
+}
+和经典的一模一样，我们可以定义作用量是：
+\eq{
+    S=\int_{t_1}^{t_2}dt\int d^3x\mathcal{L}=\int d^4x\mathcal{L}
+}
+我们会意识到，似乎拉格朗日量只有自由度的一阶导数。我们下面规定lagrangian需要满足两条性质：
+\itm{
+    \pt{拉格朗日量仅仅依赖自由度以及自由度的一阶导数}
+    \pt{拉格朗日量对于时空的依赖完全来源于场，不explicitly依赖的}
+}
+数学上这是强行规定，但是物理上，这意味着我们的量存在着一些性质：
+\itm{
+    \pt{洛伦兹对称性}
+    \pt{能量守恒，并不会随便乱动呃呃呃}
+}
+\line
+我们知道最小作用量原理，为此我们可以得到场的经典动力学方程！
+
+首先，根据我们的拉格朗日量仅仅包含场和场的一阶导数的函数，我们可以进行变分运算。
+\eq{
+    \delta S =\int d^4x\left.\left[\frac{\partial\mathcal{L}}{\partial\phi_a}\right.\delta\phi_a+\frac{\partial\mathcal{L}}{\partial(\partial_\mu\phi_a)}\delta(\partial_\mu\phi_a)\right]
+}
+这个是标准的变分数学操作。最小作用量原理就是通过这个原理定义的。数学上，我们只需要知道，我们把不同函数视作独立的，变粉法则和积分可换，并且变分系数是形式化进行函数进行求导的结果。并且保留一阶是因为变分的定义是「只考虑线性主部」！！。下面我们进行分部积分：
+\eq{
+    =\int d^4x\left.\left[\frac{\partial\mathcal{L}}{\partial\phi_a}-\partial_\mu\left(\frac{\partial\mathcal{L}}{\partial(\partial_\mu\phi_a)}\right)\right]\right.\delta\phi_a+\partial_\mu\left(\frac{\partial\mathcal{L}}{\partial(\partial_\mu\phi_a)}\delta\phi_a\right)
+}
+\imp{边界条件}{我们并不会求解这个动力学方程，但是，我们需要引入「边界条件」这里面有两条要素：
+\itm{
+    \pt{固定边界条件：边界上场的变粉是trivial的无限趋近于0，也就是边界上场“趋于不动” $ \delta\phi_a(\vec{x},t_1)=\delta\phi_a(\vec{x},t_2)=0. $「其中t1，t2是边界时间」 }
+    \pt{bulk之中的场是non-trivial的，也就是说一般的 $ \delta \phi_a \neq 0 $ }
+}
+}
+\rmk{我们上面在干什么呢？我们已知「最小作用量原理」，我们以此为基本假设。
+
+但是同时，我们发现积分方程很难进行求解，我们希望把一个积分方程变成一个微分方程。但是这需要我们给出一定的边界条件才能够合理的进行这个转变。或者说，只有给定边界条件的积分方程才能够进行求解。}
+
+在确定上方边界条件之下，我们知道我们的最小作用量原理等价于「lagrange equation」：
+\eq{
+    \partial_\mu\left(\frac{\partial\mathcal{L}}{\partial(\partial_\mu\phi_a)}\right)-\frac{\partial\mathcal{L}}{\partial\phi_a}=0
+}
+因为：
+\itm{
+    \pt{第一项由于$ \delta \phi_a \neq 0 $ 所以其他部分或许应该是0}
+    \pt{第二项退化为在边界上面的积分，而边界上的积分由于$ \delta \phi_a  = 0 $所以结果是0 }
+}
+\rmk{我们这里导数都使用下标，位置都使用上标。这是因为几何和协变导致的。但是我们这里就强行规定就好了！「所有导数用下标 $ \partial_\mu $ 」「所有位置用上标$ x^\mu $ 」「电磁场定义是：$ A^\mu(\vec{x},t)=(\phi,\vec{A}) $ 」。我们在这个层面就是不定义指标升降的convention。}
+
+\subsection{场的Hamiltonian}
+下面，同样的，经典力学有另一种公理体系，也就是哈密顿力学。我们可以定义场的正则动量以及「正则动量密度」。我们可以假装空间是离散的！！就像这样：
+
+
+
+
+
+
+\section{CG Field}

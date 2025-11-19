@@ -1,0 +1,1012 @@
+这个章节我主要会follow polchinski的弦理论之中第二章对于CFT的讲解，并且会附上一些我自己的判断和参考其他的教材之中的内容！
+
+\section{holomrophic coordinates \& 二维标量场}
+我们研究很多很多个二维标量场写在一起：
+\eq{
+    S=\frac1{4\pi\alpha^{\prime}}\int d^2\sigma\left(\partial_1X^\mu\partial_1X_\mu+\partial_2X^\mu\partial_2X_\mu\right).
+}
+这里我们使用欧几里得空间，但是欧几里得空间和洛伦兹空间的差别只有我们使用等式:\seq{\sigma^2 = i \sigma^0}
+
+\subsection{坐标变换}
+接下来我们引入一个坐标变换，由于这个操作十分重要所以单独列出几个点：
+\itm{
+    \pt{
+        坐标变换的定义：
+        \defi{
+            holomorphic coordinate
+
+            \eq{
+            z=\sigma^1+i\sigma^2,\quad &\bar{z}=\sigma^1-i\sigma^2.\\
+            \partial_z=\frac12(\partial_1-i\partial_2)\text{ , } & \partial_{\bar{z}}=\frac12(\partial_1+i\partial_2)\mathrm{~.}
+        }
+        注意：我们通常认为\seq{\sigma^2}是时间维度通过wick rotation变成的！！
+
+        \hdt{首先：}我们这样定义导数对于经典的导数定义是自洽的
+        \eq{
+            \partial_zz=1\mathrm{~,~}\partial_z\bar{z}=0\mathrm{~,~}\partial_{\bar{z}}z=0\mathrm{~,~}\partial_{\bar{z}}\bar{z}=1\mathrm{~.}
+        }
+        \hdt{其次：}我们上面的式子是定义式子，这样的定义的结果就是我们对于度规的定义是合理的
+        \eq{
+            ds^2 = g_{\mu\nu} dx^\mu dx^\nu
+        }
+        }
+    }
+    \pt{
+        张量的坐标变换的定义：
+        \defi{
+            tensor in holomrophic coordinate
+
+            \eq{
+            v^z=v^1+iv^2,\quad v^{\bar{z}}=v^1-iv^2,\quad v_z=\frac12(v^1-iv^2),\quad v_{\bar{z}}=\frac12(v^1+iv^2) .
+        }  
+        }
+        这是一个矢量的变换定义，但是已经给出了矢量的变换矩阵，根据这个变换矩阵我们可以给出任何张量的变换矩阵。
+    }
+    
+}
+
+上方的定义的基础上可以有下方结论：
+\itm{
+    \pt{
+        度规在新的坐标之下（度规的变换是由线长在不同的坐标系之下保持不变定义的）：
+        \eq{
+            g_{z\bar{z}}=g_{\bar{z}z}=\frac12 ,\quad g_{zz}=g_{\bar{z}\bar{z}}=0 ,\quad g^{z\bar{z}}=g^{\bar{z}z}=2 ,\quad g^{zz}=g^{\bar{z}\bar{z}}=0 
+        }
+
+    }
+    \pt{
+        积分单元为：
+        \eq{
+           \sqrt{-g_z}\  d^2z=\sqrt{g_\sigma}d\sigma^1d\sigma^2
+        }注意我们的\seq{g_\sigma = 1}因为我们考虑的是平直的欧几里得时空。
+        其中我们可以通过度规的定义给出\seq{-g = 1/4}
+    }
+    \pt{
+        \seq{\delta}函数的定义是：
+        \eq{
+            \int d^2z\mathrm{~}\delta^2(z,\bar{z})=1
+        }
+        根据这个定义可以写出\seq{\delta}函数的具体形式是：
+        \eq{
+            \delta^2(z,\bar{z})=\frac12\delta(\sigma^1)\delta(\sigma^2)
+        }
+    }
+    \pt{
+        接下来有导数定理的推广是：
+        \eq{
+            \int_Rd^2z\left(\partial_zv^z+\partial_{\bar{z}}v^{\bar{z}}\right)=i\oint_{\partial R}(v^zd\bar{z}-v^{\bar{z}}dz)
+        }
+    }
+}
+
+\subsection{坐标变换下面的经典标量场}
+坐标变换的经典标量场为：
+\eq{
+    S=\frac1{2\pi\alpha^{\prime}}\int d^2z\partial X^\mu\bar{\partial}X_\mu 
+}
+可以给出运动方程：
+\eq{
+    \partial\bar{\partial}X^\mu(z,\bar{z})=0 
+}
+\rmk{
+    我们认为标量场是两个坐标的函数，显然这两个坐标是相关联的。但是我们可以在解析延拓的意义下认为两个坐标是不一样独立的。（至少我们可以这么算）
+}
+
+根据柯希黎曼条件：
+\eq{
+    \partial M = 0
+}
+我们可以知道\seq{\partial X^\mu}是holomorphic(left-moving)的；\seq{\bar{\partial}X^\mu}是antiholomorphic(right-moving)的。
+
+\subsection{坐标变换下面的量子标量场}
+对于一个量子场我们一般研究的是关联函数（或者说全屏面路径积分里面插入一些物理量的平均；或者说算符在真空态的平均）
+\eq{
+    \langle \mathscr{F}[X] \rangle=\int[dX]\exp(-S)\mathscr{F}[X] 
+}
+
+我们根据路径积分的计算可以得到：
+\eq{
+    \left\langle \partial\bar{\partial}X^{\mu}(z,\bar{z}) \ldots \right\rangle=0~
+}
+
+对应的量子化之后我们得到算符的表达式：
+\eq{
+    \partial\bar{\partial}\hat{X}^\mu(z,\bar{z})=0
+}
+\rmk{
+    当我们写下一个算符表达式我们需要明确这个是什么意思：
+    \eq{
+        X_1...X_n = 0
+    }
+    的意思是：
+    1. 在\seq{X_1...X_n}是time ordered顺序的时候（我们不加声明把一些算符写在一起，他们必须是time ordered，否则不能够定义）他们对应的经典的物理量有：
+    \eq{
+        \langle X_1...X_n ... \rangle = 0
+    }
+    2. 并且右面插入的任意算符不能是和左边算符在同一个点上面。
+}
+而如果路径积分之中插入一个场算符，并且场算符和EOM算符靠的很近，这个时候我们有上方算符关系的一个合理的推广：
+\eq{
+    \frac1{\pi\alpha^{\prime}}\partial_z\partial_{\bar{z}}X^\mu(z,\bar{z})X^\nu(z^{\prime},\bar{z}^{\prime})=-\eta^{\mu\nu}\delta^2(z-z^{\prime},\bar{z}-\bar{z}^{\prime})
+}
+
+\subsection{Normal Order}
+我们定义一般直接从平均值之间拿出来的算符都是time ordered。这样的定义与量子场论consistent。但是有的时候我们并不方便使用time ordered的算符，我们定义另一种order也就是:"normal ordered"
+\defi{
+    场算符的normal order
+    
+    首先我们定义1，2 point场算符的normal order为：
+    \eq{
+        :X^\mu(z,\bar{z}): &=X^\mu(z,\bar{z}) \\
+        :X^\mu(z_1,\bar{z}_1)X^\nu(z_2,\bar{z}_2):&=X^\mu(z_1,\bar{z}_1)X^\nu(z_2,\bar{z}_2)+\frac{\alpha^{\prime}}2\eta^{\mu\nu}\ln\left|z_{12}\right|^2
+    }
+
+    接下来我们可以有一个递推式子递推出任意多的场算度的normal order:
+    \eq{
+        :&X^{\mu_1}(z_1,\bar{z}_1)\ldots X^{\mu_n}(z_n,\bar{z}_n):\\&= X^{\mu_1}(z_1,\bar{z}_1)\ldots X^{\mu_n}(z_n,\bar{z}_n)+\sum\text{subtractions} 
+    }
+    subtraction指任意两个场算符之间进行缩并，缩并的结果是两个场替换为：
+    \eq{
+        X^{\mu_i}X^{\mu_j} \rightarrow
+        \frac{\alpha^{\prime}}2\eta^{\mu_i\mu_j}\ln\left|z_{ij}\right|^2
+    }
+}
+我们可以举出一个三阶场算符的normal order的例子：
+\eq{
+    :&X^{{\mu_{1}}}(z_{1},\bar{z}_{1})X^{{\mu_{2}}}(z_{2},\bar{z}_{2})X^{{\mu_{3}}}(z_{3},\bar{z}_{3}):=X^{{\mu_{1}}}(z_{1},\bar{z}_{1})X^{{\mu_{2}}}(z_{2},\bar{z}_{2})X^{{\mu_{3}}}(z_{3},\bar{z}_{3})\\&+\left(\frac\alpha2\eta^{{\mu_{1}\mu_{2}}}\ln|z_{12}|^{2}X^{{\mu_{3}}}(z_{3},\bar{z}_{3})+2\text{ permutations}\right)\mathrm{~.}
+}
+\rmk{
+    我们为什么这么定义normal order呢？是因为normal order的场算符满足经典的运动方程也就是：
+    \eq{
+        \partial\bar{\partial} :\hat{X}^\mu(z,\bar{z}) ... :=0
+    }
+}
+
+
+
+由于我们有公式：
+\eq{
+    \partial\bar{\partial}\ln|z|^2=2\pi\delta^2(z,\bar{z})\mathrm{~.}
+}
+在这个定义下面我们可以得到之前相邻很近的场算符和EOM之间的关联函数的表达式是:
+\eq{
+    \partial_1\bar{\partial}_1:X^\mu(z_1,\bar{z}_1)X^\nu(z_2,\bar{z}_2):=0 
+}
+这里我们会发现，我们的normal order下的算符正好满足类似于经典的EOM的关系而并不是量子的加入了一个delta函数！！
+\rmk{
+    为什么量子的EOM在场位置一样的时候会产生\seq{\delta}函数？
+
+    这是因为我们一般量子的情况下考虑的是路径积分，在路径积分下存在一个delta函数。这个不同就是量子理论和经典理论本质的不同。也就是从路径积分拿出算符和经典的物理量本身不一样的地方。
+}
+\newpage
+\section{OPE}
+\subsection{OPE定义}
+首先我们定义什么是OPE：
+\defi{
+    OPE：
+    
+我们研究两个算符，当对应的位置无限靠近的情况：
+\eq{
+    \mathscr{A}_i(\sigma_1)\mathscr{A}_j(\sigma_2)=\sum_kc_{ij}^k(\sigma_1-\sigma_2)\mathscr{A}_k(\sigma_2)\mathrm{~.}
+}
+}
+可以求解标量场的OPE，我们的操作是：先把两个标量场算符换成和经典更加对应的normal order；
+\eq{
+    X^\mu(z_1,\bar{z}_1)X^\nu(z_2,\bar{z}_2) = :X^\mu(z_1,\bar{z}_1)X^\nu(z_2,\bar{z}_2): - \frac{\alpha^{\prime}}2\eta^{\mu\nu}\ln\left|z_{12}\right|^2 
+}
+接下来我们对于normal order进行态了展开可以得到：
+\eq{
+    X^\mu(z_1,\bar{z}_1)X^\nu(z_2,\bar{z}_2)&=-\frac{\alpha^{\prime}}2\eta^{\mu\nu}\ln|z_{12}|^2+:X^\nu X^\mu(z_2,\bar{z}_2):\\&+\sum_{k=1}^\infty\frac1{k!}\Big[(z_{12})^k:X^\nu\partial^kX^\mu(z_2,\bar{z}_2):+(\bar{z}_{12})^k:X^\nu\bar{\partial}^kX^\mu(z_2,\bar{z}_2):\Big]
+}
+这里我们认为\seq{|z_1| > |z_2|}我们在\seq{z_2}点进行泰勒展开，并且认为\seq{z_1}趋近于\seq{z_2}，这个展开的过程之中由于我们有量子的运动方程:\seq{ \partial_1\bar{\partial}_1:X^\mu(z_1,\bar{z}_1)X^\nu(z_2,\bar{z}_2):=0 }所以并没有两种导数的交叉项。
+
+下面是关于OPE的一些讨论：
+\itm{
+    \pt{
+        对于OPE我们主要关心是最开始几个有奇异性的项，对于一般的没有奇异的项我们并不关系。
+    }
+    \pt{
+        对于共形不变的场OPE一般是熟练的，并且收敛半径是与其他算符最近的距离。
+        \pict{2024-08-02-21-29-29.png}{0.9}
+    }
+    \pt{
+        OPE等式右手边我们有很多在同一点场的乘积，一般对于量子场论我们是使用time ordered这样的“同一点”是不能被允许的。但是，对于OPE我们每一阶展开使用的是normal order所以可以这么写。
+    }
+}
+
+\subsection{任意算符Normal Order}
+之前我们定义了场算符的normal order。现在我们讨论任意算符的normal order可不可以用一个比较简单的方式算出来：
+\thm{
+任意算符Normal Order变换法则：
+
+    任意算符的Normal Order等价于之前的定义可以写成：
+    \eq{
+        :\mathscr{F}:=\exp\left(\frac{\alpha^{\prime}}{4}\int d^2z_1d^2z_2\ln|z_{12}|^2\frac\delta{\delta X^\mu(z_1,\bar{z}_1)}\frac\delta{\delta X_\mu(z_2,\bar{z}_2)}\right)\mathscr{F}
+    }
+
+    对于两个normal order的算符的乘法定义：
+    \eq{
+        :\mathscr{F}::\mathscr{G}:=:\mathscr{F}\mathscr{G}:+\sum\text{cross-contractions}
+    }
+    或者使用求导的定义：
+    \eq{
+        :\mathscr{F}::\mathscr{G}:=\exp\left(-\frac{\alpha^{\prime}}{2}\int d^2z_1d^2z_2\ln|z_{12}|^2\frac\delta{\delta X_F^\mu(z_1,\bar{z}_1)}\frac\delta{\delta X_{G\mu}(z_2,\bar{z}_2)}\right):\mathscr{F}\mathscr{G}:
+    }
+    其中求导是分别对于\seq{\mF}和\seq{\mG}之中包含的标量场X进行求导。
+}
+
+\at{
+    contraction是\seq{-\frac{\alpha^{\prime}}2\eta^{\mu\nu}\ln\left|z_{12}\right|^2 }；而subtraction是\seq{
+        +\frac{\alpha^{\prime}}2\eta^{\mu\nu}\ln\left|z_{12}\right|^2 
+    }
+}
+
+\rmk{
+    我们这里认为所有的算符是场算符的泛函。因此我们认为真正独立的算符只有场算符。
+
+    在上面的定义里面我们使用的是泛函导数。也就是说对于\seq{\pd X^\mu}其实我们认为是\seq{X^\mu}的函数。因为我们对于算符的所有操作其实等价于对于物理量在积分里面的操作。所以其实就是分部积分。
+
+    但是我们可以特别形式化的就是认准所有的场算符进行缩并。
+}
+
+接下来我们给出一些经典的算符积展开的计算帮助理解。
+\subsection{OPE计算}
+首先我们计算两个normal ordered的场算符的导数的OPE。
+
+\hdt{第一步}我们先通过contraction的定义把多个normal ordered 算符的乘积变成很多normal ordered的算符的求和：
+\eq{
+    :\partial X^{\mu}\partial X_{\mu}\colon(z):\partial^{\prime}X^{\nu}\partial^{\prime}X_{\nu}\colon(z^{\prime})
+    & =:\partial X^\mu\partial X_\mu(z)\partial^{\prime}X^\nu\partial^{\prime}X_\nu(z^{\prime}): \\
+    &+4\times\partial  X^\mu(z)\partial^{\prime}  X^\nu(z^{\prime}):\partial X_\mu(z)\partial^{\prime}X_\nu:(z^{\prime}) \\
+    &+2\times\partial X^\mu(z)\partial^{\prime}X^\nu(z^{\prime})\partial X_\mu(z)\partial^{\prime}X_\nu(z^{\prime}) \\
+&=\partial X^\mu\partial X_\mu(z)\partial^\prime X^\nu\partial^\prime X_\nu(z^\prime) \\
+&-4 \times \frac12\alpha^{\prime}\eta^{\mu\nu}\partial\partial^{\prime}\ln|z-z^{\prime}|^2:\partial X_\mu(z)\partial^{\prime}X_\nu:(z^{\prime}) \\
+&+2 \times \left(\frac12\alpha^{\prime}\eta^{\mu\nu}\partial\partial^{\prime}\ln|z-z^{\prime}|^2\right)^2&
+}
+其中式子第二和第三行我们放在：：外面的场算符会contract变成\seq{-\frac{\alpha^{\prime}}2\eta^{\mu\nu}\ln\left|z_{12}\right|^2 }。这样我们才能够得到后面行的结论。至于系数就是组合的情况。对于只有两个场算符contract的情况由于2.2 = 2所以我们一共有四种情况；对于四个contract的情况由于只有两种选择所以系数是2。
+
+\hdt{第二步}我们把所有单个的normal order operator进行泰勒展开。由于我们这些算符都是normal ordered所以泰勒展开不包含交叉项，并且并没有奇异（可以认为就是行为很规范的经典场）最后我们得到展开的结果是：
+\eq{
+    \sim\frac{D\alpha^{\prime2}}{2(z-z^{\prime})^4}-\frac{2\alpha^{\prime}}{(z-z^{\prime})^2}:\partial^{\prime}X^\mu(z^{\prime})\partial^{\prime}X_\mu(z^{\prime}):-\frac{2\alpha^{\prime}}{z-z^{\prime}}:\partial^{\prime2}X^\mu(z^{\prime})\partial^{\prime}X_\mu(z^{\prime}):
+}
+其中\seq{\sim}指的就是我们只考虑有奇异性的项的展开。
+
+\at{
+    注意我们上面所有的场算符的导数都写成只和\seq{z}相关但是和\seq{\bar{z}}无关是因为我们有标量场的运动方程的量子化后的算符表达式是：
+    \eq{
+    \partial\bar{\partial}\hat{X}^\mu(z,\bar{z})=0
+    }
+    正好是全纯函数的表达形式。所以自变量其实只有\seq{z}
+}
+
+
+\line
+接下来我们计算另外一个算符的OPE。首先定义两个算符是：
+\eq{
+    \mathscr{F}=e^{ik_1\cdot X(z,\bar{z})},\quad\mathscr{G}=e^{ik_2\cdot X(0,0)}
+}
+
+\hdt{第一步}
+和之前不一样我们之前使用的是比较规范定义的contraction的方式，这个时候我们可以使用形式化的泛函求导的公式进行计算：
+由于我们有公式：
+\eq{
+    :\mathscr{F}::\mathscr{G}:=\exp\left(-\frac{\alpha^{\prime}}{2}\int d^2z_1d^2z_2\ln|z_{12}|^2\frac\delta{\delta X_F^\mu(z_1,\bar{z}_1)}\frac\delta{\delta X_{G\mu}(z_2,\bar{z}_2)}\right):\mathscr{F}\mathscr{G}:
+}
+我需要澄清一下这个形式化的表达是什么意思。我们分别对于\seq{\mathscr{F}}和\seq{\mathscr{G}}中同样label也就是同样的一个标量场进行求导，如果有多个同样类型的标量场那么我们可以排列组合。
+全程求导的过程请无视右面式子里面的::。因为我们发现所有算符已经是normal ordered的了。
+\eq{
+    :e^{ik_1\cdot X(z,\bar{z})}::e^{ik_2\cdot X(0,0)}:&=\exp\left(\frac{\alpha^{\prime}}2k_1\cdot k_2\ln|z|^2\right):e^{ik_1\cdot X(z,\bar{z})}e^{ik_2\cdot X(0,0)}:\\&=|z|^{\alpha^{\prime}k_1\cdot k_2}:e^{ik_1\cdot X(z,\bar{z})}e^{ik_2\cdot X(0,0)}:
+}
+
+\hdt{第二步}我们依旧使用泰勒展开在第二个算符处展开第一个算符。由于是normal order我们可以比较恣意的进行泰勒展开：
+\eq{
+    :e^{ik_1\cdot X(z,\bar{z})}::e^{ik_2\cdot X(0,0)}:=|z|^{\alpha^{\prime}k_1\cdot k_2}:e^{i(k_1+k_2)\cdot X(0,0)}[1+O(z,\bar{z})]:.
+}
+\newpage
+\section{Ward Identity}
+\subsection{Ward Identity定义}
+首先我们定义什么是Symmetry。由于我们讨论在量子场论的语境下，所以我们定义量子的Symmetry：
+\defi{
+    Symmetry
+
+    如果存在一个场的函数的变换（坐标的变换与函数形式的变化的综合）:
+    \eq{
+        \phi_\alpha^{\prime}(\sigma)=\phi_\alpha(\sigma)+\delta\phi_\alpha(\sigma)
+    }
+    其中\seq{\delta\phi_\alpha(\sigma)}正比于一个无限小的常数\seq{\epsilon}。这个变换前后满足这个关系：
+    \eq{
+        [d\phi^{\prime}]\exp(-S[\phi^{\prime}])=[d\phi]\exp(-S[\phi])
+    }
+    那么这个变换就是Symmetry。
+}
+
+接下来我们给出一个定理:
+\thm{
+    Ward Identity
+
+    如果系统存在一个Symmetry。那么必然存在一个守恒的流。这个守恒流量子化后面的结果满足一定的算符关系，我们称之为Ward Identity。
+}
+接下来我们推导算符的关系，首先我们把我们的Symmetry变换进行一个变形加入一个任意的函数\seq{\rho(\sigma)}。
+\eq{
+    \phi_\alpha^{\prime}(\sigma)=\phi_\alpha(\sigma)+\rho(\sigma)\delta\phi_\alpha(\sigma)
+}
+
+这个时候请谨记\seq{\delta \phi_\alpha(\sigma)}正比于一个无限小常数\seq{\epsilon}。
+
+对于Symmetry变换进行修正之后我们可以发现之前定义的关系不再满足，而是变为了：
+\eq{
+    [d\phi^{\prime}]&\exp(-S[\phi^{\prime}])=[d\phi]\exp(-S[\phi])\left[1+\frac{i\epsilon}{2\pi}\int d^{d}\sigma\mathrm{~g}^{1/2}j^{a}(\sigma)\partial_{a}\rho(\sigma)+O(\epsilon^{2})\right]
+}
+其中\seq{j^a(\sigma)}是被场和measure的变换决定的一个local的物理量。而g指的是我们考虑空间的度规
+或者写成:
+\eq{
+   \int [d\phi^{\prime}]&\exp(-S[\phi^{\prime}])- \int[d\phi]\exp(-S[\phi]) = \frac{i\epsilon}{2\pi}\int d^{d}\sigma\mathrm{~g}^{1/2} \langle j^{a}(\sigma)\rangle \partial_{a}\rho(\sigma) 
+}
+关于右面的式子，我们的路径积分是泛函的积分只和函数形式相关。由于只有诺特流与我们唱的函数形式相关，所以只对其进行平均。
+
+接下来我们考虑两种特殊的\seq{\rho}函数形式：
+\itm{
+    \pt{
+        \hdt{\seq{\rho(\sigma)}只在一个不含任何算符的小区域里面不为0}
+        \pict{2024-08-03-17-12-10.png}{0.3}
+        由于这个情况所以我们认为变换前后了关联函数（也就是平均值）并不发生变化：
+        \eq{
+            \text{0}&=\int[d\phi^{\prime}]\exp(-S[\phi^{\prime}])\ldots\quad- \int[d\phi]\exp(-S[\phi])\ldots\\&=\frac{i \epsilon}{2\pi}\int d^d\sigma g^{1/2}\rho(\sigma)\left\langle\nabla_aj^a(\sigma) \ldots\right\rangle 
+        }
+        上方的式子之中我们使用了分部积分，以及公式：
+        \eq{
+            \partial_a(g^{1/2}v^a(c))=g^{1/2}\nabla_av^a(c)
+        }
+        因此最后由于\seq{\rho(\sigma)}是任取的，可以得到诺特定理：
+        \thm{
+            如果算符右面不插入同一点的算符那么满足：
+            \eq{
+            \nabla_aj^a=0
+        }
+        }
+        
+        \at{
+            上面的公式其实只在讨论的\seq{\rho}不为0的小区域里面成立，也就是说。如果我们关心的local小空间里面有其他的算符，那么上面的诺特定理就需要被算符进行一个修正。
+
+            而修正后的结果我们称之为Ward Identity。
+
+            这个时候我们也意识到了。这两个关系并不是对于全空间成立的，而是local property。仅仅对于我们考虑的一个小区域的讨论之中使用成立的！
+
+        }
+    \at{
+            我们为什么要很刻意的定义“很小的区域”呢？
+            
+            因为每当我们写下一个算符的关系式子的时候我们往往在默认，在这个算符右面乘上其他任意算符这个式子依然成立。
+            也就是说算符的表达式的意义其实是:
+            \eq{
+                \nabla_a j^a ... = 0
+            }
+
+            但是其实对于诺特定理这个并不成立，如果在右面乘上了一个和诺特流在同一个点上的场，那么就会出问题。就不能用诺特定理来描述而是需要用Ward Identity。
+    }
+        }
+
+    \pt{
+        \hdt{\seq{\rho(\sigma)}只在包含一个算符的小区域R里面为1，其他区域为0}
+        \pict{2024-08-03-17-13-59.png}{0.3}
+        这个情况之下我们可以依旧根据公式（2.55）进行计算，等式左边变成了算符的平均值变化量。
+        \eq{
+            \delta\mathscr{A}(\sigma_0)+\frac\epsilon{2\pi i}\int_Rd^d\sigma g^{1/2}\nabla_aj^a(\sigma)\mathscr{A}(\sigma_0)=0
+        }
+        或者可以写成“微分形式”也就是我们常见的Ward Identity：
+        \thm{
+            Ward Identity
+            \eq{
+            \nabla_aj^a(\sigma)\mathscr{A}(\sigma_0)=g^{-1/2}\delta^d(\sigma-\sigma_0)\frac{2\pi}{i\epsilon}\delta\mathscr{A}(\sigma_0)+\text{total }\sigma\text{-derivative}
+        }
+
+        }
+        
+
+
+    
+
+    }
+}
+
+接下来我们着重讨论，我们考虑的local小区域里面存在算符的情况。这种情况之下我们可以利用散度的定理变形式子（2.60），我们有：
+\eq{
+    \int_{\partial R}dA\left.n_aj^a\mathscr{A}(\sigma_0)=\frac{2\pi}{i\epsilon}\delta\mathscr{A}(\sigma_0)\right.
+}
+这个积分是对于向外的方向，进行逆时针绕圈的积分。
+
+\line
+我们现在开始只考虑二维空间，并且通过我们的坐标变换变成holomorphic \& antinolomrophic的坐标：
+\eq{
+    \oint_{\partial R}(jdz-\tilde{j}d\bar{z})\mathscr{A}(z_0,\bar{z}_0)=\frac{2\pi}\epsilon\delta\mathscr{A}(z_0,\bar{z}_0)
+}
+其中我们定义其中：
+\seq{
+    j_1\equiv j_z, \tilde{j} \equiv j_{\bar{z}}
+}
+并且由于我们考虑的是被wick rotation之后的一个欧几里得量子场论，所以我们回大西安\seq{j_z = \frac12 (j_1-ij_2)}是厄米的，因为\seq{j_2^{\dagger} = -j_2}。
+\line
+接下来我们考虑如果场论具有共形不变形，这个时候我们的\seq{j_z}一般只是z的函数；\seq{\tilde{j}_{\bar{z}}}仅仅是\seq{\bar{z}}的函数。这个时候我们可以对于式子（2.63）使用留数定理：
+\eq{
+    \mathrm{Res}_{z\to z_0}j(z)\mathcal{A}(z_0,\bar{z}_0)=\frac1{2\pi i}\oint_Cdz\left.j(z)\mathcal{A}(z_0,\bar{z}_0)\right.\\
+    \bar{\mathrm{Res}}_{\bar{z}\to \bar{z}_0}\tilde{j}(\bar{z})\mathcal{A}(z_0,\bar{z}_0)= - \frac1{2\pi i}\oint_Cd\bar{z}\left.\tilde{j}(\bar{z})\mathcal{A}(z_0,\bar{z}_0)\right.
+}
+注意：反全纯的函数使用留数定理逆时针积分会出一个负号！！
+根据上面的两个柿子我们可以得到一个很重要的定理：
+\thm{
+    对称性对应诺特流和算符OPE留数 与 算符变换的关系.
+    又名Conformal Ward Identity
+
+    我们讨论二维的空间其中j是一个共形不变形的系统的共形变换的守恒荷（一个例子是：由能动量张量生成\seq{j(z) = iv(z)T(z)}）。对于共形不变形的系统，共形不变对应的守恒荷必然是全纯和反全纯函数（上方例子这个正好成立）。
+
+    并且由下面的关系：
+    \eq{
+    \operatorname{Res}_{z\to z_0}j(z)\mathscr{A}(z_0,\bar{z}_0)+\operatorname{Res}_{\bar{z}\to\bar{z}_0}\tilde{j}(\bar{z})\mathscr{A}(z_0,\bar{z}_0)=\frac1{i\epsilon}\delta\mathscr{A}(z_0,\bar{z}_0)
+}
+}
+
+这是一个算符的关系，并且由于我们讨论的是留数所以正好就是讨论OPE的-1阶的算符与一个算符的变化之间的关系。我们可以很显然的看出来OPE和Ward Identity之间的关系。
+
+那么为了求留数，我们需要使用OPE。但是在此之前需要求出诺特流对于场的泛函，下面我们给出一些诺特流对于场的泛函的求解。
+
+\rmk{
+    怎么理解Ward Identity是一个local的性质呢？
+
+    我认为我们可以认为Noether thm在每一个点都成立。只是，如果不小心碰上了这个点有一个又面乘上去的算符，那么就需要modify一下。那么需要变化多少呢？变化的量正好是这个点处算符在Symmetry变化前后的变化量。
+~\\
+
+    怎么理解“正好碰上”呢？
+    
+    同时我们也可以换一种说法：“两个算符在某个点碰上”正好等价于求两个算符的OPE。Ward Identity告诉我们OPE的留数（-1阶）的和正好等于碰上的右面的算符在Symmetry变化的变化量。
+}
+
+\subsection{计算Noether Current}
+\subsubsection{计算场平移不变诺特流}
+对于场进行平移我们可以有：
+\eq{
+    \delta X^\mu=\epsilon a^\mu.\quad \delta X^\mu(\sigma)=\epsilon\rho(\sigma)a^\mu 
+}
+其中我们有\seq{a^{\mu}}是\seq{\mu}方向的单位向量。
+我们可以通过作用量变换不变（因为我们的measure自动变换不变）求出诺特流：
+\eq{
+    j_a^\mu=\frac i{\alpha^{\prime}}\partial_aX^\mu 
+}
+
+接下来可以进行一个操作就是求诺特流和算符的OPE。由于我们的OPE只能定义Normal order的OPE。但是诺特流自身只有一个场的泛函，所以自身自然就是Normal order的了，求解的结果是：
+\eq{
+    j^{\mu}(z)
+    :e^{ik\cdot X(0,0)}:\  \sim 
+    \frac{k^{\mu}}{2z}:e^{ik\cdot X(0,0)}:\\
+    \tilde{J}^{\mu}(\bar{z}):e^{ik\cdot X(0,0)}:\  \sim \frac{k^{\mu}}{2\bar{z}}:e^{ik\cdot X(0,0)}:
+}
+很容易看出我们的留数的和是：
+\eq{
+    k^\mu :e^{ik\cdot X(0,0)}: = \frac{\delta \mA}{i \epsilon}
+}
+正好满足公式（2.66）。
+
+\subsubsection{计算world sheet平移不变诺特流}
+\pict{2024-08-03-18-06-44.png}{0.9}
+
+\newpage
+\section{共形不变性}
+\subsection{构造共形变换}
+我们首先讨论能动量张量：
+\eq{
+    T_{ab}=-\frac1{\alpha^{\prime}}:\left(\partial_aX^\mu\partial_bX_\mu-\frac12\delta_{ab}\partial_cX^\mu\partial^cX_\mu\right):
+}
+我们发现几个性质：
+\itm{
+    \pt{
+        traceless（上面的能动量张量显然tr是0，但是我们可以证明二维满足共性对称性的tr都是0）:\seq{T^a_a = 0}也就是说\seq{T_{z \bar{z}} = 0}所有非对角元都是0
+    }
+    \pt{
+        由于我们诺特定理（这个讨论和场无关）给出了能量守恒（当然这里的“守恒”指算符右面不乘上同一个点的其他算符）我们有关系：
+        \eq{
+            \partial^a T_{ab} = 0
+        }
+        相等价的我们有：
+        \eq{
+            \bar{\partial}T_{zz}=\partial T_{{\bar{z}\bar{z}}}=0
+        }
+        因此我们发现两个独立的能动量张量一个是全纯的一个是反全纯的。
+    }
+    \pt{
+        notation定义：
+        \eq{
+            T(z)\equiv T_{zz}(z)\text{ , }\quad\tilde{T}(\bar{z})\equiv T_{\bar{z}\bar{z}}(\bar{z})
+        }
+    }
+    \pt{
+        由于\seq{T_{ab}}满足上面的性质那么我们自然可以对于两个能动量张量加上任意一个全纯、反全纯函数保证能动量张量仍然是守恒的！这意味着有着一个更大的对称性：
+        \eq{
+            j(z)=iv(z)T(z)\text{ , }\quad j(\bar{z})=iv(z)^*\tilde{T}(\bar{z})
+        }
+        注意，我们之前推导能动量张量用的仅仅是一个特殊的二维共形变换（平移不变性）那么其实我们发现能动量张量进行一些modification之后依旧是守恒的。但是对应着完整的共性不变性。
+    }
+}
+\line
+接下来我们希望研究这个“更大的对称性”到底是什么？
+
+我们的思路是我们已经知道诺特流了，我们通过诺特流的OPE反回去推导场的变换关系，得到场的生成元。
+
+
+对于二维的标量场，我们有能动量张量的表达式是：
+\eq{
+    T(z)=-\frac1{\alpha^{\prime}}:\partial X^\mu\partial X_\mu:,\quad\tilde{T}(\bar{z})=-\frac1{\alpha^{\prime}}:\bar{\partial}X^\mu\bar{\partial}X_\mu:
+}
+根据我们的二维标量场的运动方程：\seq{\partial\bar{\partial}X^\mu(z,\bar{z})=0 }显然可以知道分别是全纯和反全纯的。
+
+接下来我们使用扩展的诺特流（2.76）和场求解OPE：
+\eq{
+    j(z)X^{\mu}(0)\sim\frac{i v(z)}{z}\partial X^{\mu}(0)\mathrm{~,~}\quad\tilde{j}(\bar{z})X^{\mu}(0)\sim\frac{i v(z)^*}{\bar{z}}\bar{\partial}X^{\mu}(0)
+}
+利用公式:
+\eq{
+    \operatorname{Res}_{z\to z_0}j(z)\mathscr{A}(z_0,\bar{z}_0)+\operatorname{Res}_{\bar{z}\to\bar{z}_0}\tilde{j}(\bar{z})\mathscr{A}(z_0,\bar{z}_0)=\frac1{i\epsilon}\delta\mathscr{A}(z_0,\bar{z}_0)
+}
+可以推出：
+\eq{
+    \delta X^\mu=-\epsilon v(z)\partial X^\mu-\epsilon v(z)^*\bar{\partial}X^\mu.
+}
+\eq{
+    z^{\prime} = z+\epsilon v(z)
+}
+其中\seq{v(z)}正好就是对于诺特流的modification的那个全纯函数。
+
+这个变化的关系在宏观上是：
+\eq{
+    X^{\prime\mu}(z^{\prime},\bar{z}^{\prime})=X^\mu(z,\bar{z}) ,\quad z^{\prime}=f(z)
+}   
+我们称之为\hdt{共形变换}。
+
+\at{
+    注意我们上面讨论的都是在“自由标量场”的语境之下的。也就是我们认为场是没有spin也是0维的。
+    
+    这个时候场的变换关系是:
+    \eq{
+        X^{\prime\mu}(z^{\prime},\bar{z}^{\prime})=X^\mu(z,\bar{z}) ,\quad z^{\prime}=f(z)
+    }
+    无限小变换关系是:
+    \eq{
+        \delta X^\mu=-\epsilon v(z)\partial X^\mu-\epsilon v(z)^*\bar{\partial}X^\mu.
+    }
+    其中\seq{v(z)}是:
+    \eq{
+        z^{\prime}=z+\epsilon v(z)
+    }
+    但是对于一般的有spin和维度的协变场我们并不一定成立。下面一小节我们会讨论更一般的协变场。
+}
+
+\subsection{共形变换的特质}
+我们给出二维的共形变换的定义是：
+\defi{
+    共形变换
+
+    我们定义共形变换是对于二维空间写成：
+    \eq{
+        z^{\prime}=f(z)
+    }
+    其中f是一个全纯函数。
+}
+接下来我们讨论二维空间之中定义这样的变换有哪些性质：
+\itm{
+    \pt{
+        共形变换对于距离的影响，我们发现共形变换让距离乘以一个依赖于位置的量:
+        \eq{
+            ds^{\prime2}=dz^{\prime}d\bar{z}^{\prime}=\frac{\partial z^{\prime}}{\partial z}\frac{\partial\bar{z}^{\prime}}{\partial\bar{z}}dzd\bar{z}.
+        }
+    }
+}
+
+\subsection{共形不变性和OPE}
+共形不变形给以EM张量的OPE约束：
+
+我们这里主要考虑\seq{T(z)}能动量张量和某一个在0点的算符之间的OPE。由于OPE我们可以认为是在外面圈的算符在里面圈的展开，而正好\seq{T(z)}是全纯函数所以可以进行洛朗展开。这个时候我们可以证明一个结论：
+\lmm{
+    如果系统具有一定的共性对称性，能动量张量是共性对称性保证的守恒量。
+
+
+    所有的奇异的OPE的系数完全由能动量张量右面的算符的共性变换决定。
+}
+我们对于OPE进行展开：
+\eq{
+    T(z)\mathscr{A}(0,0)\thicksim\sum_{n=0}^\infty\frac1{z^{n+1}}\mathscr{A}^{(n)}(0,0)
+}
+注意我们这里右方的\seq{\mathscr{A}}的系数比展开系数要小一阶。
+接下来我们利用公式：
+\eq{
+    \operatorname{Res}_{z\to z_0}j(z)\mathscr{A}(z_0,\bar{z}_0)+\operatorname{Res}_{\bar{z}\to\bar{z}_0}\tilde{j}(\bar{z})\mathscr{A}(z_0,\bar{z}_0)=\frac1{i\epsilon}\delta\mathscr{A}(z_0,\bar{z}_0)
+}
+我们进一步计算出，对于能动量张量进行一些变换的共性变换的守恒荷，也就是\seq{j(z) = i v(z) T(z)}以及\seq{\bar{j}(\bar{z}) = i v(z)^* \bar{T}(\bar{z})}我们有关系：
+\eq{
+    \delta\mathscr{A}(z,\bar{z})=-\epsilon\sum_{n=0}^\infty\frac1{n!}\left[\partial^nv(z)\mathscr{A}^{(n)}(z,\bar{z})+\bar{\partial}^nv(z)^*\tilde{\mathscr{A}}^{(n)}(z,\bar{z})\right]
+}
+推导过程是，对于一个特别的共形变换的诺特流：\seq{j(z)= i v(z)T(z)}我们的公式：
+\eq{
+    \delta\mathcal{A}(z_{0})&= \operatorname{Res}_{z\to z_0}j(z)\mathscr{A}(z_0,\bar{z}_0)\\& =i\varepsilon\frac1{2\pi i}\oint_Cj(z)\mathcal{A}(z_0)
+    \\&=i\varepsilon\frac1{2\pi i}\oint_Civ(z)T(z)\mathcal{A}(z_0) \\
+&=-\frac\varepsilon{2\pi i}\oint_C\sum_{k=0}^\infty\frac{(z-z_0)^k}{k!}\partial^kv(z_0)\sum_{n=0}^\infty\frac{\mathcal{A}^{(n)}(z_0)}{(z-z_0)^{n+1}} \\
+&=-\frac\varepsilon{2\pi i}\sum_{k,n=0}^\infty\frac1{k!}\frac{\partial^kv(z_0)\mathcal{A}^{(n)}(z_0)}{(z-z_0)^{n-k+1}}=-\varepsilon\sum_{n=0}^\infty\frac1{n!}\partial^nv(z_0)\mathcal{A}^{(n)}
+}
+上面是全纯的情况，反全纯的情况同理！
+\rmk{
+    这里我们写的\seq{\delta\mathcal{A}(z_{0})}指的并不是共形变换下某个算符的无限小变换；而是【这个变换的全纯部分】
+
+    之后我们也会看到一些公式：
+    \eq{
+        \operatorname{Res}_{z\to z_0}j(z)\mathscr{A}(z_0,\bar{z}_0)=\frac1{i\epsilon}\delta\mathscr{A}(z_0,\bar{z}_0)
+    }
+    这些公式的意思是我们只考虑变换的全纯部分。其中\seq{\frac1{i\epsilon}\delta\mathscr{A}(z_0,\bar{z}_0)}的意思不再是完整的共形变换，而是变换的全纯部分。
+}
+\thm{
+    共形变换生成元与EM tensor OPE的关系
+
+    这样我们就产生了一组方法来确定\seq{\mA^{(n)}}具体的值是什么。我们已知一个变换（坐标和协变场的变换形式）那么我们就可以得到\seq{\delta \mA}的形式。in terms of \seq{v(z)}。其中\seq{z' = z+ \epsilon v(z)}。
+
+    接下来我们把这个形式和公式:
+    \eq{
+        \delta\mathscr{A}(z,\bar{z})=-\epsilon\sum_{n=0}^\infty\frac1{n!}\left[\partial^nv(z)\mathscr{A}^{(n)}(z,\bar{z})+\bar{\partial}^nv(z)^*\tilde{\mathscr{A}}^{(n)}(z,\bar{z})\right] 
+    }
+    进行对比，就可以得到各个-1以及以上项的系数！但问题是，我们求不出来更低阶的系数，并且如果\seq{v(z)}的高阶导数为0那么也是求不出来OPE的系数的。
+~\\
+
+    注意一个容易混淆的地方：
+    
+    \seq{\delta\mathscr{A}}是共形变换下面某个算符的无限小变化量，对应的生成元是\seq{j = i v(z)T(z)}；而\seq{\mathscr{A}^{(n)}}是能动量张量和算符\seq{\mathscr{A}}的OPE展开的系数！！
+}
+
+\rmk{
+    我们会发现当我们给出一个变换，我们并不能够确定全部的OPE的系数。（至少我们给不出没有奇异的项的系数。）
+
+    但是如果给出一个OPE我们可以完整的给出一个无限小变换。
+}
+\line
+
+接下来我们就用一个例子来说明。我们给定一个特殊的共性变换，来求出OPE的各项系数：
+\eq{
+    z^{\prime}=\zeta z \quad  \mathscr{A}^{\prime}(z^{\prime},\bar{z}^{\prime})=\zeta^{-h}\overline{\zeta} ^{-\tilde{h}}\mathscr{A}(z,\bar{z})
+}
+其中\seq{\zeta}是一个普通的复数\seq{\zeta = A e^{i \theta}}。并且我们认为\seq{h+\tilde{h}}是算符\seq{\mA}的维度；\seq{h-\tilde{h}}是算符的spin。
+我们可以计算微小到变换为\seq{\zeta = (1+\epsilon)}同时对于这个变换我们有\seq{v(z) = z}:
+\eq{
+    \delta\mathcal{A}(z)=\mathcal{A}^{\prime}(z)-\mathcal{A}(z)=-\varepsilon z\partial\mathcal{A}(z)-h\varepsilon\mathcal{A}(z)
+}
+这样我们很容易确定：
+\eq{
+    T(z)\mathscr{A}(0,0)=\ldots+\frac h{z^2}\mathscr{A}(0,0)+\frac1z\partial\mathscr{A}(0,0)+\ldots 
+}
+
+\line
+我们考虑一种重要的协变场我们称之为：Primary Field，它满足下面的协变关系：
+\eq{
+    \mathcal{O}^{\prime}(z^{\prime},\bar{z}^{\prime})=(\partial_{z}z^{\prime})^{-h}(\partial_{{\bar{z}}}\bar{z}^{\prime})^{{-\tilde{h}}}\mathcal{O}(z,\bar{z})\mathrm{~.}
+}
+我们同样可以推导出相应的OPE的系数：
+\eq{
+    T(z)\mathscr{O}(0,0)=\frac h{z^2}\mathscr{O}(0,0)+\frac1z\partial\mathscr{O}(0,0)+\ldots 
+}
+\line
+接下来列出一些特殊的场的h的数值，并且我们会发现除了\seq{\partial^2 X^\mu}都是Primary field：
+\pict{2024-08-04-14-14-06.png}{0.8} 
+我们如何得到这些数值呢？
+
+首先我们计算其OPE。通过OPE的形式我们会发现他们是不是primary field。
+接下来，我们使用-2阶的系数当作h数值。
+
+对于\seq{X^\mu}我们前面计算过:
+\eq{
+    T(z)X^\mu(0)\thicksim\frac1z\partial X^\mu(0)
+}
+对于\seq{\partial X^\mu}:
+\eq{
+    T(z)\partial X^\mu(w)=\partial_w (T(z)X^\mu(w)) = \partial_w\left(\frac{\partial X^\mu(w)}{z-w}\right)=\frac{\partial X^\mu(w)}{(z-w)^2}+\frac{\partial(\partial X^\mu)(w)}{z-w}
+}
+对于\seq{\partial^2 X^\mu}:
+\eq{
+    T(z)\partial^{2}X^{\mu}(w)& =\partial_w\left[\frac{\partial X^\mu(w)}{(z-w)^2}+\frac{\partial(\partial X^\mu)(w)}{z-w}\right] \\
+&=\frac{2\partial X^\mu(w)}{(z-w)^3}+\frac{2\partial X^\mu(w)}{(z-w)^2}+\frac{\partial(\partial^2X^\mu)(w)}{z-w}
+}
+我们会发现由于有三阶项的存在所以这并不是一个Primary field。
+
+对于\seq{:e^{ik.X(w)}:}：
+\eq{
+    T(z):e^{ik\cdot X(w)}& :=- \frac{1}{\alpha^{\prime}}:\partial X^{\mu}\partial X_{\mu}\colon(z) \sum_{n=0}^{\infty}\frac{i^{n}}{n!}:(k\cdot X)^{n}\colon(w) \\
+&=-\frac1{\alpha^{\prime}}\bigg[\sum_{n=0}^\infty\frac{2ni^n}{n!}k_\nu\partial\overline{X^\mu(z)X}^\nu(w):(k\cdot X)^{n-1}\colon(w) \\
+&+\left[\sum_{n=0}^\infty\frac{2n(n-1)i^n}{n!}k_\nu k_\sigma\partial\overline{X^\mu(z)X}^\nu(w)\partial\overline{X_\mu(z)X}^\sigma(w):(k\cdot X)^{n-2}\colon(w)\right] \\
+&=-\frac1{\alpha^{\prime}}{\left[2k_{\nu}\left(-\frac{\eta^{\mu\nu}\alpha^{\prime}}{2(z-w)}\right)i\sum_{n=1}^{\infty}\frac{i^{n-1}}{(n-1)!}\right.:}\partial X^{\mu}(z)(k\cdot X)^{n-1}(w): \\
+&\left.+k_\nu k_\sigma\left(-\frac{\eta^{\mu\nu}\alpha^{\prime}}{2(z-w)}\right)\left(-\frac{\delta_\mu^\sigma\alpha^{\prime}}{2(z-w)}\right)i^2\sum_{n=2}^\infty\frac{i^{n-2}}{(n-2)!}:(k\cdot X)^{n-2}(w):\right] \\
+&=\frac{ik_\mu:\partial^\mu X(z)e^{ik\cdot X(w)}:}{z-w}+\frac{\alpha^{\prime}k^\mu k_\mu:e^{ik\cdot X(w)}:}{4(z-w)^2} \\
+&\sim\frac{\frac{\alpha^{\prime}k^2}4:e^{ik\cdot X(w)}:}{(z-w)^2}+\frac{\partial:e^{ik\cdot X(w)}:}{z-w}
+}
+上面画横线指的是contraction。这个时候我们可以看出来我们的normal order的算符的共形变换和一般ordered其实并不一样！！这个区别源于“量子”下定义同一点两个算符的乘积！！
+
+% \line
+% 我们上面计算的conformal dimension h独立的决定了OPE系数对于两个点位置的依赖！
+
+\subsection{能动量张量共形性质}
+之前已经求出能动量张量的OPE是:
+\eq{
+    T(z)T(0)& =\frac{\eta^\mu\mu}{2z^4}-\frac2{\alpha^{\prime}z^2}:\partial X^\mu(z)\partial X_\mu(0):+:T(z)T(0): \\
+&\thicksim\frac D{2z^4}+\frac2{z^2}T(0)+\frac1z\partial T(0) .
+}
+根据这个OPE我们有能动量张量的共形变换下的展开
+\eq{
+    T(z)T(w)\sim\sum_{n=0}^\infty\frac{T^{(n)}(w)}{(z-w)^{n+1}}
+}
+这个展开的有奇异的项的系数是：
+\eq{
+    T^{(3)}(z)=D/2;\quad T^{(1)}(z)=2T(z);\quad T^{(0)}(z)=\partial T(z)
+}
+根据我们之前OPE和变换生成元的关系我们可以知道能动量张量在共形变换下面的生成元是：
+\eq{
+    \delta T(z)& =-\left.\varepsilon\left[\frac1{3!}\partial^3v(z)T^{(3)}(z)+\frac1{1!}\partial^1v(z)T^{(1)}(z)+\frac1{0!}\partial^0v(z)T^{(0)}(z)\right]\right. \\
+&=-\varepsilon\left[\frac D{12}\partial^3v(z)+2\partial v(z)T(z)+v(z)\partial T(z)\right]
+}
+我们对比OPE就已经显然会发现，这个OPE并不是Primary Field的OPE也就是说能动量张量其实并不是一个“张量”，因为它不满足我们一般认为的共形变换下的场的协变方式。
+
+\line
+
+接下来值得讨论的就是能动量张量是怎么样随着共形变换协变的。
+我们取能动量张量的变换形式：
+\eq{
+    \epsilon^{-1}\delta T(z)=-\frac c{12}\partial_z^3v(z)-2\partial_zv(z)T(z)-v(z)\partial_zT(z)
+}
+其中的c我们定义为"centual charge"。
+
+对应的能动量张量的变换是：
+\eq{
+    \begin{gathered}
+        (\partial_zz^{\prime})^2T^{\prime}(z^{\prime})=T(z)-\frac c{12}\{z^{\prime},z\} , \\
+        \mathrm{where~}\{f,z\}\text{ denotes the Schwarzian derivative} \\
+        \{f,z\}=\frac{2\partial_z^3f\partial_zf-3\partial_z^2f\partial_z^2f}{2\partial_zf\partial_zf} . 
+    \end{gathered}
+}
+这个变换形式我们会发现，广义相对论里面我们讨论的协变张量是按照坐标的变换矩阵进行变换的。这个时候的能动量张量显然不是一个张量，相比于坐标变换矩阵进行的变换，我们多出了一个和central charge相关的项。
+\rmk{
+    我们怎么理解“共形变换下能动量张量不再是张量”这个事实呢？
+
+    首先，我们先明确我们这里讨论的T，到底是什么？我们区分两个量：
+    \seq{j = i v(z)T(z)}是共形变换的守恒量；T是能动量张量，是world sheet translation变换的守恒量。
+
+    最后，对于2D共形变换是一个local 变换。一般我们用主动的观点研究共形变换。但是，由于作为local变换，（根据广义相对论里讨论的主被动变换等价原理）其实等价于一个坐标变换。
+    对于这样的变换我们认为“张量的协变”指的是张量按照被动变换观点下的坐标变换矩阵\seq{z' = z + v(z)\epsilon}进行变换。但是很可惜的是能动量张量并不按照这个变化进行变换。所以我们会说它不是一个张量。
+}
+
+\line
+接下来我们讨论一个general的OPE。如果对于两个conformal weight（这个是由dimension和spin这样的算符的内柄的性质决定的）我们对于OPE进行坐标变换可以变成下面的形式：
+\eq{
+    \mathscr{A}_i(z_1,\bar{z}_1)\mathscr{A}_j(z_2,\bar{z}_2)=\sum_kz_{12}^{h_k-h_i-h_j}\bar{z}_{12}^{\tilde{h}_k-\tilde{h}_i-\tilde{h}_j}c_{ij}^k\mathscr{A}_k(z_2,\bar{z}_2)
+}
+我们很快可以发现一个结论就是：
+算符的OPE被h数lower bound所以最大的奇异有一个下界。
+
+\newpage
+\section{Virasoro 代数}
+现在我们讨论一个general的1+1维的周期性的CFT的能谱。我们认为我们的理论生活的空间是：
+\eq{
+    \sigma^1\thicksim\sigma^1+2\pi. \quad -\infty < \sigma^2 <\infty
+}
+注意我们一般使用\seq{\sigma^2}作为我们的时间维度。
+
+接下来有两种坐标可以描述这个体系：
+第一种是正常的周期性复平面：
+\eq{
+    w=\sigma^1+i\sigma^2
+}
+第二种我们认为时间维度是径向的：
+\eq{
+    z=\exp(-iw)=\exp(-i\sigma^1+\sigma^2)
+}
+\pict{2024-08-06-10-02-36.png}{0.8}
+
+接下来我们讨论两个坐标下面的能动量张量的表达：
+~\\
+
+1. 根据能动量张量的变换规则（注意：这个时候world sheet translation对应的“能动量张量”在共形变换下已经不是张量了）对于上面两种坐标系（或者用主动观点就是一个共形变换，但是用被动观点好求变换矩阵）:
+\eq{
+    T_{zz}(z)=(\partial_wz)^{-2}\left(T_{ww}(w)-\frac{c}{24}\right)
+}
+其中\seq{\partial_w z = -iz}是坐标变换矩阵的zw分量（由于能动量张量非对角项都是0（这个是二维共形场论在holomorphic坐标系下由于能动量张量守恒必须满足的））。
+~\\
+
+2. 两种能动量张量展开为：
+
+第一种是：
+\eq{
+    T_{zz}(z)=\sum_{m=-\infty}^\infty\frac{L_m}{z^{m+2}},&\quad\tilde{T}_{\bar{z}\bar{z}}(\bar{z})=\sum_{m=-\infty}^\infty\frac{\tilde{L}_m}{\bar{z}^{m+2}}\\
+    L_m=\oint_C\frac{dz}{2\pi iz}&z^{m+2}T_{zz}(z)\mathrm{~,}
+}
+这个展开在原点进行其实就是负无穷点进行展开;第二个式子的围道积分由于柯西定理其实和路径没有任何关系，只要绕着远点就可以了，所以我们认为\seq{L_m}展开系数矩阵其实和时间没有关系，是守恒量！！
+
+第二种是：
+\eq{
+    T_{ww}(w)=-\sum_{m=-\infty}^\infty\exp(im\sigma^1-m\sigma^2)T_m ,\\T_{\bar{w}\bar{w}}(\bar{w})=-\sum_{m=-\infty}^\infty\exp(-im\sigma^1-m\sigma^2)\tilde{T}_m 
+}
+这个展开在时间为0的点进行。
+并且根据坐标变换关系我们发现两种展开的系数矩阵满足下面的关系：
+\eq{
+    T_m=L_m-\delta_{m,0}\frac c{24} ,\quad\tilde{T}_m=\tilde{L}_m-\delta_{m,0}\frac{\tilde{c}}{24} .
+}
+~\\
+
+3. 对于时间平移不变性对应的守恒量\seq{T^{\mu 2}}注意由于是欧几里得时空我们并不区分上下标。其对应的守恒量是哈密顿量:
+\eq{
+    H = \int J^0 =\int_0^{2\pi}\frac{d\sigma^1}{2\pi} T_{22} = L_0+\tilde{L}_0-\frac{c+\tilde{c}}{24} .
+}
+~\\
+
+4.最后一个很重要的结论：
+\thm{
+    \seq{L_m}和\seq{\tilde{L}_m}定义是：
+    \eq{
+        L_m=\oint_C\frac{dz}{2\pi iz}&z^{m+2}T_{zz}(z)\mathrm{~,}
+    }
+    注意我们的积分是逆时针的。
+    \itm{
+        \pt{这一组算符是能动量张量在负无穷远的展开算符}
+        \pt{这一组算符与时间无关，是守恒量}
+        \pt{
+            这一组算符是共形变换的守恒荷，由于共形变换在二维有无穷个，所以也是有无穷个守恒荷。
+        }
+    }
+}
+
+
+接下来我们讨论一个很重要的定理:
+\thm{
+    
+对于一个对称性（注意，不一定是共形变换的诺特流，还可能是任何变换，这个定理适用范围是一般的能写成radial量子化的二维场论），其诺特流的OPE决定了，对称性对应的守恒荷的algebra。
+
+\eq{
+    [Q_1,Q_2]\{C_2\}=\oint_{C_2}\frac{dz_2}{2\pi i}\operatorname{Res}_{z_1\to z_2}j_1(z_1)j_2(z_2)
+}
+对于local算符和charge的对易子：
+\eq{
+    [Q,\mathscr{A}(z_2,\bar{z}_2)]=\operatorname{Res}_{z_1\to z_2}j(z_1)\mathscr{A}(z_2,\bar{z}_2)
+}
+
+注意：这个定理唯一的限制是：诺特流应该是holomorphic的！！！！！
+}
+对于某一个对应着一个holomorphic的诺特流的charge，在radial坐标下面，我们有定义：
+\eq{
+    Q_i\{C\}=\oint_C\frac{dz}{2\pi i}\ j_i
+}
+注意这个时候我们定义的charge还是一个经典的量，就是一个数。考虑另一个数，平对其进行路径积分平均，我们会发现对易子算符对应的物理量：
+\eq{
+    Q_1\{C_1\}Q_2\{C_2\}-Q_1\{C_3\}Q_2\{C_2\}\\
+    \hat{Q}_1\hat{Q}_2-\hat{Q}_2\hat{Q}_1 \equiv [\hat{Q}_1,\hat{Q}_2] 
+}
+其中C代表积分的围道，我们取下图之中的围道。
+\pict{2024-08-06-13-12-35.png}{0.4}
+接下来我们讨论数\eq{Q_1\{C_1\}Q_2\{C_2\}-Q_1\{C_3\}Q_2\{C_2\} = Q_2\{C_2\}(Q_1\{C_1\} - Q_1\{C_3\})}
+而对于经典的数我们可以写出关系，并与量子的相对应：
+\eq{
+    [Q_1,Q_2]\{C_2\}=\oint_{C_2}\frac{dz_2}{2\pi i}\operatorname{Res}_{z_1\to z_2}j_1(z_1)j_2(z_2)
+}
+等式两边量子化（也就是放在路径积分里面）之后，左边是对易子，右面是诺特流的OPE。
+我们会发现，charge的对易子和诺特流的OPE有关系。
+
+这个时候我们可以发现任何local算符和charge之间的对易子满足关系:
+\eq{
+    [Q,\mathscr{A}(z_2,\bar{z}_2)]=\operatorname{Res}_{z_1\to z_2}j(z_1)\mathscr{A}(z_2,\bar{z}_2)=\frac1{i\epsilon}\delta\mathscr{A}(z_2,\bar{z}_2)
+}
+相应的对于一个antiholomorphic的诺特流:
+\eq{
+    [\tilde{Q},\mathscr{A}(z_2,\bar{z}_2)]=\overline{\operatorname{Res}}_{\bar{z}_1\to\bar{z}_2}\tilde{j}(\bar{z}_1)\mathscr{A}(z_2,\bar{z}_2)=\frac1{i\epsilon}\delta\mathscr{A}(z_2,\bar{z}_2)
+}
+
+\at{
+    我们应该区分这个定理还有另外一个关系：
+    \eq{
+        \operatorname{Res}_{z\to z_0}j(z)\mathscr{A}(z_0,\bar{z}_0)+\operatorname{Res}_{\bar{z}\to\bar{z}_0}\tilde{j}(\bar{z})\mathscr{A}(z_0,\bar{z}_0)=\frac1{i\epsilon}\delta\mathscr{A}(z_0,\bar{z}_0)
+    }
+    这个关系的前提是：
+    
+    在共形变换之下！（这个关系是conformal ward identity）j是共形变换的诺特流。
+
+    共形变换的诺特流有两部分一个是holomorphic的另外一个是antiholomorphic的。只有这两部分加起来我们才可以生成一个共形变换的\seq{\delta\mathscr{A}(z_0,\bar{z}_0)}
+
+
+    但是上面我们讨论的就是一个诺特流是holomorphic的变换；和是antiholomorphic的变换，利用和共形变换一样的推导方式我们有:
+    \eq{
+    [Q,\mathscr{A}(z_2,\bar{z}_2)]=\operatorname{Res}_{z_1\to z_2}j(z_1)\mathscr{A}(z_2,\bar{z}_2)=\frac1{i\epsilon}\delta\mathscr{A}(z_2,\bar{z}_2)
+}
+以及
+\eq{
+    [\tilde{Q},\mathscr{A}(z_2,\bar{z}_2)]=\overline{\operatorname{Res}}_{\bar{z}_1\to\bar{z}_2}\tilde{j}(\bar{z}_1)\mathscr{A}(z_2,\bar{z}_2)=\frac1{i\epsilon}\delta\mathscr{A}(z_2,\bar{z}_2)
+}
+这两个是两个没有关系的不同的变换。
+
+}
+\rmk{
+    这个关系对应着经典的关系。
+    也就是对称性的对应的守恒荷，在量子化后是这个量子的对称性的生成元。
+}
+\line
+接下来我们讨论共形变换的生成元（或者守恒荷）之间的对易关系。
+
+
+\rmk{
+    虽然我们任意共形变换的生成元是有holomorphic和antiholomorphic两个部分的。这里我们很人为的把两个部分分开来讨论了。
+
+    当我们把能动量张量写成holomorphic坐标系的时候我们其实已经说明了我们准备分开讨论某一个共形变换的holomorphic和antiholomorphic的部分！
+}
+经过我懒得抄的一大堆推导我们有结论：
+\thm{
+    Virasoro Algebra
+    \eq{
+        [L_m,L_n]=(m-n)L_{m+n}+\frac c{12}(m^3-m)\delta_{m,-n}
+    }
+    }
+我们很容易意识到这个代数的一些性质：
+\eq{
+    [L_0,L_n]&=-nL_n\\
+    L_0L_n|\psi\rangle&=L_n(L_0-n)|\psi\rangle=(h-n)L_n|\psi\rangle 
+}
+这就很像升降算符。
+\pict{2024-08-06-14-46-47.png}{0.8}
+
+接下来讨论一个（h，0）的primary field的算符代数：
+\pict{2024-08-07-13-24-36.png}{0.8}
+\newpage
+\section{Mode Expansion}
+接下来我们讨论自由标量场的模式展开。
+对于最开始我们列出的自由标量场的理论：
+\eq{
+    S=\frac1{4\pi\alpha^{\prime}}\int d^2\sigma\left(\partial_1X^\mu\partial_1X_\mu+\partial_2X^\mu\partial_2X_\mu\right).
+}
+由于运动方程，我们会知道\seq{\partial X}和\seq{\bar{\partial}X}是全纯和反全纯的。所以可以利用laurent expansion。
+\eq{
+    \partial X^\mu(z)=-i\left(\frac{\alpha^{\prime}}2\right)^{1/2}\sum_{m=-\infty}^\infty\frac{\alpha_m^\mu}{z^{m+1}},\quad\bar{\partial}X^\mu(\bar{z})=-i\left(\frac{\alpha^{\prime}}2\right)^{1/2}\sum_{m=-\infty}^\infty\frac{\tilde{\alpha}_m^\mu}{\bar{z}^{m+1}}.
+}
+
+其中我们的展开系数是:
+\eq{
+    \begin{gathered}
+        \alpha_m^\mu =\left(\frac2{\alpha^{\prime}}\right)^{1/2}\oint\frac{dz}{2\pi}z^m\partial X^\mu(z)\mathrm{~,} \\
+        \tilde{\alpha}_m^\mu =-\left(\frac2{\alpha^{\prime}}\right)^{1/2}\oint\frac{d\bar{z}}{2\pi}\bar{z}^m\bar{\partial}X^\mu(\bar{z})\mathrm{~.} 
+    \end{gathered}
+}
+%TODO 需要补全但是没啥用似乎
+
+
+\newpage
+\section{Vertex Operator}
+在量子场论之中，我们认为Operator和State存在着一些关联，我们知道欧几里得路径积分如果指定一边的边界条件我们会认为生成了一个泛函，或者说量子态：
+
+我们考虑二维的半个圆柱面（从负无穷到0）这个路径积分等价于radial坐标系下单位圆上的路径积分。这个路径积分附带上无穷远的边界条件生成了一个量子态：
+\eq{
+    \kit{\psi} = PI \kit{\mA}
+}
+我们定义这个量子态等于在单位圆中心插入一个算符的路径积分\eq{
+    \kit{\psi} = PI(\mA)
+}
+因此，算符\seq{\mA}和量子态\seq{\kit{\mA}}相等价。
+\pict{2024-08-07-13-36-30.png}{0.5}
+\rmk{
+    我们认为一个算符作用在一个态上面，对应的算符的语言其实是两个算符做乘法然后放在路径积分里面。
+}
+
+
+接下来我们可以计算一些特殊的算符对应的量子态，首先我们考虑恒等算符，我们认为恒等算符对应的态是\seq{\kit{1} \sim 1}，这个时候我们计算\seq{m\geq0}的\seq{\partial x}的算符作用在这个态上面的结论:
+\eq{
+    \alpha_m^\mu\left|1\right\rangle\equiv\oint\frac{dz}{2\pi i}\sqrt{\frac2{\alpha^{\prime}}}z^m\partial X^\mu(z)\mathbf{1}
+}
+其中\seq{\equiv}的意思其实就是左边的量子态等价于右面的算符。由于对于\seq{m\geq0}我们有上面式子右面是0，因此我们有关系:
+\eq{
+    \alpha_{m}^{\mu}\left|1\right\rangle=0\quad\mathrm{~for~}\quad m\geq0
+}
+根据定义单位算符对应的态是弦的真空态：
+\eq{
+    \kit{1} = \kit{0;0}
+}
+\line
+接下来我们讨论激发态对应着什么样的算符：
+
+
+
+
+
+
+
