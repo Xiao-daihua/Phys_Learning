@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.6.26)  19 NOV 2025 22:48
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.6.26)  20 NOV 2025 18:10
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -888,8 +888,14 @@ Package hyperref Info: bookmark level for unknown axiom defaults to 0 on input l
 [16])
 
 [17] (./CFTop.tex
+File: assets/holocoor.png Graphic file (type bmp)
+<assets/holocoor.png>
+
 
 [18]
+Missing character: There is no ！ (U+FF01) in font [lmroman12-regular]:mapping=tex-text;!
+Missing character: There is no ！ (U+FF01) in font [lmroman12-regular]:mapping=tex-text;!
+
 
 [19]
 
@@ -907,13 +913,15 @@ Package hyperref Info: bookmark level for unknown axiom defaults to 0 on input l
 
 [26]
 
-[27])
+[27]
 
-[28] (./Summary.tex)
+[28])
 
-[29] (./Bootstrap.tex)
+[29] (./Summary.tex)
 
-[30] (./main.aux)
+[30] (./Bootstrap.tex)
+
+[31] (./main.aux)
  ***********
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-05-26>
@@ -923,15 +931,15 @@ L3 programming layer <2025-05-26>
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 5EBBF8962CEF0D77F684AF3205CABC23;12177.
+(rerunfilecheck)             Checksum: 9307FF0363DAB922C931E4D8E1A07FDC;12575.
  ) 
 Here is how much of TeX's memory you used:
- 29617 strings out of 468527
- 575459 string characters out of 5447700
+ 29636 strings out of 468527
+ 575823 string characters out of 5447700
  1013147 words of memory out of 5000000
- 57442 multiletter control sequences out of 15000+600000
+ 57458 multiletter control sequences out of 15000+600000
  636894 words of font info for 97 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  117i,17n,121p,616b,841s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.xdv (30 pages, 568424 bytes).
+Output written on main.xdv (31 pages, 591136 bytes).

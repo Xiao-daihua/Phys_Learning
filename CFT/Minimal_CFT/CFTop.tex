@@ -17,6 +17,15 @@ Now we can make everything look like normal canonical quantization:
   \item We define time ordering as radial ordering, which orders operators according to their radius (the smaller radius operator is on the right).
   \item ...
 \end{itemize}
+
+In the radial quantization, the time direction is the radial direction and the equal time slice is a circle with fixed radius. If we write the coordinate into the holomorphic coordinate and anti-holomorphic then it is shown by the following diagram:
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.55\textwidth]{assets/holocoor.png}
+  \caption{Radial Quantization in Holomorphic Coordinate}
+  \label{fig:holocoor}
+\end{figure}
+
 And just like normal QFT, we often define operators at a radius by a contour integral of operators on the radius (for example the mode operators in QFT is defined by a integral on a time slice). For example, we can define an operator $ A_1 $ from an operator $ a(z) $ as
 \begin{align}
   A_1=\oint a(z)dz
@@ -48,6 +57,9 @@ In normal QFT, we often expand field operators in terms of mode operators. In ra
   &\phi_{m,n}=\frac{1}{2\pi i}\oint dzz^{m+h-1}\frac{1}{2\pi i}\oint d\bar{z}\bar{z}^{n+\bar{h}-1}\phi(z,\bar{z})
 \end{align}
 }
+\begin{itemize}
+  \item Attention！！ the integral contour is conter-clockwise for the $ z $ integral but clockwise for the $ \bar{z} $ integral. This is adopted to keep the same orientation as the normal integral on $ x-y $ plane.
+\end{itemize}
 We use this definition for convention, we will then see its convenience through the Hermite Conjugation of Mode Operators and commutation calculations. We then calculate the Hermite Conjugation of Mode Operators:
 \thm{\label{thm:Hermite Conjugation of Mode Operators}
   \textbf{Hermite Conjugation of Mode Operators}
@@ -134,6 +146,9 @@ We notice that this is a superposition of infinite many symmetry charges. Thus, 
   T(z)=\sum_{n\in\mathbf{Z}}z^{-n-2}L_n\quad L_n=\frac{1}{2\pi i}\oint dzz^{n+1}T(z)\\
 \bar{T}(\bar{z})=\sum_{n\in\mathbf{Z}}\bar{z}^{-n-2}\bar{L}_n\quad\bar{L}_n=\frac{1}{2\pi i}\oint d\bar{z}\bar{z}^{n+1}\bar{T}(\bar{z})
 \end{align}
+\begin{itemize}
+  \item Again we note that the integral contour is conter-clockwise for the $ z $ integral but clockwise for the $ \bar{z} $ integral. This is adopted to keep the same orientation as the normal integral on $ x-y $ plane.
+\end{itemize}
 Thus the Symmetry Charge can be written as:
 \begin{align}
   Q_\epsilon=\sum_{n\in\mathbf{Z}}\epsilon_nL_n \quad \epsilon(z)=\sum_{n\in\mathbf{Z}}\epsilon_nz^{n+1}
@@ -164,7 +179,24 @@ Another important statement is the Hermite Conjugation of Symmetry Charges. From
 
 \subsubsection{Symmetry Generators in Radial Quantization}
 
-More importantly, we now can see that the Diation Operator in radial quantization is given by:
+In a QFT the Hamiltonian is the Time Direction Generator. Thus in the content of radial quantization the Hamiltonian is the Diation Generator.
+\defi{
+  \textbf{Diation Generator in 2D QFT}
+
+  In a 2D QFT, if we have constructed a \textbf{Traceless and Symmetric} E-M Tensor $ T_{\mu\nu} $, then the Diation Current is given by:
+  \begin{align}
+    J_D^\mu=x_\nu T^{\mu\nu}
+  \end{align}
+  Thus the diation charge is given by:
+  \begin{align}
+    D=\int_\Sigma dS_\mu j_D^\mu=\int_\Sigma dS_\mu x_\nu T^{\mu\nu}(x)
+  \end{align}
+}
+In the content of Radial Quantization we take $ \Sigma $ as a circle and the integral measure as $ dS_\mu=n_\mu ds,\quad n_\mu=\frac{x_\mu}{r},\quad ds=rd\theta. $ in the polar coordinate. Thus we have:
+\begin{align}
+  D(r)=r^2\oint_0^{2\pi}d\theta\left.n_\mu n_\nu T^{\mu\nu}(r,\theta)\right..
+\end{align}
+If we transform this result to holomorphic coordinate, we can get:
 \thm{
   \textbf{Hamiltonian (Dialation Operator) in Radial Quantization} 
 
@@ -179,19 +211,24 @@ More importantly, we now can see that the Diation Operator in radial quantizatio
   = L_0 + \bar L_0
   \end{align}
 }
-Proof: we can see this easily from the conformal ward identity that it act on primary fields just generates scaling transformation. Which means it is the Diation Operator.
-\rmk{
-  Note that though we see this from primary fields, this is independent of the field we act on.
-}
+Proof: its just straightforward calculation. We can also confirm this by calculating its commutation relation with Pimary fields and see that it indeed gives the generator of diation transformation.
+
+\bigskip
+
+\YL{[I have to add the normal QFT of angular momentum operators!!]}
+
 Similarly, we can see that the Momentum Operator in radial quantization is given by:
 \thm{
   \textbf{Momentum Operator in Radial Quantization} 
 
   The Momentum Operator in Radial Quantization is given by:
   \begin{align}
-    P=i(L_0-\bar{L}_0)
+    P=(L_0-\bar{L}_0)
   \end{align}
   Which corresponds to rotation around the origin. 
+}
+\rmk{
+  In fact this is the angular momentum operator in normal QFT, but now we have a circle as a equal time slice then it is natural to call it momentum operator.
 }
 Moreover, we can see that the space-time translation operators in radial quantization are given by:
 \thm{
@@ -203,6 +240,7 @@ Moreover, we can see that the space-time translation operators in radial quantiz
   \end{align}
   Which corresponds to translation in $ z $ and $ \bar{z} $ direction respectively.
 }
+These operators can be understand as a combination of radial translation and rotation. and in the holomorphic coordinate they are exactly the translation in $ z $ and $ \bar{z} $ direction.
 
 \subsection{Hilbert Space of CFT}
 
@@ -513,6 +551,11 @@ Similar to the Primaries, we can calculate the OPE of Descendant fields and the 
 We can also calculate the full OPE between two Primary Fields including all descendant fields. Please refer to yellow book 6.6.3 for details.
 
 
+\subsection{Complementary Remarks}
+
+\subsubsection{Radial Quantization on Cylinder}
+
+We use the holomorphic coordinate to do the radial quantization. In fact another more physical and meaningful way is to do the radial quantization on a cylinder coordinate system. Which is related to the holomorphic coordinate by the conformal transformation:
 
 
 
