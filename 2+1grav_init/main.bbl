@@ -1,0 +1,74 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global/global}
+    \entry{witten21Dimensional1988}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=499139cc4d3fda9ba3955fa766a07270}{%
+           family={Witten},
+           familyi={W\bibinitperiod},
+           given={Edward},
+           giveni={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{499139cc4d3fda9ba3955fa766a07270}
+      \strng{fullhash}{499139cc4d3fda9ba3955fa766a07270}
+      \strng{fullhashraw}{499139cc4d3fda9ba3955fa766a07270}
+      \strng{bibnamehash}{499139cc4d3fda9ba3955fa766a07270}
+      \strng{authorbibnamehash}{499139cc4d3fda9ba3955fa766a07270}
+      \strng{authornamehash}{499139cc4d3fda9ba3955fa766a07270}
+      \strng{authorfullhash}{499139cc4d3fda9ba3955fa766a07270}
+      \strng{authorfullhashraw}{499139cc4d3fda9ba3955fa766a07270}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{05503213}
+      \field{journaltitle}{Nuclear Physics B}
+      \field{langid}{english}
+      \field{month}{12}
+      \field{number}{1}
+      \field{shortjournal}{Nuclear Physics B}
+      \field{title}{2 + 1 Dimensional Gravity as an Exactly Soluble System}
+      \field{urlday}{15}
+      \field{urlmonth}{5}
+      \field{urlyear}{2025}
+      \field{volume}{311}
+      \field{year}{1988}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{46\bibrangedash 78}
+      \range{pages}{33}
+      \verb{doi}
+      \verb 10.1016/0550-3213(88)90143-5
+      \endverb
+      \verb{file}
+      \verb /Users/xiaodaihua/Zotero/storage/NUVLF86R/Witten - 1988 - 2 + 1 dimensional gravity as an exactly soluble system.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://linkinghub.elsevier.com/retrieve/pii/0550321388901435
+      \endverb
+      \verb{url}
+      \verb https://linkinghub.elsevier.com/retrieve/pii/0550321388901435
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

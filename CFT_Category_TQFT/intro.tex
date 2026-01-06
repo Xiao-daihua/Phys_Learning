@@ -1,0 +1,59 @@
+我们的目标是理解三个不同的对象之间的联系：
+\itm{
+    \pt{Tensor Category}
+    \pt{3D TQFT}
+    \pt{2D Modular Functors}
+}
+我们先简要的介绍一下三个主要的对象分别定义是什么并且有什么关系。
+\begin{enumerate}
+  \item  \hlr{Tensor Category}是一种abelian的范畴；并且包含一些性质「满足结合律的张量积结果，存在unit object，rigid（每个object存在dual object)」
+
+    我们注意：物理上我们只考虑semi-simple的这样的范畴。（如，rep of compact group范畴）；但是不像gorup-rep范畴这么简单
+    \tip{从群表示范畴的推广}{
+      我们一般群表示范畴会存在一个交换映射：\( \sigma_{WV} : W\otimes V \to V \otimes W\)，其中W，V是表示空间。这个映射是一个线性映射把两个表示空间张量积之后的向量，映射到 反顺序张量积之后的向量。
+
+      对于一般群表示来说这个映射根据定义就是\(\sigma^2 = 1\)成立的，但是对于量子群来说，为了群元素作用其上是合法的，我们并不能够这么单纯的定义\(\sigma\)映射。所以并不一定满足\(\sigma^2 = 1\)的关系。
+    }
+    此外我们一般考虑一种特殊的tensor category也就是modular tensor category。满足一些额外的性质和结构
+  \item \hlr{TQFT}，是一个数学结构。一个单纯的定义是：「一种赋予而为流形M一个线性空间\(\tau (M)\)；同时赋予一个cobordism一个线性映射的法则」当然这个定义还可以推广，我们不一定考虑单纯的流形。我们可以在二维流形上赋予一些marked point的结构；给三维流形赋予一些tangle在里面。我们会考虑这些extended TQFT。
+
+    
+  \item \hlr{2D Modular Functor}：反正我是没看懂，建议之后好好学习呃呃呃呃。有一点感觉但是不是很懂。
+
+    对于modular functor存在两种定义「topological以及complex-analytic」对于complex analytic的modular functor的结构在所有的RCFT之中都存在！！
+\end{enumerate}
+
+\imp{本书重要结论}{
+  Modular Tensor Categorg \& 3D TQFT \& 2D Modular Functor其实结构是等价的！！
+}
+
+\hlr{quantum Yang-Baxter equation}
+
+下面给出一个简单的例子说明一下这三个东西是什么。我们分别用三个体系的语言描述同样的quantum Yang-Baxter Equation这个东西。
+
+\begin{itemize}
+  \item Modular Tensor Category语境
+\end{itemize}
+我们可以定义一个semi-simple Abelian Category \(\mathcal{C}\)并且认为这个category有着下面的一些simple objects \(V_1\dots V_n \in \mathcal{C}\)。
+
+在此基础上我们可以定义这个category的一个特殊的morphism，由于是tensor category，我们允许object的张量积是object并且object之间存在morphism所以我们定义commutativity isomorphisms为(之后我们也会用\(\sigma_i\) 进行标记)：
+\begin{align}
+  \sigma_{V_iV_{i+1}}:V_1\otimes\cdots\otimes V_i\otimes V_{i+1}\otimes\cdots\otimes V_n\to V_1\otimes\cdots\otimes V_{i+1}\otimes V_i\otimes\cdots\otimes V_n.
+\end{align}
+对于Tensor Category的公理体系需要保证这些isomorphism存在一些约束要求：
+\begin{align}
+  \large\sigma_i\sigma_{i+1}\sigma_i=\sigma_{i+1}\sigma_i\sigma_{i+1}
+\end{align}
+这个约束条件就是【quantum Yang-Baxter equation】。
+
+\begin{itemize}
+  \item 3D TQFT 语境
+\end{itemize}
+我们考虑一个2-sphere的结构，也就是$S^2 = \mathbb{R}^2 \cup \infty$并且这个球上面有n个marked point也就是\(p_1 = (1,0)\dots p_n = (n,0)\)就是这些在实数轴上面的点。并且这些的point上面我们分别赋予一个抽象的object \(V_1 \dots V_n\) 。对于一个这样的特殊结构的流形上面我们可以通过3D TQFT的方法构建一个向量空间。
+
+此外我们考虑一个这样的三维流形 \(M = S^2 \times [0,1]\) 对于这样的流形我们可以考虑如果其内部有这样的狗性的tangle，那么这个TQFT的规则应该给出了一个线性映射:
+\begin{align}
+  \sigma^{\mathrm{TQFT}}:\tau(S^2;V_1,\ldots,V_n)\to\tau(S^2;V_1,\ldots,V_{i\boldsymbol{+}1},V_i,\ldots,V_n)
+\end{align}
+构型如下图所示：
+

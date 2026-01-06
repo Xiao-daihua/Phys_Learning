@@ -1,0 +1,21 @@
+首先整体介绍一下CFT是什么。这个文章的内容是使用TQFT以及Braided Tensor Category的结构进行CFT的correlation function的求解。
+
+\begin{itemize}
+  \item conformal inv复习
+\end{itemize}
+共形不变性就是考虑两个\(\mathrm{C}^\infty\)的流形\(M, M')\)上面赋予一定的metric\(g,g'\)。如果这两个流形是conformally equivalent，则存在一个diffeo\(f : M \to M'\)使得满足：
+\begin{align}
+  (f^* g')(p) = \Omega(p)g(p)
+\end{align}
+其中\(\Omega : M \to \mathbb{R}_{>0}\)是这样一个映射。
+\rmk{复习一下微分几何的张量的pull back的定义就是说把一个流形上的张量映射到另一个流形上面的张量的一种合理方法。}
+
+\section{CFT in Minkovski Space}\label{sec:CFT in Minkovski Space} % (fold)
+对于QFT的公理体系，我们有两种思路。一个是对于field insertion at point 的Wightman axioms的公理体系；另一个是对于algebras of observable关于Algebraic QFT的公理体系(Local Quantum Physics教材详见！)
+
+我们下面主要探讨第二种。我们考虑minkovski时空上面存在mertric如下:\(\eta(x,y)=x_0y_0-\sum_{i=1}^{d-1}x_iy_i\)
+这样的metric的基础上我们定义一个double cone，也就是光锥。
+\(V_\pm=\{x\in M|\eta(x,x){>}0,\pm x_0{>}0\}\)同时我们定义
+
+
+% section CFT in Minkovski Space (end)

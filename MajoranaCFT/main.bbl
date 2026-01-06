@@ -1,0 +1,62 @@
+\begin{thebibliography}{10}
+
+\bibitem{bachasWorldsheetExtensionOddZ2012}
+Costas Bachas, Ilka Brunner, and Daniel Roggenkamp.
+\newblock A worldsheet extension of {{O}}(d,d;{{Z}}).
+\newblock {\em Journal of High Energy Physics}, 2012(10):39, October 2012.
+
+\bibitem{cardyBoundaryConditionsFusion1989}
+John~L. Cardy.
+\newblock Boundary conditions, fusion rules and the {{Verlinde}} formula.
+\newblock {\em Nuclear Physics B}, 324(3):581--596, October 1989.
+
+\bibitem{chatterjeeExactPartitionFunction1995a}
+R.~Chatterjee.
+\newblock Exact {{Partition Function}} and {{Boundary State}} of {{Critical Ising Model}} with {{Boundary Magnetic Field}}.
+\newblock {\em Modern Physics Letters A}, 10(12):973--984, April 1995.
+
+\bibitem{difrancescoConformalFieldTheory1997}
+Philippe Di~Francesco, Pierre Mathieu, and David S{\'e}n{\'e}chal.
+\newblock {\em Conformal {{Field Theory}}}.
+\newblock Graduate {{Texts}} in {{Contemporary Physics}}. Springer New York, New York, NY, 1997.
+
+\bibitem{ebisuFermionizationConformalBoundary2021}
+Hiromi Ebisu and Masataka Watanabe.
+\newblock Fermionization of conformal boundary states.
+\newblock {\em Physical Review B}, 104(19):195124, November 2021.
+
+\bibitem{ginspargAppliedConformalField1988a}
+Paul Ginsparg.
+\newblock Applied {{Conformal Field Theory}}, November 1988.
+
+\bibitem{horiNotesBosonizationBoundary2009}
+Kentaro Hori.
+\newblock Notes on {{Bosonization}} with {{Boundary}}.
+\newblock {\em Progress of Theoretical Physics Supplement}, 177:42--53, 2009.
+
+\bibitem{nepomechieConsistentSuperconformalBoundary2001a}
+Rafael~I. Nepomechie.
+\newblock Consistent superconformal boundary states.
+\newblock {\em Journal of Physics A: Mathematical and General}, 34(33):6509--6524, August 2001.
+
+\bibitem{northeYoungResearchersSchool2025}
+Christian Northe.
+\newblock Young {{Researchers School}} 2024 {{Maynooth}}: {{Lectures}} on {{CFT}}, {{BCFT}} and {{DCFT}}, January 2025.
+
+\bibitem{recknagelBoundaryConformalField}
+Andreas Recknagel and Volker Schomerus.
+\newblock Boundary {{Conformal Field Theory}} and the {{Worldsheet Approach}} to {{D-Branes}}.
+
+\bibitem{Xiao-daihua_Phys_Learning_CFT_Minimal_CFT_2025}
+Xiao-daihua.
+\newblock {Phys\_Learning / CFT / Minimal\_CFT} [source code].
+\newblock \url{https://github.com/Xiao-daihua/Phys_Learning/tree/main/CFT/Minimal_CFT}, 2025.
+\newblock Accessed: 2025-12-10.
+
+\bibitem{Xiao-daihua_Phys_Learning_CFT_Primary_BCFT_2025}
+Xiao-daihua.
+\newblock {Phys\_Learning / CFT / Primary\_BCFT} [source code].
+\newblock \url{https://github.com/Xiao-daihua/Phys_Learning/tree/main/CFT/Primary_BCFT}, 2025.
+\newblock Accessed: 2025-12-10.
+
+\end{thebibliography}

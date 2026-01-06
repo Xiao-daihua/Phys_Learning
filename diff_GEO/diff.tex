@@ -1,0 +1,78 @@
+\section{Fiber Bundle}
+我们现在物理的语言使用了很多纤维丛的概念，我们进行一个梳理。
+\imp{纤维丛}{
+    我们可以在流形$ \mM $上面每一个点$ x $ 都赋予一个流形结构$ \mF_x $。这个体系需要有下面几个结构:
+    \itm{
+        \pt{Base Manifold：就是原始的流形$ \mM $ }
+        \pt{Fiber over a point x：也就是所有的$ \mF_x $，并且我们要求这些流形微分同胚于一个正常的流形$ \mF $，这个称之为:typical fiber。  }
+        \pt{Total Space: 也就是所有的$ \mF_x $的并
+            \eq{
+                \mathcal{B}:=\bigcup_{x\in M}F_x
+            }
+        }
+        \pt{canonical projection: 存在两个流形$ \mathcal{B} $到$ \mM $的满射：
+            \eq{
+                \pi: \mathcal{B}\to M
+            }
+            并且我们有$ F_x = \pi^{-1}(x)  $ 
+        }
+        \pt{local product structure：
+        \eq{
+            \psi_\alpha:\pi^{-1}(\mathcal{O}_\alpha)\to\mathcal{O}_\alpha\times F
+        }
+        }
+    }
+}
+
+
+
+\section{Riemann Surfaces}
+首先我们定义什么是一个Riemann Surface：
+\defi{
+    Riemann Surface
+
+    也就是一个光滑的，连续的，compact的。但是最重要的是：\textbf{复的1-dim流形}。我们记作：
+    \eq{
+        \left(\Sigma,p_1,\ldots,p_n\right).
+    }
+}
+这样的流形有一个特点，我们可以用genus g进行分类，如下图所示：
+\pict{2025-03-08-16-21-06.png}{1}
+一个很重要的complex 1-manifold是$ S^2 $我们使用复几何的语言来说就是$ \mathbb{P}^1 $相当于1维的复的projective plane。也就是，引入无穷远点的复平面。
+
+$ \mathbb{P}^1 $的automorphism群是:
+\eq{
+    \mathrm{PSL}(2,\mathbf{C})=\begin{Bmatrix}\begin{pmatrix}a&b\\c&d\end{pmatrix}\begin{vmatrix}[a:b:c:d]\in\mathbb{P}^3\\ad-bc\neq0\end{vmatrix}\end{Bmatrix}
+} 
+其中：
+\eq{
+    \begin{pmatrix}a&b\\c&d\end{pmatrix}.z=\frac{az+b}{cz+d}.
+}
+
+另一个很重要的complex 1-manifold是$ T^2 $。相当于复平面但是做一个quotient：
+\eq{
+    \mathbf{C}/\Lambda
+} 
+其中：
+\eq{
+    \Lambda=\{n_1\omega_1+n_2\omega_2\mid n_1,n_2\in\mathbb{Z}\}
+}
+这个quotient我们使用两个复数$ \omega_1 $和$ \omega_2 $。  
+
+\imp{Moduli Space}{
+    下面定义Moduli Space $ \mM_{g,n} $ 也就是确定（g,n）的黎曼曲面的等价类：
+    \eq{
+        \mathcal{M}_{g,n}=\begin{Bmatrix}\text{Riemann surfaces}\\\text{of genus g with }n\text{ marked points}\end{Bmatrix}/\mathrm{iso.}
+    }
+    其中等价关系iso指的是biholomorphism $ \phi: \Sigma\to\Sigma' $ 使得markpoint保持不变$ \phi(p_i) = p_i' $ 
+}
+我们希望定义moduli space上面积分的概念，但是，困难在于黎曼曲面有太多的automorphism。但我们发现了一种消除所有的automorphism的方法，也就是开洞！我们给出两个定理：
+\thm{球上的洞洞来限制moduli space
+
+    对于一个有三个洞洞的球$ (\mathbb{P}^1,p_1,p_2,p_3) $我们可以找到唯一的映射$ g \in PSL(2,\mathbb{C}) $从而使得:
+    \eq{
+        (\mathbb{P}^1,p_1,p_2,p_3) = g \cdot (\mathbb{P}^1,0,1,\infty)
+    }  
+
+    对于一个有四个洞洞的球$  $ 
+}

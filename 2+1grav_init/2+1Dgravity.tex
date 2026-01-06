@@ -1,0 +1,108 @@
+Here I'll talk about a standard set up in studying 2+1 dimensional gravity. 
+
+\subsection{Local Spacetime}
+
+The Riemannian curvature of 2+1 dimensional gravity can be written directly in terms of Ricci Tensor and the metric:
+\begin{align}
+  R_{\mu\nu\rho\sigma}=g_{\mu\rho}R_{\nu\sigma}+g_{\nu\sigma}R_{\mu\rho}-g_{\nu\rho}R_{\mu\sigma}-g_{\mu\sigma}R_{\nu\rho}-\frac{1}{2}(g_{\mu\rho}g_{\nu\sigma}-g_{\mu\sigma}g_{\nu\rho})R
+\end{align}
+Thus if we consider the vaccum Einstein equation $R_{\mu\nu}=0$, the Riemannian curvature vanishes identically! And if we consider the cosmological constant case $R_{\mu\nu}=\Lambda g_{\mu\nu}$, the Riemannian curvature becomes:
+\begin{align}
+  R_{\mu\nu\rho\sigma}=\Lambda(g_{\mu\rho}g_{\nu\sigma}-g_{\mu\sigma}g_{\nu\rho})
+\end{align}
+This is a Riemann Tensor of a constant convature spacetime. 
+\begin{itemize}
+  \item When $\Lambda=0$, the spacetime is locally flat, i.e., locally isometric to Minkowski space $\mathbb{R}^{2,1}$.
+  \item When $\Lambda>0$, the spacetime is locally de Sitter space $dS_3$.
+  \item When $\Lambda<0$, the spacetime is locally anti-de Sitter space $AdS_3$.
+\end{itemize}
+
+\subsection{Global Spacetime}
+
+However, being locally constant curvature spacetime doesn't mean that the theory is trivial, it may include various global properties. However, we shall ask what kinds of global topoloigy may admit a constant curvature metric as well as a lorentzian structure(for physical spacetime is lorentzian).
+
+The answer is given by the following theorem:
+\thm{
+  Let $ M $ be a compact 3 manifold with a flat, time-orientable Lorentzian metric and a purely spacelike boundary. Then $ M $ has the topology of:
+  \begin{align}
+    M \cong [0,1] \times \Sigma
+  \end{align}
+  Here $ \Sigma $ is a closed surface homeomorphic to one of the boundary components of $ M $.
+}
+Thus the topology of a physical spacetime is fixed by the topology of a initial spacelike slice $ \Sigma $. In the following context we shall only focus on this kind of spacetime topology.
+
+\subsection{Frames and Spin Connections}
+
+\subsubsection{Definition of Frames and Spin Connections}
+
+We can a GR theory using a first order formalism, which use frame (aka vierbein or triad) and spin connection as basic variables instead of metric. This is especially useful in 2+1 dimensional gravity, since it can be reformulated as a Chern-Simons theory. 
+
+we define the frame fields 
+\defi{
+  Frame Fields are a set of orthogonal vectors in the tangent space $ e^{\mu a} $ or the one form $ e_{\mu}^a $, which satisfy:
+  \begin{align}
+    g^{\mu\nu}e_\mu{}^ae_\nu{}^b=\eta^{ab},\quad e_\mu{}^ae_\nu{}^b\eta_{ab}=g_{\mu\nu}.
+  \end{align}
+}
+We often assume that the frame field admits an inverse $ {e^\mu}_a $ satisfying:
+\begin{align}
+  {e^\mu}_a e_\mu{}^b = \delta_a^b, \quad e_\mu{}^a {e^\nu}_a = \delta_\mu^\nu.
+\end{align}
+This set of vectors definately forms a basis of the tangent space, thus we can consider the connections in this basis. For example, the Christoffel symbols can be written as:
+\begin{align}
+  \nabla_\mu \partial_{\nu} = \Gamma_{\mu\nu}^\rho \partial_\rho, \quad \text{or}\quad \nabla_\mu dx^{\nu} = -\Gamma_{\mu\rho}^\nu dx^\rho 
+\end{align}
+Thus, a analogue is to define a connection $ \omega_\mu{}^a{}_b $ as
+\defi{
+  Spin Connection $ \omega_\mu{}^a{}_b $ is defined as:
+\begin{align}
+  \nabla_\mu{e_\nu}^a = -\omega_\mu{}^a{}_b{e_\nu}^b
+\end{align}
+}
+The covariant derivative of a vector is a rank (0,2) tensor, thus we know that $ \omega_\mu{}^a{}_b $ transforms as a one form in the $ \mu $ index. Thus:
+\begin{itemize}
+  \item Both $ e^a = e_\mu{}^a dx^\mu $ and $ \omega^a{}_b = \omega_\mu{}^a{}_b dx^\mu $ can be understood as one forms. The inverse of the frame fields can be written as a vector field $ e_a = {e^\mu}_a \partial_\mu $.
+  \item We define the lowering and raising of the spin connection indices $ \omega_{\mu ab} = \eta_{ac}\omega_\mu{}^c{}_b $. 
+\end{itemize}
+
+\subsubsection{Lorentz Rotation of Frames}
+
+The frame fields are not unique, we can always perform a lorentz rotation on them which gives out another set of frame fields that satisfy the same definition:
+\begin{align}
+  e^a &\to {e'}^a = {\Lambda^a}_b e^b, 
+\end{align}
+Under this transformation, the spin connection refer to the new frame fields have the following relation with the old one:
+\begin{align}
+  \omega_\mu{}^a{}_b &\to {\omega'}_\mu{}^a{}_b = {\Lambda^a}_c \omega_\mu{}^c{}_d {(\Lambda^{-1})^d}_b + {\Lambda^a}_c \partial_\mu {(\Lambda^{-1})^c}_b.
+\end{align}
+In terms of the differential form, this can be written as:
+\begin{align}
+  \omega^a{}_b &\to {\omega'}^a{}_b = {\Lambda^a}_c \omega^c{}_d {(\Lambda^{-1})^d}_b + {\Lambda^a}_c d{(\Lambda^{-1})^c}_b.
+\end{align}
+In fact we can see that it behaves as a gauge field. Frame fields can perform a "gauge" transformation as lorentz transformation, and the spin connection behaves as the gauge field corresponding to this "gauge" symmetry.
+
+\YL{[I think I make the convention correct but it still deserves further check.]}
+
+\subsubsection{Cartan Structure Equations}
+
+Using the above definitions, we hope to express important geometric quantities such as Riemann curvature Tensor. Moreover, we also notice that the frame fields and the spin connections are not independent, just like the Christoffel symbol can be represented by the metric. We want to:
+\begin{itemize}
+  \item Represent the spin connection in terms of the frame fields or at least find a relation between them. 
+    \item Represent the Riemann curvature Tensor in terms of the spin connection.
+\end{itemize}
+These two goals can be achieved by the Cartan structure equations: 
+
+\thm{
+  Cartan's first structure equation  
+
+  If the theory is torsion free, then the frame fields and the spin connection satisfy:
+\begin{align}
+  D_{\omega}e^a \equiv de^a+\omega^a{}_b\wedge e^b=0,
+\end{align}
+$ D_{\omega}e^a $ is called the gauge covariant derivative of $ e^a $ with respect to the spin connection $ \omega $.
+}
+This can be proved directly from the definition of the covariant derivative and the definition of the spin connection. The torsion free condition makes the lower indices of the Christoffel symbol symmetric, thus it cancels out when doing a exterior derivative.
+
+The solution of this equation gives us a
+
+

@@ -1,0 +1,320 @@
+A Majorana CFT exibites a Lagrangian description. In this section, I will briefly review the Majorana CFT. A detailed introduction can be found in \cite{difrancescoConformalFieldTheory1997, ginspargAppliedConformalField1988a}. Note that I take the idea of the reference \cite{ginspargAppliedConformalField1988a} to quantize the theory on a complex plane first and then transform it to a cylinder. But I appreciate the convention of the reference \cite{difrancescoConformalFieldTheory1997}.
+
+\subsection{Majorana CFT Path Integral Formalism}
+
+
+\subsubsection{Action and Equations of Motion}
+
+The action of a free Majorana fermion on a complex plane is given by:
+\defi{
+  \textbf{Majorana Fermion Action}
+
+  The action of a free Majorana fermion $\psi(z)$ and $\bar{\psi}(\bar{z})$ on a complex plane is given by:
+  \begin{align}
+    S = \frac{1}{2\pi} \int d^2z \, \left( \psi \bar{\partial} \psi + \bar{\psi} \partial \bar{\psi} \right),
+  \end{align}
+  where $\partial = \frac{\partial}{\partial z}$ and $\bar{\partial} = \frac{\partial}{\partial \bar{z}}$ and $ d^2 z = d^2 x = dx dy $. 
+}
+In this convention, the equations of motion derived from the action are:
+\begin{align}
+  \bar{\partial} \psi(z) = 0, \quad \partial \bar{\psi}(\bar{z}) = 0,
+\end{align}
+which means that $\psi(z)$ is a holomorphic field and $\bar{\psi}(\bar{z})$ is an anti-holomorphic field. 
+
+\subsubsection{Energy-Momentum Tensor}
+
+With the standard convention, we calculate the E-M tensor from the action:
+\begin{align}
+  T(z) = - 2 \pi T_{zz}(z) = -\displaystyle\frac{1}{2} \psi(z) \partial \psi(z), \quad
+  \bar{T}(\bar{z}) = - 2 \pi T_{\bar{z}\bar{z}}(\bar{z}) = -\displaystyle\frac{1}{2} \bar{\psi}(\bar{z}) \bar{\partial} \bar{\psi}(\bar{z}).
+\end{align}
+
+\rmk{
+  Note that the definition of $ T(z) $ has different conventions. But it is due to different conventions of the action and the field. We here take the convention in the reference \cite{difrancescoConformalFieldTheory1997}.
+}
+
+\subsubsection{OPE Structure}
+
+The OPE structure of the Majorana fermion fields can be derived from their two-point correlation functions:
+\begin{align}
+  &\langle\psi(z)\psi(w)\rangle=\frac{1}{z-w}\quad \langle\bar{\psi}(\bar{z})\bar{\psi}(\bar{w})\rangle=\frac{1}{\bar{z}-\bar{w}}\\
+&\langle\psi(z)\bar{\psi}(\bar{w})\rangle=0
+\end{align}
+Thus we have the following OPEs:
+\begin{align}
+  \psi(z)\psi(w)\sim\frac{1}{z-w}, \quad \bar{\psi}(\bar{z})\bar{\psi}(\bar{w})\sim\frac{1}{\bar{z}-\bar{w}}, \quad \psi(z)\bar{\psi}(\bar{w})\sim 0.
+\end{align}
+\subsection{Majorana CFT Canonical Formalism}
+
+\subsubsection{Quantization and Mode Expansion}
+
+We then consider the radial quantization of the theory on a complex plane. The EoM gives us that the fields can be expanded as:
+\begin{align}
+  \psi(z)=\sum_kb_kz^{-k-1/2} \quad \bar{\psi}(\bar{z})=\sum_k\bar{b}_k\bar{z}^{-k-1/2}
+\end{align}
+it is a common convention to take the $ z^{1/2} $ in the mode expansion. The OPE of the fields gives us the anti-commutation relations of the modes:
+\begin{align}
+  \{ b_k, b_l \} = \delta_{k+l,0}, \quad \{ \bar{b}_k, \bar{b}_l \} = \delta_{k+l,0}, \quad \{ b_k, \bar{b}_l \} = 0.
+\end{align}
+Moreover the Majorana fermion condition $ \psi(z) = \psi^\dagger(z) $ gives us that the modes satisfy:
+\begin{align}
+  b_k^\dagger = b_{-k}, \quad \bar{b}_k^\dagger = \bar{b}_{-k}.
+\end{align}
+The E-M tensor can also be expanded in modes:
+\begin{align}
+  T(z) = - \frac{1}{2} :\psi(z) \partial \psi(z): =\sum_n L_n z^{-n-2}, \quad \bar{T}(\bar{z}) = - \frac{1}{2} :\bar{\psi}(\bar{z}) \bar{\partial} \bar{\psi}(\bar{z}): = \sum_n \bar{L}_n \bar{z}^{-n-2},
+\end{align}
+\rmk{
+  We shall note that the quantum version of the E-M tensor we impose normal ordering as a convention. Here we take the convention that the modes with positive index are annihilation operators and the modes with negative index are creation operators.
+}
+The virasoro generator of the theory are thus explicitly given by:
+\begin{align}
+  L_n=\frac{1}{2}\sum_k(k+\frac{1}{2}):b_{n-k}b_k:
+\end{align}
+
+
+\subsubsection{Neveu-Schwarz and Ramond Sectors}
+
+We then notice a subtlety in the theory. We can impose two different boundary conditions on the fermion fields when we consider the theory on a cylinder:
+\begin{itemize}
+  \item \textbf{Neveu-Schwarz (NS) Boundary Condition}:
+        \begin{align}
+          \psi(e^{2\pi i} z) = \psi(z), \quad \bar{\psi}(e^{-2\pi i} \bar{z}) = \bar{\psi}(\bar{z}).
+        \end{align}
+        This boundary condition leads to half-integer moding of the fermion fields:
+        \begin{align}
+          k \in \mathbb{Z} + \frac{1}{2}.
+        \end{align}
+      \item \textbf{Ramond (R) Boundary Condition}: 
+        \begin{align}
+          \psi(e^{2\pi i} z) = - \psi(z), \quad \bar{\psi}(e^{-2\pi i} \bar{z}) =- \bar{\psi}(\bar{z}).
+        \end{align}
+        This boundary condition leads to integer moding of the fermion fields:
+        \begin{align}
+          k \in \mathbb{Z}.
+        \end{align}
+\end{itemize}
+Thus different boundary conditions lead to different mode expansions of the fermion fields as well as different Hilbert spaces of the theory. The Hilbert space of the theory is thus classified into two sectors: the NS sector and the R sector.
+
+\subsubsection{Hamiltonian after Normalization}
+
+The Hamiltonian of the theory on a complex plane is given by the generator of the time translation:
+\thm{
+  \textbf{Majorana CFT Hamiltonian on a Complex Plane}
+
+  The Hamiltonian of the Majorana CFT on a complex plane is given by:
+  \begin{align}
+    & H \;=\; L_0 + \bar L_0 \\
+    %
+    & L_0 \;=\; \sum_{k>0} k\, b_{-k} b_k ,
+    \qquad 
+      \bar L_0 \;=\; \sum_{k>0} k\, \bar b_{-k} \bar b_k ,
+    \qquad (\mathrm{NS}:~ k\in \mathbb{Z}+\tfrac12) 
+    \\
+    & L_0 \;=\; \sum_{k>0} k\, b_{-k} b_k + \frac{1}{16},
+    \qquad
+      \bar L_0 \;=\; \sum_{k>0} k\, \bar b_{-k} \bar b_k + \frac{1}{16},
+    \qquad (\mathrm{R}:~ k\in\mathbb{Z})
+\end{align}
+Note that we have minus a constant in both sector to set the ground state energy of the NS sector to zero.
+}
+\rmk{
+  Both calculations of the sectors gives a infinite vaccum enegery: $ 1/2\sum_{k = 1}^\infty k = -1/24$ for NS and $ 1/2 \sum_{k = 0}^\infty (k+1/2) =  1/48$. We regulate the vaccum energy by adding $ 1/24 $, thus we get $ 0 $ in the NS sector and $ 1/16 $ in the R sector.
+}
+
+\subsubsection{Zero Mode and Ground State Degeneracy}\label{sec:Zero Mode and Ground State Degeneracy in Majorana CFT}
+
+The NS sector works straightforwardly with a zero vacuum energy after normalization and a unique ground state $ \ket{0}_{NS} $ defined by:
+\begin{align}
+  b_k \ket{0}_{NS} = 0, \quad \bar{b}_k \ket{0}_{NS} = 0, \quad k > 0.
+\end{align}
+However, the R sector is more subtle due to the presence of zero modes $ b_0 $ and $ \bar{b}_0 $. These zero modes satisfy the Clifford algebra:
+\begin{align}
+  \{ b_0, b_0 \} = 1, \quad \{ \bar{b}_0, \bar{b}_0 \} = 1, \quad \{ b_0, \bar{b}_0 \} = 0.
+\end{align}
+We can see that the zero modes $ b_0 $ and $ \bar{b}_0 $ generate a two-dimensional representation of the Clifford algebra. Thus the ground state of the R sector is doubly degenerate according to the following theorm:
+\thm{
+  Two dimensional Cliffoed Algebra Representation have non-trivial representation for at least two dimensions.
+}
+Thus, we can define two ground states $ \ket{+}_{R} $ and $ \ket{-}_{R} $ and the act of pauli matrix on it is:
+\begin{align}
+  \sigma_x \ket{\pm}_{\mathrm R} &= \ket{\mp}_{\mathrm R}, \quad \sigma_y \ket{\pm}_{\mathrm R} = \mp i\,\ket{\mp}_{\mathrm R}, \quad \sigma_z \ket{\pm}_{\mathrm R} = \pm \ket{\pm}_{\mathrm R}.
+\end{align}
+And then we can represent the zero modes and the fermion parity operator as:
+\begin{align}
+   & b_0 = \frac{1}{2}\left( \sigma_x + \sigma_y \right)
+        \,(-1)^{\sum_{n>0} b_{-n} b_n + \bar b_{-n} \bar b_n}, \\
+   & \bar b_0 = \frac{1}{2}\left( \sigma_x - \sigma_y \right)
+        \,(-1)^{\sum_{n>0} b_{-n} b_n + \bar b_{-n} \bar b_n}, \\
+\end{align}
+In this convention, we have: 
+\begin{align}\label{eq:Majorana zero mode action on R ground states}
+  b_0|\pm\rangle_\mathrm{R}=\frac{1}{\sqrt{2}}e^{\pm i\pi/4}|\mp\rangle_\mathrm{R},\quad\bar{b}_0|\pm\rangle_\mathrm{R}=\frac{1}{\sqrt{2}}e^{\mp i\pi/4}|\mp\rangle_\mathrm{R}.
+\end{align}
+
+\subsubsection{Fermion Parity}\label{sec:Fermion Parity in Majorana CFT}
+
+We hope to define (in many cases this operator might not be well defined) the fermion parity operator $ (-1)^F $ in the Majorana CFT as follows:
+\defi{
+  \textbf{Fermion Parity Operator}
+
+  The fermion number operator $ F $ in a Majorana CFT is defined as:
+\begin{align}
+  \{(-1)^F, b_k\}=0, \quad \{(-1)^{F}, \bar{b}_k\}=0, \quad\text{ for all }k , 
+\end{align}
+}
+\YL{[note]}
+In the NS sector, the fermion parity operator is explicitly given by:
+\begin{align}
+  (-1)^F = (-1)^{\sum_{k>0} b_{-k} b_k + \sum_{k>0} \bar{b}_{-k} \bar{b}_k}.
+\end{align}
+However, in the R sector defining the fermion number operator is more subtle. There are two different ways of defining the fermion number operator in the R sector, write it in terms of $ b_0, \bar{b}_0$ :
+\begin{align}
+  (-1)^{F} =
+\begin{cases}
+  -2 i\, b_0 \bar b_0 \ (-1)^{F_{nz}}, \quad \text{type 0A} \\
+  +2 i\, b_0 \bar b_0 \ (-1)^{F_{nz}}. \quad \text{type 0B}
+\end{cases}
+\end{align}
+In string theory, they are called type 0A and type 0B. Commonly, we take the notation of $ (-1)^{F_{nz}} = (-1)^{\sum_{k>0} b_{-k} b_k + \sum_{k>0} \bar{b}_{-k} \bar{b}_k} $ non-zero mode fermion parity operator. 
+
+\YL{[I'm not sure about do I understand this correctly.]}
+
+\subsubsection{Hilbert Space Structure}
+
+With the ground state structure and mode expansion, we can construct the Hilbert space of the Majorana CFT. The Hilbert space is classified into two sectors: the NS sector and the R sector. 
+\begin{itemize}
+  \item \textbf{NS Sector Hilbert Space}:
+        The Hilbert space in the NS sector is constructed by acting the creation operators $ b_{-k}, \bar{b}_{-k} $ ($ k > 0 $ and $ k \in \mathbb{Z} + 1/2 $) on the unique ground state $ \ket{0}_{NS} $:
+        \begin{align}
+          \mathcal{H}_{NS} = \mathrm{span}\left\{ b_{-k_1} b_{-k_2} \cdots \bar{b}_{-l_1} \bar{b}_{-l_2} \cdots \ket{0}_{NS} \,|\, k_i, l_j > 0, k_i, l_j \in \mathbb{Z} + \frac{1}{2} \right\}.
+        \end{align}
+      \item \textbf{R Sector Hilbert Space}: 
+        The Hilbert space in the R sector is constructed by acting the creation operators $ b_{-k}, \bar{b}_{-k} $ ($ k > 0 $ and $ k \in \mathbb{Z} $) on the doubly degenerate ground states $ \ket{\pm}_{R} $:
+        \begin{align}
+          \mathcal{H}_{R} = \mathrm{span}\left\{ b_{-k_1} b_{-k_2} \cdots \bar{b}_{-l_1} \bar{b}_{-l_2} \cdots \ket{\pm}_{R} \,|\, k_i, l_j > 0, k_i, l_j \in \mathbb{Z}  \right\}.
+        \end{align}
+\end{itemize}
+
+
+\subsection{Majorana CFT on a Cylinder}\label{sec:Majorana CFT on a Cylinder}
+Here we will consider the theory on a cylinder with circumference $ \beta $. As we do in CFT, we map the theory from a complex plane to a cylinder via a conformal map.
+
+
+\subsubsection{Conformal Transformation to Cylinder}
+
+We then transfrom the theory from a complex plane to a cylinder with circumference $\beta$ via the conformal map:
+\begin{align}
+  & w = \frac{\beta}{2\pi} \ln z, \quad \bar{w} = \frac{\beta}{2\pi} \ln \bar{z} \quad  z = e^{\frac{2\pi w}{\beta}}, \quad \bar{z} = e^{\frac{2\pi \bar{w}}{\beta}} \\ 
+  & w = t - i \sigma, \quad \bar{w} = t + i \sigma, \quad \sigma \in [- \beta, 0]
+\end{align}
+Under this map the fermion fields transform as:
+\begin{align}
+  \psi^C(w) = \left( \frac{dz}{dw} \right)^{1/2} \psi(z) = \left( \frac{2\pi}{\beta} z \right)^{1/2} \psi\left( z \right), \\
+  \bar{\psi}^C(\bar{w}) = \left( \frac{d\bar{z}}{d\bar{w}} \right)^{1/2} \bar{\psi}(\bar{z}) = \left( \frac{2\pi}{\beta} \bar{z} \right)^{1/2} \bar{\psi}\left( \bar{z} \right).
+\end{align}
+The mode expansion on a cylinder is thus given by:
+\begin{align}
+  \psi^C(w)=\sqrt{\frac{2\pi}{\beta}}\sum_kb_ke^{-2\pi kw/\beta} \quad \bar{\psi}^C(\bar{w})=\sqrt{\frac{2\pi}{\beta}}\sum_k\bar{b}_ke^{-2\pi k\bar{w}/\beta}
+\end{align}
+the mode $ b_k $ is exactly the same object as that on the complex plane.
+\rmk{
+  It is interesting to note that the NS boundary condition becomes antiperiodic boundary condition on the cylinder; while the R boundary condition becomes periodic boundary condition on the cylinder. Thus, it is ambiguous to call a boundary condition antiperiodic or periodic without specifying the geometry.
+}
+The E-M tensor on a cylinder is given by:
+\begin{align}
+  T^C(w) = \left( \frac{dz}{dw} \right)^2 T(z) + \frac{c}{12} \{ z, w \} = \left( \frac{2\pi}{\beta} \right)^2 \left( z^2 T(z) - \frac{1}{48} \right), \\
+  \bar{T}^C(\bar{w}) = \left( \frac{d\bar{z}}{d\bar{w}} \right)^2 \bar{T}(\bar{z}) + \frac{c}{12} \{ \bar{z}, \bar{w} \} = \left( \frac{2\pi}{\beta} \right)^2 \left( \bar{z}^2 \bar{T}(\bar{z}) - \frac{1}{48} \right).
+\end{align}
+Due to the conformal symmetry, the action on a cylinder shall be in the exact same form as that on a complex plane:
+\begin{align}
+  S^C = \frac{1}{2\pi} \int d^2 w \, \left( \psi^C \bar{\partial} \psi^C + \bar{\psi}^C \partial \bar{\psi}^C \right),
+\end{align}
+here $ \partial = \frac{\partial}{\partial w} $ and $ \bar{\partial} = \frac{\partial}{\partial \bar{w}} $ and $ d^2 w = dt d\sigma $.
+
+\subsubsection{Hamiltonian on a Cylinder}
+
+Thus, explicitly, the Hamiltonian on a cylinder is given by the standard CFT result as:
+\thm{
+  \textbf{Hamiltonian on a Cylinder}
+
+  The Hamiltonian of a general CFT on a cylinder with circumference $\beta$ is given by:
+  \begin{align}
+    H = \frac{2\pi}{\beta} \left( L_0 + \bar{L}_0 - \frac{c}{12} \right).
+  \end{align}
+}
+Proof: See my BCFT note for details.
+
+
+Thus for the Majorana CFT, the Hamiltonian on a cylinder is given by:
+\thm{
+  \textbf{Majorana CFT Hamiltonian on a Cylinder}
+
+  The Hamiltonian of the Majorana CFT on a cylinder with circumference $\beta$ is given by:
+  \begin{align}
+    & H = \frac{2\pi}{\beta} \left( L_0 + \bar{L}_0 - \frac{1}{24} \right) \\
+    %
+    & L_0 = \sum_{k>0} k\, b_{-k} b_k ,
+    \qquad 
+      \bar L_0 = \sum_{k>0} k\, \bar b_{-k} \bar b_k ,
+    \qquad (\mathrm{NS}:~ k\in \mathbb{Z}+\tfrac12) 
+    \\
+    & L_0 = \sum_{k>0} k\, b_{-k} b_k + \frac{1}{16},
+    \qquad
+      \bar L_0 = \sum_{k>0} k\, \bar b_{-k} \bar b_k + \frac{1}{16},
+    \qquad (\mathrm{R}:~ k\in\mathbb{Z})
+  \end{align}
+}
+We can prove this by calculating the generator of time translation on a cylinder directly from the energy-momentum tensor, for more details see my BCFT note.
+
+\subsubsection{Conformal Transformation to Cylinder (another convention)}
+
+Apart from the quite standard convention, we have another commonly used convention:
+\begin{align}
+  & w = \displaystyle\frac{i \beta}{2 \pi} \ln z, \bar{w} = -\displaystyle\frac{i \beta}{2 \pi} \ln \bar{z} \quad  z = e^{\frac{- 2 \pi i w}{\beta}}, \bar{z} = e^{\frac{2 \pi i \bar{w}}{\beta}} \\ 
+  & w = \sigma + i t, \quad  \bar{w} = \sigma - i t
+\end{align}
+Under this map the fermion fields transform as:
+\begin{align}
+  &\psi^C(w) = \left( \frac{dz}{dw} \right)^{1/2} \psi(z) = \left( \frac{2\pi}{i \beta} z \right)^{1/2} \psi\left( z \right), \\
+  &\bar{\psi}^C(\bar{w}) = \left( \frac{d\bar{z}}{d\bar{w}} \right)^{1/2} \bar{\psi}(\bar{z}) = \left( -\frac{2\pi}{i \beta} \bar{z} \right)^{1/2} \bar{\psi}\left( \bar{z} \right).
+\end{align}
+Thus the mode expansion on a cylinder is given by:
+\begin{align}
+  \psi^C(w)=\sqrt{\frac{2\pi}{i\beta}}\sum_kb_ke^{-2\pi i kw/\beta} \quad \bar{\psi}^C(\bar{w})=\sqrt{-\frac{2\pi}{i\beta}}\sum_k\bar{b}_ke^{2\pi k i\bar{w}/\beta}
+\end{align}
+The E-M tensor on a cylinder is given by:
+\begin{align}
+  T^C(w) = \left( \frac{dz}{dw} \right)^2 T(z) + \frac{c}{12} \{ z, w \} = - \left(\displaystyle\frac{2 \pi}{\beta}\right)^2 \left( z^2 T(z) - \frac{1}{48} \right), \\
+  \bar{T}^C(\bar{w}) = \left( \frac{d\bar{z}}{d\bar{w}} \right)^2 \bar{T}(\bar{z}) + \frac{c}{12} \{ \bar{z}, \bar{w} \} = - \left( \displaystyle\frac{ 2 \pi}{\beta} \right)^2 \left( \bar{z}^2 \bar{T}(\bar{z}) - \frac{1}{48} \right).
+\end{align}
+
+\subsubsection{Hamiltonian on a Cylinder (another convention)}
+
+With this convention, the Hamiltonian on a cylinder is given by:
+\thm{
+  \textbf{Hamiltonian on a Cylinder (another convention)}
+
+  The Hamiltonian of a general CFT on a cylinder with circumference $\beta$ is given by:
+  \begin{align}
+    H^C = \frac{2\pi }{\beta} \left( L_0 - \bar{L}_0 - \frac{c}{12} \right).
+  \end{align}
+}
+Proof: Similarly:
+\begin{align}
+  H^C = \int_0^{-\beta} d\sigma \, T_{tt}, \quad T_{tt} = -T_{ww} - T_{\bar{w}\bar{w}} =  \frac{1}{2\pi} \left( T^C(w) + \bar{T}^C(\bar{w}) \right).
+\end{align}
+\YL{[This is purely my own calculation, I have not find a reference doing this yet, so I have to double check it later.]}
+Note that in this convention, the reltaion between $ T_{tt} $ and the E-M tensor components is different and the intergral contour is different. Thus, we have:
+\begin{align}
+  H^C &= \int_0^{-\beta} d\sigma \, \frac{1}{2\pi} \left( T^C(w) + \bar{T}^C(\bar{w}) \right) \\
+      & = \displaystyle\frac{2 \pi}{\beta} \left( L_0 - \bar{L}_0 - \frac{c}{12} \right).
+\end{align}
+
+\rmk{
+  Note that though we start from a different convention, the final form of the Hamiltonian is exactly the same with the previous one. 
+}
+
+
+
+

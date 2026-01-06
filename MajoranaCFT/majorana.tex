@@ -1,0 +1,757 @@
+As a standard way of dealing with boundary CFT, we consider a Majorana CFT on a compatified strip with two boundaries or equivalently a cylinder. We study the boundary state of this theory. For detailed calculation, we refer to \cite{nepomechieConsistentSuperconformalBoundary2001a}. However, I might point out many discussions in these papers are naive and needs further clarification. Thus, I include some clarification here with the insight from \cite{ebisuFermionizationConformalBoundary2021, bachasWorldsheetExtensionOddZ2012, horiNotesBosonizationBoundary2009, chatterjeeExactPartitionFunction1995a}. 
+
+
+\subsection{Boundary Conditions of Majorana CFT}
+
+There are two conformally invariant boundary conditions for Majorana CFT. We then discuss how to write them down on a general manifold with boundaries. And then specify the manifold to a compatified strip with two boundaries. The idea is organized in \cite{chatterjeeExactPartitionFunction1995a}
+
+
+\subsubsection{Boundary Conditions on UHP}
+
+It is well know that the Majorana CFT has two conformal boundary conditions on the UHP:
+\begin{itemize}
+  \item \textbf{Free $ (+) $ Boundary Condition:} $\psi=\bar{\psi}$ at the boundary.
+  \item \textbf{Fixed $ (-) $ Boundary Condition:} $\psi=-\bar{\psi}$ at the boundary.
+\end{itemize}
+It is belived that the free boundary condition corresponds to free spin boundary condition of Ising model while the fixed boundary condition corresponds to fixed spin boundary condition of Ising model.
+
+\subsubsection{Boundary Conditions on General Manifold}
+
+We then want to generalize these conditions to general 2-manifolds with boundaries. Consider a general manifold with boundary $ \mathcal{D} $ (not just the UHP) with boundaries $ \partial\mathcal{D} = \mathcal{B} = \cup_j \mathcal{B}_j  $ that are parametrized as $ \mathcal{B}_j = ( Z_j(t), \bar{Z}_j(t) ) $ paramatrized by $ t $. On the boundary $ \mathcal{B}_j $ the field is $ \psi(t) = \psi(Z_j(t)), \bar{\psi}(t) = \bar{\psi}(\bar{Z}_i(t)) $. We define the tangent vectors on the boundary as:
+\begin{align}
+  e_j(t)=\partial_{t}Z_j(t),\quad\bar{e}_j(t)=\partial_{t}\bar{Z}_j(t)
+\end{align}
+that satisfy:
+\begin{itemize}
+  \item normalization condition: $ e(t)\bar{e}(t)=1 $
+  \item orientation condition: $ (ie,-i\bar{e}) $ vector shall be normal to the boundary and point inward the domain $ \mathcal{D} $
+\end{itemize}
+Thus, these two conformal boundary conditions on UHP can be generalized to:
+\begin{itemize}
+  \item \textbf{Free Boundary Condition:} $ [ e_j^{\frac12}\psi - \bar{e}_j^{\frac12}\bar{\psi} ]_{\mathcal{B}_j} = 0 $
+  \item \textbf{Fixed Boundary Condition:} $ [ e_j^{\frac12}\psi + \bar{e}_j^{\frac12}\bar{\psi} ]_{\mathcal{B}_j} = 0 $
+\end{itemize}
+
+\subsubsection{Boundary Conditions on a Strip}
+
+Then we focus on our main topic: Majorana CFT on a compatified strip with two boundaries. We consider the strip $ \mathcal{S} = \{ z = x + iy | x \in [0,L], y \in \mathbb{R} \} $ with two boundaries at $ x=0 $ and $ x=L $. Then strip is compatified by identifying $ y \sim y + \beta $. 
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.32\textwidth]{assets/cylindermanifold.png}
+  \caption{Compatified strip with two boundaries at $ x=0 $ and $ x=L $, compatified by identifying $ y \sim y + \beta $.}
+  \label{fig:cylindermanifold}
+\end{figure}
+On this manifold, we can write down the boundary at $ x=0 $ and $ x=L $ as:
+\begin{align}
+ & Z_1(t) = -it,\quad \bar{Z}_1(t) = it \quad \text{at } x=0\\
+ & Z_2(t) = L + it,\quad \bar{Z}_2(t) = L - it \quad \text{at } x=L
+\end{align}
+with this orientation and normalization we have:
+\begin{align}
+  e_1(t) = -i,\quad \bar{e}_1(t) = i \quad &\text{at } x=0\\
+  e_2(t) = i,\quad \bar{e}_2(t) = -i \quad &\text{at } x=L
+\end{align}
+Thus, the action of Majorana CFT on this compatified strip with two boundaries is:
+\begin{itemize}
+  \item \textbf{Free $ (+) $ Boundary Condition:}
+    \begin{align}
+      \psi(0,y) = i \bar{\psi}(0,y), \quad \psi(L,y) = -i \bar{\psi}(L,y)
+    \end{align}
+  \item \textbf{Fixed $ (-) $ Boundary Condition:}
+    \begin{align}
+      \psi(0,y) = -i \bar{\psi}(0,y), \quad \psi(L,y) = i \bar{\psi}(L,y)
+    \end{align}
+\end{itemize}
+
+
+
+\subsection{Open Channel Partition Function}
+
+With the boundary conditions in hand we can canonically quantize the Majorana CFT on this compatified strip and get the open channel partition function. Here we will point out some subtleties that are not discussed in some literatures. There ain't a well-defined fermion parity opertor in the open channel. Thus, we need to be careful when we do this. We do this with two steps:
+\begin{itemize}
+  \item Quantize the theory on a infinite strip with two boundaries, find out the Hilbert Space \textbf{This is Extremely Nontrivial}
+    \item Compatify the strip and get the partition function
+\end{itemize}
+
+\subsubsection{Doubling Trick}
+
+We aren't familiar with the mode expansion on a strip and quantization on a strip, however, we have already discussed the theory on a cylinder in \cref{sec:Majorana CFT on a Cylinder}. Thus we may use a trick to double a strip and get a cylinder. This is the so-called doubling trick. 
+
+We can write the two boundary conditions in a compact form:
+\begin{align}
+  \psi(0,y)+ai\bar{\psi}(0,y)=0\quad \psi(L,y)-bi\bar{\psi}(L,y)=0,
+\end{align}
+\begin{itemize}
+  \item when $ a = b =1 $ we have the fixed $ (-) $ boundary condition at both boundaries
+  \item when $ a = b =-1 $ we have the free $ (+) $ boundary condition at both boundaries
+  \item when $ a = -b =1 $ we have the mixed boundary condition: fixed at $ x=0 $ and free at $ x=L $
+  \item when $ a = -b =-1 $ we have the mixed boundary condition: free at $ x=0 $ and fixed at $ x=L $
+\end{itemize}
+then we define a anxilary field $ \bar{\psi}_0(x,y) = - a \bar{\psi}(x,y) $. Thus the boundary condition can be written as:
+\begin{align}
+  \psi(0,y)= i\bar{\psi}_0(0,y)\quad \psi(L,y)= - i \displaystyle\frac{b}{a} \bar{\psi}_0(L,y)
+\end{align}
+Then we can extend the field $ \psi(x,y) $ to the region $ x \in [-L,L] $ by defining:
+\defi{
+  \textbf{Doubled Theory}
+
+  We define a field on the strip $ [-L,L] \times \mathbb{R} $ with:
+  \begin{align}
+  \left.\Psi(x,y)=\left\{\begin{array}{lll}\psi(x,y)&\mathrm{if}&x\in[0,L]\\i\bar{\psi}_0(-x,y)&\mathrm{if}&x\in[-L,0]\end{array}\right.\right.
+  \end{align}
+The original action can be written as:
+\begin{align}
+  S^S = \displaystyle\frac{1}{2\pi} \int_0^L dx \int_{-\infty}^\infty dy\  [\psi\bar{\partial}\psi + \bar{\psi}\partial\bar{\psi}] =S^C =  \displaystyle\frac{1}{2\pi} \int_{-L}^L dx \int_{-\infty}^\infty dy \  \Psi\bar{\partial}\Psi = \displaystyle\frac{1}{2 \pi} \int_z \Psi \bar{\partial} \Psi
+\end{align}
+where $ z = x+iy $. 
+}
+We can see that at the $ x= 0 $ boundary, the field $ \Psi(x,y) $ is continuous. While at the $ x=L $ boundary, we have:
+\begin{align}
+  \Psi(L,y)=-\frac{b}{a}\Psi(-L,y)
+\end{align}
+Thus we can understand the theory of two decoupled field $ \psi(x,y) $ and $ \bar{\psi}(x,y) $ on a strip with boundary conditions as a theory of a single ifield $ \Psi(x,y) $ on a circle of circumference $ 2L $. 
+\begin{itemize}
+  \item same boundary conditions ($ a=b $) correspond to the Neveu-Schwarz (NS) sector with anti-periodic boundary condition: $ \Psi(L,y)=-\Psi(-L,y) $ 
+  \item different boundary conditions ($ a=-b $) correspond to the Ramond (R) sector with periodic boundary condition: $ \Psi(L,y)=\Psi(-L,y) $
+\end{itemize}
+
+Eventually, we learn that the Majorana CFT on a strip is equivalent to a Chiral Majorana CFT on a cylinder with NS and R boundary conditions. We then can perform the quantization on a cylinder to get the quantized theory.
+
+\subsubsection{Canonical Quantization}
+
+A canonical method of quantizing on a cylinder is transform it onto a complex plane, do the radial quantization and then transform it back to the cylinder. We have already discussed this procedure in \cref{sec:Majorana CFT on a Cylinder}. Here we just list the results:
+\begin{itemize}
+  \item \textbf{Mode Expansion:} the mode expansion of the field $ \Psi(z) $ on the cylinder is:
+    \begin{align}
+      \Psi(z) = \sqrt{\frac{\pi}{iL}} \sum_k b_k e^{-\frac{\pi}{L}ik z}, \quad z = x + i y
+    \end{align}
+    Where the commutation relation of the modes is:
+    \begin{align}
+      \{ b_k, b_{k'} \} = \delta_{k+k',0}
+    \end{align}
+For the NS sector (Same BC), $ k \in \mathbb{Z} + \frac{1}{2} $ while for the R sector (Different BC), $ k \in \mathbb{Z} $.
+\rmk{
+  In fact there is a little convention problem here for x is defined on $ [-L,L] $we need an extra global phase factor. Yet it is a symmetry of the theory thus we ignore it here.
+}
+  \item \textbf{Hamiltonian:} The Hamiltonian of the theory is:
+    \begin{align}\label{eq:Majorana BCFT Hamiltonian}
+      H_{open} = \frac{\pi}{L} \left( \sum_{k>0} k b_{-k} b_k +E_0 \right) 
+    \end{align}
+    where the zero-point energy $ E_0 $ is:
+    \begin{align}
+      E_0 = \left\{\begin{array}{ll}-\frac{1}{48}&\mathrm{NS\ sector}\\\frac{1}{24}&\mathrm{R\ sector}\end{array}\right.
+    \end{align}
+    Proof: This is just the Hamiltonian on a cylinder with circumference $ \beta = 2L $ and central charge $ c=\frac{1}{2} $ see \cref{sec:Majorana CFT on a Cylinder}. Yet only one chiral part.
+    \rmk{
+      In fact, I have tried, in this standard convention, the Hamiltonian comes directly from legendre transformation of the chiral Lagrangian.
+    }
+\end{itemize}
+
+\subsubsection{Zero Mode and Ground State Degeneracy(?)}
+
+With a chiral Majorana fermion on a cylinder, when considering the Ramond sector, we know that the zero mode only has one-dimensional Clifford algebra:
+\begin{align}
+  \{ b_0, b_0 \} = 1 \quad  b_0^2 = \frac{1}{2}
+\end{align}
+Naively, we may think that we only have one ground state $ |0\rangle_R $ satisfying $ b_k |0\rangle = 0 $ for $ k>0 $. The zero mode $ b_0 $ then acts on the ground state as:
+\begin{align}
+  b_0 = \displaystyle\frac{1}{\sqrt{2}} \ket{0}_R \quad \text{or}\quad b_0 = -\displaystyle\frac{1}{\sqrt{2}} \ket{0}_R
+\end{align}
+However, things get worse when we try to define the fermion parity operator $ (-1)^F $. This is due to a mathematical theorem:
+\thm{
+  \textbf{Odd Dimensional Clifford Algebra Grading}
+
+  Clifford algebra with odd number of generators doesn't admit a $ \mathbb{Z}_2 $ grading, ie there is no way to define a fermion parity operator $ (-1)^F $ that anti-commutes with all the generators.
+}
+
+\subsubsection{Boundary Fermion}
+
+However, we \textbf{manually wish to define} a fermion parity operator $ (-1)^F $ and \textbf{we wish to} have a ground state degeneracy. The motivations are:
+\begin{itemize}
+  \item We wish to discuss Bosonization which needs a well-defined fermion parity operator to proceed. 
+    \item We wish to have 4 different partition functions just as the cylinder case.
+\end{itemize}
+Thus, we play the following trick:
+\thm{
+  \textbf{Boundary Fermion Trick}
+
+  We introduce an auxilary boundary free Majorana fermion $ \xi(t) $ with dynamical terms only on the boundary of one of the boundary conditions. we have two choices:
+  \begin{itemize}
+    \item Add $ \xi(t) $ on the free boundary condition boundary
+    \item Add $ \xi(t) $ on the fixed boundary condition boundary
+  \end{itemize}
+  The action of the boundary fermion is:
+  \begin{align}
+    S_\xi = \frac{i}{4} \int dt\ \xi(t) \frac{d}{dt} \xi(t)
+  \end{align}
+  Under canonical quantization, the boundary fermion satisfies the anti-commutation relation:
+\begin{align}
+  \{ \xi(t), \xi(t') \} = 2\delta(t-t')
+\end{align}
+This defines a extra boundary Hilbert space $ \mathcal{H}_B = \text{Span}\{ |0\rangle_B, \xi |0\rangle_B \} $.
+}
+With this boundary fermion, we can define the fermion parity operator and have a ground state degeneracy.
+\begin{itemize}
+  \item \textbf{Case 1: Single Boundary Fermion} when we have different boundary conditions at the two boundaries, there exists a single boundary fermion $ \xi(t) $ on the free boundary only.
+\end{itemize}
+The boundary fermion serves as a quantum mechanical fermion degree of freedom on the boundary. Apparently, it has nothing to do with the bulk Majorana fermion $ \Psi(z) $. However, it provides an extra zero mode $ \xi $ that satisfies:
+\begin{align}
+  \{ \xi, \xi \} = 2 \quad \xi^2 = 2 , \quad \{ \xi, b_k \} = 0 \ \forall\ k
+\end{align}
+We certainly have a ground state degeneracy, to represent the Clifford algebra generated by $ b_0 $ and $ \xi $:
+\begin{align}
+  \{ b_0, \xi \} = 0, \quad b_0^2 = \frac{1}{2}, \quad \xi^2 = 2
+\end{align}
+Thus, we play exactly the same trick as in \cref{sec:Fermion Parity in Majorana CFT} to define the degenerate ground states. And the Hilbert space is given by acting the bulk negative modes $ b_{-k} $ ($ k= 1,2,3... $) on the degenerate ground states.
+
+\begin{itemize}
+  \item \textbf{Case 2: Double Boundary Fermions} when we have same boundary conditions at the two boundaries, there might exist two boundary fermions $ \xi_1(t) $ and $ \xi_2(t) $ on both boundaries.
+\end{itemize}
+In this case, the bulk Majorana fermion has no zero mode thus there is no ground state degeneracy from the bulk. However, the two boundary fermions $ \xi_1 $ and $ \xi_2 $ generate a two-dimensional Clifford algebra:
+\begin{align}
+  \{ \xi_i, \xi_j \} = 2\delta_{ij}, \quad \xi_i^2 = 2 , \quad \{ \xi_i, b_k \} = 0 \ \forall\ k
+\end{align}
+\YL{[I came up with this idea recently, I haven't find any reference discussing this case yet. I think it is true]}
+We then can play the same trick as in \cref{sec:Zero Mode and Ground State Degeneracy in Majorana CFT} to define the degenerate ground states. And the Hilbert space is given by acting the bulk negative modes $ b_{-k} $ ($ k= 1/2,3/2... $) on the degenerate ground states.
+
+\subsubsection{Fermion Parity Operator}
+
+\begin{itemize}
+  \item \textbf{Same boundary conditions with no boundary fermions}
+\end{itemize}
+For this case, there is no zero mode thus we can define the fermion parity operator as usual:
+\begin{align}
+  (-1)^F = (-1)^{F_\mathrm{nz}} = (-1)^{\sum_{k>0} b_{-k} b_k}
+\end{align}
+\begin{itemize}
+  \item \textbf{Different boundary conditions with one boundary fermions}
+\end{itemize}
+In this case, we have two zero modes $ b_0 $ and $ \xi $ that generate a two-dimensional Clifford algebra.
+We play the exact same trick to define the degenerate ground states as we do in \cref{sec:Zero Mode and Ground State Degeneracy in Majorana CFT}. We define the fermion parity operator as:
+\begin{align}
+  (-1)^{F} =
+\begin{cases}
+ - \sqrt{2}i\xi b_0(\boldsymbol{-}1)^{F_\mathrm{nz}}.\\ 
+  \sqrt{2}i\xi b_0(\boldsymbol{-}1)^{F_\mathrm{nz}}.\\ 
+\end{cases}
+\end{align}
+We have two choices here, yet they matter no diference in the final partition function. We may just pick any one of them. We commonly use $ (-1)^F = \sqrt{2}i\xi b_0(-1)^{F_\mathrm{nz}} $.
+\begin{itemize}
+  \item \textbf{Same boundary conditions with two boundary fermions}
+\end{itemize}
+In this case, we have two boundary fermions $ \xi_1 $ and $ \xi_2 $ that generate a two-dimensional Clifford algebra.
+We play the exact same trick to define the degenerate ground states as we do in \cref{sec:Zero Mode and Ground State Degeneracy in Majorana CFT}. We define the fermion parity operator as:
+\begin{align}
+  (-1)^{F} =
+\begin{cases}
+ - i\xi_1 \xi_2(\boldsymbol{-}1)^{F_\mathrm{nz}}.\\ 
+  i\xi_1 \xi_2(\bold{-}1)^{F_\mathrm{nz}}.\\ 
+\end{cases}
+\end{align}
+We have two choices here, yet they matter no diference in the final partition function. We may just pick any one of them. We commonly use $ (-1)^F = i\xi_1 \xi_2(-1)^{F_\mathrm{nz}} $.
+
+\subsubsection{0A Theory and 0B Theory}
+
+We have claimed that there are two ways of adding the boundary fermion: on the free boundary or on the fixed boundary. We name these two theories as:
+\begin{itemize}
+  \item \textbf{0A Theory:} adding the boundary fermion on the free $(+)$ boundary condition boundary.
+  \item \textbf{0B Theory:} adding the boundary fermion on the fixed $(-)$ boundary condition boundary.
+\end{itemize}
+As we will see eventually, these two theories correspond to the choice of type 0A fermion parity and type 0B fermion parity in the closed channel.
+\textbf{From now on, we will focus on the 0A theory only. The 0B theory can be treated similarly.}
+
+
+\subsubsection{Open Channel Hilbert Space}
+
+With all the ingredients in hand, we can finally calculate the open channel partition function of Majorana CFT on a compatified strip with two boundaries. We first list out all sort of boundary conditions we can have and give them a name, we call \textbf{free boundary condition} as $ + $ and \textbf{fixed boundary condition} as $ - $. Thus we have 4 different types of boundary conditions:
+\begin{itemize}
+  \item $(+,+)$ boundary conditions: both boundaries have free boundary conditions. There are two boundary fermions, one on each boundary for the 0A theory.
+
+  \item $(-,-)$ boundary conditions: both boundaries have fixed boundary conditions. There is no boundary fermion for the 0A theory.
+
+  \item $(+,-)$ boundary conditions: the boundary at $x=0$ is free and the boundary at $x=L$ is fixed. There is a boundary fermion only on the free boundary.
+
+  \item $(-,+)$ boundary conditions: the boundary at $x=0$ is fixed and the boundary at $x=L$ is free. There is a boundary fermion only on the free boundary.
+\end{itemize}
+
+The Hilbert spaces corresponding to the four types of boundary conditions are:
+\begin{itemize}
+  \item $(+,+)$ boundary conditions: the chiral NS sector Hilbert space tensored with two boundary-fermion Hilbert spaces,
+  \[
+     \mathcal{H}_{(++)}=\mathcal{H}^C_{\mathrm{NS}}
+       \otimes \mathcal{H}_B^{(1)} \otimes \mathcal{H}_B^{(2)} .
+  \]
+  It is generated by acting negative modes $b_{-k}$ ($k\in\mathbb{Z}+\frac12>0$) on the degenerate ground states. The Hilbert space has twice the size of the $(-,-)$ case.
+
+  \item $(-,-)$ boundary conditions: the chiral bulk NS sector Hilbert space,
+  \[
+     \mathcal{H}_{(--)}=\mathcal{H}^C_{\mathrm{NS}},
+  \]
+  generated by acting negative modes $b_{-k}$ ($k\in\mathbb{Z}+\frac12$) on the NS ground state $\ket{0}_{\mathrm{NS}}$.
+
+  \item $(+,-)$ boundary conditions: the bulk R sector Hilbert space tensored with a single boundary-fermion Hilbert space,
+  \[
+     \mathcal{H}_{(+-)}=\mathcal{H}^C_{\mathrm{R}}\otimes\mathcal{H}_B .
+  \]
+  It is generated by acting negative modes $b_{-k}$ ($k\in\mathbb{Z}>0$) on the degenerate R ground states. This Hilbert space is twice as large as the $(+,+)$ case.
+
+  \item $(-,+)$ boundary conditions: identical in structure to the $(+,-)$ case,
+  \[
+     \mathcal{H}_{(-+)}=\mathcal{H}^C_{\mathrm{R}}\otimes\mathcal{H}_B .
+  \]
+\end{itemize}
+
+
+\subsubsection{Open Channel Partition Functions}
+
+Then we can finally calculate the partition functions in the open channel. The partition function is defined as:
+\defi{
+  \textbf{Open Channel Partition Function}
+
+  The open channel partition function is defined as:
+\begin{align}
+  Z = \mathrm{Tr}_{\mathcal{H}} \left[ e^{-\beta H} \right]
+\end{align}
+Yet for fermions we can compatify with periodic or anti-periodic boundary condition, thus we have 2 different partition functions:
+\begin{align}
+  Z_{-} = \mathrm{Tr}_{\mathcal{H}} \left[ (-1)^F e^{- \beta H} \right] \quad  Z_{+} = \mathrm{Tr}_{\mathcal{H}} \left[ e^{-\beta H} \right]
+\end{align}
+We commonly use $ q = e^{-\pi \beta /L} $ for simpler notation. 
+}
+The two kinds of partition functions are equivalent to compatifying the time direction with anti-periodic and periodic boundary conditions respectively. This can be shown easily using the operter formalism:
+\begin{align}
+  \mathrm{Tr}[\psi(\tau+\beta)e^{-\beta H}]=\mathrm{Tr}[e^{\beta H}\psi(\tau)e^{-\beta H}e^{-\beta H}]=\mathrm{Tr}[\psi(\tau)e^{-\beta H}].
+\end{align}
+If we then plug in the fermion parity operator $ (-1)^F $, we have:
+\begin{align}
+  \mathrm{Tr}[\psi(\tau+\beta)(-1)^Fe^{-\beta H}]=-\mathrm{Tr}[\psi(\tau)(-1)^Fe^{-\beta H}].
+\end{align}
+The $ -1 $ is taken when anti-commuting $ \psi $ passes through $ (-1)^F $. Thus, we see that the partition function with $ (-1)^F $ inserted corresponds to anti-periodic boundary condition in time direction while the one without $ (-1)^F $ corresponds to periodic boundary condition in time direction.
+
+We then calculate the partition functions for the 4 types of boundary conditions, we review that the Hamiltonian is given by \cref{eq:Majorana BCFT Hamiltonian}. Thus, we have the following results, and they can be explicitly written in terms of Ising model characters as well:
+% \begin{itemize}
+%   \item $(-,-)$ boundary conditions partition functions:
+%     \begin{align}
+%       Z_{(--),-} 
+%       &= \mathrm{Tr}_{\mathcal{H}_{(++)}} \!\left[ (-1)^{F}\,
+%       e^{-\beta H} \right]
+%       = q^{-\frac{1}{48}} \prod_{n=0}^\infty \left( 1 - q^{n+\frac{1}{2}} \right) = \chi_0(q) - \chi_{1/2}(q), \\
+%       Z_{(--),+} 
+%       &= \mathrm{Tr}_{\mathcal{H}_{(++)}} \!\left[
+%       e^{-\frac{\pi \beta}{L}\left(L_0 - \frac{c}{24}\right)} \right]
+%       = q^{-\frac{1}{48}} \prod_{n=0}^\infty \left( 1 + q^{n+\frac{1}{2}} \right) = \chi_0(q) + \chi_{1/2}(q).
+%     \end{align}
+%   \item $(+,+)$ boundary conditions partition functions:
+%     \begin{align}
+%       Z_{(++),-} 
+%       &= \mathrm{Tr}_{\mathcal{H}_{(--)}} \!\left[ (-1)^{F}\,
+%       e^{-\beta H} \right]
+%       = 0 \\ 
+%       Z_{(++),+} 
+%       &= \mathrm{Tr}_{\mathcal{H}_{(--)}} \!\left[
+%       e^{-\frac{\pi \beta}{L}\left(L_0 - \frac{c}{24}\right)} \right]
+%       = 2 q^{-\frac{1}{48}} \prod_{n=0}^\infty \left( 1 + q^{n+\frac{1}{2}} \right)= 2\left(\chi_0(q) + \chi_{1/2}(q)\right)
+%     \end{align}
+%     We have zero for the degenerate ground states cancel each other out in the $ Z_{(--),-} $ case.
+%   \item $(+,-)$ and $ (-,+) $ boundary conditions partition functions:
+%     \begin{align}
+%       Z_{(+-),-} = Z_{(-+),-}
+%       &= \mathrm{Tr}_{\mathcal{H}_{(+-)}} \!\left[ (-1)^{F}\,
+%       e^{-\beta H} \right]
+%       = 0 \\ 
+%       Z_{(+-),+} = Z_{(-+),+}
+%       &= \mathrm{Tr}_{\mathcal{H}_{(+-)}} \!\left[
+%       e^{-\frac{\pi \beta}{L}\left(L_0 - \frac{c}{24}\right)} \right]
+%       = 2 q^{\frac{1}{24}} \prod_{n=1}^\infty \left( 1 + q^{n} \right) = 2\chi_{1/16}(q)
+%     \end{align}
+%     We have zero for the degenerate ground states cancel each other out in the $ Z_{(+-),-} $ case.
+% \end{itemize}
+% Under Modular transformation $ \tilde{q} = e^{-4\pi L/\beta} $, thus we can also write the partition functions in terms of $ \tilde{q} $:
+% \begin{table}[H]
+% \centering
+% \renewcommand{\arraystretch}{1.6}
+% \begin{tabular}{ccc}
+% \hline
+% Partition Function & $ q $ character & $ \tilde{q} $ character \\ 
+% \hline\hline
+% $Z_{(++),-}$ 
+% & $\chi_0(q) - \chi_{1/2}(q)$
+% & $\sqrt{2}\,\chi_{1/16}(\tilde q)$
+% \\
+% $Z_{(++),+}$ 
+% & $\chi_0(q) + \chi_{1/2}(q)$
+% & $\chi_0(\tilde q) + \chi_{1/2}(\tilde q)$
+% \\
+% $Z_{(--),-}$ 
+% & $0$
+% & $0$
+% \\
+% $Z_{(--),+}$ 
+% & $2\big(\chi_0(q) + \chi_{1/2}(q)\big)$
+% & $2\big(\chi_0(\tilde{q}) + \chi_{1/2}(\tilde{q})\big)$
+% \\
+% $Z_{(+-),-}$ 
+% & $0$
+% & $0$
+% \\
+% $Z_{(+-),+}$ 
+% & $2\,\chi_{1/16}(q)$
+% & $\sqrt{2}\big(\chi_0(\tilde q) - \chi_{1/2}(\tilde q)\big)$
+% \\
+% \hline\hline
+% \end{tabular}
+% \caption{Free fermion open channel partition functions with different boundary conditions in both $ q $ and $ \tilde{q} $ characters.}
+% \end{table}
+
+\begin{itemize}
+  \item $(-,-)$ boundary conditions partition functions:
+    \begin{align}
+      Z_{(--),-} 
+      &= \mathrm{Tr}_{\mathcal{H}_{(--)}} \!\left[ (-1)^{F}\,
+      e^{-\beta H} \right]
+      = q^{-\frac{1}{48}} \prod_{n=0}^\infty \left( 1 - q^{n+\frac{1}{2}} \right)
+      = \chi_0(q) - \chi_{1/2}(q), \\
+      Z_{(--),+} 
+      &= \mathrm{Tr}_{\mathcal{H}_{(--)}} \!\left[
+      e^{-\frac{\pi \beta}{L}\left(L_0 - \frac{c}{24}\right)} \right]
+      = q^{-\frac{1}{48}} \prod_{n=0}^\infty \left( 1 + q^{n+\frac{1}{2}} \right)
+      = \chi_0(q) + \chi_{1/2}(q).
+    \end{align}
+
+  \item $(+,+)$ boundary conditions partition functions:
+    \begin{align}
+      Z_{(++),-} 
+      &= \mathrm{Tr}_{\mathcal{H}_{(++)}} \!\left[ (-1)^{F}\,
+      e^{-\beta H} \right]
+      = 0 \\ 
+      Z_{(++),+} 
+      &= \mathrm{Tr}_{\mathcal{H}_{(++)}} \!\left[
+      e^{-\frac{\pi \beta}{L}\left(L_0 - \frac{c}{24}\right)} \right]
+      = 2 q^{-\frac{1}{48}} \prod_{n=0}^\infty \left( 1 + q^{n+\frac{1}{2}} \right)
+      = 2\left(\chi_0(q) + \chi_{1/2}(q)\right)
+    \end{align}
+    Again, the degenerate ground states cancel each other in $Z_{(++),-}$.
+
+  \item $(-,+)$ and $(+,-)$ boundary conditions partition functions:
+    \begin{align}
+      Z_{(-+),-} = Z_{(+-),+}
+      &= \mathrm{Tr}_{\mathcal{H}_{(-+)}} \!\left[ (-1)^{F}\,
+      e^{-\beta H} \right]
+      = 0 \\ 
+      Z_{(-+),+} = Z_{(+-),-}
+      &= \mathrm{Tr}_{\mathcal{H}_{(-+)}} \!\left[
+      e^{-\frac{\pi \beta}{L}\left(L_0 - \frac{c}{24}\right)} \right]
+      = 2 q^{\frac{1}{24}} \prod_{n=1}^\infty \left( 1 + q^{n} \right)
+      = 2\chi_{1/16}(q)
+    \end{align}
+    As before, the degenerate ground states cancel in $Z_{(-+),-}$.
+\end{itemize}
+
+Under the modular transformation $\tilde q = e^{-4\pi L / \beta}$, the partition functions become:
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.6}
+\begin{tabular}{ccc}
+\hline
+Partition Function & $ q $ character & $ \tilde{q} $ character \\ 
+\hline\hline
+
+$Z_{(--),-}$ 
+& $\chi_0(q) - \chi_{1/2}(q)$
+& $\sqrt{2}\,\chi_{1/16}(\tilde q)$
+\\
+
+$Z_{(--),+}$ 
+& $\chi_0(q) + \chi_{1/2}(q)$
+& $\chi_0(\tilde q) + \chi_{1/2}(\tilde q)$
+\\
+
+$Z_{(++),-}$ 
+& 0
+& 0
+\\
+
+$Z_{(++),+}$ 
+& $2\big(\chi_0(q) + \chi_{1/2}(q)\big)$
+& $2\big(\chi_0(\tilde{q}) + \chi_{1/2}(\tilde{q})\big)$
+\\
+
+$Z_{(-+),-}$ 
+& 0
+& 0
+\\
+
+$Z_{(-+),+}$ 
+& $2\,\chi_{1/16}(q)$
+& $\sqrt{2}\big(\chi_0(\tilde q) - \chi_{1/2}(\tilde q)\big)$
+\\
+
+\hline\hline
+\end{tabular}
+\caption{Free fermion open-channel partition functions in both $ q $ and $ \tilde{q} $ characters.}
+\label{tab:open channel partition functions}
+\end{table}
+
+
+
+\subsection{Closed Channel Partition Function}
+After the calculation of the open channel partition function, we want to identify the boundary states that cooresponds to the two boundary conditions (in fact 4 boundary states due to that we consider 2 ways of compatifying the strip). Yet the discussion on BCFT are mostly on a Bosonic state, we need to define a proper boundary state formalism for Fermions. 
+
+\subsubsection{Fermionic Boundary State Formalism}
+
+We try to generalize the definition of boundary state in Bosonic CFT to Fermionic CFT. An obvious observation tells us different ways of compatifying the strip correspond to different boundary states. Thus it is natural to define:
+
+\defi{
+  \textbf{Fermionic Boundary State}
+
+  We define the boundary state $ |\alpha, NS \rangle $ and  $ \ket{\alpha,R} $ in Fermionic CFT as the state that satisfies: test
+  \begin{align}
+  &\bra{\alpha,NS}  e^{-L_1 H_{\mathrm{closed}}} \ket{\beta,NS}
+  \;=\; \mathrm{Tr}_{\mathcal{H}_{\alpha\beta}}\!\left( e^{-L_2 H_{\mathrm{open}}} \right) = Z_{(\alpha\beta),+},
+    \\
+  &\bra{\alpha,R } e^{-L_1 H_{\mathrm{closed}}}  \ket{\beta,\mathrm{R}}
+  \;=\; \mathrm{Tr}_{\mathcal{H}_{\alpha\beta}}\!\left( (-1)^F e^{-L_2 H_{\mathrm{open}}} \right) = Z_{(\alpha\beta),-}.
+  \end{align}
+}
+Thus for every boundary condition $ \alpha, \beta $, we have two boundary states $ |\alpha, NS \rangle $ and  $ \ket{\alpha,R} $. Here, we will manage to find the boudnary states that correspond to the 4 types of boundary conditions we have discussed in the open channel.
+
+
+\subsubsection{Canonical Quantization in Closed Channel}
+
+The closed channel is merely the Majorana CFT on a cylinder with circumference $ \beta $ and length $ L $. We have already discussed the canonical quantization of Majorana CFT on a cylinder in \cref{sec:Majorana CFT on a Cylinder}. To be more convenient, we just use the standard transformation from the complex plane to the cylinder, and here's the results:
+\begin{itemize}
+  \item \textbf{Mode Expansion:} the mode expansion of field $ \psi(z) $ and $ \bar{\psi}(\bar{z}) $ is given by:
+    \begin{align}
+        \psi^C(z)=\sqrt{\frac{2\pi}{\beta}}\sum_ka_ke^{-2\pi k z/\beta} \quad \bar{\psi}^C(\bar{z})=\sqrt{\frac{2\pi}{\beta}}\sum_k\bar{a}_ke^{-2\pi k\bar{z}/\beta}
+    \end{align}
+    where now $ z = x - iy $, now $ x $ direction is the time direction. The commutation relation of the modes is:
+    \begin{align}
+      \{ a_k, a_{k'} \} = \delta_{k+k',0}, \quad \{ \bar{a}_k, \bar{a}_{k'} \} = \delta_{k+k',0}
+    \end{align}
+  \item \textbf{Hamiltonian:} The Hamiltonian of the theory is:
+    \begin{align}
+      H_{closed}=\frac{2\pi}{\mathsf{\beta}}\left(2E_0+\sum_{k>0}k\left(a_{-k}a_k+\bar{a}_{-k}\bar{a}_k\right)\right)
+    \end{align}
+    Similarly:
+    \begin{align}
+      E_0 = \left\{\begin{array}{ll}-\frac{1}{48}&\mathrm{NS\ sector}\\ \frac{1}{24} &\mathrm{R\ sector}\end{array}\right.
+    \end{align}
+  \item \textbf{Fermion Parity:} for a free fermion on a cylinder we know that fermion parity operators are as follows:
+    \begin{align}
+      (-1)^F = \left\{\begin{array}{ll} (-1)^{F_\mathrm{nz}} & \mathrm{NS\ sector}\\ \pm 2 ia_0\bar{a}_0(-1)^{F_\mathrm{nz}} & \mathrm{R\ sector}\end{array}\right.
+    \end{align}
+    Here $ F_\mathrm{nz} = \sum_{k>0} a_{-k} a_k + \sum_{k>0} \bar{a}_{-k} \bar{a}_k $ is the non-zero mode fermion number operator. The $ \pm $ in the R sector corresponds to the two different choices of fermion parity operator. We then will see that when considering a 0A theory, we have to use the $ -2i a_0 \bar{a}_0 $ choice or so called type 0A fermion parity.
+\end{itemize}
+\rmk{for the modes in the closed channel, we use $ a_k, \bar{a}_k $ to show that it has nothing to do with the modes in the open channel $ b_k $.}
+
+\subsubsection{Gluing Conditions and Ishibashi States}
+
+Imposing the boundary conditions shall turm into gluing condition for the parent CFT. We now clarify the procedure and give out the results. First of all, the parent CFT is defined on a cylinder with coordinate $ z = x + iy $. It is quantized by radial quantization on a plane with coordinate $ \xi $. Till now this have nothing to do with a BCFT just a standard CFT on a cylinder. 
+
+However, we have to relate it to a BCFT with boundary and project the boundary torwand a circle on $ \xi $ plane and which will lead to imposing the gluing condition. Thus we take the following standard procedure, we consider a Majorana CFT on a UHP with coordinate $ w = x+ iy $, where $ z = \bar{z} $ is the boundary. Then we have two types of boundary conditions:
+\begin{itemize}
+  \item \textbf{Free $ (+) $ Boundary Condition:} this boundary condition requires:
+    \begin{align}
+      \psi(z) = \bar{\psi}(\bar{z}) \quad \text{at } z = \bar{z}.
+    \end{align}
+  \item \textbf{Fixed $ (-) $ Boundary Condition:} this boundary condition requires:
+    \begin{align}
+      \psi(z) = - \bar{\psi}(\bar{z}) \quad \text{at } z = \bar{z}.
+    \end{align}
+\end{itemize}
+
+\begin{itemize}
+  \item \textbf{Inner Circle Condition}
+\end{itemize}
+Then we make a conformal transformation to transform the $ z = \bar{z} \in \mathbb{R}_+ $ part to the inner circle of the $ \xi $ plane. A commonly used conformal transformation is:
+\begin{align}
+  \xi = e^{\frac{2\pi i}{\beta}\ln z} \quad \bar{\xi} = e^{-\frac{2\pi i}{\beta}\ln \bar{z}}.
+\end{align}
+Under this transformation, the majorana fermion transforms as:
+\begin{align}
+  \psi^P(\xi) = \left( \frac{2\pi}{\beta} \displaystyle\frac{\xi}{w} \right)^{1/2} \psi^H(w), \quad \bar{\psi}^P(\bar{\xi}) = \left( -\frac{2\pi}{\beta} \displaystyle\frac{\bar{\xi}}{\bar{w}} \right)^{1/2} \bar{\psi}^H(\bar{w}).
+\end{align}
+\rmk{
+  we use $ C $ to denote the field on the cylinder and $ P $ to denote the field on the plane. and we use $ H $ to denote the field on the UHP.
+}
+Thus for the inner circle $ |\xi| = 1 $, we have:
+\begin{itemize}
+  \item \textbf{Free $ (+) $ Boundary Condition:}
+    \begin{align}
+      \psi^P(\xi) = i \bar{\psi}^P(\bar{\xi}) \quad \text{at } |\xi| = 1.
+    \end{align}
+  \item \textbf{Fixed $ (-) $ Boundary Condition:}
+    \begin{align}
+      \psi^P(\xi) = - i \bar{\psi}^P(\bar{\xi}) \quad \text{at } |\xi| = 1.
+    \end{align}
+\end{itemize}
+Then we mode expand the fields on the plane and plug in the mode expansion to get the gluing conditions on the modes. We finally have:
+\begin{itemize}
+  \item \textbf{Free $ (+) $ Boundary Condition:}
+    \begin{align}
+      \left(a_{k}-i\bar{a}_{-k}\right)|+, NS/R \rangle=0\mathrm{~,~}\quad\left\langle +, NS/R\right|\left(a_{-k}+i\bar{a}_{k}\right)=0\mathrm{~,}
+    \end{align}
+  \item \textbf{Fixed $ (-) $ Boundary Condition:}
+    \begin{align}
+      \left(a_{k}+i\bar{a}_{-k}\right)|-, NS/R \rangle=0\mathrm{~,~}\quad\left\langle -, NS/R\right|\left(a_{-k}-i\bar{a}_{k}\right)=0\mathrm{~,}
+    \end{align}
+\end{itemize}
+
+For these gluing condition, it is able to construct a set of Ishibashi states that satisfy them:
+\begin{itemize}
+  \item \textbf{NS Sector Ishibashi States:}
+    \begin{align}
+    |\pm,NS\rangle\rangle=\prod_{k\in\mathbb{N}_+-1/2}e^{i\pm a_{-k}\bar{a}_{-k}}|0\rangle_{\mathrm{NS}}
+    \end{align}
+    The $ + $ state is solution to the gluing condition of free boundary condition while the $ - $ state is solution to the gluing condition of fixed boundary condition.
+  \item \textbf{R Sector Ishibashi States:}
+    \begin{align}
+|\pm,R \rangle\rangle=\prod_{k\in\mathbb{N}_+}e^{i\pm a_{-k}\bar{a}_{-k}}|\pm\rangle_{\mathrm{R}}
+    \end{align}
+    The $ + $ state is solution to the gluing condition of free boundary condition while the $ - $ state is solution to the gluing condition of fixed boundary condition. And $ |\pm\rangle_R $ are the degenerate R ground states which we have discussed in \cref{sec:Zero Mode and Ground State Degeneracy in Majorana CFT}. solutions to different gluing conditions corresponds to different choices of R ground states, this is because the gluing conditions on zero modes are:
+    \begin{align}
+  & (a_0 - i \bar{a}_0) |+,R\rangle = 0, \\
+  & (a_0 + i \bar{a}_0) |-,R\rangle = 0.
+    \end{align}
+    It can be seen by plugging in the definition \cref{eq:Majorana zero mode action on R ground states}. 
+\end{itemize}
+Proof: 
+
+I'll sketch the proof for NS sector and the free $ (+) $ boundary condition here. R sector only differs from the discussion of the zero modes. We shall verify that the Ishibashi state indeed satisfies the gluing condition. Due to the anti-commutation relation of the modes, we have:
+\begin{align}
+  e^{i a_{-k}\bar{a}_{-k}} = 1 + i a_{-k}\bar{a}_{-k}.
+\end{align}
+This in total behaves as a bosonic operator so we can change the order of acting them on the vacuum state freely. Then we consider the action of $ (a_k - i \bar{a}_{-k}) $ on the Ishibashi state, we assume $ k > 0 $ the other case is rather similar. We have:
+\begin{align}
+  (a_k - i \bar{a}_{-k}) (1 + i a_{-k}\bar{a}_{-k})
+  &= a_k + i a_k a_{-k} \bar{a}_{-k} - i \bar{a}_{-k} - \bar{a}_{-k} a_{-k} \bar{a}_{-k} \\
+  &= a_k - i\bar{a}_{-k} + i a_k a_{-k} \bar{a}_{-k}\\ 
+  & = a_k -i\bar{a}_{-k} (a_{-k} a_k ) \\
+\end{align}
+Acting on vaccum this will give zero.
+\qed 
+
+\subsubsection{Boundary States and Partition Functions}
+
+We now that boundary states shall be linear combinations of the Ishibashi states we have constructed. However, we notice that for every boundary condition only exists one corresponding Ishibashi state. \textbf{Thus, the boundary states are merely the Ishibashi states themselves up to a normalization factor}
+\begin{align}
+  &\ket{+,NS} \;\propto\;  |\pm,NS\rangle\rangle, \qquad \ket{-,NS} \;\propto\;  |-,NS\rangle\rangle, \\
+  &\ket{+,R} \;\propto\;  |+,R\rangle\rangle, \qquad \ket{-,R} \;\propto\;  |-,R\rangle\rangle.
+\end{align}
+We now have to find out the normalization factor using the definition of fermionic boundary state (which sometimes are called spin Cardy's condition). To do this we first calculate the partition function of Ishibashi states, this can be done explicitly:
+\begin{align}
+\langle\!\langle \pm,NS | e^{-L H_{\text{closed}}} | \pm,NS \rangle\!\rangle
+&=
+\tilde{q}^{-\frac{1}{48}}
+\prod_{n=0}^{\infty}\left(1+\tilde{q}^{n+\frac{1}{2}}\right)
+= \chi_{0}(\tilde{q}) + \chi_{1/2}(\tilde{q}),
+\\
+\langle\!\langle \mp,NS | e^{-L H_{\text{closed}}} | \pm,NS \rangle\!\rangle
+&=
+\tilde{q}^{-\frac{1}{48}}
+\prod_{n=0}^{\infty}\left(1-\tilde{q}^{n+\frac{1}{2}}\right)
+= \chi_{0}(\tilde{q}) - \chi_{1/2}(\tilde{q}),
+\\
+\langle\!\langle \pm,R | e^{-L H_{\text{closed}}} | \pm,R \rangle\!\rangle
+&=
+\tilde{q}^{\frac{1}{24}}
+\prod_{n=1}^{\infty}\left(1+\tilde{q}^{n}\right)
+= \chi_{1/16}(\tilde{q}),
+\\
+\langle\!\langle \mp,R | e^{-L H_{\text{closed}}} | \pm,R \rangle\!\rangle
+&=
+0 .
+\end{align}
+Proof: This is done by plugging in the definition and do straightforward calculation. For example, for the first one we can first calculate the commutation relation between the Hamiltonian and operators:
+\begin{align}
+  [H_{\mathrm{closed}},a_{-k}]=\frac{2\pi}{\beta}ka_{-k},\quad[H_{\mathrm{closed}},\bar{a}_{-k}]=\frac{2\pi}{\beta}k\bar{a}_{-k}
+\end{align}
+From this we can have:
+\begin{align}
+  e^{-LH_{\mathrm{closed}}}a_{-k}\bar{a}_{-k}e^{LH_{\mathrm{closed}}}=e^{-\frac{4\pi L}{\beta}k}a_{-k}\bar{a}_{-k}
+\end{align}
+Then we use the fact that:
+\begin{align}
+  (1- i\bar{a}_k a_{k}) (1 + i \omega_k a_{-k}\bar{a}_{-k}) = 1 + i \omega_k a_{-k}\bar{a}_{-k} - i \bar{a}_k a_{k} + \omega_k \bar{a}_k a_{k} a_{-k}\bar{a}_{-k}  \quad \text{where } \quad  \omega_k = e^{-\frac{4\pi L}{\beta}k}
+\end{align}
+When act on vaccum the only non-zero contribution comes from the first and the last term. Thus we have:
+\begin{align}
+  1+ \omega_k \bar{a}_k a_{k} a_{-k}\bar{a}_{-k} \sim 1 + \omega_k
+\end{align}
+contribution from each term. In total we have:
+\begin{align}
+  \langle\!\langle +,NS | e^{-L H_{\text{closed}}} | +,NS \rangle\!\rangle
+  &=
+    \tilde{q}^{-\frac{1}{48}}
+  \prod_{k\in\mathbb{N}_+ - 1/2} \left(1 + e^{-\frac{4\pi L}{\beta}k}\right) \\
+  &=
+  \tilde{q}^{-\frac{1}{48}}
+  \prod_{n=0}^{\infty}\left(1+\tilde{q}^{n+\frac{1}{2}}\right) 
+\end{align}
+The first term comes from the vaccum energy. The other cases are rather similar. 
+\qed
+
+
+where we have used the modular transformation of Ising characters and $ \tilde{q} = e^{-4\pi L/\beta} $. we compare these results with the open channel partition functions in \cref{tab:open channel partition functions} and find out the normalization factors. We have:
+\begin{align}
+ & \ket{-,NS} = | -,NS\rangle\rangle\\ 
+ &\ket{-,R} = \sqrt[4]{2}|-,R\rangle\rangle, \\ 
+ & \ket{+,NS} = \sqrt{2}|+,NS\rangle\rangle, \\ 
+ & \ket{+,R} = 0|+,R\rangle\rangle = 0.
+\end{align}
+We calculate the partition functions and list them out in a table:
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.6}
+\begin{tabular}{cccc}
+\hline\hline
+Open Channel & $ q $ character & $ \tilde{q} $ character & Closed Channel \\ 
+\hline\hline
+
+$Z_{(--),-}$ 
+& $\chi_0(q) - \chi_{1/2}(q)$
+& $\sqrt{2}\,\chi_{1/16}(\tilde q)$
+& $\langle -,R | e^{-L H_{\rm closed}} | -,R \rangle$
+\\
+
+$Z_{(--),+}$ 
+& $\chi_0(q) + \chi_{1/2}(q)$
+& $\chi_0(\tilde q) + \chi_{1/2}(\tilde q)$
+& $\langle -,NS | e^{-L H_{\rm closed}} | -,NS \rangle$
+\\
+
+$Z_{(++),-}$ 
+& 0
+& 0
+& $\langle +,R | e^{-L H_{\rm closed}} | +,R \rangle$
+\\
+
+$Z_{(++),+}$ 
+& $2\big(\chi_0(q) + \chi_{1/2}(q)\big)$
+& $2\big(\chi_0(\tilde{q}) + \chi_{1/2}(\tilde{q})\big)$
+& $\langle +,NS | e^{-L H_{\rm closed}} | +,NS \rangle$
+\\
+
+$Z_{(-+),-}$ 
+& 0
+& 0
+& $\langle -,R | e^{-L H_{\rm closed}} | +,R \rangle$
+\\
+
+$Z_{(-+),+}$ 
+& $2\,\chi_{1/16}(q)$
+& $\sqrt{2}\big(\chi_0(\tilde q) - \chi_{1/2}(\tilde q)\big)$
+& $\langle -,NS | e^{-L H_{\rm closed}} | +,NS \rangle$
+\\
+
+\hline\hline
+\end{tabular}
+\caption{Free fermion open-channel partition functions in both $ q $ and $ \tilde{q} $ characters, with the corresponding closed-channel overlaps.}
+\label{tab:open-closed-partition-single}
+\end{table}
+This table summarize the main results of this section. We have successfully identified the boundary states that correspond to the two boundary conditions in Majorana CFT with boundary fermions. 
+
+
+
+
+

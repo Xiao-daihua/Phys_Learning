@@ -1,0 +1,90 @@
+%set up of the document
+% !TeX root  = main.tex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% DOCUMENT 
+\documentclass[12pt]{report}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% PACKAGES
+\usepackage[UTF8]{ctex}
+\usepackage{CJK}
+\usepackage[a4paper,left=20mm,right=20mm,top=15mm,bottom=15mm]{geometry}
+\usepackage{graphicx} % Required for inserting images
+\usepackage[dvipsnames]{xcolor}
+\usepackage{float}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[mathscr]{eucal}
+\usepackage{bbold}
+\usepackage{braket}
+\usepackage{dsfont}
+\usepackage{framed}
+% \usepackage{jheppub}
+\usepackage{makecell}  % for table line breaks
+\usepackage{mathtools}
+\usepackage{multicol}
+\usepackage{physics}
+\usepackage[normalem]{ulem}
+\usepackage{showlabels}
+\usepackage{tensor}
+\usepackage{tikz}
+\usetikzlibrary{math} 
+\usepackage{thmtools}
+\usepackage{thm-restate}
+\usepackage{ulem}
+\usepackage{hyperref}
+\usepackage{cleveref}
+\usepackage{colortbl}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{mathrsfs}
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable}
+\usepackage{simpler-wick}
+\usepackage{ulem}
+\usepackage{CJKulem}
+\usepackage{dsfont}
+
+\usepackage{macros}
+
+\newcommand{\tml}{Teichmüller space}
+\newcommand{\hil}{Hilbert space}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% BEGINNING OF THE DOCUMENT
+
+\begin{document}
+\title{\boldmath 3D Gravity with Virasoro TQFT}
+\author{X. D. H.}
+% \emailAdd{yuliu21012858@gmail.com}
+
+\maketitle
+
+\begin{abstract}
+    这个note其实是一个简单的科研note。也算是作为book reading note的模板。我主要的任务是进行一个book reading project来理解文章“Solving 3d Gravity with Virasoro TQFT”以及之后的
+\end{abstract}
+
+\tableofcontents
+
+\chapter{Quantization of Teichmuller Theory and CFT}
+\input{verlinde.tex}
+
+\chapter{On a Canonical Quantization of 3D Anti de Sitter Pure Gravity}
+\input{other.tex}
+
+\chapter{3D Gravity from VTQFT}
+\input{3dg.tex}
+
+\chapter{AdS3 from Ensemble}
+\input{mt.tex}
+
+\chapter{Gravity dual of quantum Liouville from TN construction}
+\input{liouville.tex}
+
+\chapter{知识补充！}
+\input{knowledge.tex}
+
+\chapter{Scratch Book}
+\input{sb.tex}
+
+\end{document}

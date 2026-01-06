@@ -1,0 +1,106 @@
+这篇文章的主要目的就是构建一个tensor and matrix model这个模型可以描述chaotic CFT2。并且这个模型我们发现和pure AdS3引力存在着对偶的关系！
+
+\section{Ensemble definition}
+这里我们定义我们主要研究的模型是什么。这里我们需要两个data，random matrix和tensor：
+\itm{
+    \pt{Random matrix $ \Delta_s $其实对应着Dilation变换的算符，但被s spin标记 }
+    \pt{tensor是$ C_{ijk} $就是OPE系数 }
+}
+模型的配分函数可以通过研究一个matrix-tensor path intergral，积分有限个Primary来确定：
+\eq{
+    \mathcal{Z}=\prod_{s\in\mathbb{Z}}\int D\Delta_sDC_{ijk}e^{-V_0(\Delta_s)-\frac{1}{\hbar}V_\varepsilon(\Delta_s,C_{ijk})}.
+}
+其中我们的Hamiltonian包含两个项：
+\itm{
+    \pt{$ V_0(\Delta_s) $的存在是保证Cardy density of states的，对于一个固定的spin s }
+    \pt{$ V_\varepsilon(\Delta_s,C_{ijk}) $则是为了保证potential在bootstrap solution处于一个占比最大的情况。}
+}
+\rmk{
+    注意我们的算符$ \Delta $实际上是$ L_0+\bar{L}_0 $但是CFT两个是有自由度的，所以我们是在确定spin的情况下给予这个$ \Delta $的。  
+    
+    再注意，我们这个模型只考虑了整数自旋，也就是玻色子的情况！！！
+}
+
+\ques{解释一下Cardy density of States}{
+    我需要一个对于第一项的解释捏！！
+
+    一个启发在Solving 3D gravity with VTQFT里面，16页讲到：
+    \eq{
+        \Delta=\frac{c-1}{24}+\left(\frac{\ell}{4\pi b}\right)^2,
+    }
+    具体还是需要了解一下Verlinde原始文章。Operator Content of Two-Dimensional Conformally Invariant Theories。
+}
+
+下面我对于系数进行一个说明：
+\itm{
+    \pt{$ \bar{h} $ 是一个很小的系数，当趋近于0的时候我们的理论趋近于只能允许合理的CFT的存在，但是这个就够不成一个很好的ensemble所以有一个这样的很小的数字限制}
+    \pt{我们一般考虑$ N \to \infty $和$ \bar{h} $趋近于0的情况。但塞最后这个其实会变成对于$ e^{-c} $的展开  }
+}
+
+\subsection{矩阵模型的特性}
+对于相对论量子场论来说，Dilation算符必须和CRT对称性commute。
+\ques{这个到底是什么意思}{什么事CRT对称性，这有什么关系请见\href{https://arxiv.org/abs/2305.10494}{Cythia Yan的文章}}
+\itm{
+    \pt{对于bosonic的理论这意味着我们的理论必须使用GOE Ensemble（一种特殊的matrix model）具体的细节请见\href{https://arxiv.org/abs/2305.10494}{Cythia Yan的文章}}
+}
+只用这个Ensemble的好处是我们可以同时对角化CRT和dilation的对称性算符。但是问题是，我们并不能随意的unitary变换矩阵的基。最终导致的结果是，\textbf{$ \Delta_s $矩阵应该是一个实对称矩阵。 }
+
+
+\ques{矩阵模型}{
+    需要简单的学一下矩阵模型的基本概念。
+}
+\itm{
+    \pt{同时使用GOE的好处是，我们正好perserve了OPE系数的 reality condition}
+}
+我们的OPE系数需要满足一个条件：
+\eq{
+    C_{ijk}^*=\exp\left(i\pi(s_i+s_j+s_k)\right)C_{ijk}
+}
+对于满足这个条件的理论正好需要选择一些特殊的基。那么这些特殊的基之间的变换也是consist with GOE的。
+
+\itm{
+    \pt{还需要讨论的是OPE系数的对称性。我们从三点函数出发讨论}
+}
+对于fermion来说，OPE系数存在着branch cut的问题。所以我们考虑integer spin的情况，有下面的对称性：
+\pict{2025-04-05-14-53-44.png}{0.9}
+
+
+
+\subsection{Potential的构建}
+我们的potential的要求是在CFT的crossing symmetry和modular invariance下面是不变的。所以他大概就是长这样的：
+\eq{
+    V\thicksim\sum|\text{constraint}|^2
+}
+
+\vspace{0.7em}
+\textbf{回顾conformal block性质}
+
+首先我们回顾我们conformal block的性质。对于一个确定的流形（相当于确定了几点函数）$ \Sigma_{g,n} $来说，上面的所有的conformal block构成了一个Hilbert空间$ \mH_{g,n} $ 。
+\itm{
+    \pt{需要所有n puncture上面的external weight是一样的，但是internal weight是可以选择的}
+    \pt{这个空间存在一个内积！
+        \eq{
+            \langle\mathcal{F}_1|\mathcal{F}_2\rangle=\int_{\mathcal{T}_{g,n}}Z_\mathrm{bc~}Z_\text{timelike Liouville }\mathcal{F}_1^*\mathcal{F}_2,
+        }
+    }
+    \pt{Liouville conformal block对于这个内积的选取构成了一个完整的基！}
+} 
+\ques{理解路径积分}{
+    我需要理解怎么做内积的conformal block，但是这就需要理解什么是对于Teichmuller空间进行积分。
+}
+我们下面通过Inner product定义这个constrain。我们使用下面的一些convension：
+\eq{
+    h=\frac{1}{2}\left(\Delta+s\right),\quad\bar{h}=\frac{1}{2}\left(\Delta-s\right)
+}
+其中：
+\eq{
+    \begin{aligned}h=\frac{Q^2}{4}+P^2,\quad&\bar{h}=\frac{Q^2}{4}+\bar{P}^2,\quad&Q=(b+b^{-1}),\quad&c=1+6Q^2\end{aligned}
+}
+
+\ques{Timelike Liouville}{
+    这个我也需要学学是什么！！
+}
+
+\section{四点crossing equation}
+
+下面我们考虑四点的crossing equation对于potential的作用。

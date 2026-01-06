@@ -1,0 +1,60 @@
+\contentsline {section}{\numberline {1}Preliminaries 1: Ising CFT and BCFT}{3}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Lightning Review of BCFT}{3}{subsection.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.1}Gluing Condition}{3}{subsubsection.1.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.2}Boundary States Formalism}{3}{subsubsection.1.1.2}%
+\contentsline {subsubsection}{\numberline {1.1.3}Cardy's Condition}{4}{subsubsection.1.1.3}%
+\contentsline {subsubsection}{\numberline {1.1.4}Elementary Boundary States}{5}{subsubsection.1.1.4}%
+\contentsline {subsection}{\numberline {1.2}Ising CFT}{6}{subsection.1.2}%
+\contentsline {subsubsection}{\numberline {1.2.1}Ising CFT Data}{6}{subsubsection.1.2.1}%
+\contentsline {subsubsection}{\numberline {1.2.2}Virasoro Characters of Ising CFT}{6}{subsubsection.1.2.2}%
+\contentsline {subsubsection}{\numberline {1.2.3}Modular S Matrix and Transformation of Characters}{6}{subsubsection.1.2.3}%
+\contentsline {subsection}{\numberline {1.3}Ising BCFT}{7}{subsection.1.3}%
+\contentsline {subsubsection}{\numberline {1.3.1}Ishibashi States of Ising BCFT}{7}{subsubsection.1.3.1}%
+\contentsline {subsubsection}{\numberline {1.3.2}Cardy States of Ising BCFT}{7}{subsubsection.1.3.2}%
+\contentsline {subsubsection}{\numberline {1.3.3}Partition Functions of Ising BCFT}{8}{subsubsection.1.3.3}%
+\contentsline {section}{\numberline {2}Preliminaries 2: Majorana CFT}{8}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Majorana CFT Path Integral Formalism}{8}{subsection.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}Action and Equations of Motion}{8}{subsubsection.2.1.1}%
+\contentsline {subsubsection}{\numberline {2.1.2}Energy-Momentum Tensor}{9}{subsubsection.2.1.2}%
+\contentsline {subsubsection}{\numberline {2.1.3}OPE Structure}{9}{subsubsection.2.1.3}%
+\contentsline {subsection}{\numberline {2.2}Majorana CFT Canonical Formalism}{9}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}Quantization and Mode Expansion}{9}{subsubsection.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.2}Neveu-Schwarz and Ramond Sectors}{10}{subsubsection.2.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.3}Hamiltonian after Normalization}{10}{subsubsection.2.2.3}%
+\contentsline {subsubsection}{\numberline {2.2.4}Zero Mode and Ground State Degeneracy}{11}{subsubsection.2.2.4}%
+\contentsline {subsubsection}{\numberline {2.2.5}Fermion Parity}{11}{subsubsection.2.2.5}%
+\contentsline {subsubsection}{\numberline {2.2.6}Hilbert Space Structure}{12}{subsubsection.2.2.6}%
+\contentsline {subsection}{\numberline {2.3}Majorana CFT on a Cylinder}{12}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}Conformal Transformation to Cylinder}{12}{subsubsection.2.3.1}%
+\contentsline {subsubsection}{\numberline {2.3.2}Hamiltonian on a Cylinder}{13}{subsubsection.2.3.2}%
+\contentsline {subsubsection}{\numberline {2.3.3}Conformal Transformation to Cylinder (another convention)}{13}{subsubsection.2.3.3}%
+\contentsline {subsubsection}{\numberline {2.3.4}Hamiltonian on a Cylinder (another convention)}{14}{subsubsection.2.3.4}%
+\contentsline {section}{\numberline {3}Majorana BCFT}{15}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Boundary Conditions of Majorana CFT}{15}{subsection.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}Boundary Conditions on UHP}{15}{subsubsection.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.2}Boundary Conditions on General Manifold}{15}{subsubsection.3.1.2}%
+\contentsline {subsubsection}{\numberline {3.1.3}Boundary Conditions on a Strip}{15}{subsubsection.3.1.3}%
+\contentsline {subsection}{\numberline {3.2}Open Channel Partition Function}{16}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Doubling Trick}{16}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Canonical Quantization}{17}{subsubsection.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.3}Zero Mode and Ground State Degeneracy(?)}{18}{subsubsection.3.2.3}%
+\contentsline {subsubsection}{\numberline {3.2.4}Boundary Fermion}{18}{subsubsection.3.2.4}%
+\contentsline {subsubsection}{\numberline {3.2.5}Fermion Parity Operator}{19}{subsubsection.3.2.5}%
+\contentsline {subsubsection}{\numberline {3.2.6}0A Theory and 0B Theory}{20}{subsubsection.3.2.6}%
+\contentsline {subsubsection}{\numberline {3.2.7}Open Channel Hilbert Space}{20}{subsubsection.3.2.7}%
+\contentsline {subsubsection}{\numberline {3.2.8}Open Channel Partition Functions}{21}{subsubsection.3.2.8}%
+\contentsline {subsection}{\numberline {3.3}Closed Channel Partition Function}{22}{subsection.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.1}Fermionic Boundary State Formalism}{22}{subsubsection.3.3.1}%
+\contentsline {subsubsection}{\numberline {3.3.2}Canonical Quantization in Closed Channel}{23}{subsubsection.3.3.2}%
+\contentsline {subsubsection}{\numberline {3.3.3}Gluing Conditions and Ishibashi States}{24}{subsubsection.3.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.4}Boundary States and Partition Functions}{25}{subsubsection.3.3.4}%
+\contentsline {section}{\numberline {4}Bosonization of Majorana BCFT}{28}{section.4}%
+\contentsline {subsection}{\numberline {4.1}GSO Projection and $ \mathbb {Z}_2 $ Orbifold}{28}{subsection.4.1}%
+\contentsline {subsubsection}{\numberline {4.1.1}GSO Projection}{28}{subsubsection.4.1.1}%
+\contentsline {subsubsection}{\numberline {4.1.2}Bosonization with boundaries}{28}{subsubsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.2}Closed channel Bosonization}{28}{subsection.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.1}Fermionic Parity and 0A/0B Theories}{29}{subsubsection.4.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.2}GSO Projection of Boundary States}{29}{subsubsection.4.2.2}%
+\contentsline {subsubsection}{\numberline {4.2.3}Final Bosonized Boundary States}{29}{subsubsection.4.2.3}%
+\contentsline {subsection}{\numberline {4.3}Compare with Exact Partition Function Calculation}{31}{subsection.4.3}%
+\contentsline {subsubsection}{\numberline {4.3.1}Boundary States}{31}{subsubsection.4.3.1}%

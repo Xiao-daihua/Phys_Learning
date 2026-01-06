@@ -1,0 +1,110 @@
+这个章节的主要目的是，如果fol一个知识点，不小心fol到了shit。但是又不忍心删除。不妨放在这里吃灰（（（
+
+
+
+\subsection{Local Lorentz frame formulism}
+对于一个Manifold来说我们总可以选取一个坐标系，或者一组基矢量，保证这一组基矢量是“正交”的，数学上就是说: $ g(e^\mu,e^\nu) = g_{\mu\nu} =  \pm 1 \text{ or } 0$。
+\itm{
+    \pt{\textbf{triad}：我们称呼这样的基矢量是triad，他们满足关系：
+    \eq{
+        g_{\mu\nu}dx^\mu dx^\nu=\eta_{ab}e^ae^b
+    }
+    其中：
+    \eq{
+        e^a=e^a{}_\mu dx^\mu
+    }
+    这里我们的$ e^a $可以理解为这样一组1-form\textbf{（注意：这里我们的指标虽然写在上面！但是意思其实是对偶矢量，上面那个a并不是抽象指标记号！！！！） }
+    
+    我们会意识到$ e^a{}_\mu $看起来就是一个坐标变换矩阵$ x'^\mu / x^\nu $所以显然这样的矩阵存在一个逆。我们称之为$ e_a{}^\mu $满足下面的关系：
+    \eq{
+        e_{a}^{\mu}e_{\mu}^{b}=\delta_{a}^{b}\mathrm{~and~}e_{a}^{\mu}e_{\nu}^{a}=\delta_{\nu}^{\mu}
+    }   
+    这个逆矩阵的定义我们显然可以构造一个vector：
+    \eq{
+        e_a = e_a^\mu \partial_\mu
+    }
+    }
+    \pt{
+        \textbf{Spin connection}：我们的traid给出了一族对偶矢量场以及一族矢量场。我们显然可以求一下这个矢量场在沿着自己方向平行移动时候的量，也就是connection coefficient:
+        \eq{
+            e_a^\mu\nabla_\mu e_b=\nabla_ae_b=e_c\omega_{ab}^c
+        }
+        我们解释一下这个量。这个量本质上就是connection coefficient在新的基下面的坐标变换的定义（\textbf{注意，connection coefficient并不是一个tensor}）。或者说两者就是等价的！我们可以通过下面的推导看出两者的等价性，我们直接带入协变导数的定义，并且两边作用上正交的对偶矢量：
+        \eq{
+            \omega^{c}{}_{ab}=e^{c}{}_{\nu}e_{a}{}^{\mu}(\partial_{\mu}e_{b}{}^{\nu}+e_{b}{}^{\alpha}\Gamma_{\mu\alpha}^{\nu})=e^{c}{}_{\nu}e_{a}{}^{\mu}\nabla_{\mu}e_{b}{}^{\nu}.
+        }
+        不难发现这个新的connection coefficient就是新的坐标下面协变导数的connection coefficient，正好是他的变换关系：
+        \eq{
+            \Gamma_{\mu^{\prime}\lambda^{\prime}}^{\nu^{\prime}}=\frac{\partial x^\mu}{\partial x^{\mu^{\prime}}}\frac{\partial x^\lambda}{\partial x^{\lambda^{\prime}}}\frac{\partial x^{\nu^{\prime}}}{\partial x^\nu}\Gamma_{\mu\lambda}^\nu-\frac{\partial x^\mu}{\partial x^{\mu^{\prime}}}\frac{\partial x^\lambda}{\partial x^{\lambda^{\prime}}}\frac{\partial^2x^{\nu^{\prime}}}{\partial x^\mu\partial x^\lambda}.
+        }
+        然后我们就可以定义一个1-form，我们称之为\textbf{Spin connection}：
+        \eq{
+            \omega^a{}_b\triangleq\omega^a{}_{bc}e^c
+        }
+        我们注意，这个$ \omega^a{}_b $ 是一个被a,b两个指标label的1-form。其中$ e^c $是一个1-form而$ \omega_{bc}^{a}  $就是一个单纯的数！！这个定义式子相当于就是把一堆1-form进行线性叠加！  
+    }
+} 
+
+给出了上方的定义之后我们主要研究spin connection的性质。我们首先意识到，根据定义：$ g_{\mu\nu}dx^\mu dx^\nu=\eta_{ab}e^ae^b $ 我们如果对于$ e^a $这一组1-form进行一个lorenzian的变换$ e'^a = \Lambda^a_b e^b $那么，这依旧给出了一个valid的triad。因为lorenzian变换的定义就告诉我们这是一个保minkovski度规不变的变换。
+
+那么我们如果做了这样的洛伦兹变换我们的spin connection也会相应的发生改变。我们认为这样的改变其实就是在spin connection上面作用lorentz group。在洛伦兹群的作用下，我们的spin connection按照如下变换关系变换：
+\eq{
+    \omega^{\prime a}{}_{b}=\Lambda^{a}{}_{c}\omega^{c}{}_{d}(\Lambda^{-1})^{d}{}_{b}+\Lambda^{a}{}_{c}(d\Lambda^{-1})^{c}{}_{b}.
+}
+熟悉规范场的我们会一眼发现，这基本上就是规范场进行规范变换的时候的变换法则！！\textbf{【其实我完全不懂这个记号到底是什么玩意】}
+
+下面我们可以通过minkovski度规定义升降指标：
+\eq{
+    \omega_{ab}=\eta_{ac} {\omega^c}_b.
+}
+由于我们会发现，$ \nabla_\alpha g_{\mu\nu} = 0 $等价于$ \omega_{ab}  = -\omega_{ba}$。所以我们认为spin connection，其实是一个$ 3 \times 3 $的反对称矩阵，每一个矩阵元素都是一个1-form。
+
+在三维时空我们对于反对称矩阵有一个特征，就是所有反对称矩阵都可以用一个矢量表示。（很显然，旋转矩阵就是可以用一个方向和旋转角度表示的）所以我们不妨使用一矢量表示spin connection。\textbf{（注意这个矢量不是微分几何意义的，就是三个空空，每一个空空里面都是一个微分形式。）}：
+\eq{
+    \omega^a\triangleq\frac{1}{2}\varepsilon^{abc}\omega_{bc}\Leftrightarrow\omega_{ab}=-\varepsilon_{abc}\omega^c
+}
+我们就得到了，lorenzian 1-form。并且可以定义其对偶就是：
+\eq{
+    \omega_a=\eta_{ab}\omega^b.
+}
+\rmk{
+    我们需要注意的是$ \omega_a $ 和$ \omega^a $都是微分几何意义下的对偶矢量！！1-form只是不同的两族1-form。
+    
+    但是$ e^a $是一个1-form而$ e_a $是一个vector！！！！（因为他们本质上就是基的坐标变换，但这么理解也挺怪的，毕竟基很难讨论是不是矢量，我们就当他是矢量（x）  
+}
+
+接下来我们可以通过考虑一族1-form $ \omega_a $和一族vector $ e^a $来构建我们的理论！！  
+
+\subsection{Chern-Simons Action}
+我们会发现上面两个1-form的叠加其实就是一个SO(2,1)的规范场。就是流形上的一个场同时有另一个指标有着规范群的结构。我们这里的规范群是三维的洛伦兹群。这个很好理解因为我们的$ e^a $本身定义的选取就是有一个洛伦兹的任意性，我们做一个洛伦兹变换依旧给出了一族valid的$ e^a $同时我们的$ \omega^a $在三维的情况下，正好满足规范场的变换关系。   
+
+\textbf{我个人强烈感觉这样的讲法讲的特别不通畅。所以准备放弃按照这个思路学习}
+
+
+
+
+\newpage
+\imp{The Theory of Mormon}{
+   \textbf{ The Theory of Mormon }is a quantum theory constructed by \textbf{Jesus} and was explicitly written down by \textbf{Joseph Smith} using his f**kable AIDS frog.
+
+   the theory contains a Hilbert space labeled by a single parameter $a$, short for \textbf{Arnold}, with spin structure. The theory has a central charge $ c $. Sometimes we use $ b $ to represent it.
+   \eq{
+     c = 1+6Q^2, \quad Q = b+\frac{1}{b}
+   }
+   Now we can write down the data for the theory:
+   \itm{
+    \pt{The Hilbert space \textcolor{red}{$ \mH_a $} }
+    \pt{Spin structure for the quantum states \textcolor{red}{$ \mS_a $ }}
+    \pt{Measure for Path Integral \textcolor{red}{$ \mD_i [g_a]$}  the subscript $ i $ is short for "integral" }
+    \pt{Fields in the Theory}
+    \itm{
+        \pt{Energy density field \textcolor{red}{$ \mE_e $} }
+
+        note that we use \textcolor{red}{$ b $ } to label a theory with certain central charge
+        
+        and for generic fields we use \textcolor{red}{$ \mO $} to label. 
+        \pt{Twist field \textcolor{red}{$ \omega_a $} }
+        \pt{Identity field \textcolor{red}{$ I $} }
+    } 
+   }
+}

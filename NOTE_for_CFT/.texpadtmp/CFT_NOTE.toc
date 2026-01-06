@@ -1,0 +1,14 @@
+\contentsline {section}{\numberline {1}highlight of fundamental QFT}{2}{}%
+\contentsline {subsection}{\numberline {1.1}Quantization}{2}{}%
+\contentsline {subsection}{\numberline {1.2}correlation function}{2}{}%
+\contentsline {subsubsection}{\numberline {1.2.1}量子力学的关联函数}{2}{}%
+\contentsline {subsubsection}{\numberline {1.2.2}欧几里得路径积分}{5}{}%
+\contentsline {subsubsection}{\numberline {1.2.3}怎么计算关联函数}{6}{}%
+\contentsline {subsection}{\numberline {1.3}Symmetry of Fields}{6}{}%
+\contentsline {subsubsection}{\numberline {1.3.1}协变经典场}{6}{}%
+\contentsline {subsubsection}{\numberline {1.3.2}经典协变场性质}{7}{}%
+\contentsline {subsubsection}{\numberline {1.3.3}量子协变场——关联函数}{7}{}%
+\contentsline {subsubsection}{\numberline {1.3.4}量子协变场——Ward identity}{7}{}%
+\contentsline {section}{\numberline {2}CFT fundamentals}{7}{}%
+\contentsline {subsection}{\numberline {2.1}二维共形变换与primary协变场}{7}{}%
+\contentsline {section}{\numberline {3}Liouvelle theory}{7}{}%

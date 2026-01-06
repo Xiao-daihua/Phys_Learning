@@ -1,0 +1,51 @@
+\subsection{Exact Action of Majorana BCFT}
+The boundary Majorana CFT can also be described with an explicit action shown in \cite{chatterjeeExactPartitionFunction1995a}. We give a brief review here. 
+
+\subsubsection{General QFT with a Boundary}
+
+For a general QFT defined on a space with a boundary, the action can not only include the bulk term but also the boundary term. With the Lagrangian equation, the boundary term shall give out the boundary condition of the fields. For example, consider a general 2D field theory on the UHP, we can write down the action as:
+\begin{align}
+  S =\int_{-\infty}^\infty dx\ \int_0^\infty dy\mathcal{L}(\phi_i,\partial_\mu\phi_i)+\int_0^\infty dx\ \mathcal{L}_B(\phi_i^B,\frac{d}{dx}\phi_i^B)
+\end{align}
+The Ordinary Euler-Lagrange equation gives out the bulk equation of motion:
+\begin{align}
+  \partial_\mu\left(\frac{\partial\mathcal{L}}{\partial\partial_\mu\phi_i}\right)-\frac{\mathcal{L}}{\partial\phi_i}=0
+\end{align}
+while at the boundary the boundary condition we want to impose is given by:
+\begin{align}
+  \left.\frac{\partial\mathcal{L}_B}{\partial\phi_i^B}-\frac{d}{dx}\left(\frac{\partial\mathcal{L}_B}{\partial\left(\frac{d}{dx}\phi_i^B\right)}\right)-\frac{\partial\mathcal{L}}{\partial\frac{\partial\phi_i}{\partial y}}\right|_{y=0}=0,\quad y=0
+\end{align}
+Thus a delicate design of the boundary Lagrangian $\mathcal{L}_B$ can give out the desired boundary condition.
+
+\subsubsection{Majorana CFT Boundary Conditions on UHP}
+
+
+\subsubsection{Majorana CFT on UHP}
+
+Generally, if we consider any boundary condition (not only conformal boundary condition) of a Majorana CFT on a UHP, we can write down the boundary Lagrangian as:
+\begin{align}
+  S&=\frac{1}{2\pi }\int_{-\infty}^{\infty}dx\int_{0}^{\infty}dy[\psi\bar{\partial}\psi+\bar{\psi}\partial \bar{\psi}]\\ 
+  &+\int_{-\infty}^{\infty}dx\left[-\frac{i}{4\pi}\psi\bar{\psi}|_{y=0}+\frac{1}{2}\xi\frac{d}{dx}\xi\right]+ih\int_{-\infty}^{\infty}\xi(x)(\psi+\bar{\psi})(x,0)
+\end{align}
+We impose the boundary degree of freedom $\xi(x)$ to construct the boundary condition. $ h $ is a boundary coupling constant, interpreted as a boundary magnetic field in the Ising model. By varying the action, we can get the equation of motion in the boundary condition at $y=0$:
+\begin{align}
+  \left.\left(\partial+i\lambda\right)\psi-\left(\bar{\partial}-i\lambda\right)\bar{\psi}\right|_{z=\bar{z}}=0 \quad \text{with}\quad \lambda=4\pi h^2
+\end{align}
+we can easily check that when $\lambda=0$ we get the free boundary condition while when $\lambda\to\infty$ we get the fixed boundary condition. Thus by tuning the boundary coupling constant $h$, we can realize the RG flow from free boundary condition to fixed boundary condition in Majorana CFT.
+
+
+\subsubsection{Majorana CFT on any Manifold}
+
+We then consider a generalied manifold with boundary $ \mathcal{D} $ (not just the UHP) with boundaries $ \partial\mathcal{D} = \mathcal{B} = \cup_j \mathcal{B}_j  $ that are parametrized as $ \mathcal{B}_j = ( Z_i(t), \bar{Z}_j(t) ) $ paramatrized by $ t $, we have another form of the action for a general BC:
+\begin{align}
+  S&=\frac{1}{2\pi}\int_{\mathcal{D}}dxdy[\psi\bar{\partial}\psi+\bar{\psi}\partial\bar{\psi}\\ 
+   &+\sum_{j=1}^{n}\left\{\int_{\mathcal{B}_{j}}dt[-\frac{i}{4\pi}\psi\bar{\psi}+\frac{1}{2}\xi\dot{\xi}]+ih\int_{\mathcal{B}_{j}}dt \ \xi(t)(e_{j}^{\frac{1}{2}}\psi+\bar{e}_{j}^{\frac{1}{2}}\bar{\psi})(t)\right\}
+\end{align}
+where on the boundary $ \mathcal{B}_j $ the field is $ \psi(t) = \psi(Z_j(t)), \bar{\psi}(t) = \bar{\psi}(\bar{Z}_i(t)) $. $ e_j(t) $ and $ \bar{e}_j(t) $ are defined as the tangent vectors on the boundary:
+The boundary condition at $ \mathcal{B}_j $ is given by:
+\begin{align}
+  (\partial_{t}+i\lambda) e^{\frac{1}{2}}(t)\psi(Z(t)) =(\partial_{t}-i\lambda) \bar{e}^{\frac{1}{2}}(t)\bar{\psi}(\bar{Z}(t)) \quad \text{where} \quad \lambda=4\pi h^2
+\end{align}
+
+
+\subsubsection{Boundary Free Fermion}

@@ -1,0 +1,18 @@
+\contentsline {section}{\numberline {1}Lecture 1: Fundamental RMTs}{1}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Motivation and Definiton of RMT}{1}{subsection.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.1}Physical Motivation of RMT}{1}{subsubsection.1.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.2}Definition of RMT}{2}{subsubsection.1.1.2}%
+\contentsline {subsection}{\numberline {1.2}Eigenvalue Decomposition}{2}{subsection.1.2}%
+\contentsline {subsubsection}{\numberline {1.2.1}Eigenvalue Decomposition of Hermite Matrix}{2}{subsubsection.1.2.1}%
+\contentsline {subsubsection}{\numberline {1.2.2}Effective Action}{3}{subsubsection.1.2.2}%
+\contentsline {subsection}{\numberline {1.3}Resolvent and Density of States}{3}{subsection.1.3}%
+\contentsline {subsubsection}{\numberline {1.3.1}Density of States}{3}{subsubsection.1.3.1}%
+\contentsline {subsubsection}{\numberline {1.3.2}Resolvent}{3}{subsubsection.1.3.2}%
+\contentsline {subsection}{\numberline {1.4}Columb Gas and Saddle Point}{4}{subsection.1.4}%
+\contentsline {subsubsection}{\numberline {1.4.1}Large N and Columb Gas Saddle Point}{4}{subsubsection.1.4.1}%
+\contentsline {subsubsection}{\numberline {1.4.2}Riccati equation}{5}{subsubsection.1.4.2}%
+\contentsline {subsubsection}{\numberline {1.4.3}Example: Gaussian Matrix Model}{5}{subsubsection.1.4.3}%
+\contentsline {subsection}{\numberline {1.5}Spectral Curve}{5}{subsection.1.5}%
+\contentsline {subsubsection}{\numberline {1.5.1}Riemann Surface of the Resolvent}{5}{subsubsection.1.5.1}%
+\contentsline {subsubsection}{\numberline {1.5.2}Spectral Curve}{6}{subsubsection.1.5.2}%
+\contentsline {subsection}{\numberline {1.6}Preparation for Aymptotic Expansion}{6}{subsection.1.6}%

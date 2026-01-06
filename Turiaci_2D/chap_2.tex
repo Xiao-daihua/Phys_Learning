@@ -1,0 +1,90 @@
+本章节我们主要follow Turiaci的讲义学习基本的二维引力。讲义是“Les Houches lectures on two-dimensional gravity and  holography”。这里面主要介绍了二维度的JT Gravity是什么，以及和Matrix Model之间的关系。我们这个讲义也会基本上fol这个思路，并用自己的理解讲述。
+
+\section{JT
+ Gravity Basic}
+\subsection{JT Gravity Definition}
+ 对于二维引力来说我们的EH action是完全被考虑的流形的拓扑结构决定的：
+ \eq{
+    \chi=\frac{1}{4\pi}\left(\int_M\sqrt{g}R+2\oint_{\partial M}\sqrt{h}K\right)=2-2g-n
+ }
+ 但是，世界并不是trivial的，我们为了研究这个问题可以引入一个标量场称为"Dilaton"。我们考虑couple Dilaton之后的维引力：
+ \eq{
+    I=\underbrace{-\frac{S_0}{4\pi}{\left(\int_M\sqrt{g}R+2\oint_{\partial M}\sqrt{h}K\right)}}_{\text{topological}}-\underbrace{\frac{1}{2}\int_M\sqrt{g}(\Phi R+U(\Phi))-\oint_{\partial M}\sqrt{h}\Phi K}_{\mathrm{dynamical}}
+ }
+对于Dynamical Term我们发现，做用量基本上完全被一个函数决定\seq{U(\Phi)}也就是我们定义的dilation Potential。
+
+
+对于JT引力我们使用:
+\eq{
+    U(\Phi)=-\Lambda\Phi+U_0.
+}
+\itm{
+    \pt{
+        当\seq{\Lambda}不等于0的时候，我们可以shift\seq{\Phi}的零点(也就是让\seq{U_0 = 0}这个是我们可以任意操作的！！我们之后也会默认\seq{U(\Phi)}是一个线性函数对于JT引力)，修订\seq{S_0}的数值让action变为：
+\eq{
+    I_{JT}=-\frac{S_0}{4\pi}\int_M\sqrt{g}R-\frac{1}{2}\int_M\sqrt{g}\Phi(R-\Lambda)+I_{\mathrm{bdy}}.
+}
+这个时候经典引力解就是：
+\eq{
+    R = \Lambda
+}
+    本文之中我们考虑\seq{\Lambda = -2}的AdS的情况。
+    }
+    \pt{
+        当\seq{\Lambda}等于0的时候，模型变成了：CGHS model。
+    }
+}
+\subsection{First order model}
+JT Gravity和其他的引力理论一样我们可以给出其first order的理论。为此我们进行一个简化。我们定义下面两个1-form进行描述：
+\itm{
+    \pt{我们定义frame field:
+    \seq{g_{\mu\nu}=e_\mu^ae_\nu^b\delta_{ab},}}
+    \pt{
+        我们定义spin-connection：\seq{\omega^{ab}=\omega_\mu^{[ab]}dx^\mu,}并且需要满足条件:\seq{de^a+\omega^a{}_b\wedge e^b=0}
+    }
+}
+在这个定义的基础上面我们有下面两个等式。为了复习微分流形的计算我们很细致的写出了证明细节：
+\eq{
+    d^2x\sqrt{g}=e^0\wedge e^1,\quad d^2x\sqrt{g}R=2d\omega.
+}
+我们知道，\seq{d^2x\sqrt{g}}实际上代表着微分形式\seq{\sqrt{g}dx^0 \wedge dx^1}我们计算g的数值。根据定义\seq{g = \det g_{\mu\nu}}。通过矩阵行列式计算我们可以得到：
+\eq{
+    g = \left(e^0_1 e^1_0 - e^0_0 e^1_1\right)^2
+}
+同时对于\seq{e^0\wedge e^1}我们通过wedge的定义也可以得到：
+\eq{
+    e^0\wedge e^1 = (e^0_0 e^1_1 - e^0_1 e^1_0)dx^0 \wedge dx^1
+}
+对比一下我们可以发现第一个等式成立。\hdt{对于第二个等式，我也不到为啥成立（（（}
+
+带入公式我们不难发现：
+\eq{
+    \frac{1}{2}\int\mathrm{d}^2x\sqrt{g}\Phi(R+2)=\int_M\Phi(\mathrm{d}\omega+e^1\wedge e^2)
+}
+但是这个式子是有约束的因为\seq{\omega}存在着约束。由于我们的理论是一个量子理论，或者说我们的理论是一个追求最小作用量的理论。所以我们可以放入一个拉格朗日乘子。理论等价于:
+\eq{
+    \int_M\left[\Phi(\mathrm{d}\omega+e^1\wedge e^2)+X_a(\mathrm{d}e^a+\omega^a{}_b\wedge e^b)\right].
+}
+\pict{2025-01-27-22-38-54.png}{1}
+对于这样的一个理论我们发现其实是一个connection为0理论因为这个理论的解是：
+\eq{
+    \int\mathrm{d}B\mathrm{~}e^{-I}=\int\mathrm{d}B\mathrm{~}e^{\mathrm{i}\int\mathrm{Tr}BF}=\delta(F).
+}
+由于没有积分F的配分函数是一个\seq{\delta}函数。所以，只有\seq{F = 0}的时候存在量子力学的解。
+\rmk{
+    我们能进行上面这个操作是因为我们的理论的作用量写成：
+    \eq{
+        I=-\mathrm{i}\int\operatorname{Tr}BF,
+    }
+    这个虚数单位的存在保证我们的理论可以积分出一个delta函数。这本质上其实是要求我们的B是实数，也就是imaginary dilaton的情况。
+}
+\subsection{Classical Solution \& Boundary Condition}
+我们列出集中让下方的JT Gravity的作用量最小的方式。我们称之为经典解。（我先copy一波JT Gravity的作用量，同时提醒写出这个作用量的时候，我们默认\seq{U_0 = 0}以及\seq{U(\Phi)}是一个线性函数）
+\eq{
+    I_{JT}=-\frac{S_0}{4\pi}\int_M\sqrt{g}R-\frac{1}{2}\int_M\sqrt{g}\Phi(R-\Lambda)+I_{\mathrm{bdy}}.
+}
+以及我们取\seq{\Lambda = -2}作为宇宙学常数。
+
+首先，如果我们认为Dilaton是一个常数的话。
+
+% 由于\seq{U(\Phi) = -\Lambda \Phi + U_0}，我们总能取到一个\seq{U_0}让\seq{U(\Phi)}是0。我们不妨就取这样的一个数

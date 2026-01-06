@@ -1,0 +1,229 @@
+Now we finally get to the main topic of this note, Bosonization. We will discuss how to bosonize the Majorana CFT with boundaries in closed channel. This topic has been discussed in several references, \cite{horiNotesBosonizationBoundary2009, ebisuFermionizationConformalBoundary2021}. Yet non of them gives a complete and clear explanation of the process. The following will be my understanding of the bosonization of Majorana BCFT.
+
+\subsection{GSO Projection and $ \mathbb{Z}_2 $ Orbifold}
+
+Bosonization is transforming a fermionic theory into a bosonic theory. A naive idea of changing a fermionic theory into a bosonic theory is to simply bind all fermions in pairs. When two fermions are paired, they can behave as a boson. 
+
+\subsubsection{GSO Projection}
+
+This naive idea works well, and mathematically bosonization of a partition function and Hilbert space can be described as the GSO projection in fermionic theory or the $ \mathbb{Z}_2 $ orbifold. First let's define GSO projection.
+\defi{
+  \textbf{GSO Projection}
+
+  Nsively, it can be understood as projecting into Hilbert Space with even fermion number. Mathematically, if we have a fermionic theory with a well defined $ \mathbb{Z}_2 $ grading of fermion parity operator $ (-1)^F $, we can define the GSO projected partition function as:
+  \begin{align}
+    Z_{GSO} = \operatorname{Tr}_{\mathcal{H}}\left[\frac{1+(-1)^F}{2}e^{-\beta H}\right]
+  \end{align}
+  We can see that we impose a projection operator $ P_{GSO} = \frac{1+(-1)^F}{2} $ on states satisdfy:
+  \begin{align}
+    \ket{\text{odd}}_{GSO} = \displaystyle\frac{1 +(-1)^F}{2} \ket{\text{odd}} = 0, \quad \ket{\text{even}}_{GSO} = \displaystyle\frac{1 +(-1)^F}{2} \ket{\text{even}} = \ket{\text{even}}
+  \end{align}
+  By definition.
+}
+
+\subsubsection{Bosonization with boundaries}
+
+When it comes to a boudnary theory, we not only have to consider the GSO projection of the Hilbert space, but also the boundary conditions (in open channel) or the boundary states (in closed channel). For a abstract boundary condition, it might be hard to understand how to "project" it. However, for a boundary state, we certainly can just act the projector on it and use the projected boundary state to construct the bosonized theory.
+
+
+\subsection{Closed channel Bosonization}
+The closed channel is rather easy to understand (and I only understand this). I propose that the bosonization of boundary states shall satisfy the two consistent steps:
+\begin{itemize}
+  \item Boundary States are GSO projected, we only keep the boundary states with even fermion parity. 
+    \item Choose the Linear combination of GSO projected boundary states that satisfies the Cardy's condition and are elementary boundary states. To make it a valid bosonic boundary state.
+\end{itemize}
+With these two conditions in have, we can uniquely determine the bosonized boundary states and see they are \textbf{exactly} the known boundary states in Ising CFT.
+
+\subsubsection{Fermionic Parity and 0A/0B Theories}
+
+In the closed channel, in order to impose the GSO projection, we first need to define the fermionic parity operator $ (-1)^F $. As we have discussed alot, we have two ways of defining the fermionic parity operator in R sector Majorana CFT, the type 0A and type 0B ones:
+\begin{align}
+  (-1)^{F} =
+\begin{cases}
+  -2 i\, b_0 \bar b_0 \ (-1)^{F_{nz}}, \quad \text{type 0A} \\
+  +2 i\, b_0 \bar b_0 \ (-1)^{F_{nz}}. \quad \text{type 0B}
+\end{cases}
+\end{align}
+Here, with the above discussion of 0A theory, \textbf{we can see that we must use type 0A fermionic parity} or the theory may be trivial in R sector. 
+
+\subsubsection{GSO Projection of Boundary States}
+
+We demand the first consistent condition: 
+\begin{itemize}
+  \item Boundary States are GSO projected, we only keep the boundary states with even fermion parity.
+\end{itemize}
+
+\textbf{For the NS sector} 
+we may find the GSO projection is trivial, for we construct the Ishibashi states as:
+\begin{align}
+      |\pm,NS\rangle\rangle=\prod_{k\in\mathbb{N}_+-1/2}e^{i\pm a_{-k}\bar{a}_{-k}}|0\rangle_{\mathrm{NS}}
+\end{align}
+Both of then have even fermion parity for we generate it from the vaccum with $ a_{-k}\bar{a}_{-k} $ bounded together. Thus we have for the boundary states in NS sector:
+\begin{align}
+  | \pm, NS \rangle_{GSO} = | \pm, NS \rangle
+\end{align}
+  
+\textbf{For the R sector}
+in a 0A theory, we only have one non-zero boundary state $ \ket{-,R} $. If we define the fermion parity operator as type 0A one, we can easily check that:
+\begin{align}
+  (-1)^F \ket{-,R} = + \ket{-,R} \quad \Rightarrow \quad \ket{-,R}_{GSO} = \ket{-,R}
+\end{align}
+Witch seems to work well. However, if we define the fermion parity operator as type 0B one, we will get:
+\begin{align}
+  (-1)^F \ket{-,R} = - \ket{-,R} \quad \Rightarrow \quad \ket{-,R}_{GSO} = 0
+\end{align}
+which means the R sector is completely projected out. Thus we must use type 0A fermionic parity operator to have a non-trivial R sector. \textbf{That's also the reason why we call putting a fermion on $ (+) $ boundary a type 0A theory.} for we must use type 0A fermionic parity operator to have a non-trivial R sector.
+
+\subsubsection{Final Bosonized Boundary States}
+
+Thus after a GSO projection, we have three non-trivial boundary states:
+\begin{itemize}
+  \item \textbf{fixed boundary states: } we have two projected boundary states $ \ket{-,NS} $ and $ \ket{-,R} $.
+  \item \textbf{free boundary state: } we have one projected boundary state $ \ket{+,NS} $.
+\end{itemize}
+Then we \textbf{propose} that the final bosonized boundary states shall be in the linear combination of these projected boundary states that:
+\begin{itemize}
+  \item Statisfy the Cardy's condition. 
+  \item Are elementary boundary states.
+\end{itemize}
+To do this, we shall first list out the overlaps of these boundary states:
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.6}
+\begin{tabular}{ccc}
+\hline\hline
+$q$ character & $\tilde q$ character & Closed Channel \\
+\hline\hline
+
+$\chi_0(q) - \chi_{1/2}(q)$
+& $\sqrt{2}\,\chi_{1/16}(\tilde q)$
+& $\langle -,R | e^{-L H_{\rm closed}} | -,R \rangle$
+\\
+
+$\chi_0(q) + \chi_{1/2}(q)$
+& $\chi_0(\tilde q) + \chi_{1/2}(\tilde q)$
+& $\langle -,NS | e^{-L H_{\rm closed}} | -,NS \rangle$
+\\
+
+$2\big(\chi_0(q) + \chi_{1/2}(q)\big)$
+& $2\big(\chi_0(\tilde{q}) + \chi_{1/2}(\tilde{q})\big)$
+& $\langle +,NS | e^{-L H_{\rm closed}} | +,NS \rangle$
+\\
+
+$2\,\chi_{1/16}(q)$
+& $\sqrt{2}\big(\chi_0(\tilde q) - \chi_{1/2}(\tilde q)\big)$
+& $\langle -,NS | e^{-L H_{\rm closed}} | +,NS \rangle$
+\\
+
+\hline\hline
+\end{tabular}
+\caption{Free fermion partition functions keeping only even parity.}
+\end{table}
+If we only consider one sector, we can't construct such a solution. However, if we do a trick and "combine the R sector and the NS sector together" (this is quite subtle, I will later on exlain my understandings), we can find the solution:
+\begin{align}
+  \ket{f} &= \displaystyle\frac{1}{\sqrt{2}}\ket{+,NS} \\ 
+  \ket{+} &= \frac{1}{\sqrt{2}}\left(\ket{-,NS} + \ket{-,R}\right) \\ 
+  \ket{-} &= \frac{1}{\sqrt{2}}\left(\ket{-,NS} - \ket{-,R}\right)
+\end{align}
+In fact we can never "sum" a ramond sector state with a NS sector state. What we do is in fact \textbf{Direct Sum} the two Hilbert spaces, thus it should be written as:
+\begin{align}
+  \ket{f} &= \displaystyle\frac{1}{\sqrt{2}}\ket{+,NS} \oplus 0 \\ 
+  \ket{+} &= \frac{1}{\sqrt{2}}\left(\ket{-,NS} \oplus \ket{-,R}\right) \\ 
+  \ket{-} &= \frac{1}{\sqrt{2}}\left(\ket{-,NS} \oplus -\ket{-,R}\right)
+\end{align}
+And the evolution operator in the partition function should also be written as:
+\begin{align}
+  e^{-L H_{\rm closed}} = e^{-L H_{\rm closed NS}} \oplus e^{-L H_{\rm closed R}}
+\end{align}
+With these in hand we calculate the partition function of these direct sumed state in the direct sumed Hilbert space:
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.6}
+\begin{tabular}{ccc}
+\hline\hline
+$q$ character & $\tilde q$ character & Closed Channel \\
+\hline\hline
+
+$\chi_0(q) $
+              & $ \frac{1}{2}\big(\chi_0(\tilde q) + \chi_{1/2}(\tilde q) \big) + \frac{1}{\sqrt{2}}\chi_{1/16}(\tilde q)$
+& $\langle + | e^{-L H_{\rm closed}} | + \rangle$
+\\
+$\chi_0(q) $
+              & $ \frac{1}{2}\big(\chi_0(\tilde q) + \chi_{1/2}(\tilde q) \big) + \frac{1}{\sqrt{2}}\chi_{1/16}(\tilde q)$
+& $\langle - | e^{-L H_{\rm closed}} | - \rangle$
+\\
+
+$ \chi_{1/2}(q) $
+&  $ \frac{1}{2}\big(\chi_0(\tilde q) + \chi_{1/2}(\tilde q) \big) + \frac{1}{\sqrt{2}}\chi_{1/16}(\tilde q)$
+& $\langle - | e^{-L H_{\rm closed}} | + \rangle$
+\\
+
+$ \chi_0(q) + \chi_{1/2}(q) $
+& $ \chi_0(\tilde{q}) + \chi_{1/2}(\tilde{q}) $
+& $\langle f | e^{-L H_{\rm closed}} | f \rangle$
+\\
+
+$ \chi_{1/16}(q)$
+& $\frac{1}{\sqrt{2}}\big(\chi_0(\tilde q) - \chi_{1/2}(\tilde q)\big)$
+& $\langle + | e^{-L H_{\rm closed}} | f \rangle$
+\\
+
+$ \chi_{1/16}(q)$
+& $\frac{1}{\sqrt{2}}\big(\chi_0(\tilde q) - \chi_{1/2}(\tilde q)\big)$
+& $\langle - | e^{-L H_{\rm closed}} | f \rangle$
+\\
+
+\hline\hline
+\end{tabular}
+\caption{Partition function of the bosonized boundary states.}
+\end{table}
+We compare the above table with the known Ising CFT boundary states partition functions \cref{tab:ising_partition_functions} and we find they are exactly the same! Thus we identify the bosonized theory as the Ising CFT with boundary states:
+\begin{align}
+  \ket{f} &= \ket{f}_{\text{Ising}} \\ 
+  \ket{+} &= \ket{+}_{\text{Ising}} \\ 
+  \ket{-} &= \ket{-}_{\text{Ising}}
+\end{align}
+
+\subsection{Compare with Exact Partition Function Calculation}
+
+We compare the boundary state result with the calculation from \cite{chatterjeeExactPartitionFunction1995a}. In this paper, it calculates the boundary states and partition function using another method. I will now compare the results in the paper to the bosonized results in this note, and show that they are consistent. 
+
+\subsubsection{Boundary States}
+
+If we explicitly write down the boundary states above is of free fermion vaccum states and modes. We can have:
+
+\textbf{Fixed Boundary States:} 
+\begin{align}
+  \ket{+} =& \displaystyle\frac{1}{\sqrt{2}} (\ket{-,NS} + \ket{-,R}) \\
+  =& \frac{1}{\sqrt{2}}\left(\prod_{k\in\mathbb{N}_+-1/2}e^{- i a_{-k}\bar{a}_{-k}}|0\rangle_{\mathrm{NS}} + \sqrt[4]{2} \prod_{n\in\mathbb{N}_+}e^{- i a_{-n}\bar{a}_{-n}}|-\rangle_{\mathrm{R}}\right) \\ 
+  = & \frac{1}{\sqrt{2}}\prod_{k\in\mathbb{N}_+-1/2}e^{- ia_{-k}\bar{a}_{-k}}|0\rangle_{\mathrm{NS}} + \displaystyle\frac{1}{\sqrt[4]{2}} \prod_{n\in\mathbb{N}_+}e^{- i a_{-n}\bar{a}_{-n}}  |-\rangle_{\mathrm{R}}
+\end{align}
+\begin{align}
+  \ket{-} =& \displaystyle\frac{1}{\sqrt{2}} (\ket{-,NS} + \ket{-,R}) \\
+  =& \frac{1}{\sqrt{2}}\left(\prod_{k\in\mathbb{N}_+-1/2}e^{- i a_{-k}\bar{a}_{-k}}|0\rangle_{\mathrm{NS}} - \sqrt[4]{2} \prod_{n\in\mathbb{N}_+}e^{- i a_{-n}\bar{a}_{-n}}|-\rangle_{\mathrm{R}}\right) \\ 
+  = & \frac{1}{\sqrt{2}}\prod_{k\in\mathbb{N}_+-1/2}e^{- ia_{-k}\bar{a}_{-k}}|0\rangle_{\mathrm{NS}} - \displaystyle\frac{1}{\sqrt[4]{2}} \prod_{n\in\mathbb{N}_+}e^{- i a_{-n}\bar{a}_{-n}} |-\rangle_{\mathrm{R}}
+\end{align}
+
+\textbf{Free Boundary State:}
+\begin{align}
+  \ket{f} = \displaystyle\frac{1}{\sqrt{2}} \ket{+,NS}  = \prod_{k\in\mathbb{N}_+-1/2}e^{ i a_{-k}\bar{a}_{-k}}|0\rangle_{\mathrm{NS}}
+\end{align}
+
+Looking at the results of \cite{chatterjeeExactPartitionFunction1995a}, we can find that the boundary states they obtain is:
+\begin{align}
+  |B_{\pm}\rangle&=e^{-R\varepsilon_{\lambda}}\Big(\frac{\alpha}{e}\Big)^{\alpha}\sqrt{\pi}\Big[\frac{1}{\Gamma(\alpha+\frac{1}{2})}\exp\{ i \sum_{n=0}^{\infty}\frac{n+\frac{1}{2}-\alpha}{n+\frac{1}{2}+\alpha} a_{n+1/2}^{\dagger} \bar{a}_{n+1/2}^{\dagger}\}|0\rangle\\
+  &\pm\frac{2^{\frac14}\sqrt{\alpha}}{\Gamma(\alpha+1)} \exp\{ i \sum_{n=1}^{\infty} \frac{n-\alpha}{n+\alpha} a_{n}^{\dagger} \bar{a}_{n}^{\dagger}\}|\sigma\rangle\Big]
+\end{align}
+with $ \epsilon_\lambda \sim \lambda \log \lambda^2 $. Thus, we take a limit of $ \alpha = 0, \lambda = 0 $ then we have:
+\begin{align}
+  |B_{free}\rangle=\exp i\{\sum_{n=1}^\infty a_{n+\frac{1}{2}}^\dagger\bar{a}_{n+\frac{1}{2}}^\dagger\}|0\rangle+i\exp i\{\sum_{n=1}^\infty a_{n+\frac{1}{2}}^\dagger\bar{a}_{n+\frac{1}{2}}^\dagger\}a_{\frac{1}{2}}^\dagger\bar{a}_{\frac{1}{2}}^\dagger|0\rangle
+\end{align}
+which is exactly the free boundary state $ \ket{f} $ we obtained above. If we take the limit of $ \alpha \to \infty, \lambda \to \infty $, we have:
+\begin{align}
+  |B_{fixed\pm}\rangle&=\frac{1}{\sqrt{2}}\exp-i\{\sum_{n=1}^{\infty}a_{n+\frac{1}{2}}^{\dagger}\bar{a}_{n+\frac{1}{2}}^{\dagger}\}\left(|0\rangle+|\varepsilon\rangle\right)\\&\pm\frac{1}{2^{\frac{1}{4}}}\exp-i\{\sum_{n=1}^{\infty}a_{n}^{\dagger}\bar{a}_{n}^{\dagger}\}|\sigma\rangle
+\end{align}
+which is exactly the fixed boundary states $ \ket{\pm} $ we obtained above. Thus we see that the boundary states obtained in \cite{chatterjeeExactPartitionFunction1995a} are exactly the same as the bosonized boundary states we obtained above.
+
+
+
