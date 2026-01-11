@@ -1,0 +1,49 @@
+Here I'll talk about a standard set up in studying 2+1 dimensional gravity.
+\subsection{Solutions to Einstein Equation in 2+1 Dimensions}
+
+\subsubsection{Local Spacetime}
+
+The Riemannian curvature of 2+1 dimensional gravity can be written
+directly in terms of Ricci Tensor and the metric:
+\begin{align}
+  R_{\mu\nu\rho\sigma}=g_{\mu\rho}R_{\nu\sigma}+g_{\nu\sigma}R_{\mu\rho}-g_{\nu\rho}R_{\mu\sigma}-g_{\mu\sigma}R_{\nu\rho}-\frac{1}{2}(g_{\mu\rho}g_{\nu\sigma}-g_{\mu\sigma}g_{\nu\rho})R
+\end{align}
+Thus if we consider the vaccum Einstein equation $R_{\mu\nu}=0$, the
+Riemannian curvature vanishes identically! And if we consider the
+cosmological constant case $R_{\mu\nu}=\Lambda g_{\mu\nu}$, the
+Riemannian curvature becomes:
+\begin{align}
+  R_{\mu\nu\rho\sigma}=\Lambda(g_{\mu\rho}g_{\nu\sigma}-g_{\mu\sigma}g_{\nu\rho})
+\end{align}
+This is a Riemann Tensor of a constant convature spacetime.
+\begin{itemize}
+  \item When $\Lambda=0$, the spacetime is locally flat, i.e.,
+    locally isometric to Minkowski space $\mathbb{R}^{2,1}$.
+  \item When $\Lambda>0$, the spacetime is locally de Sitter space $dS_3$.
+  \item When $\Lambda<0$, the spacetime is locally anti-de Sitter space $AdS_3$.
+\end{itemize}
+
+\subsubsection{Global Spacetime}
+
+However, being locally constant curvature spacetime doesn't mean that
+the theory is trivial, it may include various global properties.
+However, we shall ask what kinds of global topoloigy may admit a
+constant curvature metric as well as a lorentzian structure(for
+physical spacetime is lorentzian).
+
+The answer is given by the following theorem:
+\thm{
+  Let $ M $ be a compact 3 manifold with a flat, time-orientable
+  Lorentzian metric and a purely spacelike boundary. Then $ M $ has
+  the topology of:
+  \begin{align}
+    M \cong [0,1] \times \Sigma
+  \end{align}
+  Here $ \Sigma $ is a closed surface homeomorphic to one of the
+  boundary components of $ M $.
+}
+Thus the topology of a physical spacetime is fixed by the topology of
+a initial spacelike slice $ \Sigma $. In the following context we
+shall only focus on this kind of spacetime topology.
+
+\subsection{Naive Phase Space of 2+1 Dimensional Gravity}

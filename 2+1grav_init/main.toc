@@ -2,25 +2,35 @@
 \contentsline {subsection}{\numberline {1.1}Homeomorphisms and diffeomorphisms}{2}{subsection.1.1}%
 \contentsline {subsection}{\numberline {1.2}Mapping Class Group}{2}{subsection.1.2}%
 \contentsline {subsubsection}{\numberline {1.2.1}Isotopy}{2}{subsubsection.1.2.1}%
-\contentsline {subsubsection}{\numberline {1.2.2}Mapping Class Group}{2}{subsubsection.1.2.2}%
+\contentsline {subsubsection}{\numberline {1.2.2}Mapping Class Group}{3}{subsubsection.1.2.2}%
 \contentsline {subsection}{\numberline {1.3}Fundamental Group}{3}{subsection.1.3}%
 \contentsline {subsubsection}{\numberline {1.3.1}Definition}{3}{subsubsection.1.3.1}%
-\contentsline {subsubsection}{\numberline {1.3.2}More on Properties}{3}{subsubsection.1.3.2}%
+\contentsline {subsubsection}{\numberline {1.3.2}More on Properties}{4}{subsubsection.1.3.2}%
 \contentsline {subsection}{\numberline {1.4}Covering Space}{4}{subsection.1.4}%
 \contentsline {subsubsection}{\numberline {1.4.1}Covering Space Definition}{4}{subsubsection.1.4.1}%
 \contentsline {subsubsection}{\numberline {1.4.2}Topology of Covering Space}{4}{subsubsection.1.4.2}%
-\contentsline {subsection}{\numberline {1.5}Quotient Space}{4}{subsection.1.5}%
-\contentsline {subsubsection}{\numberline {1.5.1}Quotient Space Definition}{4}{subsubsection.1.5.1}%
-\contentsline {subsubsection}{\numberline {1.5.2}Topology of Quotient Space}{5}{subsubsection.1.5.2}%
+\contentsline {subsection}{\numberline {1.5}Quotient Space}{5}{subsection.1.5}%
+\contentsline {subsubsection}{\numberline {1.5.1}Quotient Space Definition}{5}{subsubsection.1.5.1}%
+\contentsline {subsubsection}{\numberline {1.5.2}Topology of Quotient Space}{6}{subsubsection.1.5.2}%
 \contentsline {subsection}{\numberline {1.6}Geometization in 2D }{6}{subsection.1.6}%
 \contentsline {subsubsection}{\numberline {1.6.1}Standard Geometries in 2D}{6}{subsubsection.1.6.1}%
 \contentsline {subsubsection}{\numberline {1.6.2}Uniformization Theorem}{6}{subsubsection.1.6.2}%
-\contentsline {subsection}{\numberline {1.7}Complex Structure in 2D}{6}{subsection.1.7}%
-\contentsline {section}{\numberline {2}Preliminaries II: 2+1 Dimensinal Gravity Fundamentals}{6}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Local Spacetime}{7}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Global Spacetime}{7}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Frames and Spin Connections}{7}{subsection.2.3}%
-\contentsline {subsubsection}{\numberline {2.3.1}Definition of Frames and Spin Connections}{7}{subsubsection.2.3.1}%
-\contentsline {subsubsection}{\numberline {2.3.2}Lorentz Rotation of Frames}{8}{subsubsection.2.3.2}%
-\contentsline {subsubsection}{\numberline {2.3.3}Cartan Structure Equations}{8}{subsubsection.2.3.3}%
-\contentsline {section}{\numberline {3}Phase Space of 2+1D Gravity}{9}{section.3}%
+\contentsline {subsection}{\numberline {1.7}Complex Structure in 2D}{7}{subsection.1.7}%
+\contentsline {section}{\numberline {2}Preliminaries II: 1st Order Formalism of Gravity}{8}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Vielbein and Spin Connections}{8}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Cartan Structure Equations}{9}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Local Lorentz Transformations}{9}{subsection.2.3}%
+\contentsline {section}{\numberline {3}Preliminary III: 2+1 Dimentional Classical Gravity}{10}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Solutions to Einstein Equation in 2+1 Dimensions}{10}{subsection.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}Local Spacetime}{10}{subsubsection.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.2}Global Spacetime}{10}{subsubsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.2}Naive Phase Space of 2+1 Dimensional Gravity}{10}{subsection.3.2}%
+\contentsline {section}{\numberline {4}Preliminaries IV: Topics in Gauge Field}{11}{section.4}%
+\contentsline {section}{\numberline {5}Chern-Simons Theory and Gravity (Witten)}{12}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Review on Chern-Simons Theory}{12}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}1st Order Formalism of 3D Gravity}{12}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}On-Shell Diffeomorphism as Gauge Transformation}{12}{subsection.5.3}%
+\contentsline {section}{\numberline {6}Chern-Simons Theory and AdS3 (AGR)}{13}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Double Chern-Simons Theory as AdS3}{13}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}On-Shell Diffeomorphism as Gauge Transformation}{13}{subsection.6.2}%
+\contentsline {section}{\numberline {7}Quantization and Phase Space Analysis}{14}{section.7}%

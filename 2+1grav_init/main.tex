@@ -1,30 +1,27 @@
 % main.tex - 科研项目学习笔记模板
 % !TeX root = main.tex
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% DOCUMENT 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% DOCUMENT
 \documentclass[11pt]{article}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% PACKAGES
 
 % 中文支持（XeLaTeX 编译）
 % \usepackage[UTF8]{ctex}
-% \usepackage{xeCJKfntef} 
+% \usepackage{xeCJKfntef}
 
 % \setCJKmainfont{HanziPen SC}
 % \setmainfont{HanziPen SC}
 
-
-% 页面设置
 \usepackage[
   a4paper,
-  left=20mm,
-  right=20mm,
+  left=25mm,
+  right=25mm,
   top=25mm,
   bottom=25mm
 ]{geometry}
 
 \PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
 \usepackage{xcolor}
-
 
 % 数学环境及符号
 \usepackage{amsmath, amssymb, amsfonts, amsthm,amsopn}
@@ -43,7 +40,7 @@
 \usepackage{float}              % 浮动体控制
 \usepackage{tikz}               % 绘图库
 \usetikzlibrary{math}           % tikz数学扩展
-\usepackage{geometry}
+
 % 表格与列表
 \usepackage{makecell}           % 表格多行换行
 \usepackage{multicol}           % 多栏排版
@@ -61,20 +58,18 @@
 \usepackage{hyperref}           % 超链接（最后加载）
 \usepackage{cleveref}           % 智能引用（紧跟hyperref）
 \usepackage{soul}
-\definecolor{lightred}{rgb}{1,.8,.8} 
-\sethlcolor{lightred}   
+\definecolor{lightred}{rgb}{1,.8,.8}
+\sethlcolor{lightred}
 
 \usepackage[
-    backend=biber,
-    style=phys,      % 或 numeric, apa, ieee, authoryear, etc.
-    eprint=true      % 显示 arXiv
+  backend=biber,
+  style=phys,      % 或 numeric, apa, ieee, authoryear, etc.
+  eprint=true      % 显示 arXiv
 ]{biblatex}
 \addbibresource{refs.bib}
 
-
 % 自定义宏包
 \usepackage{macros}
-
 
 % 一个中文可以高亮的包
 \usepackage{cjkhl}
@@ -89,34 +84,63 @@
 
 \begin{document}
 
-\title{\boldmath Initial Note on 2+1 Dimensional Gravity and Chern-Simons Theory}
+\title{\boldmath 2+1 Dimensional Gravity and Chern-Simons Theory}
 \author{X. D. H.}
 
 \maketitle
 
 \begin{abstract}
-  In this note, I'll start to learn about the Chern-Simons formulation of 2+1 dimensional gravity, following the paper of Witten (1988)\cite{witten21Dimensional1988}  . For I'm reading this paper while lacking the knowledge of Basic Chern-Simons Theory and Classical 2+1 Dim Gravity, I'll include some background materials as well as preliminaries.
-
-  What shall be note is that this is one of the first attempts to understand the quantum theory of 2+1 dimensional gravity. Many of the results from the paper on quantization need further development. Nevertheless, it is still a good way to start learning about this topic.
+  In this note, I'll start to learn about the Chern-Simons
+  formulation of 2+1 dimensional gravity, following the paper of
+  Witten (1988)\cite{witten21Dimensional1988}  . For I'm reading this
+  paper while lacking the knowledge of Basic Chern-Simons Theory and
+  Classical 2+1 Dim Gravity, I'll include some background materials
+  as well as preliminaries.
 \end{abstract}
 
 \tableofcontents
 
-
-
 \section{Preliminaries I: Topology and Geometry}
 \input{topo.tex}
 
-\section{Preliminaries II: 2+1 Dimensinal Gravity Fundamentals}\label{sec:Preliminaries II: 2+1 Dimensinal Gravity Fundamentals} % (fold)
-\input{2+1Dgravity.tex}
+\newpage
+\section{Preliminaries II: 1st Order Formalism of
+Gravity}\label{sec:Preliminaries II: 2+1 Dimensinal Gravity
+Fundamentals} % (fold)
+\input{fofgravity.tex}
 % section Preliminaries II: 2+1 Dimensinal Gravity Fundamentals (end)
 
-\section{Phase Space of 2+1D Gravity}\label{sec:Phase Space of 2+1 D Gravity} % (fold)
-\input{phaseSpace.tex}
-% section Phase Space of 2+1 D Gravity (end)
+\newpage
+\section{Preliminary III: 2+1 Dimentional Classical
+Gravity}\label{sec:} % (fold)
+\input{dgravity.tex}
+% section  (end)
 
+\newpage
+\section{Preliminaries IV: Topics in Gauge
+Field}\label{sec:Preliminaries III: Topics in Gauge Field} % (fold)
+\input{gaugeField.tex}
+% section Preliminaries III: Topics in Gauge Field (end)
 
+\newpage
+\section{Chern-Simons Theory and Gravity
+(Witten)}\label{sec:Chern-Simons Theory and Gravity (Witten)} % (fold)
+\input{CSgravity_witten.tex}
+% section Chern-Simons Theory and Gravity (Witten) (end)
+
+\newpage
+\section{Chern-Simons Theory and AdS3 (AGR)}\label{sec:Chern-Simons Theory
+and Gravity (AGR)} % (fold)
+\input{CSgravity.tex}
+% section Chern-Simons Theory and Gravity (AGR) (end)
+
+\newpage
+\section{Quantization and Phase Space Analysis}\label{sec:Quantization of 3D
+Gravity} % (fold)
+
+% section Quantization of 3D Gravity (end)
+
+\newpage
 \printbibliography
-
 
 \end{document}

@@ -1,0 +1,108 @@
+
+I mainly follow the discussion in \cite{Carlip:1998qg}. For more
+detailed discussion and having the same notation one can refer to
+\cite{carrollSpacetimeGeometryIntroduction2014}.
+
+\subsection{Vielbein and Spin Connections}
+
+We can a GR theory using a first order formalism, which use frame
+(aka vielbein) and spin connection as basic variables instead of
+metric. This is especially useful in 2+1 dimensional gravity, since
+it can be reformulated as a Chern-Simons theory.
+We define the frame fields
+\defi{
+  Frame Fields are a set of orthogonal vectors in the tangent space $
+  e^{\mu}{}_a $ or the inverse one form $ e_{\mu}^a $, which satisfy:
+  \begin{align}
+    g^{\mu\nu}e_\mu{}^ae_\nu{}^b=\eta^{ab},\quad
+    e_\mu{}^ae_\nu{}^b\eta_{ab}=g_{\mu\nu}.
+  \end{align}
+  Here $ e^\mu{}_a $ is the inverse of $ e_\mu{}^a $, i.e.,
+  \begin{align}
+    {e^\mu}_a e_\mu{}^b = \delta_a^b, \quad e_\mu{}^a {e^\nu}_a =
+    \delta_\mu^\nu.
+  \end{align}
+}
+We can show that $ e^a = e_\mu{}^a d x^\mu $ forms a orthonormal
+basis of the cotangent space and $ e_a =  {e^\mu}_a \partial_\mu $
+forms a orthonormal basis of the tangent space. The coeficients can
+also be understood as transformation matrices between coordinate
+basis and orthonormal basis.
+
+This set of vectors definately forms a basis of the tangent space,
+thus we can consider the connections in this basis. For example, the
+Christoffel symbols can be written as:
+\begin{align}
+  \nabla_\mu \partial_{\nu} = \Gamma_{\mu\nu}^\rho \partial_\rho,
+  \quad \text{or}\quad \nabla_\mu dx^{\nu} = -\Gamma_{\mu\rho}^\nu dx^\rho
+\end{align}
+Thus, a analogue is to define a connection $ \omega_\mu{}^a{}_b $ as
+\defi{
+  Spin Connection $ \omega_\mu{}^a{}_b $ is defined as:
+  \begin{align}
+    \nabla_\mu{e_\nu}^a = -\omega_\mu{}^a{}_b{e_\nu}^b
+  \end{align}
+}
+\rmk{
+  The covariant derivative here $ \nabla_\mu e_\nu{}^a $ means that
+  we only view $   e_\nu{}^a$ as a dual vector in the cotangent
+  space, with componet $ \mu $ of the coordinate basis. Sometimes you
+  may encounter the notation:
+  \begin{align}
+    \nabla_\mu{e_\nu}^a=\partial_\mu{e_\nu}^a-\Gamma_{\mu\nu}^\lambda{e_\lambda}^a+\omega_\mu{}^a{}_b
+    {e_\nu}^b
+  \end{align}
+  This is when we view it as a (1,1) tensor in a mixed basis, with
+  the coordinate basis in the cotangent space and the orthonormal
+  basis in the tangent space.
+}
+
+The covariant derivative of a vector is a rank (0,2) tensor, thus we
+know that $ \omega_\mu{}^a{}_b $ transforms as a one form in the $
+\mu $ index. Thus:
+\begin{itemize}
+  \item Both $ e^a = e_\mu{}^a dx^\mu $ and $ \omega^a{}_b =
+    \omega_\mu{}^a{}_b dx^\mu $ can be understood as one forms. The
+    inverse of the frame fields can be written as a vector field $
+    e_a = {e^\mu}_a \partial_\mu $.
+  \item We define the lowering and raising of the spin connection
+    indices $ \omega_{ab} = \eta_{ac}\omega^c{}_b $.
+\end{itemize}
+We can prove that if the theory is metric compatible, then the spin
+connection 1-form is antisymmetric in $ a,b $ indices:
+\begin{align}
+  \omega_{ ab} = -\omega_{ ba}.
+\end{align}
+
+\subsection{Cartan Structure Equations}
+
+Using the above definitions, we hope to express important geometric
+quantities such as Riemann curvature Tensor. Moreover, we also notice
+that the frame fields and the spin connections are not independent,
+just like the Christoffel symbol can be represented by the metric. We want to:
+\begin{itemize}
+  \item Represent the spin connection in terms of the frame fields or
+    at least find a relation between them.
+  \item Represent the Riemann curvature Tensor in terms of the spin connection.
+\end{itemize}
+These two goals can be achieved by the Cartan structure equations:
+
+\thm{
+  Cartan's first structure equation
+
+  If the theory is torsion free, then the frame fields and the spin
+  connection satisfy:
+  \begin{align}
+    D_{\omega}e^a \equiv de^a+\omega^a{}_b\wedge e^b=0,
+  \end{align}
+  $ D_{\omega}e^a $ is called the gauge covariant derivative of $ e^a
+  $ with respect to the spin connection $ \omega $.
+}
+This can be proved directly from the definition of the covariant
+derivative and the definition of the spin connection. The torsion
+free condition makes the lower indices of the Christoffel symbol
+symmetric, thus it cancels out when doing a exterior derivative.
+
+\subsection{Local Lorentz Transformations}
+
+\YL{[This is important see carrol]}
