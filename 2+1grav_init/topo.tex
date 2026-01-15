@@ -1,134 +1,193 @@
-Here I will give a brief review of some basic concepts in topology that will be useful in understanding the Chern-Simons formulation of 2+1 dimensional gravity. It mainly follows the treatment in \cite{Carlip:1998qg}
-
+Here I will give a brief review of some basic concepts in topology
+that will be useful in understanding the Chern-Simons formulation of
+2+1 dimensional gravity. It mainly follows the treatment in \cite{Carlip:1998qg}
 
 \subsection{Homeomorphisms and diffeomorphisms}
 
-Consider two topological manifold \(X\) and \(Y\). We can define a \textbf{homeomorphism} between them:
+Consider two topological manifold \(X\) and \(Y\). We can define a
+\textbf{homeomorphism} between them:
 \defi{
-  A \textbf{homeomorphism} is a continuous bijection \(f: X \to Y\) with a continuous inverse \(f^{-1}: Y \to X\). 
+  A \textbf{homeomorphism} is a continuous bijection \(f: X \to Y\)
+  with a continuous inverse \(f^{-1}: Y \to X\).
 }
-If such a homeomorphism exists, we say that \(X\) and \(Y\) are \textbf{homeomorphic}, denoted as \(X \cong Y\). We view the two manifold as "topologically equivalent", meaning they have the same topological properties. 
+If such a homeomorphism exists, we say that \(X\) and \(Y\) are
+\textbf{homeomorphic}, denoted as \(X \cong Y\). We view the two
+manifold as "topologically equivalent", meaning they have the same
+topological properties.
 
-If the manifolds are differential manifolds, we can further define a \textbf{diffeomorphism}:
+If the manifolds are differential manifolds, we can further define a
+\textbf{diffeomorphism}:
 \defi{
-  A \textbf{diffeomorphism} is a smooth bijection \(f: X \to Y\) with a smooth inverse \(f^{-1}: Y \to X\).
+  A \textbf{diffeomorphism} is a smooth bijection \(f: X \to Y\) with
+  a smooth inverse \(f^{-1}: Y \to X\).
 }
 If we focus one 3 dimensional manifolds, there is an importants theorem:
 \thm{
-  Moise’s Theorem 
+  Moise’s Theorem
 
-  For 2 \& 3 dimentional manifolds, being homeomorphic is equivalent to being diffeomorphic.
+  For 2 \& 3 dimentional manifolds, being homeomorphic is equivalent
+  to being diffeomorphic.
 }
-This theorem implies that in 2 and 3 dimensions, the topological structure and the smooth structure are essentially the same. This is not true in higher dimensions, where there exist manifolds that are homeomorphic but not diffeomorphic (exotic spheres).
+This theorem implies that in 2 and 3 dimensions, the topological
+structure and the smooth structure are essentially the same. This is
+not true in higher dimensions, where there exist manifolds that are
+homeomorphic but not diffeomorphic (exotic spheres).
 
 \subsection{Mapping Class Group}
 
 \subsubsection{Isotopy}
 
-We focus on the self-diffeo of one manifold $ \mathcal{M} $, $ f: \mathcal{M} \to \mathcal{M} $. We can define an \textbf{Isotopy} between two diffeomorphisms:
+We focus on the self-diffeo of one manifold $ \mathcal{M} $, $ f:
+\mathcal{M} \to \mathcal{M} $. We can define an \textbf{Isotopy}
+between two diffeomorphisms:
 \defi{
-  An \textbf{isotopy} between two diffeomorphisms \(f, g: \mathcal{M} \to \mathcal{M}\) is a continuous family of diffeomorphisms \(F(s): \mathcal{M} \to \mathcal{M}\) for \(s \in [0, 1]\) such that \(F(0) = f\) and \(F(1) = g\). If an Isotopy exists between \(f\) and \(g\), we say that they are \textbf{isotopic}.
+  An \textbf{isotopy} between two diffeomorphisms \(f, g: \mathcal{M}
+  \to \mathcal{M}\) is a continuous family of diffeomorphisms \(F(s):
+  \mathcal{M} \to \mathcal{M}\) for \(s \in [0, 1]\) such that \(F(0)
+  = f\) and \(F(1) = g\). If an Isotopy exists between \(f\) and
+  \(g\), we say that they are \textbf{isotopic}.
 }
-Most diffeos considered in physics are isotopic to idenity map, yet there for topologically non-trivial manifolds, there can be diffeos that are not isotopic to identity. 
+Most diffeos considered in physics are isotopic to idenity map, yet
+there for topologically non-trivial manifolds, there can be diffeos
+that are not isotopic to identity.
 \begin{itemize}
-  \item eg. \textbf{Dehn Twist} on torus \(T^2\): Cut the torus along a non-contractible loop, twist one side by \(360^\circ\), and then re-glue. This operation cannot be continuously deformed to the identity map.
+  \item eg. \textbf{Dehn Twist} on torus \(T^2\): Cut the torus along
+    a non-contractible loop, twist one side by \(360^\circ\), and
+    then re-glue. This operation cannot be continuously deformed to
+    the identity map.
 \end{itemize}
 
 \subsubsection{Mapping Class Group}
 
-We can define an equivalence relation using Isotopy and define its equivalent class on the set of self-diffeos of \( \mathcal{M} \):
+We can define an equivalence relation using Isotopy and define its
+equivalent class on the set of self-diffeos of \( \mathcal{M} \):
 \defi{
-  The \textbf{Mapping Class Group} (MCG) of a manifold \( \mathcal{M} \), denoted as \( \text{MCG}(\mathcal{M}) \), is the group of isotopy classes of self-diffeomorphisms of \( \mathcal{M} \). .
+  The \textbf{Mapping Class Group} (MCG) of a manifold \( \mathcal{M}
+  \), denoted as \( \text{MCG}(\mathcal{M}) \), is the group of
+  isotopy classes of self-diffeomorphisms of \( \mathcal{M} \). .
 
   We can prove that the equivalent class set has a group sturcture.
 }
-The mapping class group of 2 dimensional surfaces is well studies and they are generated by:
+The mapping class group of 2 dimensional surfaces is well studies and
+they are generated by:
 \begin{itemize}
   \item \textbf{Dehn Twists} along non-contractible loops.
 \end{itemize}
-
-
 
 \subsection{Fundamental Group}
 \subsubsection{Definition}
 \defi{
   Homotopy Curve
 
-  Consider a series of curves satisfying: $ \gamma:[0,1]\to M,\quad\gamma(0)=x_0,\quad\gamma(1)=x_0 $. If two curve $ \gamma_0,\gamma_1 $ can be continuously deformed to each other while keeping the endpoints fixed, we say they are \textbf{homotopic}, denoted as $ \gamma_0\simeq\gamma_1 $.
+  Consider a series of curves satisfying: $ \gamma:[0,1]\to
+  M,\quad\gamma(0)=x_0,\quad\gamma(1)=x_0 $. If two curve $
+  \gamma_0,\gamma_1 $ can be continuously deformed to each other
+  while keeping the endpoints fixed, we say they are
+  \textbf{homotopic}, denoted as $ \gamma_0\simeq\gamma_1 $.
 
-  Mathematically, there exists a continuous map $ F:[0,1]\times[0,1]\to M $ such that:
+  Mathematically, there exists a continuous map $
+  F:[0,1]\times[0,1]\to M $ such that:
   \begin{align}
-    \begin{aligned}&F(t,0)=\gamma_1(t)\\&F(t,1)=\gamma_2(t)\\&F(0,s)=F(1,s)=x_0.\end{aligned}
+    \begin{aligned}&F(t,0)=\gamma_1(t)\\&F(t,1)=\gamma_2(t)\\&F(0,s)=F(1,s)=x_0.
+    \end{aligned}
   \end{align}
 }
 
 \defi{
-  Fundamental Group 
+  Fundamental Group
 
-  For a fixed base point $ x_0 $ in a topological space \( M \), the \textbf{fundamental group} \( \pi_1(M, x_0) \) is the set of equivalence classes of loops $ [\gamma] $ based at \( x_0 \) under the homotopy relation. 
+  For a fixed base point $ x_0 $ in a topological space \( M \), the
+  \textbf{fundamental group} \( \pi_1(M, x_0) \) is the set of
+  equivalence classes of loops $ [\gamma] $ based at \( x_0 \) under
+  the homotopy relation.
 }
-We can prove that the set of equivalence classes has a group structure, with the group operation defined as the concatenation of loops. 
+We can prove that the set of equivalence classes has a group
+structure, with the group operation defined as the concatenation of loops.
 
 \thm{
-  For connected manifolds, the fundamental group is independent of the choice of base point up to isomorphism. Therefore, we often denote it simply as \( \pi_1(M) \).
+  For connected manifolds, the fundamental group is independent of
+  the choice of base point up to isomorphism. Therefore, we often
+  denote it simply as \( \pi_1(M) \).
 }
-
 
 \subsubsection{More on Properties}
 \defi{
   Simply Connected
 
-  A topological space \( M \) is said to be \textbf{simply connected} if it is path-connected and its fundamental group is trivial, i.e., \( \pi_1(M) = \{e\} \), where \( e \) is the identity element.
+  A topological space \( M \) is said to be \textbf{simply connected}
+  if it is path-connected and its fundamental group is trivial, i.e.,
+  \( \pi_1(M) = \{e\} \), where \( e \) is the identity element.
 }
 
 \thm{
-Topological Invariance of Fundamental Group
+  Topological Invariance of Fundamental Group
 
-  If two topological spaces \( M \) and \( N \) are homeomorphic, then their fundamental groups are isomorphic, i.e., \( \pi_1(M) \cong \pi_1(N) \).
+  If two topological spaces \( M \) and \( N \) are homeomorphic,
+  then their fundamental groups are isomorphic, i.e., \( \pi_1(M)
+  \cong \pi_1(N) \).
 }
 
 \thm{
   Fully Characterization of 2D Surfaces by Fundamental Group
 
-  The fundamental group fully characterizes the topology of closed 2-dimensional surfaces. Two closed surfaces are homeomorphic if and only if their fundamental groups are isomorphic.
+  The fundamental group fully characterizes the topology of closed
+  2-dimensional surfaces. Two closed surfaces are homeomorphic if and
+  only if their fundamental groups are isomorphic.
 }
-
 
 \subsection{Covering Space}
 
 \subsubsection{Covering Space Definition}
 
-We can unwrap the non-contractible loops of a manifold by considering its covering space.
+We can unwrap the non-contractible loops of a manifold by considering
+its covering space.
 
 \defi{
   Covering Space
 
-  A \textbf{covering space} of a topological space \( M \) is a topological space \( \tilde{M} \) together with a continuous surjective map \( p: \tilde{M} \to M \) such that 
-\begin{itemize}
-  \item For every point \( x \in M \), there exists an open neighborhood \( U \) of \( x \) such that the preimage \( p^{-1}(U) \) is homeomorphic to $ U \times \Lambda $, where \( \Lambda \) is a discrete set.
-\end{itemize}
+  A \textbf{covering space} of a topological space \( M \) is a
+  topological space \( \tilde{M} \) together with a continuous
+  surjective map \( p: \tilde{M} \to M \) such that
+  \begin{itemize}
+    \item For every point \( x \in M \), there exists an open
+      neighborhood \( U \) of \( x \) such that the preimage \(
+      p^{-1}(U) \) is homeomorphic to $ U \times \Lambda $, where \(
+      \Lambda \) is a discrete set.
+  \end{itemize}
 }
 
 \subsubsection{Topology of Covering Space}
 
-The surjective map used by defining the covering space can induce a homomorphism between the fundamental groups of the two spaces:
+The surjective map used by defining the covering space can induce a
+homomorphism between the fundamental groups of the two spaces:
 \thm{
   Induced Homomorphism on Fundamental Groups
 
-  Let \( p: \tilde{M} \to M \) be a covering map. Then, for any base point \( \tilde{x}_0 \in \tilde{M} \) with \( p(\tilde{x}_0) = x_0 \in M \), the map \( p \) induces a homomorphism \( p_*: \pi_1(\tilde{M}, \tilde{x}_0) \to \pi_1(M, x_0) \).
+  Let \( p: \tilde{M} \to M \) be a covering map. Then, for any base
+  point \( \tilde{x}_0 \in \tilde{M} \) with \( p(\tilde{x}_0) = x_0
+  \in M \), the map \( p \) induces a homomorphism \( p_*:
+  \pi_1(\tilde{M}, \tilde{x}_0) \to \pi_1(M, x_0) \).
 }
-This homoporphic is injective but not necessarily surjective. The image of \( p_* \) is a subgroup of \( \pi_1(M, x_0) \) called the \textbf{characteristic subgroup} of the covering space. It only consist of paths that are lifted to $ \tilde{M} $ to be loops instead of open curves.
+This homoporphic is injective but not necessarily surjective. The
+image of \( p_* \) is a subgroup of \( \pi_1(M, x_0) \) called the
+\textbf{characteristic subgroup} of the covering space. It only
+consist of paths that are lifted to $ \tilde{M} $ to be loops instead
+of open curves.
 
 \thm{
-  For a connected manifold, any subgroup of its fundamental group can be realized as the characteristic subgroup of some covering space.
+  For a connected manifold, any subgroup of its fundamental group can
+  be realized as the characteristic subgroup of some covering space.
 }
-Thus we can classify the covering spaces with the subgroups of the fundamental group. 
+Thus we can classify the covering spaces with the subgroups of the
+fundamental group.
 \defi{
   Universal Covering Space
 
-  A \textbf{universal covering space} of a topological space \( M \) is a covering space \( \tilde{M} \) that is simply connected, i.e., its fundamental group is trivial: \( \pi_1(\tilde{M}) = \{e\} \). which corresponds to the trivial subgroup of \( \pi_1(M) \).
+  A \textbf{universal covering space} of a topological space \( M \)
+  is a covering space \( \tilde{M} \) that is simply connected, i.e.,
+  its fundamental group is trivial: \( \pi_1(\tilde{M}) = \{e\} \).
+  which corresponds to the trivial subgroup of \( \pi_1(M) \).
 }
-
 
 \subsection{Quotient Space}
 
@@ -136,85 +195,110 @@ Thus we can classify the covering spaces with the subgroups of the fundamental g
 
 We can construct a new manifold by quotienting a manifold with a group action.
 \defi{
-  Quotient Space 
+  Quotient Space
 
-  Given a group $ G $ acting on a manifold $ M $. The orbit of a point $ x\in M $ under the action of $ G $ is the set $ G\cdot x=\{g\cdot x|g\in G\} $. The \textbf{quotient space} \( M/G \) is the set of all orbits of points in \( M \) under the action of \( G \), equipped with the quotient topology.
+  Given a group $ G $ acting on a manifold $ M $. The orbit of a
+  point $ x\in M $ under the action of $ G $ is the set $ G\cdot
+  x=\{g\cdot x|g\in G\} $. The \textbf{quotient space} \( M/G \) is
+  the set of all orbits of points in \( M \) under the action of \( G
+  \), equipped with the quotient topology.
 }
-We can define a natural projection from the points in \( M \) to their corresponding orbits in \( M/G \). which gives a quotient topology by defining open sets in \( M/G \) as those whose preimages under the projection are open in \( M \).
+We can define a natural projection from the points in \( M \) to
+their corresponding orbits in \( M/G \). which gives a quotient
+topology by defining open sets in \( M/G \) as those whose preimages
+under the projection are open in \( M \).
 \begin{itemize}
   \item In general a Quotient Space \textbf{May NOT be a Manifold}.
 \end{itemize}
 \thm{
-Quotient Space as Manifold
+  Quotient Space as Manifold
 
-  If a group \( G \) acts properly discontinuously and freely on a manifold \( M \), then the quotient space \( M/G \) is also a manifold.
+  If a group \( G \) acts properly discontinuously and freely on a
+  manifold \( M \), then the quotient space \( M/G \) is also a manifold.
 }
 \begin{itemize}
-  \item \textbf{freely:} For any point \( x \in M \), if \( g \cdot x = x \) for some \( g \in G \), then \( g \) must be the identity element of \( G \). Equivanlently the isotropy group \( G_x = \{g \in G | g \cdot x = x\} \) is trivial for all \( x \in M \).
-  \item \textbf{Propery Discontinuously:} 
+  \item \textbf{freely:} For any point \( x \in M \), if \( g \cdot x
+    = x \) for some \( g \in G \), then \( g \) must be the identity
+    element of \( G \). Equivanlently the isotropy group \( G_x = \{g
+    \in G | g \cdot x = x\} \) is trivial for all \( x \in M \).
+  \item \textbf{Propery Discontinuously:}
     \begin{itemize}
-      \item Any two points in different orbits have neighborhoods that do not intersect under the group action. 
-      \item for any point $ x $ the isotropy group $ G_x=\{g\in G|g\cdot x=x\} $ is finite. 
-        \item For any point $ x\in M $, there exists an open neighborhood $ U $ of $ x $ such that for all $ g\in G $ not in the isotropy group $ G_x $, the images $ g\cdot U $ do not intersect with $ U $, i.e., $ g\cdot U\cap U=\varnothing $. for all $ g \in G_x $, we have $ g\cdot U=U $.
+      \item Any two points in different orbits have neighborhoods
+        that do not intersect under the group action.
+      \item for any point $ x $ the isotropy group $ G_x=\{g\in
+        G|g\cdot x=x\} $ is finite.
+      \item For any point $ x\in M $, there exists an open
+        neighborhood $ U $ of $ x $ such that for all $ g\in G $ not
+        in the isotropy group $ G_x $, the images $ g\cdot U $ do not
+        intersect with $ U $, i.e., $ g\cdot U\cap U=\varnothing $.
+        for all $ g \in G_x $, we have $ g\cdot U=U $.
     \end{itemize}
 \end{itemize}
 \defi{
-  Orbifold 
+  Orbifold
 
-  If a group \( G \) acts properly discontinuously but not freely on a manifold \( M \), the quotient space \( M/G \) is called an \textbf{orbifold}.
+  If a group \( G \) acts properly discontinuously but not freely on
+  a manifold \( M \), the quotient space \( M/G \) is called an
+  \textbf{orbifold}.
 }
 An orbifold is a generalization of manifold with some mild singularities.
 
-We can find a point on $ M $ to label the orbits in $ M/G $, the complete set of such points is called a \textbf{fundamental region} of the group action.
-
+We can find a point on $ M $ to label the orbits in $ M/G $, the
+complete set of such points is called a \textbf{fundamental region}
+of the group action.
 
 \subsubsection{Topology of Quotient Space}
 
 \thm{
   Topology of Quotient Space of Simply Connected Manifold
 
-  If $ M $ is a simply connected manifold and $ G $ is a finite group then we can prove a relation between the fundamental group of the quotient space and the group action:
+  If $ M $ is a simply connected manifold and $ G $ is a finite group
+  then we can prove a relation between the fundamental group of the
+  quotient space and the group action:
   \begin{align}
     \pi_1(M/G)\cong G.
   \end{align}
 }
 
-In this case the projection $ p:M\to M/G $ is the universal covering map of the quotient space and $ M $ is the universal covering space of $ M/G $.
-
+In this case the projection $ p:M\to M/G $ is the universal covering
+map of the quotient space and $ M $ is the universal covering space of $ M/G $.
 
 \thm{
-Connected Manifold as Quotient Space
+  Connected Manifold as Quotient Space
 
-  Any connected manifold \( M \) can be represented as the quotient space of its universal covering space \( \tilde{M} \) by the action of its fundamental group \( \pi_1(M) \):
+  Any connected manifold \( M \) can be represented as the quotient
+  space of its universal covering space \( \tilde{M} \) by the action
+  of its fundamental group \( \pi_1(M) \):
   \begin{align}
     M \cong \tilde{M}/\pi_1(M).
   \end{align}
-  Here we define the action of \( \pi_1(M) \) on \( \tilde{M} \) as: Mapping the loop in $ M $ mapped to open path in $ \tilde{M} $ back by identifying its endpoints.
+  Here we define the action of \( \pi_1(M) \) on \( \tilde{M} \) as:
+  Mapping the loop in $ M $ mapped to open path in $ \tilde{M} $ back
+  by identifying its endpoints.
 }
 
-Mathematically, this action of \( \pi_1(M) \) on \( \tilde{M} \) is defined as a \textbf{Deck Transformation}:
+Mathematically, this action of \( \pi_1(M) \) on \( \tilde{M} \) is
+defined as a \textbf{Deck Transformation}:
 \defi{
   Deck Transformation
 
-  For any $ [\gamma] \in \pi_1(M) $ we can define a map $ D_{[\gamma]}: \tilde{M}\to\tilde{M} $ , that satisfy $ p\circ D_{[\gamma]}=p $. It gives a representation of \( \pi_1(M) \) as a group of homeomorphisms of \( \tilde{M} \).
+  For any $ [\gamma] \in \pi_1(M) $ we can define a map $
+  D_{[\gamma]}: \tilde{M}\to\tilde{M} $ , that satisfy $ p\circ
+  D_{[\gamma]}=p $. It gives a representation of \( \pi_1(M) \) as a
+  group of homeomorphisms of \( \tilde{M} \).
 }
-
-
-
 
 \subsection{Geometization in 2D }
 
-
-Before we only consider topological manifolds, now we can further consider differential manifolds with riemannian metrics.
-
-
-
+Before we only consider topological manifolds, now we can further
+consider differential manifolds with riemannian metrics.
 
 \subsubsection{Standard Geometries in 2D}
 
 In 2 dimensions, there are three standard geometries with constant curvature:
 \begin{itemize}
-  \item \textbf{Riemann Sphere} $ \hat{\mathbb{C}} = \mathbb{C}\cup \infty $ with constant positive curvature metric:
+  \item \textbf{Riemann Sphere} $ \hat{\mathbb{C}} = \mathbb{C}\cup
+    \infty $ with constant positive curvature metric:
     \begin{align}
       ds^2=\frac{4dzd\bar{z}}{(1+|z|^2)^2}.
     \end{align}
@@ -222,7 +306,8 @@ In 2 dimensions, there are three standard geometries with constant curvature:
     \begin{align}
       ds^2=dzd\bar{z}.
     \end{align}
-  \item \textbf{Hyperbolic Plane} $ \mathbb{H}^2 = \{z\in\mathbb{C}|\text{Im}(z)>0\} $ with constant negative curvature metric:
+  \item \textbf{Hyperbolic Plane} $ \mathbb{H}^2 =
+    \{z\in\mathbb{C}|\text{Im}(z)>0\} $ with constant negative curvature metric:
     \begin{align}
       ds^2=\frac{dzd\bar{z}}{(\text{Im}(z))^2}.
     \end{align}
@@ -234,16 +319,18 @@ We give out one of the most important theorems in 2D geometry:
 \thm{
   Uniformization Theorem(Pure Topology Version)
 
-  Every Surface is homeomorphic (diffeomporphic) to $ D/\Gamma $, where $ D \in \{\hat{\mathbb{C}}, \mathbb{C}, \mathbb{H}^2 \} $ and $ \Gamma\subset \text{Iso}(D) $ is a properly discontinuously isometry on $ D $.
+  Every Surface is homeomorphic (diffeomporphic) to $ D/\Gamma $,
+  where $ D \in \{\hat{\mathbb{C}}, \mathbb{C}, \mathbb{H}^2 \} $ and
+  $ \Gamma\subset \text{Iso}(D) $ is a properly discontinuously
+  isometry on $ D $.
 }
-This is a topological statement, we only say that a topological surface can be represented as a quotient space of one of the three standard geometries. However, with suitable operations we can give the quotient space a constant curvature metric induced from the standard geometry. Thus, we know that:
+This is a topological statement, we only say that a topological
+surface can be represented as a quotient space of one of the three
+standard geometries. However, with suitable operations we can give
+the quotient space a constant curvature metric induced from the
+standard geometry. Thus, we know that:
 \begin{itemize}
   \item Any closed surface can be given a constant curvature metric.
-    \item Classification of such metric = Classification of isometry group actions on the standard geometries.
+  \item Classification of such metric = Classification of isometry
+    group actions on the standard geometries.
 \end{itemize}
-
-
-\subsection{Complex Structure in 2D}
-
-
-

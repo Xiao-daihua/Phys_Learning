@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.6.26)  11 JAN 2026 18:04
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.6.26)  15 JAN 2026 13:54
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1002,34 +1002,35 @@ Package: macros
 \c@lemma=\count496
 \c@axiom=\count497
 \c@question=\count498
+\c@todoNote=\count499
 ) (./cjkhl.sty
 Package: cjkhl 2012/08/04 v0.01 Highlighting in CJK documents (DPC)
 )
-\@quotelevel=\count499
-\@quotereset=\count500
+\@quotelevel=\count500
+\@quotereset=\count501
  (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
@@ -1065,7 +1066,7 @@ LaTeX Font Info:    ... okay on input line 85.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring OFF on input line 85.
+Package hyperref Info: Link coloring OFF on input line 86.
 (./main.out) (./main.out)
 \@outlinefile=\write5
 \openout5 = `main.out'.
@@ -1096,8 +1097,8 @@ LaTeX Font Info:    Trying to load font information for U+rsfs on input line 70.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 ))
-Package biblatex Info: Reference section=0 on input line 85.
-Package biblatex Info: Reference segment=0 on input line 85.
+Package biblatex Info: Reference section=0 on input line 86.
+Package biblatex Info: Reference segment=0 on input line 86.
  (./main.toc
 
 [1
@@ -1107,8 +1108,8 @@ Package biblatex Info: Reference segment=0 on input line 85.
 \openout6 = `main.toc'.
 
  (./topo.tex
-Package hyperref Info: bookmark level for unknown definition defaults to 0 on input line 9.
-Package hyperref Info: bookmark level for unknown theorem defaults to 0 on input line 21.
+Package hyperref Info: bookmark level for unknown definition defaults to 0 on input line 12.
+Package hyperref Info: bookmark level for unknown theorem defaults to 0 on input line 30.
 
 
 [2]
@@ -1118,7 +1119,7 @@ Package hyperref Info: bookmark level for unknown theorem defaults to 0 on input
 [4]
 
 [5]
-LaTeX Font Info:    Trying to load font information for U+bbold on input line 217.
+LaTeX Font Info:    Trying to load font information for U+bbold on input line 300.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/bbold/Ubbold.fd)
 
 [6])
@@ -1138,12 +1139,12 @@ LaTeX Font Info:    Trying to load font information for U+bbold on input line 21
 [13]
 
 [14]
-Overfull \hbox (5.55057pt too wide) in paragraph at lines 145--145
+Overfull \hbox (5.55057pt too wide) in paragraph at lines 146--146
 []\TU/lmr/m/n/10.95 G. Compère and A. Fiorucci, \TU/lmr/m/it/10.95 Advanced Lectures on General Relativity\TU/lmr/m/n/10.95 , (Feb. 8, 2019) []arXiv:$[][][][] []
  []
 
 
-Overfull \hbox (13.15239pt too wide) in paragraph at lines 145--145
+Overfull \hbox (13.15239pt too wide) in paragraph at lines 146--146
 [][][][][]$ \TU/lmtt/m/n/10.95 [gr-qc, physics:hep-th][]\TU/lmr/m/n/10.95 , []$[][][][] [] [] [] [][][][][] [] [][][] [] [][][] [] [][][][] [] [][][][][]$[] (visited on 03/13/2024),
  []
 
@@ -1155,18 +1156,18 @@ LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-05-26>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 7542FE5B05572058C7584A612D29B729;7560.
+(rerunfilecheck)             Checksum: 86772EE43E480218145D10CF08BB6515;7378.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 36827 strings out of 468527
- 721527 string characters out of 5447700
- 1581151 words of memory out of 5000000
- 64582 multiletter control sequences out of 15000+600000
+ 36837 strings out of 468527
+ 721638 string characters out of 5447700
+ 1581192 words of memory out of 5000000
+ 64592 multiletter control sequences out of 15000+600000
  635148 words of font info for 91 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  117i,15n,121p,695b,4870s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.xdv (15 pages, 229320 bytes).
+Output written on main.xdv (15 pages, 227832 bytes).

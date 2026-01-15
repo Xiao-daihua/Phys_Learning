@@ -149,9 +149,6 @@
 \def\scrY{\mathscr{Y}}
 \def\scrZ{\mathscr{Z}}
 
-
-
-
 % 线性代数相关符号
 \def\Tr{\mathrm{Tr}}
 
@@ -168,8 +165,10 @@
 \def\bz{\bar{z}}
 
 % 环境快捷宏：左侧栏（用于备注等）
-\newcommand{\bbar}{\begin{leftbar}}
-\newcommand{\ebar}{\end{leftbar}}
+\newcommand{\bbar}{
+\begin{leftbar}}
+  \newcommand{\ebar}{
+\end{leftbar}}
 
 % 备注环境
 \newcommand{\rmk}[1]{%
@@ -182,8 +181,8 @@
 
 % 换行加水平线
 \def\line{~\\
-\hrule
-~\\
+  \hrule
+  ~\\
 }
 
 % 公式环境
@@ -192,7 +191,6 @@
     #1
   \end{align}
 }
-
 
 % 定义环境快捷写法
 \newcommand{\defi}[1]{%
@@ -232,7 +230,8 @@
 \tcbuselibrary{breakable}
 
 \newcommand{\imp}[2]{%
-  \begin{tcolorbox}[colback=Emerald!10,colframe=cyan!40!black,title=\textbf{Important: #1},breakable]
+  \begin{tcolorbox}[colback=Emerald!10,colframe=cyan!40!black,title=\textbf{Important:
+    #1},breakable]
     #2
   \end{tcolorbox}
 }
@@ -261,7 +260,8 @@
 
 % 问题盒子（已存在）
 \newcommand{\ques}[2]{%
-  \begin{tcolorbox}[title=\textbf{#1}, colback=Salmon!20, colframe=Salmon!90!Black, breakable]
+  \begin{tcolorbox}[title=\textbf{#1}, colback=Salmon!20,
+    colframe=Salmon!90!Black, breakable]
     #2
   \end{tcolorbox}
 }
@@ -284,7 +284,8 @@
 
 % 注意事项盒子（统一为两个参数）
 \newcommand{\attention}[2]{%
-  \begin{tcolorbox}[colback=CornflowerBlue!25!white, colframe=CornflowerBlue!65!black,
+  \begin{tcolorbox}[colback=CornflowerBlue!25!white,
+      colframe=CornflowerBlue!65!black,
     title=\textbf{#1}, fonttitle=\bfseries, breakable]
     #2
   \end{tcolorbox}
@@ -308,13 +309,13 @@
 % itemize 环境
 \newcommand{\itm}[1]{%
   \begin{itemize}
-    #1
+      #1
   \end{itemize}
 }
 
 % item 语句
 \newcommand{\pt}[1]{%
-  \item{#1}
+\item{#1}
 }
 
 % 警告盒子
@@ -335,7 +336,6 @@
   \refstepcounter{question}%
 }
 
-
 % 高亮背景
 \newcommand{\ghl}[1]{\colorbox{lightgray}{#1}}
 \definecolor{darkred}{HTML}{B22222} % 自定义暗红色（可改成喜欢的 RGB/HTML 值）
@@ -348,6 +348,49 @@
 \def\pdbar{\bar{\partial}}
 \def\pd{\partial}
 
-
 \definecolor{YLcolor}{rgb}{0.1,0,1}
 \newcommand{\YL}[1]{\textcolor{YLcolor}{#1}}
+
+% ====== counter ======
+\newcounter{todoNote}
+
+% ====== storage for global list ======
+\newcommand{\todoNotelist}{}
+\newcommand{\todoNote@item}[3]{%
+  \textbf{#1}\quad
+  \hyperlink{todoNote-#2}{#3}\par
+}
+
+% ====== main command ======
+\newcommand{\todoNote}[1]{%
+  \refstepcounter{todoNote}%
+  % store PURE NUMBERS, not macros
+  \edef\todoNote@sec{%
+    \number\value{section}.%
+    \number\value{subsection}.%
+    \number\value{subsubsection}%
+  }%
+  % anchor ONLY for final list
+  \hypertarget{todoNote-\thetodoNote}{}%
+  % blue marker in text (NO hyperlink, NO footnote mark)
+  \textcolor{blue}{[***]}%
+  % real footnote at bottom of the page
+  \footnotetext{%
+    \textcolor{blue}{[***]}~#1%
+  }%
+  % append to global list
+  \gappto\todoNotelist{%
+    \noexpand\todoNote@item
+    {\todoNote@sec}
+    {\thetodoNote}
+    {#1}
+  }%
+}
+\newcommand{\todoNoteshow}{%
+  \section*{Todo Notes / Open Points}
+  \begingroup
+  \parindent=0pt
+  \parskip=0.6\baselineskip
+  \todoNotelist
+  \endgroup
+}
