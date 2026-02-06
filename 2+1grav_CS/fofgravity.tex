@@ -68,6 +68,11 @@ know that $ \omega_\mu{}^a{}_b $ transforms as a one form in the $
   \item We define the lowering and raising of the spin connection
     indices $ \omega_{ab} = \eta_{ac}\omega^c{}_b $.
 \end{itemize}
+\rmk{
+  Notice that in fact we can lower and raise the $ \mu, \nu $ indices
+  with $ g $ and raise and lower the $ a,b $ indices with $ \eta $.
+  This is totally consistent with the definition of frame fields.
+}
 We can prove that if the theory is metric compatible, then the spin
 connection 1-form is antisymmetric in $ a,b $ indices:
 \begin{align}
@@ -98,11 +103,36 @@ These two goals can be achieved by the Cartan structure equations:
   $ D_{\omega}e^a $ is called the gauge covariant derivative of $ e^a
   $ with respect to the spin connection $ \omega $.
 }
+
 This can be proved directly from the definition of the covariant
 derivative and the definition of the spin connection. The torsion
 free condition makes the lower indices of the Christoffel symbol
 symmetric, thus it cancels out when doing a exterior derivative.
 
+Then where is the Riemann curvature tensor? It can be found in the
+second structure equation:
+\thm{
+  Cartan's second structure equation
+
+  The Riemann curvature 2-form can be written as:
+  \begin{align}
+    R^a{}_b = d\omega^a{}_b + \omega^a{}_c \wedge \omega^c{}_b.
+  \end{align}
+  Here the Riemann curvature 2-form is defined as:
+  \begin{align}
+    R^a{}_b =  R^a{}_{b\mu\nu} dx^\mu \wedge dx^\nu
+  \end{align}
+}
+
 \subsection{Local Lorentz Transformations}
 
 \YL{[This is important see carrol]}
+
+Using the vielbein formalism, we can have more redundency in
+describing the spactime. This is because at each point we can choose
+different orthonormal basis in the tangent space, which are related
+by local Lorentz transformations.
+
+If we use the notation of $  \partial_{\mu} = e_{\mu}{}^a e_a $ and $
+e_a = e_a{}^\mu \partial_{\mu} $, then a local Lorentz transformation
+can be written as:

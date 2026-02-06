@@ -1,6 +1,0 @@
-\contentsline {section}{\numberline {1}Basic}{1}{section.1}%
-\contentsline {subsection}{\numberline {1.1}Quantizing the Teichmüller Space}{1}{subsection.1.1}%
-\contentsline {subsubsection}{\numberline {1.1.1}Definition of the Teichmüller Space}{1}{subsubsection.1.1.1}%
-\contentsline {subsubsection}{\numberline {1.1.2}Teichmüller Space from Zweibeine}{2}{subsubsection.1.1.2}%
-\contentsline {subsubsection}{\numberline {1.1.3}Symplectic Form}{2}{subsubsection.1.1.3}%
-\contentsline {section}{\numberline {2}Scratch book}{2}{section.2}%

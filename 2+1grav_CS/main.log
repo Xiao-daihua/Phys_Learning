@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.6.26)  20 NOV 2025 12:17
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.6.26)  1 FEB 2026 15:54
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -9,8 +9,8 @@ LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-05-26>
 (/usr/local/texlive/2025/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
-(/usr/local/texlive/2025/texmf-dist/tex/latex/base/size12.clo
-File: size12.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/base/size11.clo
+File: size11.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
 )
 \c@part=\count271
 \c@section=\count272
@@ -751,38 +751,286 @@ Package: soul-ori 2023-06-14 v3.1 letterspacing/underlining (mf)
 \SOUL@ulht=\dimen318
 ) (/usr/local/texlive/2025/texmf-dist/tex/generic/etexcmds/etexcmds.sty
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
+)) (/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/biblatex.sty
+Package: biblatex 2024/03/21 v3.20 programmable bibliographies (PK/MW)
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/logreq/logreq.sty
+Package: logreq 2010/08/04 v1.0 xml request logger
+\lrq@indent=\count364
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/logreq/logreq.def
+File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
+)) (/usr/local/texlive/2025/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2024/03/16 v1.1e Standard LaTeX ifthen package (DPC)
+)
+\c@tabx@nest=\count365
+\c@listtotal=\count366
+\c@listcount=\count367
+\c@liststart=\count368
+\c@liststop=\count369
+\c@citecount=\count370
+\c@citetotal=\count371
+\c@multicitecount=\count372
+\c@multicitetotal=\count373
+\c@instcount=\count374
+\c@maxnames=\count375
+\c@minnames=\count376
+\c@maxitems=\count377
+\c@minitems=\count378
+\c@citecounter=\count379
+\c@maxcitecounter=\count380
+\c@savedcitecounter=\count381
+\c@uniquelist=\count382
+\c@uniquename=\count383
+\c@refsection=\count384
+\c@refsegment=\count385
+\c@maxextratitle=\count386
+\c@maxextratitleyear=\count387
+\c@maxextraname=\count388
+\c@maxextradate=\count389
+\c@maxextraalpha=\count390
+\c@abbrvpenalty=\count391
+\c@highnamepenalty=\count392
+\c@lownamepenalty=\count393
+\c@maxparens=\count394
+\c@parenlevel=\count395
+\blx@tempcnta=\count396
+\blx@tempcntb=\count397
+\blx@tempcntc=\count398
+\c@blx@maxsection=\count399
+\blx@maxsegment@0=\count400
+\blx@notetype=\count401
+\blx@parenlevel@text=\count402
+\blx@parenlevel@foot=\count403
+\blx@sectionciteorder@0=\count404
+\blx@sectionciteorderinternal@0=\count405
+\blx@entrysetcounter=\count406
+\blx@biblioinstance=\count407
+\labelnumberwidth=\skip71
+\labelalphawidth=\skip72
+\biblabelsep=\skip73
+\bibitemsep=\skip74
+\bibnamesep=\skip75
+\bibinitsep=\skip76
+\bibparsep=\skip77
+\bibhang=\skip78
+\blx@bcfin=\read4
+\blx@bcfout=\write4
+\blx@langwohyphens=\language90
+\c@mincomprange=\count408
+\c@maxcomprange=\count409
+\c@mincompwidth=\count410
+Package biblatex Info: Trying to load biblatex default data model...
+Package biblatex Info: ... file 'blx-dm.def' found.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/blx-dm.def
+File: blx-dm.def 2024/03/21 v3.20 biblatex datamodel (PK/MW)
+)
+Package biblatex Info: Trying to load biblatex style data model...
+Package biblatex Info: ... file 'phys.dbx' found.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex-phys/phys.dbx
+File: phys.dbx 2025/04/09 v1.1e biblatex database model extension
+)
+Package biblatex Info: Trying to load biblatex custom data model...
+Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
+\c@afterword=\count411
+\c@savedafterword=\count412
+\c@annotator=\count413
+\c@savedannotator=\count414
+\c@author=\count415
+\c@savedauthor=\count416
+\c@bookauthor=\count417
+\c@savedbookauthor=\count418
+\c@commentator=\count419
+\c@savedcommentator=\count420
+\c@editor=\count421
+\c@savededitor=\count422
+\c@editora=\count423
+\c@savededitora=\count424
+\c@editorb=\count425
+\c@savededitorb=\count426
+\c@editorc=\count427
+\c@savededitorc=\count428
+\c@foreword=\count429
+\c@savedforeword=\count430
+\c@holder=\count431
+\c@savedholder=\count432
+\c@introduction=\count433
+\c@savedintroduction=\count434
+\c@namea=\count435
+\c@savednamea=\count436
+\c@nameb=\count437
+\c@savednameb=\count438
+\c@namec=\count439
+\c@savednamec=\count440
+\c@translator=\count441
+\c@savedtranslator=\count442
+\c@shortauthor=\count443
+\c@savedshortauthor=\count444
+\c@shorteditor=\count445
+\c@savedshorteditor=\count446
+\c@labelname=\count447
+\c@savedlabelname=\count448
+\c@institution=\count449
+\c@savedinstitution=\count450
+\c@lista=\count451
+\c@savedlista=\count452
+\c@listb=\count453
+\c@savedlistb=\count454
+\c@listc=\count455
+\c@savedlistc=\count456
+\c@listd=\count457
+\c@savedlistd=\count458
+\c@liste=\count459
+\c@savedliste=\count460
+\c@listf=\count461
+\c@savedlistf=\count462
+\c@location=\count463
+\c@savedlocation=\count464
+\c@organization=\count465
+\c@savedorganization=\count466
+\c@origlocation=\count467
+\c@savedoriglocation=\count468
+\c@origpublisher=\count469
+\c@savedorigpublisher=\count470
+\c@publisher=\count471
+\c@savedpublisher=\count472
+\c@language=\count473
+\c@savedlanguage=\count474
+\c@origlanguage=\count475
+\c@savedoriglanguage=\count476
+\c@pageref=\count477
+\c@savedpageref=\count478
+\shorthandwidth=\skip79
+\shortjournalwidth=\skip80
+\shortserieswidth=\skip81
+\shorttitlewidth=\skip82
+\shortauthorwidth=\skip83
+\shorteditorwidth=\skip84
+\locallabelnumberwidth=\skip85
+\locallabelalphawidth=\skip86
+\localshorthandwidth=\skip87
+\localshortjournalwidth=\skip88
+\localshortserieswidth=\skip89
+\localshorttitlewidth=\skip90
+\localshortauthorwidth=\skip91
+\localshorteditorwidth=\skip92
+Package biblatex Info: Trying to load enhanced support for Unicode engines...
+Package biblatex Info: ... file 'blx-unicode.def' found.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/blx-unicode.def)
+Package biblatex Info: Trying to load compatibility code...
+Package biblatex Info: ... file 'blx-compat.def' found.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/blx-compat.def
+File: blx-compat.def 2024/03/21 v3.20 biblatex compatibility (PK/MW)
+)
+Package biblatex Info: Trying to load generic definitions...
+Package biblatex Info: ... file 'biblatex.def' found.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/biblatex.def
+File: biblatex.def 2024/03/21 v3.20 biblatex compatibility (PK/MW)
+\c@textcitecount=\count479
+\c@textcitetotal=\count480
+\c@textcitemaxnames=\count481
+\c@biburlbigbreakpenalty=\count482
+\c@biburlbreakpenalty=\count483
+\c@biburlnumpenalty=\count484
+\c@biburlucpenalty=\count485
+\c@biburllcpenalty=\count486
+\biburlbigskip=\muskip19
+\biburlnumskip=\muskip20
+\biburlucskip=\muskip21
+\biburllcskip=\muskip22
+\c@smartand=\count487
+)
+Package biblatex Info: Trying to load bibliography style 'phys'...
+Package biblatex Info: ... file 'phys.bbx' found.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex-phys/phys.bbx
+File: phys.bbx 2025/04/09 v1.1e biblatex bibliography style
+Package biblatex Info: Trying to load bibliography style 'numeric-comp'...
+Package biblatex Info: ... file 'numeric-comp.bbx' found.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/bbx/numeric-comp.bbx
+File: numeric-comp.bbx 2024/03/21 v3.20 biblatex bibliography style (PK/MW)
+Package biblatex Info: Trying to load bibliography style 'numeric'...
+Package biblatex Info: ... file 'numeric.bbx' found.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/bbx/numeric.bbx
+File: numeric.bbx 2024/03/21 v3.20 biblatex bibliography style (PK/MW)
+Package biblatex Info: Trying to load bibliography style 'standard'...
+Package biblatex Info: ... file 'standard.bbx' found.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/bbx/standard.bbx
+File: standard.bbx 2024/03/21 v3.20 biblatex bibliography style (PK/MW)
+\c@bbx:relatedcount=\count488
+\c@bbx:relatedtotal=\count489
+))))
+Package biblatex Info: Trying to load citation style 'phys'...
+Package biblatex Info: ... file 'phys.cbx' found.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex-phys/phys.cbx
+File: phys.cbx 2025/04/09 v1.1e biblatex citation style
+Package biblatex Info: Trying to load citation style 'numeric-comp'...
+Package biblatex Info: ... file 'numeric-comp.cbx' found.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/cbx/numeric-comp.cbx
+File: numeric-comp.cbx 2024/03/21 v3.20 biblatex citation style (PK/MW)
+\c@cbx@tempcnta=\count490
+\c@cbx@tempcntb=\count491
+\c@cbx@tempcntc=\count492
+\c@cbx@tempcntd=\count493
+Package biblatex Info: Redefining '\cite'.
+Package biblatex Info: Redefining '\parencite'.
+Package biblatex Info: Redefining '\footcite'.
+Package biblatex Info: Redefining '\footcitetext'.
+Package biblatex Info: Redefining '\smartcite'.
+Package biblatex Info: Redefining '\supercite'.
+Package biblatex Info: Redefining '\textcite'.
+Package biblatex Info: Redefining '\textcites'.
+Package biblatex Info: Redefining '\cites'.
+Package biblatex Info: Redefining '\parencites'.
+Package biblatex Info: Redefining '\smartcites'.
+))
+Package biblatex Info: Trying to load configuration file...
+Package biblatex Info: ... file 'biblatex.cfg' found.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/biblatex.cfg
+File: biblatex.cfg 
+)
+Package biblatex Info: XeTeX detected.
+(biblatex)             Assuming input encoding 'utf8'.
+Package biblatex Info: Document encoding is UTF8 ....
+Package biblatex Info: ... and expl3
+(biblatex)             2025-05-26 L3 programming layer (loader) 
+(biblatex)             is new enough (at least 2020/04/06),
+(biblatex)             setting 'casechanger=expl3'.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/blx-case-expl3.sty
+Package: blx-case-expl3 2024/03/21 v3.20 expl3 case changing code for biblatex
 )) (./macros.sty
 Package: macros 
-\c@definition=\count364
-\c@theorem=\count365
-\c@lemma=\count366
-\c@axiom=\count367
-\c@question=\count368
+\c@definition=\count494
+\c@theorem=\count495
+\c@lemma=\count496
+\c@axiom=\count497
+\c@question=\count498
+\c@todoNote=\count499
 ) (./cjkhl.sty
 Package: cjkhl 2012/08/04 v0.01 Highlighting in CJK documents (DPC)
-) (./main.aux)
+)
+\@quotelevel=\count500
+\@quotereset=\count501
+ (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
@@ -792,23 +1040,23 @@ LaTeX Font Info:    ... okay on input line 75.
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
-* h-part:(L,W,R)=(42.67912pt, 512.14963pt, 42.67912pt)
-* v-part:(T,H,B)=(42.67912pt, 759.6886pt, 42.67912pt)
+* h-part:(L,W,R)=(56.9055pt, 483.69687pt, 56.9055pt)
+* v-part:(T,H,B)=(71.13188pt, 702.78308pt, 71.13188pt)
 * \paperwidth=597.50787pt
 * \paperheight=845.04684pt
-* \textwidth=512.14963pt
-* \textheight=759.6886pt
-* \oddsidemargin=-29.59087pt
-* \evensidemargin=-29.59087pt
-* \topmargin=-66.59087pt
+* \textwidth=483.69687pt
+* \textheight=702.78308pt
+* \oddsidemargin=-15.36449pt
+* \evensidemargin=-15.36449pt
+* \topmargin=-38.1381pt
 * \headheight=12.0pt
 * \headsep=25.0pt
-* \topskip=12.0pt
+* \topskip=11.0pt
 * \footskip=30.0pt
-* \marginparwidth=44.0pt
+* \marginparwidth=59.0pt
 * \marginparsep=10.0pt
 * \columnsep=10.0pt
-* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \skip\footins=10.0pt plus 4.0pt minus 2.0pt
 * \hoffset=0.0pt
 * \voffset=0.0pt
 * \mag=1000
@@ -818,47 +1066,98 @@ LaTeX Font Info:    ... okay on input line 75.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring OFF on input line 75.
+Package hyperref Info: Link coloring OFF on input line 86.
 (./main.out) (./main.out)
-\@outlinefile=\write4
-\openout4 = `main.out'.
+\@outlinefile=\write5
+\openout5 = `main.out'.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 81.
+Package biblatex Info: Trying to load language 'english'...
+Package biblatex Info: ... file 'english.lbx' found.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/lbx/english.lbx
+File: english.lbx 2024/03/21 v3.20 biblatex localization (PK/MW)
+)
+Package biblatex Info: XeTeX detected.
+(biblatex)             Assuming input encoding 'utf8'.
+Package biblatex Info: Automatic encoding selection.
+(biblatex)             Assuming data encoding 'utf8'.
+\openout4 = `main.bcf'.
+
+Package biblatex Info: Trying to load bibliographic data...
+Package biblatex Info: ... file 'main.bbl' found.
+ (./main.bbl
+LaTeX Font Info:    Trying to load font information for U+msa on input line 70.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 81.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 70.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 81.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 70.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
-) (./main.toc)
-\tf@toc=\write5
-\openout5 = `main.toc'.
-
- (./tml.tex
+))
+Package biblatex Info: Reference section=0 on input line 86.
+Package biblatex Info: Reference segment=0 on input line 86.
+ (./main.toc
 
 [1
 
-]) (./sb.tex)
+])
+\tf@toc=\write6
+\openout6 = `main.toc'.
 
-[2] (./main.aux)
+
+
+[2] (./topo.tex
+Package hyperref Info: bookmark level for unknown definition defaults to 0 on input line 12.
+Package hyperref Info: bookmark level for unknown theorem defaults to 0 on input line 30.
+
+
+[3]
+
+[4]
+
+[5]
+
+[6]
+LaTeX Font Info:    Trying to load font information for U+bbold on input line 300.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/bbold/Ubbold.fd))
+
+[7] (./fofgravity.tex
+
+[8])
+
+[9] (./dgravity.tex)
+
+[10] (./gaugeField.tex)
+
+[11] (./CSgravity_witten.tex)
+
+[12] (./CSgravity.tex)
+
+[13]
+
+[14]
+
+[15] (./main.aux)
  ***********
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-05-26>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 032FF0EF8EAB19CA91F85FBE6C7C7070;1044.
+(rerunfilecheck)             Checksum: 8BBE95068426E997D87FE67859CBB817;7333.
+Package logreq Info: Writing requests to 'main.run.xml'.
+\openout1 = `main.run.xml'.
+
  ) 
 Here is how much of TeX's memory you used:
- 29411 strings out of 468527
- 570464 string characters out of 5447700
- 1007147 words of memory out of 5000000
- 57258 multiletter control sequences out of 15000+600000
- 635934 words of font info for 90 fonts, out of 8000000 for 9000
+ 36837 strings out of 468527
+ 721638 string characters out of 5447700
+ 1581157 words of memory out of 5000000
+ 64592 multiletter control sequences out of 15000+600000
+ 635148 words of font info for 91 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 117i,7n,121p,584b,338s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 117i,15n,121p,695b,4870s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.xdv (2 pages, 32888 bytes).
+Output written on main.xdv (15 pages, 242192 bytes).
