@@ -1,4 +1,4 @@
-PWD /Users/xiaodaihua/Code/Latex_Note/Phys/learning_note/2+1grav_init
+PWD /Users/xiaodaihua/Code/Latex_Note/Phys/learning_note/2+1grav_CS
 INPUT /usr/local/texlive/2025/texmf.cnf
 INPUT /usr/local/texlive/2025/texmf-dist/web2c/texmf.cnf
 INPUT /usr/local/texlive/2025/texmf-var/web2c/xetex/xelatex.fmt
@@ -440,9 +440,6 @@ INPUT fofgravity.tex
 INPUT ./dgravity.tex
 INPUT ./dgravity.tex
 INPUT dgravity.tex
-INPUT ./gaugeField.tex
-INPUT ./gaugeField.tex
-INPUT gaugeField.tex
 INPUT ./CSgravity_witten.tex
 INPUT ./CSgravity_witten.tex
 INPUT CSgravity_witten.tex

@@ -48,6 +48,8 @@ shall only focus on this kind of spacetime topology.
 
 \subsection{Naive Phase Space Analysis (Witten)}
 
+\subsubsection{Discussion Set Up}
+
 How to quantize a Theory, we usually start from analyzing the phase
 space of the theory and then construct a poisson braket of the phase
 space. Then one can transform the poisson bracket into commutator and
@@ -55,4 +57,149 @@ get the quantum theory.
 Thus to study the quantum gravity in 2+1 dimensions, we need to first
 learn about the phase space of the classical 2+1 dimensional gravity.
 
-\YL{[here follow witten's discussion on the phase space of 2+1]}
+The phase space of a classical theory is often defined as:
+\defi{
+  Phase Space
+
+  The phase space is the space of all $ q, \dot{q} $ at $ t = 0 $ surface.
+}
+However, this definition is not covariant and we need tons of
+constraints to make it work, thus in 2+1 dimensional gravity, we use
+the following definition:
+\defi{
+  Phase Space
+
+  The phase space is the space of all classical solutions to the
+  equations of motion Modulo gauge transformations.
+}
+For 2+1 dimensional gravity, this means that we want to find all the
+solutions to:
+\begin{align}
+  R_{\mu\nu} = 0
+\end{align}
+To do this, we might first assume a spacetime topology of the
+manifold we want to consider, we focus on a manifold:
+\begin{itemize}
+  \item With topology $ M \cong [0,1] \times \Sigma $. where $ \Sigma
+    $ is a genus $ g $ closed surface.
+\end{itemize}
+
+We now simplify the problem of analyzing the phase space of 2+1
+dimensional gravity to finding the space of all solutions to the
+vacuum Einstein equation $ R_{\mu\nu} = 0 $ on a manifold with
+topology $ M \cong [0,1] \times \Sigma $. These solutions can be
+found by quotienting the Minkowski space by a discrete subgroup of
+the isometry group of Minkowski space, which is the Poincare group $
+ISO(2,1) $. In Witten's paper he gives out a analysis of those manifolds.
+
+\subsubsection{Manifolds with initial \& final singularities}
+
+Witten explicitly constructs these class of solutions as examples, by
+quotienting
+the light cone of Minkowski, now we explain the procedure:
+
+\begin{itemize}
+  \item \textbf{Preparation: Quotienting $ \mathbb{H} $ to $ \Sigma_g $}
+
+    We can construct a 2-manifold with genus $ g \geq 2 $ by
+    quotienting the hyperbolic plane.
+    \begin{itemize}
+      \item \textbf{Step 1: } We first find the fundamental group of
+        the surface $ \Sigma_g $ which is $ \pi_1(\Sigma_g) $.
+      \item \textbf{Step 2: } We find a subgroup of $
+        PSL(2,\mathbb{R}) $ naming $ \Gamma $
+        which is isomorphic to $ \pi_1(\Sigma_g) $ and acts
+        \textbf{discretely} on $ \mathbb{H} $.
+      \item \textbf{Step 3: } The quotient $ \mathbb{H}/\Gamma  $
+        defines a Riemann surface with genus $ g $ and a metric with
+        constant negative curvature.
+    \end{itemize}
+\end{itemize}
+\YL{[In fact I don't understand how this step works mathematically, eg
+    how to construct the metric and why we don't require the group to
+    be free but only properly continuous (discrete), etc. I need to learn
+more about this step.]}
+\rmk{
+  Note that here we quotient by a discrete subgroup other than a
+  properly discontinuous subgroup, because the action of a properly
+  discontinuous subgroup is equivalent to being discrete in the case
+  of being a subgroup of $ Aut(\mathbb{H}) = PSL(2,\mathbb{R}) $.
+}
+
+Then we apply a similar procedure to the light cone of Minkowski space to
+construct a flat 3-manifold with topology $ M \cong [0,1] \times
+\Sigma_g $ with initial singularity and final singularity.
+
+To do this we first list out some useful facts about the 2+1
+Minkowski spacetime:
+\begin{itemize}
+  \item Normally we have the metric of:
+    \begin{align}
+      ds^2 = -dt^2 + dx^2 + dy^2
+    \end{align}
+    And the light cone is defined by:
+    \begin{itemize}
+      \item $ X^+ $ future light cone: $ t^2 > x^2 + y^2, t > 0 $
+      \item $ X^- $ past light cone: $ t^2 > x^2 + y^2, t < 0 $
+    \end{itemize}
+  \item The isometry group is the 3 dimensional Poincare group $
+    ISO(2,1) $ which is the semidirect product of
+    the Lorentz group $ SO(2,1) $ and the translation group $
+    \mathbb{R}^{2,1} $.
+    \begin{itemize}
+      \item The proper orthochronous Lorentz group $ SO^+(2,1) $ is
+        isomorphic to $ PSL(2,\mathbb{R}) $.
+    \end{itemize}
+\end{itemize}
+\textbf{Quotienting the light cone to get a 3-manifold with initial \&
+final singularities}
+
+We first notice that the light cone can be made up by hyperbolic planes:
+\begin{align}
+  t^2 = x^2 + y^2 + \tau^2
+\end{align}
+where $ \tau $ is a parameter for the hyperbolic plane.
+\begin{itemize}
+  \item Each hyperbolic plane is isometric to $ \mathbb{H} $ and the
+    isometry group of the hyperbolic plane is the Lorentz group $
+    SO^+(2,1) $ which is a subgroup of the Poincare group $ ISO(2,1) $
+\end{itemize}
+Thus given a
+$ \Sigma_g $ we can construct a subgroup of the lorentz group $ \Gamma $
+isometric to $ \pi_1(\Sigma_g) $ and quotient the hyperbolic plane by
+this subgroup to get a $ \Sigma_g $. If we do this quotient for the
+whole $ X^+ $ light cone we can get a 3 manifold with topology $ M
+\cong [0,1] \times \Sigma_g $ and with an initial singularity at $ \tau
+= 0 $.
+\begin{itemize}
+  \item The resulting manifold is a solution to the vaccum Einstein
+    Field Equation for it is contructed by quotienting an isometry of
+    Minkowski spacetime. This quotient group preserves the metric
+    thus the resulting manifold is still flat.
+    \YL{[I don't understand why?? ]}
+  \item The resulting manifold has a $ \Sigma_g \times [0,1] $
+    topology. This is because the lorentz group act the hyperbolic
+    plane to itself due to its feature of preserving Minkowski
+    metric. Thus, $ \Gamma $ act independently on each hyperbolic
+    plane. Moreover, the isometry group of the hyperbolic plane is
+    the lorentz group and the hyperbolic plane is isometric to $
+    \mathbb{H} $. Thus, quotienting the hyperbolic plane with the
+    subgroup $ \Gamma $ of the lorentz group is equivalent to
+    quotienting $ \mathbb{H} $ with the same subgroup, which gives us
+    a $ \Sigma_g $. Thus, the resulting manifold has a $ \Sigma_g
+    \times [0,1] $ topology.
+\end{itemize}
+
+Finally, we can count how many distinct manifold can be constructed
+by this procedure, the answer depends on the choise of $ \Gamma $
+subgroup. The final answer is that the moduli of genus $ g $ surface,
+which is $ \mathbb{R}^{6g-6} $ gives us the label of distinct
+manifolds we can construct by this procedure.
+\YL{[I don't understand this counting, it need some knowledge of
+Teichmuller space and moduli space of Riemann surface.]}
+
+\subsubsection{General Flat Manifolds}
+
+Now we try to construct more general flat manifolds with topology $ M
+\cong [0,1] \times \Sigma_g $ by quotienting more general subspace of
+the Minkowski space.
