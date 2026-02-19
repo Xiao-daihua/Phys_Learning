@@ -23,15 +23,17 @@
 \contentsline {subsection}{\numberline {3.1}Solutions to Einstein Equation in 2+1 Dimensions}{10}{subsection.3.1}%
 \contentsline {subsubsection}{\numberline {3.1.1}Local Spacetime}{10}{subsubsection.3.1.1}%
 \contentsline {subsubsection}{\numberline {3.1.2}Global Spacetime}{10}{subsubsection.3.1.2}%
-\contentsline {subsection}{\numberline {3.2}Naive Phase Space Analysis (Witten)}{10}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.2}Phase Space Analysis (Witten)}{10}{subsection.3.2}%
 \contentsline {subsubsection}{\numberline {3.2.1}Discussion Set Up}{10}{subsubsection.3.2.1}%
 \contentsline {subsubsection}{\numberline {3.2.2}Manifolds with initial \& final singularities}{11}{subsubsection.3.2.2}%
 \contentsline {subsubsection}{\numberline {3.2.3}General Flat Manifolds}{12}{subsubsection.3.2.3}%
-\contentsline {section}{\numberline {4}Chern-Simons Theory and Gravity (Witten)}{13}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Review on Chern-Simons Theory}{13}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}1st Order Formalism of 3D Gravity}{13}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}On-Shell Diffeomorphism as Gauge Transformation}{13}{subsection.4.3}%
-\contentsline {section}{\numberline {5}Chern-Simons Theory and AdS3 (AGR)}{14}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Double Chern-Simons Theory as AdS3}{14}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}On-Shell Diffeomorphism as Gauge Transformation}{14}{subsection.5.2}%
-\contentsline {section}{\numberline {6}Quantization and Phase Space Analysis (Witten)}{15}{section.6}%
+\contentsline {section}{\numberline {4}Chern-Simons Theory and Gravity (Witten)}{14}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Action of Vierbein Formalism}{14}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Review on Chern-Simons Theory}{14}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}1st Order Formalism of 3D Gravity}{14}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}On-Shell Diffeomorphism as Gauge Transformation}{14}{subsection.4.4}%
+\contentsline {section}{\numberline {5}Chern-Simons Theory and AdS3 (AGR)}{15}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Double Chern-Simons Theory as AdS3}{15}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}On-Shell Diffeomorphism as Gauge Transformation}{15}{subsection.5.2}%
+\contentsline {section}{\numberline {6}Quantization and Phase Space Analysis (Witten)}{16}{section.6}%
+\contentsline {section}{\numberline {7}Phase Space from a Modern Perspective}{17}{section.7}%

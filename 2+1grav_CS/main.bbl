@@ -192,6 +192,56 @@
       \endverb
       \keyw{General Relativity and Quantum Cosmology,High Energy Physics - Theory}
     \endentry
+    \entry{eberhardtOffshellPartitionFunctions2022}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=cd5246561828e3982872f4c7117402c0}{%
+           family={Eberhardt},
+           familyi={E\bibinitperiod},
+           given={Lorenz},
+           giveni={L\bibinitperiod}}}%
+      }
+      \strng{namehash}{cd5246561828e3982872f4c7117402c0}
+      \strng{fullhash}{cd5246561828e3982872f4c7117402c0}
+      \strng{fullhashraw}{cd5246561828e3982872f4c7117402c0}
+      \strng{bibnamehash}{cd5246561828e3982872f4c7117402c0}
+      \strng{authorbibnamehash}{cd5246561828e3982872f4c7117402c0}
+      \strng{authornamehash}{cd5246561828e3982872f4c7117402c0}
+      \strng{authorfullhash}{cd5246561828e3982872f4c7117402c0}
+      \strng{authorfullhashraw}{cd5246561828e3982872f4c7117402c0}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{We explore three-dimensional gravity with negative cosmological constant via canonical quantization. We focus on chiral gravity which is related to a single copy of \$\textbackslash mathrm\{PSL\}(2,\textbackslash mathbb\{R\})\$ Chern-Simons theory and is simpler to treat in canonical quantization. Its phase space for an initial value surface \$\textbackslash Sigma\$ is given by the appropriate moduli space of Riemann surfaces. We use geometric quantization to compute partition functions of chiral gravity on three-manifolds of the form \$\textbackslash Sigma \textbackslash times \textbackslash mathrm\{S\}\textasciicircum 1\$, where \$\textbackslash Sigma\$ can have asymptotic boundaries. Most of these topologies do not admit a classical solution and are thus not amenable to a direct semiclassical path integral computation. We use an index theorem that expresses the partition function as an integral of characteristic classes over phase space. In the presence of \$n\$ asymptotic boundaries, we use techniques from equivariant cohomology to localize the integral to a finite-dimensional integral over \$\textbackslash overline\{\textbackslash mathcal\{M\}\}\_\{g,n\}\$, which we evaluate in low genus cases. Higher genus partition functions quickly become complicated since they depend in an oscillatory way on Newton's constant. There is a precise sense in which one can isolate the non-oscillatory part which we call the fake partition function. We establish that there is a topological recursion that computes the fake partition functions for arbitrary Riemann surfaces \$\textbackslash Sigma\$. There is a scaling limit in which the model reduces to JT gravity and our methods give a novel way to compute JT partition functions via equivariant localization.}
+      \field{day}{28}
+      \field{eprintclass}{hep-th}
+      \field{eprinttype}{arXiv}
+      \field{month}{4}
+      \field{pubstate}{prepublished}
+      \field{title}{Off-Shell {{Partition Functions}} in 3d {{Gravity}}}
+      \field{urlday}{13}
+      \field{urlmonth}{5}
+      \field{urlyear}{2025}
+      \field{year}{2022}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{doi}
+      \verb 10.48550/arXiv.2204.09789
+      \endverb
+      \verb{eprint}
+      \verb 2204.09789
+      \endverb
+      \verb{file}
+      \verb /Users/xiaodaihua/Zotero/storage/XQHM58PQ/Eberhardt - 2022 - Off-shell Partition Functions in 3d Gravity.pdf;/Users/xiaodaihua/Zotero/storage/DPUSU2RX/2204.html
+      \endverb
+      \verb{urlraw}
+      \verb http://arxiv.org/abs/2204.09789
+      \endverb
+      \verb{url}
+      \verb http://arxiv.org/abs/2204.09789
+      \endverb
+      \keyw{High Energy Physics - Theory,Mathematical Physics,Mathematics - Algebraic Geometry,Mathematics - Mathematical Physics}
+    \endentry
   \enddatalist
 \endrefsection
 \endinput

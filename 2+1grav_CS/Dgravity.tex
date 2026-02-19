@@ -46,7 +46,7 @@ Thus the topology of a physical spacetime is fixed by the topology of
 a initial spacelike slice $ \Sigma $. In the following context we
 shall only focus on this kind of spacetime topology.
 
-\subsection{Naive Phase Space Analysis (Witten)}
+\subsection{Phase Space Analysis (Witten)}
 
 \subsubsection{Discussion Set Up}
 
@@ -176,13 +176,19 @@ whole $ X^+ $ light cone we can get a 3 manifold with topology $ M
     Field Equation for it is contructed by quotienting an isometry of
     Minkowski spacetime. This quotient group preserves the metric
     thus the resulting manifold is still flat.
-    \YL{[I don't understand why?? ]}
+
+    \YL{[I don't understand why?? It needs knowledge of metric under
+    quotienting.]}
   \item The resulting manifold has a $ \Sigma_g \times [0,1] $
     topology. This is because the lorentz group act the hyperbolic
     plane to itself due to its feature of preserving Minkowski
-    metric. Thus, $ \Gamma $ act independently on each hyperbolic
-    plane. Moreover, the isometry group of the hyperbolic plane is
-    the lorentz group and the hyperbolic plane is isometric to $
+    metric. Thus, $ \Gamma $ as a subgroup of lorentz group act
+    independently on each hyperbolic
+    plane.
+
+    Moreover, the isometry group of the hyperbolic plane is
+    the lorentz group which is isomorphic to $ PSL(2,\mathbb{R}) $
+    and the hyperbolic plane is isometric to $
     \mathbb{H} $. Thus, quotienting the hyperbolic plane with the
     subgroup $ \Gamma $ of the lorentz group is equivalent to
     quotienting $ \mathbb{H} $ with the same subgroup, which gives us
@@ -190,11 +196,14 @@ whole $ X^+ $ light cone we can get a 3 manifold with topology $ M
     \times [0,1] $ topology.
 \end{itemize}
 
+\textbf{Parameters Counting}
+
 Finally, we can count how many distinct manifold can be constructed
 by this procedure, the answer depends on the choise of $ \Gamma $
 subgroup. The final answer is that the moduli of genus $ g $ surface,
 which is $ \mathbb{R}^{6g-6} $ gives us the label of distinct
 manifolds we can construct by this procedure.
+
 \YL{[I don't understand this counting, it need some knowledge of
 Teichmuller space and moduli space of Riemann surface.]}
 
@@ -203,3 +212,89 @@ Teichmuller space and moduli space of Riemann surface.]}
 Now we try to construct more general flat manifolds with topology $ M
 \cong [0,1] \times \Sigma_g $ by quotienting more general subspace of
 the Minkowski space.
+
+For a general flat 3-manifold $ \hat{M} $, we can construct its
+simple connected universal cover $ M $. Due to the flatness and being
+a universal covering space, $ M $ is isometric to the Minkowski space
+or a subspace of the Minkowski space. And by definition, $ \hat{M} $
+must be a quotient of $ M $, which is a subspace of the Minkowski
+space, by a subgroup of the isometry group of the Minkowski space,
+which is the Poincare group $ ISO(2,1) $.
+
+Under this set up, we consider the fundamental group of $ \hat{M} $,
+which is $ \pi_1(\hat{M}) $. Every element shall be a loop in $
+\hat{M} $, which can be lifted to a path in $ M $. Then we can define
+a element of the Poincare group $ ISO(2,1) $ $ \phi(\gamma) $ which
+ensures that the
+path $ [\gamma] $ in $ M $ which lifted from the loop $ [\gamma] $ in $
+\hat{M} $, is mapped to a noncontractible loop after the quotienting
+by $ \phi(\gamma) $.
+
+Thus we can see that:
+\begin{itemize}
+  \item Every flat 3-manifold give rise to a homomorphism from $
+    \pi_1(\hat{M}) $ to the Poincare group $
+    ISO(2,1) $. It can be constructed by quotienting Minkowski space
+    by the image of the homomorphism.
+\end{itemize}
+\YL{[ but why this procedure can also cover quotienting a subspace of
+    Minkowski space??? It only covers the case of quotienting the whole
+    Minkowski space, but not the case of quotienting a subspace of
+Minkowski space, which is also a solution to the Einstein equation.]}
+
+Thus, the phase space of 2+1 dimensional gravity can be identified
+with the following space:
+\begin{align}
+  \text{Phase Space} = \text{Hom}(\pi_1(\Sigma_g), ISO(2,1))/\sim
+\end{align}
+Here $ \sim $ means that we quotient by the conjugation of the
+Poincare group $ ISO(2,1) $. We know that if two homomorphisms $
+\phi_1, \phi_2 $ are related as:
+\begin{align}
+  \phi_1(\gamma) = g \phi_2(\gamma) g^{-1} \quad \forall \gamma \in ISO(2,1)
+\end{align}
+Then they give rise to the same manifold under quotient.
+
+If we want to consider the topology of $ \hat{M} = \Sigma_g \times [0,1] $,
+then the fundamental group of the manifold is $ \pi_1(\hat{M}) =
+\pi_1(\Sigma_g) $. Thus, the phase space of 2+1 dimensional gravity
+with topology $ M \cong [0,1] \times \Sigma_g $ is:
+\thm{
+  The phase space of 2+1 dimensional gravity with topology $ M \cong
+  [0,1] \times \Sigma_g $ is:
+  \begin{align}
+    \text{Phase Space} = \text{Hom}(\pi_1(\Sigma_g), ISO(2,1))/\sim
+  \end{align}
+  where $ \sim $ means that we quotient by the conjugation of the
+  Poincare group $ ISO(2,1) $.
+}
+
+\textbf{Parameter Counting}
+
+We then count the dimension of the phase space. For a surface $
+\Sigma_g $, its fundamental group can be generated by $ 2g $
+generators $ a_i, b_i $ with one relation:
+\begin{align}
+  \pi_1(\Sigma_g) = \langle a_1, b_1, \cdots, a_g, b_g |
+  \prod_{i=1}^g a_i b_i a_i^{-1} b_i^{-1} = 1 \rangle
+\end{align}
+Thus a homomorphism from $ \pi_1(\Sigma_g) $ to the Poincare group
+$ ISO(2,1) $ is determined by the image of the generators $ a_i, b_i $
+in the Poincare group $ ISO(2,1) $. Which lead to $ 2g-1 $ parameters
+with each parameter the dimension of the Poincare group $ ISO(2,1) $,
+which is 6. Moreover, we need to quotient the phase space by the
+conjugation of the Poincare group $ ISO(2,1) $, which lead to a
+reduction of $ 6 $ parameters. Thus, the dimension of the phase space is:
+\begin{align}
+  \text{dim(Phase Space)} = (2g-1) \cdot 6 - 6 = 12g - 12
+\end{align}
+
+\rmk{
+  Finally, we shall note that this investigation is not complete and
+  rigorous. Though we can construct the solutions, we also have left
+  the problem that the quotienting may lead to manifold with
+  undesirable properties, though being flat.
+
+  In the final section \cref{sec:Quantization of 3D} we will view the
+  phase space from a more rigorous CS field theory approach.
+}
