@@ -1,142 +1,260 @@
-
-I mainly follow the discussion in \cite{Carlip:1998qg}. For more
-detailed discussion and having the same notation one can refer to
+Here I mainly follow the discussion in the appendix of
 \cite{carrollSpacetimeGeometryIntroduction2014}.
 
-\subsection{Vielbein and Spin Connections}
-
-We can a GR theory using a first order formalism, which use frame
-(aka vielbein) and spin connection as basic variables instead of
-metric. This is especially useful in 2+1 dimensional gravity, since
-it can be reformulated as a Chern-Simons theory.
-We define the frame fields
+\subsection{Vielbein as non-coordinate Basis}
+\subsubsection{Definition of Vielbein}
+In GR we know that the coordinate system on the manifold naturally
+generates a basis of the tangent space, which is called the coordinate basis.
+$ \partial_{\mu}, dx^\mu $
+However, we can also choose other basis of the tangent space, we
+define a general othornomal basis as:
 \defi{
-  Frame Fields are a set of orthogonal vectors in the tangent space $
-  e^{\mu}{}_a $ or the inverse one form $ e_{\mu}^a $, which satisfy:
-  \begin{align}
-    g^{\mu\nu}e_\mu{}^ae_\nu{}^b=\eta^{ab},\quad
-    e_\mu{}^ae_\nu{}^b\eta_{ab}=g_{\mu\nu}.
-  \end{align}
-  Here $ e^\mu{}_a $ is the inverse of $ e_\mu{}^a $, i.e.,
-  \begin{align}
-    {e^\mu}_a e_\mu{}^b = \delta_a^b, \quad e_\mu{}^a {e^\nu}_a =
-    \delta_\mu^\nu.
-  \end{align}
-}
-We can show that $ e^a = e_\mu{}^a d x^\mu $ forms a orthonormal
-basis of the cotangent space and $ e_a =  {e^\mu}_a \partial_\mu $
-forms a orthonormal basis of the tangent space. The coeficients can
-also be understood as transformation matrices between coordinate
-basis and orthonormal basis.
+  Othornormal Basis
 
-This set of vectors definately forms a basis of the tangent space,
-thus we can consider the connections in this basis. For example, the
-Christoffel symbols can be written as:
-\begin{align}
-  \nabla_\mu \partial_{\nu} = \Gamma_{\mu\nu}^\rho \partial_\rho,
-  \quad \text{or}\quad \nabla_\mu dx^{\nu} = -\Gamma_{\mu\rho}^\nu dx^\rho
-\end{align}
-Thus, a analogue is to define a connection $ \omega_\mu{}^a{}_b $ as
-\defi{
-  Spin Connection $ \omega_\mu{}^a{}_b $ is defined as:
+  we define a set of basis vectors of the tangent space as $ e_a $
+  which satisfy:
   \begin{align}
-    \nabla_\mu{e_\nu}^a = -\omega_\mu{}^a{}_b{e_\nu}^b
+    g(e_a, e_b) = \eta_{ab}
+  \end{align}
+  where $ \eta_{ab} $ is depend on the spacetime signature.
+  Equivantly, we can define a set of orthonormal basis of the
+  cotangent space as $ \theta^a $ which satisfy:
+  \begin{align}
+    \theta^a(e_b) = \delta^a_b
   \end{align}
 }
-\rmk{
-  The covariant derivative here $ \nabla_\mu e_\nu{}^a $ means that
-  we only view $   e_\nu{}^a$ as a dual vector in the cotangent
-  space, with componet $ \mu $ of the coordinate basis. Sometimes you
-  may encounter the notation:
-  \begin{align}
-    \nabla_\mu{e_\nu}^a=\partial_\mu{e_\nu}^a-\Gamma_{\mu\nu}^\lambda{e_\lambda}^a+\omega_\mu{}^a{}_b
-    {e_\nu}^b
-  \end{align}
-  This is when we view it as a (1,1) tensor in a mixed basis, with
-  the coordinate basis in the cotangent space and the orthonormal
-  basis in the tangent space.
-}
-
-The covariant derivative of a vector is a rank (0,2) tensor, thus we
-know that $ \omega_\mu{}^a{}_b $ transforms as a one form in the $
-\mu $ index. Thus:
+Now we define the Vielbein as:
 \begin{itemize}
-  \item Both $ e^a = e_\mu{}^a dx^\mu $ and $ \omega^a{}_b =
-    \omega_\mu{}^a{}_b dx^\mu $ can be understood as one forms. The
-    inverse of the frame fields can be written as a vector field $
-    e_a = {e^\mu}_a \partial_\mu $.
-  \item We define the lowering and raising of the spin connection
-    indices $ \omega_{ab} = \eta_{ac}\omega^c{}_b $.
+  \item Components of the coordinate basis in an orthonormal basis: $
+    \partial_{\mu} = e_{\mu}{}^a e_a $
+  \item Transformation matrix between the coordinate basis and the
+    orthonormal basis
 \end{itemize}
-\rmk{
-  Notice that in fact we can lower and raise the $ \mu, \nu $ indices
-  with $ g $ and raise and lower the $ a,b $ indices with $ \eta $.
-  This is totally consistent with the definition of frame fields.
-}
-We can prove that if the theory is metric compatible, then the spin
-connection 1-form is antisymmetric in $ a,b $ indices:
+We can also define the inverse of the vielbein as: $ e^\mu{}_a $ (note
+  we always put the coordinate index first and the orthonormal index
+second), which satisfy:
 \begin{align}
-  \omega_{ ab} = -\omega_{ ba}.
+  {e^\mu}_a e_\mu{}^b = \delta_a^b, \quad e_\mu{}^a {e^\nu}_a =
+  \delta_\mu^\nu.
 \end{align}
+We then can see that vielbein and inverse vielbein have the following property:
+\begin{enumerate}
+  \item    Can be used as basis
+    transformation matrices between coordinate basis and orthonormal
+    basis in tangent space and cotangent space.
+    \begin{align}
+      e_a = e^\mu{}_a \partial_{\mu}, \quad \theta^a = e_\mu{}^a
+      dx^\mu \quad \partial_{\mu} = e_{\mu}{}^a e_a, \quad dx^\mu =
+      e^\mu{}_a \theta^a
+    \end{align}
+  \item    The orthonormal condition can be written as:
+    \begin{align}
+      g_{\mu\nu} = e_\mu{}^a e_\nu{}^b \eta_{ab}, \quad \eta_{ab} =
+      e^\mu{}_a e^\nu{}_b g_{\mu\nu}
+    \end{align}
+\end{enumerate}
+
+Now we consider a general tensor field. A tensor can be written in
+the coordinate basis or the orthonormal basis or even mixed basis.
+For example, a vector field can be written as:
+\begin{align}
+  V = V^\mu \partial_{\mu} = V^a e_a
+\end{align}
+A tensor field can be written as:
+\begin{align}
+  T = T^{\mu\nu} \partial_{\mu} \otimes \partial_{\nu} = T^{ab} e_a
+  \otimes e_b = T^{\mu a} \partial_{\mu} \otimes e_a
+\end{align}
+Moreover we can define a more general raising and lowering index rule:
+\begin{itemize}
+  \item For a coordinate index, we can raise and lower it with the metric $ g $.
+  \item For an orthonormal index, we can raise and lower it with $ \eta $.
+\end{itemize}
+This rule is exactly consistent with the definition of the vielbein,
+since we have:
+\begin{align}
+  e_\mu{}^a = g_{\mu\nu} e^\nu{}_b \eta^{ab}, \quad e^\mu{}_a =
+  g^{\mu\nu} e_\nu{}^b \eta_{ab}
+\end{align}
+Finally we note that there are two other kinds of understanding of the vielbein:
+\begin{itemize}
+  \item view $ e_\mu{}^a$ as a set of one forms, which is just the
+    basis vectors of the cotangent space $ \theta^a $ so we may
+    rename it as $ e^a = e_\mu{}^a dx^\mu $.
+  \item view $ e^\mu{}_a $ as a (1,1) tensor field.
+\end{itemize}
+
+\subsubsection{Basis Transformations GCT and LLT}
+
+Now we consider basis transformation, for a coordinate basis, the
+basis of the tangent space is tight to the coordinate system. Thus,
+it changes only when we choose a different coordinate system and the
+transformation matrix is given by the Jacobian of the coordinate
+transformation. We call this transformation as \textbf{GCT (General
+Coordinate Transformation)}.
+
+However, for a orthonormal basis, we have the freedom of doing a
+basis transformation without changing the coordinate system. This is because:
+\begin{align}
+  e^a \to e'^a = \Lambda^a{}_b(x) e^b
+\end{align}
+is also a valid orthonormal basis as long as $ \Lambda^a{}_b(x) $ is
+a local Lorentz transformation, i.e., it satisfies:
+\begin{align}
+  \Lambda^a{}_c(x) \Lambda^b{}_d(x) \eta_{ab} = \eta_{cd}
+\end{align}
+This basis transformation of the orthonormal basis is called
+\textbf{LLT (Local Lorentz Transformation)}.
+note that different from the lorentz transformation in the coordinate basis:
+\begin{itemize}
+  \item LLT doesn't change the coordinate system, it only changes the
+    basis of the tangent space.
+  \item LLT is a local transformation, the transformation matrix can
+    depend on the spacetime point instead of being a constant.
+\end{itemize}
+Generally, if we fix the orthonormal basis, then GCT will change the
+vielbein yet keep the orthonormal basis unchanged, while LLT is just
+a change of the orthonormal basis, thus it will change the vielbein
+but keep the coordinate basis unchanged.
+\subsection{Covariant Derivative}
+
+\subsubsection{Spin Connection}
+
+Now we consider the covariant derivative of a vector field when we
+write it out in the orthormormal basis. To do this, we need to define
+a covariant derivative of the orthonormal basis vectors, which lead
+us to the spin connection:
+\defi{
+  Spin Connection
+
+  We define the spin connection $ \omega_\mu{}^a{}_b $ as:
+  \begin{align}
+    \nabla_\mu e_a = \omega_\mu{}^b{}_a e_b \quad \nabla_\mu e^a
+    = -\omega_\mu{}^a{}_b e^b
+  \end{align}
+}
+In fact just as the normal connection, we can derive the covariant
+derivative of the cotangent space basis from that of the tangent
+space basis, we only need to define the first part.
+
+With this definition, we can write the covariant derivative of a
+vector field component in the orthonormal basis as:
+\begin{align}
+  \nabla_\mu X^a{}_b = \partial_\mu X^a{}_b + \omega_\mu{}^a{}_c
+  X^c{}_b - \omega_\mu{}^c{}_b X^a{}_c
+\end{align}
+We can prove a relation between the spin connection and the normal
+connection by evaluatingf the covariant derivative of a general
+vector field $ \nabla X $ in both basis and compare the results. We have:
+\begin{align}\label{relationconnection}
+  \Gamma^\nu_{\mu\lambda} = e^\mu{}_a \partial_\mu e_\lambda{}^a +
+  e^\nu{}_a e_\lambda{}^b \omega_\mu{}^a{}_b \quad \omega_\mu{}^a{}_b
+  = -e^\nu{}_b \partial_\mu e_\nu{}^a + e^\nu{}_b e_\lambda{}^a
+  \Gamma^\lambda_{\mu\nu}
+\end{align}
+Then we evaluate the covariant derivative of Vielbein, if we view it
+as a 1-form, we have:
+\begin{align}
+  \nabla_\mu e_{\mu}{}^a = \partial_\mu e_\nu{}^a -
+  \Gamma^\lambda_{\mu\nu} e_\lambda{}^a
+\end{align}
+We can plug in the relation between the spin connection and the
+normal connection, we have:
+\begin{align}
+  \nabla_\mu e_{\nu}{}^a = -\omega_\mu{}^a{}_b e_\nu{}^b
+\end{align}
+We can see that everything is constistent.
+
+\subsubsection{Spin Connection under LLT}
+
+Just as a normal connection spin connection is not a tensor. Yet due
+to the definition and linearity of the covariant derivative $ \mu $
+index, we can prove that:
+\begin{itemize}
+  \item Under GCT the spin connection $ \mu $ index transforms as a
+    tensor. This means that we can view the spin connection as a one
+    form in the coordinate basis with two indexes.
+  \item  Yet under LLT the spin connection doesn't transform as a
+    tensor, we can prove from the definition or the property of the
+    covariant derivative is a tensor under LLT that:
+\end{itemize}
+\begin{align}
+  \omega_\mu{}^{a'}{}_{b'} = \Lambda^{a'}{}_a
+  \Lambda^b{}_{b'} \omega_\mu{}^a{}_b + \Lambda^{a'}{}_c \partial_\mu
+  \Lambda^c{}_{b'}
+\end{align}
+we shall notice that $ \Lambda^{a'}{}_a $ and $ \Lambda^b{}_{b'} $
+are inverse transformation matrix of each other.
 
 \subsection{Cartan Structure Equations}
 
-Using the above definitions, we hope to express important geometric
-quantities such as Riemann curvature Tensor. Moreover, we also notice
-that the frame fields and the spin connections are not independent,
-just like the Christoffel symbol can be represented by the metric. We want to:
+Then comes the most important part of the vielbein formalism, which
+is the Cartan structure equations. These are equations that view
+geometric variables as differential forms and relates them to the
+vielbein and spin connection through exterior derivatives and wedge products.
+
+We first define the vielbein one form and the spin connection one form as:
+\begin{align}
+  e^a = e_\mu{}^a dx^\mu, \quad \omega^a{}_b = \omega_\mu{}^a{}_b dx^\mu
+\end{align}
+Then we can rewrite the tortion tensor and the Riemann curvature
+tensor as differential forms as well:
+\begin{align}
+  T^a = \frac{1}{2} T^a{}_{\mu\nu} dx^\mu \wedge dx^\nu, \quad R^a{}_b =
+  \frac{1}{2} R^a{}_{b\mu\nu} dx^\mu \wedge dx^\nu
+\end{align}
+where torsion tensor is defined as $ T^a{}_{\mu\nu} = 2
+\Gamma^\lambda_{[\mu\nu]} e_\lambda{}^a $ and the Riemann curvature
+tensor is defined as $ R^a{}_{b\mu\nu} = e^\lambda{}_b e_\rho{}^a
+R^\rho{}_{\lambda\mu\nu} $.
+
+The Cartan structure equations are:
+\thm{
+  Cartan's structure equation
+  \begin{align}
+    T^a = de^a + \omega^a{}_b \wedge e^b, \quad R^a{}_b = d\omega^a{}_b
+    + \omega^a{}_c \wedge \omega^c{}_b
+  \end{align}
+}
+The frist equation can be proved by directly using the relation
+between the spin connection and the normal connection \cref{relationconnection}.
+The second is a bit more complicated.
+
+If we take another exterior derivative of both sides of the Cartan
+structure equations, we can get the following identities:
+\begin{align}
+  dT^a + \omega^a{}_b \wedge T^b = R^a{}_b \wedge e^b, \quad dR^a{}_b +
+  \omega^a{}_c \wedge R^c{}_b - R^a{}_c \wedge \omega^c{}_b = 0
+\end{align}
+The first one is called the Bianchi identity for torsion, and the
+second one is just the normal Bianchi identity.
+
+\subsection{Christoffel Symbol}
+
+Above discussion we use general connection, now we consider the
+special case of the Christoffel symbol, which is the unique torsion
+free connection compatible with the metric.
+
+We can see that:
 \begin{itemize}
-  \item Represent the spin connection in terms of the frame fields or
-    at least find a relation between them.
-  \item Represent the Riemann curvature Tensor in terms of the spin connection.
+  \item Torsion free condition means that:
+    \begin{align}
+      de^a + \omega^a{}_b \wedge e^b = 0
+    \end{align}
+  \item Metric compatibility condition means that:
+    \begin{align}
+      \nabla g = 0 \quad \Rightarrow \quad \nabla_\mu \eta_{ab} = 0
+    \end{align}
+    Thus we can get that:
+    \begin{align}
+      \omega_{\mu ab} = -\omega_{\mu ba}
+    \end{align}
 \end{itemize}
-These two goals can be achieved by the Cartan structure equations:
 
-\thm{
-  Cartan's first structure equation
+\subsection{Extra: Convention and Definition of Differential Forms}
 
-  If the theory is torsion free, then the frame fields and the spin
-  connection satisfy:
-  \begin{align}
-    D_{\omega}e^a \equiv de^a+\omega^a{}_b\wedge e^b=0,
-  \end{align}
-  $ D_{\omega}e^a $ is called the gauge covariant derivative of $ e^a
-  $ with respect to the spin connection $ \omega $.
-}
-
-This can be proved directly from the definition of the covariant
-derivative and the definition of the spin connection. The torsion
-free condition makes the lower indices of the Christoffel symbol
-symmetric, thus it cancels out when doing a exterior derivative.
-\rmk{
-  Note that exterior derivative is using the operator $ d $ which is
-  defined using the derivative $ \partial $ not $ \nabla $.
-}
-
-Then where is the Riemann curvature tensor? It can be found in the
-second structure equation:
-\thm{
-  Cartan's second structure equation
-
-  The Riemann curvature 2-form can be written as:
-  \begin{align}
-    R^a{}_b = d\omega^a{}_b + \omega^a{}_c \wedge \omega^c{}_b.
-  \end{align}
-  Here the Riemann curvature 2-form is defined as:
-  \begin{align}
-    R^a{}_b =  R^a{}_{b\mu\nu} dx^\mu \wedge dx^\nu
-  \end{align}
-}
-
-\subsection{Local Lorentz Transformations}
-
-\YL{[This is important see carrol]}
-
-Using the vielbein formalism, we can have more redundency in
-describing the spactime. This is because at each point we can choose
-different orthonormal basis in the tangent space, which are related
-by local Lorentz transformations.
-
-If we use the notation of $  \partial_{\mu} = e_{\mu}{}^a e_a $ and $
-e_a = e_a{}^\mu \partial_{\mu} $, then a local Lorentz transformation
-can be written as:
+Here list out some definitions for differential forms, in case I make
+a mistake in coefficients and signs.
+\YL{[I'm not sure what convention Witten uses. Yet its not
+    conceptually important and I use proportional to instead of equal to
+in the main text ]}

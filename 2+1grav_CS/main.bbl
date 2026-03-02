@@ -120,8 +120,8 @@
       \strng{authornamehash}{a21efd7d6f43a778b4bd8bd5cf50c950}
       \strng{authorfullhash}{a21efd7d6f43a778b4bd8bd5cf50c950}
       \strng{authorfullhashraw}{a21efd7d6f43a778b4bd8bd5cf50c950}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{shorttitle}
       \field{edition}{Pearson new international edition}
@@ -152,8 +152,8 @@
       \strng{authornamehash}{cd5246561828e3982872f4c7117402c0}
       \strng{authorfullhash}{cd5246561828e3982872f4c7117402c0}
       \strng{authorfullhashraw}{cd5246561828e3982872f4c7117402c0}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{We explore three-dimensional gravity with negative cosmological constant via canonical quantization. We focus on chiral gravity which is related to a single copy of \$\textbackslash mathrm\{PSL\}(2,\textbackslash mathbb\{R\})\$ Chern-Simons theory and is simpler to treat in canonical quantization. Its phase space for an initial value surface \$\textbackslash Sigma\$ is given by the appropriate moduli space of Riemann surfaces. We use geometric quantization to compute partition functions of chiral gravity on three-manifolds of the form \$\textbackslash Sigma \textbackslash times \textbackslash mathrm\{S\}\textasciicircum 1\$, where \$\textbackslash Sigma\$ can have asymptotic boundaries. Most of these topologies do not admit a classical solution and are thus not amenable to a direct semiclassical path integral computation. We use an index theorem that expresses the partition function as an integral of characteristic classes over phase space. In the presence of \$n\$ asymptotic boundaries, we use techniques from equivariant cohomology to localize the integral to a finite-dimensional integral over \$\textbackslash overline\{\textbackslash mathcal\{M\}\}\_\{g,n\}\$, which we evaluate in low genus cases. Higher genus partition functions quickly become complicated since they depend in an oscillatory way on Newton's constant. There is a precise sense in which one can isolate the non-oscillatory part which we call the fake partition function. We establish that there is a topological recursion that computes the fake partition functions for arbitrary Riemann surfaces \$\textbackslash Sigma\$. There is a scaling limit in which the model reduces to JT gravity and our methods give a novel way to compute JT partition functions via equivariant localization.}
@@ -185,6 +185,62 @@
       \verb http://arxiv.org/abs/2204.09789
       \endverb
       \keyw{High Energy Physics - Theory,Mathematical Physics,Mathematics - Algebraic Geometry,Mathematics - Mathematical Physics}
+    \endentry
+    \entry{compereAdvancedLecturesGeneral2019a}{online}{}{}
+      \name{author}{2}{}{%
+        {{hash=de8554bc260a57aeabe2e704cf658048}{%
+           family={Compère},
+           familyi={C\bibinitperiod},
+           given={Geoffrey},
+           giveni={G\bibinitperiod}}}%
+        {{hash=6cb0a5ddb1b2622d26ed3becbce16454}{%
+           family={Fiorucci},
+           familyi={F\bibinitperiod},
+           given={Adrien},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{58875d173e9d584669b5a8534e5f7b05}
+      \strng{fullhash}{58875d173e9d584669b5a8534e5f7b05}
+      \strng{fullhashraw}{58875d173e9d584669b5a8534e5f7b05}
+      \strng{bibnamehash}{58875d173e9d584669b5a8534e5f7b05}
+      \strng{authorbibnamehash}{58875d173e9d584669b5a8534e5f7b05}
+      \strng{authornamehash}{58875d173e9d584669b5a8534e5f7b05}
+      \strng{authorfullhash}{58875d173e9d584669b5a8534e5f7b05}
+      \strng{authorfullhashraw}{58875d173e9d584669b5a8534e5f7b05}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{These lecture notes are intended for starting PhD students in theoretical physics who have a working knowledge of General Relativity. The 4 topics covered are (1) Surface charges as conserved quantities in theories of gravity; (2) Classical and holographic features of three-dimensional Einstein gravity; (3) Asymptotically flat spacetimes in 4 dimensions: BMS group and memory effects; (4) The Kerr black hole: properties at extremality and quasi-normal mode ringing. Each topic starts with historical foundations and points to a few modern research directions.}
+      \field{day}{8}
+      \field{eprintclass}{gr-qc, physics:hep-th}
+      \field{eprinttype}{arXiv}
+      \field{langid}{american}
+      \field{month}{2}
+      \field{pubstate}{prepublished}
+      \field{title}{Advanced {{Lectures}} on {{General Relativity}}}
+      \field{urlday}{13}
+      \field{urlmonth}{3}
+      \field{urlyear}{2024}
+      \field{year}{2019}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{doi}
+      \verb 10.48550/arXiv.1801.07064
+      \endverb
+      \verb{eprint}
+      \verb 1801.07064
+      \endverb
+      \verb{file}
+      \verb /Users/xiaodaihua/Zotero/storage/S67SICSY/Compère 和 Fiorucci - 2019 - Advanced Lectures on General Relativity.pdf;/Users/xiaodaihua/Zotero/storage/V9E9UNHP/1801.html
+      \endverb
+      \verb{urlraw}
+      \verb http://arxiv.org/abs/1801.07064
+      \endverb
+      \verb{url}
+      \verb http://arxiv.org/abs/1801.07064
+      \endverb
+      \keyw{General Relativity and Quantum Cosmology,High Energy Physics - Theory}
     \endentry
   \enddatalist
 \endrefsection

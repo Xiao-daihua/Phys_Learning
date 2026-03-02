@@ -3,8 +3,6 @@ between 2+1 dimensional gravity and Chern-Simons theory
 \cite{witten21Dimensional1988}.
 \subsection{Geometric Phase Space Analysis}
 
-\YL{[Plan to not keep this , its unclear!!]}
-
 \subsubsection{Discussion Set Up}
 
 How to quantize a Theory, we usually start from analyzing the phase
@@ -37,14 +35,14 @@ solutions to:
 To do this, we might first assume a spacetime topology of the
 manifold we want to consider, we focus on a manifold:
 \begin{itemize}
-  \item With topology $ M \cong [0,1] \times \Sigma $. where $ \Sigma
+  \item With topology $ M \cong \mathbb{R} \times \Sigma $. where $ \Sigma
     $ is a genus $ g $ closed surface.
 \end{itemize}
 
 We now simplify the problem of analyzing the phase space of 2+1
 dimensional gravity to finding the space of all solutions to the
 vacuum Einstein equation $ R_{\mu\nu} = 0 $ on a manifold with
-topology $ M \cong [0,1] \times \Sigma $. These solutions can be
+topology $ M \cong \mathbb{R} \times \Sigma $. These solutions can be
 found by quotienting the Minkowski space by a discrete subgroup of
 the isometry group of Minkowski space, which is the Poincare group $
 ISO(2,1) $. In Witten's paper he gives out a analysis of those manifolds.
@@ -220,7 +218,9 @@ If we want to consider the topology of $ \hat{M} = \Sigma_g \times [0,1] $,
 then the fundamental group of the manifold is $ \pi_1(\hat{M}) =
 \pi_1(\Sigma_g) $. Thus, the phase space of 2+1 dimensional gravity
 with topology $ M \cong [0,1] \times \Sigma_g $ is:
-\thm{
+\thm{\label{thm:Geophasespace}
+  Geometric Analized Phase Space of 2+1 Dimensional Gravity
+
   The phase space of 2+1 dimensional gravity with topology $ M \cong
   [0,1] \times \Sigma_g $ is:
   \begin{align}
@@ -261,12 +261,488 @@ reduction of $ 6 $ parameters. Thus, the dimension of the phase space is:
   phase space from a more rigorous CS field theory approach.
 }
 
-\subsection{Action of Vierbein Formalism}
+\subsection{EH Action of Vielbein Formalism}
 
-The Vielbein formalism of gravity can be written from a action principle.
+The Vielbein formalism of gravity can be written from a action
+principle. We can prove that:
+\thm{
+  Einstein-Hilbert Action in Vielbein Formalism
 
-\subsection{Review on Chern-Simons Theory}
+  The Einstein-Hilbert action in vielbein formalism in 4D can be written as:
+  \begin{align}
+    S_{EH} = \displaystyle\frac{1}{2} \int_{\mathcal{M}}
+    \epsilon_{abcd} e^a \wedge e^b \wedge R^{cd}
+  \end{align}
+}
+If we write this action in a normal integral (not differential form
+integral), we can get:
+\begin{align}
+  S_{EH} = \displaystyle\frac{1}{2} \int_{\mathcal{M}} d^4x
+  \epsilon^{\mu\nu\rho\sigma} \epsilon_{abcd} e_\mu{}^a e_\nu{}^b
+  R_{\rho\sigma}{}^{cd}
+\end{align}
+We can prove that viration of this action with respect to the
+vielbein $ e_\mu{}^a $ and the spin connection $ \omega_\mu{}^a{}_b $
+gives us the Einstein equation and the torsion free condition respectively.
+\begin{itemize}
+  \item Viration of $ e_{\mu}{}^a $
+\end{itemize}
+We vary the action with respect to the vielbein $ e_\mu{}^a $ and we can get:
+\begin{align}
+  \epsilon^{\mu\nu\rho\sigma} \epsilon_{abcd} e_\nu{}^b
+  R_{\rho\sigma}{}^{cd} = 0
+\end{align}
+Now we can exactly prove this is the Einstein field equation. Notice that:
+\begin{align}\label{eq:epsilone}
+  \epsilon^{\mu\nu\rho\sigma} e_{\mu}{}^a e_\nu{}^b e_\rho{}^c
+  e_\sigma{}^d = \epsilon^{abcd} \det(e)
+\end{align}
+where $ det(e) $ can be calculated by the following formula:
+\begin{align}
+  det(e)^2 det(\eta) = det(e^T \eta e) = det(g)
+\end{align}
+Thus we can get that:
+\begin{align}
+  det(e) = \sqrt{-det(g)}
+\end{align}
+By pulging \cref{eq:epsilone} into the viration equation and using
+the property of $ \epsilon $ symbol, we can get:
+\begin{align}
+  R_{\mu\nu} - \frac{1}{2} R g_{\mu\nu} = 0
+\end{align}
+\begin{itemize}
+  \item Viration of $ \omega_\mu{}^a{}_b $
+\end{itemize}
+The scheme is rather similar, we use the Cartan structure equation to
+rewrite the action in terms of $ \omega^a{}_b $ explicitly and then
+vary the action with respect to $ \omega_\mu{}^a{}_b $. The resulting
+equation is just the torsion free condition:
+\begin{align}
+  de^a + \omega^a{}_b \wedge e^b = 0
+\end{align}
+or in component form:
+\begin{align}\label{eq:torsionfree}
+  D_\mu e_\nu{}^a - D_\nu e_\mu{}^a = 0
+\end{align}
+\rmk{
+  Note that in fact we can not just assume this action to hold and
+  say its equivalent to the Einstein gravity. Because in the
+  deduction, we make an assumption that the vielbein is invertible,
+  which is not generally guaranteed by the action itself (A general
+  dynamical field are not assumed to have the component of a invertible matrix)
 
-\subsection{3D Gravity Action as Chern-Simons Theory}
+  However, in our following discussion we will not consider this
+  problem. In modern topics, refer to
+  \cite{eberhardtOffshellPartitionFunctions2022}, we may see that for
+  AdS3 gravity, we can avoid the problem of $ e_i{}^a $ being
+  non-invertible by considering the Teichmuller Component of the phase space.
+}
 
-\subsection{On-Shell Diffeomorphism as Gauge Transformation}
+\subsection{Chern-Simons Theory}
+
+A Chern-Simons Theory is given by a gauge field $ A $ associated to a
+gauge group $ G $ and on which we define a non-degenerate invariant
+bilinear form $ Tr( *, *) $. The action of the Chern-Simons theory is given by:
+\begin{align}
+  S_{CS} = \int_{\mathcal{M}} \mathrm{Tr}\left( A \wedge dA + \frac{2}{3} A
+  \wedge A \wedge A \right)
+\end{align}
+Here by $ Tr A \wedge A \wedge A $ we mean $ Tr(A_i, [A_j,
+A_k]) dx^i \wedge dx^j \wedge dx^k  $ Thus, if we write the
+differential form integral into
+a normal integral, the action can be written as:
+\begin{align}
+  S_{CS} \propto \int_{\mathcal{M}} d^3x \epsilon^{\mu\nu\rho}
+  \mathrm{Tr}\left( A_\mu
+    (\partial_\nu A_\rho - \partial_{\rho} A_\mu ) + \frac{2}{3} A_\mu
+  [A_\nu, A_\rho] \right)
+\end{align}
+
+\subsection{3D Gravity as Chern-Simons Theory}
+
+\subsubsection{Motivation}
+
+Similar to the 4D case the EH action of 3D gravity in vielbein
+formalism can be written as:
+\begin{align}
+  S_{EH} =  \int_{\mathcal{M}}
+  \epsilon_{abc} e^a \wedge R^{bc}
+\end{align}
+if we write $ R^{ab} $ out using cartan structure equation, we see
+this resembles the Chern-Simons action. Thus we are motivated to
+rewrite the EH Action into a ISO(2,1) Chern-Simons action (To have
+  the gauge group as the isometry group of Minkowski space, which is
+the Poincare group $ ISO(2,1) $ is a natural choice). This rewriting
+consist of 2 step to go:
+\begin{enumerate}
+  \item The EH Action can be written as a Chern-Simons Action with
+    ISO(2,1) gauge group and suitable Killing form.
+  \item The gauge transformation of the Chern-Simons theory with
+    ISO(2,1) gauge group is equivalent to the diffeomorphism and
+    local lorentz transformation of vielbein and spin connection.
+\end{enumerate}
+\rmk{
+  In fact, the second step is not achivable for the whole
+  diffeomorphism group, but only for small diffeomorphisms. For large
+  diffeomorphisms, we need extra gauge transformations to cover.
+}
+
+\subsubsection{Killing Form of ISO(2,1) }
+
+The first step we're facing is to find a non-degenerate invariant
+bilinear form of the Poincare group $ ISO(2,1) $. For a general
+Poincare Group $ISO(d-1,1)$, in fact we don't have a non-degenerate
+invariant bilinear form, for we need a casimir like object to make it
+invariant and give out a number.
+
+However, in the special case of $ISO(2,1)$, we can find one due to the
+property that the lorentz generator in 2+1 dimensions is $ J^{ab} $ a
+generator with two antisymmetric indices, in 3d its equivalent to a
+generator with one index $ J^a $ by using the epsilon symbol. Thus
+one can find a non-degenrate casimir:
+\begin{align}
+  W = \epsilon_{abc} P^a J^{bc}
+\end{align}
+And as a rersult we define: $ J^a = 1/2 \epsilon^{abc} J_{bc} $ and
+the Poincare algebra in 2+1 dimensions can be written as:
+\begin{align}
+  [J_a, J_b] = \epsilon_{abc} J^c, \quad [J_a, P_b] = \epsilon_{abc} P^c, \quad
+  [P_a, P_b] = 0
+\end{align}
+a non-degenerate invariant bilinear form:
+\begin{align}
+  \langle P_a, J_b \rangle = \delta_{ab} \quad \langle P_a, P_b
+  \rangle = 0 \quad \langle J_a, J_b \rangle = 0
+\end{align}
+\rmk{
+  Here we use the notation that the $ P^a $ and $ J^{ab} $ generator
+  can be raised and lower by the Minkowski metric $ \eta_{ab} $. And
+  so does the index of the $ \epsilon_{abc} $. But due to $ det(\eta)
+  = -1 $, we have $ \epsilon^{abc} = -\epsilon_{abc} $.
+
+  \YL{[one should have check the exact definition of $ \epsilon_{abc}
+      $ and be careful if one want to perform detailed calculation. Yet
+  its not conceptually important]}
+}
+
+\subsubsection{Rewriting EH Action into Chern-Simons Action}
+
+With these preparations, we can rewrite the EH action into a
+Chern-Simons action with gauge group $ ISO(2,1) $ and the
+non-degenerate invariant
+bilinear form we just defined.
+
+We first define a gauge field $ A $ as:
+\begin{align}
+  A_\mu = e_\mu{}^a P_a + \omega_\mu{}^a J_a
+\end{align}
+Here if we use the Christoffel symbol as the connection, the
+resulting spin connection $ \omega_\mu{}^{ab} $ is antisymmetric in
+the indices $ a, b $ and thus we can write it as $ \omega_\mu{}^a =
+1/2 \epsilon^{abc} \omega_\mu{}_{bc}$
+by using the epsilon symbol.
+
+We note some useful facts about the gauge field $ A $:
+\begin{itemize}
+  \item \textbf{Gauge Transformation:} Consider a infinitesimal gauge
+    transformation with the parameter:
+    \begin{align}
+      u = \rho^a P_a + \tau^a J_a
+    \end{align}
+    is given by:
+    \begin{align}
+      \delta_G A_\mu = -D_\mu^A u = - \partial_\mu u - [A_\mu, u]
+    \end{align}
+    Here $ \delta_G $ stands for gauge transformation, later on we
+    will see there are other transformations, eg. diffeomorphism and
+    transformation generated by constriant in quantization. $
+    D_\mu^A$ is the covariant derivative in the adjoint representation.
+    If we write the above gauge transformation in terms of the
+    vielbein $ e_\mu{}^a $ and the spin connection $ \omega_\mu{}^a
+    $, we can get:
+    \begin{align}\label{eq:gaugetransform}
+      & \delta_G e_\mu{}^a = -\partial_\mu \rho^a - \epsilon^{abc} e_{\mu b}
+      \tau_c - \epsilon^{abc} \omega_{\mu b} \rho_c \\
+      &\delta_G \omega_\mu{}^a = -\partial_\mu \tau^a - \epsilon^{abc}
+      \omega_{\mu b}
+      \tau_c
+    \end{align}
+  \item \textbf{Curvature Tensor} The curvature tensor is given by:
+    \begin{align}
+      F_{ij}&=\left[{D}_{i},{D}_{j}\right]\\
+      &=P_{a}\Big{(}\,\partial_{i}e_{j}^{\,a}-\partial_{j}e_{i}^{\,a}+\epsilon^{abc}\big{(}\,\omega_{ib}e_{jc}+e_{ib}\omega_{jc}\big{)}\Big{)}
+      \\
+      &+J_{a}\Big{(}\,\partial_{i}\omega_{j}{}^{a}-\partial_{j}\omega_{i}{}^{a}+\epsilon^{abc}\omega_{ib}\omega_{jc}\,\Big{)}\,.
+    \end{align}
+\end{itemize}
+\rmk{
+  In fact one can directly see that the two terms in the curvature
+  tensor are just the EoM by viration of the EH action with respect
+  to the spin connection and the vielbein respectively. Thus, the
+  curvature tensor is zero, which is a standard Chern-Simons EoM, is
+  equivalent to the EoM of the EH action.
+}
+With these preparations, we can prove the Chern-Simons action with
+the above gauge field is exactly the EH action of 3D gravity in
+vielbein formalism.
+\begin{align}
+  S& = \int_{\mathcal{M}} \mathrm{Tr}\left( A \wedge dA + \frac{2}{3} A
+  \wedge A \wedge A \right) \\
+  & = \int_{\mathcal{M}}\epsilon_{abc} e^a \wedge R^{bc} \\
+  & \propto \int_{\mathcal{M}} \epsilon^{ijk}\left( e_{ia} (\partial_j
+    \omega_k{}^a - \partial_{k} \omega_j{}^a) + \epsilon_{abc} e_i{}^a
+  \omega_{j}{}^b \omega_{k}{}^c \right)
+\end{align}
+
+\subsubsection{GCT and LLT as Gauge Transformation}
+
+Now we focus on the diffeomorphism of vielbein and spin connection.
+\begin{itemize}
+  \item \textbf{Diffeomorphism:}
+    Vielbein and spin connection can both be viewed as a 1-form thus the
+    diffeomorphism is given
+    by the Lie derivative. We consider a infinitesimal diffeomorphism
+    generated by a vector fiel $ -v^\mu $
+    \begin{align}
+      \delta_D e^a & = \mathcal{L}_{- v} e^a = - v^\mu
+      (\partial_{\mu} e_\nu{}^a - \partial_\nu e_\mu{}^a) dx^\nu -
+      \partial_\nu (v^\mu e_\mu{}^a) dx^\nu \\
+      \delta_D \omega^a & = \mathcal{L}_{- v} \omega^a = - v^\mu
+      (\partial_{\mu} \omega_\nu{}^a - \partial_\nu \omega_\mu{}^a) dx^\nu -
+      \partial_\nu (v^\mu \omega_\mu{}^a) dx^\nu
+    \end{align}
+  \item \textbf{Local Lorentz Transformation:} The local lorentz
+    transformation generated by $ \tau^a $ as a parameter is given by:
+    \begin{align}
+      \delta_L e^a & = \epsilon^{abc} e_b \tau_c \\
+      \delta_L \omega^a & = d\tau^a + \epsilon^{abc} \omega_b
+      \tau_c
+    \end{align}
+\end{itemize}
+\rmk{
+  note that generally local lorentz transformation is
+  generated by $ \omega_{ab} $ antisymmetric parameter.
+  However, in 3D we can rewrite it as $ \omega_a = 1/2 \epsilon_{abc}
+  \omega^{bc} $ by using the epsilon symbol, thus we can write
+  the local lorentz transformation in a more compact form.
+}
+These seems extremely distinct from the gauge transformation we
+defined before \cref{eq:gaugetransform}. However, we can prove that
+they are equivalent.
+
+\bigskip
+\textbf{$ \tau^a$ transformation as LLT}
+
+First we notice that the gauge transformation generated by $ \tau^a $
+is exactly a LLT.
+
+\bigskip
+\textbf{On shell $ \rho^a $ transformation as diffeomorphism}
+
+Yet the gauge transformation generated by $ \rho^a
+$ is not exactly a diffeomorphism. We explicitly write it out:
+\begin{align}
+  \delta_G e_\mu{}^a & = -\partial_\mu \rho^a - \epsilon^{abc}
+  \omega_{\mu b} \rho_c \\
+  \delta_G \omega_\mu{}^a & = 0
+\end{align}
+now we separately evaluate the difference between the gauge
+transformation generated by $ \rho $ and diffeomorphism generated by
+$ v^\mu $. We can see, if we take $ \rho^a = v^\mu e_\mu{}^a$, the
+difference is given by:
+\begin{align}
+  \delta_G e_\mu{}^a - \delta_D e_\mu{}^a  =  - v^\nu (D_\nu
+  e_\mu{}^a - D_\mu e_\nu{}^a)  + \epsilon^{abc}
+  v^\nu \omega_{\nu b} e_{\mu c}
+\end{align}
+We notice that the first term is just the torsion tensor, and on
+shell condition \cref{eq:torsionfree} tells us that this is zero. And
+what we have left is a LLT generated by parameter: $ \tau^a = v^\mu
+\omega_\mu{}^a $. Similarly we can prove that the diffeomorphism of
+the spin connection is also a LLT generated by the same parameter.
+
+\subsection{3D Grvaity as Chern-Simons Theory: Cosmological Constant Case}
+
+Now we want to consider the theory with cosmological constant added.
+An analogue with the above theory with zero cosmological constant, we
+can also rewrite the EH action with cosmological constant into a
+Chern-Simons action.
+
+The EH action with cosmological constant can be written in the
+vielbein formalism as:
+\begin{align}
+  S_{EH} =& \int_{\mathcal{M}} \epsilon_{abc} \left( e^a \wedge R^{bc} +
+  \frac{\Lambda}{3} e^a \wedge e^b \wedge e^c \right) \\
+  \propto & \int_{\mathcal{M}} \epsilon^{ijk} \left( e_{ia} (\partial_j
+    \omega_k{}^a - \partial_{k} \omega_j{}^a) + \epsilon_{abc} e_i{}^a
+    \omega_{j}{}^b \omega_{k}{}^c + \frac{\Lambda}{3} \epsilon_{abc}
+  e_i{}^a e_j{}^b e_k{}^c \right)
+\end{align}
+\rmk{
+  In fact this is not the standard way and $ \Lambda $ is not the
+  usual cosmological constant. It is in fact $ -
+  \Lambda_{\text{canonical}} $. Here in this discussion we will
+  follow witten's construction and note that $ \Lambda < 0 $ is dS
+  and $ \Lambda > 0 $ is AdS, which is opposite to the standard
+  convention. In the following discussion we will also follow this convention.
+}
+But now the gauge group instead of being the
+isometry group of Minkowski space, which is the Poincare group $
+ISO(2,1) $, is the isometry group of the spacetime with cosmological
+constant, which is $ SO(2,2) $ for negative cosmological constant AdS and
+$ SO(3,1) $ for positive cosmological constant dS.
+
+The generators of the algebras can be written in a similar way:
+\begin{align}
+  [J_a, J_b]  = \epsilon_{abc} J^c \quad
+  [J_a, P_b]  = \epsilon_{abc} P^c \quad
+  [P_a, P_b]  = \Lambda \epsilon_{abc} J^c
+\end{align}
+We can see that when the cosmological constant $ \Lambda $ is zero,
+the algebra reduces to the Poincare algebra in 2+1 dimensions. The
+killing form of the algebra can also be defined in a similar way:
+\begin{align}
+  \langle P_a, J_b \rangle  = \delta_{ab} \quad \langle P_a, P_b
+  \rangle  = 0 \quad
+  \langle J_a, J_b \rangle  = 0
+\end{align}
+
+\subsubsection{Rewriting EH Action into Chern-Simons Action}
+
+By rewriting the gauge field $ A $ in a similar way:
+\begin{align}
+  A_\mu = e_\mu{}^a P_a + \omega_\mu{}^a J_a
+\end{align}
+\rmk{
+  This rewriting is not taht inspiring in modern context, the next
+  subsection I'll show that for AdS and dS we can rewrite the EH
+  action into two Chern-Simons theory with gauge group $
+  SL(2,\mathbb{R}) $ and $ SU(2) $ respectively, which is more useful
+  in modern context.
+}
+We also note some useful facts of the gauge field $ A $:
+\begin{itemize}
+  \item \textbf{Gauge Transformation:} It resembles the original one
+    but with an extra term in the transformation of $ \omega_\mu{}^a $:
+    \begin{align}
+      & \delta_G e_\mu{}^a = -\partial_\mu \rho^a - \epsilon^{abc} e_{\mu b}
+      \tau_c - \epsilon^{abc} \omega_{\mu b} \rho_c \\
+      &\delta_G \omega_\mu{}^a = -\partial_\mu \tau^a - \epsilon^{abc}
+      \omega_{\mu b}
+      \tau_c - \Lambda \epsilon^{abc} e_{\mu b} \rho_c
+    \end{align}
+  \item \textbf{Curvature Tensor} The curvature tensor is given by:
+    \begin{align}\label{eq:curvaturetensorcos}
+      F_{ij}&=\left[{D}_{i},{D}_{j}\right]\\
+      &=P_{a}\Big{(}\,\partial_{i}e_{j}^{\,a}-\partial_{j}e_{i}^{\,a}+\epsilon^{abc}\big{(}\,\omega_{ib}e_{jc}+e_{ib}\omega_{jc}\big{)}\Big{)}
+      \\
+      &+J_{a}\Big{(}\,\partial_{i}\omega_{j}{}^{a}-\partial_{j}\omega_{i}{}^{a}+\epsilon^{abc}\omega_{ib}\omega_{jc}+\Lambda
+      \epsilon^{abc} e_{ib} e_{jc} \,\Big{)}\,.
+    \end{align}
+\end{itemize}
+Similarly, we can see that the curvature tensor is zero, which is a
+standard Chern-Simons EoM, is equivalent to the EoM of the EH action
+with cosmological constant. The torsion free condition is unchanged
+and the second EoM cahnge into the Einstein equation with cosmological constant.
+
+We can also rewrite the EH action with cosmological constant into a
+Chern-Simons action with gauge group $ SO(2,2) $ for $ \Lambda>0 $ AdS and
+$ SO(3,1) $ for $ \Lambda<0 $ dS and the
+non-degenerate invariant bilinear form we just defined.
+\begin{align}
+  S_{CS} & = \int_{\mathcal{M}} \mathrm{Tr}\left( A \wedge dA + \frac{2}{3} A
+  \wedge A \wedge A \right) \\
+  & \propto \int_{\mathcal{M}} \epsilon_{abc} \left( e^a \wedge R^{bc} +
+  \frac{\Lambda}{3} e^a \wedge e^b \wedge e^c \right) \\
+\end{align}
+
+\subsection{3D Grvaity as Chern-Simons Theory: AdS Case}
+\rmk{
+  In this subsection, we use the canonical cosmological constant
+  convention $ \Lambda $. Not the one used in above subsection.
+}
+
+In fact with the cosmological constant, we can redefine two gauge
+fields can rewrite the EH action into two Chern-Simons action with
+gauge group $ SL(2,\mathbb{R}) $ for AdS and $ SU(2) $ for dS, which
+is more useful in modern context. To my corrent interest, I will
+focus on the AdS case. Discussion in this section mainly follows
+\cite{compereAdvancedLecturesGeneral2019a}.
+
+Here we turn back to the modern canonical way of writing the EH
+action, for AdS case $ \Lambda = -1/l^2 $, the EH action can be written as:
+\begin{align}
+  S_{EH} &= \displaystyle\frac{1}{16 \pi G} \int_{\mathcal{M}} d^3 x
+  \sqrt{-g} (R + 2 \Lambda)  \\
+  &= \displaystyle\frac{1}{16 \pi G} \int_{\mathcal{M}} \epsilon_{abc}
+  \left( e^a \wedge R^{bc} + \frac{1}{3 l^2} e^a \wedge e^b \wedge e^c \right)
+\end{align}
+
+\subsubsection{Rewriting EH Action into Two Chern-Simons Action}
+
+The gauge group $ SO(2,2) $ is locally isomorphic to $ SL(2,\mathbb{R})
+\times SL(2,\mathbb{R}) $. Thus, we can rewrite the gauge field $ A $
+into two gauge fields $ A^+ $ and $ A^- $ with gauge group $ SL(2,\mathbb{R}) $.
+
+First the $ SL(2,\mathbb{R}) $ algebra can be written as 3 generators
+$ J_a $ with the following commutation relation:
+\begin{align}
+  [J_a, J_b] = \epsilon_{abc} \eta^{cd} J^d = \epsilon_{ab}{}^c J_c
+\end{align}
+and with a killing form:
+\begin{align}
+  \langle J_a, J_b \rangle =  \eta_{ab}
+\end{align}
+Then we can define the two gauge fields $ A^+ $ and $ A^- $ as:
+\begin{align}
+  A^{+a} = \omega^a + \frac{1}{l} e^a \quad A^{-a}  = \omega^a -
+  \frac{1}{l} e^a
+\end{align}
+where the cosmological constant $ \Lambda $ is related to the AdS
+radius $ l $ by $\Lambda = -{1}/{l^2}$.
+
+With these preparations, we can rewrite the EH action with
+cosmological constant into a
+Chern-Simons action with gauge group $ SL(2,\mathbb{R}) $ and the
+non-degenerate invariant bilinear form we just defined. We note:
+\begin{align}
+  S_{CS}[A] = \int_{\mathcal{M}} \mathrm{Tr}\left( A \wedge dA + \frac{2}{3} A
+  \wedge A \wedge A \right)
+\end{align}
+Then we can prove (I'm not proving it here):
+\begin{align}
+  S_{CS} & = \displaystyle\frac{k}{4 \pi} (S_{CS}[A^+] - S_{CS}[A^-] )\\
+  & = \displaystyle\frac{1}{16 \pi G} \int_{\mathcal{M}}
+  \epsilon_{abc} \left( e^a \wedge R^{bc} + \frac{1}{3 l^2} e^a
+  \wedge e^b \wedge e^c \right) \\
+  & = \displaystyle\frac{1}{16 \pi G} \int_{\mathcal{M}} d^3 x
+  \sqrt{-g} (R + 2 \Lambda) - \text{boundary term}
+\end{align}
+Here to fit in the canonical normalization of the EH action, we have
+defined the level $ k $ as:
+\begin{align}
+  k = \displaystyle\frac{l}{4 G}
+\end{align}
+With a standard Chern-Simons derivation, we can see that the EoM
+gives us the flatness condition of the gauge field $ A^+ $ and $ A^-
+$:
+\begin{align}
+  F^+ = dA^+ + A^+ \wedge A^+ = 0 \quad F^- = dA^- + A^- \wedge A^- = 0
+\end{align}
+
+\subsubsection{GCT and LLT as Gauge Transformation}
+
+Here we still can prove the gauge transformation of the two
+Chern-Simons theory can give us a diffeomorphism and a local lorentz
+transformation.
+
+I won't copy the proof here. The idea of
+\cite{compereAdvancedLecturesGeneral2019a} is to calculate the gauge
+transformation of  $ e_i{}^a $ by the gauge transformation of $ A^+ $
+and $ A^- $ with parameter $ \lambda^+ $ and $ \lambda^- $ and given
+the relation between $ e_{i}{}^a $ and $ g_{\mu \nu} $ prove that its
+equivalent to a diffeomorphism of the metric:
+\begin{align}
+  \delta_G g_{\mu \nu} = \nabla_\mu \xi_\nu - \nabla_\nu \xi_\mu =
+  \delta_D g_{\mu \nu}
+\end{align}

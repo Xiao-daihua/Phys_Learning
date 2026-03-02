@@ -1,1 +1,231 @@
-This is quantization!!
+Now we finally attempt to find the quantum theory. We only focus on
+the case of the mainfold have topology $ M \cong \mathbb{R} \times
+\Sigma_g $ for some genus $ g $ surface $ \Sigma_g $. We take the
+spactime coordinate $ x^0 $ to be the $ \mathbb{R} $ direction and $
+x^1, x^2 $ to be the spacial coordinates on $ \Sigma_g $.
+
+As we'll see the
+Lagrangian of the theory is a constraint system. Thus, we need to use
+some quantization procedure for constraint systems. Apart from the
+standard Dirac's procedure, here is more convenient to use another
+procedure, called the "constraints first quantization".
+
+\subsection{Constraint First Quantization}
+
+\subsubsection{Classical Pre Constriant Phase Space}
+
+Having a Lagrangian we can try to quantize the theory. We follow the
+following steps:
+\begin{enumerate}
+  \item \textbf{First order in $ \partial_{0} $: } make sure all time
+    derivative is in first order $
+    \partial_{0} \phi $. If we have second order time derivative, we
+    can introduce some auxiliary fields to make the Lagrangian first
+    order. note that the Chern-Simons Lagrangian is already first order.
+  \item \textbf{Separate out Dynamical Variables: } separate variable
+    with a time derivative and those without.
+    \begin{itemize}
+      \item The ones with time derivative are the truly dynamical variables
+      \item The ones without time derivative are the Lagrange
+        multipliers, whose EoM gives us some constraints.
+    \end{itemize}
+  \item \textbf{Find pre-constraint phase space and Poisson Bracket:
+    } find out the canonical variables and the phase space. Define a
+    Poisson Bracket on the phase space.
+\end{enumerate}
+
+We then do it on the Lagrangian of 3D gravity with cosmological constant:
+\begin{align}
+  S = {} & -2 \int \mathrm{d}t \int_{\Sigma} \epsilon^{ij} \,
+  e_{i\alpha} \partial_{0} \omega_{j}^{\alpha} \\
+  & + \int \mathrm{d}t \int_{\Sigma} \Bigg[
+    e_{0}{}^{a} \, \epsilon^{ij} \Big(
+      \partial_{i}\omega_{j}^{a}
+      - \partial_{j}\omega_{i}^{a}
+      + \epsilon^{abc}\omega_{ib}\omega_{jc}
+      + \Lambda \, \epsilon^{abc} e_{ib} e_{jc}
+    \Big) \\
+    & \qquad\qquad
+    + \, \omega_{0}{}^{a} \, \epsilon^{ij} \Big(
+      \partial_{i}e_{j}^{a}
+      - \partial_{j}e_{i}^{a}
+      + \epsilon^{abc}\big(
+        \omega_{ib} e_{jc}
+        + e_{ib} \omega_{jc}
+      \big)
+    \Big)
+  \Bigg] \, .
+\end{align}
+\rmk{
+  Here $ i,j = 1,2 $ which are the spacial index. Thus we can view $
+  e_i{}^a $ and $ \omega_i{}^a $ as some 1-forms defined on the
+  spacial slice $ \Sigma_g $.
+}
+By looking at the Lagrangian, we can see many properties:
+\begin{itemize}
+  \item \textbf{Constraints} $ e_0{}^a $ and $ \omega_0{}^a $ are not
+    dynamical variables but lagrangian mulipliers that gives us the
+    constraints.
+
+    We can get the constriant equation by varying the
+    action with respect to $ e_0{}^a $ and $ \omega_0{}^a $:
+    \begin{align}
+      \epsilon^{ij} \Big(
+        \partial_{i}\omega_{j}^{a}
+        - \partial_{j}\omega_{i}^{a}
+        + \epsilon^{abc}\omega_{ib}\omega_{jc}
+        + \Lambda \, \epsilon^{abc} e_{ib} e_{jc}
+      \Big) & = 0 \\
+      \epsilon^{ij} \Big(
+        \partial_{i}e_{j}^{a}
+        - \partial_{j}e_{i}^{a}
+        + \epsilon^{abc}\big(
+          \omega_{ib} e_{jc}
+          + e_{ib} \omega_{jc}
+        \big)
+      \Big) & = 0
+    \end{align}
+    We can see that compare to \cref{eq:curvaturetensorcos} that the
+    constraint equation are the spacial part of the curvature tensor
+    $ F_{ij} = 0, i,j = 1,2 $. the constiants equation shows us that
+    $ A_i $ on the spacial slice $ \Sigma_g $ is a flat connection.
+  \item we can see that the $ \omega_i{}^a $ and $ e_i{}^a $ on the
+    spacial slice $ \Sigma $ are the canonical variables and being
+    the canonical conjugate of each other. Thus we can define a
+    classical phase space and Poisson Bracket on it.
+\end{itemize}
+\thm{
+  Pre-Constraint Phase Space and Poisson Bracket
+
+  The Pre-Constraint Phase Space is space of configuration of $
+  ( e_i{}^a , \omega_i{}^a) $ on the spacial slice $ \Sigma_g
+  $.(resembling $ (p,q) $ configuration on a equal time slice in the
+  standard Hamiltonian formalism)
+
+  The Poisson Bracket is defined as:
+  \begin{align}
+    & \{ e_i{}^a(x), \omega_j{}^b(y) \} = \frac{1}{2} \epsilon_{ij} \eta^{ab}
+    \delta^{(2)}(x-y)\\
+    &\{ e_i{}^a(x), e_j{}^b(y) \} = 0 \\
+    &\{ \omega_i{}^a(x), \omega_j{}^b(y) \} = 0
+  \end{align}
+  This definition is consistent with the Lagrangian.
+}
+
+\subsubsection{Constraint Quantization and Phase Space}
+
+In Dirac quantization, we use the pre-constraint phase space to
+quantize the theory, and view constriant as operator. The Hilbert
+space is the space of states that are annihilated by the constraint
+operator.
+
+Here we would prefer to use another procedure, called the "constraint
+first quantization". The idea is that find a "True Phase Space" with
+the following steps and quantize the phase space directly:
+\begin{enumerate}
+  \item \textbf{Find Solution Space of Constraint: } given may
+    constraints $ H_I, I = 1,2,3 \dots $ find the solution space of
+    the constraint equations $ H_I = 0 $. This is a subspace of the
+    pre-constraint phase space.
+  \item \textbf{Find Equivalence Class: } the constraint $ H_I $
+    may generate a transformation on the canonical vairable $ (p,q) $
+    using the Poisson Bracket:
+    \begin{align}
+      \delta_C q = \displaystyle\sum_{I} \epsilon_I \{ H_I, q \}
+      \quad \delta_C p = \displaystyle\sum_{I} \epsilon_I \{ H_I, p \}
+    \end{align}
+    We need to find the equivalence class of the solution space under
+    this transformation, which is called the "True Phase Space". Or
+    equivalently, the space of transformation invariant function on
+    the solution space.
+  \item \textbf{Poisson Bracket on True Phase Space:} Poisson Bracket
+    is unchanged, long as we only consider the transformation
+    invariant function on the solution space, which is the "True Phase Space".
+\end{enumerate}
+For our case of 2+1 dimensional gravity. The solution space of the
+constriant is the space of flat $ G \in \{ ISO(2,1), SO(3,1),
+SO(2,2)\} $ connection on the spacial slice $ \Sigma_g $.
+\rmk{
+  we need to be careful to distinguish the phase space with the EoM
+  solution space. The EoM solution space is the space of flat G
+  connection on the whole spacetime. The phase space is the space of flat G
+  connection on the spacial slice.
+}
+And amazingly we can find that the transformation generated by the
+constraint is just the $ G $ gauge transformation on the spacial slice.
+\rmk{
+  In fact in gauge theory, the constraint always generated the gauge
+  transformation.
+}
+Thus we have the result:
+\thm{\label{thm:True Phase Space of 2+1 Dimensional Gravity}
+  True Phase Space of 2+1 Dimensional Gravity
+
+  The True Phase Space of 2+1 dimensional gravity is the moduli space of
+  flat $ G \in \{ ISO(2,1), SO(3,1), SO(2,2)\} $ connection on the
+  spacial slice $ \Sigma_g $. Mathematically, this is equivalent to
+  the following space:
+  \begin{align}
+    \mathcal{M} = \mathrm{Hom}(\pi_1(\Sigma_g), G) / \sim
+  \end{align}
+  where $ \sim $ is the equivalence relation given by the conjugation of
+  $ G $ of group homomorphism $ \mathrm{Hom}(\pi_1(\Sigma_g), G) $.
+}
+
+\subsubsection{Compare with Geometric Analysis of Phase Space}
+
+We now construct a "True Phase Space" using the constraint first
+approach of the Chern-Simons formulation of 2+1 dimensional gravity
+\cref{thm:True Phase Space of 2+1 Dimensional Gravity}. We can
+compare it with the geometric analysis of the phase space we've done
+initially \cref{thm:Geophasespace}.
+We can see that the result is \textbf{Exactly the Same!!!!}, apart
+form using different approaches.
+
+However, we shall remark on something we have negelected which make
+2+1 dimensional gravity not exactly equivalent to Chern-Simons Theory:
+\begin{itemize}
+  \item Diffeomorphism is not exactly the gauge transformations.
+    Gauge transformation only covers "small diffeomorphism", while
+    "large diffeomorphism" is not included in the gauge
+    transformation.
+  \item In 2+1 Dimensional Gravity we assume that $ e_i{}^a $ is
+    invertible and want the metric to behave well. While the
+    Chern-Simons theory doesn't care about this.
+\end{itemize}
+
+\subsection{Real Polarization Quantization}
+
+Now we focus on quantizing the "True Phase Space". There are many
+approaches to quantize a phase space.
+\begin{itemize}
+  \item If the phase space $ \mathcal{M} $ is a cotangent bundle of
+    some configuration space $N$ then we can use a approach called
+    \textbf{Real Polarization}
+\end{itemize}
+This is the true for Minkowski and dS case, but not for AdS case.
+This section we'll focus on the Minkowski case.
+
+\subsubsection{True Phase Space as Cotangent Bundle}
+
+A navie idea when looking at the pre-constraint phase space $
+(e_i{}^a, \omega_i{}^a) $ is that we can view $ e_i{}^a $ as the
+momentum and $ \omega_i{}^a $ as the coordinate, thus the phase space
+is a cotangent bundle of the space of $ \omega_i{}^a $ configuration.
+
+But this is note generally true.
+
+\subsubsection{Hilbert Space}
+
+\subsection{Kahler Polarization Quantization}
+For AdS case, the real polarization quantization can't work, thus we
+can follow another procedure that may work for both AdS, Minkowski
+and dS case, which is the Kahler polarization quantization.
+The idea is that:
+\begin{itemize}
+  \item First we find a Kahler structure on the phase space.
+  \item Then we find a holomorphic sector of a line bundle over the
+    phase space and this may give us a Hilbert space.
+\end{itemize}
+This procedure is not discussed in Witten's paper, but it is widely
+used in the modern literature.
