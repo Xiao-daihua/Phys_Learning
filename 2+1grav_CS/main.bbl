@@ -242,6 +242,194 @@
       \endverb
       \keyw{General Relativity and Quantum Cosmology,High Energy Physics - Theory}
     \endentry
+    \entry{krasnovMinimalSurfacesParticles2007}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=65977df4643b0b3d6904d4464d606bb7}{%
+           family={Krasnov},
+           familyi={K\bibinitperiod},
+           given={Kirill},
+           giveni={K\bibinitperiod}}}%
+        {{hash=ce8f39b8a4ac67ce889798d7bef394dc}{%
+           family={Schlenker},
+           familyi={S\bibinitperiod},
+           given={Jean-Marc},
+           giveni={J\bibinithyphendelim M\bibinitperiod}}}%
+      }
+      \strng{namehash}{0e9f6723c065704ee4511508ed52fcb6}
+      \strng{fullhash}{0e9f6723c065704ee4511508ed52fcb6}
+      \strng{fullhashraw}{0e9f6723c065704ee4511508ed52fcb6}
+      \strng{bibnamehash}{0e9f6723c065704ee4511508ed52fcb6}
+      \strng{authorbibnamehash}{0e9f6723c065704ee4511508ed52fcb6}
+      \strng{authornamehash}{0e9f6723c065704ee4511508ed52fcb6}
+      \strng{authorfullhash}{0e9f6723c065704ee4511508ed52fcb6}
+      \strng{authorfullhashraw}{0e9f6723c065704ee4511508ed52fcb6}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{We use minimal (or CMC) surfaces to describe 3-dimensional hyperbolic, anti-de Sitter, de Sitter or Minkowski manifolds. We consider whether these manifolds admit ``nice'' foliations and explicit metrics, and whether the space of these metrics has a simple description in terms of Teichmüller theory. In the hyperbolic settings both questions have positive answers for a certain subset of the quasi-Fuchsian manifolds: those containing a closed surface with principal curvatures at most 1. We show that this subset is parameterized by an open domain of the cotangent bundle of Teichmüller space. These results are extended to ``quasi-Fuchsian'' manifolds with conical singularities along infinite lines, known in the physics literature as ``massive, spin-less particles''. Things work better for globally hyperbolic anti-de Sitter manifolds: the parameterization by the cotangent of Teichmüller space works for all manifolds. There is another description of this moduli space as the product two copies of Teichmüller space due to Mess. Using the maximal surface description, we propose a new parameterization by two copies of Teichmüller space, alternative to that of Mess, and extend all the results to manifolds with conical singularities along time-like lines. Similar results are obtained for de Sitter or Minkowski manifolds. Finally, for all four settings, we show that the symplectic form on the moduli space of 3-manifolds that comes from parameterization by the cotangent bundle of Teichmüller space is the same as the 3-dimensional gravity one.}
+      \field{day}{31}
+      \field{eprinttype}{arXiv}
+      \field{issn}{0046-5755, 1572-9168}
+      \field{journaltitle}{Geometriae Dedicata}
+      \field{langid}{english}
+      \field{month}{7}
+      \field{number}{1}
+      \field{shortjournal}{Geom Dedicata}
+      \field{title}{Minimal Surfaces and Particles in 3-Manifolds}
+      \field{urlday}{3}
+      \field{urlmonth}{1}
+      \field{urlyear}{2026}
+      \field{volume}{126}
+      \field{year}{2007}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{187\bibrangedash 254}
+      \range{pages}{68}
+      \verb{doi}
+      \verb 10.1007/s10711-007-9132-1
+      \endverb
+      \verb{eprint}
+      \verb math/0511441
+      \endverb
+      \verb{file}
+      \verb /Users/xiaodaihua/Zotero/storage/7NUA52V6/Krasnov and Schlenker - 2007 - Minimal surfaces and particles in 3-manifolds.pdf
+      \endverb
+      \verb{urlraw}
+      \verb http://arxiv.org/abs/math/0511441
+      \endverb
+      \verb{url}
+      \verb http://arxiv.org/abs/math/0511441
+      \endverb
+      \keyw{General Relativity and Quantum Cosmology,Mathematics - Differential Geometry,Mathematics - Geometric Topology}
+    \endentry
+    \entry{scarinciUniversalPhaseSpace2013}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=b4c3e1d7ddcc7733962333d19c65a810}{%
+           family={Scarinci},
+           familyi={S\bibinitperiod},
+           given={Carlos},
+           giveni={C\bibinitperiod}}}%
+        {{hash=65977df4643b0b3d6904d4464d606bb7}{%
+           family={Krasnov},
+           familyi={K\bibinitperiod},
+           given={Kirill},
+           giveni={K\bibinitperiod}}}%
+      }
+      \strng{namehash}{41583b849578882954709b363820416b}
+      \strng{fullhash}{41583b849578882954709b363820416b}
+      \strng{fullhashraw}{41583b849578882954709b363820416b}
+      \strng{bibnamehash}{41583b849578882954709b363820416b}
+      \strng{authorbibnamehash}{41583b849578882954709b363820416b}
+      \strng{authornamehash}{41583b849578882954709b363820416b}
+      \strng{authorfullhash}{41583b849578882954709b363820416b}
+      \strng{authorfullhashraw}{41583b849578882954709b363820416b}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{We describe what can be called the "universal" phase space of AdS3 gravity, in which the moduli spaces of globally hyperbolic AdS spacetimes with compact spatial sections, as well as the moduli spaces of multi-black-hole spacetimes are realized as submanifolds. The universal phase space is parametrized by two copies of the Universal Teichm\textbackslash "uller space T(1) and is obtained from the correspondence between maximal surfaces in AdS3 and quasisymmetric homeomorphisms of the unit circle. We also relate our parametrization to the Chern-Simons formulation of 2+1 gravity and, infinitesimally, to the holographic (Fefferman-Graham) description. In particular, we obtain a relation between the generators of quasiconformal deformations in each T(1) sector and the chiral Brown-Henneaux vector fields. We also relate the charges arising in the holographic description (such as the mass and angular momentum of an AdS3 spacetime) to the periods of the quadratic differentials arising via the Bers embedding of T(1)xT(1). Our construction also yields a symplectic map from T*T(1) to T(1)xT(1) generalizing the well-known Mess map in the compact spatial surface setting.}
+      \field{eprintclass}{hep-th}
+      \field{eprinttype}{arXiv}
+      \field{issn}{0010-3616, 1432-0916}
+      \field{journaltitle}{Communications in Mathematical Physics}
+      \field{month}{8}
+      \field{number}{1}
+      \field{shortjournal}{Commun. Math. Phys.}
+      \field{title}{The {{Universal Phase Space}} of {{AdS3 Gravity}}}
+      \field{urlday}{25}
+      \field{urlmonth}{2}
+      \field{urlyear}{2025}
+      \field{volume}{322}
+      \field{year}{2013}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{167\bibrangedash 205}
+      \range{pages}{39}
+      \verb{doi}
+      \verb 10.1007/s00220-012-1655-0
+      \endverb
+      \verb{eprint}
+      \verb 1111.6507
+      \endverb
+      \verb{file}
+      \verb /Users/xiaodaihua/Zotero/storage/Y83J86UF/Scarinci和Krasnov - 2013 - The Universal Phase Space of AdS3 Gravity.pdf;/Users/xiaodaihua/Zotero/storage/L4F5DW78/1111.html
+      \endverb
+      \verb{urlraw}
+      \verb http://arxiv.org/abs/1111.6507
+      \endverb
+      \verb{url}
+      \verb http://arxiv.org/abs/1111.6507
+      \endverb
+      \keyw{General Relativity and Quantum Cosmology,High Energy Physics - Theory}
+    \endentry
+    \entry{collierSolving3dGravity2023}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=b2631eba9b35e1b1507c843e0f2ce728}{%
+           family={Collier},
+           familyi={C\bibinitperiod},
+           given={Scott},
+           giveni={S\bibinitperiod}}}%
+        {{hash=cd5246561828e3982872f4c7117402c0}{%
+           family={Eberhardt},
+           familyi={E\bibinitperiod},
+           given={Lorenz},
+           giveni={L\bibinitperiod}}}%
+        {{hash=e101d779493c72a93d92ffabe36a12f7}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Mengyang},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{9e194122baff5a5ab39f8de6deaee8df}
+      \strng{fullhash}{77f04307695d7d37691d62edbbac145a}
+      \strng{fullhashraw}{77f04307695d7d37691d62edbbac145a}
+      \strng{bibnamehash}{77f04307695d7d37691d62edbbac145a}
+      \strng{authorbibnamehash}{77f04307695d7d37691d62edbbac145a}
+      \strng{authornamehash}{9e194122baff5a5ab39f8de6deaee8df}
+      \strng{authorfullhash}{77f04307695d7d37691d62edbbac145a}
+      \strng{authorfullhashraw}{77f04307695d7d37691d62edbbac145a}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{We propose a precise reformulation of 3d quantum gravity with negative cosmological constant in terms of a topological quantum field theory based on the quantization of the Teichm\textbackslash "uller space of Riemann surfaces that we refer to as ``Virasoro TQFT.'' This TQFT is similar, but importantly not equivalent, to \$\textbackslash text\{SL\}(2,\textbackslash mathbb\{R\})\$ Chern-Simons theory. This sharpens the folklore that 3d gravity is related to \$\textbackslash text\{SL\}(2,\textbackslash mathbb\{R\})\$ Chern-Simons theory into a precise correspondence, and resolves some well-known issues with this lore at the quantum level. Our proposal is computationally very useful and provides a powerful tool for the further study of 3d gravity. In particular, we explain how together with standard TQFT surgery techniques this leads to a fully algorithmic procedure for the computation of the gravity partition function on a fixed topology exactly in the central charge. Mathematically, the relation leads to many nontrivial conjectures for hyperbolic 3-manifolds, Virasoro conformal blocks and crossing kernels.}
+      \field{day}{11}
+      \field{eprintclass}{hep-th}
+      \field{eprinttype}{arXiv}
+      \field{issn}{2542-4653}
+      \field{journaltitle}{SciPost Physics}
+      \field{langid}{american}
+      \field{month}{10}
+      \field{number}{4}
+      \field{shortjournal}{SciPost Phys.}
+      \field{title}{Solving 3d {{Gravity}} with {{Virasoro TQFT}}}
+      \field{urlday}{22}
+      \field{urlmonth}{2}
+      \field{urlyear}{2025}
+      \field{volume}{15}
+      \field{year}{2023}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{151}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.21468/SciPostPhys.15.4.151
+      \endverb
+      \verb{eprint}
+      \verb 2304.13650
+      \endverb
+      \verb{file}
+      \verb /Users/xiaodaihua/Zotero/storage/W3288NT4/Collier 等 - 2023 - Solving 3d Gravity with Virasoro TQFT.pdf;/Users/xiaodaihua/Zotero/storage/C7MU2M6H/2304.html
+      \endverb
+      \verb{urlraw}
+      \verb http://arxiv.org/abs/2304.13650
+      \endverb
+      \verb{url}
+      \verb http://arxiv.org/abs/2304.13650
+      \endverb
+      \keyw{High Energy Physics - Theory,Mathematical Physics,Mathematics - Mathematical Physics}
+    \endentry
   \enddatalist
 \endrefsection
 \endinput

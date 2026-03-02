@@ -2389,6 +2389,9 @@
     <bcf:citekey order="7" intorder="1">compereAdvancedLecturesGeneral2019a</bcf:citekey>
     <bcf:citekey order="8" intorder="1">compereAdvancedLecturesGeneral2019a</bcf:citekey>
     <bcf:citekey order="9" intorder="1">eberhardtOffshellPartitionFunctions2022</bcf:citekey>
+    <bcf:citekey order="10" intorder="1">krasnovMinimalSurfacesParticles2007</bcf:citekey>
+    <bcf:citekey order="10" intorder="2">scarinciUniversalPhaseSpace2013</bcf:citekey>
+    <bcf:citekey order="11" intorder="1">collierSolving3dGravity2023</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">

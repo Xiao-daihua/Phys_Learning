@@ -418,11 +418,23 @@ a non-degenerate invariant bilinear form:
   Here we use the notation that the $ P^a $ and $ J^{ab} $ generator
   can be raised and lower by the Minkowski metric $ \eta_{ab} $. And
   so does the index of the $ \epsilon_{abc} $. But due to $ det(\eta)
-  = -1 $, we have $ \epsilon^{abc} = -\epsilon_{abc} $.
+  = -1 $, we have $ \epsilon^{abc} = -\epsilon_{abc} $. I think
+  commonly we take $ \epsilon_{012} = 1 $ as the convention, thus we
+  have $ \epsilon^{012} = -1 $. But I'm note sure about the
+  convention in both papers I followed.
 
   \YL{[one should have check the exact definition of $ \epsilon_{abc}
       $ and be careful if one want to perform detailed calculation. Yet
   its not conceptually important]}
+
+  Also note that we have no such problems for the coordinate $
+  \epsilon^{ijk} $ for its just the standard epsilon symbol coming
+  from the fact that:
+  \begin{align}
+    d x^i \wedge dx^j \wedge dx^k =
+    \epsilon^{ijk} dx^0
+    \wedge dx^1 \wedge dx^2
+  \end{align}
 }
 
 \subsubsection{Rewriting EH Action into Chern-Simons Action}
@@ -525,6 +537,13 @@ Now we focus on the diffeomorphism of vielbein and spin connection.
   However, in 3D we can rewrite it as $ \omega_a = 1/2 \epsilon_{abc}
   \omega^{bc} $ by using the epsilon symbol, thus we can write
   the local lorentz transformation in a more compact form.
+
+  It is important to note that the inverse transformation is:
+  \begin{align}
+    \omega^a = 1/2 \epsilon^{abc} \omega_{bc} \quad \text{but} \quad
+    \omega_{ab} = -\epsilon_{abc} \omega^c
+  \end{align}
+  This is due to the fact that $ \epsilon^{abc} = -\epsilon_{abc} $.
 }
 These seems extremely distinct from the gauge transformation we
 defined before \cref{eq:gaugetransform}. However, we can prove that
@@ -614,7 +633,7 @@ By rewriting the gauge field $ A $ in a similar way:
   A_\mu = e_\mu{}^a P_a + \omega_\mu{}^a J_a
 \end{align}
 \rmk{
-  This rewriting is not taht inspiring in modern context, the next
+  This rewriting is not that inspiring in modern context, the next
   subsection I'll show that for AdS and dS we can rewrite the EH
   action into two Chern-Simons theory with gauge group $
   SL(2,\mathbb{R}) $ and $ SU(2) $ respectively, which is more useful
@@ -624,7 +643,7 @@ We also note some useful facts of the gauge field $ A $:
 \begin{itemize}
   \item \textbf{Gauge Transformation:} It resembles the original one
     but with an extra term in the transformation of $ \omega_\mu{}^a $:
-    \begin{align}
+    \begin{align}\label{eq:gaugetransformcos}
       & \delta_G e_\mu{}^a = -\partial_\mu \rho^a - \epsilon^{abc} e_{\mu b}
       \tau_c - \epsilon^{abc} \omega_{\mu b} \rho_c \\
       &\delta_G \omega_\mu{}^a = -\partial_\mu \tau^a - \epsilon^{abc}
@@ -640,10 +659,6 @@ We also note some useful facts of the gauge field $ A $:
       \epsilon^{abc} e_{ib} e_{jc} \,\Big{)}\,.
     \end{align}
 \end{itemize}
-Similarly, we can see that the curvature tensor is zero, which is a
-standard Chern-Simons EoM, is equivalent to the EoM of the EH action
-with cosmological constant. The torsion free condition is unchanged
-and the second EoM cahnge into the Einstein equation with cosmological constant.
 
 We can also rewrite the EH action with cosmological constant into a
 Chern-Simons action with gauge group $ SO(2,2) $ for $ \Lambda>0 $ AdS and
@@ -656,7 +671,17 @@ non-degenerate invariant bilinear form we just defined.
   \frac{\Lambda}{3} e^a \wedge e^b \wedge e^c \right) \\
 \end{align}
 
-\subsection{3D Grvaity as Chern-Simons Theory: AdS Case}
+Similarly, we can see that the curvature tensor is zero, which is a
+standard Chern-Simons EoM, is equivalent to the EoM of the EH action
+with cosmological constant. The torsion free condition is unchanged
+and the second EoM cahnge into the Einstein equation with cosmological constant.
+
+Moreover, we can also prove that the gauge transformation of the
+Chern-Simons theory will be equivalent to the diffeomorphism and
+local lorentz transformation of the vielbein and spin connection,
+which is similar to the zero cosmological constant case.
+
+\subsection{3D Grvaity as Chern-Simons Theory: AdS Case}\label{sec:AdSCS}
 \rmk{
   In this subsection, we use the canonical cosmological constant
   convention $ \Lambda $. Not the one used in above subsection.
@@ -673,7 +698,7 @@ Here we turn back to the modern canonical way of writing the EH
 action, for AdS case $ \Lambda = -1/l^2 $, the EH action can be written as:
 \begin{align}
   S_{EH} &= \displaystyle\frac{1}{16 \pi G} \int_{\mathcal{M}} d^3 x
-  \sqrt{-g} (R + 2 \Lambda)  \\
+  \sqrt{-g} (R - 2 \Lambda)  \\
   &= \displaystyle\frac{1}{16 \pi G} \int_{\mathcal{M}} \epsilon_{abc}
   \left( e^a \wedge R^{bc} + \frac{1}{3 l^2} e^a \wedge e^b \wedge e^c \right)
 \end{align}
@@ -700,6 +725,8 @@ Then we can define the two gauge fields $ A^+ $ and $ A^- $ as:
 \end{align}
 where the cosmological constant $ \Lambda $ is related to the AdS
 radius $ l $ by $\Lambda = -{1}/{l^2}$.
+\YL{[One shall check the definition of $ \epsilon_{abc} $
+and be careful with the signs. But this is not conceptually important.]}
 
 With these preparations, we can rewrite the EH action with
 cosmological constant into a

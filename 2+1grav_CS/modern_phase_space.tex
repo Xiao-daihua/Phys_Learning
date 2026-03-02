@@ -1,3 +1,103 @@
 Here we follow the discussion in
 \cite{eberhardtOffshellPartitionFunctions2022} to give an
 illustration of the modern perspective of the gravitational phase space of AdS3.
+
+\subsection{Naive Phase Space}
+
+We start with the double Chern-Simons Theory to represent the pure
+AdS3 gravity as discussed in \cref{sec:AdSCS}. Modernly, we will
+slightly modify the theory by using $ PSL(2,\mathbb{R}) $ gauge
+group. Locally $ PSL(2,\mathbb{R}) $ is the same as $
+SL(2,\mathbb{R}) $, they have the same Lie Algebra
+but globally they are different. In our context the difference will
+lead to a shift in $ k_{SL} = l/4G $ to $ k_{PSL} = l/16G $, which is
+minor in the phase space analysis.
+
+We know that the EoM of Chern-Simons Theory phase space is given by
+the space of flat $ PSL(2,\mathbb{R}) $ connection. If we consider
+the topology of the spacetime to be $ \mathbb{R} \times \Sigma $,
+then the phase space is given by the moduli space of flat $
+PSL(2,\mathbb{R}) $ connection on $ \Sigma $:
+\begin{align}
+  \mathcal{M}_{PSL(2,\mathbb{R})} &= \frac{\text{Flat } PSL(2,\mathbb{R}) \text{
+  connections on } \Sigma}{\text{Gauge Transformations}} \\
+  &= Hom(\pi_1(\Sigma), PSL(2,\mathbb{R}))/PSL(2,\mathbb{R})
+\end{align}
+Naively we may say that the gravitational phase space of AdS3 is given by:
+\begin{align}
+  \mathcal{M}_{grav} \cong \mathcal{M}_{PSL(2,\mathbb{R})} \times
+  \mathcal{M}_{PSL(2,\mathbb{R})}
+\end{align}
+However, one should remeber that the double Chern-Simons Theory is
+not exactly equivalent to the pure AdS3 gravity, as we have discussed
+in \cref{sec:comparephase}, we have two subtleties left:
+\begin{enumerate}
+  \item The metric should be non-degenrate or the Vielbein should be
+    invertible, which is not guaranteed by the
+    double Chern-Simons Theory.
+  \item The large diffeomorphisms are not included in the gauge
+    transformations of the Chern-Simons Theory, thus we need to mod
+    out the large
+    diffeomorphisms in the phase space of the double Chern-Simons
+    Theory to get the correct gravitational phase space.
+\end{enumerate}
+But these problems can be solvable in AdS case.
+
+\subsection{Phase Space as Double Teichmüller Space}
+
+\subsubsection{Non-Degenrate Metric and Teichmüller Component}
+
+Just as we discussed in \cref{sec:Topologicalsl2r}, similar to the
+case of $ SL(2,\mathbb{R}) $, the moduli space of flat
+$PSL(2,\mathbb{R}) $ connection on $ \Sigma $ is given by several
+disconnected components, which are labeled by the Euler class of the
+flat plane bundle.
+
+Given by paper \cite{krasnovMinimalSurfacesParticles2007,
+scarinciUniversalPhaseSpace2013} we have an important geometric theorem:
+\thm{
+  In the case of AdS3, the non-degenrate metric condition is
+  equivalent to taking the $ e = 2g -2 $ component of the moduli
+  space of flat $PSL(2,\mathbb{R}) $ connection on $ \Sigma $.
+}
+Thus, we only have to focus on the $ e = 2g -2 $ component, which is
+also called the
+Teichmüller component, since it is isomorphic to the Teichmüller
+space of $ \Sigma $, then we might see that the gravitational phase
+space of AdS3 is given by the Teichmüller space of $ \Sigma $:
+\begin{align}
+  \mathcal{M}_{grav} \subset \mathcal{M}_{PSL(2,\mathbb{R})}^{(e = 2g
+  -2)} \times \mathcal{M}_{PSL(2,\mathbb{R})}^{(e = 2g -2)} \cong
+  \mathcal{T}(\Sigma) \times \mathcal{T}(\Sigma)
+\end{align}
+
+\subsubsection{Large Diffeomorphisms and Gauging Mapping Class Group}
+
+Then we have to gauge the large diffeomorphisms. To do this, we note
+that the difference between large diffeomorphism and small
+diffeomorphism is given by the mapping class group of $ M $:
+\begin{align}
+  \text{MCG}(M) = \text{Diff}(M)/\text{Diff}_0(M)
+\end{align}
+We notice that the mapping class group of $ M = \mathbb{R} \times
+\Sigma $ is given by the mapping class group of $ \Sigma $:
+\begin{align}
+  \text{MCG}(M) \cong \text{MCG}(\Sigma)
+\end{align}
+Thus we can conclude the gravitational phase space of AdS3 is given by:
+\thm{
+  AdS3 Phase Space
+
+  The gravitational phase space of pure AdS3 gravity is given by:
+  \begin{align}
+    \mathcal{M}_{grav} = \frac{\mathcal{T}(\Sigma) \times
+    \mathcal{T}(\Sigma)}{\text{MCG}(\Sigma)}
+  \end{align}
+  We need to mode out the \textbf{Diagonal} mapping class group that
+  act on both copy of the Teichmüller space, since the large
+  diffeomorphisms act on both copy of the Teichmüller space in the same way.
+}
+In modern context of quantizing the theory, we will mode out the
+mapping class group first but quantize the Teichmuller space first
+and then mode out the mapping class group when computing the
+Partition function in \cite{collierSolving3dGravity2023}.
