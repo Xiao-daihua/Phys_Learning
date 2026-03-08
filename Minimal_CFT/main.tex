@@ -1,24 +1,22 @@
-% main.tex 
+% main.tex
 % !TeX root = main.tex
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% DOCUMENT 
-\documentclass[12pt]{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% DOCUMENT
+\documentclass[11pt]{article}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% PACKAGES
 
 % 中文支持（XeLaTeX 编译）
 % \usepackage[UTF8]{ctex}
-% \usepackage{xeCJKfntef} 
+% \usepackage{xeCJKfntef}
 
 % \setCJKmainfont{HanziPen SC}
 % \setmainfont{HanziPen SC}
 
-
 % 页面设置
-\usepackage[a4paper, left=15mm, right=15mm, top=15mm, bottom=15mm]{geometry}
+\usepackage[a4paper, left=25mm, right=25mm, top=25mm, bottom=25mm]{geometry}
 
 \PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
 \usepackage{xcolor}
-
 
 % 数学环境及符号
 \usepackage{amsmath, amssymb, amsfonts, amsthm,amsopn}
@@ -56,9 +54,8 @@
 \usepackage{hyperref}           % 超链接（最后加载）
 \usepackage{cleveref}           % 智能引用（紧跟hyperref）
 \usepackage{soul}
-\definecolor{lightred}{rgb}{1,.8,.8} 
-\sethlcolor{lightred}   
-
+\definecolor{lightred}{rgb}{1,.8,.8}
+\sethlcolor{lightred}
 
 % 自定义宏包
 \usepackage{macros}
@@ -81,7 +78,16 @@
 \maketitle
 
 \begin{abstract}
-  I recently came to review some basic concepts in Conformal Field Theory (CFT) for some semester projects. When going through the renowned textbook "Conformal Field Theory" by Di Francesco, Mathieu, and Sénéchal, I found it structures poorly in chapter 4-6, without a clear logical flow and indication of the core concepts. Thus, I write this note for myself to extract the essential ideas from the book and emplasize the core concepts in CFT. This note is by no means complete or rigorous, but I hope it can serve as a concise reference for myself and others who want to get a quick overview of CFT.
+  I recently came to review some basic concepts in Conformal Field
+  Theory (CFT) for some semester projects. When going through the
+  renowned textbook "Conformal Field Theory" by Di Francesco,
+  Mathieu, and Sénéchal, I found it structures poorly in chapter 4-6,
+  without a clear logical flow and indication of the core concepts.
+  Thus, I write this note for myself to extract the essential ideas
+  from the book and emplasize the core concepts in CFT. This note is
+  by no means complete or rigorous, but I hope it can serve as a
+  concise reference for myself and others who want to get a quick
+  overview of CFT.
 \end{abstract}
 
 \tableofcontents
@@ -92,29 +98,31 @@
 % section Fundamental QFT (end)
 
 \newpage
-\section{CFT Path-Integral Formalism}\label{sec:Fundamental CFT with Path Integral Approach} % (fold)
+\section{CFT Path-Integral Formalism}\label{sec:Fundamental CFT with
+Path Integral Approach} % (fold)
 \input{CFTpi.tex}
 % section Fundamental CFT with Path Integral Approach (end)
 
-\newpage 
+\newpage
 \section{CFT Operator Formalism}\label{sec:CFT Operator Formalism} % (fold)
 \input{CFTop.tex}
 % section CFT Operator Formalism (end)
 
 \newpage
-\section{Summary: General Structure of CFT}\label{sec:Summery: General Structure of CFT} % (fold)
+\section{Summary: General Structure of CFT}\label{sec:Summery:
+General Structure of CFT} % (fold)
 \input{Summary.tex}
 % section Summery: General Structure of CFT (end)
 
-\newpage 
+\newpage
 \section{Axiomatic Formalism}\label{sec:Bootstrap Idea} % (fold)
 \input{formalism.tex}
 % section Bootstrap Idea (end)
 
-\newpage 
-\section{Introduction to Conformal Bootstrap}\label{sec:Introduction to Conformal Bootstrap} % (fold)
+\newpage
+\section{Introduction to Conformal Bootstrap}\label{sec:Introduction
+to Conformal Bootstrap} % (fold)
 \input{bootstrap.tex}
 % section Introduction to Conformal Bootstrap (end)
-
 
 \end{document}
