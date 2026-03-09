@@ -38,9 +38,9 @@
 \contentsline {subsection}{\numberline {4.4}3D Gravity as Chern-Simons Theory}{17}{subsection.4.4}%
 \contentsline {subsubsection}{\numberline {4.4.1}Motivation}{17}{subsubsection.4.4.1}%
 \contentsline {subsubsection}{\numberline {4.4.2}Killing Form of ISO(2,1) }{18}{subsubsection.4.4.2}%
-\contentsline {subsubsection}{\numberline {4.4.3}Rewriting EH Action into Chern-Simons Action}{18}{subsubsection.4.4.3}%
-\contentsline {subsubsection}{\numberline {4.4.4}GCT and LLT as Gauge Transformation}{19}{subsubsection.4.4.4}%
-\contentsline {subsection}{\numberline {4.5}3D Grvaity as Chern-Simons Theory: Cosmological Constant Case}{20}{subsection.4.5}%
+\contentsline {subsubsection}{\numberline {4.4.3}Rewriting EH Action into Chern-Simons Action}{19}{subsubsection.4.4.3}%
+\contentsline {subsubsection}{\numberline {4.4.4}GCT and LLT as Gauge Transformation}{20}{subsubsection.4.4.4}%
+\contentsline {subsection}{\numberline {4.5}3D Grvaity as Chern-Simons Theory: Cosmological Constant Case}{21}{subsection.4.5}%
 \contentsline {subsubsection}{\numberline {4.5.1}Rewriting EH Action into Chern-Simons Action}{21}{subsubsection.4.5.1}%
 \contentsline {subsection}{\numberline {4.6}3D Grvaity as Chern-Simons Theory: AdS Case}{22}{subsection.4.6}%
 \contentsline {subsubsection}{\numberline {4.6.1}Rewriting EH Action into Two Chern-Simons Action}{22}{subsubsection.4.6.1}%

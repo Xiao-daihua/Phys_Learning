@@ -7,7 +7,7 @@ git clone https://github.com/Xiao-daihua/typst_template
 
 to clone this repository to your local machine. Then use:
 ```
-git rm --cached typst_template
 rm -rf typst_template/.git
+git rm -r --cached typst_template
 ```
 to remove the git tracking information.

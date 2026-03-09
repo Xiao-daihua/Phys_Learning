@@ -344,7 +344,8 @@ A Chern-Simons Theory is given by a gauge field $ A $ associated to a
 gauge group $ G $ and on which we define a non-degenerate invariant
 bilinear form $ Tr( *, *) $. The action of the Chern-Simons theory is given by:
 \begin{align}
-  S_{CS} = \int_{\mathcal{M}} \mathrm{Tr}\left( A \wedge dA + \frac{2}{3} A
+  S_{CS} = \displaystyle\frac{k}{4 pi} \int_{\mathcal{M}}
+  \mathrm{Tr}\left( A \wedge dA + \frac{2}{3} A
   \wedge A \wedge A \right)
 \end{align}
 Here by $ Tr A \wedge A \wedge A $ we mean $ Tr(A_i, [A_j,
@@ -352,11 +353,16 @@ A_k]) dx^i \wedge dx^j \wedge dx^k  $ Thus, if we write the
 differential form integral into
 a normal integral, the action can be written as:
 \begin{align}
-  S_{CS} \propto \int_{\mathcal{M}} d^3x \epsilon^{\mu\nu\rho}
+  S_{CS} = \displaystyle\frac{k}{8 \pi} \int_{\mathcal{M}} d^3x
+  \epsilon^{\mu\nu\rho}
   \mathrm{Tr}\left( A_\mu
     (\partial_\nu A_\rho - \partial_{\rho} A_\mu ) + \frac{2}{3} A_\mu
   [A_\nu, A_\rho] \right)
 \end{align}
+\rmk{
+  Note that the additional factor of $ 1/2 $ in the second term is
+  due to the convention of components of wedge product.
+}
 
 \subsection{3D Gravity as Chern-Simons Theory}
 
