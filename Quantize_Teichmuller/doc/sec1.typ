@@ -1,3 +1,2 @@
 #import "../env/lib.typ": *
 
-= Fundamentals in TQFT
