@@ -1,4 +1,4 @@
-PWD /Users/xiaodaihua/Code/Latex_Note/Phys/learning_note/CFT/Primary_BCFT
+PWD /Users/xiaodaihua/Code/Latex_Note/Phys/Notes/Primary_BCFT
 INPUT /usr/local/texlive/2025/texmf.cnf
 INPUT /usr/local/texlive/2025/texmf-dist/web2c/texmf.cnf
 INPUT /usr/local/texlive/2025/texmf-var/web2c/xetex/xelatex.fmt
@@ -6,9 +6,9 @@ INPUT main.tex
 OUTPUT main.log
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/base/article.cls
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/base/article.cls
-INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/base/size12.clo
-INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/base/size12.clo
-INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/base/size12.clo
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/base/size11.clo
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/base/size11.clo
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/base/size11.clo
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/geometry/geometry.sty
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/geometry/geometry.sty
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/graphics/keyval.sty
@@ -256,8 +256,6 @@ INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/thmtools/thm-restate.sty
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/thmtools/thm-restate.sty
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/thmtools/thm-amsthm.sty
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/thmtools/thm-amsthm.sty
-INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/showlabels/showlabels.sty
-INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/showlabels/showlabels.sty
 INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/ulem/ulem.sty
 INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/ulem/ulem.sty
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map
@@ -326,10 +324,10 @@ INPUT main.out
 INPUT ./main.out
 INPUT ./main.out
 OUTPUT main.out
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmr8.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmr6.tfm
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmmi10.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmmi8.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmmi6.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
@@ -360,16 +358,9 @@ INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmex10.tfm
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam7.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/rsfs/rsfs10.tfm
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/rsfs/rsfs10.tfm
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/rsfs/rsfs7.tfm
 INPUT ./main.toc
 INPUT ./main.toc
 INPUT main.toc
@@ -381,7 +372,7 @@ INPUT bcft.tex
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/bbold/Ubbold.fd
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/bbold/Ubbold.fd
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/bbold/Ubbold.fd
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/bbold/bbold12.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/bbold/bbold10.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/bbold/bbold8.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/bbold/bbold6.tfm
 INPUT ./assets/newontour.png

@@ -38,7 +38,7 @@
     #text(
       size: 18pt,
     )[#title]
-    #v(0.2em)
+    #v(1.4em)
 
     #text(size: 12pt)[
       #author \
