@@ -6,9 +6,12 @@
   author: [Yu Liu],
   abstract: [],
 )
-Main Text 
 
+#pagebreak()
 #include "doc/sec1.typ"
+
+#pagebreak()
+#include "doc/sec2.typ"
 
 #pagebreak()
 #bibliography("references.bib")

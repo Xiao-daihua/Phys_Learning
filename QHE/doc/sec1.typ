@@ -1,12 +1,17 @@
 #import "../env/lib.typ": *
 
-= Superman is great
+= Preparations
 
-I think that superman is great!!! Because he can fly and have super strength.
+First we'll give some preparations for the discussion of the QHE.
+We'll start with some basic concepts in CMT and QM. I won't give a
+detailed explanation, yet just list out some important results as a
+reference for later use.
 
-#theorem[Superman can fly][
-  This theorem states that superman can fly, in mathematical way we can say:
-  $ F_G = 0 #text[for super man] = 0 quad M = 0 $
-  This is an awsome theorem.
-]
+== Band Theory and Conductivity
+
+
+== Landau Levels
+
+
+== Berry Phase
 
