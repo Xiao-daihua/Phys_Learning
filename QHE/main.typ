@@ -4,7 +4,7 @@
 #show: notetemp.with(
   title: [Note on Quantum Hall Effect],
   author: [Yu Liu],
-  abstract: [],
+  abstract: [This is a note on QHE, based on David Tong's lecture notes.],
 )
 
 #pagebreak()

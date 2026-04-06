@@ -38,10 +38,11 @@
         #text(
             size: 18pt,
         )[#title]
-        #v(1.4em)
+        #v(0.5em)
 
-        #text(size: 14pt)[
+        #text(size: 13pt)[
             #author \
+      \
             #date
         ]
     ]
