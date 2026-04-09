@@ -8,3 +8,12 @@ Now we're prepared to discuss the integer quantum Hall effect (IQHE). The IQHE i
 
 Here is a typical experimental setup for observing the IQHE:
 
+
+== Theoretical Explanation 
+
+=== Robustness of Hall Conductance
+
+=== Quantization of Hall Conductance
+
+== QHE on a Torus
+
