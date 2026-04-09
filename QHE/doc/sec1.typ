@@ -31,18 +31,24 @@ allowed electron energies to split into *energy bands*, separated by
 ]
 Solving the Schrödinger equation with Bloch boundary conditions yields
 a discrete family of dispersion relations $E_n (bold(k))$, labelled by
-the band index $n$. 
+the band index $n$.
 
 Conceptually, what we do is that we find a symmetry operator $T$ which
 is the lattice translation operator, and we notice that it commutes
 with the Hamiltonian, thus we can find a common eigenstate of both $H$
 and $T$ to classify the eigenstates into bands.
 
-If the system has a finite number of length for example its a rectangular box $L_1, L_2 $. And we impose suitable boundary conditions, then the allowed $bold(k)$ values are discrete, we can calculate how many $bold(k)$ states are there in each band, and we find that the number of states in each band is equal to the number of unit cells in the system:
-$ 
+If the system has a finite number of length for example its a
+rectangular box $L_1, L_2$. And we impose suitable boundary
+conditions, then the allowed $bold(k)$ values are discrete, we can
+calculate how many $bold(k)$ states are there in each band, and we
+find that the number of states in each band is equal to the number of
+unit cells in the system:
+$
     N_k = N_c = ( L_1 L_2 ) / ( a_1 a_2 )
 $
-where $a_1, a_2$ are the lattice constants. This means that each band can accommodate $N_c$ electrons (ignoring spin). 
+where $a_1, a_2$ are the lattice constants. This means that each band
+can accommodate $N_c$ electrons (ignoring spin).
 
 
 Here is a rough sketch of the band structure:
@@ -83,6 +89,17 @@ Now let's discuss the conductivity of a material. The key results are:
 - *Semimetal:* valence and conduction bands overlap slightly.
 
 
+=== Example: Tight Hopping Model
+
+Consider a 2D square lattice with nearest neighbor hopping $t$ and
+lattice constant $a$. The tight-binding Hamiltonian is:
+$
+    H = - t sum_(<i,j>) ( c^dagger_i c_j + h.c. )
+$
+There is only one band in this model, and the energy dispersion is:
+$
+    E (bold(k)) = - 2 t ( cos ( k_x a ) + cos ( k_y a ) )
+$
 
 == Landau Levels
 

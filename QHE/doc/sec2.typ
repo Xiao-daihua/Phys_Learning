@@ -4,7 +4,7 @@
 
 Now we're prepared to discuss the integer quantum Hall effect (IQHE).
 The IQHE is a quantum phenomenon observed in two-dimensional electron
-systems subjected to low temperatures and strong magnetic fields.
+systems having a quantized Hall conductance.
 
 == Standard QHE
 
@@ -14,6 +14,7 @@ This section we will discuss the explanation of IQHE in this
 framework.
 
 === Experimental Observations
+
 
 === Quantization of Hall Conductance
 
@@ -28,9 +29,9 @@ framework of models that can exhibit a quantized Hall conductance
 $sigma_(x y)$ even ones without a external magnetic field.
 #footnote[This phenomenon of QHE without Magnetic field is called the
     quantum anomalous Hall effect (QAHE). Btw, this first observation
-    is made in 2013 by a THU team @Chang_2013] The underlying reason
-for this quantization can be illustrated in a same manner, which is
-the TKNN invariant.
+    is made in 2013 by a THU team @Chang_2013]
+The underlying reason for this quantization can be illustrated in a
+same manner, which is the TKNN invariant.
 
 === Kubo Formula
 
