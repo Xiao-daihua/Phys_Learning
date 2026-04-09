@@ -390,6 +390,9 @@ INPUT ./assets/cylinder.png
 INPUT ./assets/choptrans.png
 INPUT ./assets/choptrans.png
 INPUT ./assets/choptrans.png
+INPUT ./summary.tex
+INPUT ./summary.tex
+INPUT summary.tex
 INPUT main.aux
 INPUT ./main.out
 INPUT ./main.out

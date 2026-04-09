@@ -1,10 +1,10 @@
 # Fdb version 4
-["xdvipdfmx"] 1774950764.60982 "main.xdv" "main.pdf" "main" 1774950766.86046 0
-  "main.xdv" 1774950764.44906 422892 295a676f7532b3d8628d995a765a1bd8 "xelatex"
+["xdvipdfmx"] 1775740259.10043 "main.xdv" "main.pdf" "main" 1775740262.10547 0
+  "main.xdv" 1775740258.90773 422284 bc6a0318fee1f25699c538987fa50fa7 "xelatex"
   (generated)
   "main.pdf"
   (rewritten before read)
-["xelatex"] 1774950757.80789 "main.tex" "main.xdv" "main" 1774950766.85484 0
+["xelatex"] 1775740252.19417 "main.tex" "main.xdv" "main" 1775740262.09861 0
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm" 1136768653 1528 f853c4d1b4e0550255e02831fdc8496f ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/ectt1000.tfm" 1136768653 1536 06717a2b50de47d4087ac0e6cd759455 ""
@@ -205,13 +205,14 @@
   "assets/cylinder.png" 1764524947.29962 73824 45441387e6b7883b3743a70b9e4ffbe4 ""
   "assets/newontour.png" 1764329527.48973 243831 32324c11bbabf753611eb2e9a683d7c0 ""
   "assets/striptrans.png" 1764359025.40251 165095 5a48c2ebb22d80720874bb0b8ae32948 ""
-  "bcft.tex" 1765622829.14467 49003 f70bc3c0266197767fc6ce3c08a0bc56 ""
+  "bcft.tex" 1775739827.96752 49798 beeceeef7dba801cd19c5fe8e7bfb271 ""
   "cjkhl.sty" 1764329131.69308 2659 07e07fe2124aaffe2c1f544596237850 ""
   "macros.sty" 1764329131.69331 6941 ba45a27a4c54e2119e40ce5c8de2a610 ""
-  "main.aux" 1774950764.40663 13618 45401d1fb3d383ef600a7937061f9dd9 "xelatex"
-  "main.out" 1774950764.4279 8777 b8f960bfd12f732bf137a33bee47c96e "xelatex"
-  "main.tex" 1774950755.07541 3083 7af552f7c8fdc7661bf852c19556a379 ""
-  "main.toc" 1774950764.44877 4149 6b215d365c931e7d347897f006b31bec "xelatex"
+  "main.aux" 1775740258.84873 13569 36e110efbe1a456edf9a3d222b89be8b "xelatex"
+  "main.out" 1775740258.88762 8596 1dfcd8874b37449ec9baf6faf0e34db6 "xelatex"
+  "main.tex" 1775740252.16138 3080 f02b52ed11babe6df6f0bbb31f887f7c ""
+  "main.toc" 1775740258.88873 4100 3f6b095839a0d0bc658cc45eabc01826 "xelatex"
+  "summary.tex" 1775740235.1725 778 7170a9bbc96b2faea98885a33cd296f3 ""
   (generated)
   "main.aux"
   "main.log"

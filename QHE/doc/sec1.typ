@@ -50,7 +50,7 @@ up to the Fermi energy $E_F$.
 
 == Landau Levels
 
-=== Magnetic Field in QM
+=== Landau Gauge
 
 Consider a electron moving in a 2D plane under a perpendicular
 magnetic field $B$. The Hamiltonian in Landau Gauge is:
@@ -113,6 +113,10 @@ $
 v_y = ( 1 ) / ( planck.reduce ) ( diff E _ ( n, k ) ) / ( diff k ) = E / B
 $
 it means that the wave packet will drift along $y$ direction with a velocity. 
+
+=== Symmetry Gauge 
+
+#YL([To be completed, and important for IQHE])
 
 == Berry Phase
 
