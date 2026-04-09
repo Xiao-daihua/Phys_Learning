@@ -9,6 +9,8 @@ reference for later use. Most contents are explained in @qhelecture.
 
 == Band Theory and Conductivity
 
+=== Basic Concepts
+
 In a crystalline solid, the periodic ionic potential causes the
 allowed electron energies to split into *energy bands*, separated by
 *band gaps*. The key results are:
@@ -21,13 +23,27 @@ allowed electron energies to split into *energy bands*, separated by
     $
     where $u_(bold(k))$ shares the lattice periodicity
     $u_(bold(k)) (r+R) = u_(bold(k)) (r)$and $bold(k)$ lives in the
-    first Brillouin zone.
+    first Brillouin zone:
+    $
+        bold(k) in "BZ" = { sum_(i=1)^d alpha_i bold(b_i) | 0 <= alpha_i < 1 }
+    $
+    where $bold(b_i)$ are the reciprocal lattice vectors.
 ]
-
 Solving the Schrödinger equation with Bloch boundary conditions yields
 a discrete family of dispersion relations $E_n (bold(k))$, labelled by
-the band index $n$. Each band accommodates $2N$ electrons ($N$ =
-number of unit cells in the object, factor $2$ from spin).
+the band index $n$. 
+
+Conceptually, what we do is that we find a symmetry operator $T$ which
+is the lattice translation operator, and we notice that it commutes
+with the Hamiltonian, thus we can find a common eigenstate of both $H$
+and $T$ to classify the eigenstates into bands.
+
+If the system has a finite number of length for example its a rectangular box $L_1, L_2 $. And we impose suitable boundary conditions, then the allowed $bold(k)$ values are discrete, we can calculate how many $bold(k)$ states are there in each band, and we find that the number of states in each band is equal to the number of unit cells in the system:
+$ 
+    N_k = N_c = ( L_1 L_2 ) / ( a_1 a_2 )
+$
+where $a_1, a_2$ are the lattice constants. This means that each band can accommodate $N_c$ electrons (ignoring spin). 
+
 
 Here is a rough sketch of the band structure:
 
@@ -38,6 +54,26 @@ Here is a rough sketch of the band structure:
 
 *Fermi energy and band filling.* At $T = 0$, electrons fill all states
 up to the Fermi energy $E_F$.
+
+=== Group Velocity
+
+The group velocity of an electron in a band is given by the gradient
+of the energy dispersion:
+$
+    v_n (bold(k)) = ( 1 ) / ( planck.reduce ) nabla_(bold(k)) E_n (bold(k))
+$
+This means that the electron's velocity depends on its position in the
+Brillouin zone and the curvature of the energy band.
+
+This quantity has a physical meaning: if we prepare a wave packet that
+is a superposition of Bloch states around a certain $bold(k)$ point,
+then the wave packet will move with the group velocity
+$v_n (bold(k))$.
+
+
+=== Conductivity
+
+Now let's discuss the conductivity of a material. The key results are:
 
 - *Insulator / Semiconductor:* $E_F$ lies inside a band gap; the
     valence band is completely full.
@@ -87,34 +123,40 @@ levels can be drawn in the following CMT style:
 
 === Landau Levels with Electric Field
 
-If we add a uniform electric field $E$ along $x$ direction, then the Hamiltonian becomes:
-$ 
-H = ( 1 ) / ( 2 m ) ( p _ ( x ) ^ ( 2 ) + ( p _ ( y ) + e B x ) ^ ( 2 ) ) - e E x
+If we add a uniform electric field $E$ along $x$ direction, then the
+Hamiltonian becomes:
 $
-Then we solve the Schrödinger equation and find the energy spectrum is still quantized into Landau levels, but with a shift:
+    H = ( 1 ) / ( 2 m ) ( p_( x )^( 2 ) + ( p_( y ) + e B x )^( 2 ) ) - e E x
+$
+Then we solve the Schrödinger equation and find the energy spectrum is
+still quantized into Landau levels, but with a shift:
 
-- *Wave Functions* 
-$ 
-psi ( x, y ) = psi _ ( n, k ) ( x - m E slash e B ^ ( 2 ), y )
+- *Wave Functions*
+$
+    psi ( x, y ) = psi_( n, k ) ( x - m E slash e B^( 2 ), y )
 $
 - *Energy Spectrum*
-$ 
-E _ ( n, k ) = planck.reduce omega _ ( B ) ( n + ( 1 ) / ( 2 ) ) + e E ( k l _ ( B ) ^ ( 2 ) - ( e E ) / ( m omega _ ( B ) ^ ( 2 ) ) ) + ( m ) / ( 2 ) ( E ^ ( 2 ) ) / ( B ^ ( 2 ) )
 $
-We now see that different $k$ states are not degenerate anymore, and the landau levels are tilted in the energy-momentum space: 
+    E_( n, k ) = planck.reduce omega_( B ) ( n + ( 1 ) / ( 2 ) ) + e E ( k l_( B )^( 2 ) - ( e E ) / ( m omega_( B )^( 2 ) ) ) + ( m ) / ( 2 ) ( E^( 2 ) ) / ( B^( 2 ) )
+$
+We now see that different $k$ states are not degenerate anymore, and
+the landau levels are tilted in the energy-momentum space:
 
 #figure(
-  image("../assets/landauE.png", width: 33%),
-  caption: [Landau levels with electric field],
+    image("../assets/landauE.png", width: 33%),
+    caption: [Landau levels with electric field],
 ) <fig-landaue>
 
-- *Group Velocity* If the wavefunction is a wave packet that is superposition of the landau level states with different $k$, then the group velocity of the wave packet is:
-$ 
-v_y = ( 1 ) / ( planck.reduce ) ( diff E _ ( n, k ) ) / ( diff k ) = E / B
+- *Group Velocity* If the wavefunction is a wave packet that is
+    superposition of the landau level states with different $k$, then
+    the group velocity of the wave packet is:
 $
-it means that the wave packet will drift along $y$ direction with a velocity. 
+    v_y = ( 1 ) / ( planck.reduce ) ( diff E_( n, k ) ) / ( diff k ) = E / B
+$
+it means that the wave packet will drift along $y$ direction with a
+velocity.
 
-=== Symmetry Gauge 
+=== Symmetry Gauge
 
 #YL([To be completed, and important for IQHE])
 
@@ -179,6 +221,16 @@ $
 this integer $C$ is called the Chern number, which is a topological
 invariant of the system.
 
+#remark[
+    The quantization of the Chern number is a result of the fact that
+    we want a well-defined holonomy of the Berry connection. This
+    derivation in fact can be generalized to any number of parameters,
+    integrating such a curvature over a closed manifold will give a
+    topological invariant, which is the Chern number.
+]
+
+#YL([If time allows, I can go and see it in a general construction])
+
 
 === Non-Abelian Berry Phase
 
@@ -219,6 +271,12 @@ $
 - *Berry Holonomy* The non-Abelian Berry phase (in fact its a matrix)
     can be expressed as a path-ordered exponential of the Berry
     connection along the loop:
-$ 
+$
     U = P exp ( - i integral.cont_(C) A_( i ) ( lambda ) d lambda^( i ) )
 $
+
+
+=== Spectrum Flow
+
+
+
