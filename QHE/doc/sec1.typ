@@ -175,7 +175,16 @@ velocity.
 
 === Symmetry Gauge
 
-#YL([To be completed, and important for IQHE])
+Our discussion above is mainly based on Laundau gauge. However, in the
+discusion of the QHE, especially FQHE (as the original paper does),
+it's more convenient to use the symmetric gauge. 
+
+The symmetry gauge is defined as:
+$ 
+
+$
+
+#YL([this part is important.])
 
 == Berry Phase
 
@@ -295,5 +304,15 @@ $
 
 === Spectrum Flow
 
+
+== Hall Effect Set Up
+
+Before discussing the non-conventional I/FQHE, let's first talk about
+the classical Hall effect set up and define useful observables.
+
+=== Set Up Picture
+
+
+=== Conductivity and Resistivity Tensor
 
 

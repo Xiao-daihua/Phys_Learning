@@ -11,15 +11,43 @@ systems having a quantized Hall conductance.
 The standard IQHE occurs in a two-dimensional electron gas (2DEG)
 confined to a plane and subjected to a perpendicular magnetic field.
 This section we will discuss the explanation of IQHE in this
-framework.
+framework. I will not go too much into the details of this, which can
+be found in many textbooks. Instead, I will just give a brief overview
+of the key points.
 
-=== Experimental Observations
+=== Experimental Observation
 
 
-=== Quantization of Hall Conductance
+=== Theoretical Illustration
+
+Here I'll provide an illustration (I'd prefer to call it an
+"illustration" for it doesn't really explain a concrete eperiental
+model, rather illustrate how can this phenonmenon be true) of the
+IQHE, which is originally given by Laughlin @Laughlin_1981.
+
+This illustration is based on a very special geometry.
 
 
-=== Robustness of Hall Conductance
+
+==== Integer Conductance
+
+The key idea of the IQHE having an integer quantized Hall conductance
+is that each Landau level go through a spectral flow
+
+==== Robustness
+
+
+=== Edge States
+
+Halperin @halperinQuantizedHallConductance1982, followed Laughlin's
+illustration, yet he also point out that a negelected but important
+aspect of IQHE, which is the edge states. Here I follow @qhelecture
+notes to give an illustration of how the edge states gives out the x
+direction current with a Hall voltage in y direction.
+
+
+
+
 
 
 == TKNN Invariant
@@ -38,7 +66,7 @@ same manner, which is the TKNN invariant.
 === TKNN Formula
 
 
-== Example: Chern Insulator Models
+== Example 1: Chern Insulator Models
 
 This is a series of model that can have nontrivial TKNN invariant and
 thus exhibit quantized Hall conductance without external magnetic
@@ -50,4 +78,6 @@ hopping. Here we might just discussed another simpler model, the
 Qi-Wu-Zhang (QWZ) model @Qi_2006.
 
 
-== Example:
+== Example 2: Hopping Models with Magnetic Field
+
+
