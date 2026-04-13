@@ -32,7 +32,7 @@ $
 #theorem[Ising $=$ Ising$slash ZZ_2$][
   Coupling to a background gauge field $A$, the partition functions of the two theories are related by
   $
-    Z_("Ising"\/ ZZ_2)[A] = sum_(a in H^1(Sigma_g, ZZ_2)) Z_"Ising"[a] (-1)^(integral a union A).
+    Z_("Ising"\/ ZZ_2)[A] = sum_(a in H^1(Sigma_g, ZZ_2)) Z_"Ising" [a] (-1)^(integral a union A).
   $
 ]
 
@@ -55,10 +55,10 @@ One can verify from these calculations that the two theories are isomorphic.
 
 #theorem[Majorana $= ($Ising $times.circle$ Arf$ slash ZZ_2$][
   $
-    Z_"Majorana"[A + rho]
+    Z_"Majorana" [A + rho]
     = frac(1, 2^g) (-1)^("Arf"[rho])
       sum_(a in H^1(Sigma_g, ZZ_2))
-      Z_"Ising"[a] (-1)^("Arf"[a + rho] + integral a union A).
+      Z_"Ising" [a] (-1)^("Arf"[a + rho] + integral a union A).
   $
 ]
 
@@ -74,10 +74,10 @@ This matches the expected result from the Majorana partition function table exac
 
 #theorem[Ising $=$ Majorana$slash ZZ_2$][
   $
-    Z_"Ising"[A]
+    Z_"Ising" [A]
     = frac(1, 2^g) (-1)^("Arf"[A + rho] + "Arf"[rho])
       sum_(a in H^1(Sigma_g, ZZ_2))
-      Z_"Majorana"[a + rho] (-1)^(integral a union A).
+      Z_"Majorana" [a + rho] (-1)^(integral a union A).
   $
 ]
 
@@ -105,7 +105,7 @@ The two theories are related by the Arf invariant partition function (also calle
 
 #theorem[Majorana$' =$ Arf $times.circle$ Majorana][
   $
-    Z_("Majorana'")[A + rho] = (-1)^("Arf"[A + rho]) Z_"Majorana"[A + rho].
+    Z_("Majorana'")[A + rho] = (-1)^("Arf"[A + rho]) Z_"Majorana" [A + rho].
   $
 ]
 

@@ -747,9 +747,9 @@ Notice that here we use $ d w = \displaystyle\frac{L}{\pi}
   use these operator to represent the Hamiltonian on the strip.
 }
 
-\subsection{Boundary Changing Operators}
+\subsection{Boundary Condition Changing Operators}
 
-\subsubsection{Boundary Changing Operators}
+\subsubsection{Boundary Condition Changing Operators}
 
 Then it motivates to think that what happens if we have different
 boundary conditions on the two boundaries of the strip. In this case,
@@ -766,7 +766,6 @@ operators called Boundary Changing Operators.
   Operators. We denote them as $ \psi_{\alpha \beta}(x) $ where $ x
   \in \mathbb{R} $ is the coordinate on the boundary.
 }
-\YL{[To be continued ... I don't fully understand this topic yet ...]}
 
 \subsubsection{Hilbert Space with 2 Boundaries}
 
@@ -789,7 +788,6 @@ use the following general notation to stand for it:
 An explanation of why this might fall into Virasoro representation is
 that we always assume that boundary condition is compatible with the
 conformal symmetry.
-
 However, having two boundary conditions makes the translation
 symmetry along the boundary break down, thus we might not be that
 sure about this.
@@ -811,12 +809,14 @@ don't have translation symmetry along the boundary any more.
     symmetry along the boundary.
 \end{itemize}
 
+
+\subsubsection{How to think about BCCO}
+
+Above discussion are "motivations" of defining such BCCO on the boundary. However, to define such operator, we should not think in a traditional QFT way but in a bootstrapping way. Give out assumptions and try to make everything consistent.
+
 \newpage
 
 \section{Boundary Conditions of BCFT}\label{sec:Bootstrapping BCFT} % (fold)
-\YL{[I think Cardy's discussion in this topic is confusing, I'd like
-    to re-derive it in my own way ... Please have someone to check this
-with me!!!!!!]}
 
 In above sections we learn that there are additional objects in BCFT
 compared to the parent CFT, such as boundary conditions, boundary
@@ -896,7 +896,6 @@ representations of the Virasoro Algebra:
   \end{align}
   where $ p(N) $ is the number of partitions of integer $ N $.
 }
-\YL{[please check this definition ... I'm not sure whether its correct ...]}
 
 There is a Important property of the characters under modular transformation:
 \thm{
@@ -1142,8 +1141,6 @@ The condition is given by:
     \bar{L}_{-n}^P) |\beta \rangle = 0
   \end{align}
 }
-\textbf{THIS THEOREM IS VERY SUBTLE AND IMPORTANT, MANY LITERATURE DO
-NOT GIVE A COMPREHENSIVE PROOF, PLEASE CHECK THIS!!!}
 
 Proof:
 We want to proof the relation by transforming the gluing condition on
@@ -1193,6 +1190,10 @@ Finally, we can get that the gluing condition on the cylinder is given by:
 
 \YL{[I still don't understand this proof very well... but it is claim
 that this won't give out any new condition]}
+
+\rmk{
+  Personally, I'd rather think of the gluing condition as an assumption instead of a theorem of the theory, with this assumption connecting the parent CFT and BCFT, we may able to use the boundary state formalism.
+}
 
 \subsubsection{Ishibashi States}
 

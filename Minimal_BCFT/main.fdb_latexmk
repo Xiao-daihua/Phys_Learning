@@ -1,10 +1,10 @@
 # Fdb version 4
-["xdvipdfmx"] 1775740259.10043 "main.xdv" "main.pdf" "main" 1775740262.10547 0
-  "main.xdv" 1775740258.90773 422284 bc6a0318fee1f25699c538987fa50fa7 "xelatex"
+["xdvipdfmx"] 1776091647.16692 "main.xdv" "main.pdf" "main" 1776091649.2672 0
+  "main.xdv" 1776091647.03332 425596 6822a74a58ca4351926de394eeb52f41 "xelatex"
   (generated)
   "main.pdf"
   (rewritten before read)
-["xelatex"] 1775740252.19417 "main.tex" "main.xdv" "main" 1775740262.09861 0
+["xelatex"] 1776091640.30392 "main.tex" "main.xdv" "main" 1776091649.2616 0
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm" 1136768653 1528 f853c4d1b4e0550255e02831fdc8496f ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/ectt1000.tfm" 1136768653 1536 06717a2b50de47d4087ac0e6cd759455 ""
@@ -205,14 +205,14 @@
   "assets/cylinder.png" 1764524947.29962 73824 45441387e6b7883b3743a70b9e4ffbe4 ""
   "assets/newontour.png" 1764329527.48973 243831 32324c11bbabf753611eb2e9a683d7c0 ""
   "assets/striptrans.png" 1764359025.40251 165095 5a48c2ebb22d80720874bb0b8ae32948 ""
-  "bcft.tex" 1775739827.96752 49798 beeceeef7dba801cd19c5fe8e7bfb271 ""
+  "bcft.tex" 1776091515.16761 49895 5f212c1c84230e30187ac2b9b06ee674 ""
   "cjkhl.sty" 1764329131.69308 2659 07e07fe2124aaffe2c1f544596237850 ""
   "macros.sty" 1764329131.69331 6941 ba45a27a4c54e2119e40ce5c8de2a610 ""
-  "main.aux" 1775740258.84873 13569 36e110efbe1a456edf9a3d222b89be8b "xelatex"
-  "main.out" 1775740258.88762 8596 1dfcd8874b37449ec9baf6faf0e34db6 "xelatex"
+  "main.aux" 1776091646.97413 13761 200c3be84caefc0871737539f699d69a "xelatex"
+  "main.out" 1776091646.99444 9067 1c84e1b7e1f9a5184cfe1541ac84eaf9 "xelatex"
   "main.tex" 1775740252.16138 3080 f02b52ed11babe6df6f0bbb31f887f7c ""
-  "main.toc" 1775740258.88873 4100 3f6b095839a0d0bc658cc45eabc01826 "xelatex"
-  "summary.tex" 1775740235.1725 778 7170a9bbc96b2faea98885a33cd296f3 ""
+  "main.toc" 1776091647.01404 4251 85cc67d94f1b0262a6b8eb03e333c45f "xelatex"
+  "summary.tex" 1776091631.82536 844 7ad1785efedf3b9e18bef6ee5569dea9 ""
   (generated)
   "main.aux"
   "main.log"
