@@ -12,15 +12,16 @@
         notes on gauge theory, and some other references.],
 )
 
-#chapter[Symmetry]
-#include "doc/symmetry.typ"
-
 
 #chapter[Renormalization]
 #include "doc/renormalization.typ"
 
 #chapter[Anomalies]
 #include "doc/anomaly.typ"
+
+#chapter[Symmetry Breaking]
+#include "doc/symmetry.typ"
+
 
 #pagebreak()
 #bibliography("references.bib")
