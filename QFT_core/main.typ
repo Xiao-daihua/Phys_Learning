@@ -11,7 +11,8 @@
         Theory"@peskinIntroductionQuantumField1995, Tong's lecture
         notes on gauge theory, and some other references.],
 )
-
+#chapter[Fundamental Ideas]
+#include "doc/fundamental.typ"
 
 #chapter[Renormalization]
 #include "doc/renormalization.typ"

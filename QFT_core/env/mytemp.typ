@@ -149,8 +149,8 @@
 
     {
         set par(first-line-indent: 0em)
-        text(size: 20pt, weight: "bold")[Contents]
-        v(1em)
+        text(size: 25pt, weight: "bold")[Contents]
+        v(2em)
         outline(
             title: none,
             indent: auto,
