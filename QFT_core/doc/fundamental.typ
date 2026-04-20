@@ -17,9 +17,24 @@ functions*. Then we can:
     functions.
 
 == Kallen-Lehmann Form of Propagator
+This is a topic to ask:
+
+- What will be the propagator consistent lorentz invariant quantum
+    field theory?
+
+We then can see the form of the propagator is highly constraint by
+lorentz invariant and the quantum mechanics structure, which turns out
+to be in a controlable form, called Kallen-Lehmann form.
+
+=== Kallen-Lehmann Form of Scalar Propagator
 
 
-=== Example: 
+=== Kallen-Lehmann Form of Fermion Propagator
+
+
+=== Example: QED Fermion Propagator
+Now we have a look at a concrete example of a lorentz invariant QFT,
+which is QED.
 
 
 == LSZ Reduction Formula
