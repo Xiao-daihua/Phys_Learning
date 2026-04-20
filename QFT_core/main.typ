@@ -17,6 +17,9 @@
 #chapter[Renormalization]
 #include "doc/renormalization.typ"
 
+#chapter[Renormalization Group]
+#include "doc/rg.typ"
+
 #chapter[Anomalies]
 #include "doc/anomaly.typ"
 
