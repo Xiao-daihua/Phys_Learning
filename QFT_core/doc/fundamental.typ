@@ -43,7 +43,98 @@ propagating, and what part is not.
 
 === Kallen-Lehmann Form of Scalar Propagator
 
-First we have a look at the scalar propagator. 
+First we have a look at the scalar propagator. We then need to specify
+our assumptions on the theory, which are:
+
++ The dynamical fields are scalar fields, and the theory is
+    relativistic and Lorentz invariant.
+
++ The theory is a sensible quantum theory.
+
+With these minimal assumptions, we can think of the spectrum of the
+theory can be organized as follow.
+
+==== Spectrum of a Lorentz Invariant QFT
+
+First, the Lorentz invariance of quantum theory means that the theory
+have a symmetry algebra of Poicare Algebra and the Hilbert space forms
+a representation of the Poincare Algebra.
+
+A maximally commuting subalgebra of the momentum operator $H, P^i$,
+which can be used to label states in the theory. We consider a series
+of states in this theory with 0 eigenvalues of $P^i$. We will call
+them:
+$
+    ket(lambda_0) "satisfying" P^i ket(lambda_0) = 0 quad H ket(lambda_0) = m_lambda ket(lambda_0)
+$
+Then we can construct a series of states with nonzero eigenvalues of
+$P^i$ by applying the Lorentz boost operator $K^i$ on the states
+$ket(lambda_0)$, which will give us a series of states
+$ket(lambda_p)$:
+$
+    ket(lambda_p) = e^(i K^i xi_i) ket(lambda_0)
+$
+Due to the Poincare Algebra, we know that:
+$
+    P^i ket(lambda_p) = p^i ket(lambda_p) quad H ket(lambda_p) = sqrt(p^2 + m_lambda^2) ket(lambda_p)
+$
+Thus in general Hilbert Space of this Lorentz Invariant QFT take form
+of:
+$
+    cal(H) = plus.o.big_(lambda, p) ket(lambda_p)
+$
+
+#remark[
+    Notice that $ket(lambda_p)$ may not be a single particle states,
+    but just a general momentum and energy eigenstate may have many
+    particle and messy interaction and bounding between them.
+]
+
+==== Spectral Representation of Scalar Propagator
+
+Consider this theory with the above spectrum. We can then write the 2
+point correlation function as:
+$
+    braket(0, cal(T) phi(x) phi(0), 0)
+$
+Now we insert a complete set of states in the middle, which is:
+$
+    II = ketbra(Omega, Omega) + sum.integral_lambda (dif^3 p) / (2 pi)^3 1 / (2 E_p (lambda)) ketbra(lambda_p, lambda_p)
+$
+#remark[notice that here we assume the relativistic normalization of
+    states.]
+Notice that:
+$
+    braket(Omega, phi(x), Omega) = 0
+$
+This is due to the $ZZ_2$ symmetry of the scalar theory, if we
+redefine $phi arrow.r - phi$ the lagrangian is invariant, yet the
+correlation function will change sign, thus it must be zero. (For
+highier spin, the fact of being an irreducible representation of
+lorentz group will also lead to the vanishing of such one point
+function.)
+
+Then we have:
+$
+    braket(0, cal(T) phi(x) phi(0), 0) = sum.integral_lambda (dif^3 p) / (2 pi)^3 1 / (2 E_p (lambda)) e^(-i p x) braket(Omega, phi(x), lambda_p) braket(lambda_p, phi(0), Omega)
+$
+Now have a look at the matrix element
+$braket(Omega, phi(x), lambda_p)$. We can translate the field to 0 by
+the property of $phi(x)$ being a lorentz scalar:
+$
+    braket(Omega, phi(x), lambda_p) = braket(Omega, e^(i P x) phi(0) e^(-i P x), lambda_p) = e^(-i p x) braket(Omega, phi(0), lambda_p)
+$
+By being a scalar, it must satisfy:
+$
+    U(Lambda) phi(0) U^(dagger)(Lambda) = phi(0)
+$
+Thus we have:
+$
+    braket(Omega, phi(0), lambda_p) = braket(Omega, U^(dagger)(Lambda) U(Lambda) phi(0) U^(dagger)(Lambda) U(Lambda), lambda_p) = braket(Omega, phi(0), lambda_0)
+$
+
+==== Kallen-Lehmann Form of Scalar Propagator
+
 
 
 
@@ -72,6 +163,9 @@ formal structure of the Ward-Takahashi identity following section 9.6
 of @peskinIntroductionQuantumField1995, and then talk about the
 application in electrodynamics, following section 7.4 of
 @peskinIntroductionQuantumField1995.
+
+
+== Ward-Takahashi Identity in General QFT
 
 
 

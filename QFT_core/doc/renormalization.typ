@@ -67,9 +67,9 @@ results for physical quantities. This is the process of
 renormalization.
 
 == Bare Perturbation Theory
-Before going to a modern and systematic way to do renormalization, we
-need to first try to do it in a more naive and cumbersome way called
-*bare perturbation theory*. Yet it may help us to understand why the
+Before going to a systematic way to do renormalization, we need to
+first try to do it in a more naive and cumbersome way called *bare
+perturbation theory*. Yet it may help us to understand why the
 systematica *renormalized perturbation theory* works.
 
 
@@ -136,7 +136,7 @@ identity, which is a consequence of the gauge symmetry.
 
 
 #pagebreak()
-== Classifying Divergences
+== Renomalizability
 
 Above sections we show that some of the divergence in a theory may be
 canceled out using a renomalizing technique. However, for a sensible
@@ -301,9 +301,9 @@ is renormalizable or not:
 
 We will finally see examples of this procedure.
 
-== Mass Dimension and Renormalizability
+=== Mass Dimension and Renormalizability
 
-=== Divergence and Dimensional Analysis
+==== Divergence and Mass Dimension
 
 There is also a more straightforward way of seeing divergence of a
 Feymann Diagram. We know that an amplitude should be of the same
@@ -339,7 +339,7 @@ which is exactly the same as the superficial degree of divergence we
 have defined before.
 
 
-=== Renormalizability
+==== Renormalizability from Mass Dimension
 
 These relations in fact is much physical than just a mathematical
 relation. We then can see the mass dimension of the coupling constant
@@ -368,6 +368,8 @@ Lets apply this two steps to QED:
 
 - *Step 2:* check whether there are truely divergent or not; there are
     more divergent amplitudes beyond superficial expectations.
+
+The list of all superficially divergent, amputated, one particle irreducible basic amplitudes in QED is given in the following table:
 
 
 
