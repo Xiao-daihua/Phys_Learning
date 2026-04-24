@@ -17,16 +17,34 @@ functions*. Then we can:
     functions.
 
 == Kallen-Lehmann Form of Propagator
-This is a topic to ask:
+This is a topic to prepare us for the LSZ reduction formula. The
+question is:
 
-- What will be the propagator consistent lorentz invariant quantum
-    field theory?
+- What is a "particle propagating" in a general Lorentz invariant QFT?
 
-We then can see the form of the propagator is highly constraint by
-lorentz invariant and the quantum mechanics structure, which turns out
-to be in a controlable form, called Kallen-Lehmann form.
+To have a concrete understanding of *particle* in interacting theory,
+we then have the tools of using QFT to describe the scattering of
+particles, and the S-matrix.
+
+In free QFT, we know that the 2 point correlation function is
+interpreted as the amplitude of a particle propagating from one point
+to another:
+$
+    braket(0, cal(T) phi(x) phi(0), 0)
+$
+However, in general QFT, one may not expect this function to have such
+interpretation, since the propergator may include propergation of
+multiparticle states or even particle coming vaccum due to the
+interaction.
+
+Thus, the role of the KL form is to tell us what part of the 2 point
+correlation function can be interpreted as the amplitude of a particle
+propagating, and what part is not.
 
 === Kallen-Lehmann Form of Scalar Propagator
+
+First we have a look at the scalar propagator. 
+
 
 
 === Kallen-Lehmann Form of Fermion Propagator
@@ -38,6 +56,7 @@ which is QED.
 
 
 == LSZ Reduction Formula
+
 
 === Derivation of LSZ Reduction Formula
 

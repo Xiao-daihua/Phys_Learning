@@ -41,7 +41,7 @@ Lets use the mathematical tools developed in the previous sections to
 calculate some examples of loop integrals and do regularization, which
 will be useful for the following sections on renormalization.
 
-=== Example: $phi^4$ Theory
+=== Example: $phi^4$ Theory 1 Loop Diagrams
 
 
 === Example: Electric Vertex Function
@@ -129,11 +129,18 @@ identity, which is a consequence of the gauge symmetry.
 === Example: Vaccum Polarization
 
 
-
+#pagebreak()
 == Classifying Divergences
 
 
+=== Superficial Degree of Divergence
 
+
+
+
+
+
+#pagebreak()
 == Renormalized Perturbation Theory
 
 We have seen that the bare renormalization is cumbersome and may have
