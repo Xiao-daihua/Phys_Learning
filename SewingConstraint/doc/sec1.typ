@@ -35,6 +35,14 @@ about the first one.
 
 == Crossing Symmetry
 
+#figure(
+    image("../assets/crossing symmetry.png", width: 70%),
+    caption: [Crossing Symmetry of 4 point function. The 4 point
+        function can be decomposed into 3 different channels, and the
+        crossing symmetry means that these 3 different decompositions
+        should be the same function.],
+) <fig-crossing-symmetry>
+
 === 4 point function Decomposition
 
 The 4 point function of a CFT can be written in the following way.
@@ -96,6 +104,11 @@ $
 here $F_(p q) mat(i, j; k, l)$ is called the F-matrix, which only
 depends on the chiral data of the CFT. They satisfies some consistency
 conditions which can eventually be determined analytically.
+#note([
+    In fact this duality relation of conformal blocks exatly follows
+    from the expctation of the crossing symmetry to hold, if we assume
+    finite primary fields .
+])
 
 
 === Crossing Symmetry
@@ -118,7 +131,7 @@ if we plug in the F-move, we can get:
         sum_p tensor(C, -1, -2, +p) tensor(C, -3, -4, +p) F_(p q) mat(1, 4; 2, 3) overline(F)_(p l) mat(1, 4; 2, 3)
         = tensor(C, -1, -4, +q) tensor(C, -2, -3, +q) delta_(q l)
     $
-]
+]<thm:crossing-symmetry>
 notice that the consistency condition of conformal blocks makes the
 F-matrix satisfy the following normalization condition:
 $
@@ -137,6 +150,12 @@ $
 
 == Modular Invariance
 
+#figure(
+    image("../assets/modularinv.png", width: 50%),
+    caption: [Modular S Invariance of Torus Partition Function. The
+        torus partition function should be invariant under the modular
+        S transformation.],
+) <fig-modularinv>
 === Modular S Invariance
 
 Modular invariant is that the Torus partition function should be
@@ -167,5 +186,11 @@ $
     chi_i (tau) = sum_j S_(i j) chi_j ( - 1/tau )
 $
 where $S_(i j)$ is called the S-matrix, which only depends on the
-chiral data of the CFT. In fact this follows from the fact that the
-torus partition function can be modular invariant.
+chiral data of the CFT. For RCFT or CFT corresponding to a Modular
+Tensor Category. The S-matrix is symmetric.
+
+#note([
+    In fact the S transformation rule have this form directly follows
+    from expecting the torus partition function to be modular
+    invariant.
+])
