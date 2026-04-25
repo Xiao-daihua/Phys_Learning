@@ -37,7 +37,7 @@ are said to be *equivalent* (or *isomorphic*), written
 $(V, rho) tilde.eq (W, sigma)$.
 
 #theorem("Schur's Lemma")[
- Let $(V, rho)$ and $(W, sigma)$ be irreducible representations of
+    Let $(V, rho)$ and $(W, sigma)$ be irreducible representations of
     $G$, and let $phi in "Hom"_G (V, W)$.
     + If $(V, rho) tilde.equiv.not (W, sigma)$, then $phi = 0$.
     + If $V = W$ and $G$ acts over $CC$, then $phi = lambda "id"_V$
@@ -74,7 +74,7 @@ morphisms is denoted $"Rep"(frak(g))$.
 #example[
     Let $frak(g) = frak(s l)_2(CC)$ with standard generators $e, f, h$
     satisfying $[h, e] = 2e$, $[h, f] = -2f$, $[e, f] = h$. The
-  inite-dimensional irreducible representations $V_n$ ($n in NN$)
+    inite-dimensional irreducible representations $V_n$ ($n in NN$)
     have basis ${v_0, v_1, dots, v_n}$ with
     $
         h dot v_k = (n - 2k) v_k, quad e dot v_k = (n - k + 1) v_(k-1), quad f dot v_k = (k+1) v_(k+1).
@@ -102,13 +102,62 @@ $
     mat(i; j k)(z) : cal(A) times.o cal(A) -> cal(A)
 $
 where $cal(A)$ is a representation of the chiral algebra of CFT, eg.
-Virasoro Algebra.
+Virasoro Algebra. However, instead of following
+@eq:liealgebraintertwiner as a normal lie algebra, it satisfy a more
+complicated intertwining relation:
 
-However, instead of following @eq:liealgebraintertwiner as a normal lie algebra, it satisfy a more complicated intertwining relation:
+We frist define a "co-product" of the chiral algebra representation:
+$
+    & Delta_z : cal(A) -> cal(A) times.o cal(A),\
+    & Delta_( z ) ( L_( n ) ) = 1 times.circle L_( n ) + sum_( k = 0 )^( oo ) binom(n + 1, k) z^( n + 1 - k ) L_( k - 1 ) times.circle 1.
+$
+This kinds of bizzare co-product in fact follows directly from Cauchy
+theorem of complec integral on with 3 point instertion of the virasoro
+generators.
 
-- We frist define a "co-product" of the chiral algebra representation:
-$ 
-Delta_z : cal(A) -> cal(A) times.o cal(A),\ 
-Delta
+Then we define CVO of intertwining objects satisfying:
+
++ *Intetwining* compatible to the co-product:
+$
+    (L_n) mat(i; j k)(z) (beta times.o gamma) & = mat(i; j k)(z) (Delta_z (L_n) (beta times.o gamma))\
+    &= mat(i; j k)(z)[ (beta times.o L_n gamma) + sum_( k = 0 )^( oo ) binom(n + 1, k) z^( n + 1 - k ) (L_( k - 1 ) beta times.o gamma)]
 $
 
++ *Position dependence*:
+$
+    partial_z mat(i; j k)(z) (beta times.o gamma) = mat(i; j k)(z) (L_(-1) beta times.o gamma)
+$
+
+This abstract definition of CVO is equivalent to the constructive
+definition;
+$
+    mat(i; j k)(z) (beta times.o * ) = Phi_(i k)^(j , beta)(z)
+$
+where we view $Phi_(i k)^(j , beta)(z)$ as kinds of a chiral primary
+field with insertion at point $z$ with a field in $j$ representation
+and labeled by $beta$.
+
+To understand the mathematical structure of CFT, we commonly say call
+the space of CVOs with fixed $i,j,k$ representation as $V_(j k)^i$ and
+this is in fact by this definition:
+
+- Mathematically, $V_(j k)^i$ is the space of intertwiners of
+    representations of chiral algebra with the above intertwining
+    relation.
+
+- Semiphysically, $V_(j k)^i$ is the space of chiral primary fields
+    with fixed representation $i,j,k$ and the above position
+    dependence and conformal transformation property.
+
+- Physically, $V_(j k)^i$ is the space of all possible conformal
+    blocks with fixed representation $i,j,k$ and position
+    $0,z,infinity$.
+
+Naively, we may think that the space $V_(j k)^i$ is a 1 dimensional
+vector space due to the fact that the 3 point blocks is fully fixed by
+conformal symmetry. This is true for Virasoro Minimal Models, yet for
+general Kac Moody Theory, this space may be of higher dimension.
+
+We often notation $N_(j k)^i := dim V_(j k)^i$ as the fusion rule of
+the CFT, which counts the number of independent conformal blocks with
+fixed representation $i,j,k$ and position $0,z,infinity$.
