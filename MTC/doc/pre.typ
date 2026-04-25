@@ -161,3 +161,6 @@ general Kac Moody Theory, this space may be of higher dimension.
 We often notation $N_(j k)^i := dim V_(j k)^i$ as the fusion rule of
 the CFT, which counts the number of independent conformal blocks with
 fixed representation $i,j,k$ and position $0,z,infinity$.
+
+
+== Vertex Operator Algebras
