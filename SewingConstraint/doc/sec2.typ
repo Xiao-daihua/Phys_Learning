@@ -39,8 +39,9 @@ function freely.
 
 - *Boundary 2 Point Function* Convention:
 $
-    angle.l psi^(( a b ))_( i ) ( 0 ) psi^(( c d ))_( j ) ( x ) angle.r = delta_( i j ) delta_( a d ) delta_( b c ) x^( - 2 Delta_i ) alpha_i^((a d)), quad x > 0
-$
+    angle.l psi^(( a b ))_( i ) ( 0 ) psi^(( c d ))_( j ) ( x ) angle.r = delta_( i j ) delta_( a d ) delta_( b c ) x^( - 2 Delta_i ) alpha_i^((a b)), quad x > 0
+$#footnote[The notaion here is different from Lewellen's paper, I
+    guess he had a typo in the original paper.]
 Indeed, we can choose to normalize the boundary field itself to make
 the boundary 2 point function to be normalized. However, this won't be
 a natural choice.
@@ -92,8 +93,7 @@ $
 === Cardy's Condition
 
 The first constraint is the Cardy's condition of possible boundary
-conditions:
-#theorem[Cardy's Condition][
+conditions: #theorem[Cardy's Condition][
     $
         Z_( a b ) ( tau ) = T r_( a b ) e^( 2 pi i tau ( L_( 0 ) - c slash 24 ) ) = sum N_( i )^( a b ) chi_( i ) ( tau )\
         = angle.l a|e^( - i pi slash tau ( L_( 0 ) + overline(L)_( 0 ) - c slash 12 ) )|b angle.r.
@@ -116,6 +116,7 @@ notice that the $i$ primary should be diagonal
 $Delta_i = overline(Delta)_i$.
 
 === Solution of Cardy's Condition
+<sec:solutionCardy>
 
 A series of solution for the Cardy's condition is given by the
 following formula for *Diagonal RCFT*, this is discussed in
@@ -144,12 +145,12 @@ result:
 - *0 point function*
 $
     angle.l I angle.r_a = alpha^a = S_(a 0) / sqrt(S_(0 0))
-$
+$<eq:0pointfunction>
 
 - *Bulk Boundary OPE Coefficient* with boundary identity field:
 $
     B_(i)^(( a ) 0) = S_(a i) / S_(a 0) ( S_(0 0) / S_(0 i) )^( 1 slash 2 )
-$
+$<eq:bulkboundaryopei>
 
 
 == Crossing Symmetry
@@ -158,7 +159,7 @@ $
     image("../assets/crossingboundary.png", width: 45%),
     caption: [Crossing Symmetry of 4 point function with boundary.],
 ) <fig-crossingboundary>
-=== 4 point Function Decomposition
+=== Sewing Analysis
 
 The boundary 4 point function can be written as:
 $
@@ -187,28 +188,142 @@ $
 === Boundary Crossing Symmetry
 
 Same as the bulk crossing symmetry, the boundary crossing symmetry
-also give us a constraint on the structure constant:
-#theorem[Boundary Crossing Symmetry][
+also give us a constraint on the structure constant: #theorem[Boundary
+    Crossing Symmetry][
     $
-        sum_k C_(1 2)^((a b c) k) C_(3 4)^((c d a) k) alpha_p^((a c)) F_(k p) mat(1, 4; 2, 3) = C_(4 1)^((d a b) p) C_(2 3)^((b c d) p) alpha_p^((b d))
+        sum_k C_(1 2)^((a b c) k) C_(3 4)^((c d a) k) alpha_k^((a c)) F_(k p) mat(1, 4; 2, 3) = C_(4 1)^((d a b) p) C_(2 3)^((b c d) p) alpha_p^((b d))
     $
 ]<thm:boundarycrossing>
 
 
-== Bulk and Boundary Sewing Constraint
 
-Here we just list out some sewing constriant given in
-@lewellenSewingConstraintsConformal1992. There are phases in the
-constraint, mainly from the analytic structure of conformal blocks.
+== Boundary-Boundary-Bulk Sewing Constraint
+
+Consider a Bulk one point and boundary two point configuration.
+
+#figure(
+    image("../assets/bbulksew.png", width: 65%),
+    caption: [Bulk-Boundary-Boundary Sewing Constraint.],
+) <fig-bbulksew>
+
+=== Sewing Analysis
+
+The fields are labeled by:
+$
+    phi.alt_i (z, overline(z)) quad psi^(( a b ))_( 1 ) ( x_( 1 ) ) quad psi^(( b a ))_( 2 ) ( x_( 2 ) ) quad x_2 > x_1 > 0
+$
+However, the difference of the LHS and RHS is that:
+
+- LHS we have
+    $ x_1< "Re"(z) < x_2 $
+- RHS we have
+    $ "Re"(z)< x_1 < x_2 $
+The two configuration can be equal in the sense of analytical
+continuing the LHS picture form $"Re"(z) > x_1$ to $"Re"(z) < x_1$.
+
+
+On both side we can write the correlation function in terms of the
+conformal blocks with the corss ratio:
+$
+    eta equiv ( ( z - overline(z) ) ( x_( 1 ) - x_( 2 ) ) ) / ( ( z - x_( 1 ) ) ( overline(z) - x_( 2 ) ) ).
+$
+As usual, the conformal blocks is multi-valued and needs a branch cut.
+We choose the branch cut of:
+$
+    cal(F)(i overline(i), 1 2; k) (eta)
+$
+at from $- infinity$ to 1 to ensure that the correlation function is
+single valued as $x_2 > x_1$ and $z$ is in the upper half plane.
+
+However, as we assume that $phi.alt$ field approaches the boundary,
+the two cases beahaves differently:
+
+- LHS: as $phi.alt$ approaches the boundary, the cross ratio $eta$
+    approaches 0 from the UHP.
+
+- RHS: as $phi.alt$ approaches the boundary, the cross ratio $eta$
+    approaches 0 from the LHP.
+
+This discussion is just of a rough picture. For detailed analysis see
+@lewellenSewingConstraintsConformal1992.
 
 === Boundary-Boundary-Bulk Sewing Constraint
+
+Now we analytical continue the LHS picture from $eta$ approaches 0
+from UHP to $eta$ approaches 0 from LHP. We do this by turning
+clockwise around the branch cut.
+
+#figure(
+    image("../assets/analytic cont.png", width: 40%),
+    caption: [Analytical continuation of the Bulk-Boundary-Boundary
+        configuration.
+    ],
+) <fig-analytic-cont>
+Under this continuation, in fact we can express in terms of the
+duality matrixand give out a sewing constraint:
+
+#theorem[Boundary-Boundary-Bulk Sewing Constraint][
+    $
+        &sum_p sum_s B_i^((b) p) C_(2 1)^((b a b)p) alpha_p^((b b)) F_(p s)mat(i, 2; overline(i), 1) F_(s q)mat(i, overline(i); 2, 1) e^( i pi ( Delta_( 1 ) + Delta_( 2 ) + 2 Delta_( i ) - 2 Delta_( s ) - 2 Delta_( s ) + Delta_( q ) ) )\
+        &= B_i^((a) q) C_(1 2)^((a b a) q) alpha_q^((a a))
+    $
+]<thm:bbulksew>
+
+
+== Bulk-Bulk Sewing Constraint
+
+#figure(
+    image("../assets/bbsewi.png", width: 55%),
+    caption: [Bulk-Bulk Sewing Constraint.],
+) <fig-bbsewi>
+
+
+=== Sewing Analysis
+
+This swing constraint is about 2 bulk fields configuration. There are
+two different ways to fuse the two bulk fields:
+
++ Fuse two bulk field into 1 and then calculate the 1 point function
+    of the bulk field.
+
++ Fuse each bulk field into boundary field and then calculate the 2
+    point function of the boundary field.
 
 
 === Bulk-Bulk Sewing Constraint
 
+This gives out a constraint on the bulk-boundary OPE coefficient,
+given bulk OPE and boundary 2 point function:
 
+#theorem[Bulk-Bulk Sewing Constraint][
+    $
+        B_i^((a) q) B_j^((a) q) alpha_q^((a a)) = sum_m tensor(C, -j, -i, +m) B_m^((a) I) alpha^a F_(m q)mat(i, overline(i); j, overline(j)) e^( ( i pi slash 2 ) [ Delta_( j ) - overline(Delta)_( j ) + overline(Delta)_( i ) - Delta_( i ) ] )
+    $
+]<thm:bbulksew>
+
+
+== Bulk-Bulk-Boundary Sewing Constraint
+
+The final one is the bulk-bulk-boundary sewing constraint:
+
+#figure(
+    image("../assets/bbboundary.png", width: 55%),
+    caption: [Bulk-Bulk-Boundary Sewing Constraint.],
+) <fig-bbboundary>
 
 === Bulk-Bulk-Boundary Sewing Constraint
 
+This constraint need a more detailed analysis of analytical structure
+and constains analysis of 5 point conformal block, thus we won't give
+the detailed analysis here.
+
+The result is:
+#theorem[Bulk-Bulk-Boundary Sewing Constraint][
+    $
+        & C_(t q)^((a a a) psi ) B_1^((a) t) B_2^((a) q) \
+        = & sum_p sum_r tensor(C, -2, -1, +p) B_p^((a) psi) F_(p r)mat(1, psi; 2, overline(p)) F_(overline(p),q)mat(2, overline(2); r, overline(1)) F_(r t) mat(1, overline(1); psi, q)\
+        times & e^((i pi/2)(Delta_psi + Delta_1 + overline(Delta)_1 + Delta_2 - overline(Delta)_2 - Delta_p + overline(Delta)_p - 2 Delta_r + Delta_q - Delta_t))
+    $
+]
 
 
