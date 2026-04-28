@@ -83,14 +83,14 @@ Thus we have a symmetry of OPE coefficient:
 $
     C_(i j)^((a b c) k) alpha_k^((a c)) = C_(j k)^((b c a) i) alpha_i^((b a)) = C_(k i)^((c a b) j) alpha_j^((c b))
 $
+== Sewing Constraints
 
-== Cardy's Condition
+=== Cardy's Condition
 
 #figure(
     image("../assets/cardy.png", width: 45%),
     caption: [Cardy's condition of possible boundary conditions. ],
 ) <fig-cardy>
-=== Cardy's Condition
 
 The first constraint is the Cardy's condition of possible boundary
 conditions: #theorem[Cardy's Condition][
@@ -102,7 +102,7 @@ conditions: #theorem[Cardy's Condition][
 Here $ket(a), ket(b)$ are boundary states corresponding to the
 boundary conditions $a, b$.
 
-=== Ishibashi State
+==== Ishibashi State
 
 On the Cylinder the conformal boundary condition can be written as:
 $
@@ -115,7 +115,7 @@ $
 notice that the $i$ primary should be diagonal
 $Delta_i = overline(Delta)_i$.
 
-=== Solution of Cardy's Condition
+==== Solution of Cardy's Condition
 <sec:solutionCardy>
 
 A series of solution for the Cardy's condition is given by the
@@ -134,7 +134,7 @@ field. This lead to a idea of:
 This is an observation for diagonal RCFT, however, for general CFT
 this may not work and need to be modified.
 
-=== 0 point function and Bulk Boundary OPE
+==== 0 point function and Bulk Boundary OPE
 
 The solution @eq:solutionCardy also give us a nontrivial 0 point
 function and the bulk boundary OPE coeffcient for identity boundary
@@ -153,13 +153,13 @@ $
 $<eq:bulkboundaryopei>
 
 
-== Crossing Symmetry
+=== Crossing Symmetry
 
 #figure(
     image("../assets/crossingboundary.png", width: 45%),
     caption: [Crossing Symmetry of 4 point function with boundary.],
 ) <fig-crossingboundary>
-=== Sewing Analysis
+==== Sewing Analysis
 
 The boundary 4 point function can be written as:
 $
@@ -185,7 +185,7 @@ $
     $x_4 > x_3 > x_2 > x_1$ is single valued.
 ]
 
-=== Boundary Crossing Symmetry
+==== Boundary Crossing Symmetry
 
 Same as the bulk crossing symmetry, the boundary crossing symmetry
 also give us a constraint on the structure constant: #theorem[Boundary
@@ -197,7 +197,7 @@ also give us a constraint on the structure constant: #theorem[Boundary
 
 
 
-== Boundary-Boundary-Bulk Sewing Constraint
+=== Boundary-Boundary-Bulk Sewing Constraint
 
 Consider a Bulk one point and boundary two point configuration.
 
@@ -206,7 +206,7 @@ Consider a Bulk one point and boundary two point configuration.
     caption: [Bulk-Boundary-Boundary Sewing Constraint.],
 ) <fig-bbulksew>
 
-=== Sewing Analysis
+==== Sewing Analysis
 
 The fields are labeled by:
 $
@@ -247,7 +247,7 @@ the two cases beahaves differently:
 This discussion is just of a rough picture. For detailed analysis see
 @lewellenSewingConstraintsConformal1992.
 
-=== Boundary-Boundary-Bulk Sewing Constraint
+==== Boundary-Boundary-Bulk Sewing Constraint
 
 Now we analytical continue the LHS picture from $eta$ approaches 0
 from UHP to $eta$ approaches 0 from LHP. We do this by turning
@@ -270,7 +270,7 @@ duality matrixand give out a sewing constraint:
 ]<thm:bbulksew>
 
 
-== Bulk-Bulk Sewing Constraint
+=== Bulk-Bulk Sewing Constraint
 
 #figure(
     image("../assets/bbsewi.png", width: 55%),
@@ -278,7 +278,7 @@ duality matrixand give out a sewing constraint:
 ) <fig-bbsewi>
 
 
-=== Sewing Analysis
+==== Sewing Analysis
 
 This swing constraint is about 2 bulk fields configuration. There are
 two different ways to fuse the two bulk fields:
@@ -290,7 +290,7 @@ two different ways to fuse the two bulk fields:
     point function of the boundary field.
 
 
-=== Bulk-Bulk Sewing Constraint
+==== Bulk-Bulk Sewing Constraint
 
 This gives out a constraint on the bulk-boundary OPE coefficient,
 given bulk OPE and boundary 2 point function:
@@ -302,7 +302,7 @@ given bulk OPE and boundary 2 point function:
 ]<thm:bbulksew>
 
 
-== Bulk-Bulk-Boundary Sewing Constraint
+=== Bulk-Bulk-Boundary Sewing Constraint
 
 The final one is the bulk-bulk-boundary sewing constraint:
 
@@ -311,7 +311,6 @@ The final one is the bulk-bulk-boundary sewing constraint:
     caption: [Bulk-Bulk-Boundary Sewing Constraint.],
 ) <fig-bbboundary>
 
-=== Bulk-Bulk-Boundary Sewing Constraint
 
 This constraint need a more detailed analysis of analytical structure
 and constains analysis of 5 point conformal block, thus we won't give
@@ -325,5 +324,8 @@ The result is:
         times & e^((i pi/2)(Delta_psi + Delta_1 + overline(Delta)_1 + Delta_2 - overline(Delta)_2 - Delta_p + overline(Delta)_p - 2 Delta_r + Delta_q - Delta_t))
     $
 ]
+
+== Summary
+Here I list out all sewing constraints with boundary presented:
 
 
