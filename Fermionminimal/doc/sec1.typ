@@ -113,10 +113,8 @@ $
 
 === Spin Structure
 
-==== Definition
-
-Mathematically, a spin structure can be defined via the quadratic
-refinement of a $ZZ_2$ gauge field,
+*Definition*: Mathematically, a spin structure can be defined via the
+quadratic refinement of a $ZZ_2$ gauge field,
 $
     rho : H^1(Sigma_g, ZZ_2) -> ZZ_2.
 $
@@ -142,12 +140,10 @@ $
 which physically corresponds to flipping the fermion boundary
 condition along cycles where $A$ is nonzero.
 
-==== Arf Invariant
-
-The Arf invariant is a $ZZ_2$-valued number depending only on the spin
-structure; it distinguishes "even" from "odd" spin structures.
-Mathematically it is defined using quadratic refinements acting on
-basis elements.
+*Arf Invariant*: The Arf invariant is a $ZZ_2$-valued number depending
+only on the spin structure; it distinguishes "even" from "odd" spin
+structures. Mathematically it is defined using quadratic refinements
+acting on basis elements.
 
 On $T^2$ with standard cycles $(a, b)$ we label spin structures with
 $0$ (AP) and $1$ (P). The four spin structures and their Arf
@@ -176,7 +172,7 @@ invariants are:
     caption: [Arf invariants of the four spin structures on $T^2$.],
 )
 
-=== Useful Results Involving the Arf Invariant
+*Useful Calculational Result*: Now list out some usedful calculational result of Background $ZZ_2 $ gauge field and spin structure:
 
 Cup product calculation, For all $ZZ_2$ gauge fields
 $s in H^1(Sigma_g, ZZ_2)$:
