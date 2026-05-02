@@ -41,7 +41,6 @@ Lets use the mathematical tools developed in the previous sections to
 calculate some examples of loop integrals and do regularization, which
 will be useful for the following sections on renormalization.
 
-=== Example: $phi^4$ Theory 1 Loop Diagrams
 
 
 === Example: Electric Vertex Function
@@ -369,7 +368,8 @@ Lets apply this two steps to QED:
 - *Step 2:* check whether there are truely divergent or not; there are
     more divergent amplitudes beyond superficial expectations.
 
-The list of all superficially divergent, amputated, one particle irreducible basic amplitudes in QED is given in the following table:
+The list of all superficially divergent, amputated, one particle
+irreducible basic amplitudes in QED is given in the following table:
 
 
 
@@ -387,11 +387,11 @@ some potential problems unclear in the procedure.
 *Renormalization Condition* is in fact defining what the physical
 quantities are in this theory.
 
+=== Understanding From LSZ
 
-=== Understanding from LSZ
-
-This subsection address understanding of renormalization from the LSZ
-reduction formula
+Its good to mention @srednickiQuantumFieldTheory2007's understanding
+of renormalization and counter terms from interpreting the LSZ
+reduction formula.
 
 == Examples of RPT
 

@@ -20,11 +20,12 @@
 #chapter[Renormalization Group]
 #include "doc/rg.typ"
 
+#chapter[Spontaneous Symmetry Breaking]
+#include "doc/symmetry.typ"
+
 #chapter[Anomalies]
 #include "doc/anomaly.typ"
 
-#chapter[Symmetry Breaking]
-#include "doc/symmetry.typ"
 
 
 #pagebreak()
