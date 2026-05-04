@@ -30,12 +30,6 @@ A modern work on the fermionization of boundary states is given in
 @fukusumiFermionizationBoundaryStates2021.
 
 
-== Anomalies in Theory with Boundary
-
-The maually adding of a boundary fermion is an indication of the
-anomaly of the theory. Another paper on this topic gives a discussion
-from this perspective @smithBoundaryStatesAnomalous2021.
-
 
 
 

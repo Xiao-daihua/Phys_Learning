@@ -13,16 +13,19 @@
 
 
 #pagebreak()
-#include "doc/sec1.typ"
+#include "doc/Isingmaj.typ"
 
 #pagebreak()
-#include "doc/sec2.typ"
+#include "doc/fermion1.typ"
 
 #pagebreak()
-#include "doc/sec3.typ"
+#include "doc/fermboundarystate.typ"
 
 #pagebreak()
-#include "doc/sec4.typ"
+#include "doc/fermion2.typ"
+
+#pagebreak()
+#include "doc/stateoperator.typ"
 
 #pagebreak()
 #bibliography("references.bib")

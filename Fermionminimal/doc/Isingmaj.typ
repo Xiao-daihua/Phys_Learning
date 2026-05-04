@@ -333,7 +333,7 @@ isomorphic.
 
 *Example.* Take $A = 0$ and fix the spin structure $rho = (0,0)$ (two
 NS boundary conditions). Since $"Arf"[(0,0)] = 0$, the sign
-$(-1)^("Arf"[a + rho]}$ equals $-1$ only for $a = (1,1)$. Therefore:
+$(-1)^("Arf"[a + rho])$ equals $-1$ only for $a = (1,1)$. Therefore:
 $
     Z_M [(0,0)]
     &= frac(1, 2) (Z[(0,0)] + Z[(1,0)] + Z[(0,1)] - Z[(1,1)]) \

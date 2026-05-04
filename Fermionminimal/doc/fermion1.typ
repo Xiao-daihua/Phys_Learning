@@ -1,6 +1,6 @@
 #import "../env/lib.typ": *
 
-= Fermionization of Virasoro Minimal Models
+= Fermionization of Virasoro Minimal Models I
 
 The above discussion of the Ising CFT and the Majorana CFT can be
 generalized to general to A series and D series Virasoro minimal
@@ -11,18 +11,7 @@ minimal models. This work is initially given in
 construction, which efficiently give out the Hilbert Space and the
 structural constant of Fermionic Minimal Models.
 
-
-== Fermionization of Minimal Models
-
 This section will review the fermionization of Virasoro minimal model
 from @hsiehFermionicMinimalModels2021.
-
-
-== Fermionization from Defects
-
-This section will review the fermionization of Virasoro minimal model
-from @runkelFermionicCFTsClassifying2020.
-
-
 
 
