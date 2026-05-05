@@ -325,7 +325,28 @@ The result is:
     $
 ]
 
+#pagebreak()
 == Summary
 Here I list out all sewing constraints with boundary presented:
+
+- Boundary Crossing Symmetry:
+$
+    sum_k C_(1 2)^((a b c) k) C_(3 4)^((c d a) k) alpha_k^((a c)) F_(k p) mat(1, 4; 2, 3) = C_(4 1)^((d a b) p) C_(2 3)^((b c d) p) alpha_p^((b d))
+$
+- Boundary-Boundary-Bulk Sewing Constraint:
+$ 
+        &sum_p sum_s B_i^((b) p) C_(2 1)^((b a b)p) alpha_p^((b b)) F_(p s)mat(i, 2; overline(i), 1) F_(s q)mat(i, overline(i); 2, 1) e^( i pi ( Delta_( 1 ) + Delta_( 2 ) + 2 Delta_( i ) - 2 Delta_( s ) - 2 Delta_( s ) + Delta_( q ) ) )\
+        &= B_i^((a) q) C_(1 2)^((a b a) q) alpha_q^((a a))
+$
+- Bulk-Bulk Sewing Constraint:
+$ 
+        B_i^((a) q) B_j^((a) q) alpha_q^((a a)) = sum_m tensor(C, -j, -i, +m) B_m^((a) I) alpha^a F_(m q)mat(i, overline(i); j, overline(j)) e^( ( i pi slash 2 ) [ Delta_( j ) - overline(Delta)_( j ) + overline(Delta)_( i ) - Delta_( i ) ] )
+$
+- Bulk-Bulk-Boundary Sewing Constraint:
+$ 
+        & C_(t q)^((a a a) psi ) B_1^((a) t) B_2^((a) q) \
+        = & sum_p sum_r tensor(C, -2, -1, +p) B_p^((a) psi) F_(p r)mat(1, psi; 2, overline(p)) F_(overline(p),q)mat(2, overline(2); r, overline(1)) F_(r t) mat(1, overline(1); psi, q)\
+        times & e^((i pi/2)(Delta_psi + Delta_1 + overline(Delta)_1 + Delta_2 - overline(Delta)_2 - Delta_p + overline(Delta)_p - 2 Delta_r + Delta_q - Delta_t))
+$
 
 

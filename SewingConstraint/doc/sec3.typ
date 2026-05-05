@@ -91,8 +91,6 @@ the cardy states can be explicitly written out.
 
 === Boundary Sewing Constraint
 
-==== Cardy's Condition
-
 A trivial one is the Boundary 0 point function and bulk-boundary I
 OPE, which follows directly from Cardy's condition.
 
@@ -109,4 +107,3 @@ $
     & B_sigma^((f) I) = 0 quad B_sigma^((plus.minus) sigma) = plus.minus 2^(1 slash 4) \
 $
 
-==== 
