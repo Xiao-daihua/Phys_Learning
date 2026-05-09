@@ -172,7 +172,8 @@ invariants are:
     caption: [Arf invariants of the four spin structures on $T^2$.],
 )
 
-*Useful Calculational Result*: Now list out some usedful calculational result of Background $ZZ_2 $ gauge field and spin structure:
+*Useful Calculational Result*: Now list out some usedful calculational
+result of Background $ZZ_2$ gauge field and spin structure:
 
 Cup product calculation, For all $ZZ_2$ gauge fields
 $s in H^1(Sigma_g, ZZ_2)$:
@@ -195,9 +196,8 @@ $
 
 The Ising CFT and Majorana CFT are related by a web of dualities. We
 use the torus partition function as an illustrative example; the
-dualities are claimed to hold on general closed Riemann surfaces.
-
-Here is a diagram illustrating the dualities:
+dualities are claimed to hold on general closed Riemann surfaces. Here
+is a diagram illustrating the dualities:
 
 #figure(
     image("../assets/webduality.png", width: 90%),
@@ -261,6 +261,11 @@ with their character expansions.
     ),
     caption: [Partition functions and characters for Ising CFT.],
 )
+This calculation data is given by many old school CFT textbooks. For
+example, the yellow book and Ginsbarg's lecture notes. Now let's use
+the above data to verify the dualities in the web.
+
+
 === Ising $=$ Ising$slash ZZ_2$ (Kramers-Wannier Duality)
 
 This duality is a $ZZ_2$ orbifold exchanging the A-series and D-series
