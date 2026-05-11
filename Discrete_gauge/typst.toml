@@ -1,0 +1,7 @@
+[package]
+name = "symmetry-defect"
+version = "0.1.0"
+
+[compile]
+main = "main.typ"
+output = "main.pdf"
