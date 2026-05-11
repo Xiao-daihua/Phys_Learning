@@ -8,6 +8,10 @@
   ],
 )
 
-Main Text
 
+= What is a Gauge Field? 
+
+
+
+#bibliography("references.bib")
 
