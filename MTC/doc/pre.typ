@@ -1,11 +1,12 @@
-
 #import "../env/lib.typ": *
 
-= Preliminaries
+= Algebras and Representations
 
 This section we introduce some concepts in Algebra and Representation
-that may help us understand category as a more general mathematical
-structure.
+Theory. We will see that these concepts are very useful in
+characterizing structures in CFT and they naturally forms a category
+structure, which is the main topic of the next section.
+
 
 == Intertwiner and Representation
 
@@ -164,3 +165,49 @@ fixed representation $i,j,k$ and position $0,z,infinity$.
 
 
 == Vertex Operator Algebras
+
+We know that a CFT should have a chiral algebra, well at least the
+Virasoro Algebra. You do can add extra symmetries and have more, like
+Kac Moody Algebra ... And we know that the Hilbert Space of the CFT
+should form a direct sum of unitary representation of the chiral
+algebra:
+$
+    cal(H) = plus.o.big_i cal(H)_i, quad cal(H)_i = V_i times.o overline(V)_i,
+$
+where $V_i$ is the representation of the chiral algebra. In simple
+cases like the Virasoro Minimal Models, the representation of Virasoro
+Algebra may quite uniquely describe the CFT.
+
+However, in more general and complicated cases, a same Virasoro
+Algebra (with definite central charge) may have many different CFT
+theories. A fundamental example is the $c = 1$ Virasoro Algebra, which
+can give rise to tons of models.
+
+Thus, one may want to have a more delicate and precise
+characterization of the theory, this is where the Vertex Operator
+Algebra comes in. However, for our understanding one may imagine it as
+the Virasoro Algebra and its representation as the representation of
+the Virasoro Algebra, as Moore and Seiberg originally did in their
+work.
+
+
+=== Module and Intertwiner
+
+For CFT what is important is the representation and the intertwiners
+of VOA. One may analogue it as a generalization:
+
+- Representation of Chiral Algebra (Virasoro, Kac Moody, ...) $tilde$
+    Representation of VOA (often called a module of VOA)
+
+- Chiral Vertex Operator $tilde$ Intertwiner of VOA modules
+
+With these preparation we can see that there is a natural mathematical
+structure:
+
+- We can view Representations as kinds of *objects*
+
+- And we view the intertwiners as kinds of *morphisms* between these
+    objects.
+
+This is how a Modular Tensor Category is born in CFT and which will be
+the main topic of the next section.

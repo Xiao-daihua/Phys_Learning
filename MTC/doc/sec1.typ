@@ -2,6 +2,12 @@
 
 = Modular Tensor Categories
 
+We already see that CFT conformal blocks give rise to defining
+representations and CVOs and their structure naturally forms a
+*object* and *morphism* structure, which is the basic ingredient of a
+Category. Thus, we can use the language of Category to describe the
+structure of CFT, and this is what we call a Modular Tensor Category.
+
 == Category Basics
 
 A Category $cal(C)$ is a mathematical structure with 2 typse of data:
@@ -107,7 +113,7 @@ physicist is better to understand as:
 
 === Tensor Category
 
-A tensor category means that there is a tensor product $times.o$ on the
-category defined both for objects and morphisms, such that:
+A tensor category means that there is a tensor product $times.o$ on
+the category defined both for objects and morphisms, such that:
 
 -
