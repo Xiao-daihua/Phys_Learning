@@ -2,9 +2,11 @@
 #import "env/lib.typ": *
 
 #show: notetemp.with(
-  title: [Conformal Blocks and Crossing Symmetry],
-  author: [Yu Liu], 
-  abstract: [Here is a note on a AMAZING topic of 2 dimensional CFT developed in the 80s. ],
+    title: [Crossing of RCFT Conformal Blocks],
+    author: [Yu Liu],
+    abstract: [Here is a note on a AMAZING topic of 2 dimensional CFT
+        developed in the 80s.
+    ],
 )
 
 #pagebreak()
