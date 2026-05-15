@@ -29,13 +29,22 @@ course, we can just do the minimal coupling and be happy with it.
 However, to make it more general, we should not assume we always have
 a conserved current or even a classical lagrangian description.
 
-== What is a Symmetry?
+== Symmetry Characterized by Generators
 
 To characterize a symmetry in QFT, we can use the conserved current or
 the conserved charge. However, these are objects unique to the
 continuous symmetry and expects the theory to have a classical
-counterpart. To make thing general, we should think about another
-object *the symmetry generator*.
+counterpart. A seemingly general object to characterize a quantum
+symmetry is the Ward Identity.
+#note([
+    A quite general way of thinking about symmetry is Ward identities.
+    The correlation function satisfying some non-trivial constraints
+    may signal a symmetry, which may not be invertible and permitted
+    in the group structure.
+])
+However, it is not a "object like stuff" which are good to consider.
+To make thing general, we should think about another object *the
+symmetry generator*.
 
 === Classical Definition
 
@@ -81,7 +90,7 @@ one.
 #note([
     Notice that the world is NOT classical, it is definitely true that
     we can have some quantum object without classical counterparts.
-    Namingly can't be derived from quantizing some classical object.
+    Namely can't be derived from quantizing some classical object.
 
     Thus, we don't derive a quantum theory from a classical one, but
     use some quantization scheme and results to guess what properties
@@ -120,7 +129,6 @@ are:
 #YL([finish this part later])
 
 
-
 === A Slogan for Symmetry
 
 At this point it is now wise to introduce a slogan to characterize
@@ -136,6 +144,11 @@ This is a powerful generalization of the notion of symmetry, which
 eventually we will see that it can be applied to continuous
 symmetries, discrete symmetries, and even symmetries without a
 inverse, called non-invertible symmetries.
+
+However, in this note we try to make use of group symmetry and assume
+0-form symmetry. However, the language we use can be easily
+generalized to higher form symmetries and non-invertible symmetries,
+which we will discuss in another note.
 
 == What is a Gauge Field?
 
@@ -251,12 +264,72 @@ $
     c_2 = 1/(8 pi^2) integral.cont_(S) "Tr"(F and F) in ZZ
 $
 
+=== Higher Form Gauge Field
+
+This note we try to touch some generalization of symmetry to higher
+form. Thus, we need to define what is a higher form gauge field. A
+theorem shows that:
+#theorem[Abelian Higher Form Symmetry][
+    A higher form symmetry is always an abelian symmetry, thus the
+    gauge field of a higher form symmetry is always an abelian gauge
+    field.
+]
+To make life simple, we here just consider *U(1) higher form symmetry*
+and *U(1) higher form gauge field*, which is a common case.
+
+For a p-form symmetry, the current is a (p+1)-form $j$, thus it should
+couple to a (p+1)-form U(1) gauge field $A$ as:
+$
+    S = integral_(M_d) A and *j
+$
+where $A$ is a (p+1)-form gauge field, and the gauge transformation
+is:
+$
+    A arrow.r A + d Lambda_p
+$
+And here $Lambda_p$ is a *p-form Gauge Field* : Remember the gauge
+transformation is a gauge field!!!
+
+For $A$ as a (p+1)-form gauge field, the field strength is a
+(p+2)-form, that are quantized under the following condition:
+$
+    F = d A ,quad integral.cont_(S_(p+2)) F in 2 pi ZZ
+$
+it is quantized for any p+2 dimensional closed manifold $S_(p+2)$.
+Moreover, we should notice that the gauge transformation is also a
+gauge field. Thus there is a "gauge transformation of gauge
+transformation", which is a (p-1)-form gauge field $Lambda_(p-1)$:
+$
+    Lambda_p arrow.r Lambda_p + d Lambda_(p-1)
+$
+and the gauge transformation have a quantized flux condition as well:
+$
+    integral.cont_(S_(p+1)) d Lambda_p in 2 pi ZZ
+$
+This is nothing strange to us, consider the ordinary U(1) gauge field,
+the gauge transformation is:
+$
+    A arrow.r A + d Lambda_0
+$
+and if we integrate the gauge transformation over a closed loop, we
+have:
+$
+    integral.cont_(S_1) d Lambda_0 in 2 pi ZZ
+$
+This is due the fact if we integrate through patches, we can have a
+$2 pi ZZ$ shift, by the above construction.
+
+#YL([In fact I really don't think I understand this, this should be
+    taught in a cohomology language naturally, which I don't
+    understand.])
+
 
 == How to Couple to a Gauge Field?
 
 Now we start with the true topic, Gauging. By gauging a symmetry, we
-mean coupling the theory to a gauge field and make it dynamical.
-
+mean coupling the theory to a gauge field and make it dynamical. This
+section is to point out an observation. Namely, coupling to a gauge
+field is equivalent to inserting the symmetry generator properly.
 
 === BG Gauge Field Insertion of Symmetry Generator
 
@@ -270,12 +343,109 @@ operators with Wilson line attached.
 
 == Anomaly
 
+For a system with a lagrangian description, we may expect a symmetry
+of the lagrangian may not be a symmetry of the QFT. By symmetry of
+QFT, we mean that the Ward Identity is not satisfied.
+
+=== Definition and Classification
+
+Traditionally, we define an anomaly as the Ward identity is not
+satisfied. Now due to the discussion of symmetry and background gauge
+field, we can give a definition from the perspective of gauging.
 
 
+=== Anomaly inflow and Invertible Theory
+
+
+
+#pagebreak()
 = How to Gauge a Discrete Symmetry?
 
+Now we turn to the main topic of this note, gauging a discrete
+symmetry. To do this we may first define what we mean by a discrete
+gauge field, and a discrete symmetry of a QFT.
+
+== Discrete Symmetry
+
+=== Traditional Chracterization
+
+Wigner Theorem tells us that a Quantum theory has a symmetry is given
+by a Unitary or Anti-Unitary operator, forming a representation of the
+symmetry group on the Hilbert space. We can characterize the symmetry
+with these operators.
+
+A discrete symmetry is a symmetry whose symmetry group is a discrete
+group, which can be finite or infinite. The Hilbert space forms a
+Unitary or Anti-Unitary representation of the symmetry group, and
+those operator
+
+- *Group Structure*:
+$
+    U(g_1) U(g_2) = U(g_1 g_2)
+$
+- *Conserved*:
+$
+    U(g) H U(g)^(-1) = H
+$
+- *Generate transformation*:
+$
+    U(g) O(x) U(g)^(-1) = R(g) O(x)
+$
+- *Ward Identity*: they also have some Ward identities, which can be
+    used to constrain the correlation function. A simple example is
+    the $ZZ_2$ symmetry of free scalar field theory, which acts as
+    $phi(x) arrow.r -phi(x)$, and the Ward identity tells us that the
+    correlation function of odd number of $phi$ must vanish.
+- ...
+
+=== Modern Characterization
+
+Remember the slogan we introduced before, we can generalize to think
+about symmetry generators not only as operators but also defects that
+insert topologically in the Euclidean picture. A problem is that we
+don't have a local current something to make the generalization smooth
+as the continuous case. However, imposing consistency conditions and
+observing the relation with Ward identities, we can still define the
+symmetry generators and identify them with symmetries.
+
+As far as I know, in 2D QFT these generalized symmetries can be
+described by Topological Defect Lines systematically
+@changTopologicalDefectLines2019a, satisfying a series of
+characteristic properties. It turns out that these symmetries doesn't
+have a group structure, but rather a structure of fusion category. For
+higher dimensional QFT, the story is more complicated and general.
+
+
+== Discrete Gauge Field
+
+Another problem is what is a discrete gauge field and what
+mathematical language characterize these objects.
+
+For discrete symmetry we don't have a Lie algebra, the Lie algebra of
+a discrete group is 0 thus:
+$
+    A = 0 ,quad F = 0
+$
+Naively we only have trivial objects that are meaningless. However, we
+remember that a gauge field may not be globally defined, but only on
+patches. Though we have 0 for the gauge field locally, we may have
+non-trivial holonomy when going through patches:
+$
+    "Hol"(C) = exp (i integral.cont_(C) A) = g in G
+$
+In fact to characterize this data, we don't need to introduce the
+gauge field but the transition function between patches:
+$
+    g_(i j) : U_i sect U_j arrow.r G
+$
 
 
 
+#pagebreak()
+= Dual Symmetry
+
+
+
+#pagebreak()
 #bibliography("references.bib")
 
