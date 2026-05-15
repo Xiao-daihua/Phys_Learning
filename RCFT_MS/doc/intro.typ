@@ -26,16 +26,19 @@ This gives a deep connection between 2D CFT and complex geometry. This
 point of view also gives us insights on the quantization of
 Teichmuller space, which is a key step in understanding AdS3 gravity.
 
-In this note, I'll mainly focus points:
+In this note, I'll mainly focus on the basic points:
 
-+ duality matrices and crossing of conformal blocks.
++ Duality matrices and crossing of conformal blocks.
 
 + Underlining Modular Funtor and Modular Tensor Category Mathematical
     Structure.
 
++ Relation to TQFT and WZW / Chern-Simons Correspondence
+
 
 == Axiomatic CFT
 
-We first review the BPZ axioms of 2D CFT.
+We first review the BPZ axioms of 2D CFT, which will be the guideline
+for our discussion.
 
 
