@@ -16,7 +16,8 @@ with two important features:
 + *Integer Hall Conductivity*: The Hall conductance $sigma_(x y)$ is
     quantized in integer multiples of:
 $
-    sigma_(x y) = frac(e^2, 2 pi planck.reduce) n, quad n = 0, 1, 2, ...
+   rho_(x y) = frac(2 pi planck.reduce, e^2) 1/n
+, quad n = 0, 1, 2, ...
 $
 
 + *Plateau Regions*: The quantized Hall conductance occurs in plateau
@@ -27,7 +28,10 @@ $
     $sigma_(x x)$ vanishes in the plateau regions where the Hall
     conductance is quantized.
 
-
+#note([Note that in IQHE, in fact $rho_(x x)$ and $sigma_(x x)$ both
+    vanishes. This is not a conflict of being both a perfect conductor
+    and a perfect insulator, it just means that no current is flowing
+    in longitudinal direction, and the system is dissipationless.])
 
 == IQHE of Free Electrons
 
@@ -67,6 +71,9 @@ This illustration is based on a very special geometry:
     flow. As the magnetic field goes down, the localized states are
     filled first which lead to unchange of the conductance.
 
+For a more detailed discussion, one can see Laughlin's original paper
+@Laughlin_1981, or modern textbooks like
+@fradkinFieldTheoriesCondensed2013.
 
 === Edge States
 
@@ -88,11 +95,9 @@ levels will bend up due to the energy goes up at the edge.
 
 In section 12.7 of @fradkinFieldTheoriesCondensed2013, Fradkin gives a
 topological illustration of the IQHE. It focus on a geometry of a 2D
-electron gas on a torus.
-
-The key result is that the Hall conductance can be expressed as a
-topological number of the system. It looks like the TKNN invariant,
-which we are going to discuss in the next section.
+electron gas on a torus. The key result is that the Hall conductance
+can be expressed as a topological number of the system. It looks like
+the TKNN invariant, which we are going to discuss in the next section.
 
 
 
@@ -102,8 +107,8 @@ which we are going to discuss in the next section.
 == IQHE in Lattice Models
 
 Apart from the electron gas picture. Sometimes we can't negelect the
-lattice structure of the system, and thus we need to consider to
-explain the IQHE in a lattice model.
+lattice structure of the system with IQHE, and thus we need to
+consider to explain the IQHE in a lattice model.
 
 We may see that in fact if the lattice model has a nontrivial
 structure, we don't even need an external magnetic field to have a

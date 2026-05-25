@@ -177,12 +177,10 @@ velocity.
 
 Our discussion above is mainly based on Laundau gauge. However, in the
 discusion of the QHE, especially FQHE (as the original paper does),
-it's more convenient to use the symmetric gauge. 
+it's more convenient to use the symmetric gauge.
 
 The symmetry gauge is defined as:
-$ 
-
-$
+$$
 
 #YL([this part is important.])
 
@@ -255,8 +253,6 @@ invariant of the system.
     topological invariant, which is the Chern number.
 ]
 
-#YL([If time allows, I can go and see it in a general construction])
-
 
 === Non-Abelian Berry Phase
 
@@ -305,14 +301,17 @@ $
 === Spectrum Flow
 
 
-== Hall Effect Set Up
+== Classical Hall Effect Set Up
 
 Before discussing the non-conventional I/FQHE, let's first talk about
-the classical Hall effect set up and define useful observables.
+the classical Hall effect set up and define useful observable. This is
+because the QHE effect is in fact kind of based on the classical Hall
+effect, many description relies on a good understanding of classical
+Hall effect.
 
-=== Set Up Picture
+#YL([This part is important. please make sure to understand])
+
+=== Set Up and Drude Model
 
 
-=== Conductivity and Resistivity Tensor
-
-
+=== Resistivity as Observable

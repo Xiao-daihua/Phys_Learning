@@ -7,7 +7,8 @@ observed in two-dimensional electron systems subjected to low
 temperatures and strong magnetic fields, where the Hall conductance
 exhibits quantized plateaus at fractional values of:
 $
-    sigma_(x y) = frac(e^2, 2 pi planck.reduce) nu, quad nu = 1/3, 2/5, 3/7, ...
+    rho_(x y) = frac(2 pi planck.reduce, e^2) frac(1, nu)
+    , quad nu = 1/3, 2/5, 3/7, ...
 $
 #figure(
     image("../assets/fqhe.png", width: 75%),
@@ -24,7 +25,7 @@ The explanation of FQHE is more complicated than IQHE.
 
 For FQHE, with the conductivity as:
 $
-    sigma_(x y) = frac(e^2, 2 pi planck.reduce) frac(1, m), quad m = 3, 5, 7, ...
+    rho_(x y) = frac(2 pi planck.reduce, e^2) frac(1, nu), nu = 1/m , m = 3, 5, 7, ...
 $
 Laughlin give an explanation of this FQHE effect in
 @laughlinAnomalousQuantumHall1983. What he did is to directly write
@@ -60,21 +61,6 @@ This wave function in fact gives a description of a new type of phase
 of matter called the topological order, which is a type of order that
 cannot be described by the traditional Landau symmetry breaking
 theory.
-
-From a mathematical calculation, we can see that:
-
-- The Laughlin wave function can describe $N_e = N_L nu$ particles.
-
-This is
-
-- At $nu = 1$ the Laughlin wave function reduces to the Slater
-    determinant of the lowest Landau level wave functions.
-
-
-=== Plasma Analogy
-
-
-=== Toy Model Hamiltonian
 
 
 
