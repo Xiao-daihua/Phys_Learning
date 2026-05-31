@@ -1,9 +1,10 @@
 #import "env/piece.typ": *
+#import "env/mytemp.typ": *
 #import "env/lib.typ": *
 
-#show: piecetemp.with(
+#show: notetemp.with(
     title: [Modular Tensor Category: with application to CFT],
-    topic: [Math],
+  author: [Yu Liu], 
     abstract: [
         This is a note on the topic of Modular Tensor Categories. It
         is mainly based on the discussion in
