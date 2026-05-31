@@ -2,9 +2,9 @@
 #import "env/lib.typ": *
 #import "env/piece.typ": *
 
-#show: piecetemp.with(
+#show: notetemp.with(
     title: [How does Locality and Unitarity constrain the structure of a CFT with boundary?],
-    topic: [2D CFT],
+  author: [Yu Liu],
     abstract: [This is a note capturing the main idea and calculation
         of @lewellenSewingConstraintsConformal1992, which focus on how
         sewing manifold will constraint the sturcture of a CFT with
