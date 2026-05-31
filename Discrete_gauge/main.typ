@@ -1,50 +1,62 @@
 #import "env/piece.typ": *
+#import "env/mytemp.typ": *
 #import "env/lib.typ": *
 
-#show: piecetemp.with(
+#show: notetemp.with(
     title: [How to Gauge a Discrete Symmetry?],
-    topic: [Symmetry],
+  author: [X. D. H.],
     abstract: [
         This note is about gauging a discrete symmetry. We will first
         review what gauging is in a continuous case and then try to
-        define a counterpart for a discrete symmetry. Finally, we will
-        introduce concrete example in Virasoro Minimal Models. For
-        generalized symmetry part we mainly follow
-        @kaidiIntroductionGeneralizedSymmetries2026, for CFT part one
-        can learn about the modular invariant minimal model in
-        @difrancescoConformalFieldTheory1997.
+        define a counterpart for a discrete symmetry. Then we try to
+        derive some general consequences of theory after gauging.
     ],
 )
 Gauging is the case when we couple a QFT to a gauge field (often
 dynamical, but some people may also call background gauge field as
 gauging). Apart from its importance of studying interaction between
 QFTs, gauging is also a powerful tool to study the symmetry of a QFT.
-The core idea is that it may serve as a test to probe whether the
-symmetry really exist or there's an anomaly.
 
+
+#pagebreak()
 = How to Gauge a Continuous Symmetry?
 
 First we review some basics of coupling a QFT to a gauge field. Of
 course, we can just do the minimal coupling and be happy with it.
 However, to make it more general, we should not assume we always have
-a conserved current or even a classical lagrangian description.
+a conserved current or even a classical lagrangian description. Then,
+how can we do it?
 
 == Symmetry Characterized by Generators
 
-To characterize a symmetry in QFT, we can use the conserved current or
-the conserved charge. However, these are objects unique to the
-continuous symmetry and expects the theory to have a classical
-counterpart. A seemingly general object to characterize a quantum
-symmetry is the Ward Identity.
-#note([
-    A quite general way of thinking about symmetry is Ward identities.
-    The correlation function satisfying some non-trivial constraints
-    may signal a symmetry, which may not be invertible and permitted
-    in the group structure.
-])
-However, it is not a "object like stuff" which are good to consider.
-To make thing general, we should think about another object *the
-symmetry generator*.
+
+When we want to pin down a symmetry in QFT, the usual tools are the
+conserved current and the conserved charge. But these come from
+Noether's theorem, which already assumes two things: the symmetry is
+continuous, and it's invertible (so it forms a group). Neither is
+really essential to being a symmetry — so current and charge can't
+capture everything.
+
+The Ward identity does better. A symmetry shows up as non-trivial
+constraints on correlation functions, and that's exactly what the Ward
+identity encodes. No group structure needed, so non-invertible
+symmetries are fine too. The catch: a Ward identity is a constraint,
+not an object you can build and play with. Moreover, having a
+constraint on correlation function doesn't necessarily mean we have a
+symmetry, for example, if a symmetry has an anomaly, the correlation
+function indeed satisfy some constraints, but we think of it as the
+symmetry is broken.
+
+So what we'd really like is an "object-like" thing — like a current or
+charge — that's general enough to describe any symmetry. Good news: it
+exists. It's the *symmetry generator*, and the trick is that it's a
+topological operator. That's the property that sets us free from
+continuity and invertibility, and it's what we'll build the definition
+around.
+
+In what follows, we'll let our intuition about continuous symmetries
+lead the way — and watch the conserved charge turn into a topological
+operator.
 
 === Classical Definition
 
@@ -86,16 +98,16 @@ $
 === Quantum Interpretation
 
 Now we generalize the classical object we define above to a quantum
-one.
-#note([
-    Notice that the world is NOT classical, it is definitely true that
-    we can have some quantum object without classical counterparts.
-    Namely can't be derived from quantizing some classical object.
+one. Notice that the world is NOT classical, it is definitely true
+that we can have some quantum object without classical counterparts.
+Namely can't be derived from quantizing some classical object using
+single quantization scheme (eg. canonical quantization), and the
+symmetry generator is such an object.
 
-    Thus, we don't derive a quantum theory from a classical one, but
-    use some quantization scheme and results to guess what properties
-    should a quantum symmetry generator have.
-])
+Thus, we don't derive a quantum theory from a classical one, but use
+different quantization scheme and results to justify how a quantum
+symmetry generators exit what properties should they have.
+
 The properties of *quantum symmetry generators* (and justifications)
 are:
 
@@ -128,27 +140,41 @@ are:
 
 #YL([finish this part later])
 
+//
+// === A Slogan for Symmetry
+//
+// At this point it is now wise to introduce a slogan to characterize
+// symmetry beyond the current/charge picture, which limits in continous
+// symmetry with a classical lagrangian description.
+//
+// #definition[Symmetry-Defect Slogan][
+//     A symmetry should be characterized by the existing of a
+//     topological operator (Symmetry Generators), having above
+//     properties and many many constraints.
+// ]
+// This is a powerful generalization of the notion of symmetry, which
+// eventually we will see that it can be applied to continuous
+// symmetries, discrete symmetries, and even symmetries without a
+// inverse, called non-invertible symmetries.
+//
+// However, in this note we try to make use of group symmetry and assume
+// 0-form symmetry. However, the language we use can be easily
+// generalized to higher form symmetries and non-invertible symmetries,
+// which we will discuss in another note.
 
 === A Slogan for Symmetry
 
-At this point it is now wise to introduce a slogan to characterize
-symmetry beyond the current/charge picture, which limits in continous
-symmetry with a classical lagrangian description.
+The current/charge picture is tied to continuous symmetries with a
+classical Lagrangian. To go beyond it, we adopt the following slogan.
 
-#definition[Symmetry-Defect Slogan][
-    A symmetry should be characterized by the existing of a
-    topological operator (Symmetry Generators), having above
-    properties and many many constraints.
-]
-This is a powerful generalization of the notion of symmetry, which
-eventually we will see that it can be applied to continuous
-symmetries, discrete symmetries, and even symmetries without a
-inverse, called non-invertible symmetries.
+#definition[Symmetry Slogan][
+    A symmetry is characterized by the existence of a topological
+    operator — a _symmetry generator_.]
 
-However, in this note we try to make use of group symmetry and assume
-0-form symmetry. However, the language we use can be easily
-generalized to higher form symmetries and non-invertible symmetries,
-which we will discuss in another note.
+This is a powerful and sensible generalization. As we will see, it
+applies equally to continuous symmetries, discrete symmetries, and
+even symmetries without an inverse, the so-called _non-invertible
+symmetries_.
 
 == What is a Gauge Field?
 
@@ -344,14 +370,14 @@ operators with Wilson line attached.
 == Anomaly
 
 For a system with a lagrangian description, we may expect a symmetry
-of the lagrangian may not be a symmetry of the QFT. By symmetry of
-QFT, we mean that the Ward Identity is not satisfied.
+of the lagrangian may not be a symmetry of the QFT, say, the
+corresponding Ward identity is not satisfied. This is what we call an
+*anomaly*.
 
 === Definition and Classification
 
-Traditionally, we define an anomaly as the Ward identity is not
-satisfied. Now due to the discussion of symmetry and background gauge
-field, we can give a definition from the perspective of gauging.
+Due to the discussion of symmetry and background gauge field, we can
+give a definition from the perspective of gauging.
 
 
 === Anomaly inflow and Invertible Theory
@@ -400,13 +426,11 @@ $
 
 === Modern Characterization
 
-Remember the slogan we introduced before, we can generalize to think
-about symmetry generators not only as operators but also defects that
-insert topologically in the Euclidean picture. A problem is that we
-don't have a local current something to make the generalization smooth
-as the continuous case. However, imposing consistency conditions and
-observing the relation with Ward identities, we can still define the
-symmetry generators and identify them with symmetries.
+Remember the slogan we introduced before, we can generalize to
+characterize symmetries with symmetry generators. Imposing consistency
+conditions and observing the relation with Ward identities, we can
+find out all these symmetry generators and identify them with
+symmetries.
 
 As far as I know, in 2D QFT these generalized symmetries can be
 described by Topological Defect Lines systematically
@@ -419,10 +443,9 @@ higher dimensional QFT, the story is more complicated and general.
 == Discrete Gauge Field
 
 Another problem is what is a discrete gauge field and what
-mathematical language characterize these objects.
-
-For discrete symmetry we don't have a Lie algebra, the Lie algebra of
-a discrete group is 0 thus:
+mathematical language characterize these objects. For discrete
+symmetry we don't have a Lie algebra, the Lie algebra of a discrete
+group is 0 thus:
 $
     A = 0 ,quad F = 0
 $
@@ -440,9 +463,8 @@ $
 $
 
 
-
 #pagebreak()
-= Dual Symmetry
+= Consequence Under Gauging
 
 
 
