@@ -3,8 +3,8 @@
 #import "env/lib.typ": *
 
 #show: notetemp.with(
-    title: [How to Gauge a Discrete Symmetry?],
-  author: [X. D. H.],
+    title: [Gauging Discrete Symmetry],
+    author: [X. D. H.],
     abstract: [
         This note is about gauging a discrete symmetry. We will first
         review what gauging is in a continuous case and then try to
@@ -48,11 +48,11 @@ function indeed satisfy some constraints, but we think of it as the
 symmetry is broken.
 
 So what we'd really like is an "object-like" thing — like a current or
-charge — that's general enough to describe any symmetry. Good news: it
-exists. It's the *symmetry generator*, and the trick is that it's a
-topological operator. That's the property that sets us free from
-continuity and invertibility, and it's what we'll build the definition
-around.
+charge — that's general enough and accurate enough to describe any
+symmetry. Good news: it exists. It's the *symmetry generator*, and the
+trick is that it's a topological operator. That's the property that
+sets us free from continuity and invertibility, and it's what we'll
+build the definition around.
 
 In what follows, we'll let our intuition about continuous symmetries
 lead the way — and watch the conserved charge turn into a topological
@@ -95,7 +95,8 @@ $
 $
 
 
-=== Quantum Interpretation
+=== Quantum Symmetry Generator
+<sec:qsg>
 
 Now we generalize the classical object we define above to a quantum
 one. Notice that the world is NOT classical, it is definitely true
@@ -112,55 +113,116 @@ The properties of *quantum symmetry generators* (and justifications)
 are:
 
 1. They are *Topological Operators*. This can be justified by the
-    classical conservation equation, plugging them into a path
-    integral won't change this fact. Moreover, as a quantum theory, in
-    the canonical picture if we want to define these symmetry
-    generators as line operators, they have to commute with the
-    Energy-Momentum tensor, which generates the spacetime translation.
+    classical property of independent of continuous deformation,
+    plugging them into a path integral won't change this fact.
+    Moreover, as a quantum theory, in the canonical picture if we want
+    to define these symmetry generators as line operators, they have
+    to commute with the Energy-Momentum tensor, which generates the
+    spacetime translation.
 
 
-2. If inserted in a time slice, they act as an operators on the
-    Hilbert space in the canonical formalism. This can be justified by
-    analoging the ordinary symmetry charge defined on a time slice.
+2. If inserted in a time slice, they act as an *operators on the
+    Hilbert space* in the canonical formalism. This can be justified
+    by analogizing the ordinary symmetry charge defined on a time
+    slice.
 
 
-3. If inserted in vetically in the path integral, they behave as a
-    defect, which twisted the Hilbert Space. This can't be justified
+3. If inserted in vertically in the path integral, they behave as a
+    *defect, which twisted the Hilbert Space*. This can't be justified
     straightforwardly, but a few lines of calculation in the path
-    integral formalism:
+    integral formalism, for example, consider a free massless complex
+    scalar field theory in 2D Euclidean spacetime:
 
-#YL([finish this part later])
 
+Insert the defect along $S^1_tau$ at $x = 0$ into the Euclidean path
+integral:
+$
+    Z_theta = integral cal(D)Phi thin cal(D)Phi^dagger thin
+    e^(-S[Phi]) thin
+    underbrace(exp(i theta integral_0^beta d tau thin j_x (tau, 0)), U_theta) ,
+    quad
+    j_x = i(partial_x Phi^dagger)Phi - i Phi^dagger partial_x Phi .
+$
+The insertion couples the current to a source localized at $x = 0$.
+Writing it as $exp(i integral d^2 x thin A_mu j^mu)$ requires
+$
+    A_x (tau, x) = theta thin delta(x) , quad A_tau = 0 .
+$
+This promotes $partial_mu Phi -> (partial_mu - i A_mu)Phi$ in the
+action. Compute the field strength:
+$
+    F_(tau x) = partial_tau A_x - partial_x A_tau = partial_tau (theta thin delta(x)) = 0 .
+$
+A flat connection carries no local physics; it can be removed by a
+gauge transformation $Phi -> e^(i alpha(x)) Phi$,
+$A_x -> A_x + partial_x alpha$. Choose
+$
+    alpha(x) = - theta integral_0^x delta(x') thin d x' = - theta thin Theta(x) ,
+$
+so that $A_x + partial_x alpha = theta delta(x) - theta delta(x) = 0$.
+Define $tilde(Phi) = e^(i alpha(x)) Phi = e^(-i theta Theta(x)) Phi$.
+Then $tilde(Phi)$ obeys the *standard free action* $S[tilde(Phi)]$
+with no defect, and the measure is invariant ($|e^(i alpha)| = 1$,
+Jacobian $= 1$). The original periodic field
+$Phi(tau, x + 2pi) = Phi(tau, x)$ forces, on the redefined field, a
+monodromy across one spatial period:
+$
+    tilde(Phi)(tau, x + 2pi)
+    = e^(-i theta Theta(x + 2pi)) Phi(tau, x + 2pi)
+    = e^(-i theta (Theta(x) + 1)) Phi(tau, x)
+    = e^(-i theta) thin tilde(Phi)(tau, x) .
+$
+Equivalently, the field carrying the defect satisfies the *twisted*
+boundary condition
+$
+    Phi_theta (tau, x + 2pi) = e^(i theta) thin Phi_theta (tau, x) .
+$
 
-(2 and 3 properties are called the operator/defect principles)
+The defect insertion is traded for a boundary twist:
+$
+    Z_theta
+    = integral_(Phi(x + 2pi) = e^(i theta) Phi(x)) cal(D)Phi thin e^(-S[Phi])
+    = tr_(cal(H)_theta (S^1_x)) thin e^(-beta H) .
+$
+Inserting $U_theta$ along Euclidean time $=$ tracing over the Hilbert
+space quantized with the twisted boundary condition.
 
-4. When going through local operators, they act as a symmetry
-    transformation on the local operators. This can be justified by
+#note([
+    2 and 3 properties are called the operator/defect principles
+    @shaoWhatsDoneCannot2024
+])
+
+4. When going through local operators, they act as a *symmetry
+    transformation on the local operators*. This can be justified by
     the Ward identity.
 
-#YL([finish this part later])
-
-//
-// === A Slogan for Symmetry
-//
-// At this point it is now wise to introduce a slogan to characterize
-// symmetry beyond the current/charge picture, which limits in continous
-// symmetry with a classical lagrangian description.
-//
-// #definition[Symmetry-Defect Slogan][
-//     A symmetry should be characterized by the existing of a
-//     topological operator (Symmetry Generators), having above
-//     properties and many many constraints.
-// ]
-// This is a powerful generalization of the notion of symmetry, which
-// eventually we will see that it can be applied to continuous
-// symmetries, discrete symmetries, and even symmetries without a
-// inverse, called non-invertible symmetries.
-//
-// However, in this note we try to make use of group symmetry and assume
-// 0-form symmetry. However, the language we use can be easily
-// generalized to higher form symmetries and non-invertible symmetries,
-// which we will discuss in another note.
+For example, consider inserting the symmetry generator on a manifold
+that wrapped around the local operator, for a U(1) 0-form symmetry and
+a local operator. We define wrapping around the local operator in the
+canonical picture as:
+$
+    U_( alpha ) ( M_( d - 1 ) ) cal(O)_( q ) ( x ) U_( - alpha ) ( M'_( d - 1 ) )
+$
+We can calculate the correlation function of this object using the
+Ward Identity.
+$
+    U_alpha (M_(d-1)) cal(O)_q(x) U_(-alpha)(M'_(d-1))
+    = e^(i alpha integral_(N_d) d^d y thin partial^mu j_mu (y)) cal(O)_q(x) .
+$
+Remember, the Ward-Takahashi identity:
+$
+    partial^mu j_mu(y) cal(O)_q(x) = q thin delta^((d))(x-y) cal(O)_q(x)
+$
+By expanding the exponential and using the Ward-Takahashi identity, we
+have:
+$
+    = sum_(n=0)^infinity (i alpha)^n / n! (integral_(N_d) d^d y thin partial^mu j_mu(y))^n cal(O)_q(x)
+    = sum_(n=0)^infinity (i alpha q)^n / n! (integral_(N_d) d^d y thin delta^((d))(x-y))^n cal(O)_q(x) .
+$
+Since $x in N_d$, the integral $= 1$, so the sum resums to
+$
+    = sum_(n=0)^infinity (i alpha q)^n / n! cal(O)_q(x) = e^(i q alpha) cal(O)_q(x) .
+$
 
 === A Slogan for Symmetry
 
@@ -176,18 +238,21 @@ applies equally to continuous symmetries, discrete symmetries, and
 even symmetries without an inverse, the so-called _non-invertible
 symmetries_.
 
-== What is a Gauge Field?
+== (Higher Form) Gauge Field
 
 Now we have a grasp of what is a symmetry, we turn to the other
 question of gauging: what is a gauge field?
+
+=== What is a Gauge Field?
 
 Naively, we define a gauge field as a Lie algebra valued one form
 field:
 $
     A = A_mu d x^mu "where" A_mu in frak(g)
 $
-However, this is generally not the case. A gauge field may not be
-globally defined.
+However, this is generally not the case.
+
+- *A gauge field may not be globally defined.*
 
 A classical and experimental example is the AB effect of U(1) gauge
 field, where we know that:
@@ -199,13 +264,68 @@ definition of gauge field. The critical point is that a gauge field
 may not be defined globally, but only on patches, while field on
 different patches are related by a suitable gauge transformation.
 
-Moreover, from demanding consistency in AB phase and a globally well
+Moreover, from demanding consistency in AB phase, and a globally well
 defined curvature (indeed we measure electric and magnetic fields and
-don't see any singularity), we need to have a quantization condition
-on the flux of the gauge field:
+don't see any singularity) naively we can have:
+$
+    integral.cont_(S) F = 0
+$
+But in fact this is too strong, we in fact only need to have a
+quantization condition on the flux of the gauge field:
 $
     integral.cont_(S) F in 2 pi ZZ
 $
+To have the theory well defined and the AB phase (or called Wilson
+loop) as an observable. However, in the case that the flux is
+non-trivial, an important phenomenon is that the gauge field is not
+globally defined, but only on patches, and the transition function
+between patches is non-trivial.
+
+#note([
+    In fact the non-trivial flux is physically interpreted as the
+    integrating around the surface with magnetic charge inside.
+    Experimentally, we haven't observed magnetic charge in the
+    universe, but it is good to leave the possibility of their
+    existence, which makes our life more interesting.
+])
+
+- *A Gauge Transformation Parameter is not Globally Defined*
+
+Moreover, gauge field admits gauge transformation:
+$
+    A arrow.r A + d Lambda
+$
+that doesn't change the physics. However, the gauge transformation
+parameter $Lambda$ may not be globally defined, but only on patches.
+The experiments and some deduction tells us that one can never tell
+whether a solenoid has a magnetic flux $Phi$ or $Phi + Phi_0$, where
+$Phi_0$ is the flux quantum. Thus, we should view that the
+transformation of adding a flux quantum as a gauge transformation.
+However, we may notice that such gauge transformation doesn't have a
+globally well defined gauge transformation parameter, but only on
+patches:
+$
+    Lambda = Phi_0 / (2 pi) phi.alt, quad phi.alt in [0, 2 pi),
+$
+where $phi.alt$ is the azimuthal angle around the solenoid. Indeed,
+$
+    d Lambda = Phi_0 / (2 pi) d phi.alt
+$
+is a globally well-defined closed 1-form, yet $Lambda$ itself jumps by
+$Phi_0$ upon encircling the solenoid:
+$
+    Lambda(phi.alt = 2 pi) - Lambda(phi.alt = 0) = Phi_0,
+$
+so it is single-valued only on patches, not globally. The holonomy
+picks up exactly one flux quantum,
+$
+    integral.cont d Lambda = Phi_0,
+$
+which shifts the Aharonov--Bohm phase by $q Phi_0 = 2 pi$ (for unit
+charge), leaving all physical observables invariant. One should notice
+that though $Lambda$ is note globally defined, $d Lambda$ is globally
+defined, and the flux of $d Lambda$ is quantized.
+
 
 === Mathematical Characterization
 
@@ -271,7 +391,7 @@ $
 physically, they correspond to the field strength and the AB phase of
 U(1) gauge field.
 
-=== Quantization of Flux
+- *Quantization of Flux*:
 
 With suitable consistent mathematical construction of gauge field from
 fibre bundles, we can see that quantized flux arises naturally from
@@ -290,7 +410,7 @@ $
     c_2 = 1/(8 pi^2) integral.cont_(S) "Tr"(F and F) in ZZ
 $
 
-=== Higher Form Gauge Field
+=== Higher Form U(1) Gauge Field
 
 This note we try to touch some generalization of symmetry to higher
 form. Thus, we need to define what is a higher form gauge field. A
@@ -309,13 +429,11 @@ $
     S = integral_(M_d) A and *j
 $
 where $A$ is a (p+1)-form gauge field, and the gauge transformation
-is:
+(no matter large or small) is:
 $
     A arrow.r A + d Lambda_p
 $
-And here $Lambda_p$ is a *p-form Gauge Field* : Remember the gauge
-transformation is a gauge field!!!
-
+And here $Lambda_p$ is a *p-form Gauge Field* itself!!!
 For $A$ as a (p+1)-form gauge field, the field strength is a
 (p+2)-form, that are quantized under the following condition:
 $
@@ -332,22 +450,10 @@ and the gauge transformation have a quantized flux condition as well:
 $
     integral.cont_(S_(p+1)) d Lambda_p in 2 pi ZZ
 $
-This is nothing strange to us, consider the ordinary U(1) gauge field,
-the gauge transformation is:
-$
-    A arrow.r A + d Lambda_0
-$
-and if we integrate the gauge transformation over a closed loop, we
-have:
-$
-    integral.cont_(S_1) d Lambda_0 in 2 pi ZZ
-$
-This is due the fact if we integrate through patches, we can have a
-$2 pi ZZ$ shift, by the above construction.
+Notice that just like the 1-form case $Lambda_p$ may not be globally
+defined, but $d Lambda_p$ is globally defined.
 
-#YL([In fact I really don't think I understand this, this should be
-    taught in a cohomology language naturally, which I don't
-    understand.])
+
 
 
 == How to Couple to a Gauge Field?
@@ -357,15 +463,82 @@ mean coupling the theory to a gauge field and make it dynamical. This
 section is to point out an observation. Namely, coupling to a gauge
 field is equivalent to inserting the symmetry generator properly.
 
-=== BG Gauge Field Insertion of Symmetry Generator
+In the section @sec:qsg, we have notice this fact, inserting the
+symmetry generator along time direction gives us the coupling to a
+background gauge field. This should be a point to help us generalize
+gauging to discrete symmetries, since we don't really have a gauge
+field or a current, but we have a symmetry generator in discrete case.
+
+Now we first understand this fact in the continuous case. Say consider
+a U(1) 0-form symmetry, we can insert the symmetry generator as:
+$
+    U_alpha (M_(d-1)) = exp (i alpha integral_(M_(d-1)) * j)
+$
+We can see that this object is exactly the same as coupling to a
+background gauge field $A$ with:
+$
+    A = alpha omega_(M_(d-1))
+$
+where $omega_(M_(d-1))$ is a delta function one form localized on the
+manifold $M_(d-1)$, which is the Poincare dual of $M_(d-1)$. We can
+rewrite the symmetry generator as:
+$
+    U_alpha (M_(d-1)) = exp (i integral_(M_(d)) A and * j)
+$
+Thus, we can see a general fact that:
+
+- Coupling to a background gauge field is equivalent to inserting the
+    symmetry generator in a proper way.
 
 
-=== AB phase as going through Symmetry Generator
+#remark([
+    The calculation here is classical, but we can understand it as
+    quantum by plugging it into the path integral.
+])
 
-Now we consider local operators in the theory. Notice that the local
-charged operators are no longer gauge invariant observables but rather
-operators with Wilson line attached.
 
+Also for gauge invariant operators in background gauge field, we can
+understand its correlation function as a theory without background
+gauge field but with some symmetry generator inserted.
+
+For example, consider a gauge invariant local operator in U(1)
+symmetry theory coupling to a background gauge field $A$. If the local
+operator transform non-trivially under the U(1) symmetry, say:
+$
+    cal(O)_q arrow.r e^(i q alpha) cal(O)_q
+$
+Then it is not a gauge invariant operator, consider a 2 point function
+correlation function:
+$
+    angle.l cal(O)_q (x) cal(O)_(-q)(y) angle.r
+$
+it is no longer gauge invariant under a gauge transformation
+$A arrow.r A + d alpha$, since the local operator transform
+non-trivially. However, we can insert a Wilson line connecting the two
+local operators, which is defined as:
+$
+    W_(q) (C) = exp (i q integral.cont_(C) A)
+$
+Then the correlation function:
+$
+    angle.l cal(O)_q (x) W_(q) (C) cal(O)_(-q)(y) angle.r
+$
+is gauge invariant. Then, if we consider one operator move around, the
+Wilson line should also move with it, thus the gauge invariant
+correlation function become:
+$
+    cal(O)_q (x) arrow.r exp (i q integral_(gamma) A ) cal(O)_q (x)
+$
+In the case of gauge field of:
+$
+    A = alpha omega_(M_(d-1))
+$
+we can see that the gauge invariant correlation function behaves as:
+$
+    cal(O)_q (x) arrow.r exp (i q alpha) cal(O)_q (x)
+$
+which is exactly the bahavior of the local operator going through a
+symmetry generator.
 
 == Anomaly
 
@@ -378,11 +551,96 @@ corresponding Ward identity is not satisfied. This is what we call an
 
 Due to the discussion of symmetry and background gauge field, we can
 give a definition from the perspective of gauging.
+#definition[Anomaly][
+    We say a p-form symmetry has an anomaly if we couple the theory to
+    a background gauge field (which is of course a (p+1)-form gauge
+    field):
+    $
+        Z [ A_( p + 1 ) ] = integral cal(D) phi.alt^( a ) e^( i S [ phi.alt^( a ), A_( p + 1 ) ] ).
+    $
+    and find that the theory is not gauge invariant:
+    $
+        Z [ A_( p + 1 ) + d lambda_( p ) ] = e^( - i integral cal(A) [ A_( p + 1 ), lambda_( p ) ] ) times Z [ A_( p + 1 ) ].
+    $
+]
+There are some classification and nouns for anomalies.
 
+- *'t Hooft Anomaly*: the anomaly vanishes when the gauge field we
+    couple to is turned off.
 
-=== Anomaly inflow and Invertible Theory
+- *Gauge Anomaly*: no matter the gauge field is on or off, the
+    symmetry is always broken.
 
+There is also something called a *mixed 't Hooft anomaly*, which is
+when the theory have 2 symmetries, and if we couple one of them to a
+background gauge field, then if we want to couple the other one to a
+background gauge field, it won't be gauge invariant.
 
+There are two examples of anomalies:
+
+- In QED, there is a gauge anomaly, know as the ABJ anomaly.
+$
+    cal(L) = ( 1 ) / ( 4 e^( 2 ) ) f_( mu nu ) f^( mu nu ) + i overline(Psi) ( diff_( mu ) - i a_( mu ) ) gamma^( mu ) Psi.
+$
+The axial U(1) symmetry is broken by the ABJ anomaly, Ward identity is
+not satisfied, and becomes:
+$
+    d * j^( A ) = ( 1 ) / ( 4 pi^( 2 ) ) f and f
+$
+
+- In pure 4D Maxwell theory, there is a mixed 't Hooft anomaly between
+    the electric and magnetic 1-form symmetries:
+$
+    j^( E ) = ( 1 ) / ( e^( 2 ) ) f, wide j^( M ) = ( 1 ) / ( 2 pi ) * f.
+$
+
+=== Anomaly Inflow
+
+One trick to control the anomaly is to introduce a theory with an
+extra dimension, and have the original theory living on the boundary
+of the extra dimension manifold.
+
+Consider a theory with anomaly that coupled to a background gauge
+field, living on the manifold $cal(M)_d$:
+$
+    Z[A_(p+1)] = integral cal(D) phi.alt^( a ) e^( i S [ phi.alt^( a ), A_( p + 1 ) ] )
+$
+We can view the anomalous partition function not as a number, but as
+section of a complex line bundle or a vector in an one dimensional
+Hilbert space without a canonical choice of basis:
+$
+    Z[A_(p+1)] in cal(H)_(cal(M)_d)
+$
+Then we can think of this one dimensional Hilbert space as the Hilbert
+space of some d+1 dimensional QFT with the boundary $cal(M)_d$. We can
+use the d+1 dimensional model to characterize the anomaly of the
+original theory, and this is what we call *anomaly inflow*.
+
+- *Example Construction*
+
+There is one explicit construction of the d+1 dimensional theory. We
+introduce a theory living on a manifold $cal(N)_(d+1)$ with the
+boundary:
+$
+    cal(M)_d = partial cal(N)_(d+1)
+$
+The theory should have the following properties:
+
+- The Hilbert space of the theory on $cal(M)_(d+1)$ is one
+    dimensional.
+
+- The action of the theory, say: $hat(A)[A_(p+1)]$ should satisfy:
+$
+    d cal(A) [ A_( p + 1 ), lambda_( p ) ] = delta_( lambda_( p ) ) hat(A) [ A_( p + 1 ) ],
+$
+
+Then if we consider a theory of:
+$
+    hat(Z) [ A_( p + 1 ) ] = Z [ A_( p + 1 ) ] times e^( i integral_( N_( d + 1 ) ) hat(A) [ A_( p + 1 ) ] ),
+$
+Then it is invariant under gauge transformation of the background
+gauge field and we see that the anomaly is "controlled" by the d+1
+dimensional theory.
 
 #pagebreak()
 = How to Gauge a Discrete Symmetry?
@@ -392,8 +650,6 @@ symmetry. To do this we may first define what we mean by a discrete
 gauge field, and a discrete symmetry of a QFT.
 
 == Discrete Symmetry
-
-=== Traditional Chracterization
 
 Wigner Theorem tells us that a Quantum theory has a symmetry is given
 by a Unitary or Anti-Unitary operator, forming a representation of the
@@ -424,8 +680,6 @@ $
     correlation function of odd number of $phi$ must vanish.
 - ...
 
-=== Modern Characterization
-
 Remember the slogan we introduced before, we can generalize to
 characterize symmetries with symmetry generators. Imposing consistency
 conditions and observing the relation with Ward identities, we can
@@ -438,7 +692,6 @@ described by Topological Defect Lines systematically
 characteristic properties. It turns out that these symmetries doesn't
 have a group structure, but rather a structure of fusion category. For
 higher dimensional QFT, the story is more complicated and general.
-
 
 == Discrete Gauge Field
 
@@ -462,9 +715,92 @@ $
     g_(i j) : U_i sect U_j arrow.r G
 $
 
+=== $ZZ_n$ Gauge Field from BF Theory
+<sec:zznbf>
+
+One of the simplest examples of a discrete gauge field is the $ZZ_n$
+gauge field. A construction of this is that they can be obtained from
+a BF theory with higher form U(1) gauge field. Consider the following
+action:
+$
+    S_("BF" ) = ( n ) / ( 2 pi ) integral_( M_( d ) ) a_( p + 1 ) and d b_( d - p - 2 )
+$
+where $a$ and $b$ are U(1) higher form gauge fields. We finally can
+see that if $b$ field is dynamical, then the $a$ field is a $ZZ_n$
+gauge field, and if $a$ field is dynamical, then the $b$ field is a
+$ZZ_n$ gauge field. We here take $b$ as example, and the other is just
+the same under a integral by part.
+
+- *Gauge Invariant of BF Theory*
+
+We first need to justify that the BF theory is a valid gauge theory
+that has gauge invariance. We may notice that the action is not gauge
+invariant but the partition function is. Consider the gauge
+transformation:
+$
+    a_( p + 1 ) -> a_( p + 1 ) + d lambda_( p ), wide b_( d - p - 2 ) -> b_( d - p - 2 ) + d hat(lambda)_( d - p - 3 ).
+$
+We take the gauge transformation of $a$ field then we have:
+$
+    delta_( lambda ) S_( B F ) = ( n ) / ( 2 pi ) integral_( M_( d ) ) d lambda_( p ) and d b_( d - p - 2 ),
+$
+Naively, this is 0, due to the stokes theorem, we can rewrite it as a
+total derivative. However, we should notice that the stokes theorem
+may not be valid here due to we are considering gauge field but not a
+globally well defined one form.
+
+Thus, here $d lambda_p$ and $d b_(d-p-2)$ are some forms that of
+course closed but *not necessarily Exact*. Don't be fooled by the fact
+they can write as a total derivative, they are not total derivatives
+of a globally well defined form, but a gauge field. For such integral
+of closed but not exact forms, there is also a way to control the
+integral of wedge product of them.
+
+Mathematically, due to the exact of the field strength and
+quantization of flux, we can write:
+$
+    integral_( M_( d ) ) d lambda_( p ) and d b_( d - p - 2 ) = (2 pi)^2 ZZ
+$
+as a result. #footnote([In the lecture note
+    @kaidiIntroductionGeneralizedSymmetries2026, the argument of this
+    is confusing and some following discussions are wrong. Please see
+    the appendix for Justification of this @sec:bfgi]) Thus, we see
+that the action is not gauge invariant, but we can make the partition
+function gauge invariant by demanding:
+$
+    n in ZZ
+$
+
+
+
+
 
 #pagebreak()
 = Consequence Under Gauging
+
+
+#pagebreak()
+= Appendix
+
+== A. BF Theory Gauge Invariance
+<sec:bfgi>
+
+In the discussion of BF theory gauge in @sec:zznbf, we have a critical
+step that the integral of the wedge product of two closed but not
+exact forms is quantized. Here we give a justification of this fact.
+Consider the integral of two gauge fields $a$ and $b$:
+$
+    integral_( M_( d ) ) d a_( p ) and d b_( d - p - 2 )
+$
+One critical observation is that this integral depends only on the de
+Rham cohomology class of $d a$ and $d b$. This is because, if we shift
+$d a$ by an exact form, say $d a -> d a + d lambda$, then the integral
+shift by:
+$
+    integral_( M_( d ) ) d lambda and d b_( d - p - 2 ) = integral_( M_( d ) ) d ( lambda and d b_( d - p - 2 ) ) = 0
+$
+The second step is valid for stokes theorem, since $lambda and d b$ is
+a globally well defined form.
 
 
 
