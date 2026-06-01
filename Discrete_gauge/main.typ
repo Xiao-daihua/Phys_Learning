@@ -433,9 +433,9 @@ where $A$ is a (p+1)-form gauge field, and the gauge transformation
 $
     A arrow.r A + d Lambda_p
 $
-And here $Lambda_p$ is a *p-form Gauge Field* itself!!!
-For $A$ as a (p+1)-form gauge field, the field strength is a
-(p+2)-form, that are quantized under the following condition:
+And here $Lambda_p$ is a *p-form Gauge Field* itself!!! For $A$ as a
+(p+1)-form gauge field, the field strength is a (p+2)-form, that are
+quantized under the following condition:
 $
     F = d A ,quad integral.cont_(S_(p+2)) F in 2 pi ZZ
 $
@@ -693,12 +693,11 @@ characteristic properties. It turns out that these symmetries doesn't
 have a group structure, but rather a structure of fusion category. For
 higher dimensional QFT, the story is more complicated and general.
 
-== Discrete Gauge Field
+== BF Approach to Discrete Gauge Field
 
-Another problem is what is a discrete gauge field and what
-mathematical language characterize these objects. For discrete
-symmetry we don't have a Lie algebra, the Lie algebra of a discrete
-group is 0 thus:
+What is a discrete gauge field and what mathematical language
+characterize these objects. For discrete symmetry we don't have a Lie
+algebra, the Lie algebra of a discrete group is 0 thus:
 $
     A = 0 ,quad F = 0
 $
@@ -715,13 +714,17 @@ $
     g_(i j) : U_i sect U_j arrow.r G
 $
 
-=== $ZZ_n$ Gauge Field from BF Theory
+In this section, we will see that a $ZZ_n$ p-form discrete gauge field
+can be gain from a p-form U(1) gauge field by a BF theory. The BF
+theory serves as a symmetry brokening term that break the U(1) gauge
+symmetry down to a $ZZ_n$ gauge symmetry, thus we can view the BF
+theory as a way to construct a discrete gauge field from a continuous
+one.
+
+=== BF Theory
 <sec:zznbf>
 
-One of the simplest examples of a discrete gauge field is the $ZZ_n$
-gauge field. A construction of this is that they can be obtained from
-a BF theory with higher form U(1) gauge field. Consider the following
-action:
+The BF theory is a topological field theory with the following action:
 $
     S_("BF" ) = ( n ) / ( 2 pi ) integral_( M_( d ) ) a_( p + 1 ) and d b_( d - p - 2 )
 $
@@ -729,9 +732,10 @@ where $a$ and $b$ are U(1) higher form gauge fields. We finally can
 see that if $b$ field is dynamical, then the $a$ field is a $ZZ_n$
 gauge field, and if $a$ field is dynamical, then the $b$ field is a
 $ZZ_n$ gauge field. We here take $b$ as example, and the other is just
-the same under a integral by part.
+the same under a integral by part. In this section, we will then
+assume making $b$ dynamical, which will restrict $a$ into a $ZZ_n$
+gauge field.
 
-- *Gauge Invariant of BF Theory*
 
 We first need to justify that the BF theory is a valid gauge theory
 that has gauge invariance. We may notice that the action is not gauge
@@ -750,45 +754,14 @@ may not be valid here due to we are considering gauge field but not a
 globally well defined one form.
 
 Thus, here $d lambda_p$ and $d b_(d-p-2)$ are some forms that of
-course closed but *not necessarily Exact*. Don't be fooled by the fact
-they can write as a total derivative, they are not total derivatives
-of a globally well defined form, but a gauge field. For such integral
-of closed but not exact forms, there is also a way to control the
-integral of wedge product of them.
-
-Mathematically, due to the exact of the field strength and
-quantization of flux, we can write:
-$
-    integral_( M_( d ) ) d lambda_( p ) and d b_( d - p - 2 ) = (2 pi)^2 ZZ
-$
-as a result. #footnote([In the lecture note
-    @kaidiIntroductionGeneralizedSymmetries2026, the argument of this
-    is confusing and some following discussions are wrong. Please see
-    the appendix for Justification of this @sec:bfgi]) Thus, we see
-that the action is not gauge invariant, but we can make the partition
-function gauge invariant by demanding:
-$
-    n in ZZ
-$
+course *closed* due to $d^2 = 0$ but *not necessarily Exact*. Don't be
+fooled by the fact they can write as a total derivative, they are not
+total derivatives of a globally well defined form, but a gauge field.
+For such integral of closed but not exact forms, there is also a way
+to control the integral of wedge product of them.
 
 
-
-
-
-#pagebreak()
-= Consequence Under Gauging
-
-
-#pagebreak()
-= Appendix
-
-== A. BF Theory Gauge Invariance
-<sec:bfgi>
-
-In the discussion of BF theory gauge in @sec:zznbf, we have a critical
-step that the integral of the wedge product of two closed but not
-exact forms is quantized. Here we give a justification of this fact.
-Consider the integral of two gauge fields $a$ and $b$:
+Consider the integral of two U(1) gauge fields $a$ and $b$:
 $
     integral_( M_( d ) ) d a_( p ) and d b_( d - p - 2 )
 $
@@ -801,6 +774,84 @@ $
 $
 The second step is valid for stokes theorem, since $lambda and d b$ is
 a globally well defined form.
+
+- *The wedge product integral is an integer*
+Combining the two facts — (i) the integral depends only on the
+cohomology classes of $d lambda$ and $d b$, and (ii) the gauge field
+has integer flux — one can show the following clean statement. On a
+closed, orientable manifold $M_d$, the wedge product of two
+integer-flux $U(1)$ field strengths integrates to $(2 pi)^2$ times an
+integer:
+$
+    ( 1 ) / ( ( 2 pi )^( 2 ) ) integral_( M_( d ) ) d a_( p ) and d b_( d - p - 2 ) =: N in ZZ.
+$
+Intuitively, we may add some $d lambda$ to concentrate the flux of
+$d a$ onto a $( p + 1 )$-dimensional cycle $Sigma_( p + 1 )$ and the
+flux of $d b$ onto the complementary $( d - p - 1 )$-dimensional cycle
+$Sigma_( d - p - 1 )$. The two cycles have dimensions adding up to
+$d$, so they meet only at isolated points. The wedge product is
+nonzero only where both fluxes overlap, i.e. at these intersection
+points, and each intersection contributes the product of the two
+integer fluxes:
+$
+    ( 1 ) / ( ( 2 pi )^( 2 ) ) integral_( M_( d ) ) d lambda and d b
+    = underbrace(( 1 ) / ( 2 pi ) integral_( Sigma_( p + 1 ) ) d lambda, in ZZ)
+    thin
+    underbrace(( 1 ) / ( 2 pi ) integral_( Sigma_( d - p - 1 ) ) d b, in ZZ)
+    thin
+    underbrace(\#( Sigma_( p + 1 ) sect Sigma_( d - p - 1 ) ), in ZZ)
+    in ZZ.
+$
+All three factors are integers, so $N in ZZ$.
+
+#remark([
+    This splitting and evaluation procedure can not be applied
+    generally. However, for this BF theory case, we in fact can always
+    do this. #YL([I in fact still don't fully understand when we can
+        do this kind of splitting.])
+])
+
+- *Conclusion: gauge invariance fixes $n in ZZ$*
+Plugging this back into the gauge variation:
+$
+    delta_( lambda ) S_( B F ) = ( n ) / ( 2 pi ) integral_( M_( d ) ) d lambda_( p ) and d b_( d - p - 2 )
+    = 2 pi n dot N, wide N in ZZ.
+$
+The action is *not* invariant — it shifts by $2 pi n N$. But the path
+integral only sees $e^( i S )$, and as long as $n in ZZ$,
+$
+    e^( i delta_( lambda ) S_( B F ) ) = e^( i thin 2 pi n N ) = 1.
+$
+So the partition function $integral cal(D) b thin e^( i S_( B F ) )$
+is gauge invariant. This is exactly why we said "the action is not
+gauge invariant but the partition function is", and it forces the
+level $n$ to be an integer.
+$
+    n in ZZ
+$
+In fact, we will eventually see that the level $n$ is exactly the $n$
+in $ZZ_n$
+
+
+=== $ZZ_n$ Gauge Field from BF Theory
+
+We now prove that by making $b$ dynamical, the $a$ field satisfies
+many thing we expect for a $ZZ_n$ gauge field, thus we can view the
+$a$ field as a $ZZ_n$ gauge field. 
+
+
+
+
+== Cohomology Approach to Discrete Gauge Field
+
+
+
+
+#pagebreak()
+= Dual Symmetry 
+
+
+
 
 
 
