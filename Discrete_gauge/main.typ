@@ -48,7 +48,7 @@ function indeed satisfy some constraints, but we think of it as the
 symmetry is broken.
 
 So what we'd really like is an "object-like" thing — like a current or
-charge — that's general enough and accurate enough to describe any
+charge — that's general enough and accurate enough to describe
 symmetry. Good news: it exists. It's the *symmetry generator*, and the
 trick is that it's a topological operator. That's the property that
 sets us free from continuity and invertibility, and it's what we'll
@@ -696,7 +696,7 @@ higher dimensional QFT, the story is more complicated and general.
 == BF Approach to Discrete Gauge Field
 
 What is a discrete gauge field and what mathematical language
-characterize these objects. For discrete symmetry we don't have a Lie
+characterize these objects? For discrete symmetry we don't have a Lie
 algebra, the Lie algebra of a discrete group is 0 thus:
 $
     A = 0 ,quad F = 0
@@ -724,18 +724,17 @@ one.
 === BF Theory
 <sec:zznbf>
 
-The BF theory is a topological field theory with the following action:
-$
-    S_("BF" ) = ( n ) / ( 2 pi ) integral_( M_( d ) ) a_( p + 1 ) and d b_( d - p - 2 )
-$
-where $a$ and $b$ are U(1) higher form gauge fields. We finally can
-see that if $b$ field is dynamical, then the $a$ field is a $ZZ_n$
-gauge field, and if $a$ field is dynamical, then the $b$ field is a
-$ZZ_n$ gauge field. We here take $b$ as example, and the other is just
-the same under a integral by part. In this section, we will then
-assume making $b$ dynamical, which will restrict $a$ into a $ZZ_n$
-gauge field.
+The BF theory is a topological field theory with the following action
+#definition[BF Theory][
+    $
+        S_("BF" ) = ( n ) / ( 2 pi ) integral_( M_( d ) ) a_( p + 1 ) and d b_( d - p - 2 )
+    $
+    where $a$ and $b$ are U(1) higher form gauge fields.
+]
 
+We finally can see that if $b$ field is dynamical, then the $a$ field
+is a $ZZ_n$ gauge field, and if $a$ field is dynamical, then the $b$
+field is a $ZZ_n$ gauge field.
 
 We first need to justify that the BF theory is a valid gauge theory
 that has gauge invariance. We may notice that the action is not gauge
@@ -794,8 +793,8 @@ nonzero only where both fluxes overlap, i.e. at these intersection
 points, and each intersection contributes the product of the two
 integer fluxes:
 $
-    ( 1 ) / ( ( 2 pi )^( 2 ) ) integral_( M_( d ) ) d lambda and d b
-    = underbrace(( 1 ) / ( 2 pi ) integral_( Sigma_( p + 1 ) ) d lambda, in ZZ)
+    ( 1 ) / ( ( 2 pi )^( 2 ) ) integral_( M_( d ) ) d a and d b
+    = underbrace(( 1 ) / ( 2 pi ) integral_( Sigma_( p + 1 ) ) d a, in ZZ)
     thin
     underbrace(( 1 ) / ( 2 pi ) integral_( Sigma_( d - p - 1 ) ) d b, in ZZ)
     thin
@@ -805,10 +804,10 @@ $
 All three factors are integers, so $N in ZZ$.
 
 #remark([
-    This splitting and evaluation procedure can not be applied
-    generally. However, for this BF theory case, we in fact can always
-    do this. #YL([I in fact still don't fully understand when we can
-        do this kind of splitting.])
+    Above illustration is guaranteed by many mathematical facts, and
+    my illustration is not rigorous.
+    #YL([I in fact still don't fully understand when we can do this
+        kind of splitting.])
 ])
 
 - *Conclusion: gauge invariance fixes $n in ZZ$*
@@ -818,14 +817,7 @@ $
     = 2 pi n dot N, wide N in ZZ.
 $
 The action is *not* invariant — it shifts by $2 pi n N$. But the path
-integral only sees $e^( i S )$, and as long as $n in ZZ$,
-$
-    e^( i delta_( lambda ) S_( B F ) ) = e^( i thin 2 pi n N ) = 1.
-$
-So the partition function $integral cal(D) b thin e^( i S_( B F ) )$
-is gauge invariant. This is exactly why we said "the action is not
-gauge invariant but the partition function is", and it forces the
-level $n$ to be an integer.
+integral only sees $e^( i S )$, and as long as:
 $
     n in ZZ
 $
@@ -837,19 +829,34 @@ in $ZZ_n$
 
 We now prove that by making $b$ dynamical, the $a$ field satisfies
 many thing we expect for a $ZZ_n$ gauge field, thus we can view the
-$a$ field as a $ZZ_n$ gauge field. 
+$a$ field as a $ZZ_n$ gauge field.
+
+
 
 
 
 
 == Cohomology Approach to Discrete Gauge Field
 
+=== Basic Homology and Cohomology
+
 
 
 
 #pagebreak()
-= Dual Symmetry 
+= Dual Symmetry
 
+Long before the modern understanding of symmetry, people have already
+noticed that for a 2D QFT, if we gauge an Abelian Symmetry, we get a
+dual symmetry, which under gauging gives us back the original theory
+@Vafa:1989ih. Most literature just cite Vafa's ancient paper and make
+it a fact. Here I'll try to give a detailed explanation.
+
+#theorem[Gaugeing Abelian Symmetry][
+
+]
+
+== Existence of Dual Symmetry
 
 
 
