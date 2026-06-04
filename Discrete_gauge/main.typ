@@ -488,7 +488,9 @@ $
 Thus, we can see a general fact that:
 
 - Coupling to a background gauge field is equivalent to inserting the
-    symmetry generator in a proper way.
+    symmetry generator in a proper way. In literature, this is also
+    said that coupling to background gauge field is a *fine mesh of
+    topological defects*.
 
 
 #remark([
@@ -517,11 +519,11 @@ $A arrow.r A + d alpha$, since the local operator transform
 non-trivially. However, we can insert a Wilson line connecting the two
 local operators, which is defined as:
 $
-    W_(q) (C) = exp (i q integral.cont_(C) A)
+    W_(q) (gamma) = exp (i q integral_(gamma) A)
 $
 Then the correlation function:
 $
-    angle.l cal(O)_q (x) W_(q) (C) cal(O)_(-q)(y) angle.r
+    angle.l cal(O)_q (x) W_(q) (gamma) cal(O)_(-q)(y) angle.r
 $
 is gauge invariant. Then, if we consider one operator move around, the
 Wilson line should also move with it, thus the gauge invariant
@@ -849,12 +851,22 @@ $a$ field as a $ZZ_n$ gauge field.
 Long before the modern understanding of symmetry, people have already
 noticed that for a 2D QFT, if we gauge an Abelian Symmetry, we get a
 dual symmetry, which under gauging gives us back the original theory
-@Vafa:1989ih. Most literature just cite Vafa's ancient paper and make
-it a fact. Here I'll try to give a detailed explanation.
+@Vafa:1989ih. Most literature @bhardwajFiniteSymmetriesTheir2018 just
+cite Vafa's ancient paper and make it a fact. Here I'll try to give a
+detailed explanation.
 
 #theorem[Gaugeing Abelian Symmetry][
 
 ]
+In fact this theorem is more general for higher form symmetries
+(notice that higher form symmetries are always Abelian).
+#theorem[Gaugeing Higher Form Abelian Symmetry][
+
+]
+
+In this section, we will detailly explain every aspect of this
+theorem, and give out some examples.
+
 
 == Existence of Dual Symmetry
 
