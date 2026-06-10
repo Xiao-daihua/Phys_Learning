@@ -2,25 +2,26 @@
 
 = Ising CFT and Majorana CFT Dual
 
+#YL[I think its good to rewrite this section due to my improved
+    understanding of gauging discrete symmetries.]
+
 
 == Background Gauge Field Language
 
-The bosonization of Ising and Majorana CFT are commonly written in a
-background gauge field language. Here we give a brief, nonrigorous
+The bosonization of Ising and Majorana CFT can be understood through
+gauging discrete symmetry. Here we give a brief, non rigorous
 introduction.
 
 === $ZZ_2$ Gauge Field
 
-==== $ZZ_2$ Gauge Theory
-
-Boundary conditions in the bosonic theory can be understood in a
-unified way using the language of a $ZZ_2$ gauge theory. We introduce
-a background gauge field
+Boundary conditions and defect insertion can be understood in a
+unified way using the language of coupling to a $ZZ_2$ gauge theory.
+We introduce a background gauge field
 $
     A in H^1(Sigma_g, ZZ_2).
 $
 This object admits several equivalent interpretations:
-- as a cohomology class,
+- as a cohomology group,
 - as a flat $ZZ_2$ connection,
 - as a homomorphism from the fundamental group,
     $A in "Hom"(pi_1(Sigma_g), ZZ_2)$.
@@ -35,8 +36,6 @@ so the gauge field is completely specified by
 $
     A = (alpha_1, beta_1, dots, alpha_g, beta_g) in (ZZ_2)^(2g).
 $
-
-==== Cup Product
 
 Given two $ZZ_2$ gauge fields $A, B in H^1(Sigma_g, ZZ_2)$, their cup
 product is an element
@@ -67,11 +66,11 @@ For the torus $T^2$ the cup product table is:
         align: center,
         table.hline(stroke: 1.2pt),
         table.header(
-            strong[$integral_(T^2) A union B$],
-            strong[$A_0=(0,0)$],
-            strong[$A_1=(1,0)$],
-            strong[$A_2=(0,1)$],
-            strong[$A_3=(1,1)$],
+            [$integral_(TT^2) A union B$],
+            [$A_0=(0,0)$],
+            [$A_1=(1,0)$],
+            [$A_2=(0,1)$],
+            [$A_3=(1,1)$],
         ),
         table.hline(stroke: 0.6pt),
         $A_0=(0,0)$, $0$, $0$, $0$, $0$,
@@ -80,11 +79,11 @@ For the torus $T^2$ the cup product table is:
         $A_3=(1,1)$, $0$, $1$, $1$, $0$,
         table.hline(stroke: 1.2pt),
     ),
-    caption: [Cup product integral on $T^2$ for the four $ZZ_2$ gauge
+    caption: [Cup product integral on $TT^2$ for the four $ZZ_2$ gauge
         fields, computed modulo~2.],
 )
 
-==== Bosonic Partition Function Coupled to Background Field
+
 
 Partition functions with different boundary conditions of a bosonic
 theory (or a $ZZ_2$ defect-twisted theory) can be understood as
@@ -106,10 +105,6 @@ $
     Z_("AP",P) = Z[(1,0)], quad
     Z_("AP","AP") = Z[(1,1)].
 $
-
-#YL([In fact I don't understand why coupling to a gauge field is equal
-    to inserting a Symmetry defect line; nevertheless, the
-    calculational result is the same in partition functions.])
 
 === Spin Structure
 
@@ -192,7 +187,7 @@ $
     = (-1)^("Arf"[t + rho]).
 $
 
-== Ising/Majorana CFT Fermionization Duality
+== Ising/Majorana CFT Duality
 
 The Ising CFT and Majorana CFT are related by a web of dualities. We
 use the torus partition function as an illustrative example; the
@@ -218,9 +213,7 @@ with their character expansions.
         align: (center, center, left),
         table.hline(stroke: 1.2pt),
         table.header(
-            strong[Partition Function],
-            strong[Spin Structure],
-            strong[Characters],
+            [Partition Function], [Spin Structure], [Characters]
         ),
         table.hline(stroke: 0.6pt),
         $Z_("AP","AP")$, $Z[(0,0)]$,
@@ -244,9 +237,7 @@ with their character expansions.
         align: (center, center, left),
         table.hline(stroke: 1.2pt),
         table.header(
-            strong[Partition Function],
-            strong[BG Gauge Field],
-            strong[Characters],
+            [Partition Function], [BG Gauge Field], [Characters]
         ),
         table.hline(stroke: 0.6pt),
         $Z_(P,P)$, $Z[(0,0)]$,
