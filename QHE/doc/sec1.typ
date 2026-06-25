@@ -235,6 +235,10 @@ enclosed by the loop:
 $
     i gamma = -i integral.cont_(S) F_( i j ) ( lambda ) d S^( i j )
 $
+#YL([I think I should study more on this, it is important yet unclear,
+    when and how can we use the Stokes' Theorem (I'm not sure here it
+    is valid, Especially considering the Magnetic Monopole
+    discussion.)])
 
 - *Chern Number* In a parameter space if we want the berry phase to be
     well-defined, then the integral of the Berry curvature over a
@@ -244,6 +248,9 @@ $
 $
 this integer $C$ is called the Chern number, which is a topological
 invariant of the system.
+
+#YL([Need to carefully follow the justification of this quantization.
+    I think there are subtle points here.])
 
 #remark[
     The quantization of the Chern number is a result of the fact that
