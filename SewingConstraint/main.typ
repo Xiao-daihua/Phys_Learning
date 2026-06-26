@@ -3,7 +3,7 @@
 #import "env/piece.typ": *
 
 #show: notetemp.with(
-    title: [How does Locality and Unitarity constrain the structure of a CFT with boundary?],
+    title: [Sewing Constraints of BCFT],
   author: [Yu Liu],
     abstract: [This is a note capturing the main idea and calculation
         of @lewellenSewingConstraintsConformal1992, which focus on how
@@ -18,11 +18,11 @@
 #pagebreak()
 #include "doc/sec2.typ"
 
-#pagebreak()
-#include "doc/sec3.typ"
+// #pagebreak()
+// #include "doc/sec3.typ"
 
-#pagebreak()
-#include "doc/sec4.typ"
+// #pagebreak()
+// #include "doc/sec4.typ"
 
 
 #pagebreak()
