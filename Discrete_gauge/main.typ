@@ -19,7 +19,7 @@ QFTs, gauging is also a powerful tool to study the symmetry of a QFT.
 
 
 #pagebreak()
-= How to Gauge a Continuous Symmetry?
+= Gauging a Continuous Symmetry
 
 First we review some basics of coupling a QFT to a gauge field. Of
 course, we can just do the minimal coupling and be happy with it.
@@ -28,7 +28,6 @@ a conserved current or even a classical lagrangian description. Then,
 how can we do it?
 
 == Symmetry Characterized by Generators
-
 
 When we want to pin down a symmetry in QFT, the usual tools are the
 conserved current and the conserved charge. But these come from
@@ -288,6 +287,18 @@ between patches is non-trivial.
     universe, but it is good to leave the possibility of their
     existence, which makes our life more interesting.
 ])
+
+#note([
+  Due to a non-globally defined gauge field the stokes theorem will not hold. However, we can also write:
+  $
+  integral_(S) F = integral.cont_(partial S) A
+  $
+  in the sense of being a phase, say:
+  $
+    exp(i integral_(S) F) = exp(i integral.cont_(partial S) A)
+  $
+])
+
 
 - *A Gauge Transformation Parameter is not Globally Defined*
 
@@ -645,7 +656,7 @@ gauge field and we see that the anomaly is "controlled" by the d+1
 dimensional theory.
 
 #pagebreak()
-= How to Gauge a Discrete Symmetry?
+= Gauging a Discrete Symmetry
 
 Now we turn to the main topic of this note, gauging a discrete
 symmetry. To do this we may first define what we mean by a discrete
@@ -687,13 +698,6 @@ characterize symmetries with symmetry generators. Imposing consistency
 conditions and observing the relation with Ward identities, we can
 find out all these symmetry generators and identify them with
 symmetries.
-
-As far as I know, in 2D QFT these generalized symmetries can be
-described by Topological Defect Lines systematically
-@changTopologicalDefectLines2019a, satisfying a series of
-characteristic properties. It turns out that these symmetries doesn't
-have a group structure, but rather a structure of fusion category. For
-higher dimensional QFT, the story is more complicated and general.
 
 == BF Approach to Discrete Gauge Field
 
@@ -854,18 +858,6 @@ dual symmetry, which under gauging gives us back the original theory
 @Vafa:1989ih. Most literature @bhardwajFiniteSymmetriesTheir2018 just
 cite Vafa's ancient paper and make it a fact. Here I'll try to give a
 detailed explanation.
-
-#theorem[Gaugeing Abelian Symmetry][
-
-]
-In fact this theorem is more general for higher form symmetries
-(notice that higher form symmetries are always Abelian).
-#theorem[Gaugeing Higher Form Abelian Symmetry][
-
-]
-
-In this section, we will detailly explain every aspect of this
-theorem, and give out some examples.
 
 
 == Existence of Dual Symmetry
