@@ -342,8 +342,8 @@ have defined before.
 
 These relations in fact is much physical than just a mathematical
 relation. We then can see the mass dimension of the coupling constant
-gives us a direct way to see whether a theory is renormalizable or not
-(of course, superficially):
+gives us a direct way to see whether a theory is renormalizable or
+not:
 
 - *Super Renormalizable*: Theories with coupling constants of positive
     mass dimension.
@@ -356,8 +356,8 @@ gives us a direct way to see whether a theory is renormalizable or not
 
 In fact this can also be justified in a EFT view.
 
-#YL([Discussion to be continued, for the Wilsonian view of QFT and
-    their consistency with the renormalization procedure.])
+#YL([Discussion to be continued, for the EFT view of QFT and their
+    consistency with the renormalization procedure.])
 
 
 === Renormalizability of QED

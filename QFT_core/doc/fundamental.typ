@@ -13,7 +13,7 @@ functions*. Then we can:
 + Use Feymann diagrams to calculate correlation functions (Both
     functional derivative method or canonical quantization with
     interaction picture).
-+ Use LSZ reduction formula to get the S-matrix from the correlation
++ Use LSZ reduction formula to get the S-Matrix from the correlation
     functions.
 
 == Kallen-Lehmann Form of Propagator
@@ -41,7 +41,7 @@ Thus, the role of the KL form is to tell us what part of the 2 point
 correlation function can be interpreted as the amplitude of a particle
 propagating, and what part is not.
 
-=== Kallen-Lehmann Form of Scalar Propagator
+=== KL Form for Scalar Propagator
 
 First we have a look at the scalar propagator. We then need to specify
 our assumptions on the theory, which are:
@@ -74,7 +74,9 @@ $ket(lambda_p)$:
 $
     ket(lambda_p) = e^(i K^i xi_i) ket(lambda_0)
 $
-Due to the Poincare Algebra, we know that:
+Due to the fact that $P^mu P_mu = m_lambda^2$ is a Casimir and commute
+with the Poincare algebra, we know that under the boost operator, the
+states will satisfy the following eigenvalue equations:
 $
     P^i ket(lambda_p) = p^i ket(lambda_p) quad H ket(lambda_p) = sqrt(p^2 + m_lambda^2) ket(lambda_p)
 $
@@ -95,7 +97,7 @@ $
 Consider this theory with the above spectrum. We can then write the 2
 point correlation function as:
 $
-    braket(0, cal(T) phi(x) phi(0), 0)
+    braket(Omega, cal(T) phi(x) phi(0), Omega)
 $
 Now we insert a complete set of states in the middle, which is:
 $
@@ -116,7 +118,7 @@ function.)
 
 Then we have:
 $
-    braket(0, cal(T) phi(x) phi(0), 0) = sum.integral_lambda (dif^3 p) / (2 pi)^3 1 / (2 E_p (lambda)) e^(-i p x) braket(Omega, phi(x), lambda_p) braket(lambda_p, phi(0), Omega)
+    braket(Omega, cal(T) phi(x) phi(0), Omega) = sum.integral_lambda (dif^3 p) / (2 pi)^3 1 / (2 E_p (lambda)) e^(-i p x) braket(Omega, phi(x), lambda_p) braket(lambda_p, phi(0), Omega)
 $
 Now have a look at the matrix element
 $braket(Omega, phi(x), lambda_p)$. We can translate the field to 0 by
@@ -138,7 +140,7 @@ $
 
 
 
-=== Kallen-Lehmann Form of Fermion Propagator
+=== KL Form of Fermion Propagator
 
 
 === Example: QED Fermion Propagator
@@ -149,9 +151,6 @@ which is QED.
 == LSZ Reduction Formula
 
 
-=== Derivation of LSZ Reduction Formula
-
-=== S-Matrix from Feymann Diagrams
 
 
 

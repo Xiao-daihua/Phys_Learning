@@ -17,11 +17,11 @@
 #chapter[Renormalization]
 #include "doc/renormalization.typ"
 
-#chapter[Renormalization Group]
-#include "doc/rg.typ"
-
-#chapter[Spontaneous Symmetry Breaking]
-#include "doc/symmetry.typ"
+// #chapter[Renormalization Group]
+// #include "doc/rg.typ"
+//
+// #chapter[Spontaneous Symmetry Breaking]
+// #include "doc/symmetry.typ"
 
 #chapter[Anomalies]
 #include "doc/anomaly.typ"
