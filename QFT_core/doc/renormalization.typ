@@ -3,12 +3,17 @@ Renormalization is the procedure to deal with divergences in quantum
 field theory. It is a systematic way to cancel the divergences and get
 finite results for physical quantities.
 
-= Regualization
+= Regualization and Bare Perturbation Theory
 Before starting with the systematic renormalization canceling out
 divergence, we need to first regularize the divergences, which is the
 process to make the divergences well defined. This is done by
 introducing a regularization scheme, which is a mathematical tool to
 make the divergences well defined.
+
+Then we try to deal with the divergences in a naive way, which is
+called *bare perturbation theory*. This is a cumbersome way to cancel
+out the divergences, yet it may lead us to understand why the
+systematic renormalization works.
 
 
 == Regularization Schemes
@@ -27,49 +32,24 @@ folow:
     propagators in the loop integrals, which will make the loop
     integrals easier to calculate.
 
-+ Make $l$
-
+#YL([to be continued see 6.3 of peskin])
 
 === Feymann Parameterization
+#YL([6.3 in peskin's book!])
+
 
 
 === Dimensional Regularization
 
-
-== Examples
-Lets use the mathematical tools developed in the previous sections to
-calculate some examples of loop integrals and do regularization, which
-will be useful for the following sections on renormalization.
+#YL([7.5 in peskin's book!])
 
 
-
-=== Example: Electric Vertex Function
-
-This is the most basic example of renormalization, which is the
-one-loop correction to the electric vertex function, given in section
-6.3 and 7.2, 7.3 of @peskinIntroductionQuantumField1995.
-
-
-=== Example: Vaccum Polarization
-
-This is another example from Peskin and Schroeder
-@peskinIntroductionQuantumField1995, which is the one-loop correction
-to the photon propagator, given in section 7.5.
-
-
-#pagebreak()
-= Renormalization
-We have seen that the observables we care about seems to have
-divergences due to the loop integrals. Now we need to find a way to
-understand why there are these divergences and how to get finite
-results for physical quantities. This is the process of
-renormalization.
 
 == Bare Perturbation Theory
 Before going to a systematic way to do renormalization, we need to
 first try to do it in a more naive and cumbersome way called *bare
 perturbation theory*. Yet it may help us to understand why the
-systematica *renormalized perturbation theory* works.
+systematic *renormalized perturbation theory* works.
 
 
 === General Method
@@ -114,40 +94,59 @@ To do this, we follow the following steps:
     if we fix the order of perturbation to be tree level.
 ])
 
-=== Example: Electric Vertex Function
-
-The first example is the one-loop correlation to the electric vertex
-function. We may see that though we have divergences in correlation
-functions. However, if we focus on physical quantities, such as S
-Matrix and use the physical mass instead of bare mass. The divergence
-will disappear.
 
 
 
-==== Divergence in all orders
+== Example: Electric Vertex Function
+
+Lets use the mathematical tools developed in the previous sections to
+calculate some examples of loop integrals and do regularization, which
+will be useful for the following sections on renormalization.
+
+The electric vertex function is the most basic example of
+renormalization, which is the one-loop correction to the electric
+vertex function, given in section 6.3 and 7.2, 7.4 of
+@peskinIntroductionQuantumField1995.
+
+=== Electric Vertex Function
+
+
+=== Evaluation of Electric Vertex Function
+
+
+=== Canceling Ultraviolet Divergence
+
+
+=== Divergence Cancellation in all orders
 
 There is a problem of can field strength renormalization cancel
-divergence to all orders? this is enforced by the Ward-Takahashi
+divergence to all orders? This is enforced by the Ward-Takahashi
 identity, which is a consequence of the gauge symmetry.
 
 
-=== Example: Vaccum Polarization
+== Example: Vaccum Polarization
+
+This is another example from Peskin and Schroeder
+@peskinIntroductionQuantumField1995, which is the one-loop correction
+to the photon propagator, given in section 7.5.
+
+
+
+
 
 
 #pagebreak()
+= Systematic Renormalization
+
 == Renomalizability
 
 Above sections we show that some of the divergence in a theory may be
 canceled out using a renomalizing technique. However, for a sensible
 theory, we need to make sure that all the divergences can be canceled
 out when expressing the physical obserables using physical values.
-
 Thus, before developing a systematic way to do renormalization, we
 need to first classify theories based on whether they can be
 renomalized or not.
-
-
-=== Which Theories are Renormalizable?
 
 To answer this question, we have 2 subquestions:
 
@@ -356,11 +355,11 @@ not:
 
 In fact this can also be justified in a EFT view.
 
-#YL([Discussion to be continued, for the EFT view of QFT and their
-    consistency with the renormalization procedure.])
 
+== Example: Renormalizability of QED
 
-=== Renormalizability of QED
+#YL([10.1 in peskin's book!])
+
 Lets apply this two steps to QED:
 - *Step 1:* try to list out all superficially divergent, amputated,
     one particle irreducible basic amplitudes.
@@ -379,8 +378,7 @@ irreducible basic amplitudes in QED is given in the following table:
 #pagebreak()
 == Renormalized Perturbation Theory
 
-We have seen that the bare renormalization is cumbersome and may have
-some potential problems unclear in the procedure.
+#YL([here shall follow peskin and use phy4 theory as an example])
 
 === General Method
 
@@ -393,11 +391,8 @@ Its good to mention @srednickiQuantumFieldTheory2007's understanding
 of renormalization and counter terms from interpreting the LSZ
 reduction formula.
 
-== Examples of RPT
 
-=== Example: $phi^4$ Theory
-
-
+== Example: Renormalization of QED
 
 
 

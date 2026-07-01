@@ -5,18 +5,8 @@ will be intensively used and discussed in the following chapters. It
 will not be self contained, yet all preliminaries(free field, path
 integral, Feymann diagrams) will be found in basic QFT textbooks.
 
-= LSZ Reduction Formula
-For a scattering theory, it is important predict the S-matrix as
-observable quantity. For QFT, LSZ reduction formula is the one that
-tells us how to *calculate the S-matrix from the correlation
-functions*. Then we can:
-+ Use Feymann diagrams to calculate correlation functions (Both
-    functional derivative method or canonical quantization with
-    interaction picture).
-+ Use LSZ reduction formula to get the S-Matrix from the correlation
-    functions.
 
-== Kallen-Lehmann Form of Propagator
+= Kallen-Lehmann Form of Propagator
 This is a topic to prepare us for the LSZ reduction formula. The
 question is:
 
@@ -41,10 +31,10 @@ Thus, the role of the KL form is to tell us what part of the 2 point
 correlation function can be interpreted as the amplitude of a particle
 propagating, and what part is not.
 
-=== KL Form for Scalar Propagator
+== KL Form for Scalar Propagator
 
-First we have a look at the scalar propagator. We then need to specify
-our assumptions on the theory, which are:
+First we have a look at the massive scalar propagator. We then need to
+specify our assumptions on the theory, which are:
 
 + The dynamical fields are scalar fields, and the theory is
     relativistic and Lorentz invariant.
@@ -54,7 +44,7 @@ our assumptions on the theory, which are:
 With these minimal assumptions, we can think of the spectrum of the
 theory can be organized as follow.
 
-==== Spectrum of a Lorentz Invariant QFT
+=== Spectrum of a Lorentz Invariant QFT
 
 First, the Lorentz invariance of quantum theory means that the theory
 have a symmetry algebra of Poicare Algebra and the Hilbert space forms
@@ -92,7 +82,7 @@ $
     particle and messy interaction and bounding between them.
 ]
 
-==== Spectral Representation of Scalar Propagator
+=== Spectral Representation of Scalar Propagator
 
 Consider this theory with the above spectrum. We can then write the 2
 point correlation function as:
@@ -135,20 +125,35 @@ $
     braket(Omega, phi(0), lambda_p) = braket(Omega, U^(dagger)(Lambda) U(Lambda) phi(0) U^(dagger)(Lambda) U(Lambda), lambda_p) = braket(Omega, phi(0), lambda_0)
 $
 
-==== Kallen-Lehmann Form of Scalar Propagator
+=== Kallen-Lehmann Form of Scalar Propagator
 
 
 
 
-=== KL Form of Fermion Propagator
+== KL Form of Fermion Propagator
 
 
-=== Example: QED Fermion Propagator
+== Example: QED Fermion Propagator
 Now we have a look at a concrete example of a lorentz invariant QFT,
 which is QED.
 
 
-== LSZ Reduction Formula
+#pagebreak()
+
+= LSZ Reduction Formula
+
+For a scattering theory, it is important predict the S-matrix as
+observable quantity. For QFT, LSZ reduction formula is the one that
+tells us how to *calculate the S-matrix from the correlation
+functions*. Then we can:
++ Use Feymann diagrams to calculate correlation functions (Both
+    functional derivative method or canonical quantization with
+    interaction picture).
++ Use LSZ reduction formula to get the S-Matrix from the correlation
+    functions.
+
+#pagebreak()
+= Optic Theorem
 
 
 
@@ -157,19 +162,18 @@ which is QED.
 #pagebreak()
 = Ward-Takahashi Identity
 Symmetry plans the fundamental role in QFT, and the Ward-Takahashi
-identity is a consequence of the symmetry. I'll first introducs the
-formal structure of the Ward-Takahashi identity following section 9.6
-of @peskinIntroductionQuantumField1995, and then talk about the
+identity is a consequence of the symmetry. I'll first talk about the
 application in electrodynamics, following section 7.4 of
+@peskinIntroductionQuantumField1995, then I will talk about the formal
+structure of the Ward-Takahashi identity following section 9.6 of
 @peskinIntroductionQuantumField1995.
+
+== Ward-Takahashi Identity in QED
 
 
 == Ward-Takahashi Identity in General QFT
 
 
-
-#pagebreak()
-= Quantization of Gauge Fields
 
 
 
