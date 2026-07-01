@@ -1,0 +1,177 @@
+\ProvidesPackage{my_definition}
+
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+
+%一些奇怪的公式框框！
+\newtheorem{mythm}{定理}
+
+\newtcolorbox{mythmbox}{
+    arc=0mm,
+    colback=white!90!blue,
+    colframe=white!90!blue,
+    fonttitle=\bfseries,
+    title=定理,
+    width=.9\linewidth,
+    halign title=center
+}
+
+\setlength{\parindent}{2em}
+%%redifinition of codes-----------------------
+\def\mA{\mathcal{A}}
+\def\mB{\mathcal{B}}
+\def\mC{\mathcal{C}}
+\def\mD{\mathcal{D}}
+\def\mE{\mathcal{E}}
+\def\mF{\mathcal{F}}
+\def\mG{\mathcal{G}}
+\def\mH{\mathcal{H}}
+\def\mI{\mathcal{I}}
+\def\mJ{\mathcal{J}}
+\def\mK{\mathcal{K}}
+\def\mL{\mathcal{L}}
+\def\mM{\mathcal{M}}
+\def\mN{\mathcal{N}}
+\def\mO{\mathcal{O}}
+\def\mP{\mathcal{P}}
+\def\mQ{\mathcal{Q}}
+\def\mR{\mathcal{R}}
+\def\mS{\mathcal{S}}
+\def\mT{\mathcal{T}}
+\def\mU{\mathcal{U}}
+\def\mV{\mathcal{V}}
+\def\mW{\mathcal{W}}
+\def\mX{\mathcal{X}}
+\def\mY{\mathcal{Y}}
+\def\mZ{\mathcal{Z}}
+
+% \begin{equation}
+%     \cB \ is \ great
+% \end{equation}
+\def\Tr{\mathrm{Tr}}
+\def\sl{\left( }
+\def\sr{\right)}
+\def\ml{\left[ }
+\def\mr{\right[ }
+\def\ll{\left\{ }
+\def\lr{\right\} }
+
+\newcommand{\bbar}{\begin{leftbar}}
+\newcommand{\ebar}{\end{leftbar}}
+\newcommand{\rmk}[1]{\bbar\textbf{Remark:}
+
+#1 \ebar}
+
+\def\line{~\\
+\hrule 
+
+~\\
+
+}
+
+\newcommand{\eq}[1]{
+        \begin{align}
+            #1
+        \end{align}
+}
+\newcommand{\seq}[1]{
+    $ #1 $
+}
+\newcommand{\defi}[1]{
+    \bbar
+    \begin{definition}
+        #1
+    \end{definition} 
+    \ebar
+}
+\newcommand{\thm}[1]{
+    \bbar
+    \begin{theorem}
+        #1
+    \end{theorem}
+    \ebar
+}
+\newcommand{\lmm}[1]{
+    \bbar
+    \begin{lemma}
+        #1
+    \end{lemma}
+    \ebar
+}
+\newcommand{\hdt}[1]{
+    \textbf{#1}
+}
+\newcommand{\pict}[2]{
+    \begin{figure}[H]
+        \centerline{\includegraphics[width= #2 \linewidth]{#1}}
+        \centering
+    \end{figure}
+}
+\newcommand{\itm}[1]{
+    \begin{itemize}
+        #1
+    \end{itemize}
+}
+\newcommand{\pt}[1]{
+    \item{
+        #1
+    }
+}
+\newcommand{\lqt}[1]{
+    \begin{equation}
+        \left\{
+                     \begin{array}{lr}
+                    #1
+                     \end{array}
+        \right.
+    \end{equation}
+}
+\newcommand{\at}[1]{\begin{tcolorbox}[colframe=black,colback=lightgray]
+    \textbf{!!ATTENTION!!}
+
+    #1
+\end{tcolorbox}
+}
+\newcommand{\kit}[1]{ |#1\rangle}
+\newcommand{\bra}[1]{ \langle#1|}
+\newcommand{\brakit}[2]{ \langle#1|#2\rangle}
+
+
+
+
+
+% \newtcbtheorem[number within=chapter]{Definition}{}{
+%         enhanced,
+%         sharp corners,
+%         attach boxed title to top left={
+%             xshift=-1mm,
+%             yshift=-5mm,
+%             yshifttext=-1mm
+%         },
+%         top=1.5em,
+%         colback=white,
+%         colframe=green!75!black,
+%         fonttitle=\bfseries,
+%         boxed title style={
+%             sharp corners,
+%             size=small,
+%             colback=green!75!black,
+%             colframe=green!75!black,
+%         } 
+%     }{def}
+
+% \newenvironment{nthm}[2]{ \begin{Theorem}[adjusted title=#1]{}{#2} \textbf{Theorem \thetcbcounter.} }{\end{Theorem}}
+
+% \newenvironment{dfn}[2]{ \begin{Definition}[adjusted title=#1]{}{#2} \textbf{Definition \thetcbcounter.}}{\end{Definition}}
+
+% \newcommand{\bd}{\begin{dfn}}
+% \newcommand{\ed}{\end{dfn}}
+
+% \newcommand{\bt}{\begin{thm}}
+% \newcommand{\et}{\end{thm}}
+
+% 共形场论常用的内容：
+
+\def\pdbar{\bar{\partial}}
+\def\pd{\partial}

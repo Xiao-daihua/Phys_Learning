@@ -316,9 +316,9 @@ isomorphic.
     But I'm not familiar with these thus not talking about them
     here.])
 
-=== Majorana $= ($Ising $times.circle$ Arf$slash ZZ_2$ (Fermionization)
+=== Majorana $= ($ Ising $times.o$ Arf$slash ZZ_2$ (Fermionization)
 
-#theorem[Majorana $=$Ising $times.circle$ Arf$slash ZZ_2$][
+#theorem[Majorana $=$Ising $times.o$ Arf$slash ZZ_2$][
     $
         Z_"Majorana" [A + rho]
         = frac(1, 2^g) (-1)^("Arf"[rho])
@@ -356,18 +356,18 @@ $
     &= |chi_0|^2 + |chi_(1\/2)|^2 + |chi_(1\/16)|^2.
 $
 
-=== Majorana$' =$ Arf $times.circle$ Majorana
+=== Majorana$' =$ Arf $times.o$ Majorana
 
 One can define a dual theory when considering the Ramond sector of
 Majorana CFT. When computing the partition function in the Ramond
 sector, there is a freedom in choosing the fermion parity assignment
-for the two degenerate ground states $|sigma angle.r$ and
-$|mu angle.r$:
+for the two degenerate ground states $|sigma angle.right$ and
+$|mu angle.right$:
 
-- $(-1)^F |sigma angle.r = +|sigma angle.r$ and
-    $(-1)^F |mu angle.r = -|mu angle.r$,
-- $(-1)^F |sigma angle.r = -|sigma angle.r$ and
-    $(-1)^F |mu angle.r = +|mu angle.r$.
+- $(-1)^F |sigma angle.right = +|sigma angle.right$ and
+    $(-1)^F |mu angle.right = -|mu angle.right$,
+- $(-1)^F |sigma angle.right = -|sigma angle.right$ and
+    $(-1)^F |mu angle.right = +|mu angle.right$.
 
 In principle these two choices define two different theories, yet they
 share the same torus partition function since it does not matter which
@@ -377,7 +377,7 @@ state is labeled even or odd.
 The two theories are related by the Arf invariant partition function
 (also called the Kitaev chain @kitaevUnpairedMajoranaFermions2001a).
 
-#theorem[Majorana$' =$ Arf $times.circle$ Majorana][
+#theorem[Majorana$' =$ Arf $times.o$ Majorana][
     $
         Z_("Majorana'")[A + rho] = (-1)^("Arf"[A + rho]) Z_"Majorana" [A + rho].
     $

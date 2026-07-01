@@ -1,0 +1,265 @@
+
+最开始我需要总体讲述一下！！
+
+\section{研究背景}
+
+本文主要跟随 Collier 等人 2023 年的文章《Solving 3D Gravity with Virasoro TQFT》（p.~0）进行学习与整理。
+
+我们研究的是一个 bulk 理论。我们认为三维 AdS 的量子引力可以通过几何量子化（geometric quantization）的方法对偶到一个拓扑量子场论（TQFT），即 Virasoro TQFT。该文章给出了一种 Virasoro TQFT 与引力配分函数之间的关系，并发展了若干技术，通过 Virasoro TQFT 来计算 3D 引力中的若干物理量。
+
+我们引入的 TQFT 源自于对 Teichmüller 空间的量子化。我们之所以关注 Teichmüller 空间，是因为该空间正好是 AdS$_3$ 的想空间（这并不是严格的说法，严格定义请参考后文）。
+
+文章的逻辑可分为以下几个步骤：
+
+\begin{enumerate}[label=(\arabic*)]
+  \item 说明 AdS$_3$ 在经典上等价于一个 Chern-Simons 理论；
+  \item 说明对应理论的相空间是 Teichmüller 空间；
+  \item 对 Teichmüller 空间进行量子化，得到的波函数为共形块（conformal block）；
+  \item 以 conformal block 构成 Hilbert 空间，构造出 Virasoro TQFT；
+  \item 论证该 TQFT 与引力配分函数之间的对应关系。
+\end{enumerate}
+
+
+
+\section{Introduction}
+\textbf{首先进行一个回顾介绍，因为我并不熟悉这个领域。}
+
+我们认为三维引力足够简单，并且有着很多non-trivial的内容，所以我们有希望构建一个比较完整的模型。并且我们知道3D Gravity和TQFT有很多相似的地方，因为并没有local的激发，所以我们认为有希望能够通过TQFT的角度研究这个理论。
+
+同时我们也知道根据已经熟悉的AdS/CFT的对偶，我们会先考虑负宇宙学常数的时空。
+\itm{
+    \pt{3D Gravity的asymptotic对称性告诉我们，AdS3应该对偶一个有两套Virasoro代数的CFT，并且central charge是$ c = \frac{3l}{2 G_N} $ }
+    \pt{我们也会认为边界的CFT可能是一大堆large c CFT的ensemble的对偶！而并不是一个单独的CFT}
+    \itm{
+        \pt{但问题是，对于CFT2我们有很多consistency condition的约束，我们并不可以随便的进行average。}
+        \pt{问题是我们并不太会解crossing symmetry。}
+    }
+}
+本文章并不会从AdS/CFT的角度介绍，而是从bulk的角度介绍AdS-TQFT的对偶！！！
+
+\imp{\textbf{本篇文章的目的是：}
+}{
+我们希望能够搞出来一个AdS3和TQFT的explicitly的关系。通过这个关系，我们可以计算很多bulk quantity。比如通过一些技巧构造partition function
+}
+
+\textbf{复习对于AdS QG的研究：}
+\itm{
+    \pt{经典的AdS3 Einstein Gravity可以对偶一个$ PSL(2,\mathbb{R}) \times  PSL(2,\mathbb{R})$ 的Chern-Simons theory。 }
+    \itm{
+        \pt{但是量子化后两者并不一样。一个原因是我们的引力的metric $ g $应该是non-degenerate的。但是Chern-Simons理论并没有这个要求。所以引力理论的相空间其实是Chern-Simons理论的相空间的子空间。所以做chern-simons路径积分的时候我们会积分一些完全没有引力interpretation的configuration。}
+        \pt{引力的相空间实际上是spacial slice的两份Teichmuller space}
+    }
+    \pt{对于Teichmuller space我们其实可以直接做量子化。}
+    \itm{
+        \pt{量子化后的Hilbert Space可以通过所有的Virasoro conformal block得到。}
+        \pt{Teichmuller空间上面可以很自然的作用 2d mapping class group (也就是 modular transformation以及crossing transformation)这些相当于Unitary operator on Hilbert space (of conformal blocks)}
+        \pt{Virasoro Conformal Block可以构成一个3D TQFT。也就是将Moore-Seiberg推广到non-rational case。这样我们得到了AdS/TQFT的一个对偶，我们可以通过TQFT的一些技术进行计算。}
+    }
+}
+总之，我们使用一个推广的Moore-Seiberg到non-rational case的TQFT construction来重新构建3D Gravity的TQFT对偶！
+\imp{Proposal of Duality}{
+    在某一个固定拓扑流形上的三维引力配分函数可以写成Virasoro TQFT的形式：
+    \eq{
+        Z_{\mathrm{grav}}(M)=\sum_{\gamma\in\mathrm{Map}(\partial M)/\mathrm{Map}(M,\partial M)}|Z_{\mathrm{Vir}}(M^\gamma)|^2.
+    }
+    接下来我们解释一下上方的等式的一些细节：
+
+\vspace{0.7em}
+\textbf{Virasoro TQFT partition function}
+
+上面的配分函数其实是两个copy of Virasoro TQFT的配分函数。
+\itm{
+    \pt{对于一个确定的流形 Vir TQFT的配分函数完全可以计算，使用surgery的技巧}
+    \itm{
+        \pt{但问题是，由于少于三个洞的流形上Hilbert space并不了好定义，所以不太能算}
+        \pt{并且内积并不一定是有限的数，所以有的配分函数是无穷的。}
+        \pt{存在framing anomaly，但是如果是double fold那么会cancel}
+    }
+    \pt{Vir TQFT和Liouville CFT存在着对偶的关系。其Hilbert space其实就是conformal block的空间。并且conformal block的空间是可以定义内积的。}
+    \pt{我们的TQFT的内积的积分我们其实可以使用DOZZ formula进行计算。}
+    \pt{同时Hilbert Space给出了一个mapping class group的表示，也就是对于所有crossing操作和modular invariant操作构成的群的表示。所以我们可以通过这个群结构更好的了解Hilbert space}
+}
+
+\textbf{Mapping class group 以及 gauge tranformation}
+
+引力理论和TQFT的区别在于，引力理论的背景manifold是动力学的，但是TQFT则是确定的。其中，有很多diffeomorphism在引力理论的视角下面是gauge transformation但是在TQFT的视角下面并不是。这些多出来的diffeo我们可以用\textbf{mapping class group}来表示！！！
+\eq{
+    \mathrm{Map}(M,\partial M)\equiv\mathrm{Diff}(M,\partial M)/\mathrm{Diff}_0(M,\partial M),\quad\mathrm{Map}(\partial M)\equiv\mathrm{Diff}(\partial M)/\mathrm{Diff}_0(\partial M).
+}
+我们这里$ \mathrm{Diff}(M,\partial M) $ 指的是允许在边界上进行non-trivial变换的微分同胚。这里我们的gravity的diff更大，是因为他不一定满足QFT公理比如：factorization of amplitudes。
+
+\vspace{0.7em}
+需要说明的一个很重要的subtlety是，我们对topology进行求和的时候，我们需要对boundary mapping class group求和。这个群并不是规范的！！！
+
+但是对于三维流行AdS我们正好有一个规则就是$ \mathrm{Map}(M,\partial M)\subset\mathrm{Map}(\partial M) $ 这说明，对topology求和和gauging bulk mapping class group正好部分cancel了！！！！所以我们有这个求和：
+\eq{
+    \sum_{\gamma\in\mathrm{Map}(\partial M)/\mathrm{Map}(M,\partial M)}|Z_{\mathrm{Vir}}(M^\gamma)|^2.
+}
+其中$ M^\gamma $ 指的是在mapping class group元素$ \gamma $作用下的流形。 这样的求和复原了之前算过的结论！！
+}
+
+
+
+\section{AdS3的相空间以及量子化}
+我们之前研究的经典的3D Gravity和Chern-Simons Theory有着对应。但是在量子化之后我们会发现两者有着不同，分成下面三点：
+\itm{
+    \pt{三维引力我们需要对所有的topology进行路径积分，但是对于TQFT我们的流形是固定的。}
+    \pt{三维引力要求metric是lorentzian的，但是gauge field并不一定。很可能相空间有一些存在并不符合}
+    \pt{三维引力我们的规范群是$\text{Diff}(M)$ globally和$ SL(2,\mathbb{R})\times SL(2,\mathbb{R}) $并不一样！ }
+}
+
+对于量子化，我们会认为我们1的3-流形是这个样子的$ \Sigma \times \mathbb{R} $并且在$ \Sigma $上面赋予表示初始条件的相空间。
+
+\imp{Phase space}{
+    我们给出一个结论。我们的一般的Chern-Simons的相空间其实是比AdS3的相空间要大的。
+
+    真正的AdS3的对应的$ \Sigma $上面附着的相空间其实是double-fold Teichmuller space。
+    \eq{
+        \text{Gravity phase space}=\mathcal{T}\times\overline{\mathcal{T}}\mathrm{~.}
+    }
+}
+现在的问题是我们怎么在这样的空间上进行量子化。我们已经知道的是\tml 是一个Kahler manifold。所以我们可以进行几何量子化。
+\itm{
+    \pt{第一步：find a holomorphic line bundle $ \mathcal{L}  $  over $ \mT $ whose first Chern class is the symplectic form。也就是$ c_1(\mL) = \omega $ }
+    \pt{第二步：我们认为\hil 是holomorphic sections of this line bundle}
+}
+我们会发现，一个很好的section的选择是\textbf{Virasoro Conformal Block}。所以我们给出下面的结论：
+\imp{量子化Teichmuller空间}{
+    我们的chern-Simons相空间进行一个量子化之后得到的Hilbert space其实就是conformal block构成的空间！！
+
+    下面我们讨论这个空间自己的性质！！
+}
+
+
+\section{Conformal Block构成的Hilbert空间}
+我们知道一个Chern-Simons理论对应的central charge是：
+\eq{
+    c=1+6Q^2\mathrm{~,~~~~}Q=b+b^{-1}\mathrm{~,~~~~~}b=\frac{1}{\sqrt{k-2}}\mathrm{~.~}
+}
+我们主要考虑$ c \geq 25 $也就是$ b \in[0,1] $的情况。然后我们的理论的conformal weight是：
+\eq{
+    \Delta=\alpha(Q-\alpha)=\frac{c-1}{24}+P^2,\quad\alpha=\frac{Q}{2}+iP.
+}
+
+
+\subsection{Conformal Block的内积结构}
+我们知道Hilbert space是：
+\itm{
+    \pt{线性空间}
+    \pt{有Unitary的内积结构}
+}
+所以下面我们需要赋予conformal block一个内积结构。
+\eq{
+    \langle\mathcal{F}_1|\mathcal{F}_2\rangle=\int_{\mathcal{T}}Z_\mathrm{bc~}Z_\text{timelike Liouville }{\overline{\mathcal{F}}_1}\mathcal{F}_2
+}
+下面我们解释为什么要这样定义内积结构：
+\itm{
+    \pt{对于\tml 进行积分其实就是积分moduli space of Riemann surface}
+    \pt{我们需要一个$ c = 26 $的东西进行anomaly cancelation。所以我们需要乘一个$ c' = 26 - c \leq 1 $ 的CFT配分函数（因为我们的理论已经要求$ c \geq 25 $ ）。我们使用了timelike Liouville理论。所以我们Hilbert Space使用Timelike Liouville的conformal block}
+    \pt{最后我们使用bc ghost的配分函数作为measure。}
+}
+
+接下来我们分析，在上面的内积结构下什么样的conformal block是可以normalizable的。
+
+
+这里我们给出一个argument就是说只有Liouville conformal block是可以被normalized，其他的可能会出现问题。
+
+\itm{
+    \pt{对于四点block来说，最低阶的展开式子是：}
+}
+\eq{
+    z^{-\Delta_1-\Delta_2+\Delta}\overline{z}^{-\Delta_1-\Delta_2+\Delta^{\prime}}
+}
+更具体的写出来是：
+\eq{
+    \mathcal{F}_{\Delta_s}^{(s)}(\Delta_i|x)=x^{\Delta_s-\Delta_1-\Delta_2}\left\{1+\frac{(\Delta_s+\Delta_1-\Delta_2)(\Delta_s+\Delta_4-\Delta_3)}{2\Delta_s}x + ...\right\}.
+}
+\itm{
+    \pt{对于Timelike Liouville的配分函数，行为是：}
+}
+\eq{
+    |z|^{-2(\hat{\Delta}_{1}+\hat{\Delta}_{2})+\frac{\hat{c}-1}{12}}|\log|z||^{-\frac{1}{2}},
+}
+具体的推导过程可以见\href{https://arxiv.org/abs/1503.02067}{Timelike liouville}。但是这个很合理，因为\textbf{我们这个是四点函数所以没有internal index因为已经求和完了，但是还是有z这个和流形形状相关的参数}。由于对于conformal weight的对应$ \hat{\Delta} \equiv  1- \Delta_i $ 我们有整体积分元的行为是：
+\eq{
+    z^{\Delta-\frac{c-1}{24}-1}\bar{z}^{\Delta^{\prime}-\frac{c-1}{24}{-1}}|\log|z||^{-\frac{1}{2}}\mathrm{~.}
+}
+我们分析什么时候积分会收敛。需要这个积分在0点行为是好的。至少没有奇奇怪怪的pole，所以我们需要满足关系：
+\eq{
+    \Delta>\frac{c-1}{24}\mathrm{~,}
+}
+这也正好就是Liouville的关系！！
+
+\ques{tll}{
+    需要学习一波timelike liouville的理论
+
+    以及为啥这个大于就是收敛捏？？？
+}
+
+\subsection{内积的具体计算！！}
+下面给出一些计算这个内积的例子！！
+
+\vspace{0.7em}
+\textbf{三点函数}
+
+三个洞的球的Teichmuller空间只有一个点是trivial的！！。所以我们可以直接归一化三点函数到1，毕竟我们可以选择一个归一化。毕竟这个三点和三点上的数值我们都是知道的。就把三点block直接归一成为1。但是一个问题是不能归一的是timelike liouville的三点函数，因为如果block归一之后剩下的部分其实是Timelike Liouville的OPE系数。所以求出来就是：
+\eq{
+    \langle\mathcal{F}_{0,3}\mid\mathcal{F}_{0,3}\rangle=\widehat{C}_{\mathrm{TLL}}(\widehat{P}_1,\widehat{P}_2,\widehat{P}_3),
+}
+对于我们的讨论我们使用下面的归一化：
+\eq{
+    \widehat{C}_{\mathrm{TLL}}(\widehat{P}_{1},\widehat{P}_{2},\widehat{P}_{3})=\left.\frac{1}{C_{0}(i\widehat{P}_{1},i\widehat{P}_{2},i\widehat{P}_{3})}\right|_{b=\hat{b}}.
+}
+其中这个特殊函数是可以具体的写出来的！！使用这个关系，结论是：
+\eq{
+    \langle\mathcal{F}_{0,3}\mid\mathcal{F}_{0,3}\rangle=\frac{1}{C_0(P_1,P_2,P_3)}\mathrm{~.}
+}
+\rmk{
+    $ \mH_{0,3} $空间其实只有一个点，也就是一个矢量，我们酸的其实就是这个唯一的矢量和自己的内积！！注意我们这个空间是赋予一个确定的流形$ \Sigma_{g,n} $的！！而不是对于任意流形都是可以互相内积的！！！！  
+}
+
+\vspace{0.7em}
+\textbf{一般流形上的conformal block}
+
+通过计算我们可以证明所有的conformal block的归一化满足下面的条件，对于同样的一个channel $ \mC $ 来说Liouville conformal block是正交的：
+\eq{
+    \braket*{\mathcal{F}_{g,n}^{\mathcal{C}}(\vec{P}_1)}{\mathcal{F}_{g,n}^{\mathcal{C}}(\vec{P}_2)} = \frac{\delta^{(3g-3+n)}(\vec{P}_1-\vec{P}_2)}{\rho_{g,n}^{\mathcal{C}}(\vec{P}_1)},
+}
+解释一下这个公式的几个点：
+\itm{
+    \pt{我们delta函数是先对流形进行一个pant decomposition确定一个channel之后对于所有internal cuffs的conformal weight取delta}
+    \pt{归一化的系数我们使用的是：
+        \eq{
+            \rho_{g,n}^{\mathcal{C}}(\vec{P})=\prod_{\begin{array}{c}\mathrm{cuffs~}a\end{array}}\rho_0(P_a)\prod_{\begin{array}{c}\text{pairs of pants}\\(i,j,k)\end{array}}C_0(P_i,P_j,P_k)\mathrm{~,}
+        }
+        其中$ \rho_0 $指的是universal cardy density of state。
+        \eq{
+            \rho_0(P)=4\sqrt{2}\sinh(2\pi bP)\sinh(2\pi b^{-1}P)
+        } 
+    }
+}
+下面我们解释一下为什么这个内积会是这样的形式。
+\itm{
+    \pt{首先是弦理论的一个结论\textbf{BRST close如果是可以做到的那么left和right moving的场其实都是level-matching的}所以我们会有$ \delta^{(3g-3+n)}(\vec{P}_1-\vec{P}_2) $这个项 }
+    \pt{很自然分母也分为这两种。因为这个内积其实就是在求一个弦理论的散射振幅。散射振幅一般分成两个部分，一个propergator就是两点函数，另一个是structure constant of trivalent vertices。相当于就是两点函数和三点函数。我们使用下面的公式求可以得到上面的结论：
+    \eq{
+        \lim_{P_{3}\to1}C_{0}(P_{1},P_{2},P_{3})=\rho_{0}(P_{1})^{-1}\delta(P_{1}-P_{2})\mathrm{~.}
+    }
+    }
+}
+
+
+\ques{universal Cardy density of states}{
+    这是个什么东西和Liouville的两点函数有什么关系！！？？
+}
+
+\rmk{
+    我们注意Liouville理论是一个Diagonal的CFT，所以三点函数的系数什么的都是chiral的。只有一个P。但问题是general的CFT，甚至哪怕是使用Liouville conformal Block构建出来的，其实都不一定是chiral的！！！
+}
+
+
+
+\subsection{Hilbert空间作为MS Groupoid 的表示空间}
+由于所有的无穷维度Hilbert空间其实都是Iso的，所以我们其实还需要更加细致的研究这样的一个空间的结构！！
+
+我们知道Teichmuller空间上可以作用mapping class group。但是问题是，其实我们的Hilbert空间作用上MCG之后并不能完整刻画结构。我们只能把block分为一个个的channel，但是不同的channel之间其实还是有关系的！！所以我们的moore seiberg groupoid完全的表征了这些的关系。

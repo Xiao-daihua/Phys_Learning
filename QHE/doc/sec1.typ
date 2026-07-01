@@ -66,7 +66,7 @@ up to the Fermi energy $E_F$.
 The group velocity of an electron in a band is given by the gradient
 of the energy dispersion:
 $
-    v_n (bold(k)) = ( 1 ) / ( planck.reduce ) nabla_(bold(k)) E_n (bold(k))
+    v_n (bold(k)) = ( 1 ) / ( planck ) nabla_(bold(k)) E_n (bold(k))
 $
 This means that the electron's velocity depends on its position in the
 Brillouin zone and the curvature of the energy band.
@@ -117,17 +117,17 @@ $
     psi_( n, k ) ( x, y ) tilde e^( i k y ) H_( n ) ( x + k l_( B )^( 2 ) ) e^( - ( x + k l_( B )^( 2 ) )^( 2 ) slash 2 l_( B )^( 2 ) )
 $
 with $H_n exp (-x^2/2)$ the $n$-th Harmonic oscillator wave function
-and $l_B = sqrt(planck.reduce slash e B)$ the magnetic length. And
+and $l_B = sqrt(planck slash e B)$ the magnetic length. And
 $n in NN$ is the Landau level index, $k in ZZ$ is the momentum along
 $y$ direction.
 
 - *Energy Spectrum* The energy of the $n$-th Landau level is:
 $
-    E_n = ( n + 1/2 ) planck.reduce omega_(B) quad omega_(B) = e B / m
+    E_n = ( n + 1/2 ) planck omega_(B) quad omega_(B) = e B / m
 $
 And each level have a degeneracy of
 $
-    N_B = e B A slash 2 pi planck.reduce quad n = B/ Phi_0
+    N_B = e B A slash 2 pi planck quad n = B/ Phi_0
 $
 which is the number of flux quanta through the system. These energy
 levels can be drawn in the following CMT style:
@@ -154,7 +154,7 @@ $
 $
 - *Energy Spectrum*
 $
-    E_( n, k ) = planck.reduce omega_( B ) ( n + ( 1 ) / ( 2 ) ) + e E ( k l_( B )^( 2 ) - ( e E ) / ( m omega_( B )^( 2 ) ) ) + ( m ) / ( 2 ) ( E^( 2 ) ) / ( B^( 2 ) )
+    E_( n, k ) = planck omega_( B ) ( n + ( 1 ) / ( 2 ) ) + e E ( k l_( B )^( 2 ) - ( e E ) / ( m omega_( B )^( 2 ) ) ) + ( m ) / ( 2 ) ( E^( 2 ) ) / ( B^( 2 ) )
 $
 We now see that different $k$ states are not degenerate anymore, and
 the landau levels are tilted in the energy-momentum space:
@@ -168,7 +168,7 @@ the landau levels are tilted in the energy-momentum space:
     superposition of the landau level states with different $k$, then
     the group velocity of the wave packet is:
 $
-    v_y = ( 1 ) / ( planck.reduce ) ( diff E_( n, k ) ) / ( diff k ) = E / B
+    v_y = ( 1 ) / ( planck ) ( partial E_( n, k ) ) / ( partial k ) = E / B
 $
 it means that the wave packet will drift along $y$ direction with a
 velocity.
@@ -197,7 +197,7 @@ Consider the ground state energy is always normalized to 0, no matter
 which parameter we choose, then after a close loop of parameter
 variation, the wave function will acquire a phase factor:
 $
-    |psi ( lambda_i ) angle.r arrow.r e^( i gamma ) |psi ( lambda_i ) angle.r
+    |psi ( lambda_i ) angle.right arrow.r e^( i gamma ) |psi ( lambda_i ) angle.right
 $
 where $gamma$ is the Berry phase, which can be expressed as an
 integral of the Berry connection $A_i$ along the loop
@@ -235,10 +235,6 @@ enclosed by the loop:
 $
     i gamma = -i integral.cont_(S) F_( i j ) ( lambda ) d S^( i j )
 $
-#YL([I think I should study more on this, it is important yet unclear,
-    when and how can we use the Stokes' Theorem (I'm not sure here it
-    is valid, Especially considering the Magnetic Monopole
-    discussion.)])
 
 - *Chern Number* In a parameter space if we want the berry phase to be
     well-defined, then the integral of the Berry curvature over a
@@ -249,15 +245,16 @@ $
 this integer $C$ is called the Chern number, which is a topological
 invariant of the system.
 
-#YL([Need to carefully follow the justification of this quantization.
-    I think there are subtle points here.])
-
 #remark[
     The quantization of the Chern number is a result of the fact that
-    we want a well-defined holonomy of the Berry connection. This
-    derivation in fact can be generalized to any number of parameters,
-    integrating such a curvature over a closed manifold will give a
-    topological invariant, which is the Chern number.
+    we want a well-defined holonomy of the Berry connection.
+
+    Naively, this should gives us 0 for a Chern number, due to stokes'
+    theorem. However, if we consider the case that the berry
+    connection is not globally defined (magnetic monopole), then the
+    integral of the berry curvature over a closed surface can be
+    non-zero, and if we want the holonomy to be well-defined, then the
+    integral must be quantized in units of $2 pi$.
 ]
 
 

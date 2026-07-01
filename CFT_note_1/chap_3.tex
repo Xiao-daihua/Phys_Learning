@@ -1,0 +1,1311 @@
+
+
+\section{theoretical QFT}
+\subsection{Definitions}
+我们最初需要明确量子场论是什么？在此我们使用比较抽象的语言描述。
+我们认为：quantum field theory is particularly well-suited to predicting the outcomes of collisions of particles, whether in the cosmos or in a particle accelerator.
+
+而对任何理论我们主要研究的对象就是Observables，对于量子场论我们有两种Obserable：
+\itm{
+    \pt{
+        Spectrum：也就是系统的态的集合。描述系统整体性质。
+        \eq{
+            \kit{\sigma}
+        }
+    }
+    \pt{
+        Coorelation function：也就是态对应的场的平均值。描述场的相互作用。
+        \eq{
+            \left\langle\prod_{i=1}^NV_{\sigma_i}(x_i)\right\rangle\in\mathbb{C}
+        }
+    }
+}
+注意：我们这里的讨论不包含“算符”也没有引入类似的概念。
+
+对于Spectrum和Correlation function两种客观测量存在着一个对应关系。这是量子场论的公理这个公理保证我们可以用两种角度来研究这个理论。
+\axm{
+    每一个量子态（也就是Spectrum）\seq{\kit{\sigma}}对应着一个场\seq{V_{\sigma}(x)}
+}
+\rmk{
+    我认为这个对应可以这样理解。
+    
+    量子态对应着路径积分。那么态对应的场其实是如果在这个场所在的点进行一个圆圈向外进行路径积分积分出的量子态。等价于在这个场这个点放一个初始的量子态往外演化出的量子态。
+
+    下面这个图片可以说明这个point：
+}
+\pict{2024-08-09-15-02-18.png}{0.6}
+\rmk{
+    我们定义的场都是在Correlation function的意义下的。单纯的拿出一个场对于量子场论是没有意义的。
+}
+由于我们研究的是2D CFT。所以我们的讨论全部都是欧几里得量子场论。我们认为所有的维度都是等价的。或者说“时间维”可以任意选取。
+
+\subsection{bootstrap method}
+
+我们引入一个方法来构建一个量子场论。为了构建一个量子场论我们需要两点：
+\itm{
+    \pt{Symmetry assumption}
+    \pt{Consistency condition}
+}
+
+\subsubsection{Symmetry assumption}
+\thm{
+    如果场论存在对称性，那么Spectrum必须是这个对称性对应的代数的表示：
+    \eq{
+        \mathcal{S}=\bigoplus_{\mathcal{R}}m_\mathcal{R}\mathcal{R}\mathrm{~.}
+    }
+    (其实是说是表示的基)
+}
+因此，量子场论的量子态可以写成：\seq{\kit{\sigma} = \kit{(\mR,v)}}其中\seq{\mR}是某个表示的label，而v代表的是这个表示的第几个基。这个对于角动量很好理解，对于球对称的理论，本征态应该是被j，m这个用j代表的SU2群的表示，其中第m个基表示的。
+
+我们认为对于量子态\seq{\kit{(\mR,v)}}，或者关联函数\seq{\prod_iV_{(\mR_i,v_i)}(x_i)}(在量子场论里面我们很大程度研究的其实是场，或者关联函数)，对称性假设决定了v，而consistency condition决定了\seq{\mR}。而当量子态确定了，我们的理论的核心也就明确了。
+
+\rmk{
+    存在两种对称性
+    \itm{
+        \pt{Space-time symmetry：这个对称性作用在流形上，并且场需要协变。}
+        \pt{
+            internal Symmetry：这个对称性不作用在流形上。
+        }
+    }
+}
+
+\subsubsection{Consistency condition}
+
+首先我们讨论一个consistent的场论应该有的对于correlation function（或者说场，因为我们的场都是在correlation function的意义下定义的）的公理条件：
+\axm{Commutation
+    \eq{
+        V_{\sigma_1}(x_1)V_{\sigma_2}(x_2)=V_{\sigma_2}(x_2)V_{\sigma_1}(x_1)
+    }
+    非同点场的关联函数Commute。
+}
+
+\axm{
+    OPE
+    \eq{
+        V_{\sigma_1}(x_1)V_{\sigma_2}(x_2)=\sum_{\sigma\in\mathcal{S}}C_{\sigma_1,\sigma_2}^{\sigma}(x_1,x_2)V_{\sigma}(x_2)
+    }
+    存在复数的系数的OPE。
+}
+第一个公理保证了OPE的系数的两个性质:
+\itm{
+    \pt{结合律：
+    \eq{
+        \sum_{\sigma_s\in\mathcal{S}}C_{\sigma_1,\sigma_2}^{\sigma_s}(x_1,x_2)C_{\sigma_s,\sigma_3}^{\sigma_4}(x_2,x_3)=\sum_{\sigma_t\in\mathcal{S}}C_{\sigma_1,\sigma_t}^{\sigma_4}(x_1,x_3)C_{\sigma_2,\sigma_3}^{\sigma_t}(x_2,x_3)
+    }
+    \pict{2024-08-08-09-48-22.png}{0.6}
+    }
+    \pt{
+        交换律：也就是两个场左右交换其OPE不变（（
+    }
+}
+
+根据上面的公理我们可以完整的计算出关联函数：
+\thm{
+    根据上面的公理，任意的关联函数可以由2 point function以及OPE的系数决定。例如：
+
+    \eq{
+        \left\langle\prod_{i=1}^4V_{\sigma_i}(x_i)\right\rangle=\sum_{\sigma\in\mathcal{S}}C_{\sigma_1,\sigma_2}^\sigma(x_1,x_2)\sum_{\sigma^{\prime}\in\mathcal{S}}C_{\sigma,\sigma_3}^{\sigma^{\prime}}(x_2,x_3){\left\langle V_{\sigma^{\prime}}(x_3)V_{\sigma_4}(x_4)\right\rangle}
+    }
+    而我们认为2 point function是一个已知的量。如果我们的系统满足:
+    \itm{
+        \pt{OPE系数仅由位置决定}
+        \pt{Spectrum可以写成少量表示的直和}
+    }
+    那么我们的系统很容易确定。
+}
+
+对于共形场论来说我们的上面的几条都能够满足，并且求出来！
+同时，我们之前探讨的对称性条件不仅仅会决定一个态的能取的Spectrum同时还会决定我们的OPE。
+
+\ghl{Consistency condition对于OPE系数的约束！}
+
+由于态在对称性变换下表示并不会变，会变的是表示的基，就是说元素作用在表示的基上面会变成其他基的线性组合——这本身构成了一个大堆线性的约束方程。所以对称性约束能够约束住某一个表示的基的具体的分量，也就是说约束是\seq{f(x_1,x_2,v_1,v_2,v_3) = 0}可以进行求解。而OPE的系数的解的个数只和表示本身相关，因为这个决定了方程的形式。
+我们认为对于OPE的系数\seq{C^{(\mR_3,v_3)}_{(\mR_1,v_1),(\mR_2,v_2)}}的可能的解的数量是\seq{N^{\mR_3}_{\mR_1 \mR_2}}称之为fusion multiplicity。
+
+\defi{
+    我们定义两个表示的fusion product为：
+\eq{
+    \mathcal{R}_1\times\mathcal{R}_2=\sum_{\mathcal{R}_3}N_{\mathcal{R}_1\mathcal{R}_2}^{\mathcal{R}_3}\mathcal{R}_3\mathrm{~.}
+}
+这个计算满足：双线性，结合律，交换律。
+}
+讨论一下fusion product最重要的是包含了OPE的信息，它告诉我们两个不同的场（也就是不同表示的量子态对应的场）可以进行一个运算操作，称为OPE。这个运算操作的结果是变成了了另外很多表示的场的集合。而fusion product正是描述这些混合的表示之间在OPE这个不同表示之间的量的运算下体现出来的关系。
+
+\rmk{
+    很值得讨论的是fusion product和tensor product的区别。
+
+    一个直观的想法就是fusion product融入了OPE的信息。这个信息对于场论至关重要！！
+}
+如果存在一个\seq{\mR_3}使得\seq{N_{\mathcal{R}_1\mathcal{R}_2}^{\mathcal{R}_3}\geq2}我们称之为non-trivial。仅为0或者1的时候是trivial的。我们会意识到，如果是nontrivial的那么就是说明约束\seq{f(x_1,x_2,v_1,v_2,v_3)= 0}（例如 Ward Identity）并不可以完全的约束住OPE的系数。那么就是在表示确定的时候OPE的一些场的系数还是可能有很多解，需要通过更细致的讨论表示的具体的量子态来确定系数。但是如果真的可以约束住只和表示本身有关，也就是表示确定了这个表示之中所有的量子态的OPE系数都可以确定的话没那么就是Trivial的。
+
+如果所有的\seq{\mathcal{R}_1\times\mathcal{R}_2}都是trivial的话，那么其实\seq{C^{(\mR_3,v_3)}_{(\mR_1,v_1),(\mR_2,v_2)}}在给定\seq{\mR_1}等表示之后已经确定了。因此我们的OPE仅仅需要对于表示求和，而不需要对于表示的某一个特定的基（量子态）进行求和。因为，对于特定基的求和系数已经通过表示确定了，所以可以省略不写出来！
+
+\defi{
+    定义Simple current：
+\pict{2024-08-08-15-53-05.png}{1}
+}
+
+
+
+总结：
+\pict{2024-08-08-16-02-57.png}{1}
+
+\subsection{Lagrangian method}
+我们有时候会使用拉格朗日的方法研究场论。这个时候关联函数被定义为:
+\eq{
+    \left\langle\prod_{i=1}^nV_{\sigma_i}(x_i)\right\rangle=\int D\phi e^{-\int dxL[\phi](x)}\prod_{i=1}^n\tilde{V}_{\sigma_i}[\phi](x_i)
+}
+对于一个拉格朗日量的理论，我们预先知道lagrangian但是需要注意的是lagrangian不能代表这个系统的对称性，因为measure也可能对于对称性有影响。
+
+我们的评价是，拉格朗日量不重要，累赘，我们讨论一般的理论，我们不计算！！！
+
+
+\newpage
+\section{highlight of Basic CFT}
+
+我们之后会研究一种量子场论，是二维的欧几里得量子场论。接下来我们用一种对称性来描述这个量子场论。这个对称性描述了这个量子场论。
+
+\subsection{Symmetry algebra on manifold}
+我们首先讨论\seq{\mR^2}上面的流形的共形变换。可以定义一个代数称之为Witt Algebra：
+\eq{
+    [\ell_n,\ell_m]=(n-m)\ell_{n+m}
+}
+我们定义\seq{\mR^2}上面的local conformal transformation的Symmetry Algebra是:
+\eq{
+    \ell_n+\bar{\ell}_n\quad,\quad i(\ell_n-\bar{\ell}_n)\mathrm{~.}
+}
+注意，我们的生成元不是Witt Algebra之中的任意元素，而仅仅是上面两种组合。因为我们考虑的是一个二维的空间的共形变换\seq{z}和\seq{\bar{z}}并不是独立的。这个不独立性保证了只能有这两种组合。
+
+\subsection{Symmetry algebra on Spectrum}
+上面的对称性是对于经典的流形的。接下来我们讨论共形场论这个量子场论的对称代数是什么。
+
+为了得到量子场论的Symmetry algebra。我们需要进行“algebra extension”。我们进行两个步骤:
+\itm{
+    \pt{central extension：也就是我们需要加入一个central charge}
+    \pt{
+        解析延拓：我们认为我们作用的空间是\seq{\mathbb{C}^2}，因此这个时候全纯和反全纯部分不再是相关联的而是独立的两个变量。但是最后讨论到实际的量子场论，这两个必须是一个。
+    }
+}
+在这两个操作的基础上我们定义了Virasoro Algebra：
+\eq{
+    [L_n,L_m]=(n-m)L_{n+m}+\frac c{12}(n-1)n(n+1)\delta_{n+m,0}
+}
+我们认为解析延拓之后，量子场论的Symmetry Algebra是两套Virasoro Algebra，一个left moving;一个right moving。并且这两套algebra互相commute。
+
+\axm{
+    二维的共形场论的代数
+
+    我们定义二维的共形场论是由两套Virasoro代数生成的。分别是:\seq{L_n}和\seq{\bar{L}_n}。
+}
+
+\subsection{Spectrum of CFT}
+
+我们已经知道对称代数是两套Virasoro代数，那么我们知道二维的共形场论的Spectrum是两个Vir代数的表示。
+
+\ghl{1. 首先讨论对于Spectrum的基本约束：}
+
+\axm{
+    CFT的spectrum
+
+    \itm{
+        \pt{2D CFT的spectrum分解成Irreducible and factorizable表示of两个Virasoro代数之后，当表示的矩阵作用在基（量子态）上面的时候。
+        
+        factorizable的表示意味着谱可以写成这个形式:
+\eq{
+    \mathcal{S}=\bigoplus_{(\mathcal{R},\mathcal{R}^{\prime})\in\operatorname{Rep}(\mathfrak{V})^2}m_{\mathcal{R},\mathcal{R}^{\prime}}\mathcal{R}\otimes\bar{\mathcal{R}^{\prime}}
+}
+其中写道的\seq{\operatorname{Rep}(\mathfrak{V})}是Vir代数的一个不可约表示。也就是表示相当于两个两边的不可约表示直积！
+        }
+        \pt{\seq{L_0}和\seq{\bl_0}是对角化的。也就是说态是这两个算符的本征值
+        
+        }
+        \pt{
+            \seq{L_0+\bl_0}是有下限的。也就是存在一个基态使得本征值最低
+
+            我们认为这个算符特殊是因为他是radial coordinate的dilation的生成元。
+        }
+    }
+}
+
+\ghl{2. 接下来讨论Symmetry consistent condition带来的Spectrum的约束：}
+\axm{
+    对于CFT
+
+    如果两个不可约表示\seq{\mR_1}和\seq{\mR_2}出现在Spectrum之中。那么所有\seq{N^{\mR_3}_{\mR_1 \mR_2} \neq 0}的表示\seq{\mR_3}也会出现在表示之中。
+}
+这里我们回顾什么叫\seq{N^{\mR_3}_{\mR_1 \mR_2} \neq 0}其实就是，第三个表示能够出现在前两个表示下基对应的态对应的场的OPE之中！！
+
+\ghl{3. 最后讨论\seq{L_0}和\seq{\bl_0}这两个特殊的算符的本征值。我们称之为:conformal dimension。}
+
+如果\seq{v_1}是一个\seq{L_0}的本征态，本征值是:\seq{\Delta_1}。并且，存在另一个态满足:
+\eq{
+    v_2=\left(\prod_iL_{n_i}\right)v_1
+}
+那么我们可以得到\seq{v_2}也是一个本征态并且本征值是：
+\eq{
+    \Delta_2=\Delta_1-\sum_in_i
+}
+这个是由代数关系自己决定的！
+
+\ghl{4. Vir代数的表示我们可以想成一个global conformal Symmetry group的表示的组合而成。}
+
+首先我们讨论Global conformal symmetry的表示。我们知道GCT的代数只有三个元素\seq{L_0, L_1,L_{-1}}。对于这种情况下我们如下构建表示:
+\eq{
+    L_0 \kit{v} = \Delta \kit{v}\quad L_1 \kit{v} = 0 \quad L_0(L_{-1}\kit{v}) = (\Delta+1) L_{-1}\kit{v}
+}
+我们用\seq{\Delta}也就是这个表示之中\seq{L_0}最小的本征态作为这个表示的label。
+
+那么我们用这个表示来书写Vir代数的表示，我们认为对于Vir代数的某一个表示\seq{\mR}可以写成：
+\eq{
+    \mathcal{R}=\bigoplus_{n\in\mathbb{N}}m_{\mathcal{R},n}\mathcal{D}^{\Delta+n}
+}
+其中\seq{\mD^{\Delta+n}}是GCT的一个用\seq{\Delta+n}label的表示。其中\seq{\bigoplus_{n\in\mathbb{N}}}是一个自然数。
+
+\ghl{5. 最后我们讨论2D CFT的Unitarity。}
+
+因为只有Unitary的理论才能够被理解为量子力学。因为Unitary保证了量子态的模长是正整数，这意味着模长可以被理解为概率。所以当我们认为一个理论是量子场论的时候这个理论的Spectrum需要是Unitary的表示。
+
+如果一个共形场论是Unitary的这意味着Spectrum也就是对称代数的表示应该是Hilbert Space——存在着正定的厄米的形式。
+
+这个时候我们给出对于共形场论的代数最后的约束：
+\itm{
+    \pt{我们一般认为dilation generator\seq{L_0+\bl_0}是Hamiltonian因此它是自伴的算子}
+    \pt{认为表示的矩阵满足这个约束：
+        \eq{
+        L_n^{\dagger} = L_{-n} \quad \bl_n^{\dagger} = \bl_{-n}
+        } 
+    }
+    \pt{
+        对于central charge：\seq{c\in\mathbb{R}_{\geq0}\mathrm{~.}}
+    }
+}
+
+\subsection{Conformal bootstrap}
+我们使用bootstrap的方法用在二维CFT上面。由于太多东西都是分成holomorphic和antiholomorphic两个部分进行讨论的我们在这里给出一个THM：
+\thm{
+    holomorphic factorization:
+
+    我们认为所有的universal的物理量都可以写成\seq{z}和\seq{\bz}函数的乘积。 
+}
+
+对于二维CFT我们可以推广“存在OPE”的公理：
+\thm{
+    任意闭合回路C上面可以插入一个完备的恒等算符:
+    \eq{
+        \mathbf{1}=\sum_{\sigma\in\mathcal{S}}|\sigma\rangle\langle\sigma^*|
+    }
+    其中\seq{\langle\sigma^*|}的定义是\seq{\langle\sigma^*|\sigma\rangle = \delta_{\sigma,\sigma^*}}
+}
+这个公理其实意味着，所有态的完备的信息存储在一个闭合的回路上面。
+
+如果这个定理成立意味着我们可以在路径积分上插入一个圆圈的恒等算符，然后根据state-field correspondence我们可以把原来的式子写成：
+\eq{
+    V_{\sigma_1}(x_1)V_{\sigma_2}(x_2)=\sum_{\sigma\in\mathcal{S}}\left\langle\sigma^*\left|V_{\sigma_1}(x_1)V_{\sigma_2}(x_2)\right.\right\rangle V_\sigma(x_2)
+}
+其实插入恒等算符，意味着我们可以把一个圆圈收缩成一个算符！就像这样的：
+\pict{2024-08-11-10-01-40.png}{1}
+对于OPE其实是这个图:
+\pict{2024-08-11-10-02-17.png}{1}
+这个假设不但对于contractible loop成立，我们认为对于任何loop都成立。这样的话，其实可以赋予很多奇奇怪怪曲面的欧几里得路径积分很多的约束。
+
+\newpage
+\section{Spectrum of CFT}
+下面我们讨论Virasoro代数的表示！
+\subsection{highest-weight representation}
+由于共形场论我们有公理：Axiom 5。我们这里就是构建满足这个公理的共形场论的表示（也就是谱）。
+
+
+\ghl{存在一种表示我们称之为highest-weight representation} 这个表示满足下面的条件：
+\itm{
+    \pt{取\seq{\kit{\Delta}}是\seq{L_0}在一个表示\seq{\mR}下面本征值最低的本征态。称之为primary state。
+    
+    这样的条件自然满足：
+    \eq{
+    \left\{\begin{array}{l}L_{n>0}|\Delta\rangle=0\quad,\\L_{0}|\Delta\rangle=\Delta|\Delta\rangle\end{array}\right.
+}
+    }
+    \pt{
+        为了努力让我们的表示尽量是irreducable的，我们定义我们的表示等于\seq{\kit{\Delta}}生成的subrepresentation，也就是：
+        \eq{
+            \mathcal{R}=U(\mathfrak{V})|\Delta\rangle 
+        }
+        其中\seq{U(\mathfrak{V})}是V代数的universal enveloping algebra
+    }
+    \pt{
+        由于湮灭算符作用在primary state上面没有用，所以其实表示的内容只有产生算符：
+        \eq{
+            \mathcal{R}=U(\mathfrak{V})|\Delta\rangle=U(\mathfrak{V}^+)|\Delta\rangle 
+        }
+        其中\seq{U(\mathfrak{V}^+)}表示V代数的\seq{n<0}部分。
+    }
+    \pt{
+        定义一些名词\seq{U\kit{\Delta}}其中\seq{U \in U(\mathfrak{V}^+)}我们称呼这个态为:descendant
+         state!
+    }
+}
+\rmk{
+    我们注意到这个升降算符的关系其实完全是由代数本身决定的，V代数会自动满足对易关系：
+    \eq{
+        [L_0,L_m] = -mL_m
+    }
+    这明显就是产生湮灭算符的关系。
+}
+% \line
+下面我们讨论这个highest-weight representation的结构，这个表示根据一个映射可以这样定义：
+\pict{2024-08-16-11-16-19.png}{0.4}
+我们不难发现这个表示的关键信息由\seq{\kit{\Delta}}决定.并且我们只需要考虑V代数的一部分\seq{U(\mathfrak{V}^+)}，我们为这个子代数给出一个基：（也就是进行一个类似于“坐标变换”的重组）
+\eq{
+    \mathcal{L}=\left\{L_{-n_1}\cdots L_{-n_p}\right\}_{1\leq n_1\leq n_2\leq\cdot\cdot\cdot\leq n_p}.
+}
+这个基每一个元素是V代数n<0的部分按照从大到小的顺序线性组合进行生成的。
+我们称:
+\eq{
+    N=\left|L_{-n_1}\cdots L_{-n_p}\right|=\sum_{i=1}^pn_i ,
+}
+是这个基的元素的level。
+
+这样子给出的新的基下面的子代数的基对应着一个表示为：
+\eq{
+    L_{-n_1}\cdots L_{-n_p} \kit{\Delta}
+}
+我们称这个态的conformal dimension为\seq{\Delta+N}
+
+对于子代数\seq{U(\mathfrak{V}^+)}level相同的子空间存在着多种组合：
+\pict{2024-08-16-11-25-34.png}{0.8}
+这个图之中每一个箭头都代表正在左边作用一个V代数的元素。
+
+\subsection{Verma
+ modules \& degenerate representation}
+\defi{
+    Verma module
+
+我们定义为包含primary state\seq{\kit{\Delta}}的highest-weight representation。并且！！！其与\seq{U(\mathfrak{V}^+)}是线性同胚的！！
+    
+这个表示的基是:
+\eq{
+    \left\{L_{-n_1}\cdots L_{-n_p}|\Delta\rangle\right\}_{1\leq n_1\leq n_2\leq\cdots n_p}
+}
+
+}
+
+\rmk{
+    这里我们需要注意，我们认为Verma module是最大可能的highest-weight representation。这个表示必须包含最低的conformal dimension state，也就是\seq{L_0}的本征值最低的态。
+
+    但是这样的定义我们会发现其实有的highest-weight representation并不一定是\seq{\kit{\Delta}}生成的。而是一种特殊的态\seq{\kit{\chi }}生成的因为其性质的原因我们称之为“singular vector”或者"null vector"。而模掉这样的态生成的子表示就可以得到另一个highest-weight representation
+
+    这意味着Verma module并不一定是不可分的，当如果存在特殊的\seq{\kit{\chi}}的时候那么结果就是可分的！可以生成一种表示称之为"degenerate representation"
+}
+
+这个时候我们回顾我们理解一个表示其实是一个群元素到线性空间的映射：
+\eq{
+    \varphi_{\mR}: U(\mathfrak{V}^+) \to \mR
+}
+对于Verma module同样的我们有这样的映射：
+\eq{
+    \varphi_{\mV_{\Delta}}: U(\mathfrak{V}^+) \to \mV_{\Delta}
+}
+
+我们定义\ghl{degenerate representation}是所有并非verma module的highest-weight representation。根据上面的表示的定义，我们会发现我们的任何degenerate representation可以写成一个verma module到其的映射。
+\eq{
+    \varphi_{\mathcal{R}}\varphi_{\mathcal{V}_{\Delta}}^{-1}~:~\mathcal{V}_{\Delta}~\to~\mathcal{R}~.
+}
+这意味着：
+\thm{
+    所有degenerate rep对应着一个Verma module的子表示！
+
+    并且这个对应的关系是：
+    \eq{
+        \mathcal{R}=\frac{\mathcal{V}_\Delta}{\mathcal{R}^{\prime}}\mathrm{~.}
+    }
+    其中\seq{
+        \mR'
+    }就是那个子表示
+}
+对于V代数的子表示的存在，我们会发现V代数的表示之中很可能存在着子表示，而除掉这些子表示，我们依旧会得到一个highest-weight representation。
+
+\rmk{
+    这里我们用到了quotient representation的概念，所以说明一下它的意思是：
+
+    我们知道一个群或者代数的表示是一个从群元素到线性空间上的矩阵的映射。比如一个群G的V空间上的表示可以写成:
+    \eq{
+        \mR : G \to GL(V)
+    }
+
+    在线性空间之中我们可以定义quotient space。定义为——如果一个线性空间V有一个子空间X。我们认为存在一个等价类：
+    \eq{
+        x \sim y\  if \ x-y \in N
+    }
+    quotient space就是这个等价类的空间：\seq{V/N}。
+
+    那么quotient representation其实就是在这样的一个等价类的空间上群的表示。其中表示的元素可以这样构造。假如\seq{\pi(g)}是某个群元素g在表示空间V的表示。那么这个群元素g在表示空间V/N的表示\seq{\rho(g)}可以写成：
+    \eq{
+        \rho(g) (\xi+N) = (\pi(g) \xi) + N
+    }
+    其中\seq{\xi \in V}
+
+    同时如果是表示之间的quotient说明N空间上面存在着一个表示。在我们这里讨论的语境其实就是singular state生成的表示。我们将其等价掉其实就可以生成一个不可约的highest-weight representation。
+}
+
+子表示的存在是因为存在一些特殊的态，称之为"null state"或者"singular state"\seq{\kit{\chi}}对于这样子的态，我们有一些性质：
+\itm{
+    \pt{
+       \seq{\kit{\chi}}及其descendent对于所有的verma module的态都正交。自己和自己内积也是0 
+    }
+    \pt{
+        它同时是descendent state也是primary state！
+    }
+    但是注意现在我们还没有定义什么是内积！！！所以这里就是感觉上说说而已，后面我们会仔细讨论！
+}
+
+对于一个Verma module，如果存在着一个null vector那么就会存在一个degenerate state我们写成：
+\eq{
+    \mathcal{R}=\frac{\mathcal{V}_\Delta}{U(\mathfrak{V}^+)|\chi\rangle}
+}
+如果存在着多个那么就需要另行讨论了！
+\rmk{
+    注意：Verma module并不是唯一的，它是由我们具体\seq{L_0}的表示矩阵的最低的本征值决定的。
+
+    我们取这个本征值是\seq{\Delta}这样的本征值决定了Verma module的性质。当然也决定了是不是有null vector的存在！的结构！
+
+    当然其实一个Verma module是由两个量决定的——分别是central charge c还有conformal weight \seq{\Delta}。应该说他们一同决定了性质！
+}
+\subsection{singular vector存在的条件}
+
+我们这里给出如果一个Verma module存在着null vector那么应该满足的条件：
+\itm{
+    \pt{
+        对于\seq{|\chi\rangle = L_{-1}|\Delta\rangle }
+        我们有条件:
+        \eq{
+            L_1|\chi\rangle=L_1L_{-1}|\Delta\rangle=[L_1,L_{-1}]|\Delta\rangle=2L_0|\Delta\rangle=2\Delta|\Delta\rangle 
+        }
+        所以\seq{\Delta = 0}
+    }
+    \pt{
+        对于\seq{|\chi\rangle=\left(a_{1,1}L_{-1}^2+a_2L_{-2}\right)|\Delta\rangle ,}条件可以写成：
+        \eq{
+            D_2(\Delta)=4(2\Delta+1)^2+(c-13)(2\Delta+1)+9  = 0
+        }
+        得到的结论就是:
+        \eq{
+            \Delta=\frac{5-c\pm\sqrt{(c-25)(c-1)}}{16}
+        }
+    }
+}
+为了能够更加简便的写出这些条件，相比于\seq{(c,\Delta)}我们一般使用另一些变量来标记我们的Verma module：
+
+\ghl{对于central charge我们一般使用另外两个量：}
+\eq{
+    c=1+6Q^2\quad,\quad Q=b+\frac1b 
+}
+\eq{
+    b=\sqrt{\frac{c-1}{24}}+\sqrt{\frac{c-25}{24}} .
+}
+称呼Q为background charge；称呼b为coupling constant。我们注意到根据上面的定义，每一个c对应着两个Q以及四个b。
+因为Q和-Q以及\seq{\pm b^{\pm 1}}对应着一样的c。
+
+\ghl{对于conformal dimension我们使用Momentum来进行标记}定义为：
+\eq{
+    \Delta(P)=\frac{Q^2}4-P^2
+}
+所以我们的Verma module可以写成：
+\eq{
+    \mV_P = \mV_{-P}
+}
+
+\subsection{Sigular vector in all level存在的条件}
+
+上面我们讨论了低阶的sigular vector存在的条件，下面我们探讨任意阶的！下面的表格给出了N = 1,2,3的时候存在singular vector的时候对于系统的约束：
+\pict{2024-08-16-15-13-09.png}{0.8}
+其中r和s是对于N的一个factorization也就是N level可以分成哪几种样子的态！我们不难发现所有的singular vector对应着一个<r,s>所以我们可以用\seq{|\chi_{\langle r,s\rangle}}来标记我们的singular vector。并且，对于一般的N level的用r,s标记的态，如果它是一个singular state那么系统应该满足下面的约束条件：
+
+对于一个singular state必然写成:
+\eq{
+    |\chi_{\langle r,s\rangle}\rangle=L_{\langle r,s\rangle}|\Delta_{\langle r,s\rangle}\rangle\mathrm{~.}
+}
+并且其中的Primary field的conformal dimension是：
+\eq{\Delta_{\langle r,s\rangle}&=\frac14\left(Q^2-(rb+sb^{-1})^2\right)
+}
+或者说：
+\eq{
+    P_{\langle r,s\rangle}=\frac12\left(rb+sb^{-1}\right)
+}
+这个条件给出了所有只有一个singular vector的descendant的singular vector的形式以及对于conformal dimension的约束。但是如果这个singular vector是其他singular vector的descendant那么并不一定需要满足这个约束。
+
+对于一个Verma module。如果存在singular vector那么久必然是reducible。我们可以通过quotient掉所有子表示，给出一个"maximally degenerate representation"一个例子就是：
+
+如果\seq{\kit{\chi_{<r,s>}}}是唯一一个singular state，那么maximally degenerate representation就是：
+\eq{
+    \mathcal{R}_{\langle r,s\rangle}=\frac{\mathcal{V}_{\Delta_{\langle r,s\rangle}}}{U(\mathfrak{V}^+)|\chi_{\langle r,s\rangle}\rangle}=\frac{\mathcal{V}_{\Delta_{\langle r,s\rangle}}}{\mathcal{V}_{\Delta_{\langle-r,s\rangle}}}
+}
+第二个式子我们由于singular vector的条件使用了:
+\seq{\Delta_{\langle r,s\rangle} =\frac14\left(Q^2-(rb+sb^{-1})^2\right)
+}
+我们就可以知道:
+\eq{\Delta_{\langle r,s\rangle}+rs=\Delta_{\langle-r,s\rangle}\mathrm{~.}}
+
+用图来说明一下上面的讨论就是:
+\pict{2024-08-20-12-28-57.png}{0.8}
+
+
+\subsection{Unitary对理论约束}
+之前我们讨论一个量子场论必须是Unitary的理论。所以给出了表示矩阵需要满足的约束是：
+\eq{
+        L_n^{\dagger} = L_{-n} \quad \bl_n^{\dagger} = \bl_{-n}
+    } 
+根据这个约束条件我们可以定义“态的内积”。
+根据这个条件我们很容易发现一些结论，比如所有的\seq{\kit{\chi}}的模长为0等等，以及所有的不同level的态之间是正交的。
+
+此外对于一个Verma module我们认为primary state是归一化的！\seq{\brakit{\Delta}{\Delta} = 1}
+
+\ghl{对于一个Verma module我们现在讨论什么情况下这个理论是Unitary的！}
+（也就是对于conformal dimension的更加强的约束）
+
+如果一个Verma module是Unitary的，我们认为其本征空间（表示空间）所有的向量内积都是正定的！由于不同level的态都是正交的（根据之前Unitary的条件），所以我们考虑某个level N的时候态内积的正定性。同时等价于说矩阵:
+\eq{
+    M_{ij}^{(N)}=\langle v_i|v_j\rangle \quad \det M^{(N)} >0
+}
+我们知道只有满足这样的约束条件的理论对于c和\seq{\Delta}存在约束。为此我们研究矩阵\seq{M_{ij}^{(N)}}的零点，发现有定理：
+\thm{
+    \seq{M_{ij}^{(N)} = 0}等价于存在一个N' level的singular vector使得N'<N
+
+也就是说如果\seq{\Delta}使得\seq{M_{ij}^{(N)} = 0}成立那么这个\seq{\Delta}必须满足关系:
+\eq{
+    \Delta = \Delta_{\langle r,s\rangle}&=\frac14\left(Q^2-(rb+sb^{-1})^2\right)
+}
+    }
+我们因此知道行列式大致样子是:
+\eq{
+    \det M^{(N)}\propto\prod_{r,s\geq1 \ rs\leq N}(\Delta-\Delta_{\langle r,s\rangle})^{p(N-rs)}
+}
+我们称之为Kac determinant formula。
+
+这个定理的成立十分显然，我们知道null vector和他的descendant 对于所有的同一个level的向量正交（注意，不同level的向量本身就是正交的）根据行列式的定义显然有行列式为0是因为singular vector的正交而为0。至于零点的级数取决于null 
+vector能在这个level生成多少个独立的descendant！
+
+根据上面的约束条件，我们知道如果一个Verma module是Unitary的需要满足下面的条件：
+\itm{
+    \pt{
+        c>1时：\seq{\mV_\Delta}必然是Unitary的
+    }
+    \pt{
+        c=1时：\seq{\mV_\Delta}需要讨论\seq{\Delta>0}同时\seq{\delta \neq \frac{1}{4}n^2}
+    }
+    \pt{
+        c>1时：\seq{\mV_\Delta}必然不是Unitary的
+    }
+}
+但是有的时候Verma module并不是Unitary但是其quotient出的一些highest-weight rep是Unitary的。所以最后我们有一个表格：
+\pict{2024-08-17-17-13-31.png}{1}
+
+\section{Correlation function of CFT}
+对于场论来说我们最重要的是representation也就是谱。在讨论完谱之后，我们讨论我们的场。由于语境是量子场论，所以我们的场都是在“路径积分”之中（也就是关联函数平均之后）讨论的。
+之后我们讨论的就是系统的场和关联函数需要满足的性质。当然，在二维共形场论语境下。
+\subsection{Fields corresponding to the spectrum}
+
+之前我们有量子场论的公理，认为量子场和一个量子态是对应的。
+
+那么Virasoro代数作用在量子态上面，相当于这个代数作用在场上面。下面我们定义：
+\defi{
+    Virasoro代数作用在量子场上
+    \eq{
+        L_nV_\sigma(z)=L_n^{(z)}V_\sigma(z)=V_{L_n\sigma}(z)
+    }
+    因此我们可以定义primary field是对应primary state的量子场。满足：
+    \eq{
+        \left\{\begin{array}{l}L_{n>0}V_\Delta(z)=0\\L_0V_\Delta(z)=\Delta V_\Delta(z)\end{array}\right.
+    }
+}
+
+\rmk{
+    这里我们是用了一个特殊的算符的标记\seq{L_n^{(z)}}这个指的是某一个点z上作用的\seq{L_n}变换。这是一个作用在local的场的上面的变换！
+
+    但是相比于“对于场的作用”这样的“作用”其实我认为也是可以理解为一个“场”的。之后我们会看到，我们把这样的“作用”treat为一个独立的场之后可以讨论相关的性质。
+}
+
+\rmk{
+    这里我们再讨论一下，\seq{L_n^{(z)}}作用在场上面到底是什么。
+
+    由于Virasoro代数是CFT的Symmetry algebra。我们很容易根据这个的定义会发现，这个代数作用在具体的场上面，是“生成元”（注意，生成元同时包含了“流形变换”和“场变换”的信息！！！）
+
+    但是至于哪个V代数的元素是什么变换生成元，我们并没有给出对应。但是如果熟悉共形场论我们不难发现其实\seq{L_{-1}}就是平移变换生成元。（下面公理就是在保证这样的信息回归！）
+}
+由于一般的共形场论是有两个V代数的。所以我们可以定义两个Verma module对应的场为：
+\seq{V_{\Delta,\bar{\Delta}}(z)}。
+
+
+\subsection{EM Tensor包含对称性信息的场}
+对于一个场论我们一个重要的场是我们的能动量张量。这个量一个重要的作用就是存储着系统对称性的信息。对于一个共形场论，能动量张量存储着共形对称性的信息。并且通过Ward Identity把对称性约束赋予关联函数（或者说，场）。
+
+\rmk{
+    这里我们讨论一下我们的思路。最开始我们给出了Vir代数作为整个理论体系的对称性代数。这是理论体系的基础（公理）保证需要有的条件。
+    \eq{
+        [L_n,L_m]=(n-m)L_{n+m}+\frac c{12}(n-1)n(n+1)\delta_{n+m,0}
+    }
+    我们澄清一下这个条件说明了哪些约束:
+    \itm{
+        \pt{
+            \ghl{谱的语境}整个理论体系的谱是对称性代数的表示空间，也就是这个代数的表示空间的元素就是这个理论体系的量子态}
+        \pt{
+            \ghl{场的语境}这个代数的表示的矩阵其实是场的对称性变换的生成元。
+        }
+    }
+    （这个变换我们称之为对称性变换，因为对应“拉格朗日量以及weight”不发生变换，但是在这个语境下我们不讨论拉格朗日量）
+    值得注意的是场的语境下面，哪个代数元素代表着哪个空间的变换其实我们是不清楚的。这个需要通过公理来进行规定，否则我们无法获得理论体系更多的信息，所以又了下面的公理7通过规定平移算符规定了场的语境下这些对称性代数分别是什么对称性变换的生成元。
+}
+
+我们首先讨论场或者关联函数需要满足的一些量子场论的公理。（就像之前我们讨论spectrum需要满足的公理一样）
+
+我们给出公理，这个公理关于场在平移变换下的量子态的变换方法：
+\axm{
+    平移变换下场对应量子态的变换
+
+    对于任何的场！！我们满足：
+    \eq{
+        \frac\partial{\partial z}V_\sigma(z)=L_{-1}V_\sigma(z)\quad and\quad\frac\partial{\partial\bar{z}}V_\sigma(z)=\bar{L}_{-1}V_\sigma(z) ,
+    }
+    也就是说我们认为V代数之中的\seq{L_{-1}}元素的意义其实是让量子态对应的场在空间之中平移！
+}
+根据这个公理我们可以推导：
+\eq{
+    \left( \frac\partial{\partial z}L_n^{(z)} \right)V_\sigma (z)= \frac\partial{\partial z} (L_n^{(z)} V_{\sigma}(z)) - L_n^{(z)}\frac\partial{\partial z} (V_{\sigma}(z))
+}
+因此我们有结论：
+\eq{
+    \frac\partial{\partial z}L_n^{(z)} = [L_{-1},L_n^{(z)}]=-(n+1)L_{n-1}^{(z)} .
+}
+这个关系说明不同点之间的V代数的集合\seq{\left(L_n^{(z_1)}\right)_{n\in Z}}其实是线性相关的。
+
+接下来我们给出能动量张量的定义：
+\defi{
+    EM Tensor
+
+    我们定义能动量张量是\seq{L_n^{(z)}}的组合使得，方程\seq{ \pd L_n^{(z)} = [L_{-1},L_n^{(z)}]=-(n+1)L_{n-1}^{(z)} }（或者说平移算符是\seq{L_{-1）}}）等价于\seq{\pd T(y)= 0}满足这个条件的场是：
+    \eq{
+        T(y)=\sum_{n\in\mathbb{Z}}\frac{L_n^{(z)}}{(y-z)^{n+2}}
+    }
+}
+
+这个张量的守恒就意味着对于V代数的约束（4.5）。所以这个张量其实代表着不同点作用V代数的结果。显式的写出来其实是：
+\eq{
+    L_n^{(z)}=\frac1{2\pi i}\oint_zdy(y-z)^{n+1}T(y)
+}
+\rmk{
+    我觉得需要注意的一点是，能动量张量虽然没有显示的写出来和z是相关的。但是其实本质上是相关联的。而这个z的定义其实是能动量张量作为一个“作用”，而不是场，所“作用”的场的对象所在的点。
+}
+根据上面remark的提示，我们可以把能动量张量作用在一个场上，根据定义可以写出：
+\eq{
+    T(y)V_\sigma(z)=\sum_{n\in\mathbb{Z}}\frac{L_nV_\sigma(z)}{(y-z)^{n+2}} .
+}
+上面的式子从“作用”的观点看，是一个作用，作用在场的上面的结果；我们因为认为\seq{L_n^{(z)}}是对称变换的生成元，所以左边其实就是作用上一堆对称变换。但是从场的观点看，我们发现其实是两个场的OPE。
+
+如果对于一个Primary field（也就是和某一个Verma module表示（也就是某个Verma Module对应的理论）的最低能态的场）作用上一个EM Tensor的对称变换；或者说和EM Tensor的OPE，我们有：
+\eq{
+    T(y)V_\Delta(z)=\frac{\Delta V_\Delta(z)}{(y-z)^2}+\frac{\partial V_\Delta(z)}{y-z}+O(1)
+}
+一般来说我们不在乎OPE的非奇异项。
+
+一般能动量张量我们认为其实是全平面除了场所在的位置的全纯函数。特别是在无穷远的时候，我们有公理:
+\axm{
+    能动量张量在无穷远的全纯
+
+    \eq{
+        T(y)\underset{y\to\infty}{\operatorname*{\operatorname*{=}}}O\left(\frac1{y^4}\right)
+    }
+    注意：我们这里说的：\seq{O\left(\frac1{y^4}\right)}指的是发散的阶数只能比4更加大。也就是只能是5，6，7...阶的发散。
+}
+
+\rmk{
+    这里我们对于这个发散性进行一个解释：
+
+    我们认为这个是四阶的发散是我们在讨论无穷远点的行为的时候是对于EM Tensor进行一个坐标变换之后产生的坐标变换矩阵是:
+    \eq{
+        \frac{\partial 1/z}{\partial z} \sim \frac{1}{z^2}
+    }
+    由于能动量张量是一个二阶的张量，同时我们讨论的CFT之中只有对角的能动量张量不是0。所以我们有两个坐标变换矩阵，我们可以写:
+    \eq{
+        \frac{1}{z^4} T(z' = \frac{1}{z}) \bigg|_{z' = 0} =   T(z = \infty)
+    }
+    由于我们认为\seq{T(0)}是全纯的函数。所以我们认为无穷远处的\seq{T(z)}是\seq{O(\frac{1}{z^4})}收敛的。
+}
+
+我们同时会发现EM Tensor自己的OPE对应着V代数的对易关系：
+\eq{
+    T(y)T(z)=\frac{\frac c2}{(y-z)^4}+\frac{2T(z)}{(y-z)^2}+\frac{\partial T(z)}{y-z}+O(1)
+}
+这里我们就融合了，作为场的OPE和作为生成元的对称性代数之间的关系。这里我们意识到能动量张量是一个Symmetry field也就是说它并不是和量子态相关的，但是包含了系统的对称性的信息。
+
+我们定义一个场是Virasoro field，首先它是一个量子场，所以满足两条公理：Commute in different points和OPE。如果这个场的OPE满足关系：
+\eq{
+    T(y)T(z)=\frac{\frac c2}{(y-z)^4}+\frac{2T(z)}{(y-z)^2}+\frac{\partial T(z)}{y-z}+O(1)
+}
+那么\seq{T(z)}就是一个Virasoro field。
+
+\subsection{Ward Identity对称性约束条件}
+能动量张量包含了对称性的特质，而对称性的特质又赋予了关联函数的约束。之前在Correlation function的general讨论里面我们讨论了对称性对于Correlation function的约束。下面我们通过共形对称性的特质给出具体的，共形对称性对于量子场的关联函数的约束。
+
+这个约束我们主要讨论一个特殊的关联函数：
+\eq{
+    \left\langle T(z)\prod_{i=1}^NV_{\sigma_i}(z_i)\right\rangle 
+}
+这个关联函数满足下面的一些性质:
+\itm{
+    \pt{
+        函数在\seq{z_1...z_N}点之外都是全纯的
+    }
+    \pt{
+        函数在\seq{z_1...z_N}点的行为由OPE决定
+    }
+    \pt{
+        函数在无穷远点的性质由
+        \eq{
+            T(y)\underset{y\to\infty}{\operatorname*{\operatorname*{=}}}O\left(\frac1{y^4}\right)
+        }
+        决定。
+    }
+}
+% 由于我们上面已经讨论到，能动量张量作为一个conformal operator的生成元的一个线性组合保证生成元自动满足公理7，也就是\seq{L_{-1}}和平移变换相对应。这个算符作用在primary field上面的结果是:
+% \eq{
+%     T(y)V_\Delta(z)=\frac{\Delta V_\Delta(z)}{(y-z)^2}+\frac{\partial V_\Delta(z)}{y-z}+O(1)
+% }
+% 我们发现能动量张量作用后最多二阶极点。这个是由primary field的性质\seq{L_{n>0}V_\Delta(z)=0}决定的，更高阶的发散都是0。因此我们探究的函数\seq{\left\langle T(z)\prod_{i=1}^NV_{\sigma_i}(z_i)\right\rangle }满足性质：
+% \eq{
+%     &\int_\infty dz \epsilon(z)\left\langle T(z)\prod_{i=1}^NV_{\sigma_i}(z_i)\right\rangle=0\quad\text{provided}\quad\epsilon(z) \underset{z\to\infty}{\operatorname*{=}}O(z^2)
+% }
+
+% 也就是说如果\seq{\epsilon(z)}是二阶发散的，并且仅可能在\seq{z_i}点有发散，那么就没有极点了，所以根据cauchy定理绕着无穷远点的围道积分就是0。上方我们就得到了一个恒等式。但是当\seq{\epsilon(z)}取不同的发散情况的时候我们还可以得到其他一系列恒等式，我们称为Ward identity。
+根据上面的公理我们知道能动量张量在无穷远处是:\seq{O\left(\frac1{y^4}\right)}的。并且我们认为场在无穷远处是趋于0的或者\seq{O(1)}的。所以我们关注的量\seq{\left\langle T(z)\prod_{i=1}^NV_{\sigma_i}(z_i)\right\rangle }在无穷远点是四阶或者以上的阶数发散的。为了保证留数为0也就是我们的函数在无穷远点没有一阶极点，我们应该乘上一个\seq{\epsilon(z)}并且保证这个函数最多是\seq{O(z^2)}的，这样\seq{\epsilon(z)\left\langle T(z)\prod_{i=1}^NV_{\sigma_i}(z_i)\right\rangle }最多是\seq{O(\frac{1}{z^2})}的，这个时候没有一阶极点，所以留数也不存在。写成公式就是：
+\eq{
+    &\int_\infty dz \epsilon(z)\left\langle T(z)\prod_{i=1}^NV_{\sigma_i}(z_i)\right\rangle=0\quad\text{provided}\quad\epsilon(z) \underset{z\to\infty}{\operatorname*{=}}O(z^2)
+}
+我们知道\seq{\epsilon(z)}必然只能小于二阶的。同时我们认为\seq{\epsilon(z)}除了在\seq{z_i}点之外都是全纯的，因此如果在趋于无穷远的时候\seq{\epsilon(z)}是发散的那么必然是因为在\seq{z_i}点有奇异。
+我们通过\seq{\epsilon(z)}的发散情况将其分类:
+\itm{
+    \pt{\textbf{Global Ward Identity} \seq{\epsilon(z)}是全纯的并且发散小于等于2阶}
+    \pt{
+        \textbf{Local Ward Identity}\seq{\epsilon(z)}是小于0阶的，也就是有一阶极点的。
+    }
+}
+\at{
+    注意我们这里使用了两个比较强形但是合理的规定：
+    \itm{
+        \pt{我们认为场在无穷远处是趋于0的或者\seq{O(1)}的。}
+        \pt{
+            我们认为\seq{\epsilon(z)}除了在\seq{z_i}点之外都是全纯的
+        }
+    }
+}
+
+\subsubsection{Local WI}
+首先我们讨论local的。这个时候我们把\seq{\epsilon(z)}进行展开(并且只考虑有在无穷远点发散的项，由于我们之前的规定，奇异只能存在在\seq{z_i}点，所以我们可以下面这样展开)并且讨论每一阶。我们展开为:
+\eq{
+    \epsilon(z) = \frac{1}{(z-z_i)^{n-1}}
+}
+其中\seq{n \geq 2}并且\seq{i = 1,2...N}标记着关联函数的N个场的位置。我们可以进行推导：
+\eq{
+    \int_\infty dz \epsilon(z)\left\langle T(z)\prod_{i=1}^NV_{\sigma_i}(z_i)\right\rangle=\sum_{j = 1}^{N}\oint_{z_j}\frac{1}{(z-z_i)^{n-1}} \left\langle T(z)\prod_{i=1}^NV_{\sigma_i}(z_i)\right\rangle = 0
+}
+因此，根据\seq{L_n}的定义是:\seq{L_n^{(z)}=\frac1{2\pi i}\oint_zdy(y-z)^{n+1}T(y)}我们得到local WI的表达式：
+\thm{
+    Local Ward Identiy:
+    \eq{
+        \left\langle\left(L_{-n}^{(z_i)}+(-1)^{n+1}\sum_{j\neq i}\sum_{p=-1}^\infty\frac{\binom{p+n-1}{p+1}}{(z_i-z_j)^{n+p}}L_p^{(z_j)}\right)\prod_{j=1}^NV_{\sigma_j}(z_j)\right\rangle=0\mathrm{~,}
+    }
+}
+
+我们解释一下这个函数的形式，就是对于第i点的场我们作用上\seq{L_{-n}^{(z_i)}}对于其他点j的场我们作用上一些系数乘以\seq{L_p^{(z_j)}}。注意：我们的第二项的求和对于其他点j的作用\seq{\sum_{p=-1}^\infty}看起来是对于所有\seq{L_p}求和，但是实际上如果\seq{L_p}的p值超过了场\seq{V_{\sigma_i}}对应的态\seq{\sigma_i}的level的时候那么作用上去必然有:
+\eq{
+    L_p^{(z_j)}V_{\sigma_j}(z_j) = 0
+}
+
+我们观察会发现Ward Identity可以认为是把一个总体的level为\seq{n+\sum_j N_j}的场的关联函数\seq{\left\langle L_{-n}^{(z_i)}\prod_{j=1}^NV_{\sigma_j}(z_j)\right\rangle,}通过很多\seq{\sum_{j}N_j}作为总体level的场的关联函数进行表示。
+
+推广这个观察的结论我们可以发现:
+\thm{
+    Local Ward Identity给出的等式是：
+
+    所有的descendent的关联函数可以通过Primary field的关联函数左乘上很多的微分算符得到。
+
+    同时这个结论用OPE来写就是\eq{
+        T(y)V_\Delta(z)=(\text{differential operator})V_\Delta(z)+O(1)
+    }
+    然后由于\seq{O(1)}的内容都因为考虑\seq{L_n}作用，对于\seq{L_n^{(z_i)}}附近进行围道积分取留数消失了。只有微分算符相关的发散的项留下来了。
+}
+
+对于一种特殊的local ward identity也就是除了i全部都是primary field：
+\eq{
+    \left\langle L_{-n}^{(z_i)}V_{\sigma_i}(z_i)\prod_{j\neq i}V_{\Delta_j}(z_j)\right\rangle=\sum_{j\neq i}\left(-\frac1{z_{ji}^{n-1}}\frac\partial{\partial z_j}+\frac{n-1}{z_{ji}^n}\Delta_j\right)\left\langle V_{\sigma_i}(z_i)\prod_{j\neq i}V_{\Delta_j}(z_j)\right\rangle
+}
+\rmk{
+    conformal ward identity的用法在bootstrap里面其实就是可以通过primary field的关联函数得到descendent的关联函数。
+
+    这个操作的意义在于primary field的关联函数一般特别好求。特别是三点函数。primary field的三点函数的conformal block的形式是完全已知的:
+
+    \eq{
+    \mathcal{F}^{(3)}(\Delta_1,\Delta_2,\Delta_3|z_1,z_2,z_3)=z_{12}^{\Delta_3-\Delta_1-\Delta_2}z_{23}^{\Delta_1-\Delta_2-\Delta_3}z_{31}^{\Delta_2-\Delta_3-\Delta_1}
+}
+我们可以运用这个求出来更多的descendent field的关联函数。其中需要的操作其实只有求导和求和（见4.24）
+
+而能做到这一点最关键的就是我们的local ward identity的意义就是把作用在关联函数之中一个场上面的产生算符\seq{L_{-n}^{(x)}}等价于作用在其他场上面的湮灭算符。
+}
+
+
+同时我们也可以考虑把\seq{T(z)}插入一个一堆Primary field的关联函数，根据Ward Identity应该得到的一些微分算符乘上场。我们发现结论是:
+\eq{
+    \left\langle T(z)\prod_{i=1}^{N}V_{{\Delta_{i}}}(z_{i})\right\rangle=\sum_{i=1}^{N}\left(\frac{\Delta_{i}}{(z-z_{i})^{2}}+\frac{1}{z-z_{i}}\frac{\partial}{\partial z_{i}}\right)\left\langle\prod_{i=1}^{N}V_{{\Delta_{i}}}(z_{i})\right\rangle.
+}
+\rmk{
+    我们知道其实包含\seq{T(x)}能动量张量的OPE其实就是一个形式化的书写。上面的结论其实相当于对于所有阶的local conformal ward identity的乘上一个系数在积分得到的。
+
+    可以理解为一个生成所有local conformal ward identity的一个产生ward identity。同时也更贴近于我们正常量子场论之中对于Ward identity的形式的表达！
+}
+这个结论正好和Priamry field的OPE是一致的:
+\eq{
+    T(y)V_\Delta(z)=\frac{\Delta V_\Delta(z)}{(y-z)^2}+\frac{\partial V_\Delta(z)}{y-z}+O(1)
+}
+
+\subsubsection{Global WI}
+接下来我们讨论global的WI。首先写出最基本的式子：
+\eq{
+    \int_\infty dz \epsilon(z)\left\langle T(z)\prod_{i=1}^NV_{\sigma_i}(z_i)\right\rangle = 0
+}
+    
+当\seq{\epsilon(z) = 1}的时候我们有：
+\eq{
+    \int_\infty dz \epsilon(z)\left\langle T(z)\prod_{i=1}^NV_{\sigma_i}(z_i)\right\rangle = \sum_{i = 1}^{N}\oint_{z_i}\left\langle T(z)\prod_{i=1}^NV_{\sigma_i}(z_i)\right\rangle = 0
+}
+所以我们有:
+\eq{
+    \left\langle\sum_{i=1}^NL_{-1}^{(z_i)}\prod_{i=1}^NV_{\sigma_i}(z_i)\right\rangle=0
+}
+
+接下来对于\seq{\epsilon(z) = z}的情况下:
+\eq{
+    \int_\infty dz \epsilon(z)\left\langle T(z)\prod_{i=1}^NV_{\sigma_i}(z_i)\right\rangle = \sum_{i = 1}^{N}\oint_{z_i}((z-z_i)+z_i )\left\langle T(z)\prod_{i=1}^NV_{\sigma_i}(z_i)\right\rangle = 0
+}
+所以有：
+\eq{
+    \left\langle\sum_{i=1}^N\left(L_0^{(z_i)}+z_iL_{-1}^{(z_i)}\right)\prod_{i=1}^NV_{\sigma_i}(z_i)\right\rangle=0 ,
+}
+
+同理对于\seq{\epsilon(z) = z^2}的情况下:
+\eq{
+    &\left\langle\sum_{i=1}^N\left(L_1^{(z_i)}+2z_iL_0^{(z_i)}+z_i^2L_{-1}^{(z_i)}\right)\prod_{i=1}^NV_{\sigma_i}(z_i)\right\rangle=0\mathrm{~.}
+}
+总结一下上面的结果:
+\thm{
+    Global Ward Identity
+
+    \eq{
+        \left\langle\sum_{i=1}^NL_{-1}^{(z_i)}\prod_{i=1}^NV_{\sigma_i}(z_i)\right\rangle & =0\mathrm{~,} \\
+\left\langle\sum_{i=1}^N\left(L_0^{(z_i)}+z_iL_{-1}^{(z_i)}\right)\prod_{i=1}^NV_{\sigma_i}(z_i)\right\rangle & =0\mathrm{~,} \\
+\left\langle\sum_{i=1}^N\left(L_1^{(z_i)}+2z_iL_0^{(z_i)}+z_i^2L_{-1}^{(z_i)}\right)\prod_{i=1}^NV_{\sigma_i}(z_i)\right\rangle & =0 . 
+    }
+}
+
+综上，我们的Ward Identity给出了对称性对于我们理论的关联函数的约束。这样的约束能够帮助我们确定很多的性质，如关联函数的具体形式。关联函数之间的关系。子啊后面我们将就这些内容进行讨论。
+
+\subsection{Global WI对于primary field关联函数对称性约束}
+下面我们讨论Global WI对于关联函数的约束。我们着重考虑Primary field或者说Quasi-Primary field的关联函数。这个时候我们就发现，Global WI已经可以帮助我们确定这些关联函数的具体形式了。
+
+由于我们只考虑global的变换，我们会发现，并不一定需要Priamry field就可以满足一些性质，只需要quasi-primary，也就是:
+\eq{
+    \left\{\begin{array}{l}L_{1}V_{\Delta}(z)=0\\L_{0}V_{\Delta}(z)=\Delta V_{\Delta}(z)\end{array}\right..
+}
+
+我们首先写出对于Primary field的Global WI，换一种写法:
+\eq{
+    \forall a\in\{0,+,-\}\quad,\quad\left(\sum_{i=1}^ND_{z_i}^{-\Delta_i}(t^a)\right)\left\langle\prod_{i=1}^NV_{\Delta_i}(z_i)\right\rangle=0\mathrm{~,}
+}
+其中的微分算符的定义是：
+\eq{
+    \left.\begin{aligned}&\left\{\begin{array}{rl}D_x^j(t^-)&=-\frac\partial{\partial x}\\\\D_x^j(t^0)&=x\frac\partial{\partial x}-j\\\\D_x^j(t^+)&=x^2\frac\partial{\partial x}-2jx\end{array}\right..\end{aligned}\right.
+}
+很显然这个跟上面的Global WI一样只是由于Primary的条件\seq{L_1}作用在场上面就是0。微分算符其实对应的是SL（2）群的生成元，我们可以把生成元变成finite的对称性变换，通过数学上的计算可以得到:
+\eq{
+    \left\langle\prod_{i=1}^{N}V_{{\Delta_{i},\bar{\Delta}_{i}}}(z_{i})\right\rangle=\left\langle\prod_{i=1}^{N}T_{g}V_{{\Delta_{i},\bar{\Delta}_{i}}}(z_{i})\right\rangle\mathrm{~,}
+}
+并且其中:
+\eq{
+    T_gV_{\Delta,\bar{\Delta}}(z)=(cz+d)^{-2\Delta}(\bar{c}\bar{z}+\bar{d})^{-2\bar{\Delta}}V_{\Delta,\bar{\Delta}}\left(\frac{az+b}{cz+d}\right)\quad\mathrm{with}\quad g=(\begin{smallmatrix}a&b\\c&d\end{smallmatrix})\in SL_2(\mathbb{C}) .
+}
+很显然这个就是一般协变场的定义。我们一般定义quasi-primary协变场就是通过关联函数，或者场的协变变换满足上面的公式确定的。所以，可以知道这两套公理体系是等价的。
+
+\rmk{一个有趣的讨论是quasi-primary field在无穷远点的行为，我们根据坐标变换\seq{z \to -\frac{1}{z}}我们可以得到:
+\eq{
+    V_{\Delta,\bar{\Delta}}(z)\operatorname*{=}_{z\to\infty}O\left(z^{-2\Delta}\bar{z}^{-2\bar{\Delta}}\right)
+}
+由于我们可以通过其他手段证明能动量张量是一个Quasi-primary field。我们会明白，能动量张量的conformal weight是2。因为它的定义保证他在无穷远点的行为是\seq{T(z)\sim O(\frac{1}{z^4})}}
+
+同时对于Primary field我们可以进行同样的操作得到的变换是:
+\eq{
+    T_hV_{\Delta,\bar{\Delta}}(z)=h^{\prime}(z)^{\Delta}\overline{h^{\prime}(z)}^{\bar{\Delta}}V_{\Delta,\bar{\Delta}}(h(z))\mathrm{~,}
+}
+也正好就是很多教材之中的Primary field的定义。
+\rmk{
+    我们这里同时讨论了一个left-moving和right-moving的场的组合。之前我们讨论的其实并不是CFT的表示对应的量子态，因为我们的CFT其实是有两套Vir代数的，但是我们讨论的一直是一套Vir代数对应的量子态和场。
+
+    这个时候我们把另一套Vir代数直接加回来。因为我们的CFT的公理保证了，CFT的谱是两套代数的一些表示的直积之后的直和，所以我们就可以分开来treat他们。
+
+    在这里在场的语境之下，我们认为这两套代数量子态对应的场满足相类似的性质，这个性质decode在一个直积出来的谱的空间。所以，就直接分开来讨论了。
+}
+\think{当然我觉得我这个解释还是不够完备希望以后有更合理的解释。}
+在上面的讨论中之后我们可以讨论Global WI对称性约束对于Priamry field的关联函数约束了！具体的推导我们掠过，需要明确的就是推导就是对于三个WI进行各种各样的线性组合，而线性组合的结果会给出神奇的结论，通过这些结论我们可以推导出关联函数。
+
+我们会发现2-point function和3-point function都是形式上确定的。
+
+2-point function可以写成：
+\eq{
+    \left\langle V_{\Delta_1,\bar{\Delta}_1}(z_1)V_{\Delta_2,\bar{\Delta}_2}(z_2)\right\rangle=B_1\delta_{\Delta_1,\Delta_2}\delta_{\bar{\Delta}_1,\bar{\Delta}_2}z_{12}^{-2\Delta_1}\bar{z}_{12}^{-2\bar{\Delta}_1}
+}
+
+3-point function可以写成：
+\eq{
+    \left\langle\prod_{i=1}^3V_{\Delta_i,\bar{\Delta_i}}(z_i)\right\rangle=C_{123}\left|\mathcal{F}^{(3)}(\Delta_1,\Delta_2,\Delta_3|z_1,z_2,z_3)\right|^2
+}
+其中：
+\eq{
+    \mathcal{F}^{(3)}(\Delta_1,\Delta_2,\Delta_3|z_1,z_2,z_3)=z_{12}^{\Delta_3-\Delta_1-\Delta_2}z_{23}^{\Delta_1-\Delta_2-\Delta_3}z_{31}^{\Delta_2-\Delta_3-\Delta_1}
+}
+\eq{
+    |f(\Delta,z)|^2=f(\Delta,z)f(\bar{\Delta},\bar{z})\mathrm{~.}
+}
+
+对于4-point function及以上，并不能被Global WI完全确定。但是我们这里讨论4-point function的一些性质，如果我们取:
+\eq{
+    x=\frac{z_{12}z_{34}}{z_{13}z_{24}} ,
+}
+那么我们有通解：
+\eq{
+    \left\langle\prod_{i=1}^4V_{\Delta_i,\bar{\Delta_i}}(z_i)\right\rangle=\left|z_{13}^{-2\Delta_1}z_{23}^{\Delta_1-\Delta_2-\Delta_3+\Delta_4}z_{34}^{\Delta_1+\Delta_2-\Delta_3-\Delta_4}z_{24}^{-\Delta_1-\Delta_2+\Delta_3-\Delta_4}\right|^2F(x)\mathrm{~,}
+}
+其中\seq{F(x)}是一个特殊的4-point function:
+\eq{
+    F(x)=\left\langle V_{\Delta_1,\bar{\Delta}_1}(x)V_{\Delta_2,\bar{\Delta}_2}(0)V_{\Delta_3,\bar{\Delta}_3}(\infty)V_{\Delta_4,\bar{\Delta}_4}(1)\right\rangle.
+}
+这些结论完全是通过Global WI对于体系的约束得到的。
+\line
+% \subsection{Conformal spin}
+\ghl{Conformal SPIN对于CF的约束}
+下面我们讨论的问题是一个特殊的conformal transformation对应的Ward Identity对于关联函数的约束。也就是转动变换。
+
+对于Primary field在二维转动的Ward Identity可以写成:
+\eq{
+    T\left({\begin{pmatrix}e^{i\theta}&0\\0&e^{-i\theta}\end{pmatrix}}\right) V_{\Delta,\bar{\Delta}}(z)=e^{2i\theta(\Delta-\bar{\Delta})}V_{\Delta,\bar{\Delta}}(e^{2i\theta}z)\mathrm{~.}
+}
+并且我们定义conformal spin为:
+\eq{
+    S = \Delta - \bar{\Delta}
+}
+很显然这个对应的就是我们一般量子场论之中的spin的量子数。
+
+由于3-point function是单值函数（量子场论的公理）。我们有对于spin的约束:
+\eq{
+    S_i\in\frac12\mathbb{Z}\quad\mathrm{~and~}\quad S_1+S_2+S_3\in\mathbb{Z}
+}
+这个正好和我们一般量子力学的约束一致。
+\pict{
+    2024-08-19-16-27-20.png
+}{1.1}
+
+\subsection{Local WI 对于primary field OPE的约束}
+
+我们已经讨论了Global WI对于关联函数存在约束，那么Local WI约束了什么。我们发现其对于OPE存在着约束。
+
+对于一个OPE:
+\eq{
+    V_{\sigma_1}(z_1)V_{\sigma_2}(z_2) = \sum_{\sigma_3}C_{\sigma_1,\sigma_2}^{\sigma_3}(z_1,z_2)V_{\sigma_3}(z_2).
+}
+注意，OPE的场我们的意思其实是关联函数，我们并没有“算符”的概念。这个时候两边作用上:
+\eq{
+    \oint_C dz (z-z_2)^{n+1}T(z)
+}
+算符，等式左边由于是两个算符的关联函数作用上，所以根据之前推导的Ward Identity的过程我们知道结果是，对于\seq{z_2}位置的场我们作用上\seq{L_n^{(z_2)}}对于其他位置的场作用上一系列的算符。最终得到的结果我们称之为OPE Ward Identity:
+\thm{
+    OPE WI
+    \eq{
+        \left(L_n^{(z_2)}+\sum_{m=-1}^n\binom{m+1}{n+1}z_{12}^{n-m}L_m^{(z_1)}\right)V_{\sigma_1}(z_1)V_{\sigma_2}(z_2)=\sum_{\sigma_3}C_{\sigma_1,\sigma_2}^{\sigma_3}(z_1,z_2)L_nV_{\sigma_3}(z_2)
+    }
+}
+这是一系列的恒等式，通过一个数字n来标定。n取决于作用在左边的算符的\seq{(z-z_2)^{n+1}}接下来我们讨论不同的n给出的不一样的约束。
+
+\ghl{n = -1的时候}上面的等式是:
+\eq{
+    \left(\frac{\partial}{\partial z_{1}}+\frac{\partial}{\partial z_{2}}\right)V_{{\sigma_{1}}}(z_{1})V_{{\sigma_{2}}}(z_{2})=\sum_{{\sigma_{3}}}C_{{\sigma_{1},\sigma_{2}}}^{{\sigma_{3}}}(z_{1},z_{2})\frac{\partial}{\partial z_{2}}V_{{\sigma_{3}}}(z_{2})\mathrm{~.}
+}
+在等式左边再使用OPE替换:
+\eq{
+    \left(\frac{\partial}{\partial z_{1}}+\frac{\partial}{\partial z_{2}}\right)\sum_{\sigma_3}C_{\sigma_1,\sigma_2}^{\sigma_3}(z_1,z_2)V_{\sigma_3}(z_2).=\sum_{{\sigma_{3}}}C_{{\sigma_{1},\sigma_{2}}}^{{\sigma_{3}}}(z_{1},z_{2})\frac{\partial}{\partial z_{2}}V_{{\sigma_{3}}}(z_{2})\mathrm{~.}
+}
+我们会得到一个关于OPE系数的约束:
+\eq{
+    \left(\frac\partial{\partial z_1}+\frac\partial{\partial z_2}\right)C_{\sigma_1,\sigma_2}^{\sigma_3}(z_1,z_2)=0
+}
+也就是说OPE系数具有平移不变性。我们会发现平移算符对应的OPE WI给出的约束是OPE系数具有平移不变形，所以其实OPE系数只和两个场的相对位置有关系。
+
+\ghl{n = 0的时候}
+如果我们认为场对应量子态\seq{\sigma_i}是\seq{L_0}和\seq{\bar{L_0}}的本征态。我们有:
+\eq{
+    \left(z_{12}\frac{\partial}{\partial z_{1}}+\Delta_{{\sigma_{1}}}+\Delta_{{\sigma_{2}}}\right)V_{{\sigma_{1}}}(z_{1})V_{{\sigma_{2}}}(z_{2})=\sum_{{\sigma_{3}}}C_{{\sigma_{1},\sigma_{2}}}^{{\sigma_{3}}}(z_{1},z_{2})\Delta_{{\sigma_{3}}}V_{{\sigma_{3}}}(z_{2})\mathrm{~.}
+}
+
+根据GLobal OPE WI的约束我们可以得到对于OPE系数的一个很大的约束:
+\thm{
+    dialation 本征态OPE系数形式:
+    \eq{
+        C_{\sigma_1,\sigma_2}^{\sigma_3}(z_1,z_2)=C_{\sigma_1,\sigma_2}^{\sigma_3}\left|z_{12}^{\Delta_{\sigma_3}-\Delta_{\sigma_1}-\Delta_{\sigma_2}}\right|^2 
+    }
+    注意:这里面的模长的平方指的是Holomorphic的和anti-holomorphic的乘积。我们之前推导的都是基本上holomorphic的情况，现在我们把anti-holomorphic的情况加回来。
+}
+
+\ghl{\seq{n\geq 1}的时候}这个时候我们只考虑Primary Fields我们的OPE WI左手边可以写成:
+\eq{
+    \left(z_{12}^{n+1}\frac\partial{\partial z_1}+(n+1)\Delta_1z_{12}^n\right)V_{\Delta_1}(z_1)V_{\Delta_2}(z_2)}
+我们改写OPE:
+\eq{
+    V_{\Delta_1}(z_1)V_{\Delta_2}(z_2)=z_{12}^{-\Delta_1-\Delta_2}\mathcal{O}(z_1,z_2)
+}
+这样改写的意义是，借用了上面我们已知的OPE系数的形式，把部分项显示的写出来，这样的话其实很多项都是0-dim的“数”。值得注意的是\seq{\mO(z_1,z_2)}是一个在\seq{z_2}处的场。这个时候右项可以写成:
+\eq{
+    z_{12}^{-\Delta_1-\Delta_2}L_n\mathcal{O}(z_1,z_2)
+}
+所以对于这种情况下n = 0可以写成:
+\eq{
+    \left(z_{12}\frac{\partial}{\partial z_1} +\Delta_{1}+\Delta_{2}\right)z_{12}^{-\Delta_1-\Delta_2}\mathcal{O}(z_1,z_2) = z_{12}^{-\Delta_1-\Delta_2}\left(z_{12}\frac{\partial}{\partial z_1} \right)\mO(z_1,z_2) = z_{12}^{-\Delta_1-\Delta_2}L_0\mathcal{O}(z_1,z_2)
+}
+因此最终由结论:
+\eq{
+    \left(z_{12}\frac\partial{\partial z_1}-L_0^{(z_2)}\right)\mathcal{O}(z_1,z_2)=0\mathrm{~.}
+}
+将这个带入消除\seq{L_{-1}}带来的导数项，我们可以得到OPE WI为:
+\eq{
+    \left\{L_n^{(z_2)}-z_{12}^n\left(n\Delta_1-\Delta_2+L_0^{(z_2)}\right)\right\}\mathcal{O}(z_1,z_2)=0\mathrm{~.} 
+}
+我们试图解这个方程。我们认为\seq{\mO(z_1,z_2)}是在\seq{z_2}的Primary和descendent的组合，这样的话我们可以这样设\seq{\mO(z_1,z_2)}的形式:
+\eq{
+    \mathcal{O}_{\Delta_3}(z_1,z_2)=z_{12}^{\Delta_3}\sum_{L\in\mathcal{L}}z_{12}^{|L|}C_{12}^{L|\Delta_3\rangle}LV_{\Delta_3}(z_2)\mathrm{~,}
+}
+\rmk{
+    这个时候我们的形式只设了右面的项是仅仅是某一个Prmary field的descendent。我们关注这样的情况下面的解决，因为我们会发现的结论是所有的descendent都可以被primary field的OPE系数进行决定也就是不同primary field可以自行满足这个方程。
+
+    并且这样的假设的原因是primary field的conformal dimension是可以很任意的选取的，这样的任意选取给出了正交的条件。
+
+    同时我们注意到OPE其实一直是一个不同表示的场混用的方程，一个方程等式两边对应的是不同的表示。这个时候我们会直观的意识到Symmetry condition给出了不同表示之间的关系。
+}
+对于每一个Level的场我们有系数为:
+\eq{
+    z_{12}^{\Delta_3+N}
+}
+正好消除了dimension使得系数就是一个无量纲的系数。我们把这个函数形式带入到我们的OPE WI之中得到的结论是:
+\eq{
+    \sum_{|L|=N-n}C_{12}^{L|\Delta_3\rangle}(\Delta_3+N-n+n\Delta_1-\Delta_2)LV_{\Delta_3}(z_2)=\sum_{|L|=N}C_{12}^{L|\Delta_3\rangle}L_nLV_{\Delta_3}(z_2)\mathrm{~.}
+}
+通过解这个方程，我们会意识到。Descendent的OPE系数会被Primary field的OPE系数决定:
+\eq{
+    C_{12}^{L|\Delta_{3}\rangle}=C_{12}^{3}f_{{\Delta_{1},\Delta_{2}}}^{\Delta_{3},L} \quad C_{12}^{3} = C_{12}^{|\Delta_{3}\rangle}
+}
+为了求解决定系数，我们将这个表达式带回上面的方程之中！
+\pict{2024-08-20-11-42-15.png}{1}
+根据这个正比关系我们认为OPE可以提出所有Primary field的OPE系数。这个提出操作可以给出这个系数很多约束。比如我们发现Primary field的OPE系数可以通过2-point和3-point coefficient确定，我们只需要把2-point function和3-point function利用OPE联系起来:
+\eq{
+    \left\langle\prod_{i=1}^3V_{\Delta_i,\bar{\Delta}_i}(z_i)\right\rangle=B_3C_{12}^3\left|z_{12}^{\Delta_3-\Delta_1-\Delta_2}{\left(z_{23}^{-2\Delta_3}+O(z_{12})\right)}\right|^2.
+}
+对比方程和3-point function的方程
+\eq{
+    \left\langle\prod_{i=1}^3V_{\Delta_i,\bar{\Delta_i}}(z_i)\right\rangle=C_{123}\left|\mathcal{F}^{(3)}(\Delta_1,\Delta_2,\Delta_3|z_1,z_2,z_3)\right|^2
+}
+我们可以得到:
+\eq{
+    C_{12}^3=(-1)^{S_1-S_2+S_3}\frac{C_{123}}{B_3}\mathrm{~.}
+}
+其中的系数\seq{(-1)^{S_1-S_2+S_3}}是通过我们之前讨论conformal spin 3-point function在permutation下面不变决定的。最终我们写出primary field之间的OPE的系数:
+\eq{
+    V_{\Delta_1,\bar{\Delta}_1}(z_1)V_{\Delta_2,\bar{\Delta}_2}(z_2)=\sum_{\Delta_3,\bar{\Delta}_3}(-1)^{\sum S_i}\frac{C_{123}}{B_3}\left|z_{12}^{\Delta_3-\Delta_1-\Delta_2}\sum_{L\in\mathcal{L}}z_{12}^Lf_{\Delta_1,\Delta_2}^{\Delta_3,L}L\right|^2V_{\Delta_3,\bar{\Delta}_3}(z_2)
+}
+回顾我们最开始的讨论，我们发现我们的consistency condition也就是我们的Ward Identity在表示确定（也就是primary state）确定的情况下可以完全的决定整个表示primary state和descendent的OPE系数，也就是说这个OPE是trivial的\seq{N_{\mR_1,\mR_2}^{\mR_3} = 1,0}。
+\pict{2024-08-20-12-14-10.png}{1}
+
+\rmk{
+    以上我们完成了，WI 也就是我们的consistency condition对于我们的Correlation function和场还有OPE的约束。
+}
+
+
+\section{Correlation function of CFT(degenerate field)}
+
+上面我们讨论了很多Verma module对应的场，但是除了Verma module还有一种highest-weight representation就是degenerate representation。他们对应的场就是degenerate field。
+
+\newpage
+\section{Conformal Block basic}
+现在我们研究一系列特别特殊的场，我们称之为conformal block。conformal block容纳了系统的共形对称性的信息，并且通过这个信息，我们可以通过一些system dependent的系数搭建起来关联函数。Conformal Block被Ward Identity限制住。之前我们讨论的时候就会发现我们的Ward Identity其实是由特定的一套Vir代数限制住的。但是我们的CFT有着两套Vir代数。所以，Ward Identity的对于关联函数的约束其实是holomorphically factorizable。这意味我们的conformal block可以写成两个，一个left moving一个right moving的乘积的形式。这样的形式下，全纯和反全纯的部分互不影响。
+
+接下来我们讨论的都是left moving的全纯的conformal block。为了构建关联函数其实只要取反全纯和全纯乘在一起就好了！
+
+这个时候我们定义Conformal Block是对称性约束条件也就是Ward Identity的解的基。并且我们认为推导过程可以通过OPE来进行！我们可以通过用哪个OPE来推导对conformal block进行分类，如果我们使用:
+\eq{
+    V_{\sigma_1}(z_1)V_{\sigma_2}(z_2)
+}
+的OPE来进行计算，我们认为4-point function可以写成这个样子:
+\eq{
+    \left\langle\prod_{i=1}^4V_{\sigma_i}(z_i)\right\rangle=\sum_{\Delta_s,\bar{\Delta}_s}\frac{C_{12s}C_{s34}}{B_s}\left|\mathcal{F}_{\Delta_s}^{(s)}(\sigma_i|z_i)\right|^2,
+}
+我们发现4-point function完全的通过两点和三点的关联函数的系数以及一个特殊的量决定:
+\eq{
+    \mathcal{F}_{\Delta_s}^{(s)}(\sigma_i|z_i)
+}
+我们称之为\ghl{"s-channel 4-point conformal block"}。
+
+为了推导这个结论，或者就是构造conformal block的具体的形式，我们使用OPE的方法，但是为此我们需要把OPE右式的求和给分成两步:
+\itm{
+    \pt{对weight为\seq{\Delta_x}的表示进行求和}
+    \pt{对某个表示的量子态进行求和}
+}
+而第二步的求和就给出了conformal block的定义！
+
+根据不同的OPE选用我们可以给出不同的conformal block。
+\itm{
+    \pt{\seq{V_{\sigma_1}(z_1)V_{\sigma_2}(z_2)}给出s-channel\seq{\mathcal{F}_{\Delta_s}^{(s)}(\sigma_i|z_i)}}
+    \pt{\seq{V_{\sigma_1}(z_1)V_{\sigma_4}(z_4)}给出t-channel\seq{\mathcal{F}_{\Delta_t}^{(t)}(\sigma_i|z_i)}}
+    \pt{\seq{V_{\sigma_1}(z_1)V_{\sigma_3}(z_3)}给出u-channel\seq{\mathcal{F}_{\Delta_u}^{(u)}(\sigma_i|z_i)}}
+}
+不同的channel本质上是不同的基。并且这些基的等价性给出了对于体系的约束——crossing Symmetry。
+
+\newpage
+\section{Conformal block and crossing symmetry}
+接下来我们主要follow讲义“Notes on crossing transformations of  Virasoro conformal blocks”来讨论crossing symmetry相关的性质，并且根据这些性质，我们熟悉Moore-Seiberg的语言。
+
+\subsection{Conformal Blocks}
+我们之前认为，conformal block是搭建correlation function的基础。那么更广义上到底说的是什么呢？
+\defi{
+    conformal block
+
+    我们认为conformal block是某一个二维的曲面上（一般是复平面上，也就是一个球，但有的时候这个球会有一些变换）满足conformal symmetry Ward Identity的一系列函数基。
+
+    这一系列函数基完全由曲面的两个性质决定:
+    
+    1. genus g也就是洞洞的数量
+
+    2. punctures n也就是插入的算符的数量
+}
+Conformal Block根据二维曲面的拓扑的性质可以分成好多的种类。接下来我们的问题是：我们如何求解Conformal Block。
+
+对于这个问题我们的方法是我们将一个二维流形可以进行pant decomposition。也就是说我们的二维的流形可以分解成\seq{2g-2+n}个三个洞洞的球，并且这些球可以通过粘贴\seq{3g-3+n}个圈圈粘起来变成我们讨论的二维流形。下面的图片就是给出了一个这样的粘pants的方法:
+\pict{2024-09-09-14-44-31.png}{0.8}
+通过这样的粘贴我们可以把一个流形上面的conformal block分解成很多小的流形上面的conformal block的展开。为了简单起见，我们考虑流形上就只切一圈变成两个流形的情况（上面图片就是切割的很好的例子！）。
+
+对于研究怎么通过拼接流形得到其他的流形上面的conformal block。这个操作我们需要有一个特殊的坐标点位\seq{q}这个q需要根据我们讨论的流形仔细选取。更重要的是需要满足下面的一个特殊的性质：q = 0 corresponds to the degenerate surface (the boundary divisor of moduli space).（好的，我也不懂这是啥性质（x）
+
+\rmk{
+    这里我们对于q进行一个说明，其实就是conformal block应该是一个特殊函数。那么必须选取一个合适的自变量。并且这个自变量的选取应该十分合理，合理到我们可以通过一个自变量清晰的描述这个体系上面很多很多很多个洞洞的位置。
+
+    就像是一般我们讨论四点函数的时候我们的conformal block求的是这样的一个四点函数:
+    \eq{
+        \left\langle V_{\Delta_1,\bar{\Delta}_1}(x)V_{\Delta_2,\bar{\Delta}_2}(0)V_{\Delta_3,\bar{\Delta}_3}(\infty)V_{\Delta_4,\bar{\Delta}_4}(1)\right\rangle 
+    }
+    因为这个特殊的四点函数，可以生成其他所有的四点函数。所以这个里面我们的自变量选的就是x。
+
+    并且我们求我们的conformal block的时候其实就是对于x进行一个无数阶的展开！
+}
+
+\subsubsection{q的0阶的展开项}
+对于0阶的展开，其实就是在粘贴处赋予一个primary field。一个特殊的primary field的选取给出了这个conformal block的一个特别的“基”。这个primary field成功的label了一种特别的conformal block。
+
+对于0阶的展开我们有:
+\eq{
+    \mathcal{F}_{g,n}\sim\mathcal{F}_{g_1,n_1+1}\mathcal{F}_{g_2,n_2+1}\quad\mathrm{or}\quad\mathcal{F}_{g-1,n+2}\mathrm{~.}
+}
+具体的图示可以看下面图片:
+\pict{2024-09-09-14-54-29.png}{0.7}
+我们不难发现我们primary field的零阶的展开其实就是直接乘起来。并且需要要求我们切开的线上赋予一个conformal weight是\seq{\Delta}的primary field。
+
+值得注意的是，由于我们最终可以把流形分解成很多很多的三点函数的乘积。而对于primary field的三点函数（也就是一个球上面破三个洞）的conformal block是完全由global conformal symmetry决定的:
+\pict{2024-09-09-14-59-45.png}{0.8}
+所以零阶的conformal block用\seq{\Delta}label的基。我们可以很容易的得到。
+
+\subsubsection{q的高阶的展开项}
+由于零阶的展开规定了一个primary field。对于更高阶的展开，我们其实就是对于这个primary field的descendent进行一个求和。下面这个图可以仔细的说明这个求和。
+
+\pict{2024-09-04-14-17-26.png}{1}
+也就是我们在切开的平面上对于descendent进行求和。由于我们知道descendent可以根据共形对称性用primary field写出来。这个展开其实就是用到了q。所以，对于descendent的求和其实就是对于q的更高阶的展开。
+
+\subsection{deriving conformal block}
+\subsubsection{4-point function conformal block}
+接下来我们利用上面给出的这种套路讨论一种族很经典的conformal block。也就是讨论一个复平面上面四点函数的conformal block。
+
+我们在复平面这个球面上选取特殊的四个点\seq{z_1 = 1,z_2 = \infty,z_3 = 0,z_4 = z}。并且这个时候我们认为\seq{0<z<1}。取conformal block的割线是\seq{z \in (-\infty,0]\cup [1,\infty)}。在这个基础上我们发现我们的z坐标就刚好就是之前讨论的q。
+
+接下来我们可以通过一些notation的定义把一个4-point conformal block展开成为下面的样子。注意：我们的展开使用了kac矩阵，其定义就是:
+\eq{
+    Kac = (\mathbf{M}^{-1})_{{\nu_{\mathrm{L}},\nu_{\mathrm{R}}}}=\langle\mathbf{L}_{{-\nu_{\mathrm{L}}}}\Psi\mid\mathbf{L}_{{-\nu_{\mathrm{R}}}}\Psi\rangle\mathrm{~.}
+}
+但是我们这么归一化已经确定了我们的输入和输出的态的位置必须是0和无穷远。因为这个是在conformal field theory之中量子化后的输入和输出的态的条件。所以剪开的左边的开口，相当于在\seq{\infty}点插入一个算符；剪开的右边的开口相当于在\seq{0}点插入一个算符。
+
+\pict{2024-09-09-15-32-55.png}{1}
+接下来我们求解左半边和右半边的conformal block的具体的函数形式。
+
+首先，我们可以计算右半边的函数形式是:
+\eq{
+    \langle L_{-\nu}V_\Delta(0)V_{\Delta_1}(1)V_{\Delta_2}(\infty)\rangle & =\langle\Psi_2\mid V_{\Delta_1}(1) L_{-\nu}\mid\Psi\rangle   \\
+&=\operatorname{Res}(x^{-\nu+1}-x)\langle\Psi_2 | V_{\Delta_1}(1) T(x) | \Psi\rangle \\
+&+\Delta\langle\Psi_2|V_{\Delta_1}(1)|\Psi\rangle  \\
+&=-\Big[\underset{x=1}{\operatorname*{Res}}+\underset{x=\infty}{\operatorname*{Res}}\Big] (x^{-\nu+1}-x)\langle\Psi_2 | V_{\Delta_1}(1) T(x) |\Psi\rangle \\
+&+\Delta\langle\Psi_{2}\left|V_{{\Delta_{1}}}(1)\mid\Psi\right\rangle \\
+&=(\nu\Delta_1-\Delta_2+\Delta)\langle V_{\Delta_{21}}(0)V_{\Delta_1}(1)V_{\Delta_2}(\infty)\rangle
+}
+\rmk{
+    这个计算上方的过程其实就是在重新推导conformal ward Identity。更简便的情况其实是我们直接使用conformal ward Identity以及primary field的三点函数的函数形式。推导如下：
+
+    首先，我们之前给出了全是primary field的conformal ward Identity
+    \eq{
+    \left\langle L_{-n}^{(z_i)}V_{\sigma_i}(z_i)\prod_{j\neq i}V_{\Delta_j}(z_j)\right\rangle=\sum_{j\neq i}\left(-\frac1{z_{ji}^{n-1}}\frac\partial{\partial z_j}+\frac{n-1}{z_{ji}^n}\Delta_j\right)\left\langle V_{\sigma_i}(z_i)\prod_{j\neq i}V_{\Delta_j}(z_j)\right\rangle
+}
+所以我们有:
+\eq{
+    \langle L_{-\nu}^{(0)} V_{\Delta}(0)V_{\Delta_1}(1)V_{\Delta_2}(\infty)\rangle = \left[ - \frac{\partial_{z_{1}}}{z_1^{\nu-1}} + \frac{\nu-1}{z_1^\nu} \Delta_1 \right]\langle V_{\Delta}(0)V_{\Delta_1}(1)V_{\Delta_2}(\infty)\rangle
+}
+对于j求和只有这样一项是因为\seq{\frac{1}{\infty-0} = 0}接下来我们知道后面的三点函数由于是primary field的三点函数所以:
+\eq{
+    \langle V_{\Delta}(0)V_{\Delta_1}(1)V_{\Delta_2}(\infty)\rangle \sim z_1^{\Delta_2-\Delta_1-\Delta}
+}
+求一阶导数之后指数项下来就变成了:
+\eq{
+    \langle L_{-\nu}^{(0)} V_{\Delta}(0)V_{\Delta_1}(1)V_{\Delta_2}(\infty)\rangle & = \left[\Delta_1 + \Delta - \Delta_2+ (\nu-1)\Delta_1 \right] \langle V_{\Delta+\nu}(0)V_{\Delta_1}(1)V_{\Delta_2}(\infty)\rangle\\
+    &= \left(\nu\Delta_1 + \Delta -\Delta_2 \right)\langle V_{\Delta+\nu}(0)V_{\Delta_1}(1)V_{\Delta_2}(\infty)\rangle
+}
+注意最后对于三点函数由于我们进行求导操作并且还乘上了\seq{z_1}因此我们的三点函数后边有变换。
+\eq{
+    z_1^{\Delta_2-\Delta_1-\Delta} \to z_1^{\Delta_2-\Delta_1-\Delta-\nu} 
+}
+也可以等价的理解为primary field的conformal weight从\seq{\Delta}变成了\seq{\Delta+\nu}.
+
+这一段计算就是提醒我们利用conformal ward identity的性质求解一下存在一个场是descendent的时候的关联函数。
+}
+
+
+
+这个计算其实就是利用能动量张量的定义，或者说其实就是conformal ward identity。基损之后我们就可以发现，我们使用了一个固定三个点的primary field的三点函数表示了一个descendent的三点函数。
+
+接下来，我们需要表示出所有的descendent的三点函数，那么我们就需要一遍遍作用\seq{L_{-\nu}}可以最后得到的结论是：
+\pict{2024-09-09-16-08-03.png}{0.7}
+
+这里对于这个结论进行一点点解释:
+\eq{
+    \mathbf{L}_{-\nu}\equiv L_{{-\nu_{k}}}L_{{-\nu_{k-1}}}\cdots L_{{-\nu_{1}}}\Psi 
+}
+相当于不停重复上面的变化。并且重复之后，我们的primary field的conformal weight会发生变化。因此我们作用出的系数应该是:
+\eq{
+    \left(\nu_{\text{R},j}\Delta_1-\Delta_2+\Delta+\sum_{m<j}\nu_{\text{R},m}\right) .
+}
+后面会加上\seq{\sum_{m<j}\nu_{\text{R},m}}这一项！同样的我们也可以求一下左边的三点函数的conformal block：
+\pict{2024-09-12-11-57-19.png}{0.8}
+最后我们把这两个conformal block拼起来我们就可以得到任意的primary field的4-point conformal block的表达了！！拼起来的时候中间要使用Kac 矩阵！！
+
+\line
+另一个画风下面的求解四点的conformal block（使用两点函数，而不是三点函数的性质）可以看下面的图片
+\pict{2024-09-11-16-59-14.png}{1.2}
+
+\subsubsection{one point function on a torus}
+我们用同样的穿刺粘贴的方法可以得到一个torus上面的共形场论的一点函数。同样的选用一个primary field作为基的标定然后变成三点函数粘在一起！
+\pict{2024-09-12-12-05-02.png}{0.8}
+同样的我们需要选择一个合适的q来描述我们的torus。这个时候我们选择我们torus的modulus \seq{\tau}，为了保证有degenerate的q的性质，我们使用\seq{q = e^{2 \pi i \tau}}。
+\pict{2024-09-12-12-21-51.png}{0.9}
+这个公式的意思是，把pant上面两个洞洞当成一个圆柱的上下两个环，下面那个洞洞当成insert一个算符。通过圆柱上面的共形场论得到一个三点函数。

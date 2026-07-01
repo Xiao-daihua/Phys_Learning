@@ -8,8 +8,8 @@
         quantum field theory. Including Symmetry, Renormalization,
         Anomalies, Solitons and Instantons. The note is mainly based
         on Peskin and Schroeder's "An Introduction to Quantum Field
-        Theory"@peskinIntroductionQuantumField1995, Tong's lecture
-        notes on gauge theory, and some other references.],
+        Theory"@peskinIntroductionQuantumField1995. 
+    ],
 )
 #chapter[Fundamental Ideas]
 #include "doc/fundamental.typ"
@@ -17,11 +17,11 @@
 #chapter[Renormalization]
 #include "doc/renormalization.typ"
 
-// #chapter[Renormalization Group]
-// #include "doc/rg.typ"
-//
-// #chapter[Spontaneous Symmetry Breaking]
-// #include "doc/symmetry.typ"
+#chapter[Renormalization Group]
+#include "doc/rg.typ"
+
+#chapter[Spontaneous Symmetry Breaking]
+#include "doc/symmetry.typ"
 
 #chapter[Anomalies]
 #include "doc/anomaly.typ"
