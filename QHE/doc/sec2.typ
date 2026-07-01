@@ -16,7 +16,7 @@ with two important features:
 + *Integer Hall Conductivity*: The Hall conductance $sigma_(x y)$ is
     quantized in integer multiples of:
 $
-   rho_(x y) = frac(2 pi planck.reduce, e^2) 1/n
+   rho_(x y) = frac(2 pi planck, e^2) 1/n
 , quad n = 0, 1, 2, ...
 $
 

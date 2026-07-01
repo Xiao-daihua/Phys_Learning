@@ -7,7 +7,7 @@ observed in two-dimensional electron systems subjected to low
 temperatures and strong magnetic fields, where the Hall conductance
 exhibits quantized plateaus at fractional values of:
 $
-    rho_(x y) = frac(2 pi planck.reduce, e^2) frac(1, nu)
+    rho_(x y) = frac(2 pi planck, e^2) frac(1, nu)
     , quad nu = 1/3, 2/5, 3/7, ...
 $
 #figure(
@@ -25,14 +25,14 @@ The explanation of FQHE is more complicated than IQHE.
 
 For FQHE, with the conductivity as:
 $
-    rho_(x y) = frac(2 pi planck.reduce, e^2) frac(1, nu), nu = 1/m , m = 3, 5, 7, ...
+    rho_(x y) = frac(2 pi planck, e^2) frac(1, nu), nu = 1/m , m = 3, 5, 7, ...
 $
 Laughlin give an explanation of this FQHE effect in
 @laughlinAnomalousQuantumHall1983. What he did is to directly write
 down a ground state wave function for the state of interacting
 electrons in magnetic field with the number of:
 $
-    N_e = N_L nu, quad N_L = frac(B A, 2 pi planck.reduce), quad nu = 1/m
+    N_e = N_L nu, quad N_L = frac(B A, 2 pi planck), quad nu = 1/m
 $
 which has the number of elecrons as a fraction of the number of Landau
 levels. We often call $nu$ the filling fraction, which is the ratio of
@@ -53,7 +53,7 @@ The Laughlin wave function is given by:
         psi(z_1, z_2, ..., z_(N_e)) = product_(i < j) (z_i - z_j)^m exp(-frac(1, 4 l_B^2) sum_(i=1)^(N_e) |z_i|^2)
     $
     where $z_i = x_i + i y_i$ is the complex coordinate of the $i$-th
-    electron, $l_B = sqrt(frac(planck.reduce, e B))$ is the magnetic
+    electron, $l_B = sqrt(frac(planck, e B))$ is the magnetic
     length, and $m$ is an odd integer.
 ]
 

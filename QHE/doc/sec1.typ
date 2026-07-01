@@ -7,6 +7,7 @@ We'll start with some basic concepts in CMT and QM. I won't give a
 detailed explanation, yet just list out some important results as a
 reference for later use. Most contents are explained in @qhelecture.
 
+
 == Band Theory and Conductivity
 
 === Basic Concepts
@@ -180,7 +181,7 @@ discusion of the QHE, especially FQHE (as the original paper does),
 it's more convenient to use the symmetric gauge.
 
 The symmetry gauge is defined as:
-$$
+
 
 #YL([this part is important.])
 
@@ -197,16 +198,16 @@ Consider the ground state energy is always normalized to 0, no matter
 which parameter we choose, then after a close loop of parameter
 variation, the wave function will acquire a phase factor:
 $
-    |psi ( lambda_i ) angle.right arrow.r e^( i gamma ) |psi ( lambda_i ) angle.right
+    |psi ( lambda_i ) chevron.r arrow.r e^( i gamma ) |psi ( lambda_i ) chevron.r
 $
 where $gamma$ is the Berry phase, which can be expressed as an
 integral of the Berry connection $A_i$ along the loop
 
 - *Berry Connection and Curvature* The Berry connection is defined as:
 $
-    A_( i ) ( lambda ) = - i angle.l n|( diff ) / ( diff lambda^( i ) )|n angle.r
+    A_( i ) ( lambda ) = - i chevron.l n|( partial ) / ( partial lambda^( i ) )|n chevron.r
 $
-where $|n(lambda_i) angle.r$ is a series of designated eigenstates of
+where $|n(lambda_i) chevron.r$ is a series of designated eigenstates of
 the Hamiltonian with fixed phase choices. And the Berry curvature is
 defined as:
 $
@@ -217,7 +218,7 @@ coordinates.
 
 - *Gauge Transformation* if we change the choise of phase of the
     designated eigenstates by a gauge transformation
-    $|n(lambda_i) angle.r arrow.r e^( i alpha ( lambda ) ) |n(lambda_i) angle.r$,
+    $|n(lambda_i) chevron.r arrow.r e^( i alpha ( lambda ) ) |n(lambda_i) chevron.r$,
     then the Berry connection transforms as:
 $
     A_( i ) ( lambda ) arrow.r A_( i ) ( lambda ) + partial_( i ) alpha ( lambda )
@@ -264,7 +265,7 @@ When the system has degenerate ground states, the Berry phase becomes
 non-Abelian. We can see this from the fact that the designated
 eigenstates should span the degenerate subspace:
 $
-    |n(lambda_i) angle.r arrow.r {|n_a (lambda_i) angle.r}_a
+    |n(lambda_i) chevron.r arrow.r {|n_a (lambda_i) chevron.r}_a
 $
 Then we generalize the definition of Berry connection to a
 matrix-valued one.
@@ -272,7 +273,7 @@ matrix-valued one.
 - *Non-Abelian Berry Connection and Curvature* The non-Abelian Berry
     connection is defined as:
 $
-    A_( i ) ( lambda )_( a b ) = - i angle.l n_a|( diff ) / ( diff lambda^( i ) )|n_b angle.r
+    A_( i ) ( lambda )_( a b ) = - i chevron.l n_a|( partial ) / ( partial lambda^( i ) )|n_b chevron.r
 $
 and the non-Abelian Berry curvature is defined as:
 $
@@ -281,7 +282,7 @@ $
 
 - *Gauge Transformation* if we change the choice of basis of the
     degenerate subspace by a gauge transformation
-    $|n_a (lambda_i) angle.r arrow.r U_( a b ) ( lambda ) |n_b (lambda_i) angle.r$,
+    $|n_a (lambda_i) chevron.r arrow.r U_( a b ) ( lambda ) |n_b (lambda_i) chevron.r$,
     where $U(lambda)$ is a unitary matrix, then the non-Abelian Berry
     connection transforms as:
 $
