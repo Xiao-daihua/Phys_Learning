@@ -1,3 +1,4 @@
+#import "../env/lib.typ": *
 
 
 Gauging is the case when we couple a QFT to a gauge field (often
@@ -351,7 +352,7 @@ global gauge, thus we can only choose a local gauge on each patch.
 3. On the overlap of two patches $U_i$ and $U_j$, we have a transition
     function:
 $
-    g_( i j) : U_i sect U_j arrow.r G
+    g_( i j) : U_i inter U_j arrow.r G
 $
 this relates the two trivialization on the two patches, and we have:
 $
@@ -510,7 +511,7 @@ $
 Then it is not a gauge invariant operator, consider a 2 point function
 correlation function:
 $
-    angle.l cal(O)_q (x) cal(O)_(-q)(y) angle.r
+    chevron.l cal(O)_q (x) cal(O)_(-q)(y) chevron.r
 $
 it is no longer gauge invariant under a gauge transformation
 $A arrow.r A + d alpha$, since the local operator transform
@@ -521,7 +522,7 @@ $
 $
 Then the correlation function:
 $
-    angle.l cal(O)_q (x) W_(q) (gamma) cal(O)_(-q)(y) angle.r
+    chevron.l cal(O)_q (x) W_(q) (gamma) cal(O)_(-q)(y) chevron.r
 $
 is gauge invariant. Then, if we consider one operator move around, the
 Wilson line should also move with it, thus the gauge invariant

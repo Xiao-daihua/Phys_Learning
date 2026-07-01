@@ -13,8 +13,8 @@
     ],
 )
 
-#pagebreak()
-#include "doc/sec1.typ"
+// #pagebreak()
+// #include "doc/sec1.typ"
 
 Gauging is the case when we couple a QFT to a gauge field (often
 dynamical, but some people may also call background gauge field as
@@ -367,7 +367,7 @@ global gauge, thus we can only choose a local gauge on each patch.
 3. On the overlap of two patches $U_i$ and $U_j$, we have a transition
     function:
 $
-    g_( i j) : U_i sect U_j arrow.r G
+    g_( i j) : U_i inter U_j arrow.r G
 $
 this relates the two trivialization on the two patches, and we have:
 $
@@ -526,7 +526,7 @@ $
 Then it is not a gauge invariant operator, consider a 2 point function
 correlation function:
 $
-    angle.l cal(O)_q (x) cal(O)_(-q)(y) angle.r
+    chevron.l cal(O)_q (x) cal(O)_(-q)(y) chevron.r
 $
 it is no longer gauge invariant under a gauge transformation
 $A arrow.r A + d alpha$, since the local operator transform
@@ -537,7 +537,7 @@ $
 $
 Then the correlation function:
 $
-    angle.l cal(O)_q (x) W_(q) (gamma) cal(O)_(-q)(y) angle.r
+    chevron.l cal(O)_q (x) W_(q) (gamma) cal(O)_(-q)(y) chevron.r
 $
 is gauge invariant. Then, if we consider one operator move around, the
 Wilson line should also move with it, thus the gauge invariant
@@ -596,7 +596,7 @@ There are two examples of anomalies:
 
 - In QED, there is a gauge anomaly, know as the ABJ anomaly.
 $
-    cal(L) = ( 1 ) / ( 4 e^( 2 ) ) f_( mu nu ) f^( mu nu ) + i overline(Psi) ( diff_( mu ) - i a_( mu ) ) gamma^( mu ) Psi.
+    cal(L) = ( 1 ) / ( 4 e^( 2 ) ) f_( mu nu ) f^( mu nu ) + i overline(Psi) ( partial_( mu ) - i a_( mu ) ) gamma^( mu ) Psi.
 $
 The axial U(1) symmetry is broken by the ABJ anomaly, Ward identity is
 not satisfied, and becomes:
@@ -720,7 +720,7 @@ $
 In fact to characterize this data, we don't need to introduce the
 gauge field but the transition function between patches:
 $
-    g_(i j) : U_i sect U_j arrow.r G
+    g_(i j) : U_i inter U_j arrow.r G
 $
 
 In this section, we will see that a $ZZ_n$ p-form discrete gauge field
@@ -807,7 +807,7 @@ $
     thin
     underbrace(( 1 ) / ( 2 pi ) integral_( Sigma_( d - p - 1 ) ) d b, in ZZ)
     thin
-    underbrace(\#( Sigma_( p + 1 ) sect Sigma_( d - p - 1 ) ), in ZZ)
+    underbrace(\#( Sigma_( p + 1 ) inter Sigma_( d - p - 1 ) ), in ZZ)
     in ZZ.
 $
 All three factors are integers, so $N in ZZ$.
