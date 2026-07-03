@@ -211,10 +211,48 @@ where the field strength renormalization is defined as:
 $
     braket(Omega, psi(0), p s) = sqrt(Z) u(p,s)
 $
+Similarly, we interpret this pole as the particle with physical mass
+$m$ propagating.
 
 == Example: QED Fermion Propagator
-Now we have a look at a concrete example of a lorentz invariant QFT,
-which is QED.
+
+Now we look at a concrete example, which is the Fermion propagator in
+QED, to see if it satisfy this form. We now have tools to deal with
+interacting theory by doing perturbation, thus we can try to evaluate
+$m$ and $Z$ perturbatively.
+
+- Leading Order
+
+The leading order of the fermion propagator is just the free
+propagator:
+$
+    i (feynman(p)+m_0)/ (p^2 - m_0^2 + i epsilon)
+$
+we'd expect at 0 order $m = m_0$ and $Z = 1$.
+#remark([
+    Notice that the above result is a Fourier transformation of the 2
+    point correlation function, not the Feymann diagram for S matrix,
+    which is not defined yet, but often taught in an early stage.
+])
+
+- First Order
+
+The first order correction due to interaction is the following
+diagram:
+
+#figure(
+    image("../assets/firstorderqedprop.png", width: 30%),
+    caption: [First order correction to the fermion propagator in QED.
+    ],
+) <fig-firstorderqedprop>
+
+#note([
+    To regulate the infrared divergence of the photon, we need a small
+    photon mass $mu$. With some tricks this won't effect the physical
+    result. This is another important topic.
+])
+
+#YL([better to come back after the electric vertex function example!])
 
 
 #pagebreak()
@@ -230,6 +268,7 @@ functions*. Then we can:
     interaction picture).
 + Use LSZ reduction formula to get the S-Matrix from the correlation
     functions.
+
 
 #pagebreak()
 = Optic Theorem
