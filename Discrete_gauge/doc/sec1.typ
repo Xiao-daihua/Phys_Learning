@@ -1,12 +1,5 @@
 #import "../env/lib.typ": *
 
-
-Gauging is the case when we couple a QFT to a gauge field (often
-dynamical, but some people may also call background gauge field as
-gauging). Apart from its importance of studying interaction between
-QFTs, gauging is also a powerful tool to study the symmetry of a QFT.
-
-
 = Gauging a Continuous Symmetry
 
 First we review some basics of coupling a QFT to a gauge field. Of
@@ -19,10 +12,9 @@ lagrangian description. Then, how can we do it?
 
 When we want to pin down a symmetry in QFT, the usual tools are the
 conserved current and the conserved charge. But these come from
-Noether's theorem, which already assumes two things: the symmetry is
-continuous, and it's invertible (so it forms a group). Neither is
-really essential to being a symmetry — so current and charge can't
-capture everything.
+Noether's theorem, which already assumes the symmetry is continuous.
+Yet it is really essential to being a symmetry — so current and charge
+can't capture everything.
 
 The Ward identity does better. A symmetry shows up as non-trivial
 constraints on correlation functions, and that's exactly what the Ward
@@ -35,14 +27,10 @@ broken.
 
 So what we'd really like is an "object-like" thing — like a current or
 charge — that's general enough and accurate enough to describe
-symmetry. Good news: it exists. It's the *symmetry generator*, and the
-trick is that it's a topological operator. That's the property that
-sets us free from continuity and invertibility, and it's what we'll
-build the definition around.
-
-In what follows, we'll let our intuition about continuous symmetries
-lead the way — and watch the conserved charge turn into a topological
-operator.
+symmetry. Good news: it exists. It's the *symmetry generator*. In what
+follows, we'll let our intuition about continuous symmetries lead the
+way — and watch the conserved charge turn into a topological operator
+called the symmetry generator.
 
 === Classical Definition
 
@@ -55,11 +43,12 @@ $
 And we can define a conserved charge by integrating the current over a
 spatial slice:
 $
-    Q = integral.cont_(Sigma) * j
+    Q = integral_(Sigma) * j
 $
-where $Sigma$ is a spatial slice. Now we can try to integrate the
-current over a codimension-1 manifold $M_(d-1)$, which is not
-necessarily a spatial slice, and define a charge as:
+where $Sigma$ is a spatial slice. Now we can try to make a
+generalization and integrate the current over a codimension-1 manifold
+$M_(d-1)$, which is not necessarily a spatial slice, and define a
+charge as:
 $
     Q(M_(d-1)) = integral.cont_(M_(d-1)) * j
 $
@@ -87,16 +76,10 @@ $
 Now we generalize the classical object we define above to a quantum
 one. Notice that the world is NOT classical, it is definitely true
 that we can have some quantum object without classical counterparts.
-Namely can't be derived from quantizing some classical object using
-single quantization scheme (eg. canonical quantization), and the
-symmetry generator is such an object.
-
-Thus, we don't derive a quantum theory from a classical one, but use
-different quantization scheme and results to justify how a quantum
-symmetry generators exit what properties should they have.
-
-The properties of *quantum symmetry generators* (and justifications)
-are:
+Thus, we don't derive a quantum symmetry generator from a classical
+one, but use different quantization scheme to justify what properties
+they should have. The properties of *quantum symmetry generators* (and
+justifications) are:
 
 1. They are *Topological Operators*. This can be justified by the
     classical property of independent of continuous deformation,
@@ -104,13 +87,16 @@ are:
     Moreover, as a quantum theory, in the canonical picture if we want
     to define these symmetry generators as line operators, they have
     to commute with the Energy-Momentum tensor, which generates the
-    spacetime translation.
+    spacetime translation. And in the path integral picture, modifying
+    their position in the path integral without crossing any other
+    operators won't change the correlation function.
 
 
 2. If inserted in a time slice, they act as an *operators on the
     Hilbert space* in the canonical formalism. This can be justified
     by analogizing the ordinary symmetry charge defined on a time
-    slice.
+    slice. By the way, due to the topological property, acting on a
+    energy eigenstate gives out the eigenstate with the same energy.
 
 
 3. If inserted in vertically in the path integral, they behave as a
@@ -147,17 +133,20 @@ $
 $
 so that $A_x + partial_x alpha = theta delta(x) - theta delta(x) = 0$.
 Define $tilde(Phi) = e^(i alpha(x)) Phi = e^(-i theta Theta(x)) Phi$.
-Then $tilde(Phi)$ obeys the *standard free action* $S[tilde(Phi)]$
-with no defect, and the measure is invariant ($|e^(i alpha)| = 1$,
-Jacobian $= 1$). The original periodic field
-$Phi(tau, x + 2pi) = Phi(tau, x)$ forces, on the redefined field, a
-monodromy across one spatial period:
+Then $tilde(Phi)$ obeys the standard free action $S[tilde(Phi)]$ with
+no defect, and the measure is invariant ($|e^(i alpha)| = 1$, Jacobian
+$= 1$). The original periodic field $Phi(tau, x + 2pi) = Phi(tau, x)$
+forces, on the redefined field, a monodromy across one spatial period:
 $
     tilde(Phi)(tau, x + 2pi)
     = e^(-i theta Theta(x + 2pi)) Phi(tau, x + 2pi)
     = e^(-i theta (Theta(x) + 1)) Phi(tau, x)
     = e^(-i theta) thin tilde(Phi)(tau, x) .
 $
+#note([
+    we gain a phase due to the fact that going through the theta
+    function gives a phase.
+])
 Equivalently, the field carrying the defect satisfies the *twisted*
 boundary condition
 $
@@ -189,35 +178,50 @@ canonical picture as:
 $
     U_( alpha ) ( M_( d - 1 ) ) cal(O)_( q ) ( x ) U_( - alpha ) ( M'_( d - 1 ) )
 $
+#remark([
+    due to the topological property, we believe this evaluate the
+    result for all possible deformation of the manifold $M_(d-1)$ and
+    $M'_(d-1)$, as long as they don't cross the local operator.
+])
 We can calculate the correlation function of this object using the
 Ward Identity.
 $
-    U_alpha (M_(d-1)) cal(O)_q(x) U_(-alpha)(M'_(d-1))
-    = e^(i alpha integral_(N_d) d^d y thin partial^mu j_mu (y)) cal(O)_q(x) .
+    U_alpha (M_(d-1)) cal(O)_q (x) U_(-alpha)(M'_(d-1))
+    = e^(i alpha integral_(N_d) d^d y thin partial^mu j_mu (y)) cal(O)_q (x) .
 $
+the manifold $N_d$ is the one bounded by $M_(d-1)$ and $M'_(d-1)$.
 Remember, the Ward-Takahashi identity:
 $
-    partial^mu j_mu(y) cal(O)_q(x) = q thin delta^((d))(x-y) cal(O)_q(x)
+    partial^mu j_mu (y) cal(O)_q (x) = q thin delta^((d))(x-y) cal(O)_q (x)
 $
 By expanding the exponential and using the Ward-Takahashi identity, we
 have:
 $
-    = sum_(n=0)^infinity (i alpha)^n / n! (integral_(N_d) d^d y thin partial^mu j_mu(y))^n cal(O)_q(x)
+    = sum_(n=0)^infinity (i alpha)^n / n! (integral_(N_d) d^d y thin partial^mu j_mu (y))^n cal(O)_q(x)
     = sum_(n=0)^infinity (i alpha q)^n / n! (integral_(N_d) d^d y thin delta^((d))(x-y))^n cal(O)_q(x) .
 $
 Since $x in N_d$, the integral $= 1$, so the sum resums to
 $
-    = sum_(n=0)^infinity (i alpha q)^n / n! cal(O)_q(x) = e^(i q alpha) cal(O)_q(x) .
+    = sum_(n=0)^infinity (i alpha q)^n / n! cal(O)_q (x) = e^(i q alpha) cal(O)_q (x) .
 $
+A picture for this is that:
+
+#figure(
+    image("../assets/picturegenerator.png", width: 42%),
+    caption: [
+        The symmetry generator acts as a symmetry transformation on
+        the local operator when going through it.
+    ],
+) <fig-picturegenerator>
+
 
 === A Slogan for Symmetry
 
 The current/charge picture is tied to continuous symmetries with a
 classical Lagrangian. To go beyond it, we adopt the following slogan.
 
-#definition[Symmetry Slogan][
-    A symmetry is characterized by the existence of a topological
-    operator — a _symmetry generator_.]
+#axiom[Symmetry Slogan][
+    A symmetry is implemented by a topological operator.]
 
 This is a powerful and sensible generalization. As we will see, it
 applies equally to continuous symmetries, discrete symmetries, and
@@ -240,19 +244,15 @@ However, this is generally not the case.
 
 - *A gauge field may not be globally defined.*
 
-A classical and experimental example is the AB effect of U(1) gauge
-field, where we know that:
+An experimental fact is the AB effect of U(1) gauge field, where we
+know that:
 $
     exp (i integral.cont_(C) A dif l)
 $
-and is exactly an experimental observable. Thus we need to rethink the
-definition of gauge field. The critical point is that a gauge field
-may not be defined globally, but only on patches, while field on
-different patches are related by a suitable gauge transformation.
-
-Moreover, from demanding consistency in AB phase, and a globally well
-defined curvature (indeed we measure electric and magnetic fields and
-don't see any singularity) naively we can have:
+is exactly an experimental observable. From demanding consistency in
+AB phase, and a globally well defined curvature (indeed we measure
+electric and magnetic fields and don't see any multi-value) naively we
+can have:
 $
     integral.cont_(S) F = 0
 $
@@ -277,7 +277,7 @@ between patches is non-trivial.
 
 #note([
     Due to a non-globally defined gauge field the stokes theorem will
-    not hold. However, we can also write:
+    not hold. However, we sometimes also write:
     $
         integral_(S) F = integral.cont_(partial S) A
     $
@@ -296,7 +296,7 @@ $
 $
 that doesn't change the physics. However, the gauge transformation
 parameter $Lambda$ may not be globally defined, but only on patches.
-The experiments and some deduction tells us that one can never tell
+The experiments outside the solenoid tells us that one can never tell
 whether a solenoid has a magnetic flux $Phi$ or $Phi + Phi_0$, where
 $Phi_0$ is the flux quantum. Thus, we should view that the
 transformation of adding a flux quantum as a gauge transformation.
@@ -320,7 +320,7 @@ picks up exactly one flux quantum,
 $
     integral.cont d Lambda = Phi_0,
 $
-which shifts the Aharonov--Bohm phase by $q Phi_0 = 2 pi$ (for unit
+which shifts the Aharonov--Bohm phase by $ Phi_0 = 2 pi$ (for unit
 charge), leaving all physical observables invariant. One should notice
 that though $Lambda$ is note globally defined, $d Lambda$ is globally
 defined, and the flux of $d Lambda$ is quantized.
@@ -581,7 +581,7 @@ There are two examples of anomalies:
 
 - In QED, there is a gauge anomaly, know as the ABJ anomaly.
 $
-    cal(L) = ( 1 ) / ( 4 e^( 2 ) ) f_( mu nu ) f^( mu nu ) + i overline(Psi) ( diff_( mu ) - i a_( mu ) ) gamma^( mu ) Psi.
+    cal(L) = ( 1 ) / ( 4 e^( 2 ) ) f_( mu nu ) f^( mu nu ) + i overline(Psi) ( partial_( mu ) - i a_( mu ) ) gamma^( mu ) Psi.
 $
 The axial U(1) symmetry is broken by the ABJ anomaly, Ward identity is
 not satisfied, and becomes:
@@ -642,3 +642,5 @@ $
 Then it is invariant under gauge transformation of the background
 gauge field and we see that the anomaly is "controlled" by the d+1
 dimensional theory.
+
+
