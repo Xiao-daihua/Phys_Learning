@@ -10,12 +10,11 @@ integral, Feymann diagrams) will be found in basic QFT textbooks.
 This is a topic to prepare us for the LSZ reduction formula. The
 question is:
 
-- What is a "particle propagating" in a general Lorentz invariant QFT?
+- What is a "particle propagating" in a general interacting Lorentz
+    invariant QFT?
 
 To have a concrete understanding of *particle* in interacting theory,
-we then have the tools of using QFT to describe the scattering of
-particles, and the S-matrix.
-
+we then can know how to QFT to describe the scattering of particles.
 In free QFT, we know that the 2 point correlation function is
 interpreted as the amplitude of a particle propagating from one point
 to another:
@@ -27,17 +26,17 @@ interpretation, since the propergator may include propergation of
 multiparticle states or even particle coming vaccum due to the
 interaction.
 
-Thus, the role of the KL form is to tell us what part of the 2 point
+Thus, the role of the KL form is to tell us which part of the 2 point
 correlation function can be interpreted as the amplitude of a particle
-propagating, and what part is not.
+propagating, and which part is not.
 
 == KL Form for Scalar Propagator
 
 First we have a look at the massive scalar propagator. We then need to
 specify our assumptions on the theory, which are:
 
-+ The dynamical fields are scalar fields, and the theory is
-    relativistic and Lorentz invariant.
++ The dynamical fields are scalar fields, and the theory is Poincare
+    invariant.
 
 + The theory is a sensible quantum theory.
 
@@ -46,7 +45,7 @@ theory can be organized as follow.
 
 === Spectrum of a Lorentz Invariant QFT
 
-First, the Lorentz invariance of quantum theory means that the theory
+First, the Poincare invariance of quantum theory means that the theory
 have a symmetry algebra of Poicare Algebra and the Hilbert space forms
 a representation of the Poincare Algebra.
 
@@ -82,8 +81,8 @@ $
     particle and messy interaction and bounding between them.
 ]
 
-=== Spectral Representation of Scalar Propagator
 
+=== Kallen-Lehmann Form of Scalar Propagator
 Consider this theory with the above spectrum. We can then write the 2
 point correlation function as:
 $
@@ -99,16 +98,24 @@ Notice that:
 $
     braket(Omega, phi(x), Omega) = 0
 $
-This is due to the $ZZ_2$ symmetry of the scalar theory, if we
-redefine $phi arrow.r - phi$ the lagrangian is invariant, yet the
-correlation function will change sign, thus it must be zero. (For
-highier spin, the fact of being an irreducible representation of
-lorentz group will also lead to the vanishing of such one point
-function.)
-
-Then we have:
+is true for most cases. This is due to the $ZZ_2$ symmetry of the
+scalar theory, if we redefine $phi arrow.r - phi$ the lagrangian is
+invariant, yet the correlation function will change sign, thus it must
+be zero. For highier spin, the fact of being an irreducible
+representation of lorentz group will also lead to the vanishing of
+such one point function:
 $
-    braket(Omega, cal(T) phi(x) phi(0), Omega) = sum.integral_lambda (dif^3 p) / (2 pi)^3 1 / (2 E_p (lambda)) e^(-i p x) braket(Omega, phi(x), lambda_p) braket(lambda_p, phi(0), Omega)
+    braket(Omega, phi_a (x), Omega) =& braket(Omega, U(Lambda) U^dagger (Lambda) phi_a (x) U(Lambda) U^dagger(Lambda), Omega) \
+    =& D(Lambda)_a^b braket(Omega, phi_b (Lambda^(-1) x), Omega)
+$
+if we take $x = 0$, then only when $D(Lambda)_a^b = delta_a^b$ we can
+have nonzero one point function, which is only true for scalar
+representation. Thus for highier spin representation, the one point
+function must vanish.
+
+Then we have for $x^0 > 0$:
+$
+    braket(Omega, phi(x) phi(0), Omega) = sum.integral_lambda (dif^3 p) / (2 pi)^3 1 / (2 E_p (lambda)) e^(-i p x) braket(Omega, phi(x), lambda_p) braket(lambda_p, phi(0), Omega)
 $
 Now have a look at the matrix element
 $braket(Omega, phi(x), lambda_p)$. We can translate the field to 0 by
@@ -116,22 +123,94 @@ the property of $phi(x)$ being a lorentz scalar:
 $
     braket(Omega, phi(x), lambda_p) = braket(Omega, e^(i P x) phi(0) e^(-i P x), lambda_p) = e^(-i p x) braket(Omega, phi(0), lambda_p)
 $
+#remark([
+    notice the poisson bracket and canonical quantization relation
+    gives us the standard boost generator is $U(a) = e^(i P dot a)$,
+    and the relation of:
+    $
+        U(a) phi(x) U^dagger(a) = phi(x + a)
+    $
+    and for the lorentz transformation, we have
+    $U(Lambda) = e^(- i/2 J^(mu nu) omega_(mu nu))$ and the relation
+    of:
+    $
+        U(Lambda) phi(x) U^dagger (Lambda) = phi(Lambda x)
+    $
+])
 By being a scalar, it must satisfy:
 $
     U(Lambda) phi(0) U^(dagger)(Lambda) = phi(0)
 $
-Thus we have:
+Thus we can insert a boost operator to the matrix element, which gives
+us:
 $
     braket(Omega, phi(0), lambda_p) = braket(Omega, U^(dagger)(Lambda) U(Lambda) phi(0) U^(dagger)(Lambda) U(Lambda), lambda_p) = braket(Omega, phi(0), lambda_0)
 $
+With all these ingrediant we can write the 2 point correlation
+function as following by making the 3 integral into a 4 integral while
+the integral of $p^0$ gives out the energy function exactly, the
+result is:
+$
+    braket(Omega, phi.alt ( x ) phi.alt ( y ), Omega) = sum_( lambda ) integral ( d^( 4 ) p ) / ( ( 2 pi )^( 4 ) ) ( i ) / ( p^( 2 ) - m_( lambda )^( 2 ) + i epsilon.alt ) e^( - i p dot.c ( x - y ) ) abs(braket(Omega, phi.alt ( 0 ), lambda_( 0 )))^( 2 ).
+$
+#note([
+    The calculation of intergrating out $p^0$ is a standard trick. the
+    time order of $x^0 > y^0$ tells us that the integral contour of
+    $p^0$ should be closed in the lower half plane, and the only pole
+    is at $p^0 = sqrt(p^2 + m_lambda^2) - i epsilon$. Thus this gives
+    us the residue of the integrand at this pole, which is exactly
+    $1 / (2 E_p (lambda)) e^(-i p^0 t)$. The other case of $x^0 < y^0$
+    is similar, and the result is the same.
+])
+All above deduction is the same for the case of $x^0 < y^0$, and takes
+the exact same form. One may recognize the Feymann propagator within
+the integral, yet it is in fact a sum of Feymann propagators with
+different masses, giving us the Kallen-Lehmann form of the propagator:
+#theorem[Kallen-Lehmann Form of Propagator][
+    The 2 point correlation function of a general interacting lorentz
+    invariant QFT can be written as:
+    $
+        braket(Omega, cal(T) phi(x) phi(y), Omega) = integral_( 0 )^( oo ) ( d M^( 2 ) ) / ( 2 pi ) rho ( M^( 2 ) ) D_( F ) ( x - y ; M^( 2 ) ),
+    $
+    where $D_F (x - y; M^2)$ is the Feymann propagator of a free
+    scalar field and:
+    $
+        rho ( M^( 2 ) ) = sum_( lambda ) ( 2 pi ) delta ( M^( 2 ) - m_( lambda )^( 2 ) ) abs(braket(Omega, phi.alt ( 0 ), lambda_( 0 )))^( 2 ).
+    $
+]
+For a typical theory the spectural density will take the form of:
+$
+    rho ( M^( 2 ) ) = 2 pi Z delta ( M^( 2 ) - m^( 2 ) ) + "continuum"
+$
+Here $m$ is the physical mass of the particle and is in general
+different from the mass parameter in the lagrangian. And $Z$ is the
+field strength renormalization factor, which is:
+$
+    Z = abs(braket(Omega, phi.alt ( 0 ), lambda_( 0 )))^( 2 ).
+$
 
-=== Kallen-Lehmann Form of Scalar Propagator
+=== Interpretation of KL Form
 
-
+The KL form of the propagator in momentum space behaves as:
+$
+    integral d^4 x e^(i p x) braket(Omega, cal(T) phi(x) phi(0), Omega) = i Z / ( p^( 2 ) - m^( 2 ) + i epsilon.alt ) + "branch cut terms for " p^( 2 ) > ( 2 m )^( 2 )
+$
+we interpret the first term as the amplitude of a single particle
+propagating. And $m$ as the physical mass of the particle, and $Z$ as
+the field strength renormalization factor. The second term is the
+contribution of multiparticle states.
 
 
 == KL Form of Fermion Propagator
 
+For a fermion propagator, the KL form is similar to the scalar case:
+$
+    integral d^4 x e^(i p x) braket(Omega, cal(T) psi(x) overline(psi)(0), Omega) = i Z (feynman(p) + m) / ( p^( 2 ) - m^( 2 ) + i epsilon.alt ) + "branch cut terms for " p^( 2 ) > ( 2 m )^( 2 )
+$
+where the field strength renormalization is defined as:
+$
+    braket(Omega, psi(0), p s) = sqrt(Z) u(p,s)
+$
 
 == Example: QED Fermion Propagator
 Now we have a look at a concrete example of a lorentz invariant QFT,

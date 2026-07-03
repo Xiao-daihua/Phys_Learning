@@ -5,4 +5,4 @@
 
 #let YLcolor = rgb(10%, 0%, 100%)
 #let YL(content) = text(fill: YLcolor)[YL: [#content]]
-
+#let feynman(body) = math.cancel(angle: 15deg, body)
