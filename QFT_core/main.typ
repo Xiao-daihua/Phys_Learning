@@ -8,7 +8,9 @@
         quantum field theory. Including Symmetry, Renormalization,
         Anomalies, Solitons and Instantons. The note is mainly based
         on Peskin and Schroeder's "An Introduction to Quantum Field
-        Theory"@peskinIntroductionQuantumField1995. 
+        Theory"@peskinIntroductionQuantumField1995. For topics of
+        Anomalies and Solitons, the note is based on Tong's lecture
+        notes.
     ],
 )
 #chapter[Fundamental Ideas]

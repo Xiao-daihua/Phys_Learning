@@ -1,27 +1,22 @@
 #import "../env/lib.typ": *
-Renormalization is the procedure to deal with divergences in quantum
-field theory. It is a systematic way to cancel the divergences and get
-finite results for physical quantities.
+Renormalization is the procedure to deal with ultraviolet divergences
+in quantum field theory. It is a systematic way to cancel these
+divergences and get finite results for physical quantities.
 
 = Regualization and Bare Perturbation Theory
-Before starting with the systematic renormalization canceling out
-divergence, we need to first regularize the divergences, which is the
-process to make the divergences well defined. This is done by
-introducing a regularization scheme, which is a mathematical tool to
-make the divergences well defined.
-
-Then we try to deal with the divergences in a naive way, which is
-called *bare perturbation theory*. This is a cumbersome way to cancel
-out the divergences, yet it may lead us to understand why the
-systematic renormalization works.
+Before starting with the systematic renormalization, we need to first
+regularize the divergences, which is the process to make the
+divergences controled within some parameters. This is done by
+introducing a *regularization scheme*. Then we try to deal with the
+divergences in a naive way, which is called *bare perturbation
+theory*. This is a cumbersome way to cancel out the divergences, yet
+it may lead us to understand why the systematic renormalization works.
 
 
 == Regularization Schemes
 
-To regularize the divergences, we need to first calculate the loop
-integrals to some good extent, and the introduce the regularization
-scheme to make the divergences well defined. There are several
-regularization schemes, and the most common ones are:
+There are several regularization schemes, and the most common ones
+are:
 - Pauli-Villars Regularization
 
 - Dimensional Regularization
@@ -48,19 +43,17 @@ folow:
 == Bare Perturbation Theory
 Before going to a systematic way to do renormalization, we need to
 first try to do it in a more naive and cumbersome way called *bare
-perturbation theory*. Yet it may help us to understand why the
-systematic *renormalized perturbation theory* works.
-
+perturbation theory*.
 
 === General Method
-Before we have encountered divergences in observables, seems like the
-theory is ill defined. However, in fact its is our understanding of
-the theory is incomplete, here is a modern understanding:
+Naively we will encountered divergences in observables due to the
+loops, seems like the theory is ill defined. However, in fact its is
+our understanding of the theory is incomplete, here is a modern
+understanding:
 
-- Before, we have infinity due to the fact that we are using the
-    unobservable infinite quantities $m_0, lambda_0, Lambda, Z,...$ to
-    express the S Matrix, thus the coefficients turns out to be
-    infinite.
+- We have infinity due to the fact that we are using the unobservable
+    infinite quantities $m_0, lambda_0, Lambda, Z,...$ to express the
+    S Matrix, thus the coefficients turns out to be infinite.
 
 - We have to define some physical quantities (and argue why they are
     physical) and think of them as the result of stuffs we really
@@ -136,9 +129,8 @@ to the photon propagator, given in section 7.5.
 
 
 #pagebreak()
-= Systematic Renormalization
 
-== Renomalizability
+= Renomalizability
 
 Above sections we show that some of the divergence in a theory may be
 canceled out using a renomalizing technique. However, for a sensible
@@ -154,7 +146,7 @@ To answer this question, we have 2 subquestions:
 
 + What kind of divergence is controllable? (ie. can be canceled out by
     renormalization)
-=== How to Count Divergences?
+== How to Count Divergences?
 
 We have to answer the first question first.
 
@@ -299,9 +291,9 @@ is renormalizable or not:
 
 We will finally see examples of this procedure.
 
-=== Mass Dimension and Renormalizability
+== Mass Dimension and Renormalizability
 
-==== Divergence and Mass Dimension
+=== Divergence and Mass Dimension
 
 There is also a more straightforward way of seeing divergence of a
 Feymann Diagram. We know that an amplitude should be of the same
@@ -337,7 +329,7 @@ which is exactly the same as the superficial degree of divergence we
 have defined before.
 
 
-==== Renormalizability from Mass Dimension
+=== Renormalizability from Mass Dimension
 
 These relations in fact is much physical than just a mathematical
 relation. We then can see the mass dimension of the coupling constant
@@ -374,22 +366,15 @@ irreducible basic amplitudes in QED is given in the following table:
 
 
 
-
 #pagebreak()
-== Renormalized Perturbation Theory
+= Renormalized Perturbation Theory
 
 #YL([here shall follow peskin and use phy4 theory as an example])
 
-=== General Method
+== General Method (Example: $phi^4 $ Theory)
 
 *Renormalization Condition* is in fact defining what the physical
 quantities are in this theory.
-
-=== Understanding From LSZ
-
-Its good to mention @srednickiQuantumFieldTheory2007's understanding
-of renormalization and counter terms from interpreting the LSZ
-reduction formula.
 
 
 == Example: Renormalization of QED

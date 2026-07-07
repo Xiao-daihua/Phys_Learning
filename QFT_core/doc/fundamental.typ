@@ -67,7 +67,7 @@ Due to the fact that $P^mu P_mu = m_lambda^2$ is a Casimir and commute
 with the Poincare algebra, we know that under the boost operator, the
 states will satisfy the following eigenvalue equations:
 $
-    P^i ket(lambda_p) = p^i ket(lambda_p) quad H ket(lambda_p) = sqrt(p^2 + m_lambda^2) ket(lambda_p)
+    P^i ket(lambda_p) = p^i ket(lambda_p) quad H ket(lambda_p) = E_p (lambda) ket(lambda_p) quad E_p (lambda) = sqrt(p^2 + m_lambda^2)
 $
 Thus in general Hilbert Space of this Lorentz Invariant QFT take form
 of:
@@ -178,13 +178,15 @@ different masses, giving us the Kallen-Lehmann form of the propagator:
         rho ( M^( 2 ) ) = sum_( lambda ) ( 2 pi ) delta ( M^( 2 ) - m_( lambda )^( 2 ) ) abs(braket(Omega, phi.alt ( 0 ), lambda_( 0 )))^( 2 ).
     $
 ]
-For a typical theory the spectural density will take the form of:
+For a *typical theory* the spectural density will take the form of:
 $
     rho ( M^( 2 ) ) = 2 pi Z delta ( M^( 2 ) - m^( 2 ) ) + "continuum"
 $
-Here $m$ is the physical mass of the particle and is in general
-different from the mass parameter in the lagrangian. And $Z$ is the
-field strength renormalization factor, which is:
+sum over $lambda$ gives an isolated point at $m_lambda = m$ and a
+continuum of states with $m_lambda > 2 m$. This $m$ is interpreted as
+the physical mass of a particle and is in general different from the
+mass parameter in the lagrangian. And $Z$ is the field strength
+renormalization factor, which is:
 $
     Z = abs(braket(Omega, phi.alt ( 0 ), lambda_( 0 )))^( 2 ).
 $
@@ -200,6 +202,15 @@ propagating. And $m$ as the physical mass of the particle, and $Z$ as
 the field strength renormalization factor. The second term is the
 contribution of multiparticle states.
 
+This gives us the slogan that the *Isolated pole* of the correlation
+function is a *particle* in the interacting theory.
+
+
+#figure(
+    image("../assets/polescorre.png", width: 70%),
+    caption: [The isolated pole of the correlation function is a
+        particle],
+) <fig-polescorre>
 
 == KL Form of Fermion Propagator
 
@@ -209,7 +220,7 @@ $
 $
 where the field strength renormalization is defined as:
 $
-    braket(Omega, psi(0), p s) = sqrt(Z) u(p,s)
+    braket(Omega, psi(0), p\,s) = sqrt(Z) u(p,s)
 $
 Similarly, we interpret this pole as the particle with physical mass
 $m$ propagating.
@@ -262,12 +273,14 @@ diagram:
 For a scattering theory, it is important predict the S-matrix as
 observable quantity. For QFT, LSZ reduction formula is the one that
 tells us how to *calculate the S-matrix from the correlation
-functions*. Then we can:
-+ Use Feymann diagrams to calculate correlation functions (Both
-    functional derivative method or canonical quantization with
-    interaction picture).
-+ Use LSZ reduction formula to get the S-Matrix from the correlation
-    functions.
+functions*. Then with the tools of Feymann diagrams in correlation
+function calculation, we can calculate the S matrix using Feymann
+diagrams.
+
+The idea is quite same as the Kallen-Lehmann form of propagator. We
+want to know which part of the correlation function can be interpreted
+as particles interacting and scattering, and which part is not.
+
 
 
 #pagebreak()
