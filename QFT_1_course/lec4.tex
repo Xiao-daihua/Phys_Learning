@@ -1,0 +1,158 @@
+\subsection{李代数理论基础}
+
+\hlr{Lie Algebra基本定义}
+
+我们定义Lie Algebra:
+\defi{
+  Lie Algebra
+
+  李代数是一个n 维度的向量空间并且在向量空间之外还需要有一个额外的运算结构： $ [ * , * ]: \mathfrak{g} \times \mathfrak{g} \to \mathfrak{g} $ 满足：
+  \begin{itemize}
+    \item 反对称性：$ [X,Y] = -[Y,X] $
+    \item 双线性：$ [aX+bY,Z] = a[X,Z] + b[Y,Z] $ 并且 $ [Z,aX+bY] = a[Z,X] + b[Z,Y] $
+    \item Jacobi 恒等式：$ [X,[Y,Z]] + [Y,[Z,X]] + [Z,[X,Y]] = 0 $
+  \end{itemize}
+  其中$ X,Y,Z \in \mathfrak{g} $并且$ a,b \in \mathbb{R} $。 
+}
+李代数可以是很抽象的。比如所有相空间上的函数$ f: T^*Q \to \mathbb{R}  $构成一个李代数，李括号是Poisson括号。
+
+\bigskip
+\hlr{Structural Constant}
+
+我们发现区分李代数的唯一方法就是其Lie Bracket的结构。我们试图具体的描述这个结构。为了能够进行数值计算，我们选择一个基$ \{X_i\} $，并且对于任意的$ X,Y \in \mathfrak{g} $我们有：
+\begin{align}
+  X = x^iX_i\quad Y = y^jX_j\mathrm{~,}
+\end{align}
+其中$ X^i,Y^j \in \mathbb{R} $。我们发现，定义了基的Lie Bracket就可以定义任意的Lie Bracket，于是我们定义：
+\begin{align}
+  [X_i,X_j] = i f_{ij}^kX_k\mathrm{~,}
+\end{align}
+其中$ f_{ij}{}^{k} $被我们称为结构常数。我们对于线性空间经常使用分量的语言来描述所以我们也可以写作：
+\begin{align}
+  [A,B]=[\alpha^iX_i,\beta^jX_j]=i\alpha^i\beta^jf_{ij}^kX_k.
+\end{align}
+\bigskip
+
+\hlr{结构常数的要求}
+
+并不是所有的数字都能够作为结构常数的。Lie Bracket的性质告诉我们结构常数需要满足下面的约束条件：
+\begin{itemize}
+  \item 前两个指标的反对称性：$ f_{ij}^k = -f_{ji}^k $ 
+  \item Jacobi 恒等式结果：$ f_{ij}^\ell f_{\ell k}^m+f_{jk}^\ell f_{\ell i}^m+f_{ki}^\ell f_{\ell j}^m=0 $
+\end{itemize}
+
+\bigskip
+\hlr{Lie Algebra和矩阵}
+
+我们发现很多矩阵构成的线性空间存在矩阵乘法定义的自然Lie Bracket所以自然构成了李代数。下面有一个更强的结论：
+\thm{
+  Ado's Theorem
+
+  每一个有限维的李代数都同构于某个$ gl(n) $的子代数。也就是有限维李代数都可以faithfully表示为矩阵的形式。
+}
+
+
+\bigskip
+\hlr{Lie Group的topological 分类}
+
+李群存在两个身份：1 群 2 analytical manifold。我们现在研究作为manifold的李群的topological分类。我们可以有下面的定义：
+\begin{itemize}
+  \item \textbf{Connected } 流形中任意两点都可以通过一条连续的路径连接起来。
+  \item \textbf{Simply Connected } 流形中任意一条闭合路径都可以连续的收缩到一个点。【注意：$ T_2 $就是一个connected but not simple connected 的流形】
+\end{itemize}
+
+比如：O(3)群是所有$ 3\times 3 $的实正交矩阵构成的群，其中有两个不连通的部分。分别是$ det = 1, det = -1 $的部分。
+\begin{itemize}
+  \item \textbf{Connectd Component } 我们选包含e的联通部分
+\end{itemize}
+所以O(3)的connected component是SO(3)群。SO(3)群是所有$ 3\times 3 $的实正交矩阵并且行列式为1的矩阵构成的群。SO(3)群是一个simple connected的流形。
+
+
+\bigskip
+\hlr{Lie Theorem 的说明}
+
+我们前面Lie Algebra和Lie Group都是分开进行定义的。现在我们讨论这两个东西的关系。给出下面三个定理，即Lie Theorem: 
+\thm{Lie Theorem 
+\begin{enumerate}
+  \item Lie Group $ G $的切空间$ T_e G $在Lie括号的运算下构成了一个Lie Algebra。并且每一点的切空间都和$ T_e G $同构。
+  \item 给定一个Lie Algebra都可以找到一个Lie Group使得这个Lie Group的切空间和这个Lie Algebra同构。
+  \item 给定一个Lie Algebra $ \mathfrak{g} $，存在唯一的connected and simply connected Lie Group $ \tilde{G} $使得$ T_e \tilde{G} \cong \mathfrak{g} $。
+\end{enumerate}
+
+
+}
+
+
+
+\bigskip
+\hlr{Lie Theorem 1的说明}
+
+对于切空间的数学理解比较复杂。所以我们使用一个扯淡但是有一定正确性的理解。
+\begin{itemize}
+  \item 这里我们认为群在某一点的切空间和群在这一点附近的局部结构是一样的。
+  \item 群在这一点附近的coordinate system可以理解为切空间的向量。
+  \item 群在这一点附近的所有group action都对应给出了切空间之中vector的运算法则【我们希望证明这个给出了李代数结构】。
+\end{itemize}
+
+我们研究e附近的结构从而研究$ T_e $「因为这个简单」并且我们有$ a = 0 $在e处，所以我们可以进行taylor expension。这个时候我们$ T_e G  = \mathbb{R}^n $于是我们考虑三种group action induce这个切空间的运算结构：
+\begin{itemize}
+  \item 群的乘法:$ g(\alpha)g(\beta)=g(p(\alpha,\beta))\quad(\alpha,\beta)\mapsto p(\alpha,\beta) $
+  \item 群的逆元：$ g^{-1}(\alpha)=g(r(\alpha))\quad \alpha\mapsto r(\alpha) $
+  \item 一个特殊的commutation运算：$ g(\alpha)^{-1}g(\beta)^{-1}g(\alpha)g(\beta)=g(c(\alpha,\beta)) $
+\end{itemize}
+
+对于前两个我们会发现这个乘法结构induce一个$ \mathbb{R}^n $之中的加法，乘“-1”运算。但是对于第三个运算我们进行$ c(\alpha,\beta) $的展开会发现：
+\begin{align}
+  c^i(\alpha,\beta)=(T_{jk}^i-T_{kj}^i)\alpha^j\beta^k+O(\alpha^2\beta,\alpha\beta^2)\equiv2T_{jk}^i\alpha^j\beta^k+O(\alpha^2\beta,\alpha\beta^2)\mathrm{~.}
+\end{align}
+对于合理的选择坐标系我们可以让$ T_{jk}^i $是完全反对称的，所以有第二项。这个group action induce出来我们对于代数空间有一个这样的映射$ [ * , * ]: \mathbb{R}^n \times \mathbb{R}^n \to \mathbb{R}^n $满足：
+\begin{align}
+  [\alpha,\beta]^i=2T_{jk}^i\alpha^j\beta^k\mathrm{~,}
+\end{align}
+\rmk{
+  注意这个是李代数基下面的系数关系，看出和李代数的关系可以参考下面的式子：
+  \begin{align}
+    [A,B]=[\alpha^iX_i,\beta^jX_j]=i\alpha^i\beta^jf_{ij}^kX_k.
+  \end{align}
+}
+我们之后可以证明如果$ T^i_{jk} $是一个structure constant那么这个induce 出来的运算满足李代数的所有性质。我们不予以详细证明了反正就是成立。并且可以通identity附近进行一个操作推广到全局每一点切空间。
+
+\bigskip
+\hlr{Lie Theorem 2的说明}
+
+给定一个Lie Algebra以及一组基。我们可以先选择一个矩阵表示，我们可以通过exponential map给出一个李群表示（的局部）：
+\begin{align}
+  D(\alpha)=e^{i\alpha^i\tilde{X}_i}\equiv\sum_k\frac{(i\alpha\cdot\tilde{X})^k}{k!}
+\end{align}
+
+但是exponential map并不是一个surjective map所以我们只能得到一个局部的李群表示。于是我们需要问这个表示cover李群的多少，下面给出定理。
+
+\thm{
+
+  如果Lie Group是一个compact and connected Lie Algebra，那么exponential map是cover整个李群的！！
+
+如果仅仅是connected但是non-compact那么exponential map可以进行一个叠加然后cover整个李群：
+\begin{align}
+  \prod_n^Ne^{i\alpha_i^{(n)}X_i}
+\end{align}
+}
+
+
+
+\bigskip
+\hlr{Lie Theorem 3的说明}
+
+对于这个定理我们不做证明，只是说和其related的一个重要的结论：
+\thm{
+  一个lie Algebra可以存在很多个不同的lie group使得其切空间在群乘法关系下构成这个Lie Algebra。但是：
+
+  每一个Lie Algebra都存在唯一的connected and simply connected Lie Group使得其切空间在群乘法关系下构成这个Lie Algebra。并且这个Lie Group是这个代数的Universal Cover。
+}
+
+
+\subsection{Questions and Thoughts}
+
+\textbf{表示这一章很基础，没啥需要问的}
+
+
+

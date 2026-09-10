@@ -1,0 +1,69 @@
+\contentsline {section}{\numberline {1}Lecture 1}{3}{section.1}%
+\contentsline {subsection}{\numberline {1.1}自由粒子与谐振子的量子经典对应}{3}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}量子态的完备性条件和归一化的两种convention}{4}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Questions and thoughts}{5}{subsection.1.3}%
+\contentsline {section}{\numberline {2}Lecture 2}{6}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Coherent State与经典谐振子对应}{6}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Questions and thoughts}{7}{subsection.2.2}%
+\contentsline {section}{\numberline {3}Lecture 3：WKB近似基础}{9}{section.3}%
+\contentsline {subsection}{\numberline {3.1}半经典波函数以及近似条件}{9}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Questions and thoughts}{10}{subsection.3.2}%
+\contentsline {section}{\numberline {4}Lecture 4：WKB近似以及matching}{11}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Take home messages}{11}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Questions and thoughts}{13}{subsection.4.2}%
+\contentsline {section}{\numberline {5}Lecture 5：WKB近似各种应用}{14}{section.5}%
+\contentsline {subsection}{\numberline {5.1}WKB近似的应用}{14}{subsection.5.1}%
+\contentsline {subsubsection}{\numberline {5.1.1}应用1:Planck Formula}{14}{subsubsection.5.1.1}%
+\contentsline {subsubsection}{\numberline {5.1.2}应用2:一般势垒隧穿}{14}{subsubsection.5.1.2}%
+\contentsline {subsubsection}{\numberline {5.1.3}应用3:metastable state的lifetime}{16}{subsubsection.5.1.3}%
+\contentsline {subsubsection}{\numberline {5.1.4}应用4: Double Well potential的本征态能级差}{16}{subsubsection.5.1.4}%
+\contentsline {subsection}{\numberline {5.2}Questions and Thoughts}{18}{subsection.5.2}%
+\contentsline {section}{\numberline {6}Lecture 6: 经典散射理论以及量子散射基础}{19}{section.6}%
+\contentsline {subsection}{\numberline {6.1}经典散射理论}{19}{subsection.6.1}%
+\contentsline {subsubsection}{\numberline {6.1.1}经典散射理论基础}{19}{subsubsection.6.1.1}%
+\contentsline {subsubsection}{\numberline {6.1.2}散射截面}{20}{subsubsection.6.1.2}%
+\contentsline {subsubsection}{\numberline {6.1.3}粒子碰撞散射理论}{22}{subsubsection.6.1.3}%
+\contentsline {subsection}{\numberline {6.2}量子散射理论基础}{23}{subsection.6.2}%
+\contentsline {subsubsection}{\numberline {6.2.1}量子散射理论set up}{23}{subsubsection.6.2.1}%
+\contentsline {subsubsection}{\numberline {6.2.2}S矩阵}{24}{subsubsection.6.2.2}%
+\contentsline {subsection}{\numberline {6.3}Questions and Thoughts}{24}{subsection.6.3}%
+\contentsline {section}{\numberline {7}Lecture 7: 量子散射理论框架}{25}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Interaction picture对于S矩阵描述}{25}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Properties of Moller operators and S matrix}{25}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Questions and thoughts}{29}{subsection.7.3}%
+\contentsline {section}{\numberline {8}Lecture 8: S-Matrix 以及散射可观测量}{30}{section.8}%
+\contentsline {subsection}{\numberline {8.1}量子散射问题的set up}{30}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Differential Cross Section and Scattering Amplitude}{31}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}Optical Theorem}{32}{subsection.8.3}%
+\contentsline {subsection}{\numberline {8.4}数学技巧}{34}{subsection.8.4}%
+\contentsline {subsubsection}{\numberline {8.4.1}Delta函数使用}{34}{subsubsection.8.4.1}%
+\contentsline {subsubsection}{\numberline {8.4.2}Green 函数使用}{34}{subsubsection.8.4.2}%
+\contentsline {subsection}{\numberline {8.5}Questions and thoughts}{34}{subsection.8.5}%
+\contentsline {section}{\numberline {9}Lecture 9: 散射Green函数方法与Born近似}{35}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Moller Operator的Green Function方法}{35}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}Green 函数到T矩阵再到散射振幅}{36}{subsection.9.2}%
+\contentsline {subsubsection}{\numberline {9.2.1}Green函数的结构}{36}{subsubsection.9.2.1}%
+\contentsline {subsubsection}{\numberline {9.2.2}T矩阵与散射振幅}{37}{subsubsection.9.2.2}%
+\contentsline {subsection}{\numberline {9.3}Born近似}{38}{subsection.9.3}%
+\contentsline {section}{\numberline {10}Lecture 10: S矩阵和散射振幅另一种表示}{40}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Stationary Scattering State}{40}{subsection.10.1}%
+\contentsline {subsection}{\numberline {10.2}S 矩阵的T Production表示}{42}{subsection.10.2}%
+\contentsline {section}{\numberline {11}Lecture 11: Partial Wave Expansion}{43}{section.11}%
+\contentsline {subsection}{\numberline {11.1}Partial Wave Expansion数学技巧}{43}{subsection.11.1}%
+\contentsline {subsubsection}{\numberline {11.1.1}基本定义}{43}{subsubsection.11.1.1}%
+\contentsline {subsubsection}{\numberline {11.1.2}自由粒子波函数的Partial Wave Expansion}{44}{subsubsection.11.1.2}%
+\contentsline {subsubsection}{\numberline {11.1.3}散射Hamiltonian的Partial Wave Expansion}{46}{subsubsection.11.1.3}%
+\contentsline {subsection}{\numberline {11.2}Stationary Scattering State的Partial Wave Expansion}{47}{subsection.11.2}%
+\contentsline {subsection}{\numberline {11.3}特殊函数性质}{49}{subsection.11.3}%
+\contentsline {subsection}{\numberline {11.4}Questions and Thoughts}{49}{subsection.11.4}%
+\contentsline {section}{\numberline {12}Lectrure 12: Dirac Equation and Pauli Equation}{50}{section.12}%
+\contentsline {subsection}{\numberline {12.1}Relativistic Schrodinger Equation}{50}{subsection.12.1}%
+\contentsline {subsubsection}{\numberline {12.1.1}Failed Attempts}{50}{subsubsection.12.1.1}%
+\contentsline {subsubsection}{\numberline {12.1.2}Dirac Equation}{50}{subsubsection.12.1.2}%
+\contentsline {subsubsection}{\numberline {12.1.3}Dirac Equation的能谱}{52}{subsubsection.12.1.3}%
+\contentsline {subsection}{\numberline {12.2}Pauli Equation}{52}{subsection.12.2}%
+\contentsline {section}{\numberline {13}Lecture 13: Pauli Equation and Introduction to QFT}{54}{section.13}%
+\contentsline {subsection}{\numberline {13.1}Pauli Equation II}{54}{subsection.13.1}%
+\contentsline {subsection}{\numberline {13.2}Relativistic Boson \& Scalar Field}{54}{subsection.13.2}%
+\contentsline {subsection}{\numberline {13.3}Relativistic Fermion \& Dirac Field}{54}{subsection.13.3}%
+\contentsline {section}{\numberline {14}复习：留数积分技巧}{55}{section.14}%

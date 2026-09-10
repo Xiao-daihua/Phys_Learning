@@ -1,0 +1,575 @@
+上一章之中，我们通过给定了一个李代数发现可以通过一套系统的方法找到所有【simple, complex】李代数内部蕴含的一个结构，也就是root system。我们使用了下面几个步骤：
+\begin{itemize}
+  \item 通过对易关系找到Cartan子代数（记得归一化）
+  \item 通过Cartan子代数在Adjoint representation下的表示找到其共同本征态，也就是root state（记得归一化）；同时找到本征值也就是root vector $ \alpha $。 
+  \item root vector一一对应了李代数之中的一个generator其结构可以画在以Cartan子代数为坐标轴的空间之中，形成root diagram。
+\end{itemize}
+但是我们显然可以提出两个问题
+\begin{itemize}
+  \item root vector并非互相独立，我们能不能找出一个极小的object包含其全部信息。
+  \item 我们能不能通过一个操作，通过这个包含全部信息的object重新generate出整个李代数。
+\end{itemize}
+本章我们主要回答这两个问题。预告一下结论：
+\begin{itemize}
+  \item 所有root的信息可以通过一个矩阵Cartan Matrix表达。
+  \item 通过Cartan Matrix我们可以generate出整个李代数。
+\end{itemize}
+
+\subsection{从Simple Root到Cartan Matrix}
+
+\subsubsection{Preliminary知识}
+
+\bigskip
+\hlr{回顾root system的重要性质}
+
+我们回顾之前【根据每一个root vector对应的su(2)子代数】对于root system提出了两个重要的性质要求，以及一个特殊定理。我们列举在下面，具体参考\cref{sec:cartan-weyl-general-rep,sec:root-vector-geometry}
+\begin{itemize}
+  \item \textbf{性质0: }对于单复李代数每一个root，可以给出一个su(2)子代数，构建方法是：
+    \begin{align}
+      E^{\pm}\equiv|\alpha|^{-1}E_{\pm\alpha},\quad E_{3}\equiv|\alpha|^{-2}\alpha\cdot H.
+    \end{align}
+  \item \textbf{性质1:} 单复李代数的root vector一一对应一个generator 
+  \item \textbf{性质2:} 对于一个root vector $ \alpha $， $ k \alpha $如果也是root vector，那么$ k=\pm 1 $。
+  \item \textbf{Master Formula:} 对于任意两个root vector $ \alpha,\beta $，定义$ \beta $在$ \alpha $方向上的投影数：
+    \begin{align}
+      \frac{2(\alpha\cdot\beta)}{\alpha^2} = q-p\in\mathbb{Z}\mathrm{~,}
+    \end{align}
+    并且这个整数代表了在$ su(2)_\alpha $子代数的表示之中$ E_\beta $的weight。也就是$ q-p $，其中$ q $代表距离最低weight的步数，$ p $代表距离最高weight的步数。
+\end{itemize}
+我们下面会不断反复使用这几个概念和定理。
+
+
+
+\bigskip
+\hlr{Positive Weight的概念}
+
+根据性质2，我们知道root vector只有一半是独立的，我们不妨定义一组positive的root vector，只要他们 $ times  -1$也就可以generate出另外一半的root vector。我们定义：
+
+\defi{
+  Positive Weight
+
+  对于某一个李代数的表示$ D $，我们给出一个固定的Cartan子代数basis $ \{H_i\} $【注意，这组基我们还需要固定前后顺序】。在这个基础上，我们定义一个weight $ \mu = (\mu_1,\mu_2,\ldots,\mu_r) $是positive的如果其第一个非零分量是正的。
+
+}
+
+有了positive的概念之后我们就可以定义两个weight之间比大小了！我们定义：
+\defi{
+  Comparing Weights
+
+  如果两个weight $ \mu $和$ \nu $满足$ \mu - \nu $是positive的，那么我们说$ \mu > \nu $。
+}
+
+positive root还告诉我们一件事情，也就是对于性质0之中提到的su(2)子代数，我们可以定义raising and lowering opertor
+\begin{itemize}
+  \item 如果$ \alpha $是positive root，那么$ E_\alpha $是raising operator，$ E_{-\alpha} $是lowering operator。
+\end{itemize}
+
+\subsubsection{Simple Root的定义与性质}
+
+\bigskip
+\hlr{Simple Root的定义}
+
+我们依旧发现positive root之中也会存在线性相关。我们可以再找到其中线性无关的部分我们定义为simple root。我们定义：
+\defi{
+  Simple Root
+
+  对于某一个李代数的root system，我们定义一组positive root $ \{\alpha_i\} $是simple root如果其不能被其他positive root线性表示出来。
+}
+
+下面我们研究Simple Root的一些性质，根据这些性质我们最终发现一条路径可以通过simple root generate出整个李代数。
+
+
+\rmk{
+  为了方便我们使用这样的记号，对于Simple Root
+\begin{enumerate}
+  \item 我们使用$ \alpha^i $来标记第i个root vector【谨记确定了i指标$ \alpha^i $是一个vector】
+  \item 同时使用$ E_{\alpha^i} $来标记对应的generator。 我们使用$ \ket{\alpha^i} $来标记这个generator对应的root state。
+  \item 对应的su(2)子代数我们使用$ E^{\pm}_i, E_{3 i} $来标记，这个代数记作$ su(2)_i $。任意weight state对于这个子代数的p,q我们记作
+\end{enumerate}
+}
+
+\bigskip
+\hlr{Simple Root的重要性质}
+
+\lmm{
+  Simple Root仅可加和
+
+ 对于任意两个simple root $ \alpha, \beta $，我们知道$ \alpha - \beta $以及$ \beta - \alpha $都不是root vector 。
+}
+这意味着我们从simple root组合出来所有的root【仅仅能用相加】。
+
+\lmm{Simple Root的p,q计算
+
+  对于任意两个simple root $ \alpha_i, \alpha_j, i \neq j $可以使用master formula计算出对于$ \alpha_j $的$ p_i, q_i $：
+    \begin{align}
+     &\alpha_j : \quad q_i = 0, \quad p_i = \frac{2(\alpha_i\cdot\alpha_j)}{\alpha_i^2} \\ 
+     &\alpha_i: \quad q_j = 0, \quad p_j = \frac{2(\alpha_i\cdot\alpha_j)}{\alpha_j^2}
+    \end{align}
+    同时我们也可以通过性质2知道：
+    \begin{align}
+      &\alpha_i: \quad q_i = \displaystyle\frac{2(\alpha_i \cdot \alpha_i)}{\alpha_i^2} = 2, \quad p_i = 0 \\
+      &\alpha_j: \quad q_j =\displaystyle\frac{2(\alpha_j \cdot \alpha_j)}{\alpha_j^2} =  2, \quad p_j = 0
+    \end{align}
+}
+这个性质还有一个推论
+\begin{itemize}
+  \item 对于任意两个simple root $ \alpha_i, \alpha_j $，我们的夹角和相对长度可以通过内积计算。我们给出记号对于$ su(2)_i $来说，$ \alpha_j $对应的$ p = p_i $；对于$ su(2)_j $来说，$ \alpha_i $对应的$ p' = p_j $。
+\end{itemize}
+
+\lmm{
+  Simple Root之间的夹角和相对长度限制
+
+  我们发现Simple Root的夹角可以知道：
+  \begin{align}
+    \cos\theta_{ij} = \frac{(\alpha_i \cdot \alpha_j)}{|\alpha_i||\alpha_j|} = - \displaystyle\frac{1}{2} \sqrt{p p'},  \quad \displaystyle\frac{\alpha_j^2}{\alpha_i^2}  = p/p' \mathrm{~,}
+  \end{align}
+  所以所有Simple Root的夹角在$ [\pi/2, \pi] $之间，并且只能选取：
+  \begin{align}
+    \theta_{ij} = \left\{\pi/2, 2\pi/3, 3\pi/4, 5\pi/6 \right\}\mathrm{~,}
+  \end{align}
+}
+
+下面我们研究simple root的数量以及线性无关的性质，我们发现：
+\lmm{
+Simple Root作为Cartan子代数空间的Basis【仅仅适用于Simple Lie Algebra】
+
+  Simple Root的数量等于李代数的rank也就是Cartan子代数的数量。
+
+  Simple Root 构成了Cartan子代数空间的一组Basis！！
+}
+
+作为基我们显然可以把所有Root 用Simple Root进行展开，这个展开我们发现下面的定理：
+
+\lmm{
+  Positive Root可以唯一的使用Simple Root线性展开，【并且展开系数是正整数】
+  \begin{align}
+    \phi = \sum_i k^i \alpha_i, \quad k^i \in \mathbb{Z}^{+}\mathrm{~,}
+  \end{align}
+}
+
+\bigskip
+\hlr{Root State的两种表示【Dynkin Coefficient表示】}
+
+我们考虑不再使用$ \phi $这样的root vector来表达root state。我们可以选择另外的两种表示方法：
+
+\begin{itemize}
+  \item \textbf{表示方法1: 使用$ k_i $计数表示}
+\end{itemize}
+这个表示很自然。我们考虑一个root state $ \ket{\phi} $，我们知道这个root state可以唯一的使用simple root进行线性展开：
+\begin{align}
+  \phi = \sum_i k^i \alpha_i, \quad k^i \in \mathbb{Z}^{+}\mathrm{~,}
+\end{align}
+因此我们可以使用$ \{k^i\} $这个数组唯一的表示root state。
+
+其数学意义是：这个root state是通过堆叠多少个simple root得到的。
+
+这个表达方式等价于我们使用 $ \alpha_i $ 作为一组basis。
+
+\begin{itemize}
+  \item \textbf{表示方法2: 使用$ q_i-p_i $数组表示「Dynkin Coefficient」}
+\end{itemize}
+我们其实还有组数组可以用来表示这个root state并且拥有更concrete的意义。我们一步步构造：
+\begin{enumerate}
+  \item 对于root state $ \{ \ket{\phi}\} $，我们考虑其在$ su(2)_i $子代数下$ 2E_{3i} $的weight。根据master formula我们知道这个weight是：
+    \begin{align}
+      \frac{2(\alpha_i \cdot \phi)}{\alpha_i^2} = q_i - p_i\mathrm{~,}
+    \end{align} 
+\item 由于Simple root构成了一组完备基础，我们可以$ \{q_i - p_i\} $这个数组唯一的表示root state $ \phi $。
+\end{enumerate}
+
+其数学意义是：标记了root在每一个simple root 对应的su(2)子代数下的weight。
+
+后面我们知道，这个等价于使用fundamental weight basis。作为基进行的表示。
+
+\rmk{
+  我们注意Dynkin Coefficient对于于任意weight state都可以定义，并且都是整数！！这是因为master formula是对于任何表示都是适用的！！
+}
+
+\rmk{
+  一个特别容易犯的错误是，注意虽然$ q_i-p_i $是内积$ \alpha_i^\vee $和$ \phi $的结果，但是$ q_i - p_i $并不是$ \phi $在$ \alpha_i^\vee $ basis下的展开系数！！！因为这个不是正交归一basis！
+}
+
+
+\subsubsection{Cartan Matrix表达Simple Root}
+
+
+
+\bigskip
+\hlr{Cartan Matrix表达Simple Root}
+
+我们之前讨论了Simple Root的两种表达形式。我们不妨使用这两种表达形式表达一下这个系统的Simple Root。我们发现：
+\begin{itemize}
+  \item 第一种表达方式：对于一个simple root $ \alpha_i = \delta^j_i \alpha_j $所以$ k^j = \delta^j_i $。 
+  \item 第二种表达方式：对于一个Simple root $ \alpha_i $根据Master Formula：
+    \begin{align}
+      q_j - p_j = \frac{2(\alpha_j \cdot \alpha_i)}{\alpha_j^2} \mathrm{~,}
+    \end{align}
+\end{itemize}
+使用第二种表达方式下的Simple Root我们发现可以把所有Simple Root的表示写作一个矩阵形式。也就是Cartan Matrix：
+\defi{
+  Cartan Matrix
+
+  对于一个Simple Lie Algebra的所有Simple Root $ \{\alpha_i\} $，我们定义Cartan Matrix $ A $为：
+  \begin{align}
+    A_{ij} = \frac{2(\alpha_i \cdot \alpha_j)}{\alpha_j^2} \mathrm{~,}
+  \end{align}
+  【注意我们是把j指标写在分母上面！】
+}
+我们讨论怎么从这个矩阵之中读出代数的信息。首先我们分析这个矩阵元素的特质意味着什么：
+\begin{itemize}
+  \item Cartan Matrix的对角线元素都是2。说明其实$ E_{3 j} \ket{\alpha_j} = \ket{\alpha_j} $。同时我们知道对于自己，$ p_i = 0 $因为$ \alpha_i+\alpha_i $不是root，所以我们知道，所有simple root在自己对应的su(2)子代数下的一个spin-1 表示的highest weight state。
+  \item Cartan Matrix的非对角线元素都是非正整数0,-1,-2,-3。这其实对应simple root之间的夹角只能是$ \pi/2, 2\pi/3, 3\pi/4, 5\pi/6 $并且比例需要是满足一定要求的。
+  \item Cartan矩阵本身是一个可逆矩阵！
+\end{itemize}
+下面我们讨论矩阵每一行的意义：
+\begin{itemize}
+  \item Cartan Matrix每一行代表对于$ \ket{\alpha_i} $这个root state的$ \{ q_j - p_j\} $也就是对于$ su(2)_j $的$ 2E_{3j} $的weight。
+\end{itemize}
+
+\bigskip
+\hlr{Cartan矩阵用于系数变换}
+
+Cartan矩阵可以作为两种表示方式的转换工具。我们发现：
+   \begin{align}
+     A_{ij} = (\alpha_i \cdot \alpha_j^\vee) \mathrm{~,}
+   \end{align} 
+   所以对于任意的Weight State，我们之前讨论的两种表示方式可以通过Cartan Matrix进行转换：
+   \begin{align}
+      (q_j - p_j) = A_{ij} k^i \mathrm{~,}
+    \end{align}
+
+
+
+
+\bigskip
+\hlr{Dynkin Diagram图像化表达}
+
+Simple Root的一个角度性质就是：Simple Root之间的夹角只能取有限个值。我们可以使用Dynkin Diagram来表示Simple Root之间的关系。我们定义：
+\defi{Dynkin Diagram
+
+  对于一个Simple Lie Algebra的所有Simple Root，我们使用一个圆圈来代表Simple Root，并且使用连线来代表Simple Root之间的夹角关系。规则如下：
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.4\textwidth]{assets/dynkindiag.png}
+  \caption{Dynkin Diagram的绘制规则}
+  \label{fig:dynkindiag}
+\end{figure}
+}
+Dynkin Diagram可以表达夹角结构，但是并不能够表达Simple Root的长度关系。并不能完全还原Simple Root system。还需要补充一个模长具体长度的信息。
+
+\subsection{从Cartan Matrix重构李代数}
+
+我们找到了一个包含全部Simple Root信息的Cartan Matrix。那么我们能不能通过这个矩阵重构出整个李代数呢？答案是肯定的。下面我们展示这个过程。
+
+\subsubsection{Cartan矩阵重构Root System}
+
+重构的第一步，我们需要找出所有的生成元，也就是找到Root System。我们这里是用G2 Lie Algebra作为例子进行说明，其Cartan Matrix是：
+\begin{align}
+ C(G2) = \begin{pmatrix}2&-1\\-3&2\end{pmatrix}
+\end{align}
+
+\bigskip
+\hlr{从Cartan 矩阵重构Simple Root}
+
+这一步特别简单，我们发现Cartan矩阵每一行就是对应了$ \{ \alpha_i^\vee \} $basis下的Simple Root表示。所以我们直接把Cartan矩阵的每一行拿出来标记simple root：
+\begin{align}
+  \alpha_i \to \left( A_{i1}, A_{i2}, \ldots, A_{ir} \right)\mathrm{~,}
+\end{align}
+
+对于G2李代数我们发现有两个simple root，分别用$ q_i - p_i $进行标记结果是：
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.5\textwidth]{assets/G2simpleroot.png}
+  \caption{G2李代数的Simple Root表示}
+  \label{fig:g2simpleroot}
+\end{figure}
+
+\bigskip
+\hlr{从Simple Root重构所有root system}
+
+下面我们利用Simple Root重构整个Root System。我们基本思路就是从Simple Root向上一点点堆叠simple root。并且每一步要验证还不能不能再向上堆：
+\begin{itemize}
+  \item \textbf{Step 1 列出level 1的simple root: } 
+
+    我们使用下面的图示列出level 1的simple root：
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.5\textwidth]{assets/G2simpleroot.png}
+  \caption{G2李代数的Simple Root表示}
+  \label{fig:g2simpleroot}
+\end{figure}
+\item \textbf{Step 2 通过分析给出这个level 1每一个root的q值} 
+
+  我们考虑G2李代数level 1的q值：
+  \begin{itemize}
+    \item 对于$ \alpha_1 $，我们知道$ \alpha_1 +\alpha_1 $不是一个root，所以$ p_1 = 0 $，因此$ q_1 = (q_1-p_1)+0 = 2 $；同时我们知道$ \alpha_1 - \alpha_2 $不是root，所以$ q_2 = 0 $: 对于$ \alpha_1 $我们得到$ (q_1,q_2) = (2,0) $。
+    \item 对于$ \alpha_2 $，我们知道$ \alpha_2 +\alpha_2 $不是一个root，所以$ p_2 = 0 $，因此$ q_2 = (q_2-p_2)+0 = 2 $；同时我们知道$ \alpha_2 - \alpha_1 $不是root，所以$ q_1 = 0 $: 对于$ \alpha_2 $我们得到$ (q_1,q_2) = (0,2) $。
+  \end{itemize}
+\item \textbf{Step 3 通过q值计算出来p值}
+
+  我们现在已经知道这两个simple root的$ q_i - p_i $以及$ q_i $，所以我们可以计算出$ p_i $：
+  \begin{align}
+    &\alpha_1: \quad p_1 = 2 - 2 = 0, \quad p_2 = 0 - (-1) = 1, \quad (p_1,p_2) = (0,1) \\
+    &\alpha_2: \quad p_1 = 0 - (-3) = 3, \quad p_2 = 2 - 2 = 0, \quad (p_1,p_2) = (3,0)
+  \end{align}
+\item \textbf{Step 4 通过p值判断下一个level有哪些root}
+
+  我们回顾p值的物理意义，也就是$ (E^+_i)^{p_i+1} \ket{\phi} = 0 $也就是还能再用这个raising operator向上升多少次。
+  \begin{itemize}
+    \item 对于$ \alpha_1 $，我们知道$ (p_1,p_2) = (0,1) $，所以只能使用$ E^+_2 $向上升1次。我们得到下一个root state是：
+      \begin{align}
+        \alpha_1 + \alpha_2 
+      \end{align}
+      \item 对于$ \alpha_2 $，我们知道$ p = (3,0) $，所以只能使用$ E^+_1 $向上升3次。我们得到下一个root state是：
+      \begin{align}
+        \alpha_1 + \alpha_2 
+      \end{align}
+  \end{itemize}
+\item \textbf{Step 5 计算下一个level的q-p值}
+
+  我们知道有公式：
+  \begin{align}
+    (q_j-p_j)=A_{ij}k^i,
+  \end{align}
+  所以，上面分析给出了$ k^i $所以我们可以自然的给出q-p。其实就相当于叠加上一个simple root的q-p。
+  \begin{align}
+    &\alpha_1 + \alpha_2: \quad (q_1 - p_1, q_2 - p_2) = (2,-1) + (-3,2) = (-1,1) 
+  \end{align}
+
+  这两个simple root向上只能生成同样的一个root，画在图上就是：
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.5\textwidth]{assets/level2.png}
+  \caption{G2李代数level 2 root的生成}
+  \label{fig:level2}
+\end{figure}
+
+\end{itemize}
+下面我们同样的方法进行分析level 2的root的q的数值，通过p = q - (q - p)计算出p值，然后通过p值决定能不能继续向上。直到\textbf{某一个level所有的root的p值都是0}，说明不能再向上升了。我们把所有的root都找出来了！
+
+最终找到的G2李代数的root system如下图所示：
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.5\textwidth]{assets/g2fullroot.png}
+  \caption{G2李代数的完整Root System}
+  \label{fig:g2fullroot}
+\end{figure}
+
+
+\bigskip
+\hlr{使用su(2)子代数辅助光速重构root system}
+
+上面的过程是一个完备的过程，但是一个小技巧会加速这个过程。我们观察root的q-p取值，并且分析q值。我们可以意识到。
+
+$ \alpha_2 $的q-p是$ (-3,2) $，同时q是$ (0,2) $。q第一个是0 说明是在$ su(2)_1 $子代数这是lowest weight state。$ q_1-p_1 = -3$ 说明这个state是一个spin-3/2表示的最低weight state。
+
+因此我们自然可以向上作用三个$ E^+_1 $，直接得到三个state。
+
+同理也可以这样的分析其他root state。这样就可以大大加速root system的重构过程！！
+
+
+
+\subsubsection{从Root System重构李代数}
+
+
+\bigskip
+\hlr{从root system给出生成元对易关系}
+
+通过我们之前分析我们知道，对于任何一个root state我们都是一个simple root的$ su(2)_i $子代数的一个weight state。也就是说：
+\begin{align}
+  E^+_{i} \ket{\alpha_j} = \sqrt{(j+m+1)(j-m)/2} \ket{\alpha_j + \alpha_i} 
+\end{align}
+其中$ j = (q_i + p_i)/2, m = (q_i - p_i)/2 $。
+同时我们知道有关系：
+\begin{align}
+  E_{i}^+ \ket{\alpha_j} = |\alpha_i|^{-1} E_{\alpha_i} \ket{\alpha_j} = \ket{[E_{\alpha_i}, E_{\alpha_j}]} \mathrm{~,}
+\end{align}
+我们对比这两个式子可以发现正好给出了$ [E_{\alpha_i},E_{\alpha_j}] $的对易关系的表达式。我们可以使用这个方法计算出positive root之间很复杂的对易关系。
+
+这个时候如果我们再在左边作用上negative root。然后重复使用Jacobi Identity，我们就可以计算出所有的对易关系！！最终我们就重构出了整个李代数的对易关系！！
+
+\bigskip
+\hlr{G2代数的例子}
+
+我们依旧使用G2代数作为例子。我们已经重构出了G2代数的root system。我们现在使用上面的方法计算出所有的对易关系。
+
+这个代数的两个simple root分别对应的su(2)子代数的上升算符是：
+\begin{align}
+  E_1^+=E_{\alpha^1}\quad E_2^+=\frac{1}{\sqrt{3}}E_{\alpha^2}
+\end{align}
+我们计算产生第一个level的对易关系是：
+\begin{align}
+  \begin{aligned}
+  |[E_{\alpha^1},E_{\alpha^2}]\rangle=&\sqrt{\frac{3}{2}}\left|3/2,-1/2,1\right\rangle\\
+  = &\sqrt{\frac{3}{2}}\left|E_{\alpha^1+\alpha^2}\right\rangle
+  \end{aligned}
+\end{align}
+第二个level的对易关系是：
+\begin{align}
+  \begin{aligned}
+  |[E_{\alpha^1},[E_{\alpha^1},E_{\alpha^2}]]\rangle =&2\sqrt{\frac{3}{2}}|3/2,1/2,1\rangle\\ 
+  = &\sqrt{6}\left|E_{2\alpha^1+\alpha^2}\right)
+  \end{aligned}
+\end{align}
+然后我们可以得到很多类似的对易关系，完整的写出来是：
+\begin{align}
+  &E_{\alpha^1+\alpha^2}=\sqrt{\frac{2}{3}}\left[E_{\alpha^1},E_{\alpha^2}\right]\\&E_{2\alpha^1+\alpha^2}=\sqrt{\frac{1}{6}}\left[E_{\alpha^1},[E_{\alpha^1},E_{\alpha^2}]\right]\\&E_{3\alpha^1+\alpha^2}=\frac{1}{3}\left[E_{\alpha^1},[E_{\alpha^1},[E_{\alpha^1},E_{\alpha^2}]]\right]\\&E_{3\alpha^1+2\alpha^2}=\frac{\sqrt{6}}{9}\left[E_{\alpha^2},[E_{\alpha^1},[E_{\alpha^1},[E_{\alpha^1},E_{\alpha^2}]]]\right]
+\end{align}
+对于这些对易关系，我们可以通过和negative root对易然后一直使用Jacobi Identity来计算出所有的对易关系！！最终我们就重构出了整个G2李代数的对易关系！！
+
+比如：
+\begin{align}
+  [E_{-\alpha^1},E_{\alpha^1+\alpha^2}]=\sqrt{\frac{2}{3}}\left[E_{-\alpha^1},[E_{\alpha^1},E_{\alpha^2}]\right]
+\end{align}
+
+
+
+
+
+
+
+\subsection{从Root System结构重构表示}
+
+我们前面讨论了从Cartan Matrix重构李代数的方法。但是其实上，重构的就是所有的root system也就可以理解为李代数的Adjoint Representation。其实，类似的方法我们可以重构出李代数的任意表示。下面我们进行general的讨论。
+
+\subsubsection{fundamental Weight and Representation}
+
+\bigskip
+\hlr{Highest Weight State}
+
+对于Adjoint Rep也就是root system因为Cartan子代数和Simple Root对应的态已知，所以我们由其进行向上构建。但是对于一般的表示，我们完全不知道这个表示里面的这些态。我们不妨先假设一个极端的态然后朝着下构建。我们定义：
+
+\defi{Highest Weight State
+
+对于一个有着Simple Root $ \alpha_i, i \in \{1,..., m\} $的李代数。我们定义，某一个表示$ D $之中的highest weight state，是Cartan子代数的本征态满足：
+\begin{align}
+  E_{\alpha^j}|\mu\rangle=0\mathrm{~}\forall j
+\end{align}
+}
+
+
+\bigskip
+\hlr{使用Dynkin Coefficient标记Weight State}
+
+为了方便构造表示，我们会需要一个类似于$ (j,m) $的记号来标记weight state。Weight太难看出位置和结构了！观察会发现，对于Weight State来说$ (j,m) $其实就是我们之前的$ \{ q_i - p_i\} $。也就是Dynkin Coefficient。所以我们使用这个记号来标记weight state。
+
+\rmk{
+  我们区分一下Weight和Dynkin Coefficient用来表示Weight State的区别：
+  \begin{itemize}
+    \item Weight: 是root向量空间用Cartan子代数为基展开的系数。对应着每个Cartan子代数的本征值。
+    \item Dynkin Coefficient: 对应着每个su(2)子代数的$ 2E_{3i} $的本征值。是内积$ \alpha_i^\vee $的结果。永远是整数！！！！
+  \end{itemize}
+}
+
+\bigskip
+\hlr{构建表示基本思路}
+
+我们现在给出构建表示的基本思路，下一章会用su(3)具体进行讨论。
+\begin{itemize}
+  \item \textbf{Step 1: 确定highest weight state}
+
+    我们首先假设一个highest weight state $ \ket{\mu} $，并且使用Dynkin Coefficient $ \{ q_i - p_i \} $进行标记。
+  \item \textbf{Step 2: 计算p值} 
+
+    对于Highest Weight State我们知道$ p_i = 0 $，所以我们可以计算出$ q_i $。得知这个态能被哪个su(2)的下降算符下降几次。
+
+  \item \textbf{Step 3: 构建下一个level的weight state}
+
+    我们使用$ E_{-\alpha_i} $作用在highest weight state上面，构建出下一个level的weight state。【其实就是减去能下降的$ \alpha_i $的Dynkin Coefficient】
+
+    \textbf{！！注意！！要注意归一化！！！呀呀呀！！} 
+\end{itemize}
+如此重复就可以构建出整个表示的weight state！！得到表示空间自然就可以构建表示了！
+
+
+\subsubsection{fundamental weight and fundamental representation}
+
+对于一个表示，我们知道对于一个Weight State来说有两种表示方法：
+\begin{itemize}
+  \item 使用weight vector本身进行表示
+  \item 使用Dynkin Coefficient进行表示
+\end{itemize}
+那么我们自然会问，使用weight vector的时候我们用的是Cartan Subalgebra的basis。那么使用Dynkin Coefficient的时候我们用的是什么basis呢？答案是fundamental weight basis！！
+
+\bigskip
+\hlr{Fundamental Weight的定义}
+
+\defi{
+  Fundamental Weight
+
+  对于一个Simple Lie Algebra的Simple Root $ \alpha_i, i \in \{1,...,r\} $，我们定义其对应的fundamental weight $ \mu_i $满足：
+  \begin{align}
+    \frac{2(\alpha_j \cdot \mu_i)}{\alpha_j^2} = \delta_{ij} \mathrm{~,}
+  \end{align}
+}
+
+
+\rmk{
+  我们注意是用的fundamental weight basis而不是$ \alpha_i^\vee $的basis，给出系数是点乘$ \alpha_i^\vee $的结果。出现这个情况是因为$ \alpha_i^\vee $不是正交归一basis！！
+}
+
+\bigskip
+\hlr{Fundamental Weight其他}
+
+我们根据定义很自然发现，任意的一个weight在fundamental weight下面可以进行展开得到：
+\begin{align}
+  \mu=\sum_{j=1}^m\ell^j\mu^j
+\end{align}
+其中系数$ \ell^j $可以通过内积计算出来：
+\begin{align}
+  \ell^j=\frac{2(\alpha_j\cdot\mu)}{\alpha_j^2}=q_j - p_j
+\end{align}
+也就是说，Dynkin Coefficient实际上就是fundamental weight basis下的展开系数！！
+
+我们定义fundamental representation为highest weight state是fundamental weight的表示。
+
+\bigskip
+\hlr{Dynkin Coefficient的意义}
+
+我们终于可以总结一下，Dynkin Coefficient作为对于任何root和weight state的表示方法的意义了。
+\begin{itemize}
+  \item Dynkin Coefficient $ \{ q_i - p_i \} $表示了任意Weight State的Weight在fundamental weight basis下展开的系数。我们根据其定义知道，以及master formula可以推导出：【其必须是整数】
+  \item Dynkin Coefficient描述了一个Weight State对于所有Simple Root对应的su(2)子代数的 $ 2 E_{3i} $。也就描述了这些Weight State作为这些su(2)子代数的表示的位置。
+    \item Dynkin Coefficient暗含了的p，q的意义是：
+      \begin{itemize}
+        \item p 表示了这个Weight State在$ su(2)_i $子代数下距离highest weight state还有多少步。
+        \item q 表示了这个Weight State在$ su(2)_i $子代数下距离最低weight state还有多少步。
+      \end{itemize}
+
+      \item Simple root的Dynkin Coefficient就是Cartan Matrix！
+      \item \textbf{Dynkin Coefficient的可加性：}我们知道Dynkin Coefficient是fundamental weight basis下面的weight vector的展开。所以，对weight vector的线性组合也是dynkin coefficient的线性组合！！
+\end{itemize}
+
+
+\subsection{Questions and thoughts}
+
+\question{对于su(3)代数，为什么我们在使用su(2)子代数的表示重构代数的时候可以直接认为$ \ket{1/2,1/2} $态是$ \ket{E_{\alpha_1+\alpha_2}} $呢}
+
+因为我们在定义$ \ket{E_\alpha} $这个态的时候已经确定了归一化需要满足：
+\begin{align}
+  \langle E_\alpha|E_\beta\rangle=\lambda^{-1}\operatorname{Tr}\left(E_\alpha^\dagger E_\beta\right)=\delta_{\alpha\beta}\left(=\prod_i\delta_{\alpha_i\beta_i}\right)
+\end{align}
+只要我们follow这个归一化，那么我们这个归一化好之后的态必须对应$ \ket{1/2,1/2} $这样的态。
+\qed
+
+
+\bigskip
+\question{为什么fundamental weight必然是一个highest weight of fundamental representation ？？P112}
+
+可以理解为Georgi在梦里写的话，梦到哪句写哪句（（（
+\qed
+
+\bigskip
+\question{给定一个表示下面的李代数我们可以通过weight的差的方式给出所有的root，但是肯定会更多！！所以？怎么才能找到哪些是真正的root？？？}
+
+目前感觉只有在Adjoint rep下面尝试进行对角化这一种操作手段捏。
+\qed
+
+\bigskip
+\imp{李代数的直和以及李群的直积}{
+  我们有的时候会搞混直积和直和的概念。我们下面给出解释
+
+  \YL{[回头补充吧！基本上就是李群的直积对应李代数的直和]}
+}

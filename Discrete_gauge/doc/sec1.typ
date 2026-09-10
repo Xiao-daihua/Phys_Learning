@@ -8,7 +8,7 @@ However, to make it suit into a more general picture, we should not
 assume we always have a conserved current or even a classical
 lagrangian description. Then, how can we do it?
 
-== Symmetry Characterized by Generators
+== Symmetry = Topological Operator
 
 When we want to pin down a symmetry in QFT, the usual tools are the
 conserved current and the conserved charge. But these come from

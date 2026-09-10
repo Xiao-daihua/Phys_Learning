@@ -1,0 +1,271 @@
+\subsection{Schwarzschild Metric}
+
+\subsubsection{Schwarzschild Metric Solution}
+
+\bigskip
+\hlr{On shell求解}
+
+我们使用上面讨论的ansatz带入真空的Einstein Field Equation进行求解：
+\begin{align}
+  R_{\mu\nu} = 0 \quad
+  \Rightarrow \quad \frac{2}{r}(\partial_r\alpha+\partial_r\beta) = 0
+  , \quad \partial_r\left(re^{2\alpha}\right)=1\mathrm{~,}
+\end{align}
+最后得到的解为：
+\begin{align}
+  e^{2 \alpha} = e^{-2 \beta} = 1-\frac{R_s}{r}
+\end{align}
+于是我们给出Schwarzschild Metric：
+\defi{
+  Schwarzschild Metric
+
+  对于真空Einstein Field Equation存在一系列使用$ R_s $标定的解：
+  \begin{align}
+    ds^2=-\left(1-\frac{R_S}{r}\right)dt^2+\left(1-\frac{R_S}{r}\right)^{-1}dr^2+r^2d\Omega^2.
+  \end{align}
+}
+对于这个解，我们会发现其很像是描述这0点有一个质量为$ M $的球对称物体引发的引力场【虽然这个解是一个Vaccum
+Solution】。我们可以通过在$ r\to\infty $处的Newtonian Limit来确定$ R_S $和$ M $的关系：
+\begin{align}
+  R_s = 2GM.
+\end{align}
+
+\subsubsection{Schwarzschild Metric的性质}
+
+\bigskip
+\hlr{schwarzschild Metric行为}
+
+我们研究这个metric的行为，比较trivial的会发现：
+\begin{itemize}
+  \item $ r >> R_s $的时候，metric的行为很像是中心有一个质量为$ M $的物体引发的Newtonian引力场；
+  \item $ r \to \infty $的时候，metric的行为很像是flat Minkowski space-time；
+  \item $ M \to 0 $的时候，metric的行为也很像是flat Minkowski space-time；
+\end{itemize}
+
+\bigskip
+\hlr{Singularity}
+
+下面我们进一步观察会发现：
+\begin{itemize}
+  \item $ r = R_s $以及$ r = 0 $的时候这个metric都存在分量会发生发散！
+\end{itemize}
+但是我们会发现不一定发散就意味着我们的时空存在奇异性。因为有的时候仅仅是因为我们选择了一个并不太好的coordinate导致某一些点不能覆盖到。需要有很多手段来验证一个点是不是intrisically
+singular。总之：
+\begin{itemize}
+  \item $ r = R_s $的时候仅仅是一个coordinate singularity，可以通过更换坐标系来消除这个奇异性；
+  \item $ r = 0 $的时候是真正的intrinsic singularity; 而$ r = 0 $处则是时空真正的奇异点。
+\end{itemize}
+
+\bigskip
+\hlr{Brikhoff's Theorem}
+
+实际上我们可以给出一个定理：
+\begin{itemize}
+  \item Brikhoff's Theorem：任何stationary + spherically
+    symmetric的vacuum solution都是static的，并且是Schwarzschild Metric。
+\end{itemize}
+
+\subsection{Schwarzschild Metric上的Geodesics}
+
+下面我们研究一个自由例子是怎么在一个Schwarzschild 时空之中运动的。由于我们在这个常用的coordinate
+system下面考虑，所以我们不研究$ r < R_s $的行为，因为这个metric会发生奇异。
+
+\bigskip
+\hlr{物理粒子的Normalization条件}
+
+我们知道Geodesic是满足Geodesic Equation的解。但是这个解在任何Affine
+Parameter下面都是成立的，但这不意味着所有的paramter的解都有合理的物理意义。真正能被理解为自由粒子运动轨迹的参数化 $
+\lambda $ 对应的切矢量$ u^\mu = \frac{d x^\mu}{d \lambda} $需要存在如下归一化：
+\begin{itemize}
+  \item 对于有质量粒子，我们需要保证normalization保证：$ u^\mu u_\mu = -1 $
+    等价的，我们可以选择粒子的proper time作为affine parameter；
+  \item 对于无质量粒子，我们需要选择normalization保证：$ u^\mu u_\mu = 0
+    $。但是这还不足以确定一个粒子，我们还需要$ p^\mu = u^\mu $。其中$ p^\mu $是粒子的物理动量。
+\end{itemize}
+对于两者的normalization条件我们可以统一写作：
+\begin{align}\label{eq:normalization}
+  -g_{\mu\nu} \frac{d x^\mu}{d \lambda} \frac{d x^\nu}{d \lambda} =
+  \epsilon \quad \text{其中} \quad \kappa =
+  \begin{cases}
+    1 & \text{有质量粒子} \\
+    0 & \text{无质量粒子}
+  \end{cases}
+\end{align}
+\rmk{
+  注意！！这个normalization条件判断的是4 vector有没有物理意义！不论是自由粒子还是有外力作用的粒子都需要满足这个条件！
+}
+
+\subsubsection{Killing Vector求解Geodesic}
+
+一般的我们可以列出Geodesic
+Equation进行求解。但问题是这个方程组过于复杂。于是我们回忆之前知道Geodesic在Killing
+Vector方向的分量必然守恒的事实，我们会发现，我们可以寻找Killing Vector，然后利用守恒量来简化方程组。我们操作的方式为：
+\begin{itemize}
+  \item 寻找粒子的守恒量，给出守恒方程
+  \item 将守恒方程带入Normalization的条件，给出不同坐标对于$ \lambda $参数的运动方程
+\end{itemize}
+
+\bigskip
+\hlr{Killing Vector Field与守恒量}
+
+根据对称性我们可以认为粒子在某一个通过原点的平面上进行运动，我们不妨选择$ \theta = \pi/2 $的平面。
+\begin{itemize}
+  \item 我们仅仅研究限制在$ \theta = \pi /2 $的平面上运动的粒子。
+\end{itemize}
+带入Geodesic
+Equation我么也可以证明在这个平面内进行运动是满足方程的。为了研究这样的粒子运动，我们可以找到两个Killing Vector Field：
+\begin{itemize}
+  \item 时间平移对称性对应的Killing Vector Field：$ K^\mu = (1,0,0,0) ,
+    K_\mu=\left(-\left(1-\frac{2GM}{r}\right),0,0,0\right)$
+  \item 转动对应的Killing Vector Field：$ R^\mu = (0,0,0,1) ,
+    R_\mu=\left(0,0,0,r^2\sin^2\theta\right) $由于我们选择了$ \theta = \pi/2
+    $所以$ R_\mu = (0,0,0,r^2) $
+\end{itemize}
+这两个Killing Vector Field分别对应两个守恒量：
+\begin{align}\label{eq:conservedquantities}
+  &E=-K_\mu\frac{dx^\mu}{d\lambda}=\left(1-\frac{2GM}{r}\right)\frac{dt}{d\lambda}\\
+  &L=R_\mu\frac{dx^\mu}{d\lambda}=r^2\frac{d\phi}{d\lambda}.
+\end{align}
+
+\bigskip
+\hlr{Normalization条件}
+
+我们把Normalization条件\cref{eq:normalization}带入Schwarzschild Metric得到：
+\begin{align}
+  -\left(1-\frac{2GM}{r}\right)\left(\frac{dt}{d\lambda}\right)^2+\left(1-\frac{2GM}{r}\right)^{-1}\left(\frac{dr}{d\lambda}\right)^2+r^2\left(\frac{d\phi}{d\lambda}\right)^2=-\epsilon.
+\end{align}
+
+\bigskip
+\hlr{带入Normalization条件给出径向方程}
+
+我们固定一个粒子拥有守恒的能量$ E $和角动量$ L $，我们把上面的两个守恒量带入Normalization条件得到：
+\begin{align}\label{eq:radialeq}
+  \frac{1}{2}\left(\frac{dr}{d\lambda}\right)^2+V(r)=\mathcal{E}
+\end{align}
+其中等效势能$ V(r) $和等效能量$ \mathcal{E} $为：
+\begin{align}
+  V(r)=\frac{1}{2}\left(\epsilon+\frac{L^2}{r^2}\right)\left(1-\frac{2GM}{r}\right)=\frac{1}{2}\epsilon-\epsilon\frac{GM}{r}+\frac{L^2}{2r^2}-\frac{GML^2}{r^3},
+  \quad \mathcal{E}=\frac{E^2}{2}.
+\end{align}
+
+\bigskip
+\hlr{对比在一个质量为M的Newtonian引力场中的运动}
+
+我们对比这个方程和一个质量为$ 1 $，能量为$ E $的粒子在一个质量为$ M
+$的Newtonian引力场中的运动方程。会发现：引力势能的前两项和Newtonian引力场中的势能完全一样:
+\begin{align}
+  V_{\text{Newton}}(r) = -\frac{GM}{r} + \frac{L^2}{2r^2}.
+\end{align}
+但是，最后一项$ -\frac{GML^2}{r^3}
+$是一个完全新的项，这个项会导致一些完全不同的物理现象。首先其会作用在无质量粒子的运动上，其次也会导致有质量粒子的轨道进动现象。
+
+\begin{itemize}
+  \item 对于$ r \to \infty $的时候，这个项会变得非常小，所以在远距离上我们会发现和Newtonian引力场的行为非常类似；
+  \item 对于$ r \to 0 $的时候，这个项会变得非常大。我们会发现势能永远在$ r = 2GM
+    $的时候变为0。但是我们暂时不研究其中行为。我们知道newton引力除非直接冲着中心运动是永远不会落入中心的。但是由于这个项的存在，我们会发现如果粒子能量足够大跨越了势能的最大值，粒子就会落入中心。
+\end{itemize}
+
+\bigskip
+\hlr{势能与轨道分析}
+
+我们分析这个势能能够给出什么样子的轨道行为。下图展示了不同角动量$ L $下的势能曲线：
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.85\textwidth]{assets/energypoasd.png}
+  \caption{不同角动量下的势能曲线}
+  \label{fig:energypoasd}
+\end{figure}
+我们可以知道和牛顿力学一样，存在束缚的轨道以及非束缚的轨道。我们首先分析束缚轨道。我们研究可能存在的圆形轨道，也就是势能的极值点，对于势能求导为0:
+\begin{align}
+  \epsilon GMr_c^2-L^2r_c+3GML^2=0,
+\end{align}
+其中$ r_c $是圆形轨道的半径。我们发现：
+\begin{itemize}
+  \item
+    \textbf{无质量粒子}：对于无质量粒子不存在stable的圆形轨道但是存在一个unstable的圆形轨道，轨道半径为$ r_c = 3GM $；
+  \item \textbf{有质量粒子}：对于有质量粒子我们存在两个圆形轨道的解，半径为：
+    \begin{align}
+      r_c=\frac{L^2\pm\sqrt{L^4-12G^2M^2L^2}}{2GM}.
+    \end{align}
+    对于很大的L我们会意识到两个轨道的半径分别趋近于$ r_c = \frac{L^2}{GM} $这个是stable的轨道以及$
+    r_c = 3GM $这个是unstable的轨道。我们总结如下：
+    \begin{itemize}
+      \item 随着角动量增大，stable轨道的半径会越来越大；
+      \item 当$ L < 2\sqrt{3}GM $的时候，不存在任何圆形轨道。这个时候势能是单调递增的；
+      \item 当$ L = 2\sqrt{3}GM $的时候，存在唯一的unstable圆形轨道，轨道半径为$ r_c =
+        6GM $。这个轨道是最小可能的stable圆形轨道。这个时候的势能在$ r_c = 6GM $处有一个拐点。
+      \item 当$ L > 2\sqrt{3}GM
+        $的时候，存在两个圆形轨道，一个stable一个unstable。更小的轨道是unstable的，轨道半径在$ 3GM < r_c < 6GM
+        $之间；更大的轨道是stable的，轨道半径为$ r_c > 6GM $。
+    \end{itemize}
+\end{itemize}
+\rmk{
+  注意，我们上面讨论的都是geodesic也就是自由粒子的轨道。如果存在非引力的外力作用在粒子上，粒子是从$ r_c = 3GM $以内逃离的。
+}
+
+下面我们分析一下非束缚轨道。对于非束缚轨道我们会发现：
+\begin{itemize}
+  \item
+    \textbf{无质量粒子}：对于无质量粒子永远存在一个势能的最大值，最大值出现在$ r = 3GM
+    $处。我们发现如果粒子的能量足够大于势能的最大值，那么粒子会落入中心。如果粒子的能量小于势能的最大值，那么粒子会被引力场偏转然后逃离引力场；
+  \item
+    \textbf{有质量粒子}：对于有质量粒子我们发现当$ L < 2\sqrt{3}GM
+    $的时候，势能是单调递增的，所以粒子永远会落入中心。当$ L \geq 2\sqrt{3}GM
+    $的时候，势能存在一个最大值。如果粒子的能量大于势能的最大值，粒子会落入中心；如果粒子的能量小于势能的最大值，粒子会被引力场偏转然后逃离引力场。
+\end{itemize}
+
+\subsection{GR验证I: 行星近日点进动解}
+
+\bigskip
+\hlr{守恒量给出轨道方程}
+
+我们现在希望求解一个有质量的粒子在Schwarzschild时空之中运动轨道，径向长度和角度的关系$ r(\phi)
+$也就是轨道方程。我们依旧从Normalization Condition以及守恒量出发。我们使用：
+\begin{align}
+  L=R_\mu\frac{dx^\mu}{d\lambda}=r^2\frac{d\phi}{d\lambda}. \quad
+  \Rightarrow \quad \frac{d\phi}{d\lambda}=\frac{L}{r^2}.
+\end{align}
+然后乘入径向的运动方程\cref{eq:radialeq}得到：
+\begin{align}
+  \left(\frac{dr}{d\phi}\right)^2+\frac{1}{L^2}r^4-\frac{2GM}{L^2}r^3+r^2-2GMr=\frac{2\mathcal{E}}{L^2}r^4.
+\end{align}
+
+\bigskip
+\hlr{轨道方程的变量替换与微扰解法}
+
+我们使用一个经典的中心力场的变量替换$ x=\frac{L^2}{GMr}\mathrm{~.} $带入上面运动方程并两边对$ \phi
+$求导，消去常数项以及$ \frac{d r}{d \phi} $一阶导数，得到：
+\begin{align}
+  \frac{d^2x}{d\phi^2}-1+x=\frac{3G^2M^2}{L^2}x^2.
+\end{align}
+可以发现这个方程相当于经典牛顿力学的情况多处了右边的一个非线性项。我们使用微扰的方法来求解这个方程，设$ x = x_0 + x_1
+$，其中$ x_0 $是经典力学的解，$ x_1 $是由于广义相对论修正引入的小量。
+
+\textbf{经典力学解}：我们先求解经典力学的解$ x_0 $，其满足方程：
+\begin{align}
+  \frac{d^2x_0}{d\phi^2}-1+x_0=0, \quad \Rightarrow \quad x_0 = 1 + e \cos\phi,
+\end{align}
+
+\textbf{广义相对论修正}：我们把经典力学解带入右边的非线性项，得到广义相对论修正的方程的一阶方程：
+\begin{align}
+  \frac{d^2x_1}{d\phi^2}+x_1=\frac{3G^2M^2}{L^2}x_0^2. \quad
+  \Rightarrow \quad
+  x_1=\frac{3G^2M^2}{L^2}\left[\left(1+\frac{1}{2}e^2\right)+e\phi\sin\phi-\frac{1}{6}e^2\cos2\phi\right]
+\end{align}
+观察这个解会发现只有$ e\phi\sin\phi $这一项是随着$ \phi
+$增大而增大的。这个项会导致可以累积的可观测影响。所以我们现在仅仅考虑存在这个修正项带来的影响。得到GR的修正轨道解为：
+\begin{align}
+  x=1+e\cos\phi+e\frac{3G^2M^2}{L^2}\phi\sin\phi\simeq1+e\cos\left[(1-\alpha)\phi\right]
+  \quad \text{其中} \quad \alpha=\frac{3G^2M^2}{L^2}.
+\end{align}
+
+\bigskip
+\hlr{轨道解的进动interpretation}
+
+这个解我们会发现，对于经典力学我们一个椭圆是$ \phi $转动$ 2 \pi $得到的。但是现在加入修正会发现我们转动$ \phi
+$转动$ 2 \pi $之后径向并没有回到原来的位置而是还需要再转动$ 2 \pi \alpha $才能回到原来的位置。还需要再转的角度为：
+\begin{align}
+  \Delta \phi = 2 \pi \alpha = \frac{6 \pi G^2 M^2}{L^2}.\quad
+  \Rightarrow \quad \large\Delta\phi=\frac{6\pi GM}{c^2(1-e^2)a}.
+\end{align}
+也就是进动角。一个方便观测的计算就是把物理的$ L $用经典轨道半长轴$ a $以及离心率$ e $表示出来。

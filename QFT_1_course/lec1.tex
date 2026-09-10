@@ -1,0 +1,95 @@
+\subsection{Motivation for QFT}
+\hlr{为什么QFT是唯一能够reconcile GR和QM的理论？}
+
+\begin{enumerate}
+  \item 我们可以把Schrodinger方程写作一个平移不变的Clein-Gordon方程。但是问题是这个方程有负能解。我们可以手动消去负能量：
+    \begin{equation}
+      (i\hbar\partial_t-\sqrt{m^2c^4-\hbar^2c^2\nabla^2})\psi(t,x)=0\mathrm{~.}
+      \label{eq:nonegativenergyspectrum}
+    \end{equation}
+    但是会有问题，相对论告诉我们光锥内外是不会相互影响的。但是我们可以计算上面方程的传播子：
+    \begin{equation}
+      A(x\to y,t)=e^{-\frac{mc}{\hbar}\sqrt{(x-y)^2-c^2t^2}}f(x-y,t)
+      \label{eq:propergagtiontest}
+    \end{equation}
+    所以粒子有一定概率可以超过光速，这是违背相对论的。
+  \item 根据不确定性原理，我们的粒子数应该是不守恒的。因为我们的距离很小的时候很可能能量不确定性很大从而产生新的粒子对！所以我们或许不能用粒子来描述粒子！！
+\end{enumerate}
+
+\subsection{Unit System}
+\bigskip 
+\hlr{自然单位制的使用}
+
+也就是我们发现我们如果选择某两个常数是1的话，我们可以用能量进行几乎所有物理量的计算：
+\begin{align}
+  c=1=\hbar
+\end{align}
+但是注意，遇到电磁学相关的物理量，我们还是需要选择一个单位制来确定电荷量以及相关量的单位的！！
+
+但是这些单位制我个人觉得原则应该是：\textbf{真正做数值计算的时候把我们省略的认为是1的所有物理量补充回来！再做计算！！}
+推导的时候使用自然单位制进行推导就好了！！
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.55\textwidth]{assets/unitchange.png}
+  \caption{自然单位制以及GSC换算}
+  \label{fig:unitchange}
+\end{figure}
+
+
+\subsection{Questions and Thoughts}
+\question{ 流形上面的函数是怎么定义协变的方法的？}
+
+
+再次复习，流形上的标量和张量场【也就是协变的场】协变关系是自己自由定义的【取决于场是按照哪个表示协变的】：
+
+
+
+
+\question{ 自然单位制下，我们到底是什么意思？特别是电磁学相关的物理量我们怎么理解呢？}
+
+我们自然单位制下面，我们一般把所有物理量使用能量的单位进行写作。这样只是一个记号，真实用来描述世界的时候，我们还是需要通过合理的补充$ \hbar,c $，把这个数变成我们一般的单位的。
+
+Eg 当我们说粒子的质量是1GeV的时候，我们实际上是说这个粒子的静止能量是1GeV。也就是$ E=mc^2=1GeV $。或者说粒子的质量是 $ m = 1GeV/c^2 $。
+
+\imp{自然单位制的正确用法}{
+  对于自然单位制的使用，就是我们一切使用同样的能量单位进行描述。
+
+  最后换算成为真实单位的时候需要把$ \hbar,c $都补充回来，并且使用我们想要的单位制进行书写。然后再进行任何的数值计算。
+\bigskip
+
+  还有一种就是直接在这个单位制之下进行计算，算出来什么都是eV最后再将计算结果换算成为我们想要的单位就好了！！
+\bigskip
+
+  当然另一个简单的方法就是查一下别人这么干之后的结果表。套用就好啦！！
+}
+\tip{单位制的意义}{
+  我们需要理解，单位制把一些有量纲的物理量变成1是什么意思。我们不是在rescale这些量，而是在rescale这些量之外的所有量！！
+
+  对于电磁学相关的物理，我们是rescale的电荷量捏！！
+}
+\line
+下面我们讨论对于电磁学相关的量，对于电磁学相关的物理量我们一般有两个选择:
+\begin{enumerate}
+  \item 一个是选择$ \epsilon_0 = \mu_0 = 1 $的单位制！
+  \item 另一个是选择$ \epsilon_0 = 1/ 4\pi $的Gauss单位制！
+\end{enumerate}
+对于这两种单位制本质上都是对于$ e $进行一个rescale捏，并且我们可以计算出来这两种单位制下面电子的电荷量计算方法是考虑$ \alpha = \displaystyle\frac{e^2}{4 \pi \epsilon_0 \hbar c} $。
+
+我们上面两种理解方式是：
+\begin{enumerate}
+  \item 一是对于gaussian单位制的方程我们用$ e $实际上表示的是$ e/\sqrt{4 \pi \epsilon} $我们需要补充回来一个$ 1/\sqrt{4 \pi \epsilon} $，用普通单位进行计算；
+  \item 另一种就是直接用gaussian单位制进行计算，但是这样的结果是，我们自动计算的就是已经有一个隐藏的$ 1/\sqrt{4 \pi \epsilon} $的结果捏（就像是我们使用质量自然单位制进行计算，我们其实计算的是$ mc^2 $！特别是，我们用gaussian单位制计算得到一个力学量，这个力学量的单位对于什么单位制都是一样的，不许要进行单位换算。
+\end{enumerate}
+
+我个人十分推荐，补回来这些被设置成1的物理量「对于电磁学也就是补回来电荷出现的时候的」，然后使用普通单位进行计算。这样不容易出错捏！！
+
+\qed
+
+\bigskip
+\question{
+  高斯单位制下面，电场强度是$ x \text{ eV}^2 $我们怎么计算数值？
+}
+
+我也不知道，我建议不要这么做！但是理论上换算必然是可行的，但是我建议不要用正常单位制之外所有单位制进行数值运算！！
+\qed

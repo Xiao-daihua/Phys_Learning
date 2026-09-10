@@ -1,0 +1,168 @@
+% main.tex - 科研项目学习笔记模板
+% !TeX root = main.tex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% DOCUMENT 
+\documentclass[10pt]{article}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% PACKAGES
+
+% \linespread{0.7}
+% 中文支持（XeLaTeX 编译）
+\usepackage[UTF8]{ctex}
+\usepackage{xeCJKfntef} 
+
+% \setCJKmainfont{HanziPen SC}
+% \setmainfont{HanziPen SC}
+
+
+% 页面设置
+\usepackage[
+  a4paper,
+  left=25mm,
+  right=25mm,
+  top=25mm,
+  bottom=25mm
+]{geometry}
+
+
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+\usepackage{xcolor}
+
+
+% 数学环境及符号
+\usepackage{amsmath, amssymb, amsfonts, amsthm,amsopn}
+\usepackage{tensor}              % 张量指标管理
+\usepackage{mathtools}           % amsmath增强
+\usepackage{physics}             % 物理公式快捷命令
+             % Dirac符号
+\usepackage{bbold}               % 数学黑体
+\usepackage{dsfont}              % 另一种数字体
+\usepackage[mathscr]{eucal}     % 花体字母
+\usepackage{tensor}              % 张量指标管理
+\usepackage{simpler-wick}       % Wick记号
+\usepackage{mathrsfs}            % 另一种花体字母
+
+% 颜色与图形相关
+\usepackage{graphicx}           % 插图支持
+\usepackage{float}              % 浮动体控制
+\usepackage{tikz}               % 绘图库
+\usetikzlibrary{math}           % tikz数学扩展
+\usepackage{geometry}
+% 表格与列表
+\usepackage{makecell}           % 表格多行换行
+\usepackage{multicol}           % 多栏排版
+\usepackage{colortbl}           % 表格颜色
+\usepackage{enumitem}           % 列表自定义
+
+% 其他辅助
+\usepackage{framed}             % 有边框环境
+\usepackage{tcolorbox}          % 灵活盒子环境
+\tcbuselibrary{breakable}       % 盒子内容分页
+\usepackage{thmtools}           % 定理环境管理
+\usepackage{thm-restate}        % 定理重述
+\usepackage{showlabels}         % 显示标签，调试用（完成后可注释）
+\usepackage[normalem]{ulem}     % 下划线、删除线
+\usepackage{hyperref}           % 超链接（最后加载）
+\usepackage{cleveref}           % 智能引用（紧跟hyperref）
+\usepackage{soul}
+
+\usepackage{booktabs} 
+% 自定义宏包
+\usepackage{macros}
+
+% 一个中文可以高亮的包
+\usepackage{cjkhl}
+\definecolor{lightblue}{rgb}{.8,.8,1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 自定义命令
+\newcommand{\tml}{Teichmüller space}
+\newcommand{\hil}{Hilbert space}
+\newcommand{\mtc}{Modular Tensor Category}
+\newcommand{\kin}[1]{\ket{#1_{\text{in}}}}
+\newcommand{\kout}[1]{\ket{#1_{\text{out}}}}
+\newcommand{\bin}[1]{\bra{#1_{\text{in}}}}
+\newcommand{\bout}[1]{\bra{#1_{\text{out}}}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% BEGINNING OF THE DOCUMENT
+
+\begin{document}
+
+\title{\boldmath Quantum Mechanics 3 \\ \large EPFL 2025-2026 学年第一学期课程笔记}
+\author{X. D. H.}
+
+\maketitle
+
+\begin{abstract}
+  这是2025-2026学年第一学期EPFL Quantum Mechanics 3课程的学习笔记，内容涵盖WKB近似方法，量子散射理论两个比较重要的内容。散射理论部分涵盖了大量量子力学的一般讨论，对于场论学习极其重要。WKB近似则对于一维的Schrodinger以及类似的微分方程解法提供了很强的工具。
+\end{abstract}
+
+\tableofcontents
+\section{Lecture 1}\label{sec:Lecture 1} % (fold)
+\input{lec1.tex}
+% section Lecture 1 (end)
+
+\newpage
+\section{Lecture 2}\label{sec:Lecture 2} % (fold)
+\input{lec2.tex}
+% section Lecture 2 (end)
+
+\newpage 
+\section{Lecture 3：WKB近似基础}\label{sec:Lecture 3} % (fold)
+\input{lec3.tex}
+% section Lecture 3 (end)
+
+\newpage 
+\section{Lecture 4：WKB近似以及matching}\label{sec:Lecture 4} % (fold)
+\input{lec4.tex}
+% section Lecture 4 (end)
+
+\newpage
+\section{Lecture 5：WKB近似各种应用}\label{sec:Lecture 5：WKB近似各种应用} % (fold)
+\input{lec5.tex}
+% section Lecture 5：WKB近似各种应用 (end)
+
+\newpage 
+\section{Lecture 6: 经典散射理论以及量子散射基础}\label{sec:Lecture 6:} % (fold)
+\input{lec6.tex}
+% section Lecture 6: (end)
+
+\newpage
+\section{Lecture 7: 量子散射理论框架}\label{sec:Lecture 7: } % (fold)
+\input{lec7.tex}
+% section Lecture 7:  (end)
+
+\newpage
+\section{Lecture 8: S-Matrix 以及散射可观测量}\label{sec:Lecture 8:} % (fold)
+\input{lec8.tex}
+% section Lecture 8: (end)
+
+\newpage
+\section{Lecture 9: 散射Green函数方法与Born近似}\label{sec:Lecture 9: } % (fold)
+\input{lec9.tex}
+% section Lecture 9:  (end)
+
+\newpage
+\section{Lecture 10: S矩阵和散射振幅另一种表示}\label{sec:Lecture 10: 额外专题} % (fold)
+\input{lec10.tex}
+% section Lecture 10: 额外专题 (end)
+
+\newpage 
+\section{Lecture 11: Partial Wave Expansion}\label{sec:Lecture 11:} % (fold)
+\input{lec11.tex}
+% section Lecture 11: (end)
+
+\newpage 
+\section{Lectrure 12: Dirac Equation and Pauli Equation}\label{sec:Lectrure 12: Dirac Equation and Pauli Equation} % (fold)
+\input{lec12.tex}
+% section Lectrure 12: Dirac Equation and Pauli Equation (end)
+
+\newpage 
+\section{Lecture 13: Pauli Equation and Introduction to QFT}\label{sec:Lecture 13: Pauli Equation and Intro to QFT} % (fold)
+\input{lec13.tex}
+% section Lecture 13: Pauli Equation and Intro to QFT (end)
+
+\newpage 
+\section{复习：留数积分技巧}\label{sec:复习：留数积分技巧} % (fold)
+\input{residue.tex}
+% section 复习：留数积分技巧 (end)
+
+
+\end{document}

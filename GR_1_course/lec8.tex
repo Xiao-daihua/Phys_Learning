@@ -1,0 +1,414 @@
+\subsection{物质对引力波响应}
+
+\bigskip
+\hlr{使用Geodesic Deviation进行研究}
+
+我们如何研究引力波对于物质的影响呢？我们可以研究很多沿着Geodesic运动的粒子，引力波的出现会导致这些粒子之间的距离发生变换，我们可以通过Geodesics
+Deviation来研究引力波如何影响这些粒子之间的距离，进一步知道引力波如何影响物质。
+
+我们复习，对于Geodesics Deviation，我们有：
+\begin{align}
+  \frac{D^2\xi^\mu}{D\tau^2}=-R^\mu{}_{\nu\rho\sigma}\xi^\rho\left.\frac{dx^\nu}{d\tau}\frac{dx^\sigma}{d\tau}\right.,
+\end{align}
+其中$ \xi^\mu $是两个Geodesics之间的偏移量。可以回顾之前讨论的数学定义。
+
+\subsubsection{TT Gauge下的物质响应}
+
+\bigskip
+\hlr{TT Gauge下面的几何量}
+
+我们Naively使用TT Gauge进行研究讨论。对于引力波存在的TT Gauge下面我们有metric：
+\begin{align}
+  g_{00}= -1, \quad g_{0i}=0, \quad g_{ij}=\delta_{ij}+h_{ij}^{TT}\mathrm{~,}
+\end{align}
+根据线性引力的公式可以计算出Christoffel符号：
+\begin{align}
+  \Gamma_{ij}^{0}=-\frac{1}{2}\partial_{0}h_{ij}^{TT} \quad
+  \Gamma_{0j}^{i}=\frac{1}{2}\partial_{0}h_{ij}^{TT}\quad
+  \Gamma_{j\mu}^{i}=\frac{1}{2}(\partial_{j}h^{TT}{}_\mu^i+\partial_{\mu}h^{TT}{}^{i}_j-\partial^{i}h_{j\mu}^{TT})
+\end{align}
+我们进一步计算Riemann Tensor，我们使用公式\cref{eq:riemannlinear}进行带入。下面的讨论仅仅会用到$
+R^{i}{}_{0j0} $这个分量，我们计算：
+\begin{align}
+  R^{i}{}_{0j0}=-\frac{1}{2}\partial_{0}^{2}h^{iTT}{}_{j}
+\end{align}
+\rmk{
+  注意！！由于Riemann Tensor在线性引力的意义下是一个标量！！上方的结果在任意线性近似成立的参考系下都是成立的！！这是一个很震撼的结果！！
+}
+
+\bigskip
+\hlr{Set up以及初始条件}
+
+我们考虑测量set up，假设一组粒子在这个参考系下初始是精致的，然后思考引力波通过后其geodesic deviation的情况。
+\begin{itemize}
+  \item \textbf{初始条件}：粒子初始静止，所以$ \frac{dx^i}{d\tau} = 0 $，并且$
+    \frac{dx^0}{d\tau} = 1 $。
+\end{itemize}
+根据Geodesic Deviation方程，在0时刻的时候，我们带入这个初始条件所以我们有：
+\begin{align}
+  \nabla_{0}(\nabla_{0}\xi^{i})|_{\tau=0}=-R^{i}{}_{0j0} \ \xi^{j}|_{\tau=0}
+\end{align}
+
+\bigskip
+\hlr{TT Gauge下面Geodesic Deviation的计算}
+
+我们把上方的Riemann Tensor带入，我们先计算等式左边。注意左边我们的协变导数都是已经固定方向的，所以$ \nabla_0
+\xi^i $是一个vector并非一个$ (1,1) $ Tensor。我们这样可以由里到外计算：
+\begin{align}
+  \nabla_{0}(\nabla_{0}\xi^{i}) &= \partial_{0}(\nabla_{0}\xi^{i}) +
+  \Gamma_{0\mu}^{i}(\nabla_{0}\xi^{\mu}) \\
+  &= \partial_{0}\left(\partial_{0}\xi^{i} +
+  \Gamma_{0\nu}^{i}\xi^{\nu}\right) +
+  \Gamma_{0\mu}^{i}\left(\partial_{0}\xi^{\mu} +
+  \Gamma_{0\nu}^{\mu}\xi^{\nu}\right) \\
+  &= \partial_{0}^{2}\xi^{i} + \partial_{0}\Gamma_{0\nu}^{i}\xi^{\nu}
+  + \Gamma_{0\nu}^{i}\partial_{0}\xi^{\nu} +
+  \Gamma_{0\mu}^{i}\partial_{0}\xi^{\mu} +
+  \Gamma_{0\mu}^{i}\Gamma_{0\nu}^{\mu}\xi^{\nu}
+\end{align}
+最后一项我们认为是二阶小量所以忽略掉。我们把Christoffel符号带入，我们有：
+\begin{align}
+  \nabla_{0}(\nabla_{0}\xi^{i}) &= \partial_{0}^{2}\xi^{i} +
+  \frac{1}{2}\partial_{0}^{2}h^{TT}{}^{i}_\nu \xi^{\nu} +
+  \frac{1}{2}\partial_{0}h^{TT}{}^{i}_\nu \partial_{0}\xi^{\nu} +
+  \frac{1}{2}\partial_{0}h^{TT}{}^{i}_\mu \partial_{0}\xi^{\mu} \\
+  &= \partial_{0}^{2}\xi^{i} +
+  \frac{1}{2}\partial_{0}^{2}h^{TT}{}^{i}_j \xi^{j} +
+  \partial_{0}h^{TT}{}^{i}_j \partial_{0}\xi^{j}
+\end{align}
+下面我们研究等式右边，带入Riemann Tensor的计算结果我们有：
+\begin{align}
+  -R^{i}{}_{0j0} \ \xi^{j}|_{\tau=0} =
+  \frac{1}{2}\partial_{0}^{2}h^{iTT}{}_{j} \ \xi^{j}|_{\tau=0}
+\end{align}
+所以Geodesic Deviation Equation最终变成了：
+\begin{align}
+  \partial_{0}^{2}\xi^{i} + \partial_{0}h^{TT}{}^{i}_j \partial_{0}\xi^{j} = 0
+\end{align}
+\begin{itemize}
+  \item 我们意识到初始时刻$ \partial_{0}\xi^{j} = 0 $，所以我们有：
+    \begin{align}
+      \partial_{0}^{2}\xi^{i} = 0
+    \end{align}
+    一个简单的解就是：$  \xi^{i}(\tau) = \xi^{i}(0) $，也就是说粒子之间的距离并不会因为引力波的通过而变化！！
+\end{itemize}
+\rmk{
+  我们会发现在TT Gauge下面，粒子的Deviation并不会因为引力波通过而变换。这是因为这个参考系下恰好坐标是随着粒子一起震荡的！！！
+}
+
+\bigskip
+\hlr{震荡的Proper Distance}
+
+我们知道两个粒子之间的coordinate distance并因为引力波而震荡。但这并不说明粒子没有运动，只是coordinate
+system随着粒子一起运动了。我们可以考虑描述两个粒子之间的距离的一个coordinate无关的量：proper distance。给出set up如下：
+\begin{itemize}
+  \item TT Gauge下面两个粒子的坐标为：
+    \begin{align}
+      m_1 : x^{\mu}_1 = (t_1,x_1,0,0) \quad m_2 : x^{\mu}_2 = (t_2,x_2,0,0)
+    \end{align}
+  \item   我们定义两个粒子之间的coordinate distance为$ \xi = x_2 - x_1
+    $。我们定义两个粒子的Proper Distance为：
+    \begin{align}
+      S = \int_{x_1}^{x_2} \sqrt{g_{xx}dx^2} = \int_{x_1}^{x_2}
+      \sqrt{1 + h_{xx}^{TT}} dx
+    \end{align}
+\end{itemize}
+
+我们计算无限小的$ \xi^i $的情况以及带入$ h_{xx}^{TT} $的形式\cref{thm:ttwave}，给出结论是：
+\begin{align}
+  S = \sqrt{1+ h_+ \cos (\omega(t-z))} \xi
+\end{align}
+也就是说Proper Distance会随着引力波的通过而震荡！！
+
+\subsubsection{Local Inertial Frame下的物质响应}
+
+由于我们测量都是需要基于参考系的。所以我们希望找到一个参考系，这个参考系下的coordinate distance和proper
+distance是相等的，因此可以直接使用coordinate diatance进行测量。于是我们需要\textbf{Local
+Inertial Frame}。
+
+\bigskip
+\hlr{Local Inertial Frame的选择}
+
+我们假设，对于引力波存在的一个时空，我们可以找到一个Local Inertial Frame满足：
+\begin{itemize}
+  \item 在这个参考系下，metric在某一个点$ p $处满足Minkowski形式，并且一阶导数为0：
+    \begin{align}
+      g_{\mu\nu}(p) = \eta_{\mu\nu} \quad \partial_\rho g_{\mu\nu}(p)
+      = 0 \Leftrightarrow \Gamma_{\mu\nu}^\rho(p) = 0
+    \end{align}
+\end{itemize}
+\rmk{我们假设在线性引力的一一下我们可以找到这个坐标系。Generally，我们很难说找到这个参考系的过程是否违背了线性引力的假设}
+一个显然的结果就是这个参考系下，coordinate distance和proper
+distance是相等的！因为我们的metric就是Minkowski形式，coordinate distance可以写作：
+\begin{align}
+  l = \sqrt{\delta_{ij} dx^i dx^j} = S
+\end{align}
+
+\bigskip
+\hlr{Fermi Normal Coordinate System}
+\bigskip
+
+\hlb{作业8的内容极其重要！！其中数学的定义了Fermi Normal Coordinate
+System，以及具体的求出了这个坐标系下Metric和Riemann Tensor的关系！！都是极其重要的}
+
+Generally，这样的Local Inertial Frame有很多构造方式，比如之前讨论的Riemann Normal
+Coordinate。这里我们选择一个很重要的构造方式，也就是Fermi Normal Coordinate
+System。在这个坐标系下，Metric和Riemann Tensor有一个很漂亮的关系：
+\thm{\label{eq:ferminormalmetric}
+  Fermi Normal Coordinate System下的Metric展开
+
+  在Fermi Normal Coordinate System下，metric在点$ p $附近可以展开为：
+  \begin{align}
+    \mathrm{d}s^2=-(1+R_{\tau a\tau
+    b}X^aX^b)\mathrm{d}\tau^2-\frac{4}{3}R_{\tau
+    bac}X^bX^c\mathrm{~d}\tau\mathrm{d}X^a+\left[\delta_{ab}-\frac{1}{3}R_{acbd}X^cX^d\right]\mathrm{d}X^a\mathrm{d}X^b
+  \end{align}
+  其中$ \{X^a\} $是空间坐标，$ \tau $是时间坐标。
+}
+这个结论是可以通过Fermi Normal Coordinate的构造给出的。其构造过程比较复杂，可以后面补充讨论。
+\rmk{
+  这个坐标系最大的好处就是，我们可以直接通过Riemann Tensor给出metric。而Riemann
+  Tensor在线性引力的意义下是一个标量场，所以我们可以直接通过TT Gauge下的Riemann Tensor给出Fermi
+  Normal Coordinate下的Metric！！
+}
+
+\bigskip
+\hlr{Earth Coordinate作为参考系测量}
+
+理论上我们可以使用任何坐标系进行计算。但是为了和现实联系，我们需要argue，Fermi Normal Coordinate的结果能够在地球上被测量到。
+
+也就是我们要Argue，我们在地球上面测量的coordinate可以近似的认为是一个Local Inertial
+Frame。或者说，我们在Earth上怎么构建装置能让装置近似的认为是在一个Local Inertial Frame下工作。
+
+对于地球表面，其实是一个一直在向上进行加速并且还有旋转的参考系。我们通过参考系变换可以给出下面的Metric来描述地球表面的参考系：
+\thm{
+  Earth Coordinate下的Metric
+
+  在地球表面的参考系下，我们有Metric：
+  \begin{align}
+    \begin{aligned}ds^{2}&\boldsymbol{\simeq}-c^2dt^2\left[1+\frac{2}{c^2}\mathbf{a}\cdot\mathbf{x}+\frac{1}{c^4}(\mathbf{a}\cdot\mathbf{x})^2-\frac{1}{c^2}(\boldsymbol{\Omega}{\times}\mathbf{x})^2+R_{0i0j}x^ix^j\right]\\&\left.+2cdt\right.dx^i\left[\frac{1}{c}\epsilon_{ijk}\Omega^jx^k-\frac{2}{3}R_{0jik}x^jx^k\right]\\&+dx^idx^j\left[\delta_{ij}-\frac{1}{3}R_{ikjl}x^kx^l\right],
+    \end{aligned}
+  \end{align}
+  其中$ \mathbf{a} $是地球表面的重力加速度$ \times -1 $，$ \boldsymbol{\Omega} $是
+  地球的自转角速度矢量。
+}
+我们如何通过操作让这个参考系更接近一个Local Inertial Frame呢？
+\begin{itemize}
+  \item 通过\textbf{suspension mechanism}
+    让装置悬挂在地球表面，这样可以抵消掉地球转动的影响从而消除转动项。我们知道这样系统至少在$ x-y $平面内的行为和Local
+    Inertial Frame是等价的。
+\end{itemize}
+\rmk{
+  对于$ x-y $平面内，我们有$ a \cdot x =0 $因为加速度在z方向上！而这个平面内$ z= 0 $。
+}
+\begin{itemize}
+  \item \textbf{Frequency Window
+    :}在地球表面进行测量的时候，我们还需要考虑其他各种噪声的干扰。所以我们需要选择一个合适的频率窗口让引力波信号能够被测量到。一般来说，我们需要满足：
+    \begin{align}
+      f \in [0.1 \mathrm{Hz}, 10^3 \mathrm{Hz}]
+    \end{align}
+\end{itemize}
+
+\bigskip
+\hlr{Fermi Normal Coordinate下Gedesic Deviation方程}
+
+下面我们在Fermi Normal Coordinate下面计算Geodesic Deviation Equation。我们考虑这个参考系之下同样的初始条件：
+\begin{align}
+  \frac{dx^i}{d\tau} = 0 \quad \frac{dx^0}{d\tau} = 1\mathrm{~.}
+\end{align}
+根据Geodesic Deviation方程，在0时刻的时候，我们带入这个初始条件所以我们有：
+\begin{align}
+  \nabla_{0}(\nabla_{0}\xi^{i})|_{\tau=0}=-R^{i}{}_{0j0} \ \xi^{j}|_{\tau=0}
+\end{align}
+这里我们注意！！！因为Riemann Tensor在线性引力的意义下是一个标量场！！所以我们可以直接使用TT Gauge下的Riemann Tensor结果：
+\begin{align}
+  R^{i}{}_{0j0}=-\frac{1}{2}\partial_{0}^{2}h^{iTT}{}_{j}
+\end{align}
+由于这个坐标系下Christoffel符号在点$ p $处为0，所以我们可以直接把协变导数项写作：
+\begin{align}
+  \nabla_{0}(\nabla_{0}\xi^{i}) =
+  \partial_0^2\xi^i+\partial_0\Gamma_{0\nu}^i\xi^\nu
+\end{align}
+观察\cref{eq:ferminormalmetric}我们存在结论，这个metric给出的Christoffel Symbol满足$
+\partial_0\Gamma_{0j}^i(P)=0
+$，所以Christoffel符号的时间导数为0。\footnote{这是Fermi Normal
+Coordinate下面的一个基本结论捏！}所以只剩下了deviation
+vector的二阶时间导数项。最终我们有：
+\begin{align}
+  \partial_{0}^{2}\xi^{i} = \frac{1}{2}\partial_{0}^{2}h^{TTi}{}_{j}
+  \ \xi^{j}|_{\tau=0}
+\end{align}
+\rmk{
+  这个式子其实很subtle，因为式子左边是在Fermi Normal Coordinate下的时间导数，右边是TT
+  Gauge下的时间导数。但是由于Riemann
+  Tensor在线性引力的意义下是一个标量场，所以我们分量又可以理解为是一样的方向，并且$ \partial_{0}h^{i
+  TT}{}_j(x) $函数依赖的坐标$ x $也是Fermi Normal Coordinate的坐标！！这个特别subtle！
+}
+
+\bigskip
+\hlr{Fermi Normal Coordinate下的物质响应结果}
+
+下面我们给出ansatz，假设我们考虑在Riemann Normal Coordiante x-y平面内的偏移量：
+\begin{align}
+  \xi^i(t)=(x_0+\delta x(t),y_0+\delta y(t),0)
+\end{align}
+同时我们认为TT Gauge下的引力波沿着z方向传播，并且仅仅考虑$ h_+ $极化态。所以空间坐标的dependence是：
+\begin{align}
+  \left.h_{ab}^\mathrm{TT}=h_+\sin\omega t\left(
+    \begin{array}{cc}1&0\\0&-1
+  \end{array}\right.\right),
+\end{align}
+带入ansatz，最终geodesic deviation方程，我们有：
+\begin{align}
+  \delta\ddot{x}=-\frac{h_+}{2}(x_0+\delta x)\omega^2\sin\omega t,
+  \quad \delta\ddot{y}=+\frac{h_+}{2}(y_0+\delta y)\omega^2\sin\omega t.
+\end{align}
+我们忽略掉高阶小量，最终结果是：
+\begin{align}
+  \delta x(t)=\frac{h_+}{2}x_0\sin\omega t,\quad \delta
+  y(t)=-\frac{h_+}{2}y_0\sin\omega t.
+\end{align}
+同样的对于$ h_\times $极化态我们有：
+\begin{align}
+  \delta x(t)=\frac{h_\times}{2}y_0\sin\omega t, \quad \delta
+  y(t)=\frac{h_\times}{2}x_0\sin\omega t.
+\end{align}
+这个解用一圈粒子的图像化方式表达就是：
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.4\textwidth]{assets/gravave.png}
+  \caption{引力波通过时，粒子的位置变化示意图。左图是$ h_+ $极化态，右图是$ h_\times $极化态。}
+  \label{fig:gravave}
+\end{figure}
+
+\subsection{引力波的探测}
+
+\subsubsection{Interferometer的工作原理}
+
+现实中探测引力波使用的是Interferometer装置。我们简单介绍一下其工作原理。
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.75\textwidth]{assets/inerform.png}
+  \caption{Interferometer的结构示意图}
+  \label{fig:inerform}
+\end{figure}
+我们考虑如图的Interferometer装置。考虑时间$ t $两束光最终发生了干涉，那么我们研究不同路径的光到底是什么时候发出来的：
+\begin{align}
+  t_0^{(x)}=t-2L_x, \quad t_0^{(y)}=t-2L_y.
+\end{align}
+因此我们得到干涉的时候两者除去共同相位差的电场强度为：
+\begin{align}
+  E_{1}=-\frac{1}{2}E_{0}e^{-i\omega_{\mathrm{L}}(t-2L_{x})}.\quad
+  E_{2}=+\frac{1}{2}E_{0}e^{-i\omega_{\mathrm{L}}(t-2L_{y})}.
+\end{align}
+注意我们这里有一个$ 1/2 $和$ -1/2 $的相位是由于beam splitter的反射和透射引起的。最终我们有总的电场强度为：
+\begin{align}
+  |E_{\mathrm{out}}|^2 = |E_1 +E_2|^2
+  =E_0^2\sin^2[\omega_{\mathrm{L}}(L_y-L_x)].
+\end{align}
+所以我们可以通过测量输出的光强度来测量两个路径的长度差。
+
+\subsubsection{引力波对Interferometer的影响}
+
+\bigskip
+\hlr{不同坐标系下的分析}
+
+我们思考不同坐标系下引力波对Interferometer的影响。干涉现象是一个物理现象，我们在不同的参考系下都必然看到同样的干涉现象。但是，在不同的参考系下，我们的interpretation或许有不同。我们考虑两种坐标系：
+\begin{itemize}
+  \item \textbf{Lab Frame (Local Inertial
+    Frame)}：在这个参考系下，物质的位置会随着引力波通过而震荡，所以我们通过臂长的变换我们可以给出干涉条纹的变化。
+  \item \textbf{TT
+    Gauge}：在这个参考系下，物质的位置并不会随着引力波通过而震荡，但是引力波的存在会影响光的传播，所以我们通过光程的变化来解释干涉条纹的变化。
+\end{itemize}
+下面讨论之中我们会focus on TT Gauge下面的分析。
+
+\bigskip
+\hlr{TT Gauge下光波传播分析}
+
+由于TT Gauge下面的metric更加简单，我们先在TT
+Gauge下面进行分析。考虑一个z方向传播的引力波通过Interferometer装置，我们考虑$ h_+
+$极化态的引力波通过。我们仅仅考虑$ h_+ $极化态，因此metric的形式为：
+\begin{align}
+  ds^2=-dt^2+[1+h_+(t)]dx^2+[1-h_+(t)]dy^2+dz^2.
+\end{align}
+其中我们使用函数方便书写：
+\begin{align}
+  h_+(t)=h_0\cos\omega_\mathrm{gw}t\mathrm{~,}
+\end{align}
+\rmk{注意我们区分引力波的频率$ \omega_\mathrm{gw} $和激光的频率$ \omega_\mathrm{L}$}
+我们知道$ L_x,L_y $的长度是固定的，但是我们考虑光在这个时空下的传播时间。由于光沿着null geodesic传播，所以我们「在一阶近似意义上」有：
+\begin{align}
+  dx=\pm dt\left[1-\frac{1}{2}h_+(t)\right],
+\end{align}
+因而可以计算出光在x臂的传播时间：
+\begin{align}
+  \int_0^{L_x}dx - \int_{L_x}^{0}dx &= \int_{t_0^{(x)}}^{t_1}
+  dt\left[1-\frac{1}{2}h_+(t)\right] + \int_{t_1}^{t}
+  dt\left[1-\frac{1}{2}h_+(t)\right] \\
+  \Rightarrow 2L_x &= t- t_0^{(x)} - \frac{1}{2}\int_{t_0^{(x)}}^{t}
+  h_+(t) dt \\
+\end{align}
+于是我们得到：
+\thm{
+  TT Gauge 下光在引力波中传播时间
+
+  在TT Gauge下，光在x臂的传播时间满足：
+  \begin{align}
+    t-t_0^{(x)}=2L_x+L_x\left.h_+(t_0^{(x)}+L_x)\right.\frac{\sin(\omega_\mathrm{gw}{L_x})}{(\omega_\mathrm{gw}{L_x})}.
+  \end{align}
+  在y臂同理，我们直接把所有x替换成y; 所有$ h_+ $替换成$ -h_+ $，我们有：
+  \begin{align}
+    t-t_0^{(y)}=2L_y-L_y
+    h_+(t_0^{(y)}+L_y)\ \frac{\sin(\omega_\mathrm{gw}{L_y})}{(\omega_\mathrm{gw}{L_y})}.
+  \end{align}
+}
+\begin{itemize}
+  \item 我们会发现只有在$ \omega_{gw}L \sim 0
+    $的时候，才有明显的效果！！也就是说引力波的波长需要和Interferometer的臂长在同一个量级上才能够被测量到！！
+\end{itemize}
+
+\bigskip
+\hlr{干涉情况分析}
+
+我们最终反解出光波的发射时间：
+\begin{align}
+  t_0^{(x)} = t - 2L_x - L_x\, h_+(t -
+  L_x)\,\operatorname{sinc}\!\left(\omega_{\mathrm{gw}} L_x\right).\\
+  t_0^{(y)} = t - 2L_y + L_y\, h_+(t -
+  L_y)\,\operatorname{sinc}\!\left(\omega_{\mathrm{gw}} L_y\right).
+\end{align}
+注意我们这里近似的认为$ h_+(t_0 +L) = h_+(t - L) $也就是说近似的认为$ t - t_0 = 2L $。
+带入干涉的电场强度表达式，然后进行一波计算之后，我们最终得到：
+\begin{align}
+  E_{\mathrm{tot}}(t)&=E^{(x)}(t)+E^{(y)}(t)\\
+  &=-iE_0e^{-i\omega_\mathrm{L}(t-2L)}\sin[\phi_0+\Delta\phi_x(t)].
+\end{align}
+其中相位是：
+\begin{align}
+  \Delta\phi_x(t) =
+  h_+(t-L)\,\omega_{\mathrm{L}}\,L\,\operatorname{sinc}(\omega_{\mathrm{gw}}L)
+  \quad L = (L_x + L_y)/2
+\end{align}
+并且$ \phi_0 $是一个无关紧要的相位。
+
+\bigskip
+\hlr{真实情况分析}
+
+\YL{[感觉不是特别重要捏！一些实验讨论细节]}
+
+\subsection{Questions and thoughts}
+
+\question{怎么理解线性引力下，坐标变换前后Riemann Tensor的【数值】直接不变？？}
+
+就是说在线性近似的意义下，Reimann Tensor是一个标量场并非张量场！！
+\qed
+
+\bigskip
+\question{为什么Local Inertial Frame下面，我们可以使用Riemann Tensor进行表达Metric？？}
+具体见Fermi Normal Coordinate的定义和展开！！
+\qed
+
+\bigskip
+\question{为什么local inertial frame下面，proper distance和coordinate distance相等？？}
+正文有讨论，因为metric在这个点处是Minkowski形式，并且一阶导数为0，所以在这个点附近的距离计算和Minkowski形式下的距离计算是一样的！！
+\qed

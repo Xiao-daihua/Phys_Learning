@@ -1,0 +1,217 @@
+\subsection{Interaction picture对于S矩阵描述}
+
+我们考虑使用Interaction Picture来描述S矩阵。我们对于Interaction Picture的态矢量和算符的定义如下：
+\begin{itemize}
+  \item \textbf{量子态定义}，我们把量子态定义为从Heisenberg Picture先进行正向$ H $时间演化，再进行反向$ H_0 $时间演化的结果：
+\begin{align}
+  |\psi_I(t)\rangle=e^{iH_0t}|\psi(t)\rangle=e^{iH_0t}e^{-iHt}|\psi_0\rangle.
+\end{align}
+\item \textbf{算符定义}，我们把算符定义为从Schrodinger Picture进行正向$ H_0 $时间演化的结果：
+  \begin{align}
+    O_I=e^{iH_0t}O_se^{-iH_0t}.
+  \end{align}
+\end{itemize}
+这样定义之后，我们发现in and out state很自然的就是我们理论的量子态在$t\to \mp \infty$时候的Interaction Picture表示：
+\begin{align}
+  |\psi_{\mathrm{in}}\rangle=\lim_{t\to-\infty}|\psi_I(t)\rangle,\quad|\psi_{\mathrm{out}}\rangle=\lim_{t\to\infty}|\psi_I(t)\rangle.
+\end{align}
+\begin{itemize}
+  \item \textbf{时间演化算符：}Interaction Picture下的时间演化算符$ S(t_2,t_1) $，它满足下面的关系:
+\begin{align}
+  \ket{\psi_I(t_1)}=e^{iH_0t_1}e^{-iHt_1}e^{iHt_2}e^{-iH_0t_2}|\psi_I(t_2)\rangle\equiv S(t_1,t_2)|\psi_I(t_2)\rangle.
+\end{align}
+所以我们知道时间演化算符定义为：
+\begin{align}\label{eq:interaction_picture_time_evolution}
+  S(t_1,t_2)=e^{iH_0t_1}e^{iH(t_2-t_1)}e^{-iH_0t_2}.
+\end{align}
+\end{itemize}
+我们自然的发现S矩阵就是Interaction Picture下的时间演化算符在$t\to \pm \infty$时候的极限：
+\begin{align}
+  S=\lim_{t_1\to+\infty}\lim_{t_2\to-\infty}S(t_1,t_2)\mathrm{~.}
+\end{align}
+
+\begin{itemize}
+  \item \textbf{in and out state还有S矩阵其实就是Interaction Picture下面负无穷到正无穷的时间演化！！}
+\end{itemize}
+
+\subsection{Properties of Moller operators and S matrix}
+
+\hlr{Unitary Operator}
+
+对于一个线性空间$ \mathcal{H} $我们定义Unitary Operator $ U $满足下面的三个性质：
+\begin{enumerate}
+  \item 定义域是$ \mathcal{H} $本身。$ D(U)=\mathcal{H}; $
+  \item 值域是$ \mathcal{H} $本身。$ R(U)=\mathcal{H}; $
+  \item 保持内积不变。$ \langle U\psi|U\phi\rangle=\langle \psi|\phi\rangle,\forall \psi,\phi\in \mathcal{H}.$
+\end{enumerate}
+
+如果只满足1，3条件，这个Operator不是Unitary的，我们称之为\hlr{Isometric Operator}。
+
+\bigskip
+\hlr{Moller Operator是Isometry}
+
+我们下面给出一个很强的定理并进行证明。
+\thm{
+  Moller Operator $ \Omega_{\pm} $是Isometry，如果理论不存在\hlr{bound state}，那么$ \Omega_{\pm} $是Unitary Operator。
+}
+证明之前我们讨论一个引理以及其结果。
+
+\bigskip
+\hlr{Moller Operator神秘转换}
+
+
+\lmm{
+  对于一个理论，Hamiltonian是$ H = H_0 + V $，其中$ H_0 $是自由粒子Hamiltonian。Moller Operator对应：
+  \begin{align}
+    H\Omega_\pm=\Omega_\pm H_0,\quad H_0\Omega_\pm^\dagger=\Omega_\pm^\dagger H.
+  \end{align}
+}
+证明可以使用下面的极限换元的trick：
+\begin{align}
+  \begin{aligned}U^\dagger(\tau)\Omega_\pm&=U^\dagger(\tau)\lim_{t\to\mp\infty}U^\dagger(t)U_0(t)\\&=\lim_{t\to\mp\infty}U^\dagger(\tau)U^\dagger(t)U_0(t)U_0(\tau)U_0^\dagger(\tau)\\&=\lim_{t\to\mp\infty}U^\dagger(t+\tau)U_0(t+\tau)U_0^\dagger(\tau)\\&=\Omega_\pm U_0^\dagger(\tau).\end{aligned}
+\end{align}
+我们给出下面的假设：
+\begin{itemize}
+  \item \textbf{假设1:} 动量本征态构成了Hilbert Space的完备基。
+  \item \textbf{假设2:} 完全不考虑bound state能量不小于0的情况，认为存在bound state必然对应能量小于0的本征值。
+\end{itemize}
+\rmk{
+  我们知道，一个自由粒子的理论，如果存在能量小于0的态。必然是因为我们引入了一个势阱，这个势阱会产生bound state。
+
+  但是值得注意的是，存在bound state并不意味着一定存在能量小于0的态。只是在散射理论里面我们不考虑这种情况。所以我们有假设2
+}
+同时我们也在假设的基础上给出下面定理
+\thm{\label{thm:moller_spectrum}
+  Hamiltonian的连续谱与Moller Operator的作用
+
+  Moller Operator作用在任何自由粒子本征态$ |p\rangle $上面，都会得到Hamiltonian的连续谱对应的本征态：
+  \begin{align}
+  H\Omega_+|p\rangle=\Omega_+H_0|p\rangle=E_p\Omega_+|p\rangle.
+  \end{align}
+}
+由于我们假设自由粒子动量本征态构成了一个Hilbert空间的完备基。但是Moller Operator作用之后只能映射到谱为正的Hilbert空间里面，所以证明了在不存在bound state（根据假设2 也就是等价于谱为正）的情况下，Moller Operator是Unitary的;否则只是Isometry。
+\rmk{
+  我们的定理\ref{thm:moller_spectrum}也说明了一个构造H的本征态连续谱的方法，就是使用Moller Operator作用在自由粒子本征态上面！！我们下面就使用这个方法重新展开Hilbert Space！！
+}
+
+
+\bigskip
+\hlr{不同时间的Hilbert Space的展开}
+
+Hilbert Space我们认为有两种展开的方式。对于0时间的研究Moller Operator的存在给我们了一种更方便进行研究的展开方式。我们选择
+\begin{align}
+  \mathcal{H} =R(\Omega_+)\oplus B,
+\end{align}
+其中两个子空间我们可以证明是正交的。因为，其是Hamiltonian的不同本征值对应的本征子空间，由于Hamiltonian是Hermitian的，所以不同本征值对应的本征子空间是正交的。我们把两种展开方式放在一起进行对比：
+
+\thm{
+  散射理论中Hilbert Space的结构
+
+  散射理论中Hilbert Space我们有两种展开方式：
+  \begin{itemize}
+    \item 无穷过去与未来，Hilbert Space使用自由粒子Hamiltonian本征态可以进行正交完备展开
+\begin{enumerate}
+  \item \textbf{正交性关系：}
+    \begin{align}
+      \langle p'|p\rangle=\delta(p'-p).
+    \end{align}
+  \item \textbf{完备性关系：}
+    \begin{align}
+      \mathbb{1}=\int d^3p\ |p\rangle\langle p|.
+    \end{align}
+\end{enumerate}
+      \item 散射时刻的Hilbert Space可以分解成Bound State以及Scattering State张成的两个子空间，是正交完备的！
+        \begin{enumerate}
+          \item \textbf{正交性关系：}
+            \begin{align}
+              \langle \mathbf{p}_+| n\rangle=0, \quad \langle \mathbf{p}'_+|\mathbf{p}_+\rangle=\delta(\mathbf{p}'-\mathbf{p}),\quad \langle n|m\rangle=\delta_{nm}.
+            \end{align}
+          \item \textbf{完备性关系：}
+            \begin{align}
+              \mathbb{1}=\int d^3p\ |\mathbf{p}_+\rangle\langle \mathbf{p}_+|+\sum_n |n\rangle\langle n|.
+            \end{align} 
+        \end{enumerate}
+      其中散射态可以通过Moller Operator作用在自由粒子本征态上面得到：
+      \begin{align}
+        |\mathbf{p}_+\rangle=\Omega_+|p\rangle.
+      \end{align}
+  \end{itemize}
+}
+\rmk{
+  上面的定理，相比于定理，更像是一种假设。我们觉得这个结构很合理，所以假设其成立！
+}
+
+\bigskip
+\hlr{S矩阵作为Unitary Operator}
+
+Moller Operator是Isometry，不意味着S Matrix也是。其实S Matrix可以是Unitary的！！我们发现只要有：
+\begin{align}
+  R(\Omega_-)=R(\Omega_+),
+\end{align}
+那么S矩阵就是Unitary的。一个图可以帮助我们理解这个结论：
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.75\textwidth]{assets/Hilbertspace.png}
+  \caption{不同时间的Hilbert Space结构示意图}
+  \label{fig:hilbertspace}
+\end{figure}
+\rmk{
+  如何理解我们的三个Hilbert Space呢？真实的物理其实只有一个中间的Hilbert Space。但是，我们考虑散射过程的时候，我们希望把in and out state容许存在的空间进行描述，然后把这个空间理解为无穷远时间的Hilbert Space。
+}
+
+\bigskip
+\hlr{S矩阵与"能量守恒"}
+
+我们根据前面对于Moller Operator的引理可以推出下面的结论：
+\begin{align}
+  [H_0,S]=H_0S-SH_0=H_0\Omega_-^\dagger\Omega_+-\Omega_-^\dagger\Omega_+H_0 = 0
+\end{align}
+于是我们可以意识到：
+\begin{itemize}
+  \item \textbf{S矩阵守恒自由粒子Hamiltonian的能量，也就是说两者可以同时对角化}
+\end{itemize}
+这其实也说的是，一个散射过程里面，in and out state的「自由粒子能量」是守恒的！！
+\begin{align}
+  \langle \psi_{\mathrm{out}} | H_{0} | \psi_{\mathrm{out}} \rangle
+= \langle \psi_{\mathrm{in}} | S^{\dagger} H_{0} S | \psi_{\mathrm{in}} \rangle
+= \langle \psi_{\mathrm{in}} | H_{0} | \psi_{\mathrm{in}} \rangle.
+\end{align}
+
+\bigskip
+\hlr{S矩阵的平面波表示}
+
+我们使用自由粒子动量本征态$ |p\rangle $来展开in and out state：
+\begin{align}
+  \psi_{\mathrm{out}}(p^{\prime})=\int d^3p\langle p^{\prime}|S|p\rangle\psi_{\mathrm{in}}(p)\mathrm{~.}
+\end{align}
+其中我们因为存在能量守恒，所以有：
+\begin{align}
+  \bra{p}[H_0, S]\ket{p'}=0 \to \left(E_p - E_{p'}\right)\langle p|S|p'\rangle=0\mathrm{~.}
+\end{align}
+因此我们可以的出：
+\begin{align}
+  \langle p'|S|p\rangle=S(p',p)\delta(E_{p'}-E_p)\mathrm{~.}
+\end{align}
+下面我们考虑没有相互作用的极限$ S \to I $，所以generally我们可以把$ S $写作 $ S = 1 + R, [H_0,R] = 0$。有两种经典的集团分解方法：
+\begin{align}
+  \begin{aligned}\left\langle\mathbf{p}^{\prime}|S|\mathbf{p}\right\rangle&=\delta^{(3)}\left(\mathbf{p}^{\prime}-\mathbf{p}\right)-2\pi i\delta(E_{p^{\prime}}-E_p)t(\mathbf{p}^{\prime}\leftarrow\mathbf{p})\\&=\delta^{(3)}\left(\mathbf{p}^{\prime}-\mathbf{p}\right)+\frac{i}{2\pi m}\delta(E_{p^{\prime}}-E_p)f(\mathbf{p}^{\prime}\leftarrow\mathbf{p})\mathrm{~.}\end{aligned}
+\end{align}
+
+\subsection{Questions and thoughts}
+
+\question{为什么不同时间的Hilbert Space可以不一样？这个不同的Hilbert Space的意义是什么？}
+见正文捏
+\qed 
+
+\question{为什么我们的in and out state可以用自由粒子态展开？}
+
+我目前的理解是这是一个假设，我们认为自由粒子的态构成了一个完备基，从而可以展开in and out state。同时其实还假设了，in and out state其实和自由粒子的态很像，否则这个展开可能很复杂！
+
+但是严格的散射理论应该可以把这个严格化！！这里就留个空子捏！
+
+\YL{[就是总觉得哪里不太对，为什么我们可以用自由粒子态展开in and out state呢？难道真的完备吗？？？]}
+
+
+
+
+

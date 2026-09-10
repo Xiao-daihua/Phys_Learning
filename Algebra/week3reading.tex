@@ -1,0 +1,207 @@
+week 3 reading的内容是第四章，张量算符。
+\subsection{Take home messages for Week 3}
+
+\hlr{张量算符的概念}
+
+我们已经知道表示作用在一个表示空间的向量上面的时候就是直接作用；对偶向量还需要$ \times -1 $；作用在算符上面是对易子。并且如果一个表示作用在算符作用的向量上面，可以理解为分别作用再【求和】。
+\rmk{注意，对于李群来说是分别作用再相乘，对于李代数（可以理解为生活在指数上面）则是分别作用再相加。}
+
+\defi{张量算符
+
+  张量算符是一组算符$ \{ O^s_i\} $其中s是某一个代数表示的标记。当这个代数的元素作用在张量算符上面的时候满足：
+  \begin{equation}
+    [J_a,O_\ell^s]=O_m^s\left[J_a^s\right]_{m\ell}.
+    \label{eq:tensoroperatordefi}
+  \end{equation}
+}
+\rmk{
+  注意，和张量算符有关的有两个表示空间；一个是张量算符本身作用的表示空间。一个是张量算符被某个李代数元素作用之后按照变换的表示空间$ s $！！
+}
+
+
+一个张量算符的例子，就是我们的位置算符。如果我们选择量子力学Hilbert Space作为表示空间。并且我们已知轨道角动量算符是SU(2)代数在Hilbert空间上的表示，动量和位置算符是Heisenberg 代数的表示。根据这些算符的关系定义式：$ J_a=L_a=\epsilon_{abc}r_bp_c $我们可以推导出来：
+\begin{equation}
+  \left[J_{a},r_{b}\right]=\epsilon_{acd}\left[r_{c}p_{d},r_{b}\right]=-i\epsilon_{acd}r_{c}\delta_{bd}=-i\epsilon_{acb}r_{c}=r_{c}[J_{a}^{\mathrm{adj}}]_{cb}
+  \label{eq:tensorposition}
+\end{equation}
+
+
+\bigskip 
+\hlr{怎么把张量算符变到标准基之中}
+
+我们上面发现这个算符是按照adjoint representation进行变换而不是一个标准的不等价不可约表示进行变换。我们可以【对张量算符进行线性组合】构造一个按照标准的SU(2)三维的不等价不可约表示变换的一套张量算符。
+
+\thm{张量算符变换表示s的相似变换
+
+  如果我们希望某一套线性组合张量算符按照一个表示进行相似变换之后的表示进行变换。我们考虑相似变换：
+  \begin{align}
+    SJ_{a}^{D}S^{-1}=J_{a}^{s}
+  \end{align}
+  那么我们新的一套张量算符是：
+  \begin{align}
+    O_\ell^s=\Omega_y\left[S^{-1}\right]_{y\ell}\quad\mathrm{~for~}\ell=-s\mathrm{~to~}s
+  \end{align}
+}
+
+上面的定理是对于一般情况的。但是对于SU(2)我们还有一个简单的方案。对于SU(2)来说，我们希望变换成为标准表示$ J_3 $作用在这些张量算符必然给出一个张量算符的weight的数值。不妨找一个线性组合被$ J_3 $作用之后正好是某一个数值乘上这个算符。再进行升降算符，就可以给出一整套张量算符。
+
+
+\bigskip
+\hlr{张量算符作用表示空间以及Wigner-Eckart定理【SU(2)代数作为例子】}
+
+我们现在研究一个新的表示空间。也就是张量算符作用在不等价不可约表示的空间上面。这个空间也构成了一个代数表示，并且同时这个空间的行为很像是一个张量积表示：
+\begin{equation}
+  \begin{aligned}J_{a}&O_{\ell}^{s}\left|j,m,\alpha\right\rangle\\&=[J_{a},O_{\ell}^{s}]\left|j,m,\alpha\right\rangle+O_{\ell}^{s}J_{a}\left|j,m,\alpha\right\rangle\\&=O_{\ell^{\prime}}^{s}\left|j,m,\alpha\right\rangle[J_{a}^{s}]_{\ell^{\prime}\ell}+O_{\ell}^{s}\left|j,m^{\prime},\alpha\right\rangle[J_{a}^{j}]_{m^{\prime}m}\end{aligned}
+  \label{eq:tensoropeonspace}
+\end{equation}  
+显然这个空间也可以进行约化成为等效的不等价不可约表示。我们进行约化：
+\begin{enumerate}
+  \item \textbf{第一步：定义Heighest Weight State} 我们把$ O^s_s\ket{j,j} $强行规定是 $ k_J \ket{J,J} $，其中$ J = s+j $ 。
+  \item \textbf{第二步：构建整个表示} 将$ J^\pm $算符作用上去，构建整个表示【这一步务必注意系数！！我们不能把$ J^- $作用一下的态就定义成$ \ket{J,J-1} $我们需要乘上一个系数】【这个注意特别关键，因为我们张量算符作用的态是没有合理的内积定义的，我们不能够归一化或者找正交的态】
+  \item \textbf{第三步，寻找下一个Heighest Weight State} 我们寻找在$ J_3 $下面本征值次大，并且是系数恰好满足$ J^+ \ket{J-1,J-1} = 0$的态，起名字为$ k_{J-1} \ket{J-1,J-1} $
+  \item 重复上面的步骤，直到我们已经找到了找全了所有的Heighest Weight State。
+\end{enumerate}
+\rmk{一个最重要的和之前约化张量积表示的不同是：算符作用空间【没有内积的定义】。所以我们不能归一化，更不能够定义正交。我们只能根据上面的规则起名字。但是，一个问题是：起出来的名字对于每一个表示来说，都有一个自由的系数$ k_J $。这个系数由下面的一些东西决定：
+\begin{itemize}
+  \item 张量算符具体是什么
+  \item 三个表示是什么【张量算符表示，张量算符所作用的表示空间，约化后的表示空间】
+  \item 其他可能的物理自由度$ \alpha , \beta ...$ 
+\end{itemize}
+但这个自由度和表示内部的基坐标$ m $是无关的！！！！
+
+}
+
+一个我们上面的起名字的直接导致的结果就是：
+\begin{align}
+  \sum_\ell O_\ell^s\left|j,M-\ell,\alpha\right\rangle\left\langle s,j,\ell,M-\ell\mid J,M\right\rangle=k_J\left|J,M\right\rangle
+\end{align}
+对比一下对于张量积表示我们有：
+\begin{align}
+  \sum_\ell\left|s,\ell\right\rangle\left|j,M-\ell\right\rangle\left\langle s,j,\ell,M-\ell\mid J,M\right\rangle=\left|J,M\right\rangle
+\end{align}
+这里我并没有$ k_J $系数，因为我们可以定义$ \braket{J,J}{J,J} = 1 $在张量积空间。但是对于张量算符作用空间，我没没有内积的定义。
+\imp{only name}{
+  我们牢记这些约化都是「重命名」。也就是说对于约化张量积表示，我们是在重命名一个「张量积空间」的向量；自然是有内积结构的。而对于张量算符作用空间，我们是在重命名一个「张量算符作用空间」的向量；这个空间没有内积结构。
+}
+
+\rmk{一个可能的疑惑是，我们为什么会有一步是需要$ J^- $作用之后还乘上一个系数？？这是因为我们需要保证重命名后的向量完全的满足是一个不等价不可约表示的向量，除了可能多一个global的系数！！}
+
+\thm{Wigner-Eckart定理
+
+这个定理其实就是这个约化的直接结果，我们考虑形式话的“内积”。也就是张量算符表示空间在一个重命名之后的分量，我们有：
+\begin{equation}
+  \begin{aligned}&\left\langle J,m^{\prime},\beta\right|O_{\ell}^{s}\left|j,m,\alpha\right\rangle\\&=\delta_{m^{\prime},\ell+m}\left\langle J,\ell+m|s,j,\ell,m\right\rangle\cdot\left\langle J,\beta\right|O^{s}\left|j,\alpha\right\rangle\end{aligned}
+  \label{eq:wignerckart}
+\end{equation}
+}
+\imp{这个定理写了什么}{
+  这个定理是形式话的书写！！但是我们不妨就把这个理解成物理的两个表示之间的「跃迁」。具体看下面的讨论。
+}
+
+
+\bigskip
+\hlr{Wigner-Eckart定理理解计算【特别是计算细节】}
+
+一个书中的辅助理解的例子。没啥意思。
+
+
+\bigskip
+\hlr{张量算符约化}
+
+如果一组算符按照可约表示进行变换，显然我们可以约化成为按照不等价不可约表示进行变换的算符。这个过程基本上和张量积表示约化是一样的。一个bug是我们怎么找Heighest Weight Operator？？
+
+唯一的方法就是找到所有满足 $ [J^+,O] = 0 $的算符组合。然后再通过下降算符构造。【依然注意系数问题，注意我们下降算符作用在一个基上面给出的不是下降一个weight的基，而是下降一个weight的基乘上一个系数！！】
+
+最后我们看看根据我们原先算符的数量知道有没有约化全！
+
+
+\bigskip
+\hlr{张量算符的乘积}
+
+没啥意义，就是对易子的乘法规则！ 
+
+\imp{提示用$ J^- $进行表示构造}{
+  一定一定一定要考虑$ J^- $自己表示的系数！！！就是$ \sqrt{\displaystyle\frac{1}{2}(j... m...)} $这样的东西！！！
+}
+
+
+\subsection{Explanations and Questions for Week 3}
+
+\question{ 为什么我们认为角动量算符是SU2 代数的表示？}
+
+因为我们实验给出的理论是角动量算符满足和SU2代数一样的对易关系并且是作用在Hilbert Space上面的算符。所以我们自然认为角动量算符是SU2代数的表示。包括其他动量算符什么的也是一样的道理我们说这些算符是Poincare 代数的表示。
+\qed 
+
+\question{ 我们在讨论Wigner-Eckart定理的时候，到底为什么会有仅仅与表示有关的量$ k_J $？}
+
+是因为我们在把一个张量积表示decompose称为很多不等价不可约表示的直和的时候。我们一旦找到了一个【Heighest Weight State】。那么我们可以直接通过升降算符进行构造整个表示。
+
+通过升降算符进行构造的过程是全部被群结构进行定义的。唯一可能出现出现的差别就是我们认为$ J^+ $作用在Heighest weight states上面是0。我们对于量子态的张量积我们可以定义归一化的量子态。但是对于算符作用在量子态上面，的情况，我们并不清楚是否有合理的归一化。所以left一个和表示以及算符相关的系数。
+\qed
+
+\question{ 考虑乘上算符之后构成更大的表示空间的量子态的关系到底是什么意思？(sec:4.4)}
+
+对于Wigner-Eckart定理有一个经典的核心写法：
+\begin{equation}
+  \sum_\ell O_\ell^s\left|j,M-\ell,\alpha\right\rangle\left\langle s,j,\ell,M-\ell\mid J,M\right\rangle=k_J\left|J,M\right\rangle 
+  \label{eq:wignereckartth}
+\end{equation}
+
+我们需要仔细讨论一下这个式子的意思。表面上左边是一个spin-1/2表示空间的向量作用一个张量算符。右边是一个spin0-3/2表示空间的向量，这很困惑，因为一个向量空间的向量不可以作用一个算符然后变成另一个向量空间的向量。
+
+但是这个式子需要理解为一个定义式子，这个定义式子是基于一个发现：
+\defi{张量算符作用空间
+
+张量算符作用在一个表示空间的量子态上面。在generator 的作用在的行为等价于一个张量积表示空间：
+\begin{equation}
+  \begin{aligned}&J_aO_\ell^s|j,m,\alpha\rangle\\&=[J_a,O_\ell^s]|j,m,\alpha\rangle+O_\ell^sJ_a|j,m,\alpha\rangle\\&=O_{\ell^{\prime}}^s\left|j,m,\alpha\right\rangle[J_a^s]_{\ell^{\prime}\ell}+O_\ell^s\left|j,m^{\prime},\alpha\right\rangle[J_a^j]_{m^{\prime}m}\end{aligned}
+  \label{eq:tensorpro}
+\end{equation}
+也就是我们考虑一个张量算符作用在一个ket构成的线性空间数学结构在李代数表示论下等价于另一个更大的表示空间——我们理解这个更大的表示空间是【张量算符作用空间】
+}
+下面我们把这个更大的空间进行约化。所以我们写出来式子\cref{eq:wignereckartth}。这个式子的意义是，一个【定义式】，我们把这个更大的空间之中的一个向量「左边」，起名作为一个新的不等价不可约表示的的Heighest weight state「右边」
+\qed
+
+\question{为什么张量算符作用在表示空间的这个进行约化需要有$ k_J $系数，一般的张量积表示没有？}
+
+其实是相对而言的。我们显然可以把这个系数融入到CG系数的。我们知识因为人类先研究的张量积表示，我们合理的定义CG系数，并且保证量子态归一化是合理的。于是我们保证张量积是没有$ k_J $的系数的。
+
+但是真实的张量算符作用，我们永远不能保证作用之后的量子态是不是归一的。因为算符的期望值显然不一定是1否则所有张量算符都是trivial的了！！
+\qed 
+
+\question{这里我们的$ k_J $系数到底由什么的性质决定捏？}
+
+我们$ k_J $是在构造Heighest weight state的时候产生的，所以我们讨论这个时候可能make a difference的参数：$ s, j, J, O^s, \alpha $都可能对其有影响。
+\qed
+
+\question{Wigner-Eckart定理的书写形式是什么意思，从数学上到物理上是什么意思？？}
+
+\hlr{数学上进行理解：}
+
+数学上我们写出来：
+\begin{equation}
+  \begin{aligned}&\left\langle J,m^{\prime},\beta\right|O_\ell^s\left|j,m,\alpha\right\rangle\\&=\delta_{m^{\prime},\ell+m}\left\langle J,\ell+m|s,j,\ell,m\right\rangle\cdot\left\langle J,\beta\right|O^s\left|j,\alpha\right\rangle\end{aligned}
+  \label{eq:wethm}
+\end{equation}
+我们认为左边式子$  \left\langle J,m^{\prime},\beta\right|O_\ell^s\left|j,m,\alpha\right\rangle $的意思是，一个等价于约化后的表示$ \ket{J,m'} $的向量和张量算符作用空间的另一个向量进行内积。内积结果是一个CG系数乘以一个只和表示，张量算符，其他自由度相关的系数。
+
+\bigskip
+\hlr{物理上Hilbert Space以及可观测量的理解：}
+
+如果我们把张量算符理解为可观测量，把左右的braket理解为Hilbert Space上面的量子态。我们可以把左边的数值理解为一个【跃迁的强度】！也就是在一定的微扰之后一个角动量跃迁到另一个角动量的强度。
+
+正是张量算符作用在某一个表示空间之后会变成一个更大的表示空间的性质让我们可以进行这样看起来很非法的计算！！
+
+\line
+
+下面我们用这样的思路看一些例子：
+
+例子1: 
+$ \left\langle1/2,1/2,\alpha\right|r_3\left|1/2,1/2,\beta\right\rangle=A $注意，我们数学上bra和ket并不属于同样的一个线性空间。ket是属于$ SU(2) $的spin -1/2表示空间；但是bra是属于$ r^1 \ket{1/2,m} $这样的张量算符作用空间的，并且是这个空间进行约化之后的一个不等价不可约表示的Heighest weight state。
+
+例子2:
+$ \bra{1/2,1/2,\alpha}r_{+1}\left|1/2,1/2,\beta\right\rangle $这个式子必然是0。因为我们知道我们使用的标准约化方法的定义是需要保证不同表示的量子态之间完全正交的。$ \ket{1/2,1/2} $是约化后spin-1/2表示的Heighest weight state。$ r_{+1}\ket{1/2,1/2} $是约化后spin-3/2表示的Heighest weight state。两个Heighest weight state必然正交。所以我们有结论：$ \bra{1/2,1/2,\alpha}r_{+1}\left|1/2,1/2,\beta\right\rangle  = 0$
+
+\qed 
+
+

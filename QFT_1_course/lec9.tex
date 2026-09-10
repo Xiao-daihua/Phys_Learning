@@ -1,0 +1,528 @@
+\subsection{自由标量场Hilbert Space}
+\subsubsection{Fock Space构造Hilbert Space}
+
+\bigskip
+\hlr{Fock Space as Hilbert Space}
+
+对于自由标量场我们的复习其基本知识：
+\begin{itemize}
+  \item \textbf{Hmiltonian形式}
+    \begin{align}
+      H=\int\frac{d^3\mathbf{k}}{(2\pi)^3}\omega_\mathbf{k}a_\mathbf{k}^\dagger
+      a_\mathbf{k}.
+    \end{align}
+  \item \textbf{产生湮灭算符对易关系}
+    \begin{align}
+      \left[H,a_\mathbf{k}^\dagger\right]=\omega_\mathbf{k}a_\mathbf{k}^\dagger,\quad[H,a_\mathbf{k}]=-\omega_\mathbf{k}a_\mathbf{k},
+    \end{align}
+\end{itemize}
+对于这样形式的系统我们有一套系统的方法构建其Hilbert空间：
+\defi{
+  Fock Space作为Hilbert空间
+
+  对于自由标量场，我们定义其Fock Space作为Hilbert空间：
+  \begin{align}
+    \mathcal{H}=\mathrm{Span}
+    \left\{\prod_ja_{\mathbf{k}_j}^\dagger|0\rangle,j=0,1,2....\right\}\equiv\left\{|0\rangle,|\mathbf{k}_1\rangle,|\mathbf{k}_1,\mathbf{k}_2\rangle,...\right\}.
+  \end{align}
+  其中$ |0\rangle $是真空态，满足$ a_\mathbf{k}|0\rangle=0 $。
+}
+我们可以使用对易关系很自然的赋予一个内积结构。
+\begin{align}
+  \langle\mathbf{p}|\mathbf{k}\rangle=\langle0|a_\mathbf{p}a_\mathbf{k}^\dagger|0\rangle=(2\pi)^3\delta^3(\mathbf{p-k}),
+\end{align}
+
+\bigskip
+\hlr{对称波函数与波色子}
+
+我们会发现这个Hilbert空间上的态必然是对称的。也就是说：
+\begin{align}
+  |\Psi_f\rangle\equiv\int
+  d^3\mathbf{k}_1d^3\mathbf{k}_2\left.f(\mathbf{k}_1,\mathbf{k}_2)|\mathbf{k}_1,\mathbf{k}_2\right\rangle=\int
+  d^3\mathbf{k}_1d^3\mathbf{k}_2\left.f(\mathbf{k}_1,\mathbf{k}_2)|\mathbf{k}_2,\mathbf{k}_1\right\rangle=\int
+  d^3\mathbf{k}_1d^3\mathbf{k}_2\left.f(\mathbf{k}_2,\mathbf{k}_1)|\mathbf{k}_1,\mathbf{k}_2\right\rangle.
+\end{align}
+其中$ f(k_1,k_2) $必然是一个对称函数，因为反对称的部分会被削掉！！这说明我们的理论是一个关于波色子的量子理论
+
+\bigskip
+\hlr{量子态的Interpretation}
+
+我们如何理解这个Hilbert空间中的量子态呢？我们发现这些量子态可以被解释为on shell
+的粒子。为了看出来这个结果我们需要正则量子化一下动量算符「也就是空间平移对称性的守恒量我们interpret成为动量」：
+\begin{align}
+  P^i=-P_i=-\int d^3\mathbf{x}\dot{\phi}\partial_i\phi=-\int
+  d^3\mathbf{x}\pi\partial_i\phi\equiv\int\frac{d^3\mathbf{k}}{(2\pi)^3}\mathbf{k}^ia_\mathbf{k}^\dagger
+  a_\mathbf{k}.
+\end{align}
+发现对易关系有：
+\begin{align}
+  [P^i,a_{\mathbf{k}}^\dagger]=\mathbf{k}^ia_{\mathbf{k}}^\dagger,\quad
+  [P^i,a_{\mathbf{k}}]=-\mathbf{k}^ia_{\mathbf{k}}.
+\end{align}
+对于这个关系我们interpret为：
+\begin{itemize}
+  \item $ a_\mathbf{k}^\dagger $产生了一个为能量和动量为：$
+    k^\mu=(\omega_\mathbf{k},\mathbf{k})=(\sqrt{\mathbf{k}^2+m^2},\mathbf{k})
+    $的on shell $ k^\mu k_\mu=m^2. $粒子。
+\end{itemize}
+
+\rmk{
+  注意！！！我们所有的讨论都是在一个固定的参考系下面进行的！！！我们固定了时间是什么并且选择了固定的参考系下的空间坐标系！！！
+
+  对于坐标变换前后这个「粒子」的动量会发生什么变换我们后面会进行讨论，结论是，对于Lorentz变换来说粒子的动量会按照Lorentz变换进行变换。
+}
+
+\subsubsection{Lorentz不变形式的Measure和Delta函数}
+
+物理人喜欢把一切细节写作协变样子的，哪怕我们上面的讨论固定了一个参考系。但是，我们会希望一个形式的三维积分和三维delta函数在Lorentz变换下也是协变的【并且之后我们会知道不同参考系下面量子化确实就是按照协变形式协变】。我们下面讨论怎么书写！
+\begin{itemize}
+  \item \textbf{Lorentz不变measure}： 对于这个三维积分measure在lorentz变换下不变的
+    \begin{align}
+      d\Omega_k\equiv\frac{d^3\mathbf{k}}{(2\pi)^3}\frac{1}{2\omega_\mathbf{k}},
+    \end{align}
+    这个不变的理解可以认为是因为我们这个三维的积分等价于四维的on shell积分，而on
+    shell的约束方程和四维度的measure都是Lorentz不变的。因此我们整个三维度的measure也是Lorentz不变的:
+    \begin{align}
+      \int\frac{d^4k}{(2\pi)^4}2\pi\delta(k^2-m^2)\theta(k^0)f(k)=\int\frac{d^3\mathbf{k}}{(2\pi)^3}\frac{1}{2\omega_\mathbf{k}}f(\omega_\mathbf{k},\mathbf{k})
+    \end{align}
+    当然数学上我们也可以严格验证其Lorentz不变的性质：
+    \begin{align}
+      d\Omega_{k'}=d\Omega_k,\quad k'^\mu=\Lambda^\mu_{\ \nu}k^\nu.
+    \end{align}
+  \item \textbf{Lorentz不变delta函数}： 对于delta函数我们也可以定义一个协变的delta函数：
+    \begin{align}
+      (2\pi)^3 2\omega_\mathbf{p} \delta^{(3)}(\mathbf{p}-\mathbf{k})
+    \end{align}
+    我们可以验证其在Lorentz变换下也是不变的：
+    \begin{align}
+      (2\pi)^3
+      2\omega_{\mathbf{p}^{\prime}}\delta^{(3)}(\mathbf{p}^{\prime}-\mathbf{k}^{\prime})=(2
+      \pi )^3 2\omega_\mathbf{p}\delta^{(3)}(\mathbf{p}-\mathbf{k})
+      \quad  p'^\mu=\Lambda^\mu_{\ \nu}p^\nu,k'^\mu=\Lambda^\mu_{\ \nu}k^\nu.
+    \end{align}
+\end{itemize}
+\rmk{
+  为什么我们可以使用这个协变形式呢？本质上是因为我们的场都是on shell的！因此我们可以把$ k^0 $用$ \mathbf{k}
+  $表示出来，蕴含着不explicit的Lorentz协变性！！
+}
+于是我们可以强行把Hamiltonian和动量算符写在一起：
+\begin{align}
+  P^\mu=\int\frac{d^3\mathbf{k}}{(2\pi)^32\omega_\mathbf{k}}k^\mu\bar{a}_\mathbf{k}^\dagger\bar{a}_\mathbf{k},\quad\bar{a}_\mathbf{k}=\sqrt{2\omega_\mathbf{k}}a_\mathbf{k},
+\end{align}
+这很协变了。btw，我们这里的$ \bar{a} $是一个稍微modify过的产生湮灭算符。
+\begin{itemize}
+  \item \textbf{协变产生湮灭算符}
+    \begin{align}
+      a_\mathbf{k}\to \bar{a}_{\mathbf{k}} =
+      \sqrt{2\omega_{\mathbf{k}}} a_{\mathbf{k}}, \quad
+      \left[\bar{a}_{\mathbf{k}},\bar{a}_{\mathbf{p}}^{\dagger}\right]=(2\pi)^32\omega_{\mathbf{k}}\delta^3(\mathbf{k-p}),
+    \end{align}
+  \item \textbf{协变量子态}
+
+    显然我们的Hilbert Space也可以写作这个协变的形式，其定义与内积结构是：
+    \begin{align}
+      | \mathbf{k}
+      \rangle\equiv\bar{a}_{\mathbf{k}}^\dagger|0\rangle,\quad\langle
+      \mathbf{p}|
+      \mathbf{k}\rangle=\langle0|\bar{a}_{\mathbf{p}}\bar{a}_{\mathbf{k}}^\dagger|0\rangle=(2\pi)^32\omega_\mathbf{p}\delta^3(\mathbf{p-k}).
+    \end{align}
+    我们会发现这个内积结构自然的给出了Lorentz不变的形式。之后我们的坐标变换的讨论会知道确实左边的量子态内积也是Lorentz不变的！！
+\end{itemize}
+
+\imp{协变形式}{
+  从此以后未加声明，我们使用协变形式来书写自由标量场的量子态和算符，并且不再使用上横线进行区分！我们写的$ a_k $以后都是$
+  \bar{a}_k $的意思！并且这里由于我们知道所有$ a_k $全部代表on shell的粒子，因此我们有的时候为了方便使用$
+  k^\mu=(\omega_\mathbf{k},\mathbf{k}) $来表示其四维动量！$ a_{\mathbf{k}},
+  a_k $两者是完全没有区别的！！
+}
+协变的产生湮灭算符表示场算符形式为：
+\thm{
+  自由标量场等时面展开
+
+  自由标量场的场算符和共轭动量算符的展开为：
+  \begin{align}
+    \phi(\mathbf{x})&=\int
+    d\Omega_\mathbf{k}\left(a_\mathbf{k}e^{i\mathbf{k}\cdot\mathbf{x}}+a_\mathbf{k}^\dagger
+    e^{-i\mathbf{k}\cdot\mathbf{x}}\right),\\
+    \pi(\mathbf{x})&=\int
+    d\Omega_\mathbf{k}\left(-i\omega_\mathbf{k}a_\mathbf{k}e^{i\mathbf{k}\cdot\mathbf{x}}+i\omega_\mathbf{k}a_\mathbf{k}^\dagger
+    e^{-i\mathbf{k}\cdot\mathbf{x}}\right).
+  \end{align}
+}
+
+\subsubsection{动量与位置表象}
+
+我们之前研究是在动量表象的，所以给出的单粒子态是$ |\mathbf{k}\rangle
+$。我们也可以定义位置表象的单粒子态，我们interpret场算符$ \phi(x) $作为产生一个在位置$ x $的粒子的算符：
+\begin{align}
+  \phi(\mathbf{x})|0\rangle=\int\frac{d^3p}{(2\pi)^3}\frac{1}{2\omega_\mathbf{p}}e^{-i\mathbf{p}\cdot\mathbf{x}}|\mathbf{p}\rangle
+\end{align}
+我们计算会发现：
+\begin{align}
+  \langle\mathbf{p}|\mathbf{x}\rangle\equiv\langle\mathbf{p}|\phi(\mathbf{x})|0\rangle
+  = e^{-i\mathbf{p}\cdot\mathbf{x}}
+\end{align}
+这正好就是平面波的形式！！
+\begin{itemize}
+  \item 我们interpret为$ \phi(\mathbf{x})|0\rangle $是一个在位置$ \mathbf{x} $的粒子态。
+\end{itemize}
+
+\subsection{Heisenberg Picture构造全时空的场算符}\label{sec:Heisenberg Picture构造全时空的场算符}
+
+\hlr{时间平移构建全时空场算符}
+
+量子化的过程是在一个等时面上面定义的，但是我们的Heisenberg
+Picture已经告诉我们这些算符在不同时间是什么样子的，我们不妨先通过Heisenberg
+Picture把这些算符扩展到全时空。根据量子力学Heisenberg Picture，我们给出定理：
+\thm{
+  自由标量场时间演化
+
+  自由标量场在未来过去时间的构型为：
+  \begin{align}
+    \phi(x^\mu)&\equiv e^{iHt}\phi(0,\mathbf{x})e^{-iHt},\\
+    \pi(x^\mu)&\equiv e^{iHt}\pi(0,\mathbf{x})e^{-iHt}
+  \end{align}
+}
+下面我们通过自由标量场的Hamiltonian，具体计算这些场算符在时空的形式。通过产生湮灭算符和Hamiltonian的对易关系我们知道：
+\begin{align}
+  e^{iHt}a_\mathbf{p}e^{-iHt}=a_\mathbf{p}e^{-iE_\mathbf{p}t},\quad
+  e^{iHt}a_\mathbf{p}^\dagger e^{-iHt}=a_\mathbf{p}^\dagger e^{iE_\mathbf{p}t},
+\end{align}
+因此全时空的场算符可以写作：
+\thm{\label{thm:covariant_form_of_free_scalar_field}
+  自由标量场的全时空场算符的协变形式
+
+  自由标量场的全时空场算符的协变形式为：
+  \begin{align}
+    \phi(x)&=\int
+    d\Omega_{\mathbf{p}}\left(e^{-ip_{\mu}x^{\mu}}a_{\mathbf{p}}+e^{ip_{\mu}x^{\mu}}a_{\mathbf{p}}^{\dagger}\right).\\
+    \pi(x)&=\frac{\partial}{\partial t}\phi(x)
+    =\int d\Omega_{\mathbf{p}}\Big(
+      -i\omega_{\mathbf p} e^{-ip_\mu x^\mu} a_{\mathbf p}
+      + i\omega_{\mathbf p} e^{ip_\mu x^\mu} a_{\mathbf p}^\dagger
+    \Big).
+  \end{align}
+}
+我们可以验证，这个显然是满足经典的Klein Gordon运动方程的。
+
+\bigskip
+\hlr{空间的类似的note}
+
+其实通过产生湮灭算符和动量算符的对易关系我们也可以有下面的关系：
+\begin{align}
+  e^{-i\mathbf{P}\cdot\mathbf{x}}a_\mathbf{p}e^{i\mathbf{P}\cdot\mathbf{x}}=a_\mathbf{p}e^{i\mathbf{p}\cdot\mathbf{x}},\quad
+  e^{-i\mathbf{P}\cdot\mathbf{x}}a_\mathbf{p}^{\dagger}e^{i\mathbf{P}\cdot\mathbf{x}}=a_\mathbf{p}^{\dagger}e^{-i\mathbf{p}\cdot\mathbf{x}},
+\end{align}
+注意，这里全部都是Euclidean的内积！我们通过这个带入\cref{thm:covariant_form_of_free_scalar_field}会发现一个神奇的关系：
+\begin{align}\label{eq:spatial_translation_of_field_operator}
+  e^{- iP^\mu b_\mu }\phi(x)e^{iP_\mu b^\mu}=\phi(x-b) \quad    e^{
+  iP^\mu b_\mu }\phi(x)e^{-iP_\mu b^\mu}=\phi(x+b)
+\end{align}
+我们把时空结合起来，就会发现，其实场在时空每一个点的取值都可以通过一个“演化算符”然后任意时空点的取值可以通过这个算符作用在原点的场算符上面得到：
+\begin{align}
+  \phi(x)=e^{i(Ht-\mathbf{P}\cdot\mathbf{x})}\phi(0)e^{-i(Ht-\mathbf{P}\cdot\mathbf{x})}=e^{iP_\mu
+  x^\mu }\phi(0)e^{-iP_\mu x^\mu},
+\end{align}
+\rmk{
+  我们这里用了记号，所有$ P^\mu $都是算符而$ p^\mu $是数值！
+}
+
+\subsection{角动量和Boost守恒量}\label{sec:Boost生成元(守恒量)}
+
+\hlr{角动量与boost算符的产生湮灭算符表示}
+
+我们希望使用产生湮灭算符写出角动量和boost算符。其中需要一个数学技巧：
+\begin{align}
+  \int d^3x
+  \ x^ie^{i(\mathbf{k-p})\cdot\mathbf{x}}=i(2\pi)^3\frac{\partial}{\partial
+  k_i}\delta^{(3)}(\mathbf{k-p}).
+\end{align}
+最终得到：
+\begin{align}
+  J^{ij}&=\int d^3\mathbf{x}(x^iT^{0j}-x^jT^{0i})=-i\int
+  d\Omega_\mathbf{k}a_\mathbf{k}^\dagger(t)\left(k^i\frac{\partial}{\partial
+  k^j}-k^j\frac{\partial}{\partial k^i}\right)a_\mathbf{k}(t)\\
+  &=-i\int
+  d\Omega_\mathbf{k}a_\mathbf{k}^\dagger\left(k^i\frac{\partial}{\partial
+  k^j}-k^j\frac{\partial}{\partial k^i}\right)a_\mathbf{k},
+\end{align}
+\begin{align}
+  J^{j0}&=\int d^3\mathbf{x}\left(x^jT^{00}-tT^{0j}\right)=\int
+  d\Omega_{\mathbf{k}}a_{\mathbf{k}}^{\dagger}(t)\left(i\omega_{\mathbf{k}}\frac{\partial}{\partial
+  k^{j}}-tk^{j}\right)a_{\mathbf{k}}(t)\\
+  &=\int d\Omega_\mathbf{k}a_\mathbf{k}^\dagger
+  i\omega_\mathbf{k}\frac{\partial}{\partial k^j}a_\mathbf{k}.
+\end{align}
+\rmk{
+  注意区分上下指标捏 $ \partial/\partial_{k_i}=-\partial/\partial_{k^i}
+  $。上面的公式左边和右边的上下指标是不同的，但是我们其实是利用了这个关系！请务必注意捏！
+}
+其与产生湮灭算符的对易关系为：
+\begin{align}
+  [J^{ij},a_{\mathbf{p}}]= i\left(p^i\frac{\partial}{\partial
+  p^j}-p^j\frac{\partial}{\partial p^i}\right)a_{\mathbf{p}},\quad
+  [J^{i0},a_{\mathbf{p}}]=-i\omega_{\mathbf{p}}\frac{\partial}{\partial
+  p^i}a_{\mathbf{p}}.
+\end{align}
+
+\bigskip
+\hlr{角动量算符旋转生成元}
+
+我们可以换一套基，使用角动量算符和boost算符作为生成元！对于角动量算符我们定义为：
+\begin{align}
+  J^k=\frac{1}{2}\epsilon^{kij}J^{ij}
+\end{align}
+其具体形式为：
+\begin{align}
+  J^k=\int
+  d\omega_\mathbf{p}a_\mathbf{p}^\dagger(-i\mathbf{p}\wedge\nabla_\mathbf{p})^ka_\mathbf{p}\equiv\int
+  d\omega_\mathbf{p}a_\mathbf{p}^\dagger\hat{L}^ka_\mathbf{p}
+\end{align}
+与产生湮灭算符对易关系为：
+\begin{align}
+  [J^k,a_{\mathbf{p}}^\dagger]=i(\mathbf{p}\wedge\nabla_{\mathbf{p}})^ka_{\mathbf{p}}^\dagger
+\end{align}
+\rmk{
+  注意！这个对易关系的推导之中我们需要使用分部积分，保证导数作用在$ a_p^\dagger
+  $上面！但问题是，我们完全不知道怎么计算导数作用在$ a_p^\dagger
+  $上面的结果！！因此这个对易关系只能作为一个形式结果存在！！我们之后如果使用这个会需要再进行分部积分把导数作用在其他部分上面！
+}
+
+\bigskip
+\hlr{boost算符boost生成元}
+
+同样的对于boost算符我们定义：
+\begin{align}
+  K^i = J^{i0}
+\end{align}
+所以我们boost算符用产生湮灭算符表示的形式是：
+\begin{align}
+  K^i =\int
+  d\omega_{\mathbf{k}}a_{\mathbf{k}}^{\dagger}i\omega_{\mathbf{k}}\frac{\partial}{\partial
+  k^{j}}a_{\mathbf{k}}.
+\end{align}
+我们计算其与产生湮灭算符的对易关系为：
+\begin{align}
+  [K^i,a_{\mathbf{p}}^\dagger]=i\omega_{\mathbf{p}}\frac{\partial}{\partial
+  p^i}a_{\mathbf{p}}^\dagger.
+\end{align}
+
+\bigskip
+\hlr{角动量算符作用在单粒子态上}
+
+经典力学告诉我们角动量就是转动变换的守恒荷。我们不妨把这个定义一般沿用，使用转动的守恒荷定义系统的角动量。因而我们前面得到的算符$ J^i
+$其实就是场论的角动量算符。我们知道角动量算符作用在量子态上会给出其角动量。因此我们不妨研究其作用在单粒子态上面的结果：
+
+\subsection{量子理论的Poincare Covariance}
+现在我们希望研究Poincare变换前后【physical的量子态】的变化。
+\begin{itemize}
+  \item 标量场的定义已经告诉我们其按照$ \phi'(x') = \phi(x) $进行协变。但标量场并非physical
+    interpretation的物品。
+  \item 我们希望研究产生湮灭算符(这些有physical 粒子 interpretation)在Poincare变换下的变化。
+  \item 进一步研究量子态在Poincare变换下的变化。
+\end{itemize}
+首先我们需要理解什么是\textbf{Poincare变换后的产生湮灭算符}。考虑另一个坐标系下的人观察这个场，其观察到的场构型是$
+\phi'(x) $输入一个相对于自己的$ x $给出一个$ \phi'(x) $的取值。因此我们定义其观测到的产生湮灭算符为：
+\defi{
+  Poincare变换下的产生湮灭算符
+
+  对于一个Poincare变换$ x^\mu \to x'^\mu = \Lambda^\mu_{\ \nu}x^\nu + a^\mu
+  $，我们定义变换后的产生湮灭算符为：
+  \begin{align}
+    a_{\mathbf{k}}' \text{ satisfies } \phi'(x) = \int
+    d\Omega_\mathbf{k'}\left(a_\mathbf{k}'e^{-ik_\mu
+    x^\mu}+a_\mathbf{k}^{\prime\dagger}e^{ik_\mu x^\mu}\right).
+  \end{align}
+}
+
+\subsubsection{时空平移变换下量子态的变换}
+
+\hlr{平移变换下产生湮灭算符}
+
+对于时空平移变换$ x^\mu \to x'^\mu = x^\mu + a^\mu $，我们根据标量场的定义有：$ \phi'(x) =
+\phi(x - a) $。 带入场算符的表达式我们有：
+\begin{align}
+  \phi'(x) &= \phi(x - a) \\
+  &= \int d\Omega_\mathbf{k}\left(a_\mathbf{k}e^{-ik_\mu (x^\mu -
+  a^\mu)} + a_\mathbf{k}^\dagger e^{ik_\mu (x^\mu - a^\mu)}\right) \\
+  &= \int d\Omega_\mathbf{k}\left(a_\mathbf{k}e^{ik_\mu
+    a^\mu}e^{-ik_\mu x^\mu} + a_\mathbf{k}^\dagger e^{-ik_\mu
+  a^\mu}e^{ik_\mu x^\mu}\right).
+\end{align}
+对比我们上面的定义我们可以得到时空平移变换下产生湮灭算符的变换形式：
+\thm{
+  时空平移变换下产生湮灭算符的变换
+
+  对于时空平移变换$ x^\mu \to x'^\mu = x^\mu + a^\mu $，产生湮灭算符的变换形式为：
+  \begin{align}
+    a_{\mathbf{p}}' = e^{ip_\mu a^\mu}a_\mathbf{p}, \quad
+    a_{\mathbf{p}}^{\prime \dagger} = e^{-ip_\mu a^\mu}a_\mathbf{p}^\dagger.
+  \end{align}
+}
+
+\bigskip
+\hlr{Unitary Operator表示时空平移}
+
+我们发现其实时间平移变换可以使用一个Unitary算符进行表达。我们定义算符：
+\begin{align}
+  U(a) = e^{iP_\mu a^\mu}, \quad U^\dagger(a) = e^{-iP_\mu a^\mu}.
+\end{align}
+其中$ P^\mu $是之前定义的量子化动量的算符。根据前面\cref{sec:Heisenberg Picture构造全时空的场算符}的一些结论我们会发现：
+\begin{align}
+  \phi'(x) = \phi(x-a) = e^{-iP_\mu a^\mu }\phi(x)e^{iP_\mu a^\mu}
+  \quad a_{\mathbf{p}}' = e^{-iP_\mu a^\mu } a_{\mathbf{p}} e^{iP_\mu a^\mu}
+\end{align}
+\rmk{
+  第一个公式前一部分是标量场的定义，后一部分是$ \phi(x-a) $和算符作用的关系是前面证明的数学结果
+}
+也就是说其实时空平移变换前后的场算符和产生湮灭算符可以通过一个Unitary算符作用得到！写作定理：
+\thm{
+  Unitary Operator表示时空平移变换
+
+  对于时空平移变换$ x^\mu \to x'^\mu = x^\mu + a^\mu $，场算符和产生湮灭算符的变换形式为：
+  \begin{align}
+    \phi'(x) =U^\dagger(a)\phi(x)U(a) = e^{-iP_\mu a^\mu
+    }\phi(x)e^{iP_\mu a^\mu}, \quad
+    a_{\mathbf{p}}' = U^\dagger(a) a_{\mathbf{p}} U(a) =  e^{-iP_\mu
+    a^\mu } a_p e^{iP_\mu a^\mu}.
+  \end{align}
+}
+
+\bigskip
+\hlr{时空平移变换的量子态}
+
+我们认为量子态定义为产生湮灭算符作用在真空态上面得到的！因此我们定义时空平移变换下的量子态为：
+\thm{
+  时空平移变换下量子态的变换
+
+  对于时空平移变换$ x^\mu \to x'^\mu = x^\mu + a^\mu $，量子态的变换形式为：
+  \begin{align}
+    |\mathbf{p}'\rangle = a_{\mathbf{p}}'|0 \rangle = e^{ip_\mu
+    a^\mu}|\mathbf{p}\rangle = U^\dagger(a)|\mathbf{p}\rangle.
+  \end{align}
+}
+
+\subsubsection{Lorentz变换下量子态的变换}
+
+在Lorentz变换前后$ x ^\mu \to x'^\mu = \Lambda^\mu_{\ \nu}x^\nu
+$，我们根据标量场的定义有：$ \phi'(x) = \phi(\Lambda^{-1}x) $。 带入场算符的表达式我们有：
+\begin{align}
+  \phi'(x) &= \phi(\Lambda^{-1}x) \\
+  &= \int d\Omega_\mathbf{k}\left(a_k e^{-ik_\mu
+    (\Lambda^{-1})^\mu_{\ \nu} x^\nu} + a_k^\dagger e^{ik_\mu
+  (\Lambda^{-1})^\mu_{\ \nu} x^\nu}\right) \\
+  & = \int d \Omega_{\mathbf{k}}\left(a_{\Lambda^{-1}k} e^{-ik_\nu
+  x^\nu} + a_{\Lambda^{-1}k}^\dagger e^{ik_\nu x^\nu}\right).
+\end{align}
+对比我们上面的定义我们可以得到Lorentz变换下产生湮灭算符的变换形式：
+\thm{
+  Lorentz变换下产生湮灭算符的变换
+
+  对于Lorentz变换$ x^\mu \to x'^\mu = \Lambda^\mu_{\ \nu}x^\nu $，产生湮灭算符的变换形式为：
+  \begin{align}
+    a_{\mathbf{p}}' = a_{\Lambda^{-1}p}, \quad
+    a_{\mathbf{p}}^{\prime \dagger} = a_{\Lambda^{-1}p}^\dagger.
+  \end{align}
+}
+
+\bigskip
+\hlr{Unitary Operator表示Lorentz变换}
+
+同样的我们可以发现其实Lorentz变换可以使用一个Unitary算符进行表达。对于一个Lorentz变换$ \Lambda $我们定义算符：
+\begin{align}
+  \Lambda(\omega) =
+  \text{exp}\left(-\frac{i}{2}\omega_{\mu\nu}\mathrm{J}^{\mu\nu}\right),
+  \quad \Rightarrow \quad U(\omega) =
+  \text{exp}\left(-\frac{i}{2}\omega_{\mu\nu}J^{\mu\nu}\right).
+\end{align}
+这里第一个$ \mathrm{J} $是defining representation下的Lorentz生成元，第二个$ J
+$是\cref{sec:Boost生成元(守恒量)}之中讨论的算符。我们计算其作用在场上面的结果会得到：
+\begin{align}
+  U(\Lambda)^{\dagger}\phi(x)U(\Lambda) = \phi(\Lambda^{-1}x), \quad
+  U(\Lambda)^{\dagger}a_p U(\Lambda) = a_{\Lambda^{-1}p}.
+\end{align}
+因此我们知道Lorentz变换后的场算符和产生湮灭算符可以通过一个Unitary算符作用得到！写作定理：
+\thm{
+  Unitary Operator表示Lorentz变换
+
+  对于Lorentz变换$ x^\mu \to x'^\mu = \Lambda^\mu_{\ \nu}x^\nu $，场算符和产生湮灭算符的变换形式为：
+  \begin{align}
+    \phi'(x) =U^\dagger(\Lambda)\phi(x)U(\Lambda) , \quad
+    a_{\mathbf{p}}' = U^\dagger(\Lambda) a_{\mathbf{p}} U(\Lambda)
+  \end{align}
+}
+
+\bigskip
+\hlr{Lorentz变换的量子态}
+
+我们认为量子态定义为产生湮灭算符作用在真空态上面得到的！因此我们定义Lorentz变换下的量子态为：
+\thm{
+  Lorentz变换下量子态的变换
+
+  对于Lorentz变换$ x^\mu \to x'^\mu = \Lambda^\mu_{\ \nu}x^\nu $，量子态的变换形式为：
+  \begin{align}
+    |p'\rangle = a_{\mathbf{p}}'|0 \rangle = |\Lambda^{-1}p\rangle =
+    U^\dagger(\Lambda)|p\rangle.
+  \end{align}
+}
+
+\subsection{补充讨论：Lorentz Group的表示总结}
+
+到现在我们已经遇到了Lorentz Group在各种表示空间的表示，我们总结一下：
+\begin{itemize}
+  \item \textbf{Defining Representation}： 这是Lorentz
+    Group最基本的表示空间，就是四维时空本身。Lorentz变换作用在时空坐标上面的形式$ x'^\mu =
+    \Lambda^\mu{}_\nu x^\nu $就是Defining Representation。
+  \item \textbf{Adjoint Representation}： 这是Lorentz
+    Group作用在其Lie代数上的表示。也就是李代数本身在Lorentz变换的$ U A U^{-1} $作用下的变换。
+  \item \textbf{场构型空间Representation}： 这是Lorentz Group作用在场构型空间上的表示。定义上是：
+    \begin{align}
+      \phi_a'(x) = D(\Lambda)_a{}^b \phi_b(\Lambda^{-1}x).
+    \end{align}
+    对于自由标量场来说，$ D(\Lambda) = 1 $。
+  \item \textbf{Hilbert空间Representation}： 这是Lorentz
+    Group作用在Hilbert空间上的表示。对于自由标量场Hilbert空间来说是：
+    \begin{align}
+      \ket{p}' = U(\Lambda)^\dagger \ket{p} = \ket{\Lambda^{-1}p}.
+    \end{align}
+\end{itemize}
+上面的讨论之中，我们其实发现了一个结论，也就是Lorentz变换在量子场构型空间的表示和在Hilbert空间的表示有一定的关系。我们推测对于更一般的场来说，这个关系应该是：
+\thm{
+  \textbf{Lorentz Group在场构型空间和Hilbert空间的表示关系}
+
+  对于一个Lorentz变换$ \Lambda $，其在场构型空间的表示为$ D(\Lambda) $，在Hilbert空间的表示为$
+  U(\Lambda) $，那么他们之间的关系为：
+  \begin{align}
+    U^\dagger(\Lambda)\phi_a(x)U(\Lambda) = D(\Lambda)_a{}^b
+    \phi_b(\Lambda^{-1}x).
+  \end{align}
+}
+这是极其合理的结论，因为我们的量子化过程需要把经典场构型变成Hilbert 空间的算符，所以这两个表示空间之间必须有这样的联系才能够自洽。
+
+\subsection{Complex Scalar Field}
+
+如果我们希望一个标量场的理论，内部包含一个$ U(1) $对称性，那么单个标量场是不能够包含这个内部对称性的。我们需要引入两个标量场。
+
+\subsection{Question and Thoughts}
+
+\question{为什么自由标量场$ k^\mu = (\omega_k, k) $产生的粒子，进行一个lorantz
+变换重新量子化之后，会正好给出了一个对应的$ k'^\mu = \Lambda^\mu{}_{\nu} k^\nu $的粒子态？}
+
+对于自由标量场的协变我们需要理清楚两个事情：
+\begin{itemize}
+  \item 产生湮灭算符在坐标变换下的协变行为
+  \item 真空态在坐标变换下的协变行为
+\end{itemize}
+我们可以证明对于Lorentz变换来说，这两者，真空态是invariant的，而产生湮灭算符是按照$ k
+$进行Lorentz变换的。所以我们最终得到的粒子谱正好是按照$ k $进行Lorentz变换的。
+
+\qed
+
+\question{为什么我们使用Heisenberg Picture时间平移的场算符自然满足运动方程？}
+
+这就是Heisenberg Picture给出的。我们使用时间演化算符是已经输入了on
+shell条件的。所以自然是满足运动方程的。严格的也可以通过poisson bracket进行证明捏！
+\qed
+
+\question{Hamiltonian
+Formalism到底是有多少的协变性，有多少的非协变性？？也就是什么坐标变换会让Hamiltonina invariant？？}

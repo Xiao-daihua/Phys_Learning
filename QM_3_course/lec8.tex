@@ -1,0 +1,291 @@
+我们前面研究了量子散射理论的set up，下面我们讨论这样的理论是怎样给出可观测量的。
+
+\subsection{量子散射问题的set up}
+
+在讨论之前，我们需要set up量子散射问题来说明，对于量子散射问题我们的可观测量是什么，我们怎么从经典的散射截面的定义推广到量子力学的语境下。
+
+\bigskip
+\hlr{一般in state对应out state的概率分布}
+
+\begin{itemize}
+  \item \textbf{一般in state给出out state在某个立体角的概率：}
+
+    我们考虑一个一般的in state $ \kin{\psi} $其在动量空间的表示为$ \psi_{\text{in}}(p) =
+    \langle p \kin{\psi} $。如果其出射到某个out state为$ \kout{\psi} $其概率是：
+    \begin{align}
+      \boldsymbol{\omega}\left(d\Omega\leftarrow\psi_{\mathrm{in}}\right)=d\Omega\int
+      p^2dp\left|\psi_{\mathrm{out}}(\mathbf{p})\right|^2.
+    \end{align}
+    注意到out state $ \psi_{\text{out}}(\mathbf{p})
+    $是和出射的大小和方向都有关系的，我们仅仅是对于出射动量的大小进行积分，所以$ \omega
+    $实际上包含了【出射动量的方向信息】【当然也包含了入射大小和方向的信息】
+
+\end{itemize}
+
+\bigskip
+\hlr{散射问题set up}
+
+为了模拟经典情况，我们考虑下面的情况散射问题set up：
+\begin{itemize}
+  \item \textbf{入射波包：}类比经典例子我们考虑一个wave package，其：
+    \begin{itemize}
+      \item 其动量方向垂直与入射面；
+      \item 其动量大小集中在$ p_0 $附近
+      \item 其空间分布在$ 0 $这个位置附近，也就是入射面法线通过散射轴心的那个
+    \end{itemize}
+    我们可以先定义一个入射轴上面的态$ \ket{\phi_0} $然后使用平移算符得到所有入射平面的态：
+    \begin{align}
+      \ket{\phi_a} = e^{-ip_0 \cdot a}\ket{\phi_0}\mathrm{~,}
+    \end{align}
+    \rmk{
+      这里我们平移算符认为就是一个相位，这是因为我们考虑入射态集中在$ p_0 $附近，所以我们直接使用$ p_0 $进行平移。
+    }
+    \rmk{
+      我们的set up是考虑【固定】入射粒子的动量大小和方向研究散射问题。所以散射截面必然取决于入射动量的大小和方向。
+    }
+  \item \textbf{散射截面：} 类比经典的情况，我们把散射截面理解为：
+    \begin{align}
+      N = \displaystyle\frac{d \sigma}{d \Omega} d \Omega
+    \end{align}
+    这里$ N $是对于入射态空间「面积」的一个加权的部分选择。不同部分的权重是取决于出射到$ d \Omega
+    $的概率的。也就是说$ N = \int d^2 a \omega(d \boldsymbol{\Omega} \leftarrow
+    \phi_a) $，其中$ d^2 a $是入射态空间的一个测度，为了保证面积的量纲与经典对应，我们可以恰好使用入射平面的面积元素当作测度。所以我们有：
+    \begin{align}
+      \frac{d\sigma}{d\Omega}d\Omega=\int
+      d^2a\ \omega(d\boldsymbol{\Omega}\leftarrow \phi_\mathbf{a})\mathrm{~.}
+    \end{align}
+\end{itemize}
+\rmk{我们一眼很难看出来这个和经典的关系是什么。存在一些方法可以严格证明这个关系退化到经典的情况。这里我们给出一个直观的理解。
+
+  经典我们可以理解$ dN/dt \times
+  1/n$是一个对于入射单位面积的加权选择根据这个单位面积出射到某个立体角的粒子数目。那么量子力学我们使用入射平面的面积进行积分然后乘上出射到某个立体角的概率就可以理解为类似的东西了。
+
+  但是表面上看上去量子的我们对于入射面积进行了积分而经典我们并没有。这是因为经典的情况下出射的$ \theta, \phi
+  $完全决定了入射的位置也就是说$ b(\theta, \phi) $是一个确定的函数。我们如果对于经典的$ b $进行积分发现给出$
+  \int b^2 \delta(b - b(\theta, \phi)) f(b) $这样的形式积分结果其实就是把$
+  b(\theta, \phi) $带入函数里面。而量子的情况下并没有这样的确定性关系而是概率分布，所以我们需要进行积分。
+}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.75\textwidth]{assets/scattering.png}
+  \caption{量子散射问题set up示意图}
+  \label{fig:scattering}
+\end{figure}
+\begin{itemize}
+  \item \textbf{散射截面的依赖}
+
+    我们分析散射截面依赖什么，会发现其取决于下面两个信息：
+    \begin{itemize}
+      \item 入射动量大小和方向【这个是整个理论set up的一部分！】
+      \item 出射动量方向【也就是出射的立体角】
+    \end{itemize}
+\end{itemize}
+\rmk{
+  之后的讨论之中我们会fix入射方向是垂直于入射面的，并且fix某一个散射过程入射动量大小为$ p
+  $。在这样固定之后散射截面会发现仅仅依赖于出射动量方向。「更甚者我们考虑相互作用是中心势$ v(r)
+  $」在这种情况下散射截面仅仅依赖于出射角度$ \theta $。
+}
+
+\subsection{Differential Cross Section and Scattering Amplitude}
+
+\thm{微分散射截面与散射振幅
+
+  对于一个量子理论来说，只考虑一群以$ p_0 $大小垂直入射的粒子，其出射动量在某个立体角内的微分散射截面为：
+  \begin{align}
+    \displaystyle\frac{d \sigma}{d \Omega}(
+    \hat{\mathbf{p}}, \mathbf{p}_0)=\left|f\left(\mathbf{p},
+    \mathbf{p}_0\right)\right|^2\mathrm{~,}
+  \end{align}
+  我们注意，散射振幅虽然仿佛depend on出射的动量大小以及方向，其实仅仅和出射方向有关，因为我们已经默认了弹性散射了！
+}
+
+在上面的set up之下我们发现这个关系可以通过计算证明。上面我们根据散射振幅的定义给出：
+\begin{align}
+  \frac{d\sigma}{d\Omega}d\Omega=\int
+  d^2a\omega(d\Omega\leftarrow\phi_{\mathbf{a}}).
+\end{align}
+我们的核心就是计算$ \omega(d\Omega\leftarrow\phi_{\mathbf{a}}) $是什么。下面给出计算。
+
+\bigskip
+\hlr{out put概率计算}
+
+我们知道out put state和in state的关系是通过S矩阵给出的：
+\begin{align}
+  \begin{aligned}\psi_\mathrm{out}(\mathbf{p})&=\int
+    d^3\mathbf{p}'\langle\mathbf{p}|S|\mathbf{p}'\rangle\boldsymbol{\psi}_{\mathrm{in}}(\mathbf{p}')\\&=\psi_{\mathrm{in}}(\mathbf{p})+\frac
+    i{2\pi m}\int
+    d^3\mathbf{p}^{\prime}\delta(E_p-E_{p^{\prime}})f(\mathbf{p}\leftarrow\mathbf{p}^{\prime})\psi_{\mathrm{in}}(\mathbf{p}^{\prime})
+    .
+  \end{aligned}
+\end{align}
+如果我们认为考虑的出射动量和入射波包的动量大小完全不一样，那么我们有：
+\begin{align}
+  \psi_{\text{in}}(\mathbf{p})\approx 0\mathrm{~,}
+\end{align}
+因此如果考虑入射态是$ \phi_a $波包我们有：
+\begin{align}
+  \psi_{\text{out}}(\mathbf{p}) = \frac i{2\pi m}\int
+  d^3\mathbf{p}^{\prime}\delta(E_p-E_{p^{\prime}})f(\mathbf{p}\leftarrow\mathbf{p}^{\prime})\phi_a(\mathbf{p}^{\prime})
+\end{align}
+然后我们将这个结果带入计算。
+
+\bigskip
+\hlr{微分散射截面与散射振幅的关系计算}
+
+我们进行计算：
+\begin{align}
+  \begin{aligned}\frac{d\sigma}{d\Omega}=\frac{1}{(2\pi m)^2}\int
+    d^2a\int p^2dp&\left[\int
+      d^3\mathbf{p}^{\prime}\boldsymbol{\delta}\left(E_\mathbf{p}-E_{\mathbf{p}^{\prime}}\right)f\left(\mathbf{p}\leftarrow\mathbf{p}^{\prime}\right)e^{-i\mathbf{p}^{\prime}\cdot\mathbf{a}}\phi_0(\mathbf{p}^{\prime})\right.\\&\times\int
+      d^3\mathbf{p}^{\prime\prime}\boldsymbol{\delta}\left(E_\mathbf{p}-E_{\mathbf{p}^{\prime\prime}}\right)f^*\left(\mathbf{p}\leftarrow\mathbf{p}^{\prime\prime}\right)e^{\mathrm{i}\mathbf{p}^{\prime\prime}\cdot\mathbf{a}}\boldsymbol{\phi}_0^*(\mathbf{p}^{\prime\prime})
+    \end{aligned}
+  \end{align}
+
+  首先对于面积进行积分。我们意识到，这个通过下面关系会给出【垂直于入射方向的delta函数】
+  \begin{align}
+    \int
+    d^2ae^{-i\mathbf{a}\cdot\mathbf{p}^{\prime}+i\mathbf{a}\cdot\mathbf{p}^{\prime\prime}}=(2\pi)^2\delta^{(2)}\left(p_\perp^{\prime}-p_\perp^{\prime\prime}\right).
+  \end{align}
+  然后进行海量delta函数的化简我们有：
+  \begin{align}
+    \frac{d\sigma}{d \Omega}=\int
+    d^3\mathbf{p}^{\prime}\frac{p^{\prime}}{p_\parallel^{\prime}}\left|\phi(\mathbf{p}^{\prime})\right|^2\left|f\left(\mathbf{p}\leftarrow\mathbf{p}^{\prime}\right)\right|^2.
+  \end{align}
+  这个时候我们认为入射波包足够集中在$ p_0 $附近，并且入射方向垂直于入射面，所以我们有：
+  \begin{align}
+    \frac{d\sigma}{d\Omega}=|f\left(\mathbf{p}\leftarrow\mathbf{p}_0\right)|^2,
+  \end{align}
+
+  \subsection{Optical Theorem}
+  这里我们会发现入射方向的散射振幅的虚部和总散射截面之间存在一个非常重要的关系，称为Optical Theorem。我们下面给出定理。
+  \thm{
+    \textbf{Optical Theorem:}
+
+    对于一个入射动量为$ \mathbf{p} $的平面波入射态，设其【入射方向】散射振幅为$
+    f(\mathbf{p},\mathbf{p}) $【也就是出射动量和入射动量方向都一样的散射振幅】，那么其总散射截面$
+    \sigma $和入射方向散射振幅的虚部之间存在下面的关系：
+    \begin{align}
+      \operatorname{Im}f(\mathbf{p}\to\mathbf{p})=\frac{p}{4\pi}\sigma(\mathbf{p})\mathrm{~.}
+    \end{align}
+
+  }
+  我们下面逐步讨论证明
+
+  \bigskip
+  \hlr{S 矩阵的集团分解}
+
+  对于S矩阵我们知道没有散射的时候就是单位矩阵，所以我们不妨认为是单位矩阵加上一个散射相关的部分：
+  \begin{align}
+    S= 1+R
+  \end{align}
+  我们分析$ R $矩阵的性质：
+  \begin{itemize}
+    \item \textbf{Unitary的结果：}由于我们assume S矩阵是unitary的，所以我们有：
+      \begin{align}\label{eq:unitaryR}
+        R+R^\dagger+R^\dagger R=0\mathrm{~.}
+      \end{align}
+    \item \textbf{自由粒子Hamiltonian对易}： 我们知道S矩阵和自由粒子Hamiltonian对易所以我们也有：
+      \begin{align}
+        [R,H_0]=0\mathrm{~.}
+      \end{align}
+      这意味着我们可以使用平面波本征态作为R矩阵的共同本征态。
+    \item \textbf{R矩阵和散射振幅}：R矩阵也可以用平面波展开所以我们对比S矩阵用平面波展开的结果以及散射振幅的定义可以知道：
+      \begin{align}\label{eq:Randf}
+        \displaystyle\frac{i}{2 \pi m} \delta(E_{p'} - E_p)
+        f(\mathbf{p}', \mathbf{p}) = \langle \mathbf{p}' | R |
+        \mathbf{p} \rangle \mathrm{~.}
+      \end{align}
+  \end{itemize}
+  我们使用平面波波展开\cref{eq:unitaryR}式子可以得到：
+  \begin{align}
+    \left\langle\mathbf{p}^{\prime}\right|R\left|\mathbf{p}\right\rangle+\left\langle\mathbf{p}\right|R\left|\mathbf{p}^{\prime}\right\rangle^*=-\int
+    d^3\mathbf{p}^{\prime\prime}\left\langle\mathbf{p}^{\prime}\right|R^\dagger\left|\mathbf{p}^{\prime\prime}\right\rangle\left\langle\mathbf{p}^{\prime\prime}\right|R\left|\mathbf{p}\right\rangle.
+  \end{align}
+  如果带入R矩阵和散射振幅的关系\cref{eq:Randf}我们有：
+  \begin{align}\label{eq:opticaltheorem1}
+    \begin{aligned}\boldsymbol{\delta}\left(E_{\mathbf{p}}-E_{\mathbf{p}^{\prime}}\right)&\left[f\left(\mathbf{p}^{\prime}\leftarrow\mathbf{p}\right)-f^*\left(\mathbf{p}\leftarrow\mathbf{p}^{\prime}\right)\right]\\&=\frac{i}{2\pi
+      m}\int
+      d^3\mathbf{p}^{\prime\prime}\delta\left(E_{\mathbf{p}^{\prime}}-E_{\mathbf{p}^{\prime\prime}}\right){\delta}\left(E_{\mathbf{p}^{\prime\prime}}-E_{\mathbf{p}}\right)f^*\left(\mathbf{p}^{\prime\prime}\leftarrow\mathbf{p}^{\prime}\right)f\left(\mathbf{p}^{\prime\prime}\leftarrow\mathbf{p}\right).
+    \end{aligned}
+  \end{align}
+
+  \bigskip
+  \hlr{数学公式的使用}
+
+  我们需要玩弄delta函数，下面存在两个会用到的delta函数的公式：
+  \begin{itemize}
+    \item \textbf{Delta函数的传递}： delta函数放在一起会有传递性：
+      \begin{align}
+        \delta\left(E_{\mathbf{p}^{\prime}}-E_{\mathbf{p}^{\prime\prime}}\right)
+        \delta\left(E_{\mathbf{p}^{\prime\prime}}-E_{\mathbf{p}}\right)
+        =
+        \delta\left(E_{\mathbf{p}}-E_{\mathbf{p}^{\prime}}\right)
+        \delta\left(E_{\mathbf{p}}-E_{\mathbf{p}^{\prime\prime}}\right),
+      \end{align}
+    \item \textbf{Delta函数的复合}：如果delta函数和另一个函数复合了，我们存在关系：
+      \begin{align}
+        \delta\left[f(x)\right]=\delta(x-x_0)/\left|f^{\prime}(x_0)\right|
+      \end{align}
+
+  \end{itemize}
+
+  \bigskip
+  \hlr{Optical Theorem的证明}
+
+  我们将数学公式带入\cref{eq:opticaltheorem1}式子，可以把两个delta函数进行传递，然后使用delta函数的复合公式变成关于p的delta函数。我们把积分变成球坐标系的！
+
+  如果【我们只考虑入射方向$ p = p' $】，我们有：
+  \begin{align}
+    2i\operatorname{Im}f\left(\mathbf{p}\leftarrow\mathbf{p}\right)=\frac{i}{2\pi
+    m}\int d\Omega
+    \ p^{\prime\prime2}dp^{\prime\prime}\frac{m}{p}\boldsymbol{\delta}\left(p-p^{\prime\prime}\right)\left|f\left(\mathbf{p}^{\prime\prime}\leftarrow\mathbf{p}\right)\right|^2,
+  \end{align}
+  最后化简积分得到：
+  \begin{align}
+    \mathrm{Im~}f\left(\mathbf{p}\leftarrow\mathbf{p}\right)=\frac{p}{4\pi}\int
+    d\Omega\left|f\left(\mathbf{p}\leftarrow\mathbf{p}\right)\right|^2.
+  \end{align}
+  如果使用微分散射截面与散射振幅的关系，我们最终得到Optical Theorem的结果：
+  \begin{align}
+    \mathrm{Im~}f\left(\mathbf{p}\leftarrow\mathbf{p}\right)=\frac{p}{4\pi}\sigma(\mathbf{p})\mathrm{~.}
+  \end{align}
+
+  \subsection{数学技巧}
+
+  本章使用了很多数学上的特殊技巧，下面我们总结一下。
+
+  \subsubsection{Delta函数使用}
+  \YL{[作业8]}
+
+  \subsubsection{Green 函数使用}
+
+  我们对于分母上面的复函数可以使用一个变形技巧：
+  \begin{align}
+    \frac{1}{x+i\varepsilon}=-i\pi\delta(x)+\mathscr{P}\frac{1}{x}\mathrm{~,~}\quad\boldsymbol{\varepsilon}\to+0\mathrm{~.}\\
+    \frac{1}{x-i\varepsilon}=i\pi\delta(x)+\mathscr{P}\frac{1}{x}\mathrm{~,~}\quad\boldsymbol{\varepsilon}\to+0\mathrm{~.}
+  \end{align}
+  \YL{[作业8]}
+
+  \subsection{Questions and thoughts}
+
+  \question{散射振幅到底和什么有关系，为什么积分出射动量大小的时候可以不积分散射振幅里面的？？}
+
+  这是因为我们在讨论最初已经假设了弹性散射。所以，我们散射振幅其实只和【出射的方向】以及【入射的动量大小和方向】有关，所以我们对于出射动量大小进行积分的时候不会影响出射动量方向的信息！！
+  \qed
+
+  \question{为什么散射截面会和动量有关系，到底是和动量的什么有关系大小还是方向？？}
+  我们的set up已经固定了一堆入射动量大小以及垂直于入射面的方向。散射截面的动量依赖其实就是表示我们散射set up入射动量大小的依赖！！
+  \qed
+
+  \question{我们进行这个积分 $ \int
+    d^2a\operatorname{\omega}(d\Omega\leftarrow\phi_a)\mathrm{~.}
+  $，用它来对应一个立体角的散射截面，真的不会有归一化的问题吗？真的合法吗？}
+
+  这样积分是完全合法的，我们观察这个式子：
+  \begin{align}
+    \frac{d\sigma}{d\Omega}d\Omega=N=\int d^2a\ \omega(d
+    \Omega\leftarrow \phi_a)\mathrm{~.}
+  \end{align}
+  两边对于立体角进行积分之后，我们可以得到右边正好是入射面积$ \pi a^2
+  $，左边则是总散射截面。因此，这个式子在interpretation上是合法的！
+  \qed

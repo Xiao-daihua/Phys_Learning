@@ -1,0 +1,396 @@
+\subsection{Kruskal Coordinates与最大延拓}
+
+我们之前通过Eddington-Finkelstein坐标系延拓了Schwarzschild时空的解。成功的描述了在$ r \to 2GM
+$以及内部，时间坐标发散到$ +\infty $以及$ -infty
+$的情况。但，我们其实可以更完整的延拓Schwarzschild时空，得到一个更大的时空结构。这个过程可以通过引入Kruskal坐标来实现。
+
+\bigskip
+\hlr{Lightcone coordinate的发散问题}
+
+我们发现可以使用$ (u,v) $ Lightcone coordinate进行延拓。由于我们知道在$ r \to 2GM $的时候，$
+(u,v) $坐标又会存在发散，因为$ r^* $存在发散$ r^* \to - \infty $，因而：
+\begin{align}
+  \displaystyle\frac{1}{2}\left(v-u\right) = r^* \quad \Rightarrow
+  \quad u \to \infty \text{ or } v \to -\infty \quad \text{when} \quad r \to 2GM
+\end{align}
+我们之前Eddington-Finkelstein坐标系的延拓为了保证坐标都不发散只能用$ (u,v)
+$之中的一个，否则一个有限那么另一个必然在$ r \to 2GM $的时候发散。但是这样的结果就是我们不可以进行最大延拓，只能延拓$ t
+\to \infty $或者$ t \to -\infty $的情况。
+
+\bigskip
+\hlr{消除Lightcone coordinate发散准备延拓}
+
+为了解决上面这个问题，我们引入一个新的坐标保证$ v \to - \infty $的时候以及$ u \to \infty $的时候都不会发散而是变为0，即：
+\begin{align}
+  v^{\prime}\equiv e^{v/4GM},\quad u^{\prime}\equiv-e^{-u/4GM} \quad
+  \Rightarrow \quad
+  v^{\prime}=\left(\frac{r}{2GM}-1\right)^{1/2}e^{(r+t)/4GM},\quad
+  u^{\prime}=-\left(\frac{r}{2GM}-1\right)^{1/2}e^{(r-t)/4GM},
+\end{align}
+在这个坐标系里我们会发现，当$ r \to 2GM $的时候，要么$ u' \to 0 $，要么$ v' \to 0
+$，而不会发散。我们把之前Schwarzschild的coordinate cover的部分使用$ (u',v') $坐标系画出来：
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.4\textwidth]{assets/diagkruskal.png}
+  \caption{Kruskal坐标系下的时空结构图}
+  \label{fig:diagkruskal}
+\end{figure}
+这下我们可以清晰看到原先的Schwarzschild coordinate仅仅cover其中阴影部分。我们可以很自然的解析延拓整个$
+(u',v') $平面，从而得到更大的时空结构。btw使用$ (v',u') $的坐标系我们可以把Schwarzschild metric写成：
+\begin{align}
+  ds^2=-\frac{16G^3M^3}{r}e^{-r/2GM}(dv^\prime du^\prime+du^\prime
+  dv^\prime)+r^2d\Omega^2.
+\end{align}
+
+\bigskip
+\hlr{最大延拓的Kruskal时空结构}
+
+但一般分析的时候我们不喜欢用Light cone
+coordinate，而是一个Lightcone在45度斜向的coordinate方便研究causal结构。因此我们定义：
+\defi{
+  Kruskal Coordinate
+  \begin{align}
+    &T\equiv\frac{1}{2}(v^{\prime}+u^{\prime})=\left(\frac{r}{2GM}-1\right)^{1/2}e^{r/4GM}\sinh\left(\frac{t}{4GM}\right),\\
+    &R\equiv\frac{1}{2}(v^{\prime}-u^{\prime})=\left(\frac{r}{2GM}-1\right)^{1/2}e^{r/4GM}\cosh\left(\frac{t}{4GM}\right)
+  \end{align}
+  此外$ \theta, \phi $坐标不变。
+}
+使用这个坐标系我们可以把Schwarzschild metric写成：
+\begin{align}\label{eq:kruskal-metric}
+  ds^2=\frac{32G^3M^3}{r}e^{-r/2GM}(-dT^2+dR^2)+r^2d\Omega^2,
+\end{align}
+其中$ r $是$ (T,R) $的隐函数，由于反解很困难就不解了（（不过可以通过下面的关系隐含地定义$ r $））：
+\begin{align}\label{eq:kruskal-r-def}
+  T^2-R^2=\left(1-\frac{r}{2GM}\right)e^{r/2GM}.
+\end{align}
+
+\bigskip
+\hlr{Conformally Minkowski}
+
+我们会发现这个metric完全和Minkowski metric成比例关系，因此我们说Kruskal时空是conformally
+Minkowski的。这样的关系其实可以告诉我们这个metric的Lightcone是完全：
+\begin{align}
+  T=\pm R+\mathrm{const.~},
+\end{align}
+45度斜向的。并且我们可以很自然的看出来Horizon是$ T=\pm R $，即45度斜向的线。也就是：
+\begin{itemize}
+  \item 不论过去还是未来Horizon其实都是Lightlike的曲线！
+\end{itemize}
+
+\textbf{等距离$ r $面：}
+特别的我们还可以根据\cref{eq:kruskal-r-def}式子看出来，对于$ r $恒定的曲线为：
+\begin{align}
+  T^2-R^2=\mathrm{const.~},
+\end{align}
+也就是全部双曲线。注意对于$ r<2GM $的情况，$ T^2-R^2>0 $，因此这些曲线在causal
+structure意义上是spacelike的曲线，而对于$ r>2GM $的情况，$ T^2-R^2<0 $，因此这些曲线在causal
+structure意义上是timelike的曲线。
+
+\textbf{等时间$ t $面：}
+我们还可以根据定义式看出来，$ t $恒定的曲线为：
+\begin{align}
+  \frac{T}{R}=\tanh\left(\frac{t}{4GM}\right) = \text{const}
+\end{align}
+也就是全部直线通过原点的直线！
+
+\bigskip
+\hlr{Schwarzschild-Kruskal manifold}
+
+我们把从Schwarzschild metric通过Kruskal坐标延拓得到的时空称为Schwarzschild-Kruskal
+manifold。我们可以画出这个manifold在Kruskal坐标系下的causal结构图：
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.4\textwidth]{assets/kruskalcausal.png}
+  \caption{Kruskal时空的causal结构图}
+  \label{fig:kruskalcausal}
+\end{figure}
+对于四个区域我们有以下解释：
+\begin{itemize}
+  \item 区域I：这是我们原先Schwarzschild坐标系cover的区域，包含了外部$ r>2GM $时空。
+  \item 区域II：这是黑洞内部区域，包含了$ r<2GM $的时空。在这个区域中，$ r
+    $变成了时间坐标，因此所有物体不可避免的会在有限的proper time内坠入奇点$ r=0 $。
+  \item 区域III：这是一个和区域I对称的区域，包含了另一个外部$ r>2GM $时空。这个区域可以被解释为一个白洞（white
+    hole），即物质只能从这里出来而不能进入这里。
+  \item 区域IV：一个和我们的时空一样的对称时空捏！
+\end{itemize}
+
+\subsection{潮汐力与Speghetification}
+
+我们考虑一个有一定体积的物理自由落入黑洞的情况。由于有一定体积的存在其实不同部位的运动「加速度」是不同的，我们可以经典的interpret作为「惯性力」，不同的惯性力会导致有体积的物体被撕扯开，这个现象我们称为spaghettification。
+
+\bigskip
+\hlr{下落物体参考系}
+
+为了研究下落物体的行为，我们选择下落物体自身的参考系进行分析。假设存在一个参考系保证下落的物体是「静止的」也就是说其四速度为：
+\begin{align}
+  u^\mu=\left(1,0,0,0\right).
+\end{align}
+并且我们保证这个参考系的1方向是径向下落方向，2，3方向是角向的切线方向。这个参考系的构建可以通过标架进行实现，我们不在这里赘述。参考系示意图如下：
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.35\textwidth]{assets/freefallcoor.png}
+  \caption{下落参考系示意图}
+  \label{fig:freefallcoor}
+\end{figure}
+通过参考系变换我们可以得到一个特殊的结论，也就是这样的参考系下，Riemann
+Tensor的分量和Schwarzschild坐标系下的Riemann Tensor的分量是一样，写出下面讨论需要的Riemann Tensor分量：
+\begin{align}
+  R^{\hat{1}}{}_{\hat{0}\hat{1}\hat{0}}=-\frac{2GM}{r^3},\quad
+  R^{\hat{2}}{}_{0\hat{2}\hat{0}}=R^{\hat{3}}{}_{\hat{0}\hat{3}\hat{0}}=\frac{GM}{r^3}.
+\end{align}
+
+\bigskip
+\hlr{Geodesic Deviation Equation}
+
+我们希望研究这个参考系下下落的有体积的物体两点的相对距离的加速度。为此我们假设：
+\begin{itemize}
+  \item 下落物体的不同部位是两个相邻的自由落体者都是沿着各自的geodesic下落的。但是由于曲率的存在，两者之间的距离会以一定加速度进行便宜。
+\end{itemize}
+几何上这个通过geodesic diviation equation来描述，我们考虑在下落参考系之中1，2，3三个方向的Geodesic
+Deviation Equation:
+\begin{align}
+  \ddot{X}^i=R^i{}_{00j}X^j
+\end{align}
+\rmk{
+  这里我们没有标准Geodesic Deviation的负号是因为我们把后面两个指标交换了使用了Riemann Tensor的对称性质。
+}
+这个方程结合之前的Riemann Tensor分量我们可以得到：
+\begin{align}
+  \ddot{X}^1=\frac{2GM}{r^3}X^1,\quad\ddot{X}^2=-\frac{GM}{r^3}X^2,\quad\ddot{X}^3=-\frac{GM}{r^3}X^3.
+\end{align}
+这也就描述了两个相邻自由落体者在下落参考系下的相对加速度。
+
+\bigskip
+\hlr{等效潮汐力的分析}
+
+相对加速度的存在可以被interpret成为一种「潮汐力」，我们可以等效的动过牛顿第二定律给出力的表达式：
+\begin{align}
+  d F = a d \mu
+\end{align}
+其中$ d\mu $是物体的微小质量元，$ a $是相对加速度。假设物体的整体质量为$ \mu
+$并且均匀分布，物体是一个长方体，下落方向$ X^1 $方向长度为$ l $，角向方向$ X^2,X^3 $方向长度为$ w
+$，我们可以计算出物体在不同方向上受到的潮汐力：
+\begin{itemize}
+  \item 径向潮汐力：对于下落方向长为$ h $的地方相对于参考点「假设是物体中心」的加速度为$ a = (2GM/r^3)h $，因此受到的潮汐力为：
+    \begin{align}
+      F=\int_0^{l/2}\frac{2GMh}{r^3}\frac{\mu}{lw^2}w^2dh=\frac{1}{4}\frac{\mu
+      GMl}{r^3}. \quad \Rightarrow \quad T^l=-\frac{1}{4}\frac{\mu GMl}{r^3w^2}
+    \end{align}
+    这里$ T^l = - F / w^2$是物体在下落方向上单位面积受到的拉伸力，也就是压强！
+  \item 角向潮汐力：对于角向方向长为$ w $的地方相对于参考点的加速度为$ a = -(GM/r^3)w $，因此受到的潮汐力为：
+    \begin{align}
+      T_\perp=\frac{1}{8}\frac{\mu GM}{lr^3}
+    \end{align}
+\end{itemize}
+这里$ r
+$是物体在Schwarzschild坐标系下的径向位置。我们可以看到物体在下落过程中会受到径向拉伸力以及角向压缩力，这就是潮汐力的表现。我们会发现分母和$
+r^3 $成正比，也就是说：
+\begin{itemize}
+  \item 黑洞质量越大，在$ r = r_s = 2GM $的位置处的潮汐力越小！
+\end{itemize}
+
+\subsection{Penrose Diagram}
+
+Penrose发明了一种方式可以在至上很好的画出时空的结构，保证无穷远点都是在纸上有限的画出来的，并且保证Causal
+Structure是45度斜向的。这个图我们称为Penrose Diagram。我们的目标是，进行一个conformal
+mapping！把整个时空映射到一个有限区域的时空并且保证这个有限区域的时空的Lightcone结构和原先时空的Lightcone结构一致。
+
+\subsubsection{Minkowski时空的Penrose Diagram}
+
+\bigskip
+\hlr{Minkowski时空的Conformal Mapping}
+
+对于Minkowski时空我们使用下面的方法。考虑球坐标系下的metric：
+\begin{align}
+  ds^2=-dt^2+dr^2+r^2d\Omega^2.
+\end{align}
+在此基础上我们引入Lightcone coordinate：$ u=t-r, v=t+r $，metric变为：
+\begin{align}
+  ds^2=-dudv+\frac{1}{4}(v-u)^2d\Omega^2.
+\end{align}
+这个时候我们知道Light cone是无限延伸的，我们希望把无穷远点映射到有限距离。为此我们引入新的坐标：
+\begin{align}
+  u=\tan U,\quad v=\tan V
+\end{align}
+这个时候原本的Lightcone coordinate的无穷远点就被映射到了$ U,V = \pm \pi/2 $并且仅仅能覆盖$ U-V
+\geq 0 $。我们给出这个坐标系$ (U,V,\theta, \phi) $下的metric：
+\begin{align}
+  ds^2=\frac{1}{4\cos^2U\cos^2V}d\tilde{s}^2,\quad
+  d\tilde{s}^2=-4dUdV+\sin^2(U-V)d\Omega^2.
+\end{align}
+我们视觉上不是很喜欢lightcone coordinate，因此我们定义：$ \tilde{t} = U+V , \tilde{r} =
+V-U $，在$ (\tilde{t}, \tilde{r}, \theta, \phi) $坐标系下metric为：
+\begin{align}
+  d\tilde{s}^2=-d\tilde{t}^2+d\chi^2+\sin^2\chi d\Omega^2.
+\end{align}
+
+\bigskip
+\hlr{Conformally Compactified Minkowski Spacetime}
+
+我们定义一个新的时空作为conformally map之后的Minkowski时空：
+\defi{
+  Conformally Compactified Minkowski Spacetime
+
+  对于一个时空有$ (U,V,\theta,\phi) $坐标系，并且$ U,V \in (-\pi/2, \pi/2) , U-V
+  \geq 0 $，metric为：
+  \begin{align}
+    d\tilde{s}^2=-4dUdV+\sin^2(U-V)d\Omega^2,
+  \end{align}
+  或者使用$ (\tilde{t}, \tilde{r}, \theta, \phi) $坐标系，$ \tilde{t} \in
+  (-\pi, \pi), -(\pi-\tilde{r})\leq \tilde{t} \leq(\pi-\tilde{r}) $，metric为：
+  \begin{align}
+    d\tilde{s}^2=-d\tilde{t}^2+d\tilde{r}^2+\sin^2\tilde{r}d\Omega^2.
+  \end{align}
+}
+
+我们发现这个时空的Lightcone和原先Minkowski时空的Lightcone方程是一致的，毕竟仅仅相差了一个conformal
+factor。因此这个时空可以在纸上画出来结果是：
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.5\textwidth]{assets/minkwskipenrose.png}
+  \caption{Minkowski时空的Penrose Diagram}
+  \label{fig:minkwskipenrose}
+\end{figure}
+
+\bigskip
+\hlr{Penrose Diagram的标记}
+
+我们使用$ \mathcal{I}^{+} $表示未来的null infinity，$ \mathcal{I}^{-}
+$表示过去的null infinity，$ i^{+} $表示未来的timelike infinity，$ i^{-}
+$表示过去的timelike infinity，$ i^{0} $表示spacelike infinity。
+
+null infinity表示光线可以到达的无穷远点，timelike infinity表示物体可以到达的无穷远点，spacelike
+infinity表示空间方向的无穷远点。
+
+\subsubsection{Schwarzschild-Kruskal时空的Penrose Diagram}
+
+我们考虑最大延拓之后的Schwarzschild-Kruskal时空。我们知道其metric为\cref{eq:kruskal-metric}。我们依旧使用上面的操作：
+\begin{itemize}
+  \item 换到Lightcone coordinate(在这个coordinate下放缩可以给出conformal
+    map不改变causal结构) $ \to $ 进行一个坐标变换把无穷远点映射到有限距离 $ \to $
+    把metric进行conformal rescaling给出conformally compactified时空 $ \to $
+    画出Penrose Diagram。
+\end{itemize}
+我们可以对于Schwarzschild-Kruskal时空进行类似的操作，Lightcone rescaling的操作为：
+\begin{align}
+  \frac{u^{\prime}}{\sqrt{2GM}}=\tan
+  U\mathrm{~,}\quad\frac{v^{\prime}}{\sqrt{2GM}}=\tan V\mathrm{~,}
+\end{align}
+得到其Penrose Diagram。
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.75\textwidth]{assets/penrosesch.png}
+  \caption{Schwarzschild-Kruskal时空的Penrose Diagram}
+  \label{fig:penrosesch}
+\end{figure}
+
+\subsection{Charged and Rotating Black Holes}
+
+到目前为止我们讨论的黑洞都是无电荷且不旋转的Schwarzschild黑洞。但实际上天体在坍缩过程中一般都会携带一定的电荷和角动量。因此更一般的黑洞解应该是带电荷和角动量的黑洞解。首先我们需要说明天下黑洞只有这样的。
+
+\bigskip
+\hlr{No-hair Theorem}
+
+对于黑洞存在一个极其强的定理，称为No-hair Theorem。这个定理告诉我们：
+\thm{
+  No-hair Theorem
+
+  Stationary, asymptotically flat black hole solutions of GR coupled
+  to electromagnetism that are non-singular outside of the event
+  horizon are fully characterised by the following parameters: mass,
+  electric (and possibly magnetic) charge, and angular momentum.
+}
+也就是说黑洞解仅仅会有我们下面讨论的带电荷和角动量的黑洞解。
+
+\subsubsection{Reissner-Nordström Black Hole}
+
+\bigskip
+\hlr{Reissner-Nordström Metric}
+
+对于一个带电荷的非旋转黑洞，我们有Reissner-Nordström解，其metric为：
+\begin{align}
+  ds^2=-\Delta
+  dt^2+\Delta^{-1}dr^2+r^2d\Omega^2,\quad\Delta=1-\frac{2GM}{r}+\frac{G(Q^2+P^2)}{r^2}.
+\end{align}
+其相比于Schwarzschild metric的区别在于多了一个电荷项$ \frac{G(Q^2+P^2)}{r^2} $，这里$ Q
+$是电荷，$ P $是磁荷。如果我们认为世界上没有磁单极子，那么$ P=0 $。我们可以发现当$ Q,P \to 0
+$的时候，Reissner-Nordström metric退化为Schwarzschild metric。
+
+\bigskip
+\hlr{Horizons of Reissner-Nordström Black Hole}
+
+我们考虑这个坐标正常的范围会发现这个metric相比于Schwarzschild metric在$ r = 2GM
+$的发散会在更多的位置发散。我们考虑$ \Delta = 0 $的发散情况：
+\begin{align}
+  r_\pm=GM\pm\sqrt{G^2M^2-G(Q^2+P^2)}.
+\end{align}
+我们发现：
+\begin{itemize}
+  \item $ Q^2 > GM^2 $的时候，也就是黑洞的电荷极其大，$ \Delta = 0
+    $没有实数解，这个时候黑洞没有Horizon而是一个裸奇点(naked singularity)。我们一般认为这种情况不物理存在。
+  \item $ Q^2 = GM^2 $的时候，$ \Delta = 0 $有一个重根，这个时候黑洞称为extremal black
+    hole，只有一个Horizon，位于$ r = GM $。
+  \item $ Q^2 < GM^2 $的时候，$ \Delta = 0
+    $有两个不同实数根，这个时候黑洞有两个Horizon，分别位于$ r = r_+ $以及$ r = r_- $。
+\end{itemize}
+
+\bigskip
+\hlr{最大延拓的Reissner-Nordström时空结构}
+
+对于这个时空我们也可以进行最大延拓给出Penrose
+Diagram。但是我们会发现时空结构由于多个Horizon的存在变得更加复杂。我们给出Reissner-Nordström时空的Penrose
+Diagram：
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.65\textwidth]{assets/RNp.png}
+  \caption{Reissner-Nordström时空的Penrose
+  Diagram，左边是正常的电荷小的时候，右边是extremal black hole情况}
+  \label{fig:rnp}
+\end{figure}
+会发现我们或许可以通过多个Horizon进入到另一个时空区域。
+
+\subsubsection{Kerr Black Hole}
+
+\bigskip
+\hlr{Kerr Metric}
+
+对于一个不带电荷但是有角动量的黑洞，我们有Kerr解，其metric为：
+\begin{align}
+  ds^2&=-\left(1-\frac{2GMr}{\rho^2}\right)dt^2-\frac{2GMar\sin^2\theta}{\rho^2}(dtd\phi+d\phi
+  dt)+\frac{\rho^2}{\Delta}dr^2\\
+  &+\rho^2d\theta^2+\frac{\sin^2\theta}{\rho^2}\left[(r^2+a^2)-a^2\Delta\sin^2\theta\right]d\phi^2,\\
+  \text{where} & \quad
+  \Delta(r)=r^2-2GMr+a^2,\quad\rho^2(r,\theta)=r^2+a^2\cos^2\theta.
+\end{align}
+这里$ a = J/M $是黑洞的角动量$ J $与质量$ M $的比值。如果我们认为黑洞不旋转，那么$ a \to 0 $，Kerr
+metric退化为Schwarzschild metric。显然这个黑洞是non-static的！
+如果我们考虑$ 2GMr\to2GMr-G(Q^2+P^2) $，那么Kerr metric变为Kerr-Newman metric，描述了带电荷且旋转的黑洞。
+
+\bigskip
+\hlr{Horizons of Kerr Black Hole}
+
+考虑这个坐标系下metric的发散情况，我们考虑$ \Delta = 0 $的情况：
+\begin{align}
+  r_\pm=GM\pm\sqrt{G^2M^2-a^2}.
+\end{align}
+所以同样的这个黑洞也存在两个Horizon的情况。与Reissner-Nordström黑洞类似。
+
+\bigskip
+\hlr{ergosphere}
+
+我们发现这个黑洞已经不再是static的了！也就是说我们虽然存在time like Killing Vector，对于上面的坐标系是 $
+K^\mu = (1,0,0,0) $，但是我们找不到一个空间$ \Sigma $使得Killing Vector在$ \Sigma
+$上垂直。这个现象导致了一个有趣的区域，称为ergosphere。我们考虑Killing Vector的模：
+\begin{align}
+  K^\mu K_\mu = g_{tt}
+\end{align}
+我们会发现对于这个黑洞存在一个球面使得$ g_{tt} = 0 $也就是说存在一个面我们的time like Killing
+Vector变成了null vector。我们计算这个面的位置：
+\begin{align}
+  (r-GM)^2=G^2M^2-a^2\cos^2\theta,
+\end{align}
+也就是满足这个方程的$ r(\theta) $面，我们会发现其在horizon之外。我们定义：
+\begin{itemize}
+  \item Outier Horizon和Killing vector变为null的面之间的区域称为ergosphere。
+\end{itemize}
+这个区域内任何物体都不可能「静止」！而是会被拖拽着旋转，这个现象称为frame-dragging effect。

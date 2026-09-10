@@ -1,0 +1,38 @@
+
+
+\subsection{QFT之中Symmetry的定义捏！}
+
+\hlr{定义Global Symmetry}
+
+考虑一个任意的场的连续变换都可以写成下面的形式：
+\begin{align}
+  \Psi^\ell(x)\to\Psi^\ell(x)+i\epsilon\mathscr{F}^\ell(x)
+\end{align}
+对于这个变换形式我有一些说法：
+\begin{enumerate}
+  \item 首先对于这个变换其实更像是我们的动力学变量进行一个任意变换我们根本不care这有什么物理意义。只是一个很随意的变换
+  \item 但是实际上，这个变换可以被一个Lie Group作用在这个场上面这个就可以理解为Lie Group作用在这个空间上的变换：
+    \begin{align}
+      \left\{\begin{array}{lll}x^{\prime\mu}=f^\mu(x,\alpha)\\
+      \phi_a^{\prime}(x^{\prime})=F_a(\phi(x),\alpha)\end{array}\right.
+    \end{align}
+    \item 这两种理解是等价的。第二种我们可以等价的给出一个场构型的变换也就是$ \delta \phi = \phi'(x) - \phi(x)$，我们务必要考虑同一个点的变换！！
+\end{enumerate}
+总之，我们发现这个连续变换之后作用量的变换是：
+\begin{align}
+  \delta I=i\epsilon\int d^{4}x\frac{\delta I[\Psi]}{\delta\Psi^{\ell}(x)}\mathscr{F}^{\ell}(x).
+\end{align}
+复习一下其中使用的functional derivative的定义是：$ \frac{\delta S_\Omega}{\delta\phi(x)}\equiv\left(\frac{\partial\mathcal{L}}{\partial\phi}-\partial_\mu\frac{\partial\mathcal{L}}{\partial(\partial_\mu\phi)}\right) $
+对于这个变换有下面两个comment：
+\begin{enumerate}
+  \item 如果场的构型正好满足EoM，那么$ \displaystyle\frac{\delta I}{\delta \phi} = 0$自动成立。所以不论什么方向，什么结构的无限小场构型变换作用量都是保持不变的！！！
+  \item 如果这个变换正好满足对于off-shell的情况下面，我们的作用量也不变，那么我们称这个变换是一个global symmetry！！
+    \begin{align}
+      \delta I = 0
+    \end{align}
+    这个变换正好满足上面的条件，我们称之为global symmetry！！
+\end{enumerate}
+
+
+
+

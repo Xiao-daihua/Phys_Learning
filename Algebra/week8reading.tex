@@ -1,0 +1,188 @@
+\subsection{例子：Fundamental Repesentation of su(3)}
+
+在研究一般表示之前我们以su(3)的fundamental representation作为例子来具体的说明求表示的方法。
+\rmk{
+  为了方便标记我们使用$ \alpha_i = (\ ,\ ) $来表示root vector以及weight vector的坐标。我们使用$ \alpha_i = [\ ,\ ] $来表示其Dynkin Coefficient。
+}
+
+\bigskip
+\hlr{su(3)基础知识}
+
+我们回顾一下su(3)的simple root以及Cartan Matrix。
+\begin{align}
+  \alpha^1=(1/2,\sqrt{3}/2), \quad \alpha^2=(1/2,-\sqrt{3}/2)
+\end{align}
+其Dynkin Coefficient是：
+\begin{align}
+  \alpha_1 = [2,-1],\quad \alpha_2=[-1,2]
+\end{align}
+于是我们可以计算出Fundamental Weights：
+\begin{align}
+  \mu^1=(1/2,\sqrt3/6),\quad \mu^2=(1/2,-\sqrt3/6)
+\end{align}
+
+\bigskip
+\hlr{Fundamental Representation of su(3)}
+
+所以我们清楚这个理论有两个fundamental representation。分别以$ \mu^1 $以及$ \mu^2 $作为highest weight。我们先研究$ \mu^1 $对应的表示。
+
+我们计算其Dynkin Coefficient：
+\begin{align}
+  \mu^1 = [1,0]
+\end{align}
+由于对于highest weight来说$ p = [0,0] $所以我们计算出来：$ q = p+ \mu_i $所以$ q = [1,0] $也就是说第一个指标可以下降一次，使用$ E^-_{\alpha_1} $。下降得到：
+\begin{align}
+  \mu_1 - \alpha_1 = [-1,1] 
+\end{align}
+我们使用这种方法继续下降，直到不能下降为止。我们得到下面的diagram：
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.3\textwidth]{assets/10rep.png}
+  \caption{SU(3)的fundamental representation (1,0)的weight diagram}
+  \label{fig:10rep}
+\end{figure}
+我们称之为$ (1,0) $表示。
+
+类似的，我们可以得到$ \mu_2 $作为highest weight对应的$ (0,1) $表示，其weight diagram如下：
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.3\textwidth]{assets/01rep.png}
+  \caption{SU(3)的fundamental representation (0,1)的weight diagram}
+  \label{fig:01rep}
+\end{figure}
+\YL{[请参考Georgi的教材查看这两个表示更具体的信息。]}
+
+\subsection{表示空间结构与Weight}
+
+我们这种从highest weight出发构建表示的方法对于一般表示适用，并且我们可以更好的理解表示空间的结构。
+
+\bigskip
+\hlr{Weight与State互相对应}
+
+\begin{itemize}
+  \item \textbf{Highest Weight唯一性：}
+
+    对于不可约表示来说highest weight是唯一的。否则我们可以通过两个highest weight得到两个直和子表示。
+\end{itemize}
+
+\begin{itemize}
+  \item \textbf{Weight \& State对应：}如果一个weight存在那么至少有一个state与之对应但不一定唯一。
+    \begin{itemize}
+      \item \textbf{不同Weight对应正交的态}
+
+        显然他们是orthogonal的，因为他们的$ H_i $本征值不一样。而Cartan子代数都是Hermite的。
+      \item \textbf{某一个Weight对应态}
+
+        并不一定只有一个，我们对于同一个weight子空间的维度称为multiplicity。我们知道，每一个给到一个weight的路径给出了一个state。所以multiplicity最多等于路径的数量。
+\begin{itemize}
+  \item 如果一个weight的构造路径是唯一的：那么其对应的态是唯一的。multiplicity = 1
+    \item 如果一个weight的构造路径不是唯一的：那么其对应的态的multiplicity可能大于1.
+\end{itemize}
+    \end{itemize}
+\end{itemize}
+
+\bigskip
+\hlr{判断两个State是不是线性相关}
+
+对于一个weight如果有两个不同的路径构造出来，那么我们可以通过计算norm来判断这两个路径构造的态是不是线性相关，我们只要计算：
+
+\begin{align}
+  \langle A\mid B\rangle\cdot\langle B\mid A\rangle=\langle A\mid A\rangle\cdot\langle B\mid B\rangle
+\end{align}
+我们可以通过反复使用对易关系给normal order来计算内积结果。
+
+\subsection{Weyl Group}
+
+这一部分Georgi完全再说梦话，请当作没看见过。
+
+
+\subsection{Conjugate Representation}
+
+\bigskip
+\hlr{Conjugate Representation的定义}
+
+对于一个具体的表示$ D $，我们定义其conjugate representation $ \overline{D} $。我们发现对于这个表示之中的生成元进行一个操作之后并不改变对易关系，也就是：
+\begin{align}
+  \left[-T_a^*,-T_b^*\right]=if_{abc}(-T_c^*)
+\end{align}
+所以我们定义变换后的生成元$ \overline{T_a} = -T_a^* $，那么这些生成元就构成了一个新的表示，称为conjugate representation。
+
+对于表示和conjugate表示之间存在下面的关系：
+\begin{itemize}
+  \item 如果$ \mu $是一个表示中间的weight，那么$ -\mu $是其conjugate表示中的weight。
+  \item 表示$ D $的highest weight $ \mu_{hw} $，那么其conjugate表示的lowest weight是$ -\mu_{lw} $
+    \item Dynkin Coefficient的关系：如果$ D $的Dynkin Coefficient是$ (p,q) $，那么其conjugate表示的Dynkin Coefficient是$ (q,p) $
+\end{itemize}
+
+
+\subsection{Questions and thoughts}
+
+\question{为什么su(3)的fundamental rep的highest weight state是和root正交的那些？}
+
+这个是定义捏。我们回顾对于Fundamental Representation定义为，设置所有的fundamental weights $ \mu_i $是highest weight然后构建出来的representation！！
+
+\qed 
+
+\question{
+为什么我们从一般Highest weight出发构建表示只能作用negative root对应的lowering operator？
+}
+书中说是因为如果有一个Positive root对对应的raising，会对易到最右边然后是0了。这个说法特别不严谨，会引起混淆。
+
+正确的表达应该是，如果有一个positive root对应的raising operatoe存在在下面的series之中：
+\begin{align}
+  E_{\phi_1}E_{\phi_2}\cdots E_{\phi_n}|\mu\rangle
+\end{align}
+那么我们可以通过对易的方法，将其变为negative root lowering作用的state的线性组合！！
+\qed
+
+
+\question{
+  到底怎么使用Weyl Group判断一个weight是不是uniquely对应一个state也就是其multiplicity为1？
+}
+
+书中完全没提，但是Georgi可能脑抽了觉得自己讲了。
+
+在大黄书的510页存在这样的一个定理：
+\thm{
+  如果一个weight $ \lambda $的Multiplicity是1，那么对于任意的Weyl Group元素$ w \in W $，$ w(\lambda) $的Multiplicity也是1。
+}
+证明思路，也就是Weyl Group是李代数的自同构。所以作用在表示空间也应该是不改变空间的结构的。应该是不改变multiplicity的。
+
+Georgi的脑子里应该就是想这个定理，只是他忘写了（（
+
+
+\bigskip
+\question{Weyl Reflection作用在下面这种图上面张什么样子捏？}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.5\textwidth]{assets/weightdiag.png}
+  \caption{SU(3)的(2,0)表示的diagram}
+  \label{fig:weightdiag}
+\end{figure}
+在正文之中，我将给出一些表示Weyl Group的orbit用来参考！！
+
+
+\bigskip
+\question{脑子懵了！张量积表示是怎么定义的？}
+
+已经知道两个表示，其张量积表示定义为：
+\begin{itemize}
+  \item \textbf{表示空间：}即为原表示空间的张量积
+  \item \textbf{李代数作用在表示空间：}张量积表示，李代数会分别作用在两个表示空间，然后取和。也就是我们的表示矩阵是：
+    \begin{align}
+D(X) = D_1(X) \otimes I + I \otimes D_2(X)
+    \end{align}
+\end{itemize}
+有几个东西我们需要区分：
+\begin{itemize}
+  \item 某一个代数的表示的张量积表示
+  \item 两个不同代数的直和代数的表示！！
+\end{itemize}
+对于张量积表示来说，我们可以知道一个state的weight，根据上面的定义就是两个张量积起来的weight的和。使用Dynkin Coefficient表示的话就是两个Dynkin Coefficient的逐项相加。
+
+\bigskip
+\question{对于一般highest weight的方法构建的表示的归一化是怎么选取的？}
+
+\YL{[书中完全没有讨论，回头再看看吧！书中focus weight state的结构！]}

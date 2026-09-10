@@ -1,0 +1,131 @@
+\contentsline {section}{\numberline {1}Lecture 1: Motivation and Fundamental Geometry}{5}{section.1}%
+\contentsline {subsection}{\numberline {1.1}General Relativity的Motivation}{5}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Manifold and Vectors}{5}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Questions and thoughts}{7}{subsection.1.3}%
+\contentsline {section}{\numberline {2}Lecture 2: Tensors Fields and Metric}{9}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Tensor Field}{9}{subsection.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}Tangent Field}{9}{subsubsection.2.1.1}%
+\contentsline {subsubsection}{\numberline {2.1.2}Tensors and Tensor Fields}{11}{subsubsection.2.1.2}%
+\contentsline {subsubsection}{\numberline {2.1.3}Metric Tensor Field}{13}{subsubsection.2.1.3}%
+\contentsline {subsection}{\numberline {2.2}Questions and thoughts}{14}{subsection.2.2}%
+\contentsline {section}{\numberline {3}Lecture 3: Covariant Derivative and Curvature}{15}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Covariant Derivative}{15}{subsection.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}Covariant Derivative的定义和性质}{15}{subsubsection.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.2}parallel transport}{18}{subsubsection.3.1.2}%
+\contentsline {subsubsection}{\numberline {3.1.3}Physical Covariant Derivative}{18}{subsubsection.3.1.3}%
+\contentsline {subsection}{\numberline {3.2}Curvature of Manifolds}{19}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Riemann Curvature Tensor}{19}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Properties of Riemann Curvature Tensor}{21}{subsubsection.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.3}Riemann Curvature Tensor相关的张量}{21}{subsubsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.3}Geodesic I}{22}{subsection.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.1}Geodesic Equation definition}{22}{subsubsection.3.3.1}%
+\contentsline {subsubsection}{\numberline {3.3.2}Geodesic as Extremal of Length}{23}{subsubsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.4}Questions and Thoughts}{24}{subsection.3.4}%
+\contentsline {section}{\numberline {4}Lecture 4: Geodesics and Curvature}{27}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Geodesic II}{27}{subsection.4.1}%
+\contentsline {subsubsection}{\numberline {4.1.1}Geodesic as extremal of Length}{27}{subsubsection.4.1.1}%
+\contentsline {subsubsection}{\numberline {4.1.2}Riemann Normal Coordinates}{28}{subsubsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.2}Geodesic Deviation}{30}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}General Covariance and Invariance}{31}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Special Relativity}{32}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Questions and Thoughts}{34}{subsection.4.5}%
+\contentsline {section}{\numberline {5}SUP1: More on Geometries}{35}{section.5}%
+\contentsline {subsection}{\numberline {5.1}微分形式以及流形上积分}{35}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Lie Derivative and Killing Vector Fields}{35}{subsection.5.2}%
+\contentsline {subsubsection}{\numberline {5.2.1}Lie Derivative of a Vector Field}{35}{subsubsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.3}超曲面}{35}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}标架体系以及曲率}{35}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.5}Maximal Symmetry and Constant Curvature}{35}{subsection.5.5}%
+\contentsline {section}{\numberline {6}Lecture 5: Einstein Field Equation以及Lagrangian Formalism}{36}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Einstein Field Equation}{36}{subsection.6.1}%
+\contentsline {subsubsection}{\numberline {6.1.1}构造Einstein Field Equation的思路}{36}{subsubsection.6.1.1}%
+\contentsline {subsubsection}{\numberline {6.1.2}Einstein Field Equation以及求解}{36}{subsubsection.6.1.2}%
+\contentsline {subsection}{\numberline {6.2}Lagrangian Formulation of GR}{38}{subsection.6.2}%
+\contentsline {subsubsection}{\numberline {6.2.1}Einstein-Hilbert Action}{38}{subsubsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.3}引入物质场}{39}{subsection.6.3}%
+\contentsline {subsubsection}{\numberline {6.3.1}EoM和能动量张量直接推广}{40}{subsubsection.6.3.1}%
+\contentsline {subsubsection}{\numberline {6.3.2}Lagrangian的推广}{43}{subsubsection.6.3.2}%
+\contentsline {subsection}{\numberline {6.4}GR的唯一性}{44}{subsection.6.4}%
+\contentsline {subsection}{\numberline {6.5}Questions and thoughts}{44}{subsection.6.5}%
+\contentsline {section}{\numberline {7}Lecture 6: Weak Gravitational Field}{45}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Formulation of Linearized Gravity}{45}{subsection.7.1}%
+\contentsline {subsubsection}{\numberline {7.1.1}基础理论框架}{45}{subsubsection.7.1.1}%
+\contentsline {subsubsection}{\numberline {7.1.2}线性引力在Hilbert Gauge下框架}{46}{subsubsection.7.1.2}%
+\contentsline {subsection}{\numberline {7.2}Nearly Newtonian Field}{48}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Lense-Thirring Effect}{50}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.4}Questions and thoughts}{52}{subsection.7.4}%
+\contentsline {section}{\numberline {8}Lecture 7: Gravitational Field Solution}{53}{section.8}%
+\contentsline {subsection}{\numberline {8.1}引力波}{53}{subsection.8.1}%
+\contentsline {subsubsection}{\numberline {8.1.1}TT Gauge下的Einstein Field Equation}{53}{subsubsection.8.1.1}%
+\contentsline {subsubsection}{\numberline {8.1.2}引力波的解}{54}{subsubsection.8.1.2}%
+\contentsline {subsubsection}{\numberline {8.1.3}TT Gauge一些性质}{55}{subsubsection.8.1.3}%
+\contentsline {subsection}{\numberline {8.2}Questiona and thoughts}{56}{subsection.8.2}%
+\contentsline {section}{\numberline {9}Lecture 8: Matter reacts to Gravitational Field}{57}{section.9}%
+\contentsline {subsection}{\numberline {9.1}物质对引力波响应}{57}{subsection.9.1}%
+\contentsline {subsubsection}{\numberline {9.1.1}TT Gauge下的物质响应}{57}{subsubsection.9.1.1}%
+\contentsline {subsubsection}{\numberline {9.1.2}Local Inertial Frame下的物质响应}{58}{subsubsection.9.1.2}%
+\contentsline {subsection}{\numberline {9.2}引力波的探测}{61}{subsection.9.2}%
+\contentsline {subsubsection}{\numberline {9.2.1}Interferometer的工作原理}{61}{subsubsection.9.2.1}%
+\contentsline {subsubsection}{\numberline {9.2.2}引力波对Interferometer的影响}{62}{subsubsection.9.2.2}%
+\contentsline {subsection}{\numberline {9.3}Questions and thoughts}{64}{subsection.9.3}%
+\contentsline {section}{\numberline {10}SUP 3: Fermi Normal Coordinate}{65}{section.10}%
+\contentsline {section}{\numberline {11}Lecture 9: Energy of GW and Emission of GW}{66}{section.11}%
+\contentsline {subsection}{\numberline {11.1}E-M Tensor of Gravitational Wave}{66}{subsection.11.1}%
+\contentsline {subsubsection}{\numberline {11.1.1}Set up of Back Effect}{66}{subsubsection.11.1.1}%
+\contentsline {subsubsection}{\numberline {11.1.2}Averaging Procedure and EM Tensor}{66}{subsubsection.11.1.2}%
+\contentsline {subsubsection}{\numberline {11.1.3}GW能量密度与辐射功率}{67}{subsubsection.11.1.3}%
+\contentsline {subsection}{\numberline {11.2}Linear Order of Emission from a Source}{68}{subsection.11.2}%
+\contentsline {subsubsection}{\numberline {11.2.1}Set up}{68}{subsubsection.11.2.1}%
+\contentsline {subsubsection}{\numberline {11.2.2}远场近似下Metric形式}{69}{subsubsection.11.2.2}%
+\contentsline {subsubsection}{\numberline {11.2.3}Quadrupole表示引力波的Metric}{70}{subsubsection.11.2.3}%
+\contentsline {subsubsection}{\numberline {11.2.4}z方向观察者的Metric}{71}{subsubsection.11.2.4}%
+\contentsline {subsubsection}{\numberline {11.2.5}Quadualpole表示引力波的Power}{72}{subsubsection.11.2.5}%
+\contentsline {section}{\numberline {12}Lecture 10: Gravitational Wave Generated by Binary System}{73}{section.12}%
+\contentsline {subsection}{\numberline {12.1}Binar System的引力波辐射}{73}{subsection.12.1}%
+\contentsline {subsubsection}{\numberline {12.1.1}垂直转动平面观察结果}{73}{subsubsection.12.1.1}%
+\contentsline {subsubsection}{\numberline {12.1.2}一般观察方向的结果}{74}{subsubsection.12.1.2}%
+\contentsline {subsubsection}{\numberline {12.1.3}Binary System能量辐射}{75}{subsubsection.12.1.3}%
+\contentsline {subsection}{\numberline {12.2}Binary System的Inspiral}{75}{subsection.12.2}%
+\contentsline {subsubsection}{\numberline {12.2.1}Inspiral基本set up}{76}{subsubsection.12.2.1}%
+\contentsline {subsubsection}{\numberline {12.2.2}频率的Inspiral 演化}{76}{subsubsection.12.2.2}%
+\contentsline {subsubsection}{\numberline {12.2.3}振幅的Inspiral 演化}{77}{subsubsection.12.2.3}%
+\contentsline {subsection}{\numberline {12.3}Gravitational Lensing}{78}{subsection.12.3}%
+\contentsline {subsubsection}{\numberline {12.3.1}Gravitational Lensing基本setup}{78}{subsubsection.12.3.1}%
+\contentsline {subsubsection}{\numberline {12.3.2}空间上的Lensing: 光线弯曲}{79}{subsubsection.12.3.2}%
+\contentsline {subsubsection}{\numberline {12.3.3}时间上的Lensing：时间延迟}{81}{subsubsection.12.3.3}%
+\contentsline {subsection}{\numberline {12.4}Questions and thoughts}{81}{subsection.12.4}%
+\contentsline {section}{\numberline {13}Lecture 11: Isometries and Killing Vector Fields}{82}{section.13}%
+\contentsline {subsection}{\numberline {13.1}Diffeomorphism以及Lie Derivative}{82}{subsection.13.1}%
+\contentsline {subsubsection}{\numberline {13.1.1}Diffeomorphism以及Isometry}{82}{subsubsection.13.1.1}%
+\contentsline {subsubsection}{\numberline {13.1.2}Lie Derivative}{84}{subsubsection.13.1.2}%
+\contentsline {subsection}{\numberline {13.2}Killing Vector Field}{86}{subsection.13.2}%
+\contentsline {subsubsection}{\numberline {13.2.1}Killing Vector Field的定义}{86}{subsubsection.13.2.1}%
+\contentsline {subsubsection}{\numberline {13.2.2}Minkowski的Killing Vector Field}{87}{subsubsection.13.2.2}%
+\contentsline {subsection}{\numberline {13.3}Schwarzschild Metric}{88}{subsection.13.3}%
+\contentsline {subsubsection}{\numberline {13.3.1}Schwarzschild metric 的 ansatz}{88}{subsubsection.13.3.1}%
+\contentsline {subsection}{\numberline {13.4}Questions and Thoughts}{89}{subsection.13.4}%
+\contentsline {section}{\numberline {14}Lecture 12: Schwarzschild Metric and Geodesics}{90}{section.14}%
+\contentsline {subsection}{\numberline {14.1}Schwarzschild Metric}{90}{subsection.14.1}%
+\contentsline {subsubsection}{\numberline {14.1.1}Schwarzschild Metric Solution}{90}{subsubsection.14.1.1}%
+\contentsline {subsubsection}{\numberline {14.1.2}Schwarzschild Metric的性质}{90}{subsubsection.14.1.2}%
+\contentsline {subsection}{\numberline {14.2}Schwarzschild Metric上的Geodesics}{91}{subsection.14.2}%
+\contentsline {subsubsection}{\numberline {14.2.1}Killing Vector求解Geodesic}{91}{subsubsection.14.2.1}%
+\contentsline {subsection}{\numberline {14.3}GR验证I: 行星近日点进动解}{94}{subsection.14.3}%
+\contentsline {section}{\numberline {15}Lecture 13: Schwarzschild Black Hole}{95}{section.15}%
+\contentsline {subsection}{\numberline {15.1}GR验证II：引力红移解}{95}{subsection.15.1}%
+\contentsline {subsection}{\numberline {15.2}Star Interior Spacetime and Collapse}{95}{subsection.15.2}%
+\contentsline {subsubsection}{\numberline {15.2.1}EFE for a Star Interior}{96}{subsubsection.15.2.1}%
+\contentsline {subsubsection}{\numberline {15.2.2}Solving EFE for Star Interior}{96}{subsubsection.15.2.2}%
+\contentsline {subsubsection}{\numberline {15.2.3}Stellar Collapse to a Black Hole}{98}{subsubsection.15.2.3}%
+\contentsline {subsection}{\numberline {15.3}Kruskal Extension I}{98}{subsection.15.3}%
+\contentsline {subsubsection}{\numberline {15.3.1}Schwarzschild Coordinate Singularity}{99}{subsubsection.15.3.1}%
+\contentsline {subsubsection}{\numberline {15.3.2}Eddington-Finkelstein Coordinates}{99}{subsubsection.15.3.2}%
+\contentsline {section}{\numberline {16}Lecture 14: Black Hole Solution and More}{102}{section.16}%
+\contentsline {subsection}{\numberline {16.1}Kruskal Coordinates与最大延拓}{102}{subsection.16.1}%
+\contentsline {subsection}{\numberline {16.2}潮汐力与Speghetification}{104}{subsection.16.2}%
+\contentsline {subsection}{\numberline {16.3}Penrose Diagram}{106}{subsection.16.3}%
+\contentsline {subsubsection}{\numberline {16.3.1}Minkowski时空的Penrose Diagram}{106}{subsubsection.16.3.1}%
+\contentsline {subsubsection}{\numberline {16.3.2}Schwarzschild-Kruskal时空的Penrose Diagram}{107}{subsubsection.16.3.2}%
+\contentsline {subsection}{\numberline {16.4}Charged and Rotating Black Holes}{107}{subsection.16.4}%
+\contentsline {subsubsection}{\numberline {16.4.1}Reissner-Nordström Black Hole}{108}{subsubsection.16.4.1}%
+\contentsline {subsubsection}{\numberline {16.4.2}Kerr Black Hole}{109}{subsubsection.16.4.2}%

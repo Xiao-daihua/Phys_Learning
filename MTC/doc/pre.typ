@@ -110,7 +110,7 @@ complicated intertwining relation:
 We frist define a "co-product" of the chiral algebra representation:
 $
     & Delta_z : cal(A) -> cal(A) times.o cal(A),\
-    & Delta_( z ) ( L_( n ) ) = 1 times.circle L_( n ) + sum_( k = 0 )^( oo ) binom(n + 1, k) z^( n + 1 - k ) L_( k - 1 ) times.circle 1.
+    & Delta_( z ) ( L_( n ) ) = 1 times.o L_( n ) + sum_( k = 0 )^( oo ) binom(n + 1, k) z^( n + 1 - k ) L_( k - 1 ) times.o 1.
 $
 This kinds of bizzare co-product in fact follows directly from Cauchy
 theorem of complec integral on with 3 point instertion of the virasoro

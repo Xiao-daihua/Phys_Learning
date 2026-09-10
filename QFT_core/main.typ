@@ -11,6 +11,9 @@
         Theory"@peskinIntroductionQuantumField1995. For topics of
         Anomalies and Solitons, the note is based on Tong's lecture
         notes.
+
+        Currently I'm planning on canceling this note and perhaps
+        merge into QFT3 notes.
     ],
 )
 #chapter[Fundamental Ideas]

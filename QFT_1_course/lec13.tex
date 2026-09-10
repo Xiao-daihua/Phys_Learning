@@ -1,0 +1,368 @@
+\subsection{Quantization的思路与准备}
+
+\subsubsection{Quantization的思路}
+
+\hlr{Quantization是什么}
+
+对于量子化我们的操作是，把所有经典的量的Poisson Bracket替换为量子力学之中的对易关系。但是，对于Classical
+Spinor Field，我们完全没有研究过Poisson
+Bracket以及分析力学的性质再研究起来可能会十分麻烦\textbf{因为它是一个约束系统}。因此我们或许需要给出更一般的量子化的方式：
+\axm{
+  正则量子化公理
+
+  对于经典的场我们存在动力学场$ \phi_i(x) $以及其共轭动量场$ \pi_i(x) $，量子化即为下方的操作：
+  \begin{itemize}
+    \item \textbf{场替换为算符}：我们把经典场替换为算符$ \phi_i(x)
+      $但并不一定Hermite，只有其中实数部分变成了Hermite算符。
+    \item \textbf{共轭对易关系}：算符需要满足共轭对易关系：
+      \begin{align}
+        [\phi_i(\mathbf{x},t),\pi_j(\mathbf{y},t)]_\pm =
+        i\delta_{ij}\delta^3(\mathbf{x}-\mathbf{y}),
+      \end{align}
+      其中$ [A,B]_\pm = AB \pm BA $，上标$ + $表示反对易关系，$ -
+      $表示对易关系。对于不同的场我们有自由选择不一样的量子化方式。
+  \end{itemize}
+}
+
+\bigskip
+\hlr{Hilbert Space的构造}
+
+在量子化之后我们需要构造Hilbert Space，我们期望其Hilbert Space是Fock
+Space，这样我们可以构建粒子的interpretation。为此，我们需要研究Hamiltonian量子化后的性质。我们的思路是：
+\begin{itemize}
+  \item 经典上进行求解Hamiltonian
+  \item 量子化：给出对易关系或者反对易关系（同时可以验证一下Hamiltonian确确实实是生成元满足$
+    \dot{\psi}(x) = i\left[H,\psi(x)\right] $；毕竟我们没有讨论经典力学的情况所以验证一下还是令人放心的）
+  \item 通过Mode Expansion进行对角化Hamiltonian，给出on shell的产生湮灭算符。
+  \item 构造真空态，产生算符作用在真空态上构造Fock Space。
+\end{itemize}
+
+\subsubsection{Quantization 准备工作}
+
+\rmk{注意：我们这一小节依旧是\textbf{纯经典的内容}。但是其实里面讨论基本上是不严谨的，因为Dirac
+  Field是一个约束系统，我们并没有讨论Dirac
+Bracket的内容。所以这里的内容只能作为一种直观的理解，严格的处理需要使用Dirac Bracket的内容。}
+量子化之前我们需要进行一些准备工作：求解Hamiltonian形式；给出理论的Canonical Variable；给出Mode
+Expansion的反向变换方便我们通过场对易关系给出产生湮灭算符的对易关系。
+
+\bigskip
+\hlr{Hamiltonian的求解}
+
+对于Lagrangian，我们希望认为$ \psi $和$ \bar{\psi}
+$是独立变量，因此我们可以通过分部积分的方式重新改写Lagrangian保证两者都存在动力学项：
+\begin{align}
+  \mathcal{L}=\frac{i}{2}\left(\bar{\psi}\ds{\partial}\psi-(\partial_\mu\bar{\psi})\gamma^\mu\psi\right)-m\bar{\psi}\psi
+\end{align}
+对此我们求解EM Tensor：
+\begin{align}
+  T^\mu{}_\nu=i\bar{\psi}\gamma^\mu\partial_\nu\psi-\delta_\nu^\mu\mathcal{L}
+\end{align}
+可以得到Hamiltonian密度，然后对于等时面进行积分得到Hamiltonian以及动量算符：
+\thm{
+  Dirac Field的Hamiltonian和动量算符
+  \begin{align}
+    H=\int d^3x\,\bar{\psi}(-i\gamma^i\partial_i+m)\psi ,\quad P^i =-
+    P_i =  -i\int d^3\mathbf{x}\psi^\dagger\partial_i\psi
+  \end{align}
+}
+\rmk{
+  我们知道对于标量场来说，我们可以通过Legendre变换；时间平移对称性守恒量；时间平移对称性生成元
+  三种方式完全等价的求解Hamiltonian。但是对于Dirac
+  Field这个约束系统来说这些并不完全等价。严格的解释需要使用Dirac Bracket。但是我们这里选择了合适的路径至少保证了后两者是等价的！
+}
+\rmk{
+  其实如果naively认为我们的场只有$ \psi $的话，我们也可以得到一样的结论不需要分部积分。但是分部积分其实是更严谨一点的处理，虽然没有特别严谨。
+}
+
+\bigskip
+\hlr{Canonical Variable的求解}
+
+对于Dirac
+Field，我们可以通过Lagrangian求解其共轭动量，这个时候不能够使用分布积分之后的Lagrangian，严格的解释需要\textbf{使用Dirac
+Bracket}：
+\thm{
+  Dirac Field的Canonical Variable
+  \begin{align}
+    \psi(x), \quad \pi(x)=\frac{\partial \mathcal{L}}{\partial
+    \dot{\psi}(x)}=i\psi^\dagger(x)
+  \end{align}
+}
+
+\bigskip
+\hlr{反向Mode Expansion}
+
+我们经常需要使用场的Canonical对易关系给出产生湮灭算符的对易关系，因此我们需要给出反向的Mode Expansion。我们的on
+shell mode expansion是包含时间的，现在我们不妨考虑$ t = 0 $的等时面上面的情况。我们回顾一下on shell
+mode expansion：
+\begin{align}
+  \psi(x)=\int d\Omega_\mathbf{p}e^{- ip_\mu
+  x^\mu}\sum_s\left(a_s(p)u_s(p)+b_s(-p)v_s(-p)\right)
+\end{align}
+对于$ t = 0 $的等时面上我们不使用协变的指标进行书写，使用$ \mathbf{p}\cdot \mathbf{x} =
+\sum_i x^ip^i $进行书写$ exp(-ip_\mu x^\mu) = exp(i\mathbf{px}) $。因此我们有：
+\begin{align}
+  \psi(\mathbf{x})=\int d\Omega_\mathbf{p}e^{i\mathbf{p}\cdot
+  \mathbf{x}}\sum_s\left(a_s(p)u_s(p)+b_s(-p)v_s(-p)\right)
+\end{align}
+我们对其进行三维的反向Forier变换：
+\begin{align}
+  \int d^3\mathbf{x}e^{-i\mathbf{p}\cdot
+  \mathbf{x}}\psi(\mathbf{x})=\int
+  d\Omega_\mathbf{p'}\sum_s\left(a_s(p')u_s(p')+b_s(-p')v_s(-p')\right)\int
+  d^3\mathbf{x}e^{i(\mathbf{p'}-\mathbf{p})\cdot \mathbf{x}}
+\end{align}
+我们使用\cref{sec:spinor_basis_properties}之中的性质可以知道：
+\begin{align}
+  u^\dagger_s(p) \int d^3\mathbf{x}e^{-i\mathbf{p}\cdot
+  \mathbf{x}}\psi(\mathbf{x}) = a_s(p) ,\quad v^\dagger_s(-p) \int
+  d^3\mathbf{x}e^{-i\mathbf{p}\cdot \mathbf{x}}\psi(\mathbf{x}) =
+  b_s(-p)
+\end{align}
+
+\subsection{Quantization of Dirac Field}
+由于正则量子化的方法是在一个等时面上面进行的，因此我们需要把之前的on shell mode
+expansion限制在等时面上面。我们不妨选择$ t  = 0 $的等时面上面进行量子化。其上的on shell mode expansion为：
+\begin{align}
+  \psi(\mathbf{x})=\int d\Omega_\mathbf{p}e^{i\mathbf{p}\cdot
+  \mathbf{x}}\sum_s\left(a_s(p)u_s(p)+b_s(-p)v_s(-p)\right)
+\end{align}
+我们之后每一步操作都默认是在\textbf{0时间的等时面上面}进行的。
+
+\subsubsection{Fermionic Quantization}
+
+\hlr{正则对易关系}
+
+在各种尝试之后人们发现，量子化Dirac
+Field的最好方式是使用反对易关系，这样可以避免出现各种的问题(负能量，non-Unitary)。我们现在Promote所有的场为算符，并且给出反对易关系：
+\thm{
+  Dirac Field的量子化
+
+  我们现在promote所有的Dirac Field作为算符，并且要求满足反对易关系：
+  \begin{align}
+    \{\psi_{\alpha}(\mathbf{x}),\psi_{\beta}(\mathbf{y})\}\boldsymbol{=}0\quad\{\psi_{\alpha}(\mathbf{x}),\pi_{\beta}(\mathbf{y})\}\boldsymbol{=}i\delta_{\alpha\beta}\delta^3(\mathbf{x}-\mathbf{y})
+  \end{align}
+}
+我们带入canonical momentum的表达式$ \pi(x) = i\psi^\dagger(x) $，我们可以得到：
+\begin{align}
+  \{\psi_\alpha(\mathbf{x}),\psi_\beta^\dagger(\mathbf{y})\}=\delta_{\alpha\beta}\delta^3(\mathbf{x}-\mathbf{y})
+\end{align}
+
+\bigskip
+\hlr{产生湮灭算符的反对易关系}
+
+下面我们计算量子化之后的mode的系数$ a_s(p),b_s(p) $的反对易关系。我们使用反向mode expansion的结果：
+\begin{align}
+  \left\{a_r(p),a_s(k)^{\dagger}\right\}=(2\pi)^32\omega_\mathbf{p}\delta_{rs}\delta^3(\mathbf{k}-\mathbf{p})\quad\left\{b_r(p),b_s^{\dagger}(k)\right\}=(2\pi)^32\omega_\mathbf{p}\delta_{rs}\delta^3(\mathbf{k}-\mathbf{p})
+\end{align}
+我们之前的展开convention很好的给出了covariant的delta函数，这样两边其实都是Lorentz协变的力！
+
+\subsubsection{Hamiltonian的对角化}
+
+\hlr{Hamiltonian的对角化}
+
+下面我们研究Hamiltonian量子化之后的性质，我们显然知道Hamiltonian是一个非对角的形式，我们希望将其对角化进行研究。对于自由标量场我们这个时候选择了三维的mode
+expansion。对于Dirac Field我们在标量场的启发下已经先见之明的使用了on shell mode
+expansion，我们现在发现其\textbf{正好能对角化Hamiltonian}。我们把量子化之后的mode
+expansion带入Hamiltonian：
+\thm{
+  Dirac Field的Hamiltonian的对角形式
+  \begin{align}
+    H=\int
+    d\Omega_\mathbf{p}\sum_s\omega_\mathbf{p}\left(a_s^{\dagger}(p)a_s(p)-b_s^{\dagger}(p)b_s(p)\right)
+  \end{align}
+  我们这个时候为了消除负能量，一般选择另外一组产生湮灭算符$ \tilde{b}_s = b_s^{\dagger} $，$
+  \tilde{b}_s^{\dagger} = b_s $，这样Hamiltonian可以写成：
+  \begin{align}
+    H=\int
+    d\Omega_\mathbf{p}\sum_s\omega_\mathbf{p}\left(a_s^{\dagger}(p)a_s(p)+\tilde{b}_s^{\dagger}(p)\tilde{b}_s(p)\right)
+    + \text{常数项}
+  \end{align}
+}
+
+\bigskip
+\hlr{Hamiltonian对易关系}
+
+我们根据Fermionic反对易关系给出Hamiltonian和Mode系数的对易关系。注意，我们对于Hamiltonian的生成的定义依旧是\textbf{反对易}关系，只是反对易关系其实可以使用对易关系进行给出：
+\begin{align}
+  [A,BC]=\{A,B\}C - B\{A,C\}, \quad [AB,C]=A\{B,C\} - \{A,C\}B
+\end{align}
+因此我们可以计算出：
+\begin{align}
+  [H,a_r^\dagger(p)]=\omega_\mathbf{p}a_r^\dagger(p);\quad
+  [H,\tilde{b}_r^\dagger(p)]=\omega_\mathbf{p}\tilde{b}_r^\dagger(p);
+\end{align}
+这也确实说明我们选择的新的$ \tilde{b} $才是标准的正能量的产生湮灭算符。
+
+\subsection{Dirac Field的Hilbert Space}
+
+\hlr{单一Fermionic谐振子的Hilbert Space构造}
+
+为了更好理解Fermionic的量子化，我们先考虑一个简单的单一Fermionic谐振子。其Hamiltonian为：
+\begin{align}
+  H=\omega b^\dagger b = -\omega bb^\dagger + \omega
+\end{align}
+其中$ b $和$ b^\dagger $满足反对易关系：$ \{b,b^\dagger\}=1 $。我们现在构造其Hilbert
+Space。我们定义真空态$ \ket{0} $满足$ b\ket{0} = 0 $，我们可以构造出唯一的激发态$ \ket{1} =
+b^\dagger\ket{0} $。我们理解如果$ \omega >0 $的话，$ \ket{0} $是最低能量态;如果$ \omega
+<0 $的话，$ \ket{1} $是最低能量态。
+
+\hlr{Hamiltonian和动量算符的Mode形式}
+
+我们使用场的on shell mode expansion再改写动量算符得到：
+\begin{align}
+  P^i =  \int
+  d\Omega_{\mathbf{p}}p^i\left[\sum_{r}\left(a_{r}^{\dagger}(p)a_{r}(p)+\tilde{b}_{r}^{\dagger}(p)\tilde{b}_{r}(p)\right)\right]
+\end{align}
+和Hamiltonian进行结合我们就有四动量算符的形式：
+\begin{align}
+  P^\mu =  \int
+  d\Omega_{\mathbf{p}}p^\mu\left[\sum_{r}\left(a_{r}^{\dagger}(p)a_{r}(p)+\tilde{b}_{r}^{\dagger}(p)\tilde{b}_{r}(p)\right)\right]
+\end{align}
+以及这个算符和产生湮灭算符的对易关系：
+\begin{align}
+  [P^\mu,a_r^\dagger(p)]=p^\mu a_r^\dagger(p),\quad
+  [P^\mu,\tilde{b}_r^\dagger(p)]=p^\mu \tilde{b}_r^\dagger(p)
+\end{align}
+
+\bigskip
+\hlr{Dirac Field的Hilbert Space构造}
+
+因此我们知道这个理论其实有四种激发态$
+a_r^\dagger(p)\ket{0},\tilde{b}_r^\dagger(p)\ket{0} ,r = 1,2
+$。每一种产生算符会激发一个on shell动量为$ p^\mu $的粒子。作用在真空态上面给出Hilbert Space:
+\thm{
+  Dirac Field的Hilbert Space
+
+  我们定义真空态$ \ket{0} $满足$ a_r(p)\ket{0} = 0 ,\tilde{b}_r(p)\ket{0} = 0
+  $，我们可以通过作用产生算符在真空态上面构造Hilbert Space：
+  \begin{align}
+    \mathcal{H} = \text{span}\left\{\prod_{i=1}^N
+      a_{s_i}^\dagger(p_i)\prod_{j=1}^M
+      \tilde{b}_{r_j}^\dagger(k_j)\ket{0}\mid N,M = 0,1,2,\cdots;
+    s_i,r_j = 1,2\right\}
+  \end{align}
+}
+对于其中的任意一个量子态都是$ P^\mu $的本征态，其本征值为所有粒子的动量之和。我们意识到这个Hilbert
+Space中粒子满足Fermi-Dirac统计：
+\begin{itemize}
+  \item 所有的产生算符之间都是anti-commute的；因此不可能存在两个完全一样的粒子在一个量子态上面，这就是\textbf{泡利不相容原理}。
+  \item 由于反对易，所以波函数必然是全反对称的。
+\end{itemize}
+
+\bigskip
+\hlr{Spin and Statistics Theorem}
+
+我们量子化Dirac Field得到FD统计的粒子，这其实是一个非常深刻的结论。我们可以把这个结论推广为更一般的\textbf{Spin
+and Statistics Theorem}：
+\thm{
+  Spin and Statistics Theorem
+
+  对于一个Lorentz群的表示协变场，按照$ (j_-,j_+) $表示进行协变。如果量子化的理论需要满足Unitary,
+  Causality以及Positivity of Energy，那么该场量子化之后的统计性质由$ j_- + j_+ $决定：
+  \begin{itemize}
+    \item 如果$ j_- + j_+ $为整数，那么该场量子化之后满足Bose-Einstein统计。
+    \item 如果$ j_- + j_+ $为半整数，那么该场量子化之后满足Fermi-Dirac统计。
+  \end{itemize}
+}
+关于为什么仅仅和$ j_-+j_+ $有关，是因为我们的场是按照$ j_- \otimes j_+
+$的表示进行协变的。这个表示等价于很多表示的直和，而这些表示的spin的奇偶行完全由$ j_- + j_+ $决定。
+
+\subsection{Heisenberg Picture构造全时空的场算符}
+
+前面的量子化过程是在$ t = 0 $这个等时面上面完成的。但是我们希望构建全时空的场算符。为此我们使用Heisenberg
+Picture的方式进行构造。就可以得到一个on shell的全时空的场算符，我们给出：
+\begin{align}
+  \psi(x)\equiv e^{iHt}\psi(\mathbf{x})e^{-iHt}
+\end{align}
+为了计算这个，我们依旧先证明一个数学上的关系：
+\begin{align}
+  e^{iHt}a_r(p)e^{-iHt}=a_r(p)e^{-i\omega_\mathbf{p}t},\quad
+  e^{iHt}\tilde{b}_r(p)e^{-iHt}=\tilde{b}_r(p)e^{-i\omega_\mathbf{p}t}.
+\end{align}
+我们把这个关系带入上面的式子，我们就有：
+\thm{
+  Dirac Field的全时空场算符的协变形式
+
+  Dirac Field的全时空场算符为：
+  \begin{align}
+    \psi(x) = \int d\Omega_{\mathbf{p}}\left[\sum_re^{-ip_\mu
+    x^\mu}a_r(p)u_r(p)+e^{ip_\mu x^\mu }\tilde{b}_r^\dagger(p)v_r(p)\right]
+  \end{align}
+  注意我们使用的仍然是$ (+,-,-,-) $的metric。
+}
+
+\subsection{U(1)对称性与电荷守恒}
+
+在一般时空isometry对称性之外，Dirac Field还存在一个非常重要的内部对称性：U(1)对称性。对于下面的Global
+U(1)变换，Lagrangian是满足对称性的条件的：
+\begin{align}
+  \psi\to e^{-i\alpha}\psi\quad\bar{\psi}\to e^{i\alpha}\bar{\psi}
+\end{align}
+自然我们可以计算其守恒流是：
+\begin{align}
+  j^\mu = \bar{\psi}\gamma^\mu\psi \Rightarrow \partial_\mu j^\mu = 0
+\end{align}
+并且我们也可以给出守恒荷：
+\begin{align}
+  J^0 = \psi^\dagger\psi \Rightarrow Q = \int
+  d^3\mathbf{x}\,\psi^\dagger\psi = \int
+  d\Omega_\mathbf{p}\sum_r\left(a_r^\dagger(p)a_r(p)-\tilde{b}_r^\dagger(p)\tilde{b}_r(p)\right)
+\end{align}
+对于这个守恒荷我们给出下面的Interpretation：
+\begin{itemize}
+  \item $ a_r^\dagger(p) $产生的粒子携带守恒荷$ +1 $；$ \tilde{b}_r^\dagger(p)
+    $产生的粒子携带守恒荷$ -1 $。
+  \item 我们可以解释其为电荷，Dirac Field描述的粒子携带电荷$ +1 $，反粒子携带电荷$ -1
+    $。所以我们解释其描述了两种带+1和-1电荷的粒子。
+\end{itemize}
+
+\subsection{角动量和Boost守恒荷}
+
+\hlr{经典Lorentz变换守恒流与守恒荷}
+
+我们回顾一下经典的情况。在Lorentz变化下，根据Dirac Field的定义其满足下面的协变关系：
+\begin{align}
+  \psi(x)\to[\Lambda_D(\omega)]\psi(\Lambda^{-1}(\omega)x). \quad
+  \Lambda_D=e^{-i\frac{1}{2}\omega_{\mu\nu}S^{\mu\nu}} \quad \Lambda
+  = e^{-i\frac{1}{2}\omega_{\mu\nu}\mathrm{J}^{\mu\nu}}
+\end{align}
+我们可以计算其守恒流以及守恒荷为：
+\begin{align}
+  J_{\mu\nu}^\rho=x_\mu T_\nu^\rho-x_\nu
+  T_\mu^\rho+\frac{1}{2}\bar{\psi}\{\gamma^\rho,S_{\mu\nu}\}\psi,
+  \quad J_{\mu\nu}\equiv\int d^3x J_{\mu\nu}^0
+\end{align}
+我们一般会把Lorentz Boost 守恒荷分为角动量和Boost两部分，角动量守恒荷为：
+\begin{align}
+  J_k = \displaystyle\frac{1}{2} \epsilon_{ijk} J_{ij}, \quad J_k
+  =\int
+  d^3\vec{x}\psi^\dagger\left[\vec{x}\wedge(-i\vec{\nabla})+\frac{1}{2}
+  \Sigma \right]\psi., \quad \Sigma =
+  \begin{pmatrix}
+    \vec{\sigma} & 0 \\ 0 & \vec{\sigma}
+  \end{pmatrix}
+\end{align}
+其中$ \Sigma $就是对角的自选算符，而前面是轨道角动量！
+
+\bigskip
+\hlr{角动量作用于单粒子态}
+
+这里我们可以看出结果：
+\begin{itemize}
+  \item Dirac Field量子化的$ r $指标实际上是自旋指标，$ r = 1,2 $分别对应$ s_z =
+    +\frac{1}{2},-\frac{1}{2} $的粒子态。
+\end{itemize}
+验证方法就是作用角动量守恒量在单粒子态上面，我们interpret这个守恒量是角动量量子化之后的算符，我们发现不同的$ r $指标确实对应不同的z方向自旋取值。
+
+\subsection{Questions and Thoughts}
+
+\question{
+  为什么对称性的守恒荷和角动量，动量可以认为是一个东西？为什么量子化之后的算符作用在量子态上面的本征值就是角动量，动量的取值？
+}
+思路是这样的，我们使用旋转对称性和角动量给出一个说明：
+\begin{itemize}
+  \item 首先经典力学告诉我们，旋转对称性给出的Nother定理的守恒量正好是经典对应的角动量
+  \item 下面我们\textbf{定义}对于场论or一切经典体系：角动量定义为旋转对称性的守恒量。
+  \item 接下来量子力学公理告诉我们，守恒量量子化之后的算符的本征值是量子态在该守恒量下的取值。
+\end{itemize}
+这个思路是十分清晰的！\qed

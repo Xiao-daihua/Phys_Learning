@@ -1,0 +1,403 @@
+\subsection{Take home messages for Week 2}
+Note for week 2 reading of "Lie Algebras in Particl Physics" by Howard Georgi.
+
+\subsubsection{对称群以及其表示}
+
+\hlr{对称群以及其表示}
+
+对称群的定义上我们改变的是【位置】！！我们现在有n个位置，然后我们把这n个位置上面的物体进行交换。比如：$ (1,2,3) $我们是把第一个位置上的东西移动到第二个，再移动到第三个位置上面。第二个位置的东西移动到第三个再移动到第一个位置上面。第三个位置的东西移动到第一个位置上面再移动到第二个位置上面。
+
+这个等价的一种说法是把$ (1,2,3) $可以画出一个换位图：$ x_1 \to x_2 \to x_3 \to x_1 $这个记号的意思是，$ x_i $是变换前第$ i $个位置上面的物体。然后这个图的意思是$ x_i \to x_j $是把$ x_j $的数值赋值给$ x_i $【没错，赋值的顺序和定义是相反的，就是个傻逼定义。】
+
+\textbf{对很多文章此书上的定义极其不清晰我也不理解。但是我保证上面的理解方式是唯一并且正确的。}
+
+
+对于所有元素我们可以使用$ k_i $个i-Cycle 进行描述，其中$ \sum k_i \times i = n$。
+
+我们还可以个构造一个表示，Defining representation。我们定义为，参考这个图$ x_1 \to x_2 \to x_n ... $ ，定义一堆基 $ \ket{i} $ 我们根据这个图把$ x_j\to x_k $理解为这个群作用在这个基$ j $上面得到$ k $。也就是$ D \ket{j} = \ket{k} $这样的一个表示。
+
+\bigskip
+
+\hlr{对称群Irr Rep的构建}
+
+我们寻找的对称群的conjugation class。我们会发现每一个cycle structure（比如，比如4，3，3，1也就是$ (\#,\#,\#,\#)(\#,\#,\#)(\#,\#,\#)(\#) $这样子的)对应着一个conjugation class。也就是对于一个有$ k_j $个j-cycle的对称群的conjugation class我们有：
+\begin{equation}
+  \frac{n!}{\prod_jj^{k_j}k_j!}
+  \label{eq:numberofconjugationcalss}
+\end{equation}
+这么多个元素！！为此我们可以使用Young Tableaux进行表示每一个conjugation class。也就是一个Young Tableaux代表着一个Irreduacible Representation。然后根据Young diagram给出一个不等价不可约表示的基。这里不仔细叙述了，因为并不重要。
+
+
+\bigskip 
+
+\subsubsection{Continuous Groups and Lie Algebras}
+
+\hlr{连续的群结构}
+
+一个连续群我们可以理解为可以构建一个$ \mathbb{R}^n \to G $的映射。也就是$ g(\alpha) $，通过一个$ \mathbb{R}^n $之中的参数来label群元素。我们一般选取$ g(0) = e $。
+
+\rmk{务必注意，我们的群元素是由实数进行label的$ \alpha \in \mathbb{R}^n $}
+
+\defi{Generator
+
+  对于这个群我们可以在表示的意义下定义生成元，表示作为线性映射（在某种意义下的矩阵），可以进行单位元附近的tayler展开：
+  \begin{equation}
+    D(d\alpha)=1+id\alpha_aX_a+\cdots 
+    \label{eq:reptaylo}
+  \end{equation}
+  我们定义，单位元处的一阶导数就是群的生成元：
+  \begin{equation}
+    X_a\equiv -i\left.\frac{\partial}{\partial\alpha_a}D(\alpha)\right|_{\alpha=0}
+    \label{eq:generatordef2}
+  \end{equation}
+}
+\begin{itemize}
+  \item 如果表示是一个Unitary的表示那么生成元是Hermite的算符 
+\end{itemize}
+\tip{Generator}{
+  Generator到底是什么，我们发现其实就是表示线性映射构成的线性空间的一个元素。注意哦！这个线性空间不是每一个元素都有群元素的意义的，我们从来没有要求表示是一一映射什么的。
+
+  但是我们之后会发现，Generator这些元素构成的线性子空间，存在特殊的代数结构。
+}
+
+\begin{itemize}
+  \item 如果我们的群选择一个合适的参数化方式，我们可以把群元素的表示写作指数映射的形式：
+    \begin{equation}
+      D(\alpha)=\exp(i\alpha_aX_a)
+      \label{eq:expparametrization}
+    \end{equation}
+    我们一般都使用这个“合适的参数化形式”。但是请注意这样的写法是默认考虑一切都在生成元附近的，如果太远是不可以的。
+\end{itemize}
+
+
+\tip{本书的表示关系}{
+  本书之中所有表示的符号都是右乘在ket上面的：
+ \begin{equation}
+   D(g)\ket{i} = \ket{j}G_{ji}  \quad \text{or} \quad \bra{i}D(g) = G_{ij}\bra{j}
+  \label{eq:repket}
+ \end{equation} 
+}
+
+\bigskip 
+
+\hlr{李代数结构}
+
+\imp{李代数的结构}{
+  我们研究如果一个连续群被使用很好的参数化进行exp parametrization的形式，根据群的乘法定义等价于生成元构成的线性空间存在一个李代数结构。
+
+  也就是存在一个Lie bracket $ [\cdot,\cdot] $ 使得这个线性空间成为一个李代数。人话翻译就是这个线性空间除了一般的加法和数乘结构之外还存在一个commutator结构，并且我们可以使用基的commutator进行计算：
+  \begin{equation}
+    \begin{aligned}[X_a,X_b]&=if_{abc}X_c.\\f_{abc}&=-f_{bac}\end{aligned}
+    \label{eq:liebracket}
+  \end{equation}
+  这个对易关系我们称为群的\textbf{李代数结构}，以及$f_{abc}$为\textbf{结构常数}。
+}
+
+\begin{itemize}
+\item 我们note $ f_{abc} $在选定一系列合理的参数化之后是一个常数。【之后我们会发现，他按照张量变换】
+  \item 群的表示可以自动给出一个李代数的表示，对于所有群表示的李代数，只要参数化一样，结构常数都是一样的。但是表示不同结构常数也必须是一样的！！同时代数表示可以通过指数化给出一个群的表示捏。
+  \item 对于Unitary的表示来说，$ f_{abc} $是一个实数。所以说\textbf{只要这个群【存在一个】Unitary表示，这个群的结构常数就是实数！！}
+  \item 李代数满足Jacobi Identity：
+    \begin{equation}
+      [X_a,[X_b,X_c]]+\text{cyclic permutations }=0\mathrm{~.}
+      \label{eq:jacobiid}
+    \end{equation}
+  还有一种写法就是：
+  \begin{equation}
+    [X_a,[X_b,X_c]]=[[X_a,X_b],X_c]+[X_b,[X_a,X_c]]. 
+    \label{eq:anotherjacobi}
+  \end{equation}
+\end{itemize}
+
+\tip{不同的参数化对于结构常数的影响}{
+  我们发现如果我们选取不同的参数化方式，结构常数会发生变化。比如说我们把$ \alpha_a \to \beta_a = f(\alpha_a) $，这个时候根据生成元的定义生成元会发生变化：
+  \begin{equation}
+    X_a \to X'_a = \frac{\partial \beta_b}{\partial \alpha_a}X_b
+    \label{eq:genchange}
+  \end{equation}
+  这个时候结构常数会发生变化：
+  \begin{equation}
+    f_{abc} \to f'_{abc} = \frac{\partial \beta_a}{\partial \alpha_i}\frac{\partial \beta_b}{\partial \alpha_j}\frac{\partial \alpha_k}{\partial \beta_c}f_{ijk}
+    \label{eq:structureconstantchange}
+  \end{equation}
+  但是请注意，这个变化是一个类似于张量变换的关系，并不是任意变化！！所以我们可以把结构常数理解为一个张量。并且其实第三个指标应该是上指标才对！！
+}
+
+\bigskip 
+
+\hlr{ Adjoint Representation} 
+
+虽然对于一个李群表示可以帮我们自动生成一个李代数表示。根据commutator的结构我们有：
+\[
+  f_{bcd}f_{ade}+f_{abd}f_{cde}+f_{cad}f_{bde}=0. 
+\]
+这个告诉我们其实把 structural constant 可以理解为一个线性映射。
+\defi{ Adjoint Representation
+
+  我们定义一个线性映射：
+  \begin{equation}
+    (T_a)_{bc} = -if_{abc}
+    \label{eq:adjointrepdef}
+  \end{equation}
+  这个线性映射满足李代数的结构，并且是一个表示。我们称之为 Adjoint Representation。其实这个表示空间就是同构与李代数的空间。
+}
+我们不难验证其实：$ [T_a,T_b]=if_{abc}T_c $
+\begin{itemize}
+  \item 这个表示的维度其实就是李代数的维度「也是李群的维度」也就是「确定一个李群元素需要的指标的维数」
+  \item 对于【至少存在一个Unitary表示的群】来说，给出的Adjoint Representation是一个pure imaginary representation。
+\end{itemize}
+
+\hlr{Killing Form}
+
+Adjoint Represenation构成了一个线性映射（其实就是李代数到自己的自同态线性映射$ End(g) $）的线性空间。这个线性空间上面我们可以进行一些操作，比如基的变换【其实这个就等价于上面讨论的我们换一个参数化】
+
+同时我们可以定义两个元素的“内积”，其实是一个双线性form：
+\defi{ Killing Form
+
+  对于Adjoint Representation所有的Adjoint Rep这样的映射所在的线性空间。我们定义一个双线性形式：
+  \begin{equation}
+    g_{ab} = \text{Tr}(T_aT_b)
+    \label{eq:killingform}
+  \end{equation}
+  我们称之为 Killing Form。
+}
+
+我们发现这是一个对称的双线性形式，并且是非退化的【但是不一定是正定的，甚至可以是不定的】。并且我们会发现如果我们改变参数化或者等价的就是对于$ X_a $进行一个线性变换。那么得到的killing form的变换是：
+\begin{equation}
+  X_a\to X_a^{\prime}=L_{ab}X_b
+  \label{eq:transformation}
+\end{equation}
+我们会发现结构常数按照之前讨论的：
+\begin{equation}
+  f_{abc}\to f_{abc}^{\prime}=L_{ad}L_{be}f_{deg}L_{gc}^{-1}
+  \label{eq:structureconstanttransformation}
+\end{equation}
+【注意第三个指标其实是逆变的】所以Adjoint Representation的变换是：
+\begin{equation}
+  [T_a]\to[T_a^{\prime}]=L_{ad}L[T_d]L^{-1}
+  \label{eq:adjreptrans}
+\end{equation}
+所以Killing form的变换是：
+\begin{equation}
+  \mathrm{Tr}(T_aT_b)\to\mathrm{Tr}(T_a^{\prime}T_b^{\prime})=L_{ac}L_{bd}\mathrm{Tr}(T_cT_d)
+  \label{eq:killingformtrans}
+\end{equation}
+我们意识到Killing form的变换如同一个二阶张量而Adjoint Representation的变换如同一个一阶矢量算符。而结构常数的变换如同一个(2,1)阶张量。我们不妨选择一些合适的$ L_{ab} $线性组合保证$ g_{ab} $ Killing Form 是对角化的。
+
+
+
+
+\bigskip
+\hlr{ Compact Lie Algebras}
+
+\textbf{Compact Lie Algebra}： 我们会发现对于一些特殊的代数称为compact Lie Algebra：killing form是正定的。也就是所有的特征值都是正数，所以我们总可以进行一个$ T_a' = L_{ab} T_b $线性变换导致线性变换之后的基满足:
+\begin{equation}
+  \mathrm{Tr}(T_aT_b)=\lambda\delta_{ab}
+  \label{eq:compactkilling}
+\end{equation}
+
+\begin{enumerate}
+  \item 对于这样的基之下「这样的参数化之下」，我们的结构常数是\textbf{全反对称的}也就是可以写作：
+\begin{equation}
+  f_{abc}=f_{bca}=f_{cab}=-f_{bac}=-f_{acb}=-f_{cba}.
+  \label{eq:fullyantisymmetric}
+\end{equation}
+\item 并且Adjoint Representation是一个Unitary Representation。以及生成元$ T_a $都是Hermite的。
+\end{enumerate}
+
+\YL{一个大坑！有机会可以学习一下流形视角下面的李群和李代数！！}
+
+\bigskip 
+\hlr{ Simple and Semi-simple Lie Algebras}
+
+\textbf{Invariant Subalgebra: }也就是存在一个子空间，和所有Algebra元素commute都是子空间之中的元素。
+
+\begin{itemize}
+  \item Inv subalgebra 进行 exp操作得到的必然是一个invariant subgroup
+\end{itemize}
+
+\textbf{Simple Lie Algebra: }不存在非平凡invariant subalgebra的Lie Algebra。
+
+\textbf{Simple Group: }也就是可以通过Simple Lie Algebra生成的Lie Group。
+
+\thm{
+  The Adjoint Representation of a Lie Algebra is irreducible when 满足\cref{eq:compactkilling} And it is a Simple Lie Algebra. 
+}
+
+\textbf{Abelian Invariant Subalgebra: } 就是存在一个元素 $ X $和所有代数元素都对易的【其实就是centre】
+
+这样的子代数给出了表示就是和$ \langle T_a,T_b \rangle = g_{ab} = 0 \times \delta_{ab}$的这些0本征值的元素。因为这些元素的Adjoint表示都是$ T_a  = 0$。 所以我们的Adjoint 表示不能够包含这些代数元素的信息捏。
+
+\textbf{Semi-simple Lie Algebra: }不存在Abelian Invariant Subalgebra的Lie Algebra【这样的大叔可以写成Simple Lie Algebra的直和】
+
+\bigskip
+\hlr{Lie Group \& Lie Algebra作用在量子态和算符上面}
+
+一组合理的算符和坐标的变换法则是：
+\begin{equation}
+  |i\rangle\to|i^{\prime}\rangle=e^{i\alpha_aX_a}|i\rangle.  
+  \label{eq:ketransform}
+\end{equation}
+\begin{equation}
+  O\to O^{\prime}=e^{i\alpha_aX_a}Oe^{-i\alpha_aX_a}.
+  \label{eq:operatortrasn}
+\end{equation}
+并且我们可以验证这样的变换后新的算符在新的基下面的分量和旧的算符在旧的基下面的分量是一样的。这很协变了（（
+
+
+\imp{表示作用在张量算符上}{
+  我们意识到，表示作用在一个量子态上面就是直接乘上去。我们该怎么理解表示作用在算符上面呢？唯一的理解方式是，不要理解表示单独作用在算符上面永远理解表示作用在【被算符作用的量子态上】：
+  \begin{equation}
+    O|i\rangle\to e^{i\alpha_aX_a}O|i\rangle=e^{i\alpha_aX_a}Oe^{-i\alpha_aX_a}e^{i\alpha_aX_a}|i\rangle=O^{\prime}|i^{\prime}\rangle.
+    \label{eq:actionrepoponops}
+  \end{equation}
+  只是这个关系我们可以等效的表达为【算符和量子态进行分别变换】并且结果正好是【分别变换然后相乘】：
+  
+\begin{equation}
+  |i\rangle\to|i^{\prime}\rangle=e^{i\alpha_aX_a}|i\rangle.  
+  \label{eq:ketransform}
+\end{equation}
+\begin{equation}
+  O\to O^{\prime}=e^{i\alpha_aX_a}Oe^{-i\alpha_aX_a}.
+  \label{eq:operatortrasn}
+\end{equation}
+
+同样子的我们可以定义李代数作用在算符和量子态上面。这个作用的物理意义是，算符或者量子态在无限小李群变换时候的变换：
+\begin{equation}
+  \begin{aligned}
+  &X_a|i\rangle, \quad -\langle i|X_a\\ 
+ &[X_a,O]
+\end{aligned}
+  \label{eq:operatorliealgebra}
+\end{equation}
+这也是形式化的定义。但是我们考虑一个李代数作用在算符作用的量子态上面的时候，结果【正好是分别作用然后相加】！！
+
+\hlr{注意：李群的作用作用完是相乘；李代数的作用作用完是相加！！}
+}
+\bigskip 
+\subsubsection{SU(2) Algebra}
+
+一个 Lie 代数基本上由其结构常数所决定：
+\begin{equation}
+  [J_j,J_k]=i\epsilon_{jkl}J_l
+  \label{eq:su2algebra}
+\end{equation}
+为了构建表示，我们尽可能多地对角化某个算符（通常取 $J_3$），并由此定义升降算符：
+\begin{equation}
+  \begin{aligned}
+    [J_3,J^\pm] &= \pm J^\pm \\
+    [J^+,J^-] &= 2J_3 
+  \end{aligned}
+  \label{eq:rep}
+\end{equation}
+于是得到表示矩阵元为
+\begin{equation}
+  \begin{aligned}
+  \langle j,m'|J_3|j,m\rangle &= m\,\delta_{m'm} \\ 
+  \langle j,m'|J^+|j,m\rangle &= \sqrt{(j-m)(j+m+1)}\,\delta_{m',\,m+1} \\ 
+  \langle j,m'|J^-|j,m\rangle &= \sqrt{(j+m)(j-m+1)}\,\delta_{m',\,m-1}
+\end{aligned}
+\label{eq:repsu2}
+\end{equation}
+
+\bigskip 
+\hlr{约化一个 SU(2) 表示的方式}
+
+\begin{enumerate}
+  \item 寻找 $J_3$ 的最大本征值对应的本征矢，记作 $|j,j\rangle$；
+  \item 使用升降算符作用，生成整个不可约表示；
+  \item 在正交补空间中继续寻找下一个不可约表示，并用同样的方法构造；
+  \item 重复步骤 3，直到将整个表示完全约化。
+\end{enumerate}
+
+\bigskip 
+\hlr{代数的表示张量积约化}
+
+角动量耦合本质上就是对张量积表示进行上述方法的约化。
+\imp{我们怎么理解张量积约化的记号}{
+  在这一部分我们使用了一个记号：
+  \begin{equation}
+    |3/2,3/2\rangle=|1/2,1/2\rangle|1,1\rangle
+    \label{eq:tensorproductnotation}
+  \end{equation}
+  这个记号并不是一个等式，是一个【定义式】。他告诉我们这两个态的张量积可以当作某一个不等价不可约表示【子空间】的heighest weight state。\hlr{总之，记住这是一个记号定义，而不是把一个表示空间变成另一个表示空间。}
+}
+
+\imp{约化表示的正交性关系}{
+我们发现对于一个巨大的奇奇怪怪的可约化的表示空间的时候，我们约化之后会有海量正交性关系，我们下面进行解释：
+
+\begin{enumerate}
+  \item 不同weight的量子态必然正交：这个是由Hermite算符的特征保证的，因为对于SU2来说$ J_3 $是一个Hermite算符。实际上我们研究的一般都是Unitary Rep，所以我们选择的生成元都是Hermite的。
+  \item 同样weight但是不同primary给出的descendent都是正交的：这是因为我们的约化操作保证的，我们约化是选择的正交的空间进行构造的！
+\end{enumerate}
+
+}
+
+\subsection{Explanation and Questions for Week 2}
+
+\question{ 本书之中我们经常使用 $ \ket{i} $ 作为一个表示的基，这到底是什么意思？}
+
+我觉得本书之中这样的使用其实意思就是$ \ket{i} $的意思就是$ (0,...,1,...0) $ 其中1出现在第i个位置上面。因为算符 $ D_a(g) $ 作用在这个基上面给出的矩阵就是这样的 $ \bra{i} D_a(g) \ket{j} = G $
+
+\imp{李代数的定义讨论}{
+  我们说明了连续群的生成元，根据群的乘法关系，如果写作exp parametrization的形式需要存在commutative algebra的结构。
+
+  但是我们发现我们生成元构成的代数不仅仅是一个commutative algebra而且是一个Lie algebra。更还有乘法关系，也就是一个李代数的包络代数的结构。
+}
+
+\question{ 生成元本身自带哪些数学结构？(sec:2.2)}
+
+请注意我们的生成元的定义是：
+\begin{equation}
+  X_a\equiv-i\left.\frac{\partial}{\partial\alpha_a}D(\alpha)\right|_{\alpha=0}
+  \label{eq:generatordef}
+\end{equation}
+也就是选定某一个对于群表示的参数化之后，生成元就是表示对于这个参数的导数。并且为了方便讨论，我们一般使用指数参数化的形式。也就是我们使用这样的一组$ \{ \alpha_a\} $进行参数化，使得$ e $附近的群元素可以写作：$ D(\alpha) = exp(i \alpha_a X_a) $。
+
+\begin{enumerate}
+  \item 加法/数乘结构： 
+所有的生成元都是线性映射【因为表示是这么定义的】，某两个线性空间之间的线性映射其实构成了一个线性空间，赋予「数乘+加法」结构。根据tayler expansion的性质，我们知道这样组合的生成元仍然是生成元。
+\item 乘法结构：
+同时，因为我们考虑的表示一般是一个线性空间自己到自己的线性映射。所以，生成元一般可以自然赋予乘法的结构。但是我们并不知道这样的乘法结构之后的物体是否仍然是一个生成元。
+\item 对易结构：
+只是commutation algebra的结构告诉我们，如果$ X_a $是选定某个指数参数化之后的生成元，那么$ [X_a, X_b] $也是一个对于指数参数化生成元。
+\end{enumerate}
+
+\question{ 请告诉我一些线性代数的基本知识球球了！！}
+
+\textbf{实对称矩阵：} 可以进行对角化，并且所有本征值都是实数。但是正负并不确定。显然是Hermite的。
+
+\textbf{纯虚反对称矩阵：}显然也是Hermite的，并且本征值都是纯虚数。
+
+\question{ Adjoint representation 到底由什么决定？}
+
+虽然这本书之中我们讨论的都是连续群的表示和代数的表示。但是 Adjoint representation 是由代数和群乘法结构决定的。这个和任何表示无关，这是一个由代数本身结构决定的自然的表示。这个表示选择的基就是 代数 这个线性空间！！
+
+
+\imp{抽象的李代数定义以及本书之中的定义}{
+  本书之中李代数定义为连续群表示的生成元（单位元附近的导数）。所以自然是表示空间自己到自己的线性映射空间。
+
+  但是，李代数的定义是不依赖于表示的！虽然我们可以通过表示和生成元定义拥有李代数结构的线性映射构成的线性空间。但是李代数结构本身与表示无关并且可以通过抽象的方式进行定义。
+
+  Adjoint Representation并不是由表示决定的而是李代数的抽象结构决定的。
+}
+
+\textbf{我们可以用Caley-Hamilton theorem来计算矩阵的函数！！并且通过本征值求解确定系数！！}
+
+\thm{
+  Hamilton-Cayley Theorem 
+
+  对于一个$ n\times n $矩阵$ A $，它的特征多项式为：
+  \begin{equation}
+    f(A)=\sum_{k=0}^{n-1}c_kA^k. 
+    \label{eq:expansionmat}
+  \end{equation}
+}
+我们可以使用这个定理来计算矩阵的函数，比如说指数映射。我们求一下A的本征向量，并且作用在两边，我们就可以给出一个系数方程组。反解方程组就可以得到系数。
+
+
+
+
+
+
+

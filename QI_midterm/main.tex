@@ -1,0 +1,397 @@
+% main.tex - 科研项目学习笔记模板
+% !TeX root = main.tex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% DOCUMENT 
+\documentclass[11pt]{article}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% PACKAGES
+
+% 中文支持（XeLaTeX 编译）
+% \usepackage[UTF8]{ctex}
+% \usepackage{xeCJKfntef} 
+
+% \setCJKmainfont{HanziPen SC}
+% \setmainfont{HanziPen SC}
+
+
+% 页面设置
+\usepackage[a4paper, left=20mm, right=20mm, top=15mm, bottom=15mm]{geometry}
+
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+\usepackage{xcolor}
+
+
+% 数学环境及符号
+\usepackage{amsmath, amssymb, amsfonts, amsthm,amsopn}
+\usepackage{tensor}              % 张量指标管理
+\usepackage{mathtools}           % amsmath增强
+% \usepackage{physics}             % 物理公式快捷命令
+             % Dirac符号
+\usepackage{bbold}               % 数学黑体
+\usepackage{dsfont}              % 另一种数字体
+\usepackage[mathscr]{eucal}     % 花体字母
+\usepackage{tensor}              % 张量指标管理
+\usepackage{simpler-wick}       % Wick记号
+\usepackage{mathrsfs}            % 另一种花体字母
+
+% 颜色与图形相关
+\usepackage{graphicx}           % 插图支持
+\usepackage{float}              % 浮动体控制
+\usepackage{tikz}               % 绘图库
+\usetikzlibrary{math}           % tikz数学扩展
+\usepackage{geometry}
+% 表格与列表
+\usepackage{makecell}           % 表格多行换行
+\usepackage{multicol}           % 多栏排版
+\usepackage{colortbl}           % 表格颜色
+\usepackage{enumitem}           % 列表自定义
+
+% 其他辅助
+\usepackage{framed}             % 有边框环境
+\usepackage{tcolorbox}          % 灵活盒子环境
+\tcbuselibrary{breakable}       % 盒子内容分页
+\usepackage{thmtools}           % 定理环境管理
+\usepackage{thm-restate}        % 定理重述
+% \usepackage{showlabels}         % 显示标签，调试用（完成后可注释）
+\usepackage[normalem]{ulem}     % 下划线、删除线
+\usepackage{hyperref}           % 超链接（最后加载）
+\usepackage{cleveref}           % 智能引用（紧跟hyperref）
+\usepackage{soul}
+
+% 自定义宏包
+\usepackage{macros}
+
+% 一个中文可以高亮的包
+\usepackage{cjkhl}
+\definecolor{lightblue}{rgb}{.8,.8,1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 自定义命令
+% Quantum notation
+\newcommand{\bra}[1]{\left\langle #1 \right|}
+\newcommand{\ket}[1]{\left| #1 \right\rangle}
+\newcommand{\braket}[2]{\left\langle #1 \middle| #2 \right\rangle}
+\newcommand{\ketbra}[2]{\left| #1 \middle\rangle\!\middle\langle #2 \right|}
+\newcommand{\proj}[1]{\ketbra{#1}{#1}}
+
+% Vectorization-related
+\newcommand{\vecx}[1]{\operatorname{vec}\!\left(#1\right)}
+\newcommand{\vrx}[1]{\ket{\operatorname{vec}\!\left(#1\right)}}
+\newcommand{\vrb}[1]{\bra{\operatorname{vec}\!\left(#1\right)}}
+\newcommand{\bravect}[1]{\bra{\operatorname{vec}\!\left(#1\right)}}
+\newcommand{\ketvect}[1]{\ket{\operatorname{vec}\!\left(#1\right)}}
+\newcommand{\vbraket}[2]{\left\langle \operatorname{vec}\!\left(#1\right) \middle| \operatorname{vec}\!\left(#2\right) \right\rangle}
+\newcommand{\vketbra}[2]{\left| \operatorname{vec}\!\left(#1\right) \middle\rangle\!\middle\langle \operatorname{vec}\!\left(#2\right) \right|}
+
+\newcommand{\tr}{\operatorname{Tr}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% BEGINNING OF THE DOCUMENT
+
+\begin{document}
+
+\title{\boldmath Answer to Assessed Problem 1: Purity of the outputs of random unitary channels}
+\author{Yu Liu}
+
+\maketitle
+
+\textbf{Problem (a): } 
+
+We can Vectorize the output state and get that :
+\begin{align}
+  \vrx{\mathcal{E}(\rho)}  &= \int dU \ U \otimes U^* \vrx{\rho}  = \displaystyle\frac{1}{d} \vrx{I}\vbraket{I}{\rho} \\ 
+                           &= \displaystyle\frac{1}{d} \vrx{I} \tr(\rho) = \displaystyle\frac{1}{d} \vrx{I}
+\end{align}
+Thus the output state is $\mathcal{E}(\rho) = \displaystyle\frac{I}{d}$, which is the maximally mixed state.
+We can construct the following Kraus Operators:
+\begin{align}
+  \left\{K_{ij} = \displaystyle\frac{1}{\sqrt{d}} \ketbra{i}{j} \right\}
+\end{align}
+We can varify that these Kraus Operators satisfy:
+\begin{align}
+  \sum_{ij} K_{ij}^\dagger K_{ij} = I
+\end{align}
+And the output state is:
+\begin{align}
+  \mathcal{E}(\rho) = \sum_{ij} K_{ij} \rho K_{ij}^\dagger = \displaystyle\frac{1}{d} \sum_{ij} \ketbra{i}{j} \rho \ketbra{j}{i} = \displaystyle\frac{1}{d} \sum_{i} \ketbra{i}{i} \tr(\rho) = \displaystyle\frac{I}{d}
+\end{align}
+\qed
+
+\textbf{Problem (b): }
+
+The purity of the output state is:
+\begin{align}
+  \tr (\mathcal{E}(\rho)^2)  = \tr \displaystyle\frac{I}{d^2} = \displaystyle\frac{1}{d}
+\end{align}
+\qed
+
+\textbf{Problem (c): }
+
+The average purity of the output state is:
+\begin{align}
+  \tr (\rho_{\text{out}}^2) = \tr (U \rho^2 U^\dagger) = \vketbra{I}{U \rho^2 U^\dagger} = \vrb{I} U \otimes U^* \vrx{\rho^2}
+\end{align}
+We plug in the intergration over the unitaries and we can get the average purity is:
+\begin{align}
+ \int dU\ \tr (\rho_{\text{out}}^2)  = \vrb{I} \int dU \ U \otimes U^* \vrx{\rho^2} = \displaystyle\frac{1}{d} \tr (I) \tr(\rho^2) =  \tr(\rho^2)
+\end{align}
+
+the average purity of the random unitary channel is the same as the input state. This is because every single unitary operation preserves the purity of the state, thier average also preserves the purity. However, the purity of the output state from random unitary channel generate the maximally mixed state, which supress the purity to the minimum value $ 1/d $.
+\qed
+
+\bigskip
+\textbf{Problem (d): }
+
+We first calculate $ \bar{\sigma}_2(\rho_2) $ which is :
+\begin{align}
+  \bar{\sigma}_2(\rho_2)=\int_{U(d^2)}\mathrm{Tr}_1[U_{1,2}(\rho_1\otimes\rho_2)U_{1,2}^\dagger]dU_{1,2}\mathrm{~.}
+\end{align}
+The partial trace operation can be written as a quantum channel with Kraus operators $K_i=\langle i|_1\otimes I_2$, where $\{|i\rangle\}$ is an orthonormal basis for system 1. Thus we have:
+\begin{align}
+  \vrx{\bar{\sigma}_2(\rho_2)} &= \sum_i (K_i\otimes K_i^*) \int_{U(d^2)}(U_{1,2}\otimes U_{1,2}^*)\ dU_{1,2} \vrx{\rho_1\otimes\rho_2} \\ 
+                               &= \sum_i (K_i\otimes K_i^*) \displaystyle\frac{1}{d^2} \vrx{I_{1,2}} \vbraket{I_{1,2}}{\rho_1\otimes\rho_2} \\ 
+                               &= \sum_i \displaystyle\frac{1}{d} \ket{i,i} \vbraket{I_1 \otimes I_2}{\rho_1\otimes\rho_2}\\ 
+\end{align}
+we can use the identity that:
+\begin{align}
+  \vbraket{I_1 \otimes I_2}{\rho_1 \otimes \rho_2} = \vbraket{I_1}{\rho_1} \vbraket{I_2}{\rho_2} = \tr(\rho_1) \tr(\rho_2) = 1
+\end{align}
+Thus we have:
+\begin{align}
+  \bar{\sigma}_2(\rho_2) = \displaystyle\frac{1}{d} \sum_i \ketbra{i}{i} = \displaystyle\frac{I_2}{d}
+\end{align}
+Then we calculate the final output state:
+\begin{align}
+  \mathcal{E}_2(\rho_2)=\int_{U(d^2)}U_{3,2}\left(\rho_3\otimes\bar{\sigma}_2(\rho_2)\right)U_{3,2}^\dagger dU_{3,2}
+\end{align}
+We can use the result from (a) directly and get that:
+\begin{align}
+  \mathcal{E}_2(\rho_2) = \displaystyle\frac{I_{3,2}}{d^2}
+\end{align}
+Similarly, we can construct the Kraus operators for this channel as:
+\begin{align}
+  \left\{K_{ijkl} = \displaystyle\frac{1}{d} \ketbra{i,j}{k,l} \right\}
+\end{align}
+\qed
+
+\textbf{Problem (e): }
+
+We first calculate the vectorization of the following state:
+\begin{align}\label{eq:partialeq}
+  \vrx{\tr_1(U \rho_1 \otimes \rho_2 U^\dagger)} = \sum_i (K_i \otimes K_i^*) (U \otimes U^*) \vrx{\rho_1 \otimes \rho_2}
+\end{align}
+where $ K_i = \bra{i}_1 \otimes I_2 $. I then write all the elements in indecies explicitly:
+\begin{align}
+  \rho_1 = \sum_{i,j} \rho_{1 \ i,j} \ketbra{i}{j}, \quad \rho_2 = \sum_{k,l} \rho_{2\ k,l} \ketbra{k}{l}, \quad U_{mn,ik} = \bra{m,n} U \ket{i,k}, \quad U^*_{pq,jl} = \bra{p,q} U^* \ket{j,l}
+\end{align}
+We have to be careful that the vectorization and the tensor product do not commute, so we have:
+\begin{align}
+  \vrx{\rho_1 \otimes \rho_2} = \sum_{i,j,k,l} \rho_{1 \ i,j} \rho_{2\ k,l} \ket{i,k, j,l}
+\end{align}
+We plug them into \cref{eq:partialeq} and we have:
+\begin{align}
+  \vrx{\tr_1(U \rho_1 \otimes \rho_2 U^\dagger)} &= \sum_m (K_m \otimes K_m^*) (U \otimes U^*) \sum_{i,j,k,l}\ \rho_{1 \ i,j} \rho_{2\ k,l} \ket{i,k, j,l} \\ 
+  &= \sum_m (K_m \otimes K_m^*) \sum_{a,b,c,d,i,j,k,l} U_{ab,ik} U^*_{cd,jl}\ \rho_{1 \ i,j} \rho_{2\ k,l} \ket{a,b,c,d} \\ 
+  & = \sum_m \sum_{n,g,i,j,k,l} U_{mn,ik} U^*_{mg,jl}\ \rho_{1 \ i,j} \rho_{2\ k,l} \ket{n,g} \\
+\end{align}
+Then we consider the vectorization of the final output state. We write $ \rho_3 $ in indecies as well:
+\begin{align}
+  \rho_3 = \sum_{n,p} \rho_{3 \ n,p} \ketbra{n}{p}
+\end{align}
+\begin{align}
+&\vrx{U(\rho_3\otimes \tr_1(U \rho_1 \otimes \rho_2 U^\dagger))U^\dagger}= (U \otimes U^*) \vrx{\rho_3 \otimes \tr_1(U \rho_1 \otimes \rho_2 U^\dagger)} \\
+  =& (U \otimes U^*) \sum_{m}\sum_{n,g,i,j,k,l}\sum_{a,b} U_{mn,ik} U^*_{mg,jl}\ \rho_{1 \ i,j} \rho_{2\ k,l} \rho_{3\ a,b} \ket{a,n,b,g} 
+\end{align}
+We the plug the definition of $ U_{mn,ik} $ and $ U^*_{mg,jl} $back and we can have:
+\begin{align}\label{eq:finalvec}
+&\vrx{U(\rho_3 \otimes \tr_1 (U\rho_1 \otimes \rho_2 U^\dagger))U^\dagger} \\
+  = & \sum_m \sum_{n,g,i,j,k,l}\sum_{a,b} \rho_{1 \ i,j} \rho_{2\ k,l} \rho_{3\ a,b} \times \left(\bra{m,n} \otimes I \otimes \bra{m,g} \otimes I\right) U \otimes U \otimes U^* \otimes U^* \ket{i,k;a,n;j,l;b,g}
+\end{align}
+We then integrate over $ U $, using the following result:
+\begin{align}\label{eq:weingarten}
+&\int_{U(d^2)} U^{\otimes 2} \otimes \left(U^*\right)^{\otimes 2} \, dU\\
+= &\frac{1}{d^4 - 1} \left(
+    |\operatorname{vec}(I)\rangle \langle \operatorname{vec}(I)|
+    - \frac{1}{d^2} |\operatorname{vec}(I)\rangle \langle \operatorname{vec}(F)|
+    - \frac{1}{d^2} |\operatorname{vec}(F)\rangle \langle \operatorname{vec}(I)|
+    + |\operatorname{vec}(F)\rangle \langle \operatorname{vec}(F)|
+\right)
+\end{align}
+To calculate the final result, we carefully relabel the indecies of \cref{eq:finalvec} as:
+\begin{align}
+&\vrx{U(\rho_3 \otimes \tr_1 (U\rho_1 \otimes \rho_2 U^\dagger))U^\dagger} \\
+  = & \sum_m \sum_{a_1,a_2;b_1,b_2; c_1,c_2;d_1,d_2} \rho_{1 \ a_1,c_1} \rho_{2\ a_2,c_2} \rho_{3\ b_1,d_1} \\ 
+    & \times \left(\bra{m,b_2} \otimes I \otimes \bra{m,d_2} \otimes I\right) U \otimes U \otimes U^* \otimes U^* \ket{a_1,a_2;b_1,b_2;c_1,c_2;d_1,d_2}
+\end{align}  
+Then we calculate the four terms from \cref{eq:weingarten} separately, and then we de-vectorize them separately as well:
+\begin{enumerate}
+  \item $     |\operatorname{vec}(I_{d^2})\rangle \langle \operatorname{vec}(I_{d^2})|
+ $ term contributes:
+ \begin{align}
+   d^2 \sum_{b_1,b_2} \ket{b_1,b_2;b_1,b_2} \quad \Rightarrow \quad d^2 I_{3,2}
+ \end{align}
+ \item $  - \frac{1}{d^2} |\operatorname{vec}(I)\rangle \langle \operatorname{vec}(F)| $ term contributes:
+   \begin{align}
+     - \displaystyle\frac{1}{d} \tr(\rho_1 \rho_3) \sum_{b_1,b_2} \ket{b_1,b_2;b_1,b_2} \quad \Rightarrow \quad - \displaystyle\frac{1}{d} \tr(\rho_1 \rho_3) I_{3,2}
+   \end{align}
+   \item $  - \frac{1}{d^2} |\operatorname{vec}(F)\rangle \langle \operatorname{vec}(I)$ term contributes:
+     \begin{align}
+       - \displaystyle\frac{1}{d^2} \sum_{b_1,b_2} \ket{b_1,b_2;b_1,b_2} \quad \Rightarrow \quad  - \displaystyle\frac{1}{d^2} I_{3,2}
+     \end{align}
+     \item $  |\operatorname{vec}(F)\rangle \langle \operatorname{vec}(F)| $ term contributes:
+       \begin{align}
+         \tr(\rho_1\rho_3) \sum_{m,b_2,a_2} \rho_{2\ b_2,a_2} \ket{m,b_2;m,a_2}\quad \Rightarrow  \quad d \times \tr(\rho_1\rho_3) (I_3/d \otimes \rho_2)
+       \end{align}
+\end{enumerate}
+Then we can see that the final output state is:
+\begin{align}
+  \mathcal{E}_3(\rho_2) = \displaystyle\frac{1}{d^4 - 1} \left( d^2 I_{3,2} - \displaystyle\frac{\tr(\rho_1 \rho_3)}{d} I_{3,2} - \displaystyle\frac{1}{d^2} I_{3,2}  + d \tr(\rho_1\rho_3) (I_3/d \otimes \rho_2)\right)
+\end{align}
+we then can simplify it to:
+\begin{align}
+  \mathcal{E}_3(\rho_2)  = P \displaystyle\frac{I_{3,2}}{d^2} + (1-P) (\displaystyle\frac{I_3}{d} \otimes \rho_2) \quad \text{where} \quad P = \left( 1- \displaystyle\frac{d \tr (\rho_1 \rho_3)}{d^4 - 1} \right)
+\end{align}
+We can see that this channel is a convex combination of two channels:
+\begin{enumerate}
+  \item The first channel is the complete maximally mixing channel that turn every input state to maximally mixed state $ \mathcal{E}(\rho) = I/d $.
+  \item The second channel is a subsystem maximally mixing channel that mix the first subsystem to maximally mixed state and keep the second subsystem intact $ \mathcal{E}(\rho_1 \otimes \rho_2) = I/d \otimes \rho_2 $. 
+\end{enumerate}
+The possibility of imposing the two channels are determined by $ P $ which is controled by the trace $ \tr(\rho_1 \rho_3) $, if these two states are pure:
+\begin{align}
+  \tr (\rho_1 \rho_3 ) = |\braket{\psi}{\phi}|^2, \quad \rho_1 = \ketbra{\psi}{\psi}, \rho_3 = \ketbra{\phi}{\phi}
+\end{align}
+Then the overlap between these two states controls the possibility of having the two channels. If they are orthogonal, then $ P = 1 $ and the output state is completely maximally mixed. If they are identical, then $ P = 1 - \displaystyle\frac{d}{d^4 - 1} $.
+
+We can construct the Kraus Operators by combining the Kraus Operators for the two channels:
+\begin{align}
+  \left\{ \sqrt{P} K_{ijkl} \right\} \cup \left\{ \sqrt{1-P} \left( K_{mn} \otimes I_2 \right) \right\} \quad \text{where} \quad K_{ijkl} = \displaystyle\frac{1}{d}  \ketbra{i,j}{k,l}, \quad K_{mn} = \displaystyle\frac{1}{\sqrt{d}} \ketbra{m}{n}
+\end{align}
+\qed 
+
+\textbf{Problem (f): }
+
+We assume that $ \rho_1, \rho_2, \rho_3 $ are all pure states. We then calculate the purity of the output states from the two channels:
+\begin{itemize}
+  \item $ \mathcal{E}_2(\rho_2) $, this channel gives us that:
+    \begin{align}
+      \mathcal{E}_2(\rho_2) = \displaystyle\frac{I_{3,2}}{d^2}
+    \end{align}
+    Thus the purity of the output state is:
+    \begin{align}
+      \tr (\mathcal{E}_2(\rho_2)^2) = \tr \displaystyle\frac{I_{3,2}}{d^4} = \displaystyle\frac{1}{d^2}
+    \end{align}
+  \item $ \mathcal{E}_3(\rho_2) $, this channel gives us that:
+    \begin{align}
+      \mathcal{E}_3(\rho_2)  = P \displaystyle\frac{I_{3,2}}{d^2} + (1-P) (\displaystyle\frac{I_3}{d} \otimes \rho_2)
+    \end{align}
+    Thus the purity of the output state is:
+    \begin{align}
+      \tr (\mathcal{E}_3(\rho_2)^2) &= \tr\left( \displaystyle\frac{P^2 I}{d^4} + (1-P)^2 \displaystyle\frac{1}{d^2}  (I_3 \otimes \rho_2) + 2 P(1-P) \displaystyle\frac{2}{d^3} (I_3 \otimes \rho_2)\right) \\ 
+                                    & = \displaystyle\frac{1}{d^2} (P(2-P)+d (1-P)^2)
+    \end{align}
+\end{itemize}
+
+\textbf{Problem (g): }
+
+Before dig into calculations we first analyze the argue the average purity of the two channels are the same. We can use the following trick:
+\begin{align}
+  &\tr(\rho^2) = \vbraket{\rho}{\rho} \\ 
+  &\tr(U \rho U^\dagger)^2 = \vrb{\rho} (U^\dagger \otimes U^{*\dagger}) (U \otimes U^*) \vrx{\rho} = \vbraket{\rho}{\rho} = \tr(\rho^2)
+\end{align}
+Thus we can see that for ever single unitary operation we have:
+\begin{align}
+  &\tr (\rho_{\mathrm{out}}(U_{1,2},U_{3,2})^2) = \tr[ (\rho_3 \otimes \tr_1 (U_{1,2} \rho_1 \otimes \rho_2 U_{1,2}^\dagger))^2]\\ 
+  &\tr (\rho_\mathrm{out}(U)^2) = \tr [\rho_3 \otimes \tr_1 (U \rho_1 \otimes \rho_2 U^\dagger))^2]
+\end{align}
+The first equation is independent of $ U_{3,2} $, thus we can see that the average purity over $ U_{1,2} $ and $ U_{3,2} $ is the same as the average purity over $ U_{1,2} $ only. We rename $ U_{1,2} $ as $ U $ for simplicity then we can see that the average purity of the two channels are the same. 
+
+Then we calculate the vaerage purity:
+\begin{align}
+  \int dU\ \tr (\rho_{\mathrm{out}}(U)^2) &= \int dU\ \tr [ (\rho_3 \otimes \tr_1 (U \rho_1 \otimes \rho_2 U^\dagger))^2]\\ 
+                                          &= \int dU \ \vbraket{\rho_3 \otimes \tr_1 (U \rho_1 \otimes \rho_2 U^\dagger)}{\rho_3 \otimes \tr_1 (U \rho_1 \otimes \rho_2 U^\dagger)}\\ 
+                                          &= \int dU \ \vbraket{\rho_3}{\rho_3} \times \vbraket{\tr_1 (U \rho_1 \otimes \rho_2 U^\dagger)}{\tr_1 (U \rho_1 \otimes \rho_2 U^\dagger)}\\
+                                          &= \tr(\rho_3^2) \int dU \ \tr_2 \left[\bar{\sigma}_2(\rho_2)^2] \right] \quad \text{where} \quad \bar{\sigma}_2(\rho_2) = \tr_1 (U \rho_1 \otimes \rho_2 U^\dagger)
+\end{align}
+We then calculate the average purity of $ \bar{\sigma}_2(\rho_2) $. Before doing that we need to prove a lemma:
+\lmm{
+  For a quantum state $ \rho $ we have the following identity:
+  \begin{align}
+    \tr_1 (\rho^2) = \tr_{1,2} \left( F_{1,2} \  \rho \otimes \rho \right) 
+  \end{align}
+  where $ F_{1,2} $ is the swap operator between system 1 and system 2.
+}
+The proof is straightforward by writing all the elements in indecies:
+\begin{align}
+  \tr_{1,2}(F_{1,2} \ \rho \otimes \rho) &= \sum_{i,j}\sum_{a,b,c,d} \tr_{1,2} ( \ketbra{i,j}{j,i} \rho_{ab}\rho_{cd} \ketbra{ac}{bd} ) \\ 
+                                       &= \rho_{ji} \rho_{ij} = \tr_1 (\rho^2)
+\end{align} 
+We then inplement this lemma to calculate the average purity of $ \bar{\sigma}_2(\rho_2) $:
+\begin{align}
+  \tr_2 (\bar{\sigma}_2(\rho_2)^2) =& \tr_{2,2'} \left( F_{2,2'} \ (\tr_{1} (U \rho_1 \otimes \rho_2 U^\dagger ) \otimes (\tr_{1'} (U \rho_1 \otimes \rho_2 U^\dagger ) ) \right) \\ 
+  =& \tr_{1,1',2,2'} \left( (I_{1,1'} \otimes F_{2,2'}) (U \otimes U^*)^{\otimes 2} (\rho_1 \otimes \rho_2)^{\otimes 2} (U^\dagger \otimes U^{*\dagger})^{\otimes 2} \right)
+\end{align}
+we then focus on calculating the output of channel: 
+\begin{align}
+  \sigma_0 =   \int dU \ (U \otimes U^*)^{\otimes 2} (\rho_1 \otimes \rho_2)^{\otimes 2} (U^\dagger \otimes U^{*\dagger})^{\otimes 2}
+\end{align}
+We vectorize this state we finds that it equals to:
+\begin{align}
+  \int dU \ U^{\otimes 2} \otimes (U^*)^{\otimes 2}  \ \vrx{(\rho_1 \otimes \rho_2)^{\otimes 2}} 
+\end{align}
+The we plug in the result from \cref{eq:weingarten} and we have:
+\begin{align}
+  &\vrx{\sigma_0}\\
+  = &\frac{1}{d^4 - 1} \left(
+    |\operatorname{vec}(I)\rangle \langle \operatorname{vec}(I)|
+    - \frac{1}{d^2} |\operatorname{vec}(I)\rangle \langle \operatorname{vec}(F)|
+    - \frac{1}{d^2} |\operatorname{vec}(F)\rangle \langle \operatorname{vec}(I)|
+  + |\operatorname{vec}(F)\rangle \langle \operatorname{vec}(F)| \right) \\
+    \times& \vrx{(\rho_1 \otimes \rho_2)^{\otimes 2}} 
+\end{align}
+By doing contractions and de-vectorization we can get the final result of $ \sigma_0 $:
+\begin{align}
+  \sigma_0 = \displaystyle\frac{1}{d^4 -1} \left( M_1 I_{1,2,1',2'} + M_2 F_{1,1'}\otimes F_{2,2'} \right)
+\end{align}
+where:
+\begin{align}
+  M_1=& \tr(\rho_1 \otimes \rho_2)^2 - \displaystyle\frac{1}{d^2} \tr(\rho_1\otimes \rho_2 \times \rho_1\otimes \rho_2) = 1-\displaystyle\frac{1}{d^2} \tr(\rho_1^2) \tr(\rho_2^2) \\ 
+  M_2 =& \tr(\rho_1^2) \tr(\rho_2^2) - \displaystyle\frac{1}{d^2}
+\end{align}
+Thus we finally have:
+\begin{align}
+  \int dU \ \tr_2 (\bar{\sigma}_2(\rho_2)^2) =& \tr_{1,1',2,2'} \left( (I_{1,1'} \otimes F_{2,2'}) \sigma_0 \right) \\ 
+  =& \displaystyle\frac{d^3}{d^4 - 1}(M_1 +M_2) \\ 
+  =& \displaystyle\frac{d}{d^2+1} (1+ \tr(\rho_1^2) \tr(\rho_2^2))
+\end{align}
+Then we can see that the average purity of the two channels are:
+\begin{align}
+  \int dU\ \tr (\rho_{\mathrm{out}}(U)^2) = \tr(\rho_3^2) \times \displaystyle\frac{d}{d^2+1} (1+ \tr(\rho_1^2) \tr(\rho_2^2))
+\end{align}
+\qed
+
+We can see that the average purity of the two channels are the same while the purity of the output state varies. 
+
+This is because the average purity capture the purity of average of normal channels without considering the effect of randomly averaging channels, while the purity of the output state captures the effect of randomly averaging channel. 
+
+The two channels have differs in the way of applying random unitary (one applies in 2 steps while the other applis in 1), thus the purity of the output states are different.
+\qed
+
+\bigskip
+\textbf{Problem (h): }
+
+Practically, we can do the calculation. 
+\begin{align}
+  \tr_2( \rho_{\text{out}}^2) =& \tr_{2,2'} ( F_{2,2'} \mathrm{Tr}_{3}[U(\rho_3\otimes\mathrm{Tr}_{1}[U(\rho_1\otimes\rho_2)U^\dagger])]U^\dagger] \otimes \mathrm{Tr}_{3'}[U(\rho_3\otimes\mathrm{Tr}_{1'}[U(\rho_1\otimes\rho_2)U^\dagger])]U^\dagger]) \\ 
+  =& \tr_{2,2',3,3'} (F_{2,2'} (U \otimes U) (\rho_3 \otimes \tr_{1}U(\rho_1\otimes\rho_2)U^\dagger))^{\otimes 2} (U^\dagger \otimes U^\dagger)  ) 
+\end{align}
+We can show that:
+\begin{align}
+\rho_3 \otimes \tr_{1}U(\rho_1\otimes\rho_2)U^\dagger)
+\end{align}
+can be vectorized and calculated in similar ways in (e) and we can get the final result by acting something like:
+\begin{align}
+  \int \ dU \ U^{\otimes 4} \otimes (U^*)^{\otimes 4}
+\end{align}
+on a vectorized state and finally de-vectorize it back to get the result. However, the detailed calculation may be very lengthy.
+\qed
+
+
+\end{document}

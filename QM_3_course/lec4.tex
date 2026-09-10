@@ -1,0 +1,164 @@
+\subsection{Take home messages}
+
+\hlr{Turning Point的复分析处理方法}
+
+我们之前使用Airy Function处理了turning point附近的波函数连接问题。但是，这个方法比较复杂。下面介绍如何使用解析延拓的方法处理。
+
+\textbf{Step 1:} 先考虑经典不允许区域的波函数，我们设置为：
+\begin{align}
+  \psi_{CF}=\frac{C}{2\sqrt{|p|}}\text{exp}{-\frac{1}{\hbar}\int_{x_0}^xdx^{\prime}|p|},
+\end{align}
+\bigskip
+
+\textbf{Step 2:} 线性势能近似。一般的势能很难进行研究，但是如果我们认为turning point 附近是线性的，那么会很大程度简化。我们选择：
+\begin{align}
+  V(x)=E+\frac{dV}{dx}|_{x_0}(x-x_0)+\mathscr{O}((x-x_0)^2)\approx E+F(x-x_0).
+\end{align}
+所以对于动量我们有:
+\begin{enumerate}
+  \item 对于经典允许区域$ x < x_0 $，我们有$ p(x) = \sqrt{2m(E-V(x))} = \sqrt{2mF(x_0-x)} $；
+  \item 对于经典不允许区域$ x > x_0 $，我们有$ p(x) = \sqrt{2m(V(x)-E)} = \sqrt{2mF(x-x_0)} $。
+\end{enumerate}
+
+\bigskip
+\textbf{Step 3:} 我们研究这个函数的解析情况，发现除了$ x = x_0 $的时候$ \sqrt{p}  = 0$存在一个不能消除的奇点之外，似乎解析延拓到复平面是没有问题的。我们进行一个替换$ x-x_0 \to z = \rho e^{i \phi} $。于是在线性近似前提下解析延拓后的波函数是：
+ 
+\begin{align}
+  \tilde{\boldsymbol{\psi}}_{CF}(z)=\frac{C}{2}(2mF)^{-1/4}z^{-1/4}e^{-\frac{2}{3\hbar}(2mF)^{1/2}z^{3/2}}.
+\end{align}
+
+\bigskip
+\textbf{Step 4:} 奇点的存在意味着我们需要进行割线选取。我们发现有两个选择【自然对应着经典允许区域解空间两个正交基】，一个是$ \phi = 0 $到$ \phi = \pi $，另一个是$ \phi = 0 $到$ \phi = -\pi $。
+
+我们选择前者（正虚轴上的割线）作为割线。于是我们可以得到：
+\begin{align}
+  \tilde{\psi}_{CF}(\rho e^{-i\pi})=\frac{C}{2(2 m F)^{1/4}}\frac{1}{\rho^{1/4}e^{-i\pi/4}}\exp\left[-\frac{2}{3\hbar}(2 m F)^{1/2}\rho^{3/2}e^{-3i\pi/2}\right]
+\end{align}
+对于后者（负虚轴上的割线）
+\begin{align}
+  \tilde{\psi}_{CF}(\rho e^{i\pi})=\frac{C}{2(2mF)^{1/4}}\frac{1}{\rho^{1/4}e^{i\pi/4}}\exp\left[-\frac{2}{3\hbar}(2mF)^{1/2}\rho^{3/2}e^{3i\pi/2}\right]
+\end{align}
+
+\bigskip
+\textbf{Step 5:} 计算经典允许区域的下面两个数值，并使用$ \rho $进行代换：
+\begin{align}
+  \int^{x_0}_x p(x')dx'=\int^{x_0}_x\sqrt{2m(E-V(x'))}dx' \quad \sqrt{p(x)}
+\end{align}
+\hlb{我们注意！！经典允许区域的动量积分什么的是没有绝对值的！！！}
+一个更需要额外注意的事情是，在经典不允许区域 $ \rho = x-x_0 $但是在经典允许区域$ \rho = -(x-x_0) $！！！这之间转了一个180度的角度！！！由于注意的地方比较subtle我们单独写开:
+\begin{align}
+  \int_{x}^{x_0} (2mF)^{1/2} (x_0 - x)^{1/2} = - (2mF)^{1/2} 2/3 (x_0 - x)^{3/2}\bigg|_{x}^{x_0} = \frac{2}{3}(2mF)^{1/2}\rho^{3/2} 
+\end{align}
+这里最关键的一点是我们使用的是对于$ (2mF)^{1/2}(x_0 - x)^{1/2} $这个实数进行积分！！我们千万不要强行使用$ i (2mF)^{1/2}(x- x_0)^{1/2} $进行积分，这样子积分很可能就掉进某一个多值分支里面了！！！！【面对多值函数，不要随便使用复数，会死的很惨！】
+
+\bigskip
+\textbf{Step 6:} 用$ \int p, \sqrt{p} $代换$ \rho $给出经典允许区域波函数：
+\begin{align}
+ \psi_1(x) = \frac{C}{2\sqrt{p}}\exp\left[+\frac{i}{\hbar}\int_x^{x_0}pdx-\frac{i\pi}{4}\right],\\ 
+  \psi_2(x) =\frac{C}{2\sqrt{p}}\exp\left[-\frac{i}{\hbar}\int_x^{x_0}pdx+\frac{i\pi}{4}\right].
+\end{align}
+我们对比与经典区域的标准波函数的系数我们会发现系数满足关系：
+\begin{align}
+  C_1=\frac{C}{2}e^{i\pi/4},\quad C_2=\frac{C}{2}e^{-i\pi/4}.
+\end{align}
+同时波函数也可以写作：
+\begin{align}
+  \psi_{CA}=\frac{C}{\sqrt{p}}\cos\left(\frac{1}{\hbar}\int_x^{x_0}pdx-\frac{\pi}{4}\right).
+\end{align}
+
+\imp{Comment on 非经典区域约束经典区域}{
+  我们普通的量子力学解波函数的系数很多的是依靠边界条件的。但是我们这里是研究非经典区域对于经典区域的联通。其实这个也是一种边界条件的体现，我们选择的边界条件是在非经典区域波函数衰减到0.然后我们通过解析延拓把这个边界条件传递到经典区域。
+}
+
+
+\bigskip
+\hlr{复分析处理法的适用情况}
+
+显然复分析方法用了很多的近似，所以我们要考虑每一点的近似条件是什么：
+\begin{enumerate}
+  \item 线性近似条件：也就是二阶展开要远小于一阶：
+    \begin{align}
+      \left|\frac{1}{2}V^{\prime\prime}(x_0)(x-x_0)^2\right|<< \left|V^{\prime}(x_0)(x-x_0)\right|
+    \end{align}
+    
+    \item WKB近似条件：也就是动量变化要远小于动量本身：
+      \begin{align}
+        |\lambda'| <<1 \quad \to \quad \left|\frac{\hbar}{\sqrt{2m|V^{\prime}(x_0)|}}\frac{1}{2}\frac{1}{(x-x_0)^{3/2}}\right|<<1\mathrm{~.} 
+      \end{align}
+\end{enumerate}
+综合上面两个条件我们有：
+\begin{align}
+  |V^{\prime}(x_0)|^2\gg\frac{\hbar}{\sqrt{m}}|V^{\prime\prime}(x_0)|^{3/2}.
+\end{align}
+
+\bigskip
+\hlr{半经典归一化条件}
+
+我们使用半经典的视角看看归一化条件，我们下面有很多个近似。首先，我们认为波函数只在经典允许区域有贡献，我们忽略不允许区域的波函数：
+\begin{align}
+  1\approx\int|\psi_{\mathrm{CA}}|^2dx=\int_{x_1}^{x_2}dx\frac{C^2}{p}\cos^2\left(\frac{1}{\hbar}\int_{x_1}^x|p|dx-\phi\right)
+\end{align}
+然后我们考虑半经典的情况，也就是考虑$ \hbar << 1 $的时候，震荡特别快，所以我们可以把$ \cos^2 $的平均值取为$ 1/2 $，于是我们有：
+\begin{align}
+  \approx\frac{1}{2}C^2\int_{x_1}^{x_2}\frac{dx}{|p|}=\frac{1}{2}C^2\int_{x_1}^{x_2}\frac{dx}{mdx/dt}=\frac{1}{2}C^2\frac{1}{m}\frac{T}{2}\mathrm{~.}
+\end{align}
+其中也使用了经典的关系$ p = dx / dt $。并且其中$ T $来自对于时间的积分，也就是周期：
+\begin{align}
+  C=2\sqrt{\frac{m}{T}}\mathrm{~.}
+\end{align}
+最后给出上方的归一化系数，其中$ T $是经典周期。
+
+
+\bigskip
+\hlr{Bohr-Sommerfield能级近似}
+
+对于WKB近似，如果我们考虑粒子处于一个束缚态，我们有两个turning point $ x_1,x_2 $。我们考虑经典允许区域的波函数，那么我们match系数有通过左边边界条件和右边边界条件两种。
+
+但是由于是描述同一束缚态区域，所以我们存在一个约束条件：
+\begin{align}
+  \cos\left[\frac{1}{\hbar}\int_x^{x_2}pdx^{\prime}-\frac{\pi}{4}\right]=\pm\cos\left[\frac{1}{\hbar}\int_{x_1}^xpdx^{\prime}-\frac{\pi}{4}\right]
+\end{align}
+这里存在$ \pm $是因为我们不知道是选哪个割线的情况互相match。我们简化上面的式子给出条件：
+\begin{align}
+  \frac{1}{\hbar}\int_{x_1}^xpdx^{\prime}-\frac{\pi}{4}=\frac{1}{\hbar}\int_x^{x_2}pdx^{\prime}-\frac{\pi}{4}+\pi n\mathrm{~,~or}\quad \frac{1}{\hbar}\int_{x_1}^xpdx^{\prime}-\frac{\pi}{4}=-\left(\frac{1}{\hbar}\int_x^{x_2}pdx^{\prime}-\frac{\pi}{4}\right)+\pi n.
+\end{align}
+对于这两个条件其实只有第二个条件是可以成立的！【第一个条件不对所有x成立】。所以最终可以推出：
+\begin{align}
+  \frac{1}{\hbar}\int_{x_1}^{x_2}pdx=\pi\left(n+\frac{1}{2}\right).
+\end{align}
+这个条件就是Bohr-Sommerfield能级量化条件。
+
+
+\subsection{Questions and thoughts}
+
+\question{为什么解析延拓结果是不唯一的，并且我需要叠加才能给出物理结果？}
+
+割线选取不同解析延拓结果必然不同。但是这里我们发现正好correspond tos经典允许区域的两个正交基。所以我们需要把两个结果叠加才能给出物理结果。
+
+这是一个纯属巧合的物理过程。但是我们不妨这么按照直觉这么算。
+\qed
+
+
+
+
+\bigskip
+\question{
+  我们解析延拓的时候是不是转了一圈之后我们需要令$ \rho = -(x-x_0) $这样子才成了？但是因为我们取了模长，所以所有的符号都没了？
+}
+
+不对！我们计算的是classically alowed区域的波函数，所以对于动量应该必然是大于0的，所以我们并没有取模长！
+\qed
+
+\bigskip
+\question{习题在计算的时候会遇见一些特别奇怪的问题！因为复数方法涉及多值函数，所以可能会计算出特别诡异的结果，我们下面来讨论一下！！！}
+
+我们如果无脑进行计算的话！！！可能会掉进一些多值函数的坑里面。比如我们计算：
+\begin{align}
+  (1)^{1/2} = ((-1)^{2k})^{1/2} = (-1)^k  
+\end{align}
+这样子会！！凭空产生相位！！！我们该怎么避免这种不小心掉进各种奇奇怪怪的多值分支之中的情况呢？我们还要保证【永远用实数进行计算！！！】
+
+\hlr{这个comment极其的重要！！！务必参考作业一同食用！！！效果更佳！！！}
+
+
+

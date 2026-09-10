@@ -1,0 +1,58 @@
+\subsection{Pauli Equation II}
+我们会发现Pauli Equation很好的半经典的描述了电磁场和费米子的相互作用。
+
+\bigskip
+\hlr{磁场中的Pauli Equation}
+
+我们假设使用Coulomb Gauge进行研究，$ \mathbf{A} = 1/2 \mathbf{B} \times \mathbf{r} $，我们考虑系统仅仅有磁场的存在，并且仅仅展开到$ c^{-1} $的一级。我们有：
+\begin{align}
+  -\frac{\hbar}{i}\frac{\partial\phi}{\partial t}=\left[\frac{\mathbf{p}^{2}}{2m}-\mu \left(\mathbf{L}+2\mathbf{s}\right)\cdot\mathbf{B}\right]\boldsymbol{\phi}.
+\end{align}
+其中$ \mathbf{p} = \{p^i\} $而且$ \mu = e \hbar / 2 m c $是玻尔磁子，$ \mathbf{L} = \mathbf{r} \times \mathbf{p} $是轨道角动量算符，$ \mathbf{s} = \hbar / 2 \{ \sigma^i\} $是自旋算符。这很好的描述了波尔磁子的结果！！
+
+
+\bigskip
+\hlr{原子中的电子}
+
+我们的Pauli Equation也可以很好的描述原子中的电子行为的相对论修正。对于Schrodinger 方程给出的结果为：
+\begin{align}
+  -\frac{\hbar}{i}\frac{\partial\phi}{\partial t}=H{\phi}\quad H=\frac{\mathbf{p}^2}{2m}-\frac{Ze^2}{r}\mathrm{~.}
+\end{align}
+如果我们考虑使用Pauli Equation，会需要使用Foldy-Wouthuysen transformation的方法进行相对论修正。考虑对于$ (mc^2)^{-1} $的一阶展开，我们得到：
+\begin{align}
+  H^{1} = H +V_1 +V_2 +V_3
+\end{align}
+我们给出每一个修正的表达式，对于$ V(r)=-\frac{Ze^{2}}{r} $我们有：
+\begin{itemize}
+  \item $ V_1 $是动能修正：$ V_1=-\frac{1}{2mc^2}\frac{\left(|\mathbf{p}|^2\right)^2}{4m^2} $
+    \item $ V_2 $是自旋轨道耦合修正：$ V_{2}=\frac{1}{2mc^{2}}\frac{1}{r}\frac{dV(r)}{dr}\mathbf{s}\cdot\mathbf{L} $
+    \item $ V_3 $是Darwin项：$ V_3=\frac{\hbar^2\pi}{2m^2c^2}Ze^2\delta(x) $
+\end{itemize}
+这些修正项很好地解释了氢原子光谱中的精细结构。
+
+\bigskip
+\hlr{一阶近似的使用条件}
+
+对于上面的一阶近似，我们需要满足很接近非相对论的条件。 也就是说我们需要满足：
+\begin{align}
+  \frac{p^2}{2m}<< m\mathrm{~.}
+\end{align}
+由于我们粒子的动能和轨道有关系我们有$ p^2/2m \sim Ze^2/r $，根据量子力学不确定关系我们有$ r \sim \hbar / p $，因此我们得到：
+\begin{align}
+  p \sim Ze^2 m / \hbar \mathrm{~.}
+\end{align}
+因此我们的一阶近似关系要求：
+\begin{align}
+  Z << \frac{1}{\alpha} \approx 137\mathrm{~.} \alpha = \frac{e^2}{\hbar c} \mathrm{~.}
+\end{align}
+也就是说这个近似仅仅对于轻元素有效。
+
+
+
+
+
+
+\subsection{Relativistic Boson \& Scalar Field}
+
+\subsection{Relativistic Fermion \& Dirac Field}
+对于这两部分我表示，会在QFT课程中进行详细的介绍，这里不再赘述。

@@ -1,0 +1,192 @@
+\subsection{Stationary Scattering State}
+
+\bigskip
+\hlr{一维散射理论analogue}
+
+对于一维的散射理论我们一般使用了一种思路进行求解：
+\begin{itemize}
+  \item 首先假设入射和出射都是平面波形式，并且存在反射和透射系数：
+    \begin{align}
+      &\psi\to e^{ipx}+Re^{-ipx},\quad
+      x\to-\infty,\\
+      &\psi\to De^{ipx},\quad x\to+\infty.
+    \end{align}
+  \item 将其作为边界条件，求解定态Schrodinger方程得到反射和透射系数。
+  \item 得到一维的S矩阵以及散射振幅。注意，对于1维来说，由于入射和透射需要能量大小一样，所以方向其实只有两种可能$ p,-p
+    $，因此S矩阵是一个$ 2\times2 $的矩阵:
+\end{itemize}
+\[
+  S = {
+    \begin{pmatrix}
+      D & R\\
+      R & D
+  \end{pmatrix}}
+\]
+
+\bigskip
+\hlr{一般散射理论推广}
+
+我们对于一般的散射理论也可以使用类似方法求解，但是我们需要知道两个东西：
+\begin{enumerate}
+  \item 类比经典散射理论，有什么类似$ p $的标记能够展开所有的stationary scattering state吗？
+  \item stationary scattering state的临界行为是什么？
+\end{enumerate}
+
+下面我们分别回答这两个问题。
+
+\bigskip
+\hlr{Sacttering State的展开复习}
+
+这里我们再仔细回顾一下之前讨论的Hilbert Space的结构以及使用Scattering State和Bound State进行完备展开的内容。
+对于之前散射理论的讨论，我们存在假设：
+\begin{itemize}
+  \item 整个Hilbert Space可以由自由粒子的波函数进行很好的展开。
+\end{itemize}
+因此对于一切in state我们都可以写作：
+\begin{align}
+  |\phi\rangle=\int d^3\mathbf{p}\ \phi(\mathbf{p})|\mathbf{p}\rangle\mathrm{~.}
+\end{align}
+然后我们知道在0时间的散射态可以通过in state作用上Moller Operator得到，所以我们有：
+\begin{align}
+  \boldsymbol{\Omega}_+|\boldsymbol{\phi}\rangle=\int
+  d^3\mathbf{p}\boldsymbol{\phi}(\mathbf{p})\boldsymbol{\Omega}_+|\mathbf{p}\rangle=\int
+  d^3\mathbf{p}\boldsymbol{\phi}(\mathbf{p})|\mathbf{p}_+\rangle\mathrm{~.}
+\end{align}
+其中我们定义$ \ket{\mathbf{p}_+} = \Omega_+ \ket{\mathbf{p}}
+$。这个态性质很好，恰好是Hamiltonian的本征值为$ p^2/2m $的本征态。并且一切的stationary
+scattering state都可以通过不同的$ \phi(\mathbf{p}) $进行线性组合得到。因此我们可以使用$
+\mathbf{p} $来标记stationary scattering state。我们下面讨论其性质：
+\begin{itemize}
+  \item \textbf{Hamiltonian本征态}：
+    由于Moller Operator的定义，我们有
+    \begin{align}
+      H|\mathbf{p}_+\rangle=H\boldsymbol{\Omega}_+|\mathbf{p}\rangle=\boldsymbol{\Omega}_+H_0|\mathbf{p}\rangle=\frac{p^2}{2m}|\mathbf{p}_+\rangle\mathrm{~.}
+    \end{align}
+  \item \textbf{正交性：} 根据Moller Operator的性质，我们有
+    \begin{align}
+      \langle \mathbf{p}'_+|\mathbf{p}_+\rangle=\langle
+      \mathbf{p}'|\boldsymbol{\Omega}_+^\dagger\boldsymbol{\Omega}_+|\mathbf{p}\rangle=\langle
+      \mathbf{p}'|\mathbf{p}\rangle=\delta(\mathbf{p}'-\mathbf{p})\mathrm{~.}
+    \end{align}
+  \item \textbf{完备性：} 我们之前假设Hilbert Space在散射时刻可以使用Moller
+    Operator像空间「散射态」；以及Bounded State进行完备展开，数学上写出来就是：
+    \begin{enumerate}
+      \item 对于无穷远时间，我们有：
+        \begin{equation}
+          \mathbb{1} = \int d^3\mathbf{p}\,|\mathbf{p}\rangle\langle\mathbf{p}|
+        \end{equation}
+
+      \item 对于 $t=0$ 时间：
+        \begin{align}
+          \mathbb{1}
+          &= \int d^3\mathbf{p}\,|\mathbf{p}_+\rangle\langle\mathbf{p}_+|
+          + \sum_n |n\rangle\langle n|\\
+          &= \int d^3\mathbf{p}\,|\mathbf{p}_-\rangle\langle\mathbf{p}_-|
+          + \sum_n |n\rangle\langle n|
+        \end{align}
+    \end{enumerate}
+\end{itemize}
+\rmk{
+  其实这个内容在section 7已经假设讨论了。这里只是总结强调一下。
+}
+
+\bigskip
+\hlr{Stationary Scattering State的波函数渐进行为}
+
+所以我们就要讨论$ \ket{\mathbf{p}_+} $的波函数形式的渐近行为。我们给出定理
+
+\thm{
+  Stationary Scattering State的波函数
+
+  对于散射理论，stationary scattering state的波函数在远离散射中心时的渐近行为为:
+  \begin{align}
+    \langle \mathbf{x}|\mathbf{p}_+\rangle
+    = \frac{1}{(2\pi)^{3/2}}
+    \left[
+      e^{i\mathbf{p}\cdot\mathbf{x}}
+      + f\!\left(p\times\frac{\mathbf{x}}{r}\leftarrow\mathbf{p}\right)\,
+      \frac{e^{ipr}}{r}
+    \right]
+  \end{align}
+}
+Proof： 可以使用Moller Operator的Green函数表示进行证明，回顾\cref{thm:Moller_Green}，我们带入：
+\begin{align}
+  |\mathbf{p}_+\rangle=|\mathbf{p}\rangle+G(E_p+i\boldsymbol{\varepsilon})V|\mathbf{p}\rangle.
+\end{align}
+然后我们使用T矩阵的特殊换位形式 \cref{eq:T_matrix_identities}，我们有：
+\begin{align}
+  \langle\mathbf{x}|\mathbf{p}_+\rangle=\langle\mathbf{x}|\mathbf{p}\rangle+\langle\mathbf{x}|G_0(E_p+i\boldsymbol{\varepsilon})T(E_p+i\boldsymbol{\varepsilon})|\mathbf{p}\rangle
+\end{align}
+代入T矩阵和散射振幅的关系我们有：
+\begin{align}
+  \langle\mathbf{x}|\mathbf{p}_+\rangle=\frac{1}{(2\pi)^{3/2}}\left[e^{i\mathbf{p}\cdot\mathbf{x}}-\frac{1}{(2\pi)^2m}\int
+    d^3\mathbf{x}^{\prime}d^3\mathbf{p}^{\prime}e^{i\mathbf{p}^{\prime}\cdot\mathbf{x}^{\prime}}f(\mathbf{p}^{\prime}\leftarrow\mathbf{p})\langle
+  \mathbf{x}|G_0(E_p+i\varepsilon)|\mathbf{x}^{\prime}\rangle\right].
+\end{align}
+这里我们使用自由粒子Green函数的形式\cref{eq:free_particle_green_function}，可以得到：
+\begin{align}
+  \left\langle\mathbf{x}|G_0(E+i{\varepsilon})|\mathbf{x}^{\prime}\right\rangle=-\frac{m}{2{\pi}|\mathbf{x}-\mathbf{x}^{\prime}|}e^{ip|\mathbf{x}-\mathbf{x}^{\prime}|-{\varepsilon}|\mathbf{x}-\mathbf{x}^{\prime}|}.
+\end{align}
+\rmk{
+  这里我们使用了近似$ \sqrt{2m(E+i\boldsymbol{\varepsilon})}\approx p +
+  i\frac{m {\varepsilon}}{p} \approx p $，并且注意到$
+  {\varepsilon} $是一个无穷小的正实数。
+}
+下面考虑$ r = |\mathbf{x}| \to \infty $的渐近行为，进行一波计算我们有：
+\begin{align}
+  \langle \mathbf{x}|\mathbf{p}_+\rangle
+  =\frac{1}{(2\pi)^{3/2}}\left[e^{i\mathbf{p}\cdot\mathbf{x}}+f\left(p\frac{\mathbf{x}}{r}\leftarrow\mathbf{p}\right)\frac{1}{r}e^{ipr}\right],
+\end{align}
+
+\subsection{S 矩阵的T Production表示}
+
+对于S矩阵我们有一种特殊的表示方法，称为T Production表示，结论是：
+\thm{
+  S 矩阵的T Production表示
+
+  S矩阵可以被势能表示为：
+  \begin{align}
+    S=T\exp\left(-i\int_{-\infty}^\infty dtV(t)\right)\mathrm{~.}
+  \end{align}
+  其中T Product的定义是：
+  \begin{align}
+    TV(t_1)V(t_2)=\theta(t_1-t_2)V(t_1)V(t_2)+\theta(t_2-t_1)V(t_2)V(t_1)
+  \end{align}
+  也就是永远保持算符时间从右到左时间递减排列。
+}
+
+\bigskip
+\hlr{S 矩阵的Interacting Picture}
+
+我们回顾一下S矩阵使用Interacting Picture的定义。Interaction
+Picture之中时间演化算符被定义为\cref{eq:interaction_picture_time_evolution}，我们抄下来是：
+\begin{align}
+  S(t_1,t_2)=e^{iH_0t_1}e^{iH(t_2-t_1)}e^{-iH_0t_2}.
+\end{align}
+S 矩阵其实是这个算符在$ t_1\to+\infty,t_2\to-\infty
+$的极限。我们使用积分Trick进行计算这个算符，我们知道$ S(t_2,t_2) = 0 $，所以时间演化算符可以写作：
+\begin{align}
+  S(t_1,t_2) = 1 + \int_{t_2}^{t_1} dt \frac{d}{dt} S(t,t_2).
+\end{align}
+计算右边的导数我们有：
+\begin{align}
+  \frac{\partial}{\partial
+  t_1}S(t_1,t_2)=-iU_0^\dagger(t_1)(H-H_0)U_0(t_1)S(t_1,t_2)=-iV(t_1)S(t_1,t_2),
+\end{align}
+带入之后我们会有：
+\begin{align}
+  S(t_1,t_2)=1-i\int_{t_2}^{t_1}dtV(t)S(t,t_2).
+\end{align}
+我们发现右边积分里面又有$ S(t,t_2) $，所以我们可以继续迭代这个公式：
+\begin{align}
+  S=\sum_{n=0}^\infty S_n, \quad
+  S_n=(-i)^n\int_{t_2}^{t_1}dtV(t)\int_{t_2}^tdt^{\prime}V(t^{\prime})\int_{t_2}^{t^{\prime}}dt^{\prime\prime}V(t^{\prime\prime})\ldots
+\end{align}
+并且由于我们的迭代，这些V算符的时间顺序是从右到左递减的。因此我们可以使用T Product的形式以及对于一个cube积分进行改写：
+\begin{align}
+  S_n=(-i)^n\frac{1}{n!}\int_{t_1}^{t_2}dt\int_{t_1}^{t_2}dt^{\prime}\int_{t_1}^{t_2}dt^{\prime\prime}\ldots\left(TV(t)V(t^{\prime})V(t^{\prime\prime})\ldots\right).
+\end{align}
+\rmk{
+  注意！最后这个式子我们是对于cube进行积分，积分上下限完全都是一样的。而其中会出现$ n! $是因为我们存在$ n!
+  $种不同的时间顺序排列方式。每一种在time ordered之后都会给出一个想要的结果的贡献所以我们需要除以$ n! $。
+}

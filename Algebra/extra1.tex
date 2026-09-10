@@ -1,0 +1,128 @@
+本补充章节我们准备讨论李代数的形式化表达，以及李群李代数和流形之间的关系。同时更重要讨论各种【李代数之间的关系，以及复化！】
+
+\subsection{Lie Group和Lie Algebra定义}
+
+在Georgi的书之中，我们先定义了李群是所有的能够用实数$ \mathbb{R}^n $进行标定的连续群。并且给出了李群把表示的概念，并且说明李群可以被矩阵群faithfully的表示。
+
+然后，我们说明李群的任意表示至少局域的可以（对于simple connected and compact lie group全局的可以，由于georgi仅仅考虑simple connected and compact李群所以他其实并没有强调这个适用性）用explonential map进行标记。
+
+通过选择一个物理上常用的explonential map，我们可以通过李群的表示写成下面的形式：
+\begin{align}
+  D(g) = e^{i \alpha_a T^a}
+\end{align}
+其中$ T^a $是李群的表示的生成元「就是一堆矩阵」。然后我们发现了根据群的乘法结构，这些矩阵构成了一个有Lie bracket的代数结构的实线性空间，我们把这些矩阵构成的实线性空间称为这个李群对应的李代数。
+
+但李群和李代数的定义其实可以并不依赖于表示抽象的给出，并且这样的抽象的定义对于推广和理解表示有更多的好处。我们可以直接定义李群和李代数：
+
+\YL{请补充，没写完}
+
+\subsection{su(2)李代数数学，物理定义}
+
+\hlr{数学上su(2)李代数的定义}
+
+首先我们定义什么是SU(2)群：
+\defi{
+  SU(2)群
+
+  SU(2)群是所有行列式为1的2阶酉矩阵构成的群。
+}
+对于这个群，我们知道是一个李群。很自然能够推导出它的李代数：
+\defi{
+  su(2)李代数
+
+  su(2)李代数是所有满足$ X^\dagger+X=0 $并且$ \mathrm{tr}(X)=0 $的2阶矩阵构成的李代数。是一个【实向量空间】
+  \begin{align}
+    \mathfrak{su}(2)=\{\left.X\in M_2(\mathbb{C})\mid X^\dagger=-X,\mathrm{~Tr}(X)=0\right.\}.
+  \end{align}
+  这个代数空间我们可以很自然的选择一组基是：
+  \begin{align}
+    X_i=\frac{i}{2}\sigma_i,\quad[X_i,X_j]=\epsilon_{ijk}X_k.
+  \end{align}
+}  
+所以我们知道su(2)李代数可以理解为所有的反厄米矩阵并且迹为0的2阶矩阵构成的李代数。这是一个实向量空间。对于切空间，我们可以指数映射到群上面。这个指数映射的形式是：
+\begin{align}
+  U=e^{tX}
+\end{align}
+
+\bigskip
+\hlr{物理上su(2)李代数的定义}
+\bigskip
+
+\hlr{！！！！！！但是！！！！！！}问题是，这样子基都是anti-Hermite的矩阵，但是物理上我们习惯使用Hermite矩阵作为代数元素！！所以物理人定义了一个trick，我们偷偷修改了指数映射的形式是：
+\begin{align}
+  U=e^{i t H}
+\end{align}
+然后顺手把基也改成了Hermite矩阵：
+\begin{align}
+  J_i=\frac{1}{2}\sigma_i = -i X_i,\quad[J_i,J_j]=i\epsilon_{ijk}J_k.
+\end{align}
+这样子，我们也“如”consistent的得到了一个李代数，并且这个李代数按照modify之后的指数映射映射到SU(2)群上面。并且\textbf{我们动了指数映射，动了基的形式，但是没有动数域！！}所以写作Hermite的形式李代数的元素依旧是对于三个基的实数线性组合捏。
+
+\rmk{但是这么搞总是有bug的
+
+比如：我们写出来$ [J_i,J_j] = i \epsilon_{ijk} J_k $的时候，也就是说仿佛对易出来了一个复数线性组合的生成元，不在代数里面了呃呃呃。并且对易子本身就是anti-Hermite的东西，我们强行让对易子等于一个Hermite的空间之中的物体是完全不可能的。
+
+我们对此的解决方式是：相当于「重新定义」了对易子，对于Hermite的李代数元素使用-i[,]作为李括号。这样子就没有问题了。
+}
+
+\bigskip
+\hlr{为什么物理学家可以这么乱搞}
+
+我觉得一个原因是，物理上相比于代数表示更重要的是群的表示。因为我们物理的坐标变换是由群来描述的。所以，虽然我们的代数结构没有流形和切空间的interpretation这么严谨，也不是特别简洁，但是只要我们能够通过这种方式得到正确的群表示就行了。
+
+
+\subsection{复化以及半单李代数表示}
+
+\bigskip
+\hlr{su(2)李代数的复化}
+
+当然，我们也可以把su(2)李代数复化成一个复向量空间。这个复化的过程就是把系数域从实数域扩展到复数域。也就是说我们允许基的线性组合系数是复数而不是实数。而不是像是之前强行变Hermite一样，那个不叫复化。我们现在是允许所有复数域上面的线性组合。
+
+对于复化之后的代数【由于物理的定义太不严谨了，我们一般复化是用数学家的定义】我们称之为$ sl(2,\mathbb{C}) $下面给出定义：
+\defi{$ sl(2,\mathbb{C}) $定义
+
+就是所有的二维traceless复矩阵构成的李代数：
+\begin{align}
+  \mathfrak{sl}(2,\mathbb{C})\equiv\{X\in M_2(\mathbb{C})\mid\mathrm{Tr}(X)=0\}
+\end{align}
+}
+
+\bigskip
+\hlr{复化以及su(2)表示}
+
+复化最重要的作用之一就是帮我们求表示。有的时候代数的表示并不好求，我们就先求复化后的代数元素的复线性组合的表示。然后我们再把这个线性组合回去，就可以得到原来代数的表示。
+
+一个最重要的例子就是su(2)的表示，我们不好直接求，那么就先求复化后的产生湮灭算符的表示：
+\begin{align}
+  J_\pm = J_1 \pm i J_2
+\end{align}
+这个表示很好求，我们求出来之后再把$ J_1,J_2 $表示回去就可以了。
+
+\bigskip
+\hlr{复化以及Cartan Weyl Basis}
+
+我们在代数之中讨论su(2)的Cartan子代数是$ J_3 $，然后升降算符是$ J_\pm $。但是我们发现这个升降算符其实并不是代数里面的元素，因为它是复线性组合的。也就是说我们只能在复化之后的代数里面讨论Cartan Weyl Basis：
+\begin{align}
+  H=2J_3,\quad E_+& =J_+,\quad E_-=J_-\\ 
+  [H,E_\pm]=\pm2E_\pm&,\quad[E_+,E_-]=H.
+\end{align}
+我们使用这个basis求的其实是$ sl(2,\mathbb{C}) $的表示，然后再把表示回去就可以了。不仅仅是su(2)李代数，其他的李代数我们也可以复化然后使用Cartan Weyl Basis进行表示的求解。所以复化给了我们generally 一个求表示的好方法。
+
+同时，我们也需要记住，cartan Weyl Basis是复化之后的代数里面的东西。我们只能在复化之后的代数里面讨论root和weight。所以我们说到$ A_i, D_i $这些代数的时候，我们说的是复化之后的代数。只是，所有的单李代数都可以形成这个复李代数实化后的结果。
+
+
+\subsection{实化以及不同李代数关系}
+
+
+\bigskip
+\hlr{复李代数的实化}
+
+我们可以复化，当然也可以再进行实化。对于$ sl(2,\mathbb{C}) $李代数我们可以进行实化得到两个不同的实李代数：
+\begin{align}
+  \mathfrak{su}(2) = \{a_1 i \sigma_1 + a_2 i \sigma_2 + a_3 i \sigma_3 \mid a_i \in \mathbb{R}\}\\
+  \mathfrak{sl}(2,\mathbb{R}) = \{b_1 \sigma_1 + b_2 i \sigma_2 + b_3 \sigma_3 \mid b_i \in \mathbb{R}\}
+\end{align}
+这两个实李代数都是$ sl(2,\mathbb{C}) $的实化。并且这两个实李代数是完全不一样的。一个是compact的，一个是non-compact的。  
+su(2)相当于是把$ sl(2,\mathbb{C}) $挑选出其中所有anti-Hermite的元素构成的实李代数；而$ sl(2,\mathbb{R}) $是挑选出所有实矩阵构成的实李代数。
+
+

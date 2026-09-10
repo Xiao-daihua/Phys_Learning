@@ -1,0 +1,400 @@
+\subsection{Diffeomorphism以及Lie Derivative}
+\subsubsection{Diffeomorphism以及Isometry}
+之前我们定义过Diffeomorphism是一个光滑的双射映射$ \phi:\mathcal{M} \to \mathcal{N} $，并且它的逆映射也是光滑的。如果我们存在两个Manifold上面的Diffeo，我们其实可以把一个Manifold上面的张量场映射到另一个manifold上面去。
+
+\bigskip
+\hlr{Tangent Vector的Push-forward}
+
+对于一个Diffeomorphism $ \phi:\mathcal{M} \to \mathcal{N} $，我们可以定义矢量场的Push-forward:
+\defi{
+  Push-forward of Vector Field
+
+  映射$ \phi_*: T_p\mathcal{M} \to T_{\phi(p)}\mathcal{N} $，定义为对于标量场$ f: \mathcal{N} \to \mathbb{R} $，有：
+\begin{align}
+  (\phi_* v)(f) = v(f \circ \phi) 
+\end{align}
+}
+如果给定一个$ \mathcal{M} $上面的坐标系$ \{x^\mu\} $，以及$ \mathcal{N} $上面的坐标系$ \{y^\alpha\} $，那么我们可以计算Push-forward的坐标表示：
+\begin{align}
+  (\phi_* v)^\alpha \partial_{\alpha}^{(y)} f = v^\mu \partial_{\mu}^{(x)} (f \circ \phi)\quad \Rightarrow \quad
+  (\phi_* v)^\alpha = v^\mu \frac{\partial y^\alpha}{\partial x^\mu}
+\end{align}
+这里我们省略了坐标系的映射$ \psi_x $以及$ \psi_y $。其中$ \frac{\partial y^\alpha}{\partial x^\mu} $是Diffeomorphism在坐标系下的Jacobi矩阵，$ y(x) $其实是映射$ \psi_y \circ \phi \circ \psi_x^{-1} $。形式化的我们可以使用一个矩阵来书写push-forward的坐标变换关系：
+\begin{align}
+  (\phi_*)^\alpha_{\ \mu} = \frac{\partial y^\alpha}{\partial x^\mu}
+\end{align}
+
+\bigskip
+\hlr{Cotangent Vector的Pull-back}
+
+类似的我们可以定义Cotangent Vector的Pull-back：
+\defi{
+  Pull-back of Cotangent Vector Field
+
+  映射$ \phi^*: T_{\phi(p)}^*\mathcal{N} \to T_p^*\mathcal{M} $，定义为对于矢量场$ v \in T_p\mathcal{M} $，有：
+\begin{align}
+  (\phi^* \omega)(v) = \omega(\phi_* v) 
+\end{align}
+}
+类似的我们可以用一个具体的坐标系来表示Pull-back的坐标变换关系，给定$ \mathcal{M} $上面的坐标系$ \{x^\mu\} $，以及$ \mathcal{N} $上面的坐标系$ \{y^\alpha\} $，我们有：
+\begin{align}
+  (\phi^* \omega)_\nu = \omega_\alpha \frac{\partial y^\alpha}{\partial x^\nu}
+\end{align}
+其中我们使用了$ y(x) $ 其实是映射$ \psi_y \circ \phi \circ \psi_x^{-1} $。$ \psi_x $是$ \mathcal{M} $上的坐标系，$ \psi_y $是$ \mathcal{N} $上的坐标系。
+我们可以看出来一个结论：
+\begin{itemize}
+  \item 对于$ C^\infty $的Diffeo来说，Cotangent Vector在Diffeo下的Pull-back和Tangent Vector在Diffeo下的Push-forward的坐标变换矩阵是互为逆矩阵的。
+\end{itemize}
+我们其实可以严格定义对于tangent vector的pull-back以及cotangent vector的push-forward，但是我们一般不这么做，因为没有什么物理意义。
+
+\bigskip
+\hlr{一般张量场的Push-forward}
+
+我们如此定义是为了了推广到一般的张量场。我们可以定义一个$ (r,s) $型张量场在Diffeo下的Push-forward：
+\defi{
+  Push-forward of General Tensor Field
+
+  映射$ \phi_*: T_p^r{}_s\mathcal{M} \to T_{\phi(p)}^r{}_s\mathcal{N} $，定义为对于任意的$ r $个cotangent vector以及$ s $个tangent vector，有：
+  \begin{align}
+    (\phi_* T)(\omega_1, \dots, \omega_k, v_1, \dots, v_l)
+=
+T\bigl(\phi^* \omega_1, \dots, \phi^* \omega_k, (\phi^{-1})_* v_1, \dots, (\phi^{-1})_* v_l\bigr)
+  \end{align}
+}
+同样的我们考虑一个具体的坐标系来表示Push-forward的坐标变换关系，给定$ \mathcal{M} $上面的坐标系$ \{x^\mu\} $，以及$ \mathcal{N} $上面的坐标系$ \{y^\alpha\} $，我们有：
+\begin{align}\label{eq:tensorpushforward}
+  \left.(\phi_* T)^{\alpha_1 \dots \alpha_r}{}_{\beta_1 \dots \beta_s}\right|_{\phi(p)}
+    = T^{\mu_1 \dots \mu_r}{}_{\nu_1 \dots \nu_s}|_p
+      \frac{\partial y^{\alpha_1}}{\partial x^{\mu_1}}
+      \cdots
+      \frac{\partial y^{\alpha_r}}{\partial x^{\mu_r}}
+      \frac{\partial x^{\nu_1}}{\partial y^{\beta_1}}
+      \cdots
+      \frac{\partial x^{\nu_s}}{\partial y^{\beta_s}}
+\end{align}
+其中我们使用了$ y(x) $ 其实是映射$ \psi_y \circ \phi \circ \psi_x^{-1} $，而$ x(y) $其实是映射$ \psi_x \circ \phi^{-1} \circ \psi_y^{-1} $。$ \psi_x $是$ \mathcal{M} $上的坐标系，$ \psi_y $是$ \mathcal{N} $上的坐标系。
+
+\bigskip
+\hlr{Push-forward和坐标变换的等价性}
+
+上面的讨论之中我们纯粹的考虑一个Diffeomorphism $ \phi:\mathcal{M} \to \mathcal{N} $，并且定义了张量场在Diffeo下的Push-forward。我们发现如果我们使用坐标系来表示Push-forward之后张量场的分量变化关系，我们发现这个关系和一般的坐标变换关系完全一样！因此我们可以得到一个结论：
+\thm{
+  对于张量场的分量来说下面两者完全等价：
+  \begin{itemize}
+    \item 在Diffeomorphism下的Push-forward之后坐标系之中的分量
+    \item 在某个坐标变换下的坐标变换关系
+  \end{itemize}
+  因此可以说Diffeo和坐标变换可以认为是同一种变换的两种不同的interpretation。一般我们认为Diffeo是主动观点，坐标变换是被动观点。
+}
+\rmk{
+  我们之后会称呼$ y(x) $这个映射为diffeo对应的coordinate transformation。
+}
+
+
+\bigskip
+\hlr{Isometry}
+
+我们定义一个特殊的Diffeomorphism，称为Isometry，我们认为这些变换描述着时空的一种对称性：
+\defi{
+  Isometry
+
+  对于一个自己到自己的Diffeomorphism $ \phi:\mathcal{M} \to \mathcal{M} $，如果满足对于任意的$ v,w \in T\mathcal{M} $有：
+  \begin{align}
+    \phi_* g(v,w) = g(v,w)\quad  \Leftrightarrow \quad  g((\phi^{-1})_* v, (\phi^{-1})_* w) = g(v,w)
+  \end{align}
+  那么我们称$ \phi $是一个Isometry。
+}
+使用坐标的语言表示，给出一个coordinate system $ \{x^\mu\}, \psi_x $对于任意的点$ p \in \mathcal{M} $满足：
+\begin{align}
+  (\phi_* g)_{\mu\nu}|_p \equiv g_{\alpha\beta}|_{\phi^{-1}(p)}
+  \frac{\partial x^\alpha}{\partial x^{\prime \mu}}
+  \frac{\partial x^\beta}{\partial x^{\prime \nu}}
+  = g_{\mu\nu}|_p
+\end{align}
+其中$ x'(x) $其实是映射$ \psi_x \circ \phi^{-1} \circ \psi_x^{-1} $。
+我们注意这个diffeo需要：
+\begin{itemize}
+  \item 是一个流形自己到自己的映射，因此对于映射前后的点都已知存在一个metric $ g $
+    \item 所有的比大小都是【同一个点的】如果是映射前后点的大小必然相同这是push-forward的定义！
+\end{itemize}
+
+\subsubsection{Lie Derivative}
+
+\bigskip
+\hlr{Lie Derivative的定义}
+
+在上面讨论之中我们已经发现如果一个Diffeo把流形映射到自己，我们可以对于同一个点前后的张量场使用同样的coordinate system进行比较。这样的比较可以定义一个张量场的变化率，我们称之为Lie Derivative。
+\defi{
+  Lie Derivative
+
+  对于一个one parameter family of Diffeomorphism $ \phi_t:\mathcal{M} \to \mathcal{M} $，我们可以给出一个tangent field $ v $来描述这个Diffeo，反之亦然。我们定义manifold上任意张量场$ T $对于tangent field $ v $的Lie Derivative为：
+  \begin{align}
+    \mathcal{L}_v T = \lim_{t \to 0} \frac{((\phi_{-t})_* T - T)}{t}
+  \end{align}
+  注意我们右边的张量场是同点进行比较，因此存在在同一个空间里面可以有well defined的减法。
+}
+
+\bigskip
+\hlr{Lie Derivative的基本性质}
+
+从定义我们已经可以发现一些性质：
+\begin{itemize}
+  \item 作为良好的导数算符：其显然是一个同型张量场之间的线性映射并满足Leibniz法则:
+    \begin{align}
+      \mathcal{L}_v (T_1 \otimes T_2) = (\mathcal{L}_v T_1) \otimes T_2 + T_1 \otimes (\mathcal{L}_v T_2)
+    \end{align}
+    \item 对于标量场$ f $，Lie Derivative简化为：
+      \begin{align}
+        \mathcal{L}_v f = v(f)
+      \end{align}
+\end{itemize}
+
+\bigskip
+\hlr{Adapted Coordinate System下的李导数}
+
+使用一般的坐标系来计算Lie Derivative会比较复杂，我们考虑使用一个特殊的坐标系来计算。我们选择一个coordinate system $ \{x^\mu\} $满足：
+\begin{align}
+  v = \frac{\partial}{\partial x^1} \Leftrightarrow v^\mu = \delta^\mu_1
+\end{align}
+这样的坐标系称为Adapted Coordinate System。这个矢量场对应的one parameter family of diffeo的元素$ \phi_{-t} $对应的coordinate transformation $ x'(x) $为：
+\begin{align}
+  x^{\prime 1} = x^1 + t\quad,\quad x^{\prime i} = x^i\quad (i=2,3,\dots,n)
+\end{align}
+因此我们可以计算出这个Diffeo $ \phi_{-t} $ push forward之后张量场的分量。由于$ x'(x) $的Jacobi全部都是delta函数，因此我们有：
+\begin{align}
+  \left.((\phi_{-t})_* T)^{\alpha_1 \dots \alpha_r}{}_{\beta_1 \dots \beta_s}\right|_{p}
+    =& T^{\mu_1 \dots \mu_r}{}_{\nu_1 \dots \nu_s}|_{\phi_{t}(p)}
+      \frac{\partial x^{\prime \alpha_1}}{\partial x^{\mu_1}}
+      \cdots
+      \frac{\partial x^{\prime \alpha_r}}{\partial x^{\mu_r}}
+      \frac{\partial x^{\nu_1}}{\partial x^{\prime \beta_1}}
+      \cdots
+      \frac{\partial x^{\nu_s}}{\partial x^{\prime \beta_s}} \\
+    =& T^{\alpha_1 \dots \alpha_r}{}_{\beta_1 \dots \beta_s}|_{\phi_{t}(p)}
+\end{align}
+注意，我们这里是用了one parameter family of diffeo的定义，因此$ \phi_{t}(p) = \phi_{-t}^{-1}(p) $。因此我们可以计算Lie Derivative的分量：
+\begin{align}
+  (\mathcal{L}_v T)^{\alpha_1 \dots \alpha_r}{}_{\beta_1 \dots \beta_s}|_{p}
+    = \lim_{t \to 0} \frac{T^{\alpha_1 \dots \alpha_r}{}_{\beta_1 \dots \beta_s}|_{\phi_{t}(p)} - T^{\alpha_1 \dots \alpha_r}{}_{\beta_1 \dots \beta_s}|_{p}}{t} 
+\end{align}
+我们不难发现右边就是对于第一个分量的偏导数的定义，因此我们有：
+\begin{align}
+  (\mathcal{L}_v T)^{\alpha_1 \dots \alpha_r}{}_{\beta_1 \dots \beta_s}(x^1, \dots, x^n)
+    = \partial_1 T^{\alpha_1 \dots \alpha_r}{}_{\beta_1 \dots \beta_s}(x^1, \dots, x^n)
+\end{align}
+
+\bigskip
+\hlr{Tangent field Lie Derivative与Bracket}
+
+我们考虑两个tangent field $ u,v \in T\mathcal{M} $，我们希望计算$ \mathcal{L}_u v $。我们使用Adapted Coordinate System $ \{x^\mu\} $发现：
+\begin{align}
+  (\mathcal{L}_u v)^\mu = \partial_1 v^\mu = [u,v]^\mu
+\end{align}
+由于两者都是协变的张量场与坐标无关，因此我们有：
+\thm{
+  对于任意的tangent field $ u,v \in T\mathcal{M} $，都有：
+  \begin{align}
+    \mathcal{L}_u v = [u,v]
+  \end{align}
+}
+使用分量的语言表示，我们有：
+\begin{align}
+  (\mathcal{L}_u v)^\mu = u^\nu \nabla_\nu v^\mu - v^\nu \nabla_\nu u^\mu
+\end{align}
+我们意识到Lie Derivative其实对于一个有metric的流形来说可以使用协变导数来书写(虽然其本身的定义并不需要metric)。
+
+\bigskip
+\hlr{Cotangent Field Lie Derivative}
+
+我们可以使用一个trick给出Cotangent field的Lie Derivative以及协变导数的关系。我们考虑一个标量场的Lie Derivative，如果使用Lebniz法则，我们有：
+\begin{align}
+  \mathcal{L}_v(\omega_\mu \omega^\mu)={\omega}(\mathcal{L}_v \omega )+(\mathcal{L}_v \omega)(\omega)
+\end{align}
+同时根据标量场的Lie Derivative的性质我们有：
+\begin{align}
+  \mathcal{L}_v(\omega_\mu \omega^\mu) = v^\nu \partial_\nu (\omega_\mu \omega^\mu)
+\end{align}
+因此我们有：
+\begin{align}
+  (\mathcal{L}_v \omega)_\mu=v^\nu\nabla_\nu\omega_\mu+\omega_\nu\nabla_\mu v^\nu
+\end{align}
+
+\bigskip
+\hlr{General Tensor Field Lie Derivative}
+
+下面我们可以把这个结论推广到一般的张量场。我们考虑一个$ (r,s) $型张量场$ T $，我们使用Lebniz法则以及之前的结论，我们有：
+\begin{align}
+  (\mathcal{L}_v T)^{\alpha_1 \dots \alpha_r}{}_{\beta_1 \dots \beta_s}
+    =& v^\mu \nabla_\mu T^{\alpha_1 \dots \alpha_r}{}_{\beta_1 \dots \beta_s} \nonumber\\
+    & - \sum_{i=1}^r T^{\alpha_1 \dots \mu \dots \alpha_r}{}_{\beta_1 \dots \beta_s} \nabla_\mu v^{\alpha_i}
+      + \sum_{j=1}^s T^{\alpha_1 \dots \alpha_r}{}_{\beta_1 \dots \mu \dots \beta_s} \nabla_{\beta_j} v^\mu
+\end{align}
+特别的对于metric张量场$ g_{\mu\nu} $，我们有：
+\begin{align}
+  (\mathcal{L}_vg)_{\mu\nu}&=v^\rho\nabla_\rho g_{\mu\nu}+g_{\rho\nu}\nabla_\mu v^\rho+g_{\mu\rho}\nabla_\nu v^\rho\\ 
+  &=\nabla_\mu v_\nu+\nabla_\nu v_\mu
+\end{align}
+
+
+\subsection{Killing Vector Field}
+\subsubsection{Killing Vector Field的定义}
+
+\hlr{Killing Vector Field的定义}
+
+我们之前给出了Isometry的定义，知道Isometry是「保持metric不变」的Diffeomorphism。现在如果一个流形存在一个one parameter family of Isometry $ \phi_t:\mathcal{M} \to \mathcal{M} $，我们可以定义这个Isometry对应的tangent field $ \xi $。
+根据Isometry的定义，我们有：
+\begin{align}
+  (\phi_{-t})_* g = g \quad \Leftrightarrow \quad \mathcal{L}_\xi g = 0
+\end{align}
+因此给出定理：
+\thm{
+  Killing Vector Field
+
+  以下条件完全等价：
+  \begin{itemize}
+    \item 存在一个one parameter family of Isometry $ \phi_t:\mathcal{M} \to \mathcal{M} $由$ \xi $生成。
+    \item 存在一个tangent field $ \xi \in T\mathcal{M} $满足Killing Equation：
+      \begin{align}
+        \mathcal{L}_\xi g = 0 \quad \Leftrightarrow \quad \nabla_\mu \xi_\nu + \nabla_\nu \xi_\mu = 0
+      \end{align}
+  \end{itemize}
+}
+
+\bigskip
+\hlr{Isometry与metric的坐标无关}
+
+我们可以发现如果一个metric存在一个one parameter family of Isometry $ \phi_t:\mathcal{M} \to \mathcal{M} $，我们使用其Adapted Coordinate System $ \{x^\mu\} $，我们知道：
+\begin{align}
+  \mathcal{L}_\xi g_{\mu\nu} = \partial_1 g_{\mu\nu} = 0
+\end{align}
+也就是说：
+\begin{itemize}
+  \item 如果metric存在一个Killing Vector Field，那么我们可以找到一个coordinate system使得metric不依赖于某个坐标，并且这个坐标方向的切矢量场就是这个Killing Vector Field。
+  \item 反过来如果我们可以找到一个coordinate system使得metric不依赖于某个坐标，那么这个坐标方向的切矢量场就是一个Killing Vector Field，并且存在一个one parameter family of Isometry的映射是这个坐标方向的变换。
+\end{itemize}
+
+\bigskip
+\hlr{Killing Vector Field的与守恒量}
+
+如果时空之中存在一些geodesic $ \gamma(t) $，对应的tangent field为$ u = \frac{d}{dt} $，并且时空之中存在一个Killing Vector Field $ \xi $，我们有：
+\thm{
+  Killing Vector Field与守恒量
+
+  对于时空之中任意的geodesic $ \gamma(t) $，都有：
+  \begin{align}
+    \xi_\mu u^\mu = \mathrm{constant~along~}\gamma(t)
+  \end{align}
+}
+这是一个强大的结论，其意义在于：
+\begin{itemize}
+  \item \textbf{物理意义：} Killing Vector Field给出时空之中的自由粒子on shell运动的一个守恒量。
+  \item \textbf{Geodesics求解：} 如果时空之中存在足够多的Killing Vector Field，我们可以使用这些守恒量来简化Geodesics方程的求解。
+\end{itemize}
+
+\subsubsection{Minkowski的Killing Vector Field}
+
+\hlr{寻找Killing Vector}
+
+对于Minkowski时空我们的Killing Equation退化为$ \partial_{\mu}\xi_{\nu} + \partial_{\nu} \xi_{\mu} = 0 $。我们寻找可能的解：
+\begin{itemize}
+  \item Adapted Coordinate观察 I：最一般的Minkowski Metric会发现，四个坐标都无关，因此全部都是Killing Vector：
+    \begin{align}
+      P_0 = \partial_{t} \quad,\quad P_i = \partial_{x^i} \quad (i=1,2,3)
+    \end{align}
+\end{itemize}
+我们知道对于一个on shell的自由粒子来说，四动量为$ p^\mu = m u^\mu $，因此我们发现四个守恒量：
+\begin{align}
+  P_{0\mu}u^\mu , \quad  P_{i\mu} u^\mu  ,\quad i=1,2,3
+\end{align}
+分别物理interpretation就是自由粒子的能量与动量是守恒的！这个数学上的概念与物理定律完全符合！
+\begin{itemize}
+  \item Adapted Coordinate观察 II：我们选择另一个coordinate也就是球坐标：
+    \begin{align}
+      ds^2=-dt^2+dr^2+r^2\left(d\theta^2+\sin^2\theta d\varphi^2\right).
+    \end{align}
+    这个坐标系下我们会发现metric与角度$ \varphi $无关，类似的我们可以找到三个Killing Vector Field：
+    \begin{align}
+      J_1 = -z\,\partial_y + y\,\partial_z,\quad
+J_2 = -x\,\partial_z + z\,\partial_x,\quad
+J_3 = -y\,\partial_x + x\,\partial_y.
+    \end{align}
+    其对应的守恒量是经典力学之中粒子相对于原点的角动量守恒！
+\end{itemize}
+最后还有一些混合的Killing Vector Field：
+\begin{itemize}
+  \item 剩余满足Killing Equation的解还有独立的三个boost：
+    \begin{align}
+      K_1 = t\,\partial_x + x\,\partial_t,\quad
+K_2 = t\,\partial_y + y\,\partial_t,\quad
+K_3 = t\,\partial_z + z\,\partial_t.
+    \end{align}
+    这里我们会发现其并无经典的「守恒量」因为我们经典力学之中把coordinate time和固有时间等同起来了，我们经典力学之中的守恒说的是对于coordinate time的守恒。这里boost不再对于coordinate time不变，但是其对于固有时间依旧是守恒的！
+\end{itemize}
+
+\bigskip
+\hlr{Maximally Symmetric Space}
+
+我们发现Minkowski时空之中一共有10个线性独立的Killing Vector Field。而我们其实可以证明：
+\begin{itemize}
+  \item 对于一个$ n $维的流形，其最多存在$ \frac{n(n+1)}{2} $个线性独立的Killing Vector Field。
+\end{itemize}
+因此我们称Minkowski时空为一个Maximally Symmetric Space。
+
+\subsection{Schwarzschild Metric}
+
+\subsubsection{Schwarzschild metric 的 ansatz}
+
+我们希望找出Einstein Field Equation的一个特殊真空解并要求满足以下条件：
+\begin{enumerate}
+  \item Stationary【metric不随时间演化】: 存在一个time-like Killing Vector Field $ \xi $
+    \item Static【空间和时间分离；并不互相纠缠】:在Stationary的基础上，要求存在一个hypersurface正交于上面提到的orbit。
+  \item Spherically Symmetric【球对称】: 存在一组空间Killing Vector Field $ \eta_i (i=1,2,3) $满足so(3)的代数，并且这个群的orbit是2-sphere。
+\end{enumerate}
+
+\bigskip
+\hlr{Stationary and Static Metric的形式}
+
+这两个要求告诉我们metric要behave的足够【时空分离】，时间和空间尽量不干扰。我们试图找到一个坐标系写出的metric满足这些要求：
+\begin{enumerate}
+  \item 首先我们选择一个time like killing vector field $ \xi $。
+  \item 然后对于$ \Sigma $ hypersurface我们可以选择一个坐标系$ \{x^i\} (i=1,2,3) $，并且选择时间坐标$ t $是$ T $的Adapted Coordinate。因此我们知道metric在这个坐标系下必然不依赖于$ t $
+    \item 最后根据Static的条件这个坐标系下metric不能有cross term $ g_{ti} = 0 $，因此我们可以写出metric的形式为：
+\end{enumerate}
+\begin{align}
+  ds^2=-V^2(x^1,x^2,x^3)dt^2+\sum_{i,j=1}^3h_{ij}(x^1,x^2,x^3)dx^idx^j,
+\end{align}
+其中$ V^2 $是Timelike Killing Vector的负模长平方$ V^2 = -T^\mu T_\mu $从而保证Adapted Coordiante的定义条件。而$ h_{ij} $是$ \Sigma $超曲面的induced metric。
+
+
+\bigskip
+\hlr{Spherically Symmetric Metric的形式}
+
+下面我们考虑球对称的条件。由于我们知道其上必然存在一个2-sphere的orbit，也就是说我们的metric可以理解为一个2-sphere被「堆叠起来」，对于2-sphere我们知道如果定义一个参数$ A = 4 \pi r^2 $，那么2-sphere的metric可以使用球坐标进行书写：
+\begin{align}
+  ds_2^2=r^2(d\theta^2+\sin^2\theta d\phi^2)=r^2d\Omega^2.
+\end{align}
+而剩余的一个坐标可以通过$ r $进行描述，因此我们得到一个满足上面三个条件的ansatz：
+\thm{
+  Schwarzschile metric ansatz
+
+  对于一个Stationary Static Spherical Symmetric的metric必然存在一个coordinate system满足
+\begin{align}
+  ds^2 =-e^{2\alpha(r)}dt^2+e^{2\beta(r)}dr^2+r^2d\Omega^2.
+\end{align}
+}
+注意这个形式之中：
+\begin{itemize}
+  \item 我们系数选择了指数形式这样可以固定正负，并且确定我们是lorentz signature！
+    \item 这个metric本身不一定能很好的覆盖时空，比如南北极会出现问题
+\end{itemize}
+
+
+
+\subsection{Questions and Thoughts}
+
+\question{为什么我们要求Geodesics有一个特别的参数化才能描述physical的粒子运动？有质量和无质量的捏？}
+几何上我们完全可以选择任意的参数化来描述Geodesics曲线。但是如果我们希望这个曲线切矢量描述的是\textbf{粒子的四速度}，曲线本身描述的是\textbf{粒子的世界线}。物理告诉我们需要要求：
+\begin{itemize}
+  \item 有质量粒子：曲线参数化为Proper Time $ \tau $，满足$ g_{\mu\nu}\frac{dx^\mu}{d\tau}\frac{dx^\nu}{d\tau} = -1 $；
+  \item 无质量粒子：曲线参数化为Affine Parameter $ \lambda $，满足$ k^\mu = \frac{dx^\mu}{d\lambda} $，光子物理的四动量为$ p^\mu = \hbar k^\mu $,$ k^0 $必须是光子物理的频率！
+\end{itemize}

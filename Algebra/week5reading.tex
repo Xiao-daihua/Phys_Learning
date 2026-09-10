@@ -1,0 +1,447 @@
+
+这里我主要follow Georgi的教材，但是也会参考很多不同的思路进行辅助理解本章之中的内容。我们首先补充一些方便理解的数学知识，然后我们主要还是fol Georgi的思路进行讨论。
+
+\subsection{数学补充知识}
+
+\bigskip
+\hlr{Adjoint Representation}
+
+之前我们知道，如果我们存在Lie Algebra的一组基$ X_a $我们可以为这样一组基根据我们的structural constant $ f_{abc} $定义一个表示：
+\begin{align}
+  \left[T_a\right]_{bc}=-if_{abc}\mathrm{~.}
+\end{align}
+但是这样的理解是有局限性的，我们仅仅能够理解basis dependent然后需要进行一些特殊设计才能够仔细研究表示空间。但是对于Adjoint representation我们还有一个更好的定义方式。
+
+
+\defi{Adjoint Representation
+
+  对于一个Lie Algebra $ \mathfrak{g} $，我们定义一个映射$ \mathrm{ad} $从$ \mathfrak{g} $到$ \mathrm{End}(\mathfrak{g}) $：
+  \begin{align}
+    \mathrm{ad}_X(Y)=[X,Y]\mathrm{~for~}X,Y\in\mathfrak{g}\mathrm{~.}
+  \end{align}
+  显然这个映射是线性的，并且满足：
+  \begin{align}
+    \mathrm{ad}_{[X,Y]}=[\mathrm{ad}_X,\mathrm{ad}_Y]\mathrm{~.}
+  \end{align}
+  所以这个映射是一个Lie Algebra的表示，我们把这个表示叫做Adjoint Representation。
+}
+\begin{itemize}
+  \item 首先我们验证这个是一个表示。
+    \begin{align}
+      \mathrm{ad}_{[X,Y]}(Z)=[[X,Y],Z]=[X,[Y,Z]]-[Y,[X,Z]]=[\mathrm{ad}_X,\mathrm{ad}_Y](Z)\mathrm{~.}
+    \end{align}
+    \item 其次我们需要知道这个等价于之前的描述。
+      \begin{align}
+        \mathrm{ad}_{X_a}(X_b)=[X_a,X_b]=if_{abc}X_c\mathrm{~.}
+      \end{align}
+      所以我们有：
+      \begin{align}
+        \left[\mathrm{ad}_{X_a}\right]_{cb} =if_{abc} = - i f_{acb} = [T_a]_{bc}\mathrm{~.}
+      \end{align}
+      这和之前的定义是一样的。其中第一步我们挑出了作用b然后变成c的系数，这个和一般的矩阵定义是一样的。
+\end{itemize}
+
+
+
+\bigskip
+\hlr{Killing Form的定义回顾}
+
+之前我们已经知道对于选定一组基$ X_a $我们可以定义其上的基的一个bilinear form也就是：
+\begin{align}
+  g_{ab}=\mathrm{Tr}(T_aT_b)\mathrm{~.}
+\end{align}
+下面我们希望使用上面的Adjoint Representation的定义来重新定义这个bilinear form。并且这个form其实是李代数之间的。毕竟我们的Adjoint Rep是一个表示。
+
+\defi{Killing Form
+
+  对于一个Lie Algebra $ \mathfrak{g} $，我们定义其上的一个bilinear form：
+  \begin{align}
+    \gamma(X,Y)=\mathrm{tr}(\mathrm{ad}_X\mathrm{ad}_Y)\mathrm{~for~}X,Y\in\mathfrak{g}\mathrm{~.}
+  \end{align}
+  如果我们选定一组基$ X_a $，那么我们可以定义其上的矩阵：
+  \begin{align}
+    \gamma_{ab}=\gamma(X_a,X_b)=\mathrm{tr}(\mathrm{ad}_{X_a}\mathrm{ad}_{X_b})\mathrm{~.}
+  \end{align}
+  我们把这个bilinear form叫做Killing Form。
+}
+
+这个定义和上面的是完全一样的，我们可以计算：
+\begin{align}
+  ad_{X_a}ad_{X_b}(X_c)=ad_{X_a}([X_b,X_c])=[X_a,[X_b,X_c]]
+\end{align}
+然后我们展开计算并且对于作用前后的c和d取等并求和「tr的定义」然后就可以回到之前的结果。
+
+
+\subsection{Root and Weights (Georgi)}
+这里我们按照Georgi的思路讨论一下李代数的root和weight的定义。我们主要讨论单复李代数。我们回顾对于SU(2)的理解，我们给出表示的操作其实是这样的：
+\begin{itemize}
+  \item 选择一个Cartan子代数「对于SU(2)来说就是$ J_3 $」
+  \item 选择这个Cartan子代数的一个本征基「对于SU(2)来说就是$ \ket{j,m} $」
+  \item 复化并构造升降算符「对于SU(2)来说就是$ J^\pm $」
+  \item 使用升降算符构造整个表示「对于SU(2)来说就是从$ \ket{j,j} $开始使用$ J^- $」
+\end{itemize}
+下面把这样的一个技术的概念推广到一般的单李代数上面。我们发现这个操作给出了两个好处：1. 对于一般的单复李代数的分类； 2. 对于一般的单李代数的表示构造。我们不想再讨论复化所以我们其实默认讨论的是单复李代数。
+
+\subsubsection{Cartan子代数以及weight}
+
+\hlr{Cartan子代数的定义}
+
+对于一个单复李代数的任意的不可约表示$ D $我们总能找到一些generator（也就是李代数的一组基）他们之间互相对易，并且物理人喜欢用Hermite的算符所以还要求他们是hermite的「后面会发现hermite能给出很好的结构，比如root的正负关系」。所以我们定义：
+\defi{Cartan子代数
+
+  对于一个单复李代数$ \mathfrak{g} $的一个不可约表示$ D $，我们可以坐标变换然后各种组合搞出一组【最多的】generator $ H_i $ 满足：
+  \begin{align}
+    [H_i,H_j]=0\mathrm{~for~all~}i,j=1\mathrm{~to~}m\mathrm{~.}
+  \end{align}
+  并且这些$ H_i $是hermite的。我们把这样一组generator叫做Cartan子代数。
+}
+对于这个子代数有一些值得注意的地方：
+\begin{enumerate}
+  \item 注意，cartan子代数在某个表示上并不是“唯一的”。他们只是结构上是“共轭的”。但是在代数内部位置是不一样的！
+  \item 我们称呼这个子代数的维度为李代数的秩「rank」。这是一个仅仅和李代数本身有关的数字
+  \item Cartan子代数对于实李代数并不一定存在，比如数学上的SU(2)全是anti-Hermite的，所以我们永远搞不出一个hermite的Cartan子代数。所以我们这个讨论仅仅适用于单复李代数。
+\end{enumerate}
+
+\hlr{Cartan子代数的归一化}
+
+对于这个子代数我们其实上面的条件并没有完全fix这些生成元的样子。因为我们可以对生成元进行rescale以及线性组合。这个并不利于我们的一些计算所以我们现在要rescale，并且线性组合一下这些生成元fix Cartan子代数的归一化是：
+\begin{align}
+  \mathrm{Tr}(H_iH_j)=k_D\delta_{ij}\mathrm{~for~}i,j=1\mathrm{~to~}m\mathrm{~.}
+\end{align}
+其中$ k_D $是一个和表示有关的常数。我们可以通过rescale H来fix这个常数。
+
+\rmk{之前有讨论这样的rescale操作不是对于所有代数都能做的，仅仅对于compact lie algebra才行。因为compact lie algebra的killing form是正定的所以我们可以把killing form看成是一个内积然后进行Gram-Schmidt正交化。然后我们知道对于一般表示的tr其实是正比于killing form的，所以我们也可以进行正交化。}
+
+\bigskip
+\hlr{Weight的定义}
+
+对于一个Cartan子代数由于互相对易，所以我们可以选择某个不可约表示空间$ D $一组共同的本征态来同时对角化这些$ H_i $。我们把这些本征态叫做weight state，并且我们把这些本征值的组合作为一个向量叫做weight：
+\defi{Weight State and Weight
+
+  对于一个单复李代数$ \mathfrak{g} $的一个不可约表示$ D $，我们选择一个Cartan子代数$ \{H_i\} $。那么我们可以找到一组共同本征态$ \ket{\mu} $满足：
+  \begin{align}
+    H_i\ket{\mu,D}=\mu_i\ket{\mu,D}\mathrm{~for~}i=1\mathrm{~to~}m\mathrm{~.}
+  \end{align}
+  我们把这样的本征态叫做weight state，并且把这些本征值的组合作为一个向量$ \mu=(\mu_1,\mu_2,\cdots,\mu_m) $叫做weight。（m是这个李代数的rank）
+}  
+
+这里我们显然能看到Hermite的一些好处：1. weight是实数；2. weight state可以归一化并且正交。
+
+
+\subsubsection{Adjoint Representation and Root}
+
+\hlr{Adjoint Representation的表示空间}
+
+我们之前定义一个李代数的Adjoint Representation是，选定任意一个表示的某一组基$ X_a $然后定义：
+\begin{align}
+  [T_a]_{bc}=-if_{abc}\mathrm{~.}
+\end{align}
+显然这个定义在一个表示空间，并且表示空间的维度和李代数的维度是一样的。所以我们可以使用李代数本身的元素标记这个表示空间的基础，并且我们根据李代数的一些性质可以赋予这个表示空间一些特殊的数学结构。
+\thm{Adjoint Representation的表示空间
+
+  对于Adjoint Representation的表示空间我们使用李代数的元素来标记这些基，$ T^a \to \ket{T^a} $。这个基有下面的性质：
+  \begin{enumerate}
+  \item 这个基满足线性关系也就是：
+    \begin{align}
+      \ket{c_a T^a+ b_b T^{b}} = c_a \ket{T^a} + b_b \ket{T^b}\mathrm{~for~any~}c_a\in\mathbb{C}\mathrm{~.}
+    \end{align}
+    \item 这个基的元素的变换规则是：
+      \begin{align}
+        T^a\ket{T^b}=\ket{[T^a,T^b]}=-if_{abc}\ket{T^c}\mathrm{~.}
+      \end{align}
+    \item 这个基的内积可以定义为：
+      \begin{align}
+        \braket{T^a}{T^b}=\frac{1}{k_D}\mathrm{Tr}(T_aT_b)=\frac{1}{k_D}g_{ab}\mathrm{~.}
+      \end{align}
+      其中$ k_D $是之前定义Cartan子代数的时候的常数，但是现在我们选择的$ D $是Adjoint Representation【之后我们记作： $ \lambda  = k_D$】这个内积是正定的。
+  \end{enumerate}
+}
+在这样的一组基下面我们可以把Adjoint Reprentation的矩阵元素写作这个样子：
+\begin{align}
+  X_a|X_b\rangle=|X_c\rangle\langle X_c|X_a|X_b\rangle=|X_c\rangle\left[T_a\right]_{cb}=-if_{acb}|X_c\rangle
+\end{align}
+
+\rmk{上面的赋予的结构是合理的这是一个定理。但是我们并没有予以证明。如果从基的观点其实不好证明。但是如果我们使用basis independent的观点看Adjoint Representation上面的定理就是完全显然的，甚至我们根本不需要定义这个内积结构，因为完全没有必要。}
+
+
+\bigskip
+\hlr{Adjoint Representation的Cartan子代数}
+
+对于Adjoint Representation我们显然也可以选择一个Cartan子代数，然后选择一组共同本征态来对角化。同时这个Cartan子代数已经是normalize之后的样子。
+
+我们记录Ajoint Representation的Cartan子代数是$ \{ H_i \} $并且我们不难发现这些Cartan子代数的元素对应的基满足下面的关系：
+\begin{align}
+  H_i|H_j\rangle=|[H_i,H_j]\rangle=0
+\end{align}
+并且内积有：
+\begin{align}
+  \langle H_i|H_j\rangle=\lambda^{-1}\operatorname{Tr}\left(H_iH_j\right)=\delta_{ij}
+\end{align}
+
+
+\bigskip
+\hlr{Adjoint Representation下面对角化以及Root}
+
+同样的我们选择一组共同本征态来对角化这些$ H_i $。我们把这些本征态我们记作$ |E_\alpha\rangle $，并且我们把这些本征值的组合作为一个向量叫做root：
+\defi{Root State and Root
+
+  对于一个单复李代数$ \mathfrak{g} $的Adjoint Representation，我们选择一个Cartan子代数$ \{H_i\} $。那么我们可以找到一组共同本征态$ |E_\alpha\rangle $满足：
+  \begin{align}
+    H_i|E_\alpha\rangle=\alpha_i|E_\alpha\rangle\mathrm{~for~}i=1\mathrm{~to~}m\mathrm{~.}
+  \end{align}
+  我们把这样的本征态叫做root state，并且把这些本征值的组合作为一个向量$ \alpha=(\alpha_1,\alpha_2,\cdots,\alpha_m) $叫做root。（m是这个李代数的rank）
+
+  对于这些本征态，我们一般会选择是正交归一的，所以我们选择的归一化是：
+  \begin{align}
+    \langle E_\alpha|E_\beta\rangle=\lambda^{-1}\operatorname{Tr}\left(E_\alpha^\dagger E_\beta\right)=\delta_{\alpha\beta}\left(=\prod_i\delta_{\alpha_i\beta_i}\right)
+  \end{align}
+}
+
+
+\bigskip
+\hlr{从Adjoint Rep的基到李代数的基【Cartan-Weyl Basis】}
+
+显然对角化操作之后，我们得到了一组新的李代数的adjoint representation基也就是$ \{ \ket{H_i}, \ket{E_\alpha} \} $，并且这些基对应着一组Lie Algebra本身的基：$ \{ H_i , E_\alpha\} $。【Cartan-Weyl Basis】
+
+我们发现，在Adjoint Representation的构造其实帮助我们给出了一组李代数的基【与表示无关捏】并且给出了这组基根据Adjoint Representation的构造规则满足下面的对易关系。我们总结一下这些对易关系
+
+\begin{enumerate}
+  \item Cartan子代数之间的对易关系：
+\begin{align}
+  [H_i,H_j]=0\mathrm{~for~all~}i,j=1\mathrm{~to~}m\\
+\end{align}
+  \item Cartan子代数和root state之间的对易关系：
+    \begin{align}
+      [H_i,E_\alpha]=\alpha_iE_\alpha
+    \end{align}
+    \item Root State的共轭「这个时候Hermite的好处又体现出来喽」:
+      \begin{align}
+        \left[H_i,E_\alpha^\dagger\right]=-\alpha_iE_\alpha^\dagger, \quad E_\alpha^\dagger=E_{-\alpha}
+      \end{align}
+    \item 归一化关系。我们选择的归一化是：
+      \begin{align}
+        \lambda^{-1}\operatorname{Tr}\left(E_\alpha^\dagger E_\beta\right)=\delta_{\alpha\beta}
+      \end{align}
+    \item Root State之间的对易关系：
+      \begin{align}
+        [E_\alpha,E_\beta]&=N_{\alpha,\beta}E_{\alpha+\beta}\mathrm{~if~}\alpha+\beta\mathrm{~is~a~root}\\
+        [E_\alpha,E_\beta]&=0\mathrm{~if~}\alpha+\beta\mathrm{~is~not~a~root~and~}\alpha\neq-\beta\\
+        [E_\alpha,E_{-\alpha}]&=\alpha_i H_i
+      \end{align}
+\end{enumerate}
+
+
+\subsubsection{Cartan-Weyl Basis对于一般表示}
+\label{sec:cartan-weyl-general-rep}
+
+\bigskip
+\hlr{Root State in General Representation}
+
+我们知道对易关系是和表示无关的。下面我们考虑Cartan-Weyl Basis的元素作用在一般表示空间上面的weight state的行为，我们发现：
+\begin{align}
+  H_iE_{\pm\alpha}|\mu,D\rangle=\left[H_i,E_{\pm\alpha}\right]|\mu,D\rangle+E_{\pm\alpha}H_i|\mu,D\rangle=(\mu\pm\alpha)_iE_{\pm\alpha}|\mu,D\rangle.
+\end{align}
+所以我们知道，H相当于weight state的weight进行作用，而$ E_{\pm\alpha} $相当于把weight state的weight进行平移$ \pm\alpha $。所以我们称之为升降算符。
+
+
+\bigskip
+\hlr{半单复李代数的 su(2) 子代数}
+
+我们发现对于每一个root $ \alpha $，我们都可以构造出一个su(2)子代数，构造方法如下：
+\begin{align}
+  E^\pm\equiv|\alpha|^{-1}E_{\pm\alpha}, \quad E_3\equiv|\alpha|^{-2}\alpha\cdot H.
+\end{align}
+
+并且通过这个子代数我们可以帮助证明一个很重要的结论：
+\thm{Root Vector Uniquely Determined
+
+  对于一个单复李代数的任意一个root $ \alpha $，对应的【唯一一个】$ E_\alpha $李代数元素。
+}
+
+
+\thm{Root Vector 不可乘
+
+  如果$ \alpha $是一个root那么除了$ -\alpha $之外所有的$ \alpha $的倍数都不可能是root！
+}
+
+\subsubsection{Root Vector的图像表达}
+\label{sec:root-vector-geometry}
+
+\bigskip
+\hlr{Master Formula}
+
+我们经过观察考虑一个表示$ D $的weight $ \mu $，然后我们使用一个root $ \alpha $对应的su(2)子代数进行分析。我们发现这个weight在这个su(2)子代数下面的表现是一个有限维不可约表示。所以我们会有：
+\begin{itemize}
+  \item 先不停的使用$ E_{-} $降低weight直到最低点，我们记这个最低点的weight为$ \mu - q\alpha $，并且满足：
+    \begin{align}
+      E_{-}|\mu - q\alpha,D\rangle=0\mathrm{~.}
+    \end{align}
+  \item 然后我们不停的使用$ E_{+} $提升weight直到最高点，我们记这个最高点的weight为$ \mu + p\alpha $，并且满足：
+    \begin{align}
+      E_{+}|\mu + p\alpha,D\rangle=0\mathrm{~.}
+    \end{align}
+\end{itemize}
+我们知道如果考虑“Height Weight”以及“Lowest Weight”那么这个表示的话，他们作用一下$ E_3 $会给出：
+\begin{align}
+  &\frac{\alpha\cdot(\mu+p\alpha)}{\alpha^2}=\frac{\alpha\cdot\mu}{\alpha^2}+p=j.\\ 
+  &\frac{\alpha\cdot(\mu-q\alpha)}{\alpha^2}=\frac{\alpha\cdot\mu}{\alpha^2}-q=-j.
+\end{align}
+我们消除$ j $然后得到一个很重要的公式：
+\thm{Master Formula
+
+  对于某个表示下面的任意一个weight $ \mu $以及任意一个root $ \alpha $满足下面的关系。并且p,q是非负整数：
+\begin{align}
+\frac{\alpha\cdot\mu}{\alpha^2}=-\frac{1}{2}(p-q).
+\end{align}
+}
+  
+
+\bigskip
+\hlr{Root Vector之间的夹角几何关系}
+
+我们会观察到一个有意思的结果，根据对于su(2)子代数的研究，如果我们恰好考虑两个root $ \alpha,\beta $，然后分别使用master formula进行分析，我们会发现：
+\begin{align}
+  &\frac{\alpha\cdot\beta}{\alpha^2}=-\frac{1}{2}(p-q).\\ 
+  &\frac{\beta\cdot\alpha}{\beta^2}=-\frac{1}{2}(p^{\prime}-q^{\prime}).
+\end{align}
+我们把这两个式子相乘然后得到：
+\thm{
+  Root Vector之间的夹角关系
+
+  对于任意两个root $ \alpha,\beta $，他们之间的夹角满足下面的关系：
+\begin{align}
+  \cos^2\theta_{\alpha\beta}=\frac{(\alpha\cdot\beta)^2}{\alpha^2\beta^2}=\frac{(p-q)(p^{\prime}-q^{\prime})}{4}.
+\end{align}
+其中的$ p,q $都是非负的整数。
+}
+所以我们知道这个夹角只能是一些特定的数值。下面给出一些例子：
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.5\textwidth]{assets/angleroot.png}
+  \caption{Root Vector之间的夹角只能是一些特定的数值}
+  \label{fig:angleroot}
+\end{figure}
+所以我们可以图像化的画出来root vector的图像。
+
+
+
+
+\subsection{Examples: SU(3) Lie Algebra (Georgi)}
+
+\hlr{su(3)李代数定义}
+
+我们定义SU(3)群是所有$ 3 \times 3 $ Unitary矩阵构成的$ det = 1 $的群。数学上我们从切空间的定义可以知道su(3)李代数可以有的数学定义；当然我们因为只关注群表示，代数表示就是生成群表示的工具，所以物理人使用Hermite生成元来定义。
+
+\rmk{和su(2)一样的，我们物理人因为只关心群表示所以会把代数给modify成为一个数学上并不严谨的Hermite的东西。}
+下面给出定义：
+\defi{
+  su(3) Lie Algebra
+
+  \begin{itemize}
+    \item 数学定义：
+      \begin{align}
+        su(3)=\{X\in M_{3\times3}(\mathbb{C})|X^\dagger=-X,\mathrm{Tr}(X)=0\}\mathrm{~.}
+      \end{align}
+    \item 物理定义，我们定义为所有的$ 3 \times 3 $ Hermite Traceless 矩阵构成的实向量空间。对于这个空间我们可以选择一组特别合理的基，也就是Gell-Mann矩阵：
+      \begin{align}
+        su(3)=\{T^a=\frac{1}{2}\lambda^a|a=1\mathrm{~to~}8\}\mathrm{~.} 
+      \end{align}
+  \end{itemize}
+}
+
+\bigskip
+\hlr{Gell-Mann矩阵}
+
+Gell-Mann矩阵前三个元素基本上就是SU(2)的Pauli矩阵的扩展，然后后面五个矩阵是为了补全这个空间。并且这个基下面定义的表示空间的Trace是张这样的：
+\begin{align}
+  \mathrm{Tr}(T_aT_b)=\frac{1}{2}\delta_{ab}\mathrm{~.}
+\end{align}
+
+
+\bigskip
+\hlr{Cartan 子代数以及Root Vector}
+
+下面我们考虑Gell-Mann矩阵所在表示空间的root structure。
+\begin{enumerate}
+  \item  我们发现这个空间上用Gell-Mann矩阵表示之中正好有两个矩阵$ T_3, T_8 $是对角的还构成了一个Cartan子代数。所以我们重命名为$ H_1, H_2 $.
+  \item 我们对角化这两个矩阵，然后共同本征向量对应的本征值也就是这个表示的weight $ \mu_1 = (1/2, \sqrt{3}/6),  \mu_1 = (-1/2, \sqrt{3}/6), \mu_1 = (0, -\sqrt{3}/3) $
+  \item 我们知道三个weight的差距就是root vector的数值所以我们可以给出root，并且类比给出升降算符就是root state。
+\end{enumerate}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.5\textwidth]{assets/rootvecsu3.png}
+  \caption{SU(3)的root vector}
+  \label{fig:rootvecsu3}
+\end{figure}
+
+这给出了一个系统的求解一个代数root system的方法。
+\begin{itemize}
+  \item \textbf{step1: 给出表示 }选择一个表示空间，找到这个表示空间下面的Cartan子代数
+  \item \textbf{step2: 确定weight  }对角化这个Cartan子代数，找到weight。
+  \item \textbf{step3: 寻找root }分析哪些weight vector的差值是root！！这是最核心的一步，操作方法是：
+    \begin{itemize}
+      \item 首先我们计算root应该有多少个，也就是代数的生成元个数减去cartan子代数的个个数。李代数的dimension - rank就是root的个数。
+      \item 然后考虑adj rep也就是各个generator的对易关系看看能不能找到root state，然后确认哪些才是root vector！
+    \end{itemize}
+\end{itemize}
+
+这个方法的好处是，有的时候很好算。并且可以通过任意表示出发计算得到，但是问题也很明显。我们很难看出某个weight的差值是不是root，如果weight的差值特别多的话。
+
+\YL{[问一下有没有什么更好的方法！！但感觉没有呃呃呃]}
+
+
+\subsection{SU(3) Lie Algebra (Ramond)}
+
+这本书使用了和Georgi不太一样的convention。主要体现在对于$ E_\alpha $和$ H_i $的归一化的定义上面，所以root vector长度和对易关系可能差一些killing form的乘法。
+
+\YL{回头补充吧！目前觉得并不特别重要}
+
+
+
+
+\subsection{Questions and thoughts}
+
+
+
+\question{我们使用的所有$ H,E $什么的到底是李代数还是表示？怎么做Hermite Conjugation？}
+
+我们这里使用的这些算符【全部都是表示】！我们写出来就是“在某个表示空间上”的意思。
+
+因为李代数可以被矩阵进行faithful表示，所以我们不妨写在一个矩阵空间上面，然后理解为在这个表示空间上的各种各样的矩阵。
+
+\qed
+
+\question{对于单李代数，我们的Cartan子空间一定可以找到正交的基吗？也就是满足:}
+\begin{align}
+  \mathrm{Tr}\left(H_iH_j\right)=k_D\delta_{ij}\mathrm{~for~}i,j=1\mathrm{~to~}m
+\end{align}
+
+当然可以！因为我们可以把Killing form看成是一个m维空间的"双线性形"【对于compact lie algebra就是一个内积】，然后我们使用Gram-Schmidt正交化就可以了！
+
+\qed
+
+
+\bigskip
+\question{我们定义内积的$ \lambda $的系数到底是怎么定义的？？为什么能消掉那么多的数字？？？(6.18);(6.10)能保证同时消去吗？？}
+
+可以！！其实我们干的就是rescale H和rescale所有的E的结果！
+\qed
+
+
+\bigskip
+\question{我们知道所有的simple lie algebra都可以通过root给出一堆su(2)子代数，那么能不能说所有的simple lie algebra是su(2)的直和呢？这样是不是就不是simple了？}
+
+注意！确实我们可以把simple lie algebra的root system分解成一堆su(2)的root system的直和！但是我们不能说simple lie algebra是su(2)的直和！因为我们不能说这些su(2)子代数之间是互相对易的，这些su(2)子代数并不是“互相独立的”而是交错纠缠的。所以这些simple lie algebra也是simple的！
+\qed
+
+
+\bigskip
+\question{我们这里研究的su(3)是一个复代数还是实数？}
+
+其实如果我们要研究根系的话必须研究$ sl(3,\mathbb{C}) $。因为只有复代数才有根系结构。georgi的书之中我们自动偷偷进行一个复化了！在这里：
+\begin{align}
+  \begin{aligned}&\frac{1}{\sqrt{2}}\left(T_1\pm iT_2\right)=E_{\pm1,0}\\&\frac{1}{\sqrt{2}}\left(T_4\pm iT_5\right)=E_{\pm1/2,\pm\sqrt{3}/2}\\&\frac{1}{\sqrt{2}}\left(T_6\pm iT_7\right)=E_{\mp1/2,\pm\sqrt{3}/2}\end{aligned}
+\end{align}
+
+\qed

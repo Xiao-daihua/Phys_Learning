@@ -1,0 +1,345 @@
+\subsection{经典散射理论}
+散射理论主要研究的是粒子的local interaction在global的影响。我们主要关注两个问题：
+\begin{itemize}
+  \item 确定入射的状态，以及相互作用，我们如何得到散射之后的出射状态
+  \item 确定出射状态和入射状态，我们如何反推出相互作用
+\end{itemize}
+
+\subsubsection{经典散射理论基础}
+
+\hlr{经典散射问题的数学set up}
+
+我们数学上set up这样的一个散射问题，并且使用经典力学的框架。
+\begin{enumerate}
+  \item \textbf{相互作用：} 我们使用一个势能进行相互作用的描述：$ V(x) $，需要保证$ |x| \to
+    \infty $的时候$ V(x) \to 0 $。
+  \item \textbf{入射状态：} 我们使用经典粒子的初始位置和动量$ (x_0,p_0) $进行描述。
+  \item \textbf{出射状态：} 我们使用经典粒子的最终位置和动量$ (x_f,p_f) $进行描述。
+\end{enumerate}
+由于我们认为散射前后在无穷远的时候没有相互作用是自由的粒子，所以我们有：
+\begin{align}
+  \begin{aligned}&\mathbf{x}(t\to-\infty)=\mathbf{x}_{\mathrm{in}}+\mathbf{v}_{\mathrm{in}}t\\&\mathbf{x}(t\to+\infty)=\mathbf{x}_{\mathrm{out}}+\mathbf{v}_{\mathrm{out}}t.
+  \end{aligned}
+\end{align}
+第一个散射理论的问题就是，我们确定入射状态和相互作用，如何得到出射状态？我们使用下面的步骤：
+\begin{enumerate}
+  \item \textbf{Step1: 求解经典运动方程} 使用牛顿定律我们知道粒子运动方程是：
+    \begin{align}
+      m\ddot{\mathbf{x}}=-\frac{dV}{d\mathbf{x}}\mathrm{~,}
+    \end{align}
+  \item \textbf{Step2: 寻找合理轨迹} 我们确定初始条件是：
+    \begin{align}
+      \mathbf{x}(t\to-\infty)=\mathbf{x}_{\mathrm{in}}+\mathbf{v}_{\mathrm{in}}t\mathrm{~,}
+    \end{align}
+  \item \textbf{Step3: 计算出射状态} 验证这个轨迹在$ t \to +\infty $的时候是否满足：
+    \begin{align}
+      \mathbf{x}(t\to+\infty)=\mathbf{x}_{\mathrm{out}}+\mathbf{v}_{\mathrm{out}}t\mathrm{~,}
+    \end{align}
+    这样的形式。如果满足可以通过对比系数给出出射状态。
+
+\end{enumerate}
+
+\bigskip
+\hlr{不可以用散射理论描述的情况}
+
+我们会发现上面的求解过程并不是总可以完成的，我们不能保证初始和最终轨迹一定是线性的自由粒子形式。下面有两种情况我们永远不能使用散射理论进行描述：
+\begin{itemize}
+  \item \textbf{束缚态：} 如果粒子被势阱束缚住了，那么粒子在做周期运动。
+  \item \textbf{黑洞：}也就是粒子落入了一个洞出不来了，这样也不能散射描述。
+\end{itemize}
+
+\subsubsection{散射截面}
+
+\bigskip
+\hlr{(Differential ) Cross Section set up}
+
+在经典散射理论中，我们通常使用cross
+section来描述散射的强弱。这个概念是完全依赖于一个固定的初始条件的，相当于我们固定了条件，用出射状态对于相互作用进行描述。
+
+我们考虑下面的一个散射过程，图中很多均匀的粒子进行一个入射，经过相互作用进行散射。然后我们研究入射某一个单位面积的粒子出射到了那个单位立体角。
+% \begin{figure}[H]
+%   \centering
+%   \includegraphics[width=0.65\textwidth]{assets/scatter.png}
+%   \caption{经典散射截面示意图}
+%   \label{fig:scatter}
+% \end{figure}
+\rmk{
+  这里我们经常使用的立体角的定义和常用的不一样，我们定义立体角是：
+  \begin{align}
+    d \Omega = d cos \theta d \phi\mathrm{~,}
+  \end{align}
+  这个定义似乎和之前定义的差了一个符号，但是其实是因为我们选择的积分上下限的不同。积分结果是一样的：
+  \begin{align}
+    \int d\Omega=\int_0^{2\pi}d\phi\int_0^\pi\sin\theta
+    d\theta=\int_0^{2\pi}d\phi\int_{-1}^1d(\cos\theta).
+  \end{align}
+}
+下面我们定义一些基本的物理量用于构造散射截面：
+\begin{enumerate}
+  \item \textbf{入射流强度：} 我们定义入射流强度$ n $表示【单位面积】【单位时间】内入射的粒子数目。其单位是：
+    \begin{align}
+      n=\mathrm{const}\cdot\frac{1}{\mathrm{cm}^2\cdot\mathrm{s}}
+    \end{align}
+  \item \textbf{出射角流强度：} 我们定义 $ \displaystyle\frac{dN}{dt}
+    $是【单位立体角】【单位时间】出射的粒子数目。其单位是：
+    \begin{align}
+      \displaystyle\frac{dN}{dt}=\mathrm{const}\cdot\frac{1}{\mathrm{s}}\mathrm{~,}
+    \end{align}
+\end{enumerate}
+
+\rmk{我们需要关注两个问题：
+  \begin{itemize}
+    \item 我们使用$ \displaystyle\frac{dN}{dt}
+      $来表示单位立体角单位时间出射的粒子数目。那么我们很容易知道N的物理意义是某个时间积分下单位立体角出射的粒子数目。
+    \item 入射流强度和出射角流强度的单位是不同的，这是因为立体角是没有量纲的！！
+  \end{itemize}
+}
+
+\bigskip
+\hlr{散射截面的定义}
+
+在上面的set up之下我们可以给出散射截面的定义：
+\defi{\label{def:dcs}
+  微分散射截面
+
+  给定一个上图之中的散射过程，入射流强度$ n $和出射角流强度$ \displaystyle\frac{dN}{dt} $，微分散射截面定义为：
+  \begin{align}
+    \frac{dN}{dt}=\frac{d\sigma}{d\Omega}nd\Omega\mathrm{~.}
+  \end{align}
+  其中我们定义$ \displaystyle\frac{d\sigma}{d\Omega} $为微分散射截面，其单位是面积单位:
+  \begin{align}
+    \frac{d\sigma}{d\Omega}=\mathrm{const}\cdot\mathrm{cm}^2.
+  \end{align}
+  所以我们把它理解为一个截面，是表征面积的量。
+}
+看公式形式我们可以知道一个直观的物理意义是：
+\begin{itemize}
+  \item 单位立体角出射的粒子是之前多少单位面积入射的；微分的意思就是考虑的是单位立体角。
+\end{itemize}
+此外作为一个微分我们还可以进行一个对于立体角进行一个积分。得到的结果就是总散射截面：
+\defi{总散射截面
+  给定一个上图之中的散射过程，入射流强度$ n $和出射角流强度$ \displaystyle\frac{dN}{dt} $，总散射截面定义为：
+  \begin{align}
+    \sigma=\int\frac{d\sigma}{d\Omega}d\Omega\mathrm{~.}
+  \end{align}
+  其中我们定义$ \sigma $为总散射截面，其单位是面积单位:
+  \begin{align}
+    \sigma=\mathrm{const}\cdot\mathrm{cm}^2.
+  \end{align}
+}
+总散射截面的物理意义是：
+\begin{itemize}
+  \item 整个球面被散射出来的粒子是来源于入射的时候多大面积的粒子。
+\end{itemize}
+
+\bigskip
+\hlr{例子1: 钢球散射}
+
+我们假设以scattering centre 为中心放置一个半径为$ R $的钢球。然后我们让粒子以入射流强度$ n
+$进行入射。散射截面根据物理意义来说显然是：
+\begin{align}
+  \sigma=\pi R^2\mathrm{~,}
+\end{align}
+因为只有能接触到钢球的粒子才会被散射。
+
+\YL{[具体的计算可以回去补全，没那么重要]}
+
+\bigskip
+\hlr{例子2: Rutherford散射}
+
+这个就是平方反比力作用下面的散射我们下面进行计算。我们的势能是：
+\begin{align}
+  V(r)=\frac{\alpha}{r}\mathrm{~,}
+\end{align}
+
+\YL{[具体的计算作业里面有]}
+
+\bigskip
+\hlr{球对称散射怎么计算散射振幅}
+
+下面我们给出一套球对称计算散射振幅的操作：
+\begin{itemize}
+  \item \textbf{Step 1 使用求坐标} : 我们以scattering centre作为中心建立球坐标系。
+  \item \textbf{Step 2 使用守恒量}:
+    我们不进行运动方程的计算而是使用守恒量给出某一个轨道前后的位置关系，我们考虑$ b $半径的一个单位环上面入射的粒子运动到哪里：
+    \begin{enumerate}
+      \item 角动量守恒： 考虑一个从$ b $为半径的环上入射的粒子计算角动量守恒给出其出射的角度$ \theta $。$
+        f(b,\theta, p) = 0 $
+      \item 能量守恒： 考虑一个从$ b $为半径的环上入射的粒子计算能量守恒。$ f'(b,\theta, p) = 0 $
+    \end{enumerate}
+    这样的两个方程我们可以给出$ b $和$ \theta $的关系。
+  \item \textbf{Step 3 计算散射截面} : 我们最终给出$ \theta(b) $的方程可以根据下面的公式进行计算微分散射截面：
+    \begin{align}
+      \frac{d\sigma}{d\Omega}=\frac{b}{\sin\theta}\left|\frac{db}{d\theta}\right|\mathrm{~,}
+    \end{align}
+\end{itemize}
+\rmk{最后的公式的推导其实就是根据微分散射截面的物理意义进行计算的，微分散射截面是单位出射立体角对应着单位入射面积，如果我们考虑一个圆环那么面积就是：
+  \begin{align}
+    \displaystyle\frac{d \sigma}{d \Omega} = \displaystyle\frac{d S}{
+    d \Omega} = \displaystyle\frac{\pi d(r^2)}{ 2\pi \sin\theta
+    d\theta} = \frac{b}{\sin\theta}\left|\frac{db}{d\theta}\right|\mathrm{~.}
+  \end{align}
+  其中分母的$ 2 \pi  $是我们对于$ \phi $方向积分得到的。
+}
+
+\subsubsection{粒子碰撞散射理论}
+
+我们上面考虑的是有一个固定的potential对于单个粒子的位置有作用，下面我们考虑如过potential是两个粒子相互作用给出的那么怎么研究散射理论。
+\begin{itemize}
+  \item 其核心思想就是换一个参考系，考虑质心系那么又退化到之前的单粒子散射问题了。
+\end{itemize}
+下面一步步进行操作。
+
+\bigskip
+\hlr{质心系的运动分析}
+
+我们考虑两个粒子相互作用的散射问题，我们选择的potential是：
+\begin{align}
+  V(\mathbf{x}_1,\mathbf{x}_2)=V(|\mathbf{x}_1-\mathbf{x}_2|)\mathrm{~,}
+\end{align}
+下面我们换一个coordinate system使用下面的两个坐标来描述体系：
+\begin{align}
+  x=x_1-x_2 , \quad X=\frac{m_1\mathbf{x}_1+m_2\mathbf{x}_2}{m_1+m_2}\mathrm{~,}
+\end{align}
+在这个坐标系下，我们发现势能只和相对坐标$ x $有关。并且EoM简化为：
+\begin{align}
+  m_{\mathrm{eff}}\ddot{\mathbf{x}}=-\frac{\partial
+  V}{\partial\mathbf{x}},\quad\ddot{\mathbf{X}}=0,\quad
+  m_{\mathrm{eff}}=\frac{m_1m_2}{m_1+m_2}.
+\end{align}
+
+\bigskip
+\hlr{微分散射截面的计算}
+
+我们会发现总散射截面是和参考系无关的。但是【微分散射截面是被参考系决定的】。我们一般研究下面两个参考系：
+\begin{itemize}
+  \item \textbf{实验室参考系 Lab frame:} 其中一个粒子静止，另一个粒子入射。
+  \item \textbf{质心参考系 CM frame:} 两个粒子以相同速度相向入射。
+\end{itemize}
+这两个参考系的微分散射截面的关系是：
+\begin{align}
+  \left(\frac{d\sigma}{d\Omega}\right)_{\mathrm{lab}}=\left(\frac{d\sigma}{d\Omega}\right)_{\mathrm{cm}}\frac{\left(1+2\lambda\cos\theta_{\mathrm{cm}}+\lambda^2\right)^{3/2}}{1+\lambda\cos\theta_{\mathrm{cm}}},
+\end{align}
+其中参数$ \lambda = m_1 / m_2 $，并且$ \theta_{\mathrm{cm}} $是质心系下的散射角。
+
+\rmk{
+  我们之前微分散射截面都是对于一大群粒子进行定义的。我们下面说明一下这里的微分散射截面是什么意思！！
+
+  \YL{[回头补充，但是很重要的问题]}
+}
+
+\bigskip
+\hlr{Luminosity的定义}
+
+在粒子碰撞实验中，我们经常使用Luminosity来描述一个碰撞的性质。假设我们关注某一个反应下面生成的某一种粒子，或者生成某个事件。这个事件在单位时间内发生的次数为：$
+\displaystyle\frac{dN}{dt} $，那么我们定义Luminosity为：
+\begin{align}
+  \frac{dN}{dt}=L\cdot\sigma\mathrm{~,}
+\end{align}
+其中$ L $是Luminosity，其单位是：
+\begin{align}
+  L=\mathrm{const}\cdot\frac{1}{\mathrm{cm}^2\cdot\mathrm{s}}\mathrm{~,}
+\end{align}
+并且$ \sigma $是该反应的总散射截面。
+
+\subsection{量子散射理论基础}
+
+\subsubsection{量子散射理论set up}
+
+\hlr{量子散射问题的set up}
+
+对于一个量子力学语境的散射问题，我们使用下面的set up来考虑：
+\begin{enumerate}
+  \item \textbf{Hamiltonian描述：} 我们使用一个Hamiltonian来描述散射过程：
+    \begin{align}
+      H=H_0+V\mathrm{~,}
+    \end{align}
+    其中$ H_0 $是自由粒子的Hamiltonian，$ V $是相互作用的势能。并且相互作用需要满足：
+    \begin{align}
+      V(\mathbf{x})\to 0\quad\mathrm{as}\quad |\mathbf{x}|\to\infty\mathrm{~,}
+    \end{align}
+  \item \textbf{In and out state: }我们使用两个量子态来描述我们的入射和出射的过程。也就是：
+    \begin{align}
+      |\psi\rangle_{\mathrm{in}},\quad |\psi\rangle_{\mathrm{out}}\mathrm{~,}
+    \end{align}
+\end{enumerate}
+散射的过程我们认为系统可以通过一个量子态$ \ket{\psi(t)} $进行描述。
+
+\bigskip
+\hlr{量子态的时间演化描述}
+
+【我们使用schrodinger picture进行描述】也就是说这个量子态按照时间演化算符进行演化，我们考虑两种演化：
+\begin{enumerate}
+  \item \textbf{相互作用演化}： 我们定义某一个时刻描述量子态的量子态$ \ket{\psi_0}=
+    |\psi(0)\rangle
+    $。并且其他时刻的量子态可以通过时间演化算符进行计算。【使用「包含相互作用的Hamiltonian」演化】这个是真实的演化
+    \begin{align}
+      |\psi(t)\rangle=U(t)|\psi_0\rangle\mathrm{~,} \quad
+      U(t)=e^{-\frac{i}{\hbar}Ht}
+    \end{align}
+  \item \textbf{自由粒子演化}： 有的时候在考虑无穷的时候我们认为粒子很像自由粒子所以我们使用自由粒子Hamiltonian进行演化：
+    \begin{align}
+      U_0 (t)=e^{-\frac{i}{\hbar}H_0t}\mathrm{~,}
+    \end{align}
+
+\end{enumerate}
+
+\bigskip
+\hlr{散射过程量子态的描述}
+
+下面给出这个量子态的需要满足的行为
+\begin{itemize}
+  \item \textbf{散射过程量子态}： 我们定义某一个时刻描述散射过程的量子态$\ket{\psi_0} =
+    |\psi(t_0)\rangle $。并且其他时刻的量子态可以通过时间演化算符进行计算。
+    \begin{align}
+      |\psi(t)\rangle=U(t)|\psi_0\rangle\mathrm{~,}
+    \end{align}
+  \item \textbf{散射边界条件}： 我们希望散射过程在无穷远的时候和In and Out
+    state。【但是使用「自由粒子Hamiltonian」演化】
+    \begin{align}
+      &|\psi(t)\rangle\to U_0(t)|\psi_\mathrm{in}\rangle,\quad t\to-\infty\\
+      &|\psi(t)\rangle\to U_0(t)|\psi_\mathrm{out}\rangle,\quad t\to\infty
+    \end{align}
+\end{itemize}
+这里我们使用了一个概念就是一个量子态趋近于另一个量子态，我们下面给出严格的数学定义:
+\begin{align}
+  |\boldsymbol{\psi}(t)\rangle\to|\boldsymbol{\phi}(t)\rangle,t\to
+  t_0\Leftrightarrow\||\boldsymbol{\psi}(t)-\boldsymbol{\phi}(t)\rangle\|\to0,t\to
+  t_0.
+\end{align}
+
+\subsubsection{S矩阵}
+
+散射过程我们可以使用S矩阵进行描述。S矩阵是一个把入射态映射为出射态的算符，也就是考虑某个相互作用下入态的边界条件是怎么变成出态的。
+
+根据set up我们可以通过$ \ket{\psi_0} $把in state和out state联系起来：
+\begin{align}
+  &|\psi_0\rangle=U^\dagger(t)|\psi(t)\rangle=\lim_{t\to\infty}U^\dagger(t)U_0(t)|\psi_{\mathrm{out}}\rangle\equiv\Omega_-|\psi_{\mathrm{out}}\rangle
+  \\
+  &|\psi_0\rangle=U^\dagger(t)|\psi(t)\rangle=\lim_{t\to-\infty}U^\dagger(t)U_0(t)|\psi_{\mathrm{in}}\rangle\equiv\Omega_+|\psi_{\mathrm{in}}\rangle.
+\end{align}
+这里我们使用了两个极限算符$ \Omega_\pm $来表示入射和出射的联系，我们称之为Møller operators。
+
+\defi{S矩阵
+
+  给定一个量子散射过程，入态$ |\psi\rangle_{\mathrm{in}} $和出态$
+  |\psi\rangle_{\mathrm{out}} $，S矩阵定义为：
+  \begin{align}
+    |\psi_{\mathrm{out}}\rangle=\Omega_-^\dagger\Omega_+|\psi_{\mathrm{in}}\rangle\equiv
+    S|\psi_{\mathrm{in}}\rangle\mathrm{~.}
+  \end{align}
+}
+一个图描述这个过程：
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.65\textwidth]{assets/smatrix.png}
+  \caption{S矩阵示意图}
+  \label{fig:smatrixs}
+\end{figure}
+
+\subsection{Questions and Thoughts}
+
+\question{怎么定义两个粒子散射的微分散射截面？？这似乎没有给出定义啊？？}
+
+我在正文内容给出补充了！！
+\qed

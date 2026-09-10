@@ -1,0 +1,302 @@
+\subsection{经典力学基础}
+
+\hlr{Action Principle 动力学描述}
+
+对于有限自由度的经典力学我们使用Least action principle来描述系统的动力学。
+\thm{Least Action Principle
+
+假设已经知道$ q(t_i) = q_i, \ q(t_f) = t_f $【Derichlet Boundary Condition】粒子运动轨迹满足：
+\begin{align}
+  S\left[q\right]\equiv\int_{t_{i}}^{t_{f}}L\left(q,\dot{q}\right)dt, \quad \delta S[q] = 0
+\end{align}
+}
+
+\rmk{注意几个需要用的变分学技巧
+
+\begin{enumerate}
+  \item 变分的基本定义—— functional 的线性主要部分：
+\begin{align}
+  \delta S[q] = \delta^{(1)} S[q] = S[q+\delta q] - S[q] |_{\text{linear part in } \delta q}
+\end{align}
+\item 变分计算的性质：
+  \begin{itemize}
+    \item 「我们认为自由度和自由度的导数独立并分别变分」$ \frac{\partial L}{\partial q_a}\delta q_a+\frac{\partial L}{\partial\dot{q}_a}\delta\dot{q}_a $
+    \item 「变分和时间导数交换」$ \delta \dot{q} = \displaystyle\frac{d}{d t} \delta q $这样才能进行分部积分
+  \end{itemize}
+\item 我们最后给出lagrangian是因为bulk的$ \delta q $是可以取任意无限小的函数形式变换。所以我们才能够需要Euler-Lagrangian Equation = 0； boundary的$ \delta q $是0所以不需要考虑。「这两点都是因为合理的边界条件导致的」
+\end{enumerate}
+}
+
+对于变分原理的一些特性有两个特别重要的讨论：
+\begin{enumerate}
+  \item 为什么仅仅对一个$ dt $进行积分为什么Lagrangian不会依赖于很多的时间点的函数？【需要保证locality，不同时间点不会互相作用】
+  \item 为什么Lagrangian不会依赖于二阶导数？【需要保证EoM是二阶微分方程】同时，如果含有高阶导数某些情况可以写成更多变量的一阶导数形式。
+\end{enumerate}
+
+\textbf{Action 从更基础的物理「quantum mechanics」的视角出发其实是更fundamental 的物理量；而非Lagrangian}
+
+\bigskip
+\hlr{Hamiltonian 动力学描述}
+
+对于Hamiltonian我们需要定义一个时间方向「这是一个非协变的理论框架」。定义共轭动量和Hamiltonian并且动力学可以通过下面方程描述：
+\begin{align}
+  \dot{q}_a&=\frac{\partial H}{\partial p_a}, \quad\dot{p}_a=-\frac{\partial H}{\partial q_a}
+\end{align}
+
+\bigskip 
+\hlr{Hailtonian的代数结构}
+
+Hamiltonian动力学除了通常的使用动力学方程的视角进行描述也可以直接使用一套代数公理进行描述：
+\begin{itemize}
+  \item 所有客观测量是相空间的函数 $ A(p,q) $
+  \item 客观测量空间「相空间的函数空间$ f: \text{phase space} \to \mathbb{R} $」存在李代数结构：
+    \begin{align}
+      \{A,B\}\equiv\frac{\partial A}{\partial p_a}\frac{\partial B}{\partial q_a}-\frac{\partial A}{\partial q_a}\frac{\partial B}{\partial p_a}\mathrm{~.}
+    \end{align}
+    \item 李代数保证了所有客观测量都可以generate一个无穷小变换"canonical transformation"：
+      \begin{align}
+        q_{a}^{\prime}\equiv q_{a}+\epsilon\left\{A,q_{a}\right\}_{a}^{\prime}\equiv p_{a}+\epsilon\left\{A,p_{a}\right\}
+      \end{align}
+      其中一些canonical transformation被称为是Symmetry如果$ A(p,q) $是一个守恒量。
+      \item 所有客观测量的时间演化由Hamiltonian这个客观测量的canonical transformation生成：
+        \begin{align}
+          \dot{q}_a=\{H,q_a\}, \quad \dot{p}_a=\{H,p_a\}, \quad \dot{A}=\{H,A\}
+        \end{align}
+\end{itemize}
+这样的力学代数结构给出了一种代数量子化的手段"canonical quantization"
+
+
+\bigskip
+\hlr{Action Principle of Field Theory}
+
+对于场论我们可以理解为有流形结构的无限自由度系统。我们认为场的lagrangian是一个等时面上面的函数：
+\begin{align}
+  L[\phi,\dot{\phi}]=\int d^3\mathbf{x}\left.\mathcal{L}\left(\phi(\mathbf{x},t),\dot{\phi}(\mathbf{x},t),\vec{\nabla}\phi(\mathbf{x},t)\right)\right..
+\end{align}
+并且Action可以理解为下面的形式：
+\begin{align}
+  S\left[\phi\right]=\int dtL[\phi,\dot{\phi}]=\int d^4x\mathcal{L}\left(\phi(x),\partial_\mu\phi(x)\right)
+\end{align}
+\rmk{
+  对于上下指标我们有这样的规定$ x^\mu = (t,x^i), \ \partial_\mu = (\partial_{t}, \partial_{i}) $ 
+}
+下面给出least action principle：
+\thm{Least Action Principle of Field Theory
+
+  对于一个四维的时空流形之中的一个区域$ \Omega $，如果边界上面存在Dirichlet Boundary Condition：$ \delta \phi_a |_{\partial \Omega} $那么场在这个时空区域内的动力学构型满足：
+  \begin{align}
+    \delta S_\Omega\left[\phi\right] = 0
+  \end{align}
+  同样的利用【边界上$ \delta \phi_a= 0 $】以及【Bulk里面的$ \delta \phi_a $随便】我们得到等价的Euler-Lagrange Equation of Field Theory：
+  \begin{align}
+    \frac{\partial\mathcal{L}}{\partial\phi_\alpha}-\partial_\mu\frac{\partial\mathcal{L}}{\partial(\partial_\mu\phi_\alpha)}=0
+  \end{align}
+}
+
+\rmk{
+  注意，我们这里的边界条件不仅仅要求的是时间边界条件还需要每一个时间的空间边界条件！边界条件需要包裹整个讨论动力学的时空区域。
+}
+
+
+\bigskip
+\hlr{常用数学概念：functional derivative}
+
+对于场的变分以及之后和action相关的计算，我们常常使用functional derivative的数学操作进行计算，这个概念给出了对于functional合理的导数的意义，也就是当我们的场构型变一点点的时候我们的functional的变化行为是什么样子的。我们定义：
+\begin{align}
+  \frac{\delta S_\Omega}{\delta\phi(x)}\equiv\left(\frac{\partial\mathcal{L}}{\partial\phi}-\partial_\mu\frac{\partial\mathcal{L}}{\partial(\partial_\mu\phi)}\right)
+\end{align}
+更一般的数学上我们定义一个积分functional是：
+\begin{align}
+  F[\phi]=\int d^nxf(\phi,\partial_i\phi,x)
+\end{align}
+其Functional derivative定义为：
+\begin{align}
+  \frac{\delta F}{\delta\phi(x)}\equiv\frac{\partial f}{\partial\phi}-\partial_i\frac{\partial f}{\partial(\partial_i\phi)}
+\end{align}
+一个特殊的functional derivative的例子是：
+\begin{align}
+  \frac{\delta\phi(y)}{\delta\phi(x)}=\delta^{(4)}(x-y)
+\end{align}
+所以我们之后写这个不是强行使用一个看似合理的符号，而是使用functional derivative严格的数学概念进行书写的！！
+
+
+\imp{区分functional derivative和一般函数导数}{
+  我们通常会使用两个记号需要区分：
+  \begin{itemize}
+    \item functional derivative: $ \displaystyle\frac{\delta F}{\delta\phi(x)} $这说的就是一个积分泛函对于其变量函数的functional derivative定义为：
+      \begin{align}
+  \frac{\delta F}{\delta\phi(x)}\equiv\frac{\partial f}{\partial\phi}-\partial_i\frac{\partial f}{\partial(\partial_i\phi)}
+      \end{align}
+    \item   对于某一个函数的导数比如：$ \displaystyle\frac{\partial G(f(x))}{\partial f(x)} $是把一个函数$ f(x) $当成自变量进行的导数
+  \end{itemize}
+  这两者的意义完全不一样需要进行区分捏！！！
+}
+
+\bigskip
+\hlr{Hamiltonian Formalism基本概念}
+
+\textbf{需要着重强调对于Hamiltonian Formalism的定义！！}我们需要下满几个步骤进行理论构建：
+\begin{enumerate}
+  \item 确定一个"时间方向"划定等时面！【注意，我们lagrangian的讨论是几乎把时间和空间等价讨论的，但是Hamiltonian我们第一步是打破这种等价性】
+  \item 定义共轭动量场：$ \pi(x)\equiv\displaystyle\frac{\delta L}{\delta\dot{\phi}(x)}=\displaystyle\frac{\partial\mathcal{L}}{\partial\dot{\phi}} $
+\begin{itemize}
+  \item 注意，我们定义canonical momentum field为lagrangian对于动力学场的functional derivative 
+  \item 但是由于lagrangian并不包含$ \nabla_i \dot{\phi_a} $这样的项我们的共轭动量场才正好是Lagrangian density对于$ \dot{\phi} $的偏导数
+\end{itemize}
+
+  \item 定义Hamiltonian 是一个生活在等时面上面的函数「并不体现协变」：
+    \begin{align}
+      H(\pi,\phi)=\int d^3\mathbf{x}\left(\pi(x)\dot{\phi}(x)-\mathcal{L}(\phi,\pi)\right)
+    \end{align}并且辅助性定义Hamiltonian density：
+    \begin{align}
+      \mathcal{H}\equiv\pi(x)\dot{\phi}(x)-\mathcal{L}(\phi,\pi)
+    \end{align}
+\end{enumerate}
+
+
+\bigskip
+\hlr{场的Hamiltonian力学的代数形式}
+
+我们在上面的概念基础上使用代数形式描述场的动力学。
+\begin{enumerate}
+  \item 客观测量推广到functional：
+    \begin{align}
+      A[\pi,\phi]=\int d^3\mathbf{x}\left.a(\pi,\phi)\right.\quad B[\pi,\phi]=\int d^3\mathbf{x}\left.b(\pi,\phi)\right.
+    \end{align}
+    \item 通过functional derivative 定义李代数结构：
+  \begin{align}
+    \{A,B\}\equiv\int d^3\mathbf{x}\left(\frac{\delta A}{\delta\pi}\frac{\delta B}{\delta\phi}-\frac{\delta A}{\delta\phi}\frac{\delta B}{\delta\pi}\right)
+  \end{align}
+  \begin{itemize}
+    \item 李代数结构对应着canonical对易关系：
+      \begin{align}
+        \begin{aligned}&\{\pi(\mathbf{x},t),\phi(\mathbf{y},t)\}=\delta^{(3)}(\mathbf{x}-\mathbf{y})\\&\{\pi(\mathbf{x},t),\pi(\mathbf{y},t)\}=0=\{\phi(\mathbf{x},t),\phi(\mathbf{y},t)\}\end{aligned}
+      \end{align}
+  \end{itemize}
+  
+  \item 动力学量的时间演化由Hamiltonian生成：
+    \begin{align}
+      \dot{\phi}(x)=\{H,\phi(x)\}, \quad \dot{\pi}(x)=\{H,\pi(x)\}, \quad \dot{A}=\{H,A\}
+    \end{align}
+    \begin{itemize}
+      \item 这个正好对于场和共轭动量场给出了functional derivative版本的Hamilton's Equation:
+        \begin{align}
+          \begin{aligned}&\dot{\pi}=\{H,\pi\}=-\frac{\delta H}{\delta\phi}=\vec{\nabla}\cdot\frac{\partial\mathcal{H}}{\partial(\vec{\nabla}\phi)}-\frac{\partial\mathcal{H}}{\partial\phi}\\&\dot{\phi}=\{H,\phi\}=\frac{\delta H}{\delta\pi}=\frac{\partial\mathcal{H}}{\partial\pi}\end{aligned}
+        \end{align}
+    \end{itemize}
+\end{enumerate}
+
+\rmk{注意所有对于积分functional的推广都是把导数推广到了functional derivative然后再积分「还需要积分是因为functional derivative是定义在local量的导数的，需要积分才能得到一个等时面上的量」。可见这是一个合理的推广方案！！}
+
+
+\subsection{Questions and Thoughts}
+
+\question{为什么对于多粒子的Lagrangian没有二阶导数，如果有二阶导数是什么，functional derivative是什么？}
+
+显然Lagrangian作为任意的函数我们是十分随意的，我们可以Generally写作：
+\begin{equation}
+  L(q(t),q(t'),...,\dot{q},\ddot{q},\cdots,q^{(n)},t)
+  \label{eq:generallage}
+\end{equation}
+但是我们会发现我们因为各种物理的原因收敛到了一般的样子$ L(q,\dot(q) )$因为下面的原因：
+\begin{enumerate}
+  \item 如果我们Action存在$ S = \int dt dt' L(q(t),g(t')) $我们意味着两个不同时间的自由度会存在相互作用。这显然是不符合物理的时间维度的locality的。
+  \item 如果我们存在高阶导数：一个自然的结果是Lagrange Equation是高阶微分方程。而牛顿定律告诉我们力学规律是二阶微分方程。
+    \begin{itemize}
+      \item 另一个解释是，如果我们存在高阶导数。那么其实可以把这个变分变成更多的变量的只有一阶导数的变分问题。
+    \end{itemize}
+  \item 对于不显含时间，这意味着能量不守恒，存在其他变量影响捏。
+\end{enumerate}
+
+\qed 
+
+
+\question{momentum 一定可以反解出来自由度的导数吗？}
+
+共轭动量能够反解出来速度是有条件的，只有当下面的Hessian矩阵非奇异【也就是可逆】的时候才可以：
+\begin{align}
+  \partial^2L/\partial\dot{q}_i\partial\dot{q}_j
+\end{align}
+如果是奇异的话意味着下面的东西：
+\begin{enumerate}
+  \item 我们使用了过多的变量来描述系统。使得我们的共轭动量需要满足一些约束。只有在这个约束面上面才是physical的。
+  \item 这样的Hamiltonian力学系统需要使用Dirac的约束力学来处理。
+  \item 这种系统一般是有gauge symmetry的。
+\end{enumerate}
+\qed 
+
+\question{Poisson bracket构成的线性映射的李代数，为什么是无穷维度的？怎么研究这个性质？}
+
+我们注意Poisson Bracket是赋予在所有$ A: \mathbb{R}^n \times \mathbb{R}^n \to \mathbb{R} $的线性映射构成的线性空间的。我们研究这个线性空间的性质，会发现独立的线性映射的个数是无穷多个。
+
+一个直观的基是所有的delta函数的组合。显然所有的delta函数是有无穷多的。
+
+\qed 
+
+\question{经典力学我们认为相空间是自由度？但是，量子化之后p和q其实都是算符？量子的自由度到底是什么？}
+
+这个问题其实是说：量子力学系统的自由度到底是什么？
+
+量子的自由度最基础的理解其实是一组canonical operator！！就像是经典力学里我们的自由度是$ (p,q) $这一组canonical变量一样。量子力学我们认为自由度是这样的一组【注意一定是一组】$ [p_i,x_j] = i \hbar \delta_{ij}  $的算符。
+
+\hlr{注意：我们虽然一般只用某一个算符的本征矢量描述自由度，但是实际上决定的是一组canonical算符的代数关系；经典的【自由度】的概念量子化后变成了【客观测量的代数关系】}
+
+这样的算符代数关系连同Identity operator构成了一个李代数，我们称之为Heisenberg Algebra。然后我们的Hilbert Space其实是这个李代数的不等价不可约表示空间构成的。
+
+\imp{量子化的步骤}{
+我们上面的思路分成下面几个步骤：
+\begin{enumerate}
+  \item 找到一组canonical的自由度$(p_i,q_j)$
+  \item 量子化成为canonical的算符$ [\hat{p}_i,\hat{q}_j] = i \hbar \delta_{ij} $
+  \item 研究这个李代数的表示论，构建Hilbert Space
+\end{enumerate}
+我们永远不是先有Hilbert Space，而是先确定我们的自由度，再通过表示论给出Hilbert Space。
+}
+
+对于量子场论来说，我们也是一样的。我们先找到一组canonical的自由度$ [a_p^\dagger,a_p] $然后我们作用在一个假设的Vaccum State上面，构建出Hilbert Space。
+
+但是一般的量子场论体系下，我们会发现这个代数空间不仅仅是Heisenberg代数的表示空间，也可能构成其他代数（Virasoro Algebra, Kac-Moody Algebra）。
+
+\tip{代数关系和Hilbert空间}{
+  我们意识到，我们永远是现有代数关系再有Hilbert空间的捏！！从最基础的量子力学来都是这样的。
+}
+\qed
+
+
+\question{为什么场论的可以写作Lagrangian积分的形式？而不是混沌的一个等时流形上面的函数？}
+
+注意空间的locality！！！和时间一样。这也是为什么我们要把x variable进行区分出来。因为我们需要特殊强调这个变量需要时local的！！
+
+\qed
+
+\question{我们场论使用的量子力学的动量和位置3+1维度的归一化是什么？？Weinberg之中讨论的协变归一化是什么意思？？}
+
+\hlr{非相对论一般归一化}
+
+对于三维的量子力学来说，我们需要保证【完备性条件】和【归一化条件】形式不变也就是：
+\begin{align}
+  \int dx|x\rangle\langle x|=1,\quad \int dp|p\rangle\langle p|=1.\\ 
+  \langle x|x'\rangle=\delta(x-x'),\quad \langle p|p'\rangle=\delta(p-p').
+\end{align}
+当然动量我们只能delta函数归一化，显然需要从一维变成三维！这样的一个结论就是动量本征态在空间表象写作；
+\begin{align}
+  \langle\mathbf{x}|\mathbf{p}\rangle=\frac{1}{(2\pi)^{3/2}}e^{i\mathbf{p}\cdot\mathbf{x}}.
+\end{align}
+
+\hlr{Weinberg讨论的协变归一化}
+
+我们对于量子态的归一化是有自由度的，因为我们只需要保证在一定的测度下完备；并且应该正交的态互相正交就好！所以我们不妨定义下面的归一化条件：
+
+
+
+下面解释为什么要选择这个归一化条件：
+
+
+
+
+
+\question{Method of Stationary Phase是什么捏？}
+
+讲一下这种近似方法
+
+

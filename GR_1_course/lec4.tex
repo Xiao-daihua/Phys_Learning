@@ -1,0 +1,434 @@
+\subsection{Geodesic II}
+
+\subsubsection{Geodesic as extremal of Length}
+
+\hlr{测地线是极值曲线}
+
+我们继续展开证明使用Levi-Civita Connection定义的测地线是physical的，一个原因是其有一个特别良好的解释就是「极值长度曲线」。
+
+\thm{测地线是极值长度曲线
+
+  在一个Riemann流形上我们使用Levi-Civita联络，同时我们使用【Alfine Parameter作为参数化】那么：
+  连接两个点的曲线中长度的极值曲线必然是测地线。Lagrange Equation也是测地线方程。
+}
+
+\rmk{
+  注意这是一个必要条件，不是充分条件。
+  \begin{itemize}
+    \item 连接两个固定点的曲线之中长度极值的曲线一定是测地线
+    \item 但是连接两个固定点的测地线不一定是长度极值曲线【最简单的例子就是球上面连接两点大圆那个更长的那个弧，它是测地线，但是和极值曲线没有半毛钱关系】
+  \end{itemize}
+}
+
+下面我们来证明：我们考虑一个曲线始末是两个固定的流形上的点，使用一个coordinate system写出来就是：$ x_i^\mu, x_f^\mu $。我们考虑对于所有连接这两个点的曲线方程进行变分，来找到一条极值曲线。复习之前定义的曲线长度：
+\begin{align}
+  \large l=\int_a^b\sqrt{g_{\mu\nu}\frac{dx^\mu}{dt}\frac{dx^\nu}{dt}}dt\mathrm{~,}
+\end{align}
+我们对于这个长度对于$ x^\mu(t) $作为变量进行变分给到变分结果是：
+\begin{align}
+  \delta l=\int_a^b\left[g_{\mu\nu}\frac{dx^\mu}{dt}\frac{dx^\nu}{dt}\right]^{-1/2}\left\{g_{\alpha\beta}\frac{dx^\alpha}{dt}\frac{d\delta x^\beta}{dt}+\frac{1}{2}\frac{\partial g_{\alpha\beta}}{\partial x^\sigma}\delta x^\sigma\frac{dx^\alpha}{dt}\frac{dx^\beta}{dt}\right\}dt\mathrm{~.}
+\end{align}
+我们选择一个特殊的参数化使得$ g_{\mu\nu}\frac{dx^\mu}{dt}\frac{dx^\nu}{dt}=1 $，那么上面的变分结果就简化为：
+\begin{align}
+  0=\int_a^b\left\{-\frac{d}{dt}\left(g_{\alpha\beta}\frac{dx^\alpha}{dt}\right)+\frac{1}{2}\frac{\partial g_{\alpha\lambda}}{\partial x^\beta}\frac{dx^\alpha}{dt}\frac{dx^\lambda}{dt}\right\}\delta x^\beta dt.
+\end{align}
+\rmk{
+  注意：这里我们使用了一个参数化，这是一个affine parameter所以我们使用这个条件给出了标准的测地线方程。
+
+但是一般参数化下面我们并不会得到标准的测地线方程。而是non-Alfine Geodesic Equation。对于一个曲线，我们一般认为满足严格的测地线方程的曲线才是测地线，而满足non-alfine geodesic equation的曲线是non-affine测地线。
+}
+我们计算这个变分给出的Euler-Lagrange方程：
+\begin{align}
+  \large-g_{\alpha\beta}\frac{d^2x^\alpha}{dt^2}-\frac{\partial g_{\alpha\beta}}{\partial x^\lambda}\frac{dx^\alpha}{dt}\frac{dx^\lambda}{dt}+\frac{1}{2}\frac{\partial g_{\alpha\lambda}}{\partial x^\beta}\frac{dx^\alpha}{dt}\frac{dx^\lambda}{dt}=0
+\end{align}
+结果会严格的给出测地线方程。
+\rmk{最后通过变分得到的方程其实和测地线方程有一点点区别，需要一些绕路的推导进行恒等式一波（大抵是Levi-civita connection 我们需要中间对称化一波才能得到前两个部分的metric导数）。但是结果是一样的。}
+
+\bigskip
+\hlr{通过Lagrangian Equation计算测地线方程}
+
+所以与其硬磕Levi-Civita Connection的表达式，我们不妨用Lagrangian Equation来计算测地线方程。我们定义Lagrangian为：
+\begin{align}
+  \mathcal{L}=\sqrt{g_{\mu\nu}\frac{dx^\mu}{dt}\frac{dx^\nu}{dt}}\mathrm{~.}
+\end{align}
+那么测地线方程就是其对应的Euler-Lagrange方程。
+\rmk{注意，我们这里写出这个lagrangian我们已经固定参数化了哦！！}
+同时这个方法也可以帮助我们更快的看出来非0的Christoffel Symbol的数值。
+
+\bigskip
+\hlr{关于Alfine Parameterization的comment}
+
+一个comment 也就是Blau里面说的。考虑原始lagrangian：
+\begin{align}
+  \mathcal{L}=\sqrt{g_{\mu\nu}\frac{dx^\mu}{dt}\frac{dx^\nu}{dt}}\mathrm{~,}
+\end{align}
+我们使用这个Lagrangian并不一定永远得到标准的测地线方程。我们发现，如果使用non-alfine parameter的话我们得不到标准方程。会得到【non-Alfine Geodesic Equation】
+
+之前我们变分的时候使用了一个特殊的参数化使得$ g_{\mu\nu}\frac{dx^\mu}{dt}\frac{dx^\nu}{dt}=1 $，这个参数化其实就是一个alfine parameterization。
+
+但是如果我们使用另一个Lagrangian：
+\begin{align}
+  \mathcal{L}=\frac{1}{2}g_{\mu\nu}\frac{dx^\mu}{dt}\frac{dx^\nu}{dt}\mathrm{~,}
+\end{align}
+我们就不需要使用alfine parameterization也可以得到标准的测地线方程。只是【这个方程只有在使用Alfine Parameter的时候是有意义的！！】
+
+
+\subsubsection{Riemann Normal Coordinates}
+
+\hlr{Exponential Map}
+
+我们之前定义切向量是生活在Manifold上面的切空间的。类似与李群李代数里面我们经常讨论的两者关系的exponential map。我们也可以定义一个exponential map把切空间的向量映射到流形上面去。
+
+我们首先观察如果我们确定Manifold上面的一个点$ p $，以及其上的一个切向量$ v \in T_pM $，我们可以定义一个测地线$ \gamma(t) $满足：
+\begin{align}
+  \gamma(0) = p, \quad \left.\frac{d\gamma(t)}{dt}\right|_{t=0} = v.
+\end{align}
+测地线很自然的帮我们把一个切向量映射到了流形上面的曲线。下面我们定义exponential map：
+
+\defi{
+  Exponential Map
+
+对于一个Riemann流形$ (M,g) $，我们定义exponential map $ \exp_p : T_pM \to M $如下：
+\begin{align}
+  \exp_p(v) = \gamma(1),
+\end{align}
+其中$ \gamma(t) $是满足$ \gamma(0) = p, \quad \left.\displaystyle\frac{d\gamma(t)}{dt}\right|_{t=0} = v $的测地线。
+}
+
+
+\bigskip
+\hlr{Riemann Normal Coordinates基本定义}
+
+于是我们会发现给定一个Manifold上面的点，我们可以通过exponential map给出一个在这个点附近的coordinate system，并且这个coordinate system在这个点附近看上去是「平直的」。
+
+我们下面一步步进行构造这个坐标系。我们考虑一个流形$ (\mathcal{M},g) $上面的一点$ p $：
+\begin{enumerate}
+  \item 我们选择$ T_p\mathcal{M} $上的一个正交归一基底$ \{ e_\mu \} $，满足$ g(e_\mu,e_\nu) = \eta_{\mu\nu} $。注意这里的$ \eta_{\mu\nu} $是Minkowski度规或者Euclidean度规，取决于流形的类型。
+\rmk{
+  我们之前都是先选择一个coordinate system然后定义任何一个点上面的切空间上和coordinate systemh适配的coordinate basis。这里我们反过来，先选择一个切空间上的正交归一基底，然后使用exponential map把这个基底映射到流形上面去。
+}
+\item 对于Maniflold上面距离$ p $很近的一个点$ q $，我们发现可以找到一个唯一的geodesic满足下面的两点：
+  \begin{itemize}
+    \item $ \gamma(0) = p $
+    \item $ \gamma(1) = q $
+  \end{itemize}
+\item 我们给出这个Geodesic对应的切向量$ T \in T_p \mathcal{M}$，并且把它展开在最初定义的正交归一基上面：
+  \begin{align}
+    T = T^\mu e_\mu.
+  \end{align}
+\item 我们定义点$ q $的Riemann Normal Coordinate为：
+  \begin{align}
+    x^\mu(q) = T^\mu.
+  \end{align}
+\end{enumerate}
+\rmk{注意，最后一步我们把一个切向量的分量作为流形上面的coordinate system的坐标。虽然两个的含义完全没有半毛钱关系，但是毕竟是两个数字，我们就这么定义了。}
+
+\bigskip
+\hlr{Riemann Normal Coordinates的性质}
+
+我们定义这么一个coordinate system有什么好处呢？
+\begin{itemize}
+  \item 在Riemann Normal Coordinates下面，所有通过点$ p $的测地线都是直线！！
+\end{itemize}
+我们可以证明这个结论，我们计算测地线上的点对应的坐标都是$ \lambda T^\mu $，这个坐标对于参数$ \lambda $是线性的，所以对于这个参数自动满足：
+\begin{align}
+  \frac{d^2 x^\mu}{d\lambda^2} = 0. 
+\end{align}
+也就是说存在一个参数化让测地线
+是直线的。同时我们也可以证明这个$ \lambda $的参数化是一个很好的参数化，和原来用的参数化是正比的。所以这个$ x^\mu(\lambda) $确确实实就是原先的测地线，而不是一个像点一样但是不是测地线的曲线。
+\qed 
+\YL{[这里其实需要很细节的验证参数化，但我懒了]}
+
+\begin{itemize}
+  \item 在Riemann Normal Coordinates下面，$ p $点的Christoffel Symbol全为0！！
+\end{itemize}
+
+显然如果测地线方程都是直线，测地线方程就写作，那么自然Christoffel Symbol全为0。
+
+\begin{itemize}
+  \item 在Riemann Normal Coordinates下面，$ p $点的度规张量是不变的$ \partial_\sigma g_{\mu\nu}=0. $
+\end{itemize}
+
+这是因为我们要求Levi-Civita Connection满足metric compatibility。在Christoffel Symbol为0的点上面，metric compatibility就简化为$ \partial_\sigma g_{\mu\nu}=0 $。
+
+\imp{EEP以及坐标系}{
+  我们发现这样的坐标系给了一个很好的方法generate一个local inertial frame。在这个坐标系下面，流形在点$ p $附近看上去就是平直的。这个就是等效原理的一种数学的表达。
+}
+
+\subsection{Geodesic Deviation}
+
+我们上面研究了曲率以及测地线。下面我们将其结合，我们想研究曲率是怎么影响测地线的形状的。
+\tip{曲率怎样影响物理}{
+我们为什么要研究这个问题，是因为测地线是流形上的「直线」。我们不妨认为粒子在一般的流形上面沿着直线运动，Geodesic Deviation研究的就是「曲率怎样影响粒子的运动」。
+}
+
+\bigskip
+\hlr{One Parameter Family of Geodesic}
+
+我们定义one parameter family of Geodesic:
+
+\defi{
+  One Parameter Family of Geodesic
+
+  在一个Riemann流形$ (\mathcal{M},g) $上面，我们定义一个one parameter family of Geodesic为一组测地线$ \gamma_s(\lambda) $：
+\begin{align}
+  \gamma_s(\lambda) : \mathbb{R} \times \mathbb{R} \to \mathcal{M}
+\end{align}
+  满足：
+  \begin{itemize}
+    \item 对于每一个固定的$ s \in \mathbb{R} $，$ \gamma_s(\lambda) $是一个测地线。并且$ \lambda $是affine parameter。
+    \item 对于每一个固定的$ \lambda \in \mathbb{R} $，$ \gamma_s(\lambda) $是一个曲线。
+  \end{itemize}
+  这组测地线对于两个参数的输入都是smooth；一一映射；并且有一个smooth的你映射。
+}
+这个映射表示这一系列的测地线。
+\begin{itemize}
+  \item 我们会意识到这个映射给出了一个流形上的2 dimentional submanifold $ \Sigma $ 并且自然的赋予其一个coordinate system $ (\lambda,s) $。
+\end{itemize}
+
+
+\bigskip
+\hlr{Deviation Vector}
+
+我们在submanifold上面的点可以定义两个切向量。这两个切向量就是通过one parameter family of geodesic定义出来的：
+\begin{enumerate}
+  \item \textbf{Tangent Vector to the Geodesic: }$ T^\mu=(\partial/\partial \lambda)^\mu $ 也就是固定$ s $变化$ \lambda $得到的切向量
+  \item \textbf{Deviation Vector: } $ X^\mu=(\partial/\partial s)^\mu $ 也就是固定$ \lambda $变化$ s $得到的切向量
+\end{enumerate}
+我们很自然的发现如果我们考虑2 dimensional submanifold $ \Sigma $上面这两个切向量正好就是coordinate system $ (s,\lambda) $对应的coordinate basis。我们根据任意coordinate system的切向量的Lie Bracket为0的性质，我们发现：
+\begin{align}
+  [T,X] = 0 \implies T^\nu \nabla_\nu X^\mu = X^\nu \nabla_\nu T^\mu.
+\end{align}
+
+如果我们focus on deviation的情况，我们可以建立两个tangent field来描述随着测地线按照affine parameter往前延伸deviation的速度和加速度：
+\begin{itemize}
+  \item \textbf{deviation velocity：} $ V^\mu = T^\nu \nabla_\nu X^\mu $
+  \item \textbf{deviation acceleration：} $ A^\mu = T^\nu \nabla_\nu V^\mu =T^\mu\nabla_\mu\left(T^\lambda\nabla_\lambda X^\nu\right)$
+\end{itemize}
+这相当于协变导数的一阶和二阶导数。
+
+\bigskip
+\hlr{Geodesic Deviation Equation}
+
+下面我们会计算发现 deviation的加速度其实是和流形上面的曲率张量有关系的。我们进行计算：
+\begin{align}
+  \begin{aligned}A^{\nu}&=\quad T^\mu\nabla_\mu\left(T^\lambda\nabla_\lambda X^\nu\right)=T^\mu\nabla_\mu\left(X^\lambda\nabla_\lambda T^\nu\right)\\&=\quad\left(T^\mu\nabla_\mu X^\lambda\right)(\nabla_\lambda T^\nu)+X^\lambda T^\mu\nabla_\mu\nabla_\lambda T^\nu\\&=\quad\left(X^\mu\nabla_\mu T^\lambda\right)(\nabla_\lambda T^\nu)+X^\lambda T^\mu\nabla_\lambda\nabla_\mu T^\nu-R_{\mu\lambda\sigma}^\nu X^\lambda T^\mu T^\sigma\\&=\quad X^\mu\nabla_\mu\left(T^\lambda\nabla_\lambda T^\nu\right)-R_{\mu\lambda\sigma}^\nu X^\lambda T^\mu T^\sigma\\&=\quad-R_{\mu\lambda\sigma}^\nu X^\lambda T^\mu T^\sigma.\end{aligned} 
+\end{align}
+我选择把这一段推导完完整整放上去，是因为这个是一个完整的包含covariant derivative以及commutator的纯分量推导。虽然几何上似乎不是特别良定，但是这样的naive推导其实和几何上的推导是完全等价的。
+
+\thm{Geodesic Deviation Equation
+
+  在一个Riemann流形$ (\mathcal{M},g) $上面，考虑一个one parameter family of geodesic $ \gamma_s(\lambda) $，那么其deviation vector $ X^\mu $满足下面的方程：
+  \begin{align}
+    A^\mu = -R_{\mu\lambda\sigma}^\nu X^\lambda T^\mu T^\sigma.
+  \end{align}
+  其中$ A^\mu = T^\nu \nabla_\nu\left(T^\lambda\nabla_\lambda X^\mu\right) $是deviation的加速度。
+}
+
+
+
+\subsection{General Covariance and Invariance}
+
+\hlr{General Covariance是什么}
+
+如果我们希望给出一个包含时空结构的理论，那么我们务必给出一个数学上的量来描述时空。因此general covariance的思想就是在说什么样子的数学对象可以用来描述时空结构。
+
+\axm{
+  General Covariance Axiom
+
+  只有Metric Tensor是唯一用来描述时空结构的数学对象。
+}
+当然显然的，我们所有从metric tensor出发构造出来的数学对象都可以用来描述时空结构，比如说Covariant Derivative, Riemann Curvature Tensor, Ricci Tensor, Ricci Scalar等等。
+
+\bigskip
+\hlr{Invariance in Physics}
+
+Invariance和Covariance是完全不同的概念。Invariance是说下面两个步骤：
+\begin{enumerate}
+  \item 我们首先假定一个absolute Invariant Quantity，比如 Minkwski Metric 
+  \item 我们假定存在一个Transformation Group作用在这个Quantity上面，使得这个Quantity在Transformation Group作用下不变。我们说这个是xxx invariant的。比如：Poincare Invariant
+\end{enumerate}
+下面给出几个例子：
+\begin{enumerate}
+  \item 对于Poincare Invriance说的是，我们存在一个absolute quantity是$ g = Diag(-1,1,1,1) $。
+  \item 对于GR来说，我们永远不存在这样的一个absolute invariant quantity。我们只能说metric tensor是描述时空结构的数学对象。所以我们的group是Diff(M)，我们说这个是Diff(M) Invariant的。
+\end{enumerate}
+
+\subsection{Special Relativity}
+
+我们需要先复习一下Special Relativity的内容。因为我们希望从狭义推广到广义。对于狭义相对论我们会发现我们研究是manifold是一个很特殊的流形：Minkowski Spacetime。满足：
+\begin{align}
+  g \to \eta \quad R \to 0 \quad \nabla \to \partial.
+\end{align}
+所以一个自然的思路就是把metric和covariant derivative explicitly写在狭义相对论的公式里面进行推广。但是问题是我们的$ R $曲率是0，这完全不好推广。
+
+\bigskip
+\hlr{SR 的metric和基础}
+
+对于SR我们考虑的是Minkowski manifold $ (\mathbb{R}^4,\eta) $，并且我们使用Minkowski度规$ \eta_{\mu\nu} = Diag(-1,1,1,1) $。我们使用全局的Cartesian Coordinate System $ x^\mu = (t,x,y,z) $。
+
+物理定律告诉我们下面的内容：
+\begin{enumerate}
+  \item \textbf{惯性参考系：} 所有的inertial observer 按照time like geodesic进行运动
+  \item \textbf{运动物体测量的时间： }对于time like curve，曲线长度的物理意义是沿着曲线运动的observer身上的钟测量的时间：
+    \begin{align}
+      \tau=\int\sqrt{-\eta_{\mu\nu}T^\mu T^\nu}dt
+    \end{align}
+    显然沿着两个timelike curve但是起点和重点一样的observer，测量的时间是不一样的。所以就有twin paradox。这些observer之中测量时间极值的是geodesic也就是inertial observer。
+  \item \textbf{运动物体的速度： }一个time like curve，如果用propertime进行parametrize那么其切向量定义为 4-velocity，用于描述物体的运动速度，并且满足约束：
+      \begin{align}
+        u^\mu u_\mu=-1\mathrm{~.}
+      \end{align}
+    \item \textbf{Inertial Observer的运动方程： }对于Inertial Observer其按照geodesic运动，所以其4-velocity满足：
+      \begin{align}
+        u^\mu\partial_\mu u^\nu=0.
+      \end{align}
+      也就是geodesic equation在Minkowski空间的形式。
+    \item \textbf{4-动量： }对于有质量的物体我们定义4-momenrum是：
+      \begin{align}
+        p^\mu = m u^\mu.
+      \end{align}
+      其中m是物体的rest mass。4-momentum 
+  \item \textbf{某observer测量到的运动物体的能量： }对于某个inertial observer 其4-velocity为$ v^\mu $，那么这个observer测量到的物体的能量为：
+      \begin{align}
+        E = - p_\mu v^\nu.
+      \end{align}
+\end{enumerate}
+
+
+\bigskip
+\hlr{能动量张量}
+
+如果我们在狭义相对论的语境下研究流体的动力学我们需要引入一个张量来描述流体的动力学特质，也就是能动量张量。
+\defi{
+  能动量张量
+
+  在狭义相对论的语境下，我们定义能动量张量$ T_{\mu\nu} $为一个对称的二阶张量。可以给出流体动力学性质。
+}
+这个张量可以给出很多关于流体的客观测量的结果，我们考虑一个observer 其4-velocity为$ v^\mu $，那么这个observer测量的结果是：
+\begin{itemize}
+  \item \textbf{能量密度：} $ \rho = T_{\mu\nu} v^\mu v^\nu $
+  \item \textbf{动量密度：} $ p = - T_{\mu\nu} v^\nu x^\mu $是$ x^\mu $是正交于$ v^\mu $的单位空间向量，给出的计算结果是这个方向的动量密度。
+  \item \textbf{应力张量：} $ \sigma = -T_{\alpha\beta} x^\alpha y^\beta $ 其中$ x^\alpha, y^\beta $是正交于$ v^\mu $的两个单位空间向量，给出的计算结果是这个方向的应力张量分量。
+\end{itemize}
+由于我们的能动量张量是对称的，所以我们知道我们默认不存在torque on volume element
+
+
+\bigskip
+\hlr{Perfect Fluid的能动量张量}
+
+一种特殊的流体是perfect fluid。perfect fluid的能动量张量有一个特别简单的形式：
+\defi{
+  Perfect Fluid
+
+  在狭义相对论的语境下，我们定义perfect fluid的能动量张量为：
+  \begin{align}
+    T_{\mu\nu}=\rho u_\mu u_\nu+P\left(\eta_{\mu\nu}+u_\mu u_\nu\right),
+  \end{align}
+  其中$ \rho(x) $是能量密度，$ P(x) $是流体的压强【都是相对静止参考系下的，但并非常数可以和时空有关】，$ u_\mu $是一个timelike unit tangent field表征着流体的4-velocity。
+}  
+对于Perfect fluid的动力学方程EoM我们有：
+\begin{align}
+  \partial^\mu T_{\mu\nu} = 0.
+\end{align}
+我们会发现这个方程进行两个方向的projection会给出：
+\begin{align}
+  \begin{aligned}u^\mu\partial_\mu\rho+(\rho+P)\partial^\mu u_\mu&=&0,\\(\rho+P)u^\mu\partial_\mu u_\nu+(\eta_{\mu\nu}+u_\mu u_\nu)\partial^\mu P&=&0.\end{aligned}
+\end{align}
+这是两个分别关于能量密度与压强的方程在经典极限下面对应着质量守恒方程+运动方程。所以我们知道这个简洁的EoM是合理的。
+
+\bigskip
+\hlr{Mass-Energy Current以及守恒量}
+
+在狭义相对论的语境下，我们定义mass-energy current为：
+\defi{
+  Mass-Energy Current
+
+  在狭义相对论的语境下，我们定义一个observer观察到的mass-energy current为：
+  \begin{align}
+    J_\mu = - T_{\mu\nu} v^\nu,
+  \end{align}
+  其中$ v_\nu $是某个inertial observer的4-velocity。
+}
+我们会发现根据运动方程所有的Observer观察到的mass-energy current都是守恒的：
+\begin{align}
+  \partial^\mu J_\mu=0\mathrm{~.}
+\end{align}
+根据gauss定理我们知道这意味着：
+\begin{align}
+  \int_{\partial V}J_\mu n^\mu dS=0 
+\end{align}
+物理上面这说的是：在一个封闭的空间区域里面，流体的mass-energy不会凭空产生或者消失，而是从外面流入或者流出。或者我们把时空分开看就是：
+\begin{itemize}
+  \item 一个空间区域在一段时间内的能量变化等于其他空间流入流出的能量差值
+\end{itemize}
+所以如果我们希望所有local的observer看到能量守恒的现象我们核心就是要求一个covariant的方程$ \partial^{\mu}  T_{\mu \nu} = 0$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsection{Questions and Thoughts}
+
+\question{
+  为什么最小曲线和levi-civita connection给出的geodesic是等价的，给出更仔细的推导！【主要是前两项的对称】
+}
+
+\YL{[我懒了...但是可以参考Blau之中的计算]}
+
+
+\bigskip
+\question{Riemann Normal Coordinates能不能给一个更加数学的清晰的定义？}
+
+\YL{[回头再讨论]}
+
+
+\bigskip
+\question{Riemann Normal Coordinate下面的Geodesic，为什么我们的参数化可以是新的$ \lambda $，难道不还是应该原来的 t 吗？}
+
+这个是一个bug。我们完全不可以随便搞参数化说满足一种测地线方程。我们需要证明说这个$ \lambda $参数化和原来的t参数化是正比的。这样子才行。但是是可以得证的，我就懒得讨论了。
+\qed 
+
+\bigskip
+\question{对于输入是基矢量的tensor计算我们怎么使用纯粹的分量方法进行计算？}
+
+有的时候我们进行计算会需要tensor作用在基矢量上面，就会有bug，因为如果我们还会涉及导数，那么有的$ \partial_{\mu} $表示的就是coordinate basis的导数，有的$ \partial_{\mu} $表示的是基矢量本身。所以特别容易进行混淆的。
+
+一个解决的办法是，基矢量我们也用分量的形式写出来：
+\begin{align}
+  \partial_{\mu} = \delta^\nu_\mu \partial_\nu. 
+\end{align}
+这样子我们就可以使用$ \delta^\nu_\mu $作为基矢量的分量进行表示。就不把covariant的基矢量放进去了！！
+\rmk{
+  注意！我们用$ \delta^\mu_a $表示基矢量的时候，$ a $是一个表示这个张量的指标。不是坐标的指标，坐标的指标只有一个也就是$ \mu $。
+}
+
+\bigskip
+\question{
+  计算比较复杂的全饭对称张量，我们有什么简化的方法吗？
+}
+
+下面有一个公式可以对于全饭对称张量进行降阶：
+\begin{align}
+  T_{[\mu_1\mu_2...\mu_n]}=\frac{1}{n}\left(T_{\mu_1[\mu_2...\mu_n]}-T_{\mu_2[\mu_1...\mu_n]}-\ldots-T_{\mu_n[\mu_2...\mu_1]}\right).
+\end{align}

@@ -1,0 +1,457 @@
+下面我们希望知道Lorentz群在一般的表示空间上的表示。所以按照之前说的步骤，我们应该：
+\begin{enumerate}
+  \item 选择一个好用的representation，比如：defining representation(也就是Minkowski时空的坐标系空间)进行研究
+    \item 定义一个好用的Exp Map进而通过考虑无限小变换给出Lorentz代数的结构；
+  \item 研究这个李代数的数学结构，给出这个李代数在一般表示空间上的表示；
+  \item 通过exp map的方法，给出Lorentz群在这些表示空间
+\end{enumerate}
+本章我们完成前三步！
+
+\subsection{Lie Algebra of SO(3,1)}
+
+\bigskip
+\hlr{单位元附近展开为Lie Algebra表示}
+
+我们在Lorentz Group的defining representation表示空间考虑李代数的表示。Poincare群的defining representation是作用在Minkowski空间上的坐标变换：
+\begin{align}
+  g(\Lambda)x^\mu={\Lambda^\mu}_\nu x^\nu
+\end{align}
+对于这个表示，我们可以把$ \Lambda $在无限小处展开：
+\begin{align}\label{eq:infinitesimallorentz}
+  \Lambda^\mu{}_\nu=\delta^\mu{}_\nu+\omega^\mu{}_\nu+\mathcal{O}(\omega^2)
+\end{align}
+根据Lorentz群的定义，我们知道这个系数$ \omega_{\mu\nu} $不是独立的，而是满足：
+\begin{align}
+  \omega_{\mu\nu}=-\omega_{\nu\mu}
+\end{align}
+下面我们希望按照标准的定义给出这个表示空间下Lie Algebra的表示，我们对比定义：
+\begin{align}
+  D(\alpha)=1+i\alpha^iX_i
+\end{align}
+发现\cref{eq:infinitesimallorentz}可以表达成为下面的标准形式：
+\begin{align}
+  &\Lambda^\mu{}_\nu=\delta^\mu{}_\nu-\frac{i}{2}\omega_{\rho\sigma}\left(\mathcal{J}^{\rho\sigma}\right)^\mu{}_\nu\\
+  &\left(\mathcal{J}^{\rho\sigma}\right)_\nu^\mu\equiv i(\eta^{\rho\mu}\delta_\nu^\sigma-\eta^{\sigma\mu}\delta_\nu^\rho) 
+\end{align}
+为了清晰我们列出下面的表格：
+\begin{table}[H]
+    \centering
+    \caption{SO(3,1)代数以及一般代数}
+    \begin{tabular}{lll} 
+      \hline\hline
+       性质& 一般李群表示 & SO(3,1) \\
+        \hline\hline
+       Lie Parameter & $ \alpha^i $ & $ \omega_{\rho \sigma} $ \\
+       单位元展开& $ D(\alpha) = I + i \alpha^i X_i $ & $ \Lambda^\mu{}_\nu=\delta^\mu{}_\nu-\frac{i}{2}\omega_{\rho\sigma}\left(\mathcal{J}^{\rho\sigma}\right)^\mu{}_\nu $ \\
+       生成元 & $ X_i $ & $ \left(\mathcal{J}^{\rho\sigma}\right)^\mu{}_\nu\equiv i(\eta^{\rho\mu}\delta_\nu^\sigma-\eta^{\sigma\mu}\delta_\nu^\rho)  $ \\
+        \hline\hline
+    \end{tabular}
+\end{table}
+\rmk{对于SO(3,1)的群，我们使用的单位元附近展开形式以及对应的exp map其实和标准的不太一样，这是因为我们希望获得常用的对易关系方便求解代数的表示。我们只需要在exp map回群表示的时候注意一下即可！}
+
+总之，我们知道了so(3,1)李代数在defining representation下的表示是：
+\begin{align}
+  \left(\mathcal{J}^{\rho\sigma}\right)^\mu{}_\nu\equiv i(\eta^{\rho\mu}\delta_\nu^\sigma-\eta^{\sigma\mu}\delta_\nu^\rho)
+\end{align}
+
+\bigskip
+\hlr{so(3,1)代数结构}
+
+下面我们计算这个代数的结构，也就是对易关系：
+\begin{align}
+  [\mathcal{J}^{\mu\nu},\mathcal{J}^{\rho\sigma}]=i\left(\eta^{\mu\sigma}\mathcal{J}^{\nu\rho}+\eta^{\nu\rho}\mathcal{J}^{\mu\sigma}-\eta^{\mu\rho}\mathcal{J}^{\nu\sigma}-\eta^{\nu\sigma}\mathcal{J}^{\mu\rho}\right)
+\end{align}
+
+
+\bigskip
+\hlr{使用exp map构建回群表示}
+
+所以我们如果找到了上面这个代数的表示，我们根据我们之前单位元附近的展开，就可以通过下面的exp map构建出Poincare群在这个表示空间上的表示。
+
+对于defining representation为例是下面这样子的。但是这个exp map的形式是通用的：
+\begin{align}
+  \Lambda(\omega)\equiv \text{exp}\ {-\frac{i}{2}\omega_{\alpha\beta}\mathcal{J}^{\alpha\beta}}
+\end{align}
+
+
+\bigskip
+\hlr{例子：Boost坐标变换的群元素}
+
+我们希望计算一个例子，也就是x方向的Boost变换。
+
+x方向的Boost变换是一种坐标变换，翻译成李群的语言就是在defining representation下在$ \mathcal{J}^{10} $生成元上进行$ \eta $平移生成的群元素。
+\begin{align}
+  \Lambda\equiv\exp(-i\eta\mathcal{J}^{10})=\exp\left(-\eta\begin{pmatrix}0&1&0&0\\1&0&0&0\\0&0&0&0\\0&0&0&0\end{pmatrix}\right)
+\end{align}
+经过计算我们知道：
+\begin{align}
+  \Lambda=\begin{pmatrix}\cosh\eta&-\sinh\eta&0&0\\-\sinh\eta&\cosh\eta&0&0\\0&0&1&0\\0&0&0&1\end{pmatrix}
+\end{align}
+这个矩阵也就是boost变换在Minkowski坐标变换表示空间下的表示。也就是我们日常说的4-vector的boost坐标变换。
+
+
+\subsection{Representation of so(3,1) Algebra}
+
+\bigskip
+\hlr{so(3,1)代数使用转动和boost生成元}
+
+下面我们希望给出so(3,1)代数在一般表示空间下的表示。以及这些表示的分类。我们进行下面的变换。
+
+\rmk{
+  记号定义：
+  \begin{itemize}
+    \item 我们定义$ \mathcal{J}^{\mu\nu} $作为so(3,1)代数在defining representation下面的表示。
+    \item 定义$ J^{\mu\nu} $作为so(3,1)代数抽象的生成元元素
+  \end{itemize}
+}
+考虑抽象的代数元素和Lie parameter，我们可以再modify一下exp map和Lie parameter的形式给出下面的redefinition：
+\begin{align}
+  \begin{aligned}&\underline{\mathrm{Rotations}}{:} \quad J_i\equiv\frac{1}{2}\epsilon_{ijk}J^{jk},\quad\theta_i\equiv\frac{1}{2}\epsilon_{ijk}\omega_{jk}\\
+&\underline{\mathrm{Boosts}}{:} \quad K_i\equiv J^{i0},\quad\eta_i\equiv\omega_{i0}\end{aligned}
+\end{align}
+通过这个变换之后，我们发现so(3,1)代数的对易关系可以写作：
+\begin{align}
+  [J_i,J_j]&=i\epsilon_{ijk}J_k\\
+[J_i,K_j]&=i\epsilon_{ijk}K_k\\
+[K_i,K_j]&=-i\epsilon_{ijk}J_k
+\end{align}
+这几乎等价在李代数空间上进行一个基的坐标变换。之前使用$ J^{\mu\nu} $作为基，现在我们使用$ \{J_i,K_i\} $作为基。
+
+这个基下，Lorentz群的元素可以通过下面这个exp map构建出来：
+\begin{align}
+  \exp\left(-i\frac{\omega_{\mu\nu}}{2}J^{\mu\nu}\right)=\exp(-i\theta_iJ_i+i\eta_iK_i).
+\end{align}
+
+\bigskip
+\hlr{复化so(3,1)代数为两个su(2)}
+
+作为一般的trick我们对这个代数进行复化，试图求出复李代数的表示，然后再根据约束条件约束出实李代数的表示。我们定义：
+\begin{align}
+J_i^\pm=\frac{1}{2}(J_i\pm iK_i)
+\end{align}
+于是我们发现一个神奇的结论就是：
+\begin{align}
+   [J_i^\pm,J_j^\pm]&=i\epsilon_{ijk}J_k^\pm\\
+   [J_i^\pm,J_j^\mp]&=0
+\end{align}
+也就是说，so(3,1)李代数经过复化之后，变成了两个互相对易的su(2)李代数的直和。写作：
+\begin{align}
+  \mathrm{so}(1,3) \sim \mathrm{su}(2)  \oplus_{\mathbb{C}} \mathrm{su}(2)_+
+\end{align}
+\rmk{
+  需要注意的是我们这里使用了$ \sim $的记号，说明两个代数并不同构，而是在复化的意义下是同构的。右边的两个su(2)代数原则上可以是生成元的任意复数组合，而左边需要时生成元的实数组合。
+
+}
+  对于复化后的代数$ su(2) \oplus_\mathbb{C} su(2)$其元素可以如下进行表达：
+  \begin{align}
+    v=\alpha_iJ_i^-+\beta_iJ_i^+\quad(\alpha_i,\beta_i)\in\mathbb{C}^6
+  \end{align}
+我们需要把代数的线性组合约束在：
+\begin{align}
+  \alpha = \beta^*
+\end{align}
+这样我们又重新回到了实李代数so(3,1)代数。
+
+\bigskip
+\hlr{两个su(2) exp出洛伦兹群}
+
+所以lorentz群的元素可以直接通过这两个su(2)代数的元素exp出来：
+\begin{align}
+  \exp\left(-i\frac{\omega_{\mu\nu}}{2}J^{\mu\nu}\right)=\exp\left(-i(\theta^a-i\eta^a)J_a^-+(\theta^a+i\eta^a)J_a^+\right)
+\end{align}
+
+
+\bigskip
+\hlr{两个su(2)直和代数的表示}
+
+下面我们考虑代数$  su(2) \oplus_\mathbb{C} su(2) $的表示。我们可以通过对于两个su(2)的表示进行【直积】来构造这个直和代数的表示。
+
+我们定义一个表示是$ (j_-,j_+) $表示，这个表示空间的基向量是：
+\begin{align}
+  \psi_{m_{+},m_{-}}, \quad m_- = -j_i, ..., j_-. \quad m_+ = -j_+, ... , j_+
+\end{align}
+基向量在代数元素作用下分别变换为：
+\begin{align}
+  \begin{aligned}J_i^-&:&\psi_{m_-,m_+}\to\left(L_{m_-,m_+}^-\right)^i\psi_{m_-,m_+}\\J_i^+&:&\psi_{m_-,m_+}\to\left(L_{m_-,m_+}^+\right)^i\psi_{m_-,m_+}\end{aligned}
+\end{align}
+由于是分别作用所以我们表示空间的大小是：
+\begin{align}
+  \dim(j_-,j_+)=(2j_++1)(2j_-+1)
+\end{align}
+并且这个代数表示给出的两个Casimir算子在表示空间下的值是：
+\begin{align}
+  J_{-}^{i}J_{-}^{i}=j_{-}(j_{-}+1)_{+}^{i}, \quad J_{+}^{i}=j_{+}(j_{+}+1)
+\end{align}
+
+我们可以给出这个表示空间下面$ J^\pm $的矩阵形式，然后使用$ \alpha = \beta^* $的约束条件，给出so(3,1)代数在这个表示空间下的表示。
+
+\bigskip
+\hlr{表示与物理学}
+
+物理学家认为不同的表示描述了不一样的粒子。下面就是物理学家起的名字捏：
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.75\textwidth]{assets/repandparticle.png}
+  \caption{不同so(3,1)代数表示对应的粒子类型}
+  \label{fig:repandparticle}
+\end{figure}
+需要额外注意的是 $ (1/2,0)\oplus (0,1/2) $以及$ (1/2,1/2) $是两个完全不一样的表示空间。维度就不一样！所以需要仔细区分捏！！
+
+\rmk{
+  我们回忆，从代数表示给出群表示需要使用exp map。但是有个bug是，exp map并不一定覆盖整个群。所以我们从Lorentz代数exp map给出表示的时候，我们cover的其实只有$ \mathscr{L}_+^\uparrow $。
+}
+
+
+\subsection{标量场构型空间作为表示空间}
+
+我们之前是用manifold上面的坐标系构成的空间作为Poincare群的defining representation表示空间。但下面希望研究量子场论，所以我们关心，场构型空间作为Poincare群的表示空间。
+
+\subsubsection{标量场构型空间作为一般Diifeomorphism群的表示空间}
+
+\hlr{什么是场构型空间}
+
+所谓的场就是$ \phi_a : \mathcal{M} \to V $流形到一个线性空间的映射。我们定义一个群如何作用在一个场上面：
+\begin{enumerate}
+  \item 坐标变换：$x\to x'$
+  \item 场的协变：$\varphi(x)\to\varphi'(x')$【这个变换规则需要场本身协变性质决定】
+\end{enumerate}
+这两个变换共同的作用下，induce出了一个$ \mathbb{R}^4 \to \mathbb{R} $的映射线性空间上的变换。也就是，我们选定一个坐标系$ \psi $之后，我们的场可以写作一个映射：
+\begin{align}
+  \varphi:\mathbb{R}^4\to V\\
+  x\mapsto\varphi(x)
+\end{align}
+在群的作用下，涉及的两个变换induce出来了一个$ \varphi(x) $这个$ \mathbb{R}^4 \to \mathbb{R} $的映射的变换：
+\begin{align}
+  \varphi(x) \to \varphi'(x)
+\end{align}
+\imp{什么是场构型空间}{
+  我们说的场构型空间其实说的是$ \varphi: \mathbb{R}^4 \to \mathbb{R} $所有这样的映射构成的线性空间。然后我们考虑的是这个空间作为群的一个表示空间。【而不是所谓的场这个映射的空间】
+
+  区分构型空间不是场构成的空间，而是在一定坐标系下给出的实线性空间到实线性空间映射构成的空间。
+}
+
+
+\bigskip
+\hlr{Scalar Field}
+
+下面我们就根据场在这两个变换下的行为定义标量场。
+\defi{
+  标量场
+
+  我们定义标量场$ \phi(x) $是一个从Minkowski流形到实数域的映射：
+\begin{align}
+  \begin{aligned}\varphi&:X\to\mathbb{R}\\&x\mapsto\varphi(x)\end{aligned}
+\end{align}
+diffeomorphism群$ \text{Diff}(\mathcal{M}) = G $作用在标量场上面的协变规则是：
+\begin{align}
+  \varphi(x)\to\varphi'(x')=\varphi(x)
+\end{align}
+}
+根据这些我们可以计算出diffeomorphism群在标量场构型空间上的表示。我们考虑一个任意Diffeo群元素是怎么作用在标量场构型空间上面的。
+\begin{align}
+ & x^{\mu}\mapsto x^{\prime\mu}=f_g^{\mu}(x)\mathrm{\quad}g\equiv g(\alpha^1,...,\alpha^N)\in G \\ 
+ & \varphi(x)\mapsto\varphi'(x')=\varphi(x)
+\end{align}
+根据这两点我们就知道，标量场构型空间上，Diffeo群的表示是：
+\begin{align}
+  \mathcal{D}_g[\varphi]\equiv\varphi\circ f_{g^{-1}}
+\end{align}
+
+\bigskip
+\hlr{Infinitesimal Diffeomorphism}
+
+为了给出这个表示空间上面的diffeomorphism群的Lie代数表示，我们考虑一个无限小变换：
+\begin{align}
+  x^{\prime\mu}=f_{g(\alpha)}^\mu(x)=x^\mu-\alpha^j\epsilon_j^\mu(x)+\mathcal{O}(\alpha^2)
+\end{align}
+对于这个无限小群元素的作用下，我们计算标量场构型空间变成了什么样子捏：
+\begin{align}\label{eq:infinitesimaldiffeo}
+  \begin{aligned}\mathcal{D}_{g(\alpha)}[\varphi](x)&=\varphi(f_{g^{-1}}(x))\\&=\varphi(x^\mu+\alpha^j\epsilon_j^\mu+\mathcal{O}(\alpha^2))\\&=\varphi(x)+\alpha^j\epsilon_j^\mu\partial_\mu\varphi(x)+\mathcal{O}(\alpha^2)\\&=(1+i\alpha^jX_j)\varphi(x)+\mathcal{O}(\alpha^2)\end{aligned}
+\end{align}
+所以我们发现，diffeomorphism群在标量场构型空间上的无限小李群：
+
+
+
+
+
+
+\bigskip
+\hlr{Diffeomorphism群的Lie代数}
+
+我们计算生成元在这个标量场构型空间下的表示的对易关系，给出抽象的Diffeomorphism群Lie代数的结构。
+\begin{align}
+  [X_i,X_j]=(-i)^2[\epsilon_i^\mu\partial_\mu,\epsilon_i^\nu\partial_\nu]=\left(\epsilon_j^\mu\partial_\mu\epsilon_i^\nu-\epsilon_i^\mu\partial_\mu\epsilon_j^\nu\right)\partial_\nu
+\end{align}
+
+\rmk{
+  我们发现其实diffeo群给出的Lie代数就是微分几何中流形上的向量场通过Lie括号构成的Lie代数结构捏！
+}
+
+\subsubsection{标量场构型空间作为Poincare群的表示空间}
+
+其实Poincare群也是Diffeomorphism群的一个子群，所以我们可以直接把上面的结果拿过来使用。我们考虑Poincare群作用下，coordinate system会发生这样的变化：
+\begin{align}
+  X^{\prime\mu}&=\Lambda^\mu{}_\nu x^\nu+a^\mu\\
+  &=(\delta^\mu{}_\nu+\omega^\mu{}_\nu+\mathcal{O}(\omega^2))x^\nu+a^\mu\\&=x^\mu+(\omega^\mu{}_\nu x^\nu+a^\mu)\\
+  &=x^\mu-\epsilon^\mu
+\end{align}
+所以我们类比\cref{eq:infinitesimaldiffeo}同样的操作可以给出Poincare群在标量场构型空间上的Lie代数表示生成元是：
+\begin{align}
+\begin{aligned}\mathcal{D}_{(\Lambda,a)}[\varphi]&=\varphi(x^\mu-\omega^\mu{}_\nu x^\nu-a^\mu+\ldots)\\&=\varphi(x)-\left(\omega^\mu{}_\nu x^\nu+a^\mu\right)\partial_\mu\varphi+\ldots\\&\equiv\left(1-i\frac{\omega^{\mu\nu}J_{\mu\nu}}{2}+ia^\mu P_\mu\right)\varphi+\ldots\end{aligned}  
+\end{align}
+最后的Lie Parameter我们使用Poincare群的标准记号捏。于是我们发现Poincare群在标量场构型空间上的Lie代数表示生成元是：
+\begin{align}
+  \begin{aligned}J_{\mu\nu}&=i(x_\mu\partial_\nu-x_\nu\partial_\mu)\\P_\mu&=i\partial_\mu\end{aligned}
+\end{align}
+
+\bigskip
+\hlr{Rediscover Poincare群Lie代数结构}
+
+显然我们计算这两个算符的对易关系，必然会发现他们给出我们之前熟悉的Poincare群Lie代数结构：
+\begin{align}
+  [J_{\mu\nu},J_{\rho\sigma}] &=i(\eta_{\nu\rho}J_{\mu\sigma}-\eta_{\mu\rho}J_{\nu\sigma}-\eta_{\nu\sigma}J_{\mu\rho}+\eta_{\mu\sigma}J_{\nu\rho})\\
+  [J_{\mu\nu},P_\rho] &=i(\eta_{\nu\rho}P_\mu-\eta_{\mu\rho}P_\nu)\\
+  [P_\mu,P_\nu] &=0
+\end{align}
+第一个对易关系我们之前已经见过了，是so(3,1)代数的结构。后面两个对易关系描述了平移生成元和Lorentz生成元之间的关系。
+
+
+\subsubsection{Adjoint Representation of Poincare Lie Algebra}
+
+自由标量场的构型空间作为Poincare群的表示空间为我们提供了一个很好的基础进行研究Poincare群的Adjoint表示。一个疑惑是为什么我们不能在Defining Representation下面研究Poincare群的Adjoint表示呢？因为Defining Representation，其实只够研究Lorentz群的，对于动量算符我们不能用$ 4 \times 4 $的矩阵描述，需要扩充，这里就不做仔细讨论了。
+
+
+\bigskip
+\hlr{Poincare代数}
+
+我们知道Poincare群的李代数可以写作生成元的线性组合。其Lie Parameter一共是10个「因为生成元 $ J_{\mu\nu} $ 是反对称的，所以只有6个自由度」：
+\begin{align}
+V=\omega^{\rho\sigma}J_{\rho\sigma}+a^{\rho} P_\rho
+\end{align}
+
+这个线性空间构成了Poincare群Lie代数的Adjoint Representation。我们研究这个表示空间下Lorentz群的表示！
+\rmk{
+  为啥我们之前没有动量的代数呢，是因为so(3,1)群的defining representation只能描述Lorentz群的代数表示，不能描述Poincare群的代数表示。但是标量场构型空间表示可以描述Poincare群的代数表示。
+}
+
+\bigskip
+\hlr{P子代数下Lorentz群的表示}
+
+
+首先研究$ P_\mu $构成的子代数空间下Lorentz群的表示。我们先研究Lorentz代数在这个空间下的Adjoint Representation：
+\begin{align}
+  [J^{\mu\nu},P_\rho]=P_\sigma\left\{i\left(\eta^{\mu\sigma}\delta_\rho^\nu-\eta^{\nu\sigma}\delta_\rho^\mu\right)\right\}=P_\sigma(\mathcal{J}^{\mu\nu})^\sigma{}_\rho
+\end{align}
+很惊讶的发现这个结构常数其实正好可以写作so(3,1)代数在defining representation下的表示矩阵形式！这说明了什么呢：
+\begin{itemize}
+  \item Lorentz代数在这个子代数空间$ \{P_\mu\} $下的Adjoint Representation正好是so(3,1)代数在defining representation下的表示！
+  \item 也就是说 $ P_\mu $这一组算子其实是Poincare群Defining Representation的一组张量算符！！ 
+\end{itemize}
+下面我们研究Lorentz群在这个子代数空间下的表示，会自然得到：
+\begin{align}
+e^{-\frac{i}{2}\omega\cdot J}\, P_\rho\, e^{\frac{i}{2}\omega\cdot J}= P_\sigma \Lambda^\sigma{}_\rho
+\end{align}
+
+
+\bigskip
+\hlr{J子代数下Lorentz群的表示}
+
+下面研究$ J_{\mu\nu} $构成的子代数空间下Lorentz群的表示。我们先研究Lorentz代数在这个空间下的Adjoint Representation：
+\begin{align}
+  [J^{\mu\nu},J_{\rho\sigma}]=J_{\lambda\sigma}(\mathcal{J}^{\mu\nu})^{\lambda}{}_{\rho}+J_{\rho\lambda}(\mathcal{J}^{\mu\nu})^{\lambda}{}_{\sigma}
+\end{align}
+我们发现这个结构常数可以写作两个so(3,1)代数在defining representation下的张量积表示矩阵形式！同样的写出lorentz群在这个子代数空间下的表示：
+\begin{align}
+  e^{-\frac{i}{2}\omega\cdot J}J_{\rho\sigma}e^{\frac{i}{2}\omega\cdot J}=J_{\mu\nu}\Lambda^\mu{}_\rho\Lambda^\nu{}_\sigma.
+\end{align}
+
+\bigskip
+\hlr{Poincare代数作为Lorentz群的表示}
+
+所以如果我们将Poincare代数作为Lorentz群的表示空间，对于Poincare代数重的任意元素：
+\begin{align}
+  V=\omega^{\rho\sigma}J_{\rho\sigma}+a^\rho P_\rho
+\end{align}
+作用上一个Lorentz群的元素之后我们发现结果是：
+\begin{align}
+  a^\rho\to\left.\Lambda^\rho{}_\mu a^\mu\right.\mathrm{~and~}\left.\omega^{\rho\sigma}\right.\to\left.\Lambda^\rho{}_\mu\Lambda^\sigma{}_\nu\omega^{\mu\nu}\right.
+\end{align}
+
+
+\subsection{一般场构型空间作为Poincare群的表示空间}
+
+\hlr{一般Poincare协变场}
+
+我们讨论完标量场的情况，我们希望一般场构型空间作为Poincare群的表示空间。但问题是，一般场的协变性质需要满足特别的要求才能作为Poincare群的表示空间，我们其应该按照Lorentz群的表示进行协变，才能构成Poincare群的表示空间。
+
+\defi{
+  一般Poincare协变场
+
+  我们定义一般Poincare协变场$ \phi^A(x) $是一个从Minkowski流形到一个线性空间V的映射：
+\begin{align}
+  \begin{aligned}\varphi&:X\to V\\&x\mapsto\varphi^A(x)\end{aligned}
+\end{align}
+Poincare群$ ISO(3,1) = G $作用在一般Poincare协变场上面的协变规则是：
+\begin{align}
+  \varphi^A(x)\to\varphi'_a(x')=D(\Lambda)^A{}_B\varphi^B(x)
+\end{align}
+其中$ D(\Lambda) $是Lorentz群在V空间下的一个$ (j_-,j_+) $spin的表示:
+\begin{align}
+  D^B{}_A(\Lambda)\mathrm{~,~}A=1,\ldots(2j_-+1)(2j_++1)
+\end{align}
+}
+
+\bigskip
+\hlr{一般协变场构型空间作为Poincare群的表示空间}
+
+我们考虑Poincare群作用下，一般协变场对应的构型空间会怎么协变：
+\begin{align}
+  &x^{\prime\mu}=\Lambda^\mu_\nu x^\nu+a^\mu\equiv f_{(\Lambda,a)}^\mu(x)\\
+  &\phi^{\prime A}(x^{\prime})\equiv D^A{}_B(\Lambda)\phi^B(x)
+\end{align}
+我们考虑构型空间对于这样的变换的变化是：
+\begin{align}
+  \mathcal{D}_{(\Lambda,a)}[\phi]^A(x)\equiv D^A{}_B(\Lambda)\phi^B(f_{\Lambda,a}^{-1}(x))
+\end{align}
+我们考虑这个变化的无穷小变化：
+\begin{align}
+  \phi^{\prime A}(x)&=\left(1^A{}_B-\frac{i}{2}\omega_{\mu\nu}(\Sigma^{\mu\nu})^A{}_B\right)(1-\frac{i}{2}\omega_{\mu\nu}i(x^\mu\partial^\nu-x^\nu\partial^\mu))\phi^B(x)\\
+                    &=(\mathbb{1}^A{}_B-\frac{i}{2}\omega_{\mu\nu}(\mathbb{1}^A{}_B(ix^\mu\partial^\nu-ix^\nu\partial^\mu)+(\Sigma^{\mu\nu})^A{}_B))\phi^B(x)
+\end{align}
+
+\rmk{
+  怎么理解这个结果呢，我们发现其实这个是两个表示的直积表示。一个是Lorentz群在标量场构型空间下的表示，一个是Lorentz群在V空间下的表示。
+}
+
+\bigskip
+\hlr{例子：电磁场}
+
+一个很好的Poincare协变场的例子就是电磁场$ A_\mu(x) $。其协变关系是：
+\begin{align}
+  A^{\prime\mu}(x^{\prime})=\Lambda^\mu{}_\nu A^\nu(x)
+\end{align}
+所以其构型空间上的Poincare群的作用是：
+\begin{align}
+  A^{\prime\mu}(x)=\Lambda^\mu{}_\nu A^\nu(\Lambda^{-1}x)
+\end{align}
+
+
+
+
+\subsection{Questions and Thoughts}
+
+\question{量子场论之中的场是流形到一个线性空间的映射还是流形上的坐标系到一个线性空间的映射？}
+
+从几何的语言上，场其实是一个fiber bundle的截面(section)。也就是说，场是流形上每一个点到fiber的映射。这个fiber通常是一个线性空间。
+
+但是，我们这里可以理解场就是流形上的坐标系到一个线性空间的映射。因为这样子我们才能用直观的数来描述场。
+\qed 
+
+
+\question{为什么我们认为Diffeomorphism群作用是一个local transformation？有没有可能从群结构的角度理解这个local transformation？}
+
+
+\YL{[我也不到，可能sup 4会讲清楚这个问题？]}
+
+
+

@@ -1,0 +1,171 @@
+
+\subsection{General Relativity的Motivation}
+
+\hlr{EEP的定义以及EEP的验证——引力红移现象}
+
+说明了为了SR之中存在引力需要，我们可以有EEP等效原理。
+
+In an arbitrary gravitational field no local non-gravitational experiment can distinguish a freely falling non-rotating system (local inertial system) from a uniformly moving system in the absence of a gravitational field.
+
+但是，这意味着我们存在引力红移现象【并且实际上也是存在的，说明EEP是对的！！】。然后我们证明狭义相对论框架下，如果把引力视作一个和时空无关的场，我们永远不可能存在这样的引力红移。所以GR应该是一个关于时空的理论，而不仅仅是在SR的框架下加上一个引力场。
+
+\subsection{Manifold and Vectors}
+\hlr{Manifold以及怎么intrinsically定义}
+
+我们希望描述一个弯曲的时空并且可以不依赖于Embedding进行描述，我们可以使用manifold的概念：
+\defi{
+  n-dimentional $ C^\infty $ Real Manifold需要满足:
+  \begin{itemize}
+    \item $ \mathcal{M} $需要被$ {O_a} $完整覆盖，每一个点$ p \in \mathcal{M} $至少在一个$ O_a $中
+    \item 对于每一个$ O_a $存在一个【一一映射】$ \psi_a: O_a \to U_a \in \mathbb{R}^n $也就是coordinate system 
+    \item 对于重叠的$ O_a, O_b $需要满足$ \psi_\beta\circ\psi_\alpha^{-1} $是$ C^\infty $的。
+  \end{itemize}
+}
+
+\hlr{流形之间的映射Diffeomorphism}
+
+首先考虑一般的两个流形之间的映射，考虑$ \mathcal{M} $以及$ \mathcal{M}' $之间存在$ f $映射，我们可以讨论这个映射的一些性质：
+\begin{itemize}
+  \item $ C^\infty $光滑性：如果这个映射保证了$ \psi_\beta^{\prime}\circ f\circ\psi_\alpha^{-1} : \mathbb{R}^n \to \mathbb{R}^n $是一个$ C^\infty $的映射。那么我们认为$ f $是一个$ C^\infty $的映射 
+  \item Diffeomorphism：如果$ f $是一个双射，并且$ f $以及$ f^{-1} $都是$ C^\infty $的映射，那么我们认为$ f $是一个Diffeomorphism
+\end{itemize}
+
+
+\bigskip
+\hlr{Vectors on Manifold}
+
+我们希望用vector进行描述物理。我们希望找一个推广vector的媒介，我们找到了「方向导数」(Directional Derivative)。对于平直时空所有向量可以给出一个方向导数的定义为：$ \sum_\mu v^\mu\partial/\partial x^\mu $。
+
+我们希望能够在一般时空找到一个「方向导数」，并且反过来用它定义一个vector。我们知道方向导数需要满足：1. 线性性 2. Leibniz法则 所以我们也希望赋予vector这个结构。
+
+为了定义导数我们需要先定义函数(也就是导数作用空间)：
+\begin{itemize}
+  \item $ \mF $是所有流形上$ C^\infty $函数「其实是说$ f \circ \psi^{-1} : \mathbb{R}^n \to \mathbb{R}$是$ C^\infty $的」的集合，$ \{ f: \mathcal{M} \to \mathbb{R}\} $
+\end{itemize}
+
+\defi{流形上某一点的切向量
+
+我们定义流形上一点$ p \in \mathcal{M} $的vector是一个映射：$ \mathcal{F}\to \mathbb{R} $满足下面两个规则：
+\begin{enumerate}
+  \item 线性：$ \mathbf{v}(af+bg)=a\mathbf{v}(f)+b\mathbf{v}(g) $ 其中$ a,b \in \mathbb{R} $
+  \item Lebniz法则：$ \mathbf{v}(fg)=g[p]\mathbf{v}(f)+f[p]\mathbf{v}(g) $
+\end{enumerate}
+}
+
+\bigskip
+\hlr{从切向量构造切空间}
+
+我们考虑所有这样的向量的集合，并且在这个集合上赋予两个运算关系：
+\begin{itemize}
+  \item 加法：$ (\mathbf{v}+\mathbf{w})(f)=\mathbf{v}(f)+\mathbf{w}(f) $
+  \item 数乘：$ (a\mathbf{v})(f)=a\mathbf{v}(f) $ 
+\end{itemize}
+所以流形上所有切向量在这两个运算之下构成了一个线性空间，我们称之为Tangent Space，记为$ T_p\mathcal{M} $。
+
+\bigskip
+\hlr{切空间的基}
+
+对于一个线性空间我们可以找到一组互相独立的基。我们会发现，我们不需要随意设置一个基。\textbf{流形的coordinate system会自然的给出流形上任意一个点的tangent space的一组基}！
+
+我们下面逐步构建，考虑切空间$ T_p\mM $考虑$ p $所在的chart$ O $，存在一个coordinate system $ \psi : O \to U \in \mathbb{R}^n $我们可以定义$ n $个$ X_\mu : \mathcal{F} \to \mathbb{R} $满足对于任意$ f \in \mathcal{F} $我们有：
+\begin{align}
+  \mathbf{X}_\mu(f)=\left.\frac{\partial}{\partial x^\mu}f\circ\psi^{-1}\right|_{\psi(p)}.
+\end{align}
+
+我们需要验证这一组基础是【线性独立的】并且是【一组完备的】基：
+\begin{itemize}
+  \item 独立性：我们假设$ a^\mu X_\mu = 0 $，可以通过构造一个特殊的$ f $推导出来$ a^\nu = 0 $
+  \item 完备性：回头证明
+\end{itemize}
+结论是$ dim(T_p \mathcal{M}) = dim(\mathcal{M})  = n$。并且这一组基$ \{X_\mu\} $或者写作$ \partial_{\mu} $我们称为\textbf{coordinate basis}。
+
+\bigskip
+\hlr{切空间coordinate transformation}
+
+如果我们换一个manifold上面的coordinate system那么我们可以induce出来切空间一组新的基！具体证明特别形式化，我就直接写一个图像化的结论是：
+\begin{align}
+  \mathbf{X}_\mu=\sum_{\nu=1}^n\left.\frac{\partial x^{\prime\nu}}{\partial x^\mu}\right|_{\psi(p)}\mathbf{X}_\nu^{\prime},
+\end{align}
+这里我们的$ \partial x' /\partial x $的意思是指$ \psi'\circ\psi^{-1}: \mathbb{R}^n \to \mathbb{R}^n $这个的Jacobian矩阵。我们可以直接考虑变换一个基的分量的变换是「我们的分量用上标写！」：
+\begin{align}
+  v^{\prime\nu}=\sum_{\mu=1}^nv^\mu\frac{\partial x^{\prime\nu}}{\partial x^\mu}\mathrm{~.}
+\end{align}
+\rmk{需要注意这个$ \frac{\partial x^{\prime\nu}}{\partial x^\mu} $是一个concrete的数值，不是一个抽象的符号}
+\rmk{根据coordinate system的概念我们知道坐标变换的Jacobian必然是非退化的，所以切空间的基变换也是非退化的。所以这些变换矩阵必须是可逆矩阵！！}
+
+
+
+\bigskip
+\hlr{所有curve穿过p构成的空间同构于切空间}
+
+我们考虑另一种切空间构造的视角。我们可以通过一个流形上曲线的参数化进行构造，我们先理解一些概念：
+\begin{itemize}
+  \item Smooth curve: 我们认为是一个$ C^\infty $映射$ C : \mathbb{R} \to \mathcal{M} $
+  \item 考虑这个曲线上的一点$ p \in Im(C) $，这个曲线给出了$ p $上的一个tangent vector 
+  \item 对于任意$ f \in \mathcal{F} $我们构造一个映射$ f\circ C:\mathbb{R}\to\mathbb{R}, $
+\end{itemize}
+在这些基础上我们定义这个曲线在$ p $处的切向量为：
+\begin{align}
+  \mathbf{T}(f)=d(f\circ C)/dt.
+\end{align}
+
+\bigskip
+\hlr{曲线构造切向量的分量}
+
+我们计算这个切向量在某一个coodinate basis下面的分量：
+\begin{align}
+  \mathbf{T}(f)=\frac{d}{dt}(f\circ C)=\frac{d}{dt}\left[(f\circ\psi^{-1})\circ(\psi\circ C)\right]=\sum_\mu\frac{\partial}{\partial x^\mu}\left(f\circ\psi^{-1}\right)\frac{dx^\mu}{dt}=\sum_\mu\frac{dx^\mu}{dt}\mathbf{X}_\mu(f).
+\end{align}
+这里我们写的$ x^\mu(t) $其实是说的这个映射$ \psi \circ C: \mathbb{R} \to \mathbb{R}^n $。在coordinate basis 下面这个切向量的分量是：$ T^\mu=\frac{dx^\mu}{dt}\mathrm{~.} $一个有趣的事实就是对于$ \psi \circ C_\nu(t) = t \delta^\mu_\nu $正好给出了coordinate basis的一个基向量$ X_\nu $捏。
+
+\subsection{Questions and thoughts}
+
+\imp{对于不变量}{
+  对于相对论，我们需要确定一些不同参考系之间永远不变的量才能够讨论什么变化了。对于一般伽利略参考系，我们可以认为时间是所有参考系不变的；对于狭义相对论我们知道其实不变的是$ d\tau $或者$ ds $这样的时空间隔。
+
+  对于GR来说我们需要继续选择这样的不变量进行讨论！！！我们依旧选择这样的时空间隔是不变的。我们后来会发现这样的构造让其是$ ds^2 = h_{\mu\nu}dx^\mu dx^\nu $这样的张量，保证了我们时空间隔的参考系无关的感觉。
+}
+
+
+\question{我们需要知道狭义相对论里面某一个参考系下各种点时间和坐标是怎么定义的？？以及我们两个物理的参考系变换是怎么联系上的？？}
+
+要回答【为什么两个inertial参考系之间通过Lorentz Transformation连接】我们需要定义两个点：
+\begin{enumerate}
+  \item 我们怎么知道一个参考系是inertial的？什么实验能够让一个观察者知道自己是在一个inertial参考系下？
+  \item 在一个参考系下面我们怎么测量一个事件的时空坐标？我们怎么在一个参考系下计算一个时间$ x^\mu $
+  \item 我们怎么把两个参考系联系起来？
+\end{enumerate}
+
+对于第一个问题很简单，我们发现我们需要狭义相对论纯纯因为电磁学有问题。但是力学是完全没bug的。不妨做一个力学实验，如果力学实验下物体满足牛顿定律的描述，比如放一个球看看会不会自己动。如果并不动那么我们显然可以知道这个参考系是inertial的。
+
+这个问题是，我们一个观察者知道自己的位置是0，并且不妨设自己的时间从0开始不停的流逝。这是完全没问题的，但是我们如果前面发生了一个爆炸那么我们怎么定义这个事件的位置和发生时间呢？
+\defi{某一个参考系下事件的时空坐标
+
+  \textbf{时间坐标确定：}
+  我们把一个参考系下某个事件的时空坐标的数值定义为那个事件位置的一个【对好的钟】在事件发生的时候显示的数值。核心问题是我们怎么对好钟，我们参考者可以有一个时空每一个位置的时钟表，我们记录为$ t_{\text{event}} = t_{x = 0} + \displaystyle\frac{t_{\text{light comes back}}- t_{\text{light emit}}}{2} $
+
+  \textbf{空间坐标确定：}
+  很显然也就是光传播的时间乘上光速。
+}
+\rmk{在牛顿力学，我们可以随便的方法进行对钟；但是对于相对论，我们能且仅能用光来对齐。因为我们不能相信其他物质的运动情况，因为我们不能理解这些东西如果按照光速传播会发生什么，但是我们的假设让我们知道光速是永远不变的。}
+
+最后一个问题，我们怎么联系两个参考系？那么就是我们的几个假设，然后一波推导就可以知道了！！
+
+\qed 
+
+\bigskip
+\hlr{一个特别特别特别重要的问题！}
+\question{怎么理解电场存在“另一个参考系下某一个观察者测量的结果”}
+
+首先对比测量结果我们必须locally进行对比！否则没有意义。
+
+研究“另一个参考系下某一个观察者的结果”的意义在于：我们定义测量的物理量并不一定是张量，「对于一个物理量只要我们给出一个合理的测量方法就好了」。对于电场我们可以用相对于某个参考系静止的电子受到的力进行定义，这经过研究显然不是一个协变的量。
+
+电场存在合理的测量定义但是，并不按照lorentz transformation进行变换。这样的物理量就会存在一个概念：对于某一个点某参考系下的【注意是同一个参考系，不涉及运动观察者静止的参考系】...一个运动观察者测量的电场并不等于某个参考系下静止观察者测量的电场。【正是因为电场不是tensor所以有这个不同】
+
+一个解决方法是：根据定义，讨论电场作用一个观察者就只讨论静止参考系的。但是我们显然很难研究运动粒子在电场中受力。
+
+于是现在就有另一个解决方案：电场其实和加速度是关联的，然后加速度是lorentz tensor。所以我们必然可以把电场写作一个形式让其是lorentz tensor！！然后我们定义这个是协变的电场。于是就有了$ E^\mu = F^{\mu\nu}u_\mu $这是一个很好的定义，可以定义电场在非静止参考系下面的样子力！！！
+
+\qed 
+

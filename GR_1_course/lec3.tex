@@ -1,0 +1,626 @@
+\subsection{Covariant Derivative}
+
+\subsubsection{Covariant Derivative的定义和性质}
+
+\hlr{Tangent Bundle上导数算符的视角}
+
+我们现在有一个问题就是：怎么计算tangent bundle上面的导数。回顾平直时空我们naively的tangent bundle上面的导数（也就是方向导数），我们会发现这个算符满足下面两个视角：
+\begin{enumerate}
+  \item \textbf{方向导数视角： }确定一个向量场作为输入，然后把一个标量场映射成另一个标量场：
+    \begin{align}
+    v^i \partial_{i} f = V(f) \in \mathcal{F}
+    \end{align}
+  \item \textbf{张量视角： }把一个(1,0)张量映射成一个(1,1)张量。也就是：
+    \begin{align}
+      \partial_{i} v^j  \in \mathcal{T}(1,1)
+    \end{align}
+    相当于一个$(1,1)$张量。
+\end{enumerate}
+我们希望延续这两个视角，并且推广到一般的manifold上面。
+
+我们定义一个算符，叫做\textbf{协变导数}（Covariant Derivative），记作$ \nabla $，这个算符满足下面两个视角：
+\begin{enumerate}
+  \item \textbf{方向导数视角： }确定一个向量场作为输入，然后把一个(k,l)张量映射成另一个(k,l)张量：
+    \begin{align}
+    \nabla_V T \in \mathcal{T}(k,l)
+    \end{align}
+    其中$ V \in \mathcal{T}(1,0) $是一个向量场，$ T \in \mathcal{T}(k,l) $是一个$(k,l)$张量场。
+  \item \textbf{张量视角： }把一个(k,l)张量场映射成一个(k,l+1)张量场。也就是：
+    \begin{align}
+      \nabla T \in \mathcal{T}(k,l+1)
+    \end{align}
+    相当于一个$(k,l+1)$张量场。
+\end{enumerate}
+\rmk{
+  很自然可以发现两个视角是等价的：
+  \begin{enumerate}
+    \item 方向导数视角如果选择是一个基矢量方向，那么可以把这个基矢量指标当作一个张量指标，给出张量视角
+    \item 张量视角下，如果把第一个指标和一个向量场进行contraction，那么可以给出方向导数视角
+  \end{enumerate}
+  一般严格的书之中我们是使用第二个视角的。但是第一个视角方便我们进行推广，也方便我们进行理解（更好类比平直时空）。}
+
+\bigskip
+\hlr{Covariant Derivative的定义}
+
+
+为了推广的方便我们使用第一种视角进行理解。我们认为协变导数是这样的一个算符：
+\begin{align}
+  \nabla: \mathcal{T}(1,0) \times \mathcal{T}(k,l) \to \mathcal{T}(k,l)
+\end{align}
+也就是说我们输入一个向量场和一个$(k,l)$张量场，输出一个$(k,l)$张量场。
+
+我们不会直接给出定义而是一步步进行构造，我们思考如果推广导数算符需要满足哪些性质。下面两个是最最最基本的导数的性质：
+\begin{itemize}
+  \item \textbf{Linearity: }对于任意的$ T,S \in \mathcal{T}(k,l) $，以及任意的$ a,b \in \mathbb{R} $，我们有：
+    \begin{align}
+      \nabla_V (aT + bS) = a\nabla_V T + b\nabla_V S
+    \end{align}
+  \item \textbf{Leibniz Rule: }对于任意的$ T \in \mathcal{T}(k,l) $，$ S \in \mathcal{T}(m,n) $，我们有：
+    \begin{align}
+      \nabla_V (T \otimes S) = (\nabla_V T) \otimes S + T \otimes (\nabla_V S)
+    \end{align}
+\end{itemize}
+接下来我们考虑如果要和一般的导数算符很像我们还需要满足什么性质。我们会发现和平直时空的方向导数类似还需要满足：
+\begin{itemize}
+  \item \textbf{Action on functions: }对于任意的标量场$ f \in \mathcal{F} $，我们有：
+    \begin{align}
+      \nabla_V f = V(f)
+    \end{align} 
+  \item \textbf{Linearity in the vector field: }对于任意的$ V,W \in \mathcal{T}(1,0) $，以及任意的$ a,b \in \mathbb{R} $，我们有：
+    \begin{align}
+      \nabla_{aV + bW} T = a\nabla_V T + b\nabla_W T
+    \end{align}
+\end{itemize}
+
+\rmk{这里我们已经可以意识到，Linearity in Vector Field已经意味着如果我们使用基矢量$ \partial_{\mu} $作为这个vector field的话。
+
+那么协变导数算符在不同坐标系下形式其实就是矢量变换的形式，也就是说协变导数算符作用之后相当于多了一个covariant的指标。这就很自然的有第二种视角了。
+
+并且Action on functions可以很自然的写作：
+\begin{align}
+  \nabla_{V} f = V^\mu \nabla_{\mu} f.
+\end{align}
+}
+最终还有一个最最最最重要的性质：
+\begin{itemize}
+  \item \textbf{Commutation with contraction: }对于任意的$ T \in \mathcal{T}(k,l) $，以及任意的contraction操作$ C $，我们有：
+    \begin{align}
+      \nabla_V (C(T)) = C(\nabla_V T)
+    \end{align}
+\end{itemize}
+\rmk{
+  最后这个性质特别重要。因为一般张量我们都可以写作（比如vector）：
+  \begin{align}
+    v = v^\mu \partial_\mu 
+  \end{align}
+  那么作用上一个协变导数算符（比如 $ \nabla_\mu $）的结果其实可以先把$ v^\mu $当作一个scalar field和$ \partial_{\mu} $进行tensor product，分别用lebniz rule 作用，然后再进行contraction。也就是这样：
+  \begin{align}
+    \nabla_{\boldsymbol{u}}(f\boldsymbol{v})=\boldsymbol{u}(f)\boldsymbol{v}+f\nabla_{\boldsymbol{u}}\boldsymbol{v}.
+  \end{align}
+
+同样的对于一般的张量我们也可以进行这样的操作。
+}
+
+\bigskip
+\hlr{协变导数作用在contravariant vector上的形式}
+
+上面的五条性质已经define了一个导数算符（虽然并不是唯一的）。我们现在不妨就计算一下这样的性质下的导数算符有什么更多的性质。
+\begin{enumerate}
+  \item \textbf{作用在基矢量上面的形式： }我们考虑协变导数作用在基矢量上面的形式。我们有：
+    \begin{align}
+      \nabla_{\partial_\mu} \partial_\nu = \Gamma^\lambda_{\mu\nu} \partial_\lambda
+    \end{align}
+    其中$ \Gamma^\lambda_{\mu\nu} $是一个新的张量，叫做\textbf{Connection}。这个张量不是一个真正的张量，因为它的变换形式并不满足张量的变换形式。 
+
+\rmk{
+  为了记号方便我们会写$ \nabla_\mu $意思是$ \nabla_{\partial_\mu} $。更细致的讨论我们放在question部分。
+}
+\rmk{
+  其实从定义就很容易看出来Connection并不是一个张量，因为给出其指标的并不是张量指标，而是【选定一个坐标系】之后的基矢量的指标。这是坐标系dependent的。我们可以计算出其变换法则是：
+  \begin{align}
+    \Gamma_{\beta\gamma}^{\prime\alpha}=\frac{\partial x^\mu}{\partial x^{\prime\beta}}\frac{\partial x^\nu}{\partial x^{\prime\gamma}}\frac{\partial x^{\prime\alpha}}{\partial x^\rho}\Gamma_{\mu\nu}^\rho+\frac{\partial^2x^\rho}{\partial x^{\prime\beta}\partial x^{\prime\gamma}}\frac{\partial x^{\prime\alpha}}{\partial x^\rho}\mathrm{~.}
+  \end{align}
+}
+    \item \textbf{作用在一般向量场：}
+
+      我们前面已经计算了作用在基矢量上面的形式，那么可以使用第二个remark的结果计算作用在一般向量场的形式:
+      \begin{align}
+        \nabla_{\partial_\mu} V = \nabla_{\partial_\mu} (V^\nu \partial_\nu) = (\partial_\mu V^\nu) \partial_\nu + V^\nu (\nabla_{\partial_\mu} \partial_\nu) = (\partial_\mu V^\nu + \Gamma^\nu_{\mu\lambda} V^\lambda) \partial_\nu
+      \end{align}
+\rmk{
+  为了记号方便我们会写$ \nabla_\mu V^\nu \equiv (\nabla_{\partial_\mu} V)^\nu $。也就是$ \nabla_\mu V $在$ \partial_{\mu} $所在的坐标系下面的分量。
+}
+\end{enumerate}
+
+\bigskip
+\hlr{协变导数作用在covariant co-vector上的形式}
+
+类似的我们研究协变导数是怎么用作用在covariant co-vector上的。
+\begin{enumerate}
+  \item \textbf{作用在基协变矢量上面的形式： }我们考虑协变导数作用在基协变矢量上面的形式。我们有：
+    \begin{align}
+      \nabla_{\partial_\mu} dx^\nu = -\Gamma^\nu_{\mu\lambda} dx^\lambda
+    \end{align}
+    其中$ \Gamma^\nu_{\mu\lambda} $和前面定义的connection是一样的\textbf{这个证明见讲义}
+    \item \textbf{作用在一般协变向量场：}
+
+      我们前面已经计算了作用在基协变矢量上面的形式，那么可以使用第二个remark的结果计算作用在一般协变向量场的形式:
+      \begin{align}
+        \nabla_{\partial_\mu} \omega = \nabla_{\partial_\mu} (\omega_\nu dx^\nu) = (\partial_\mu \omega_\nu) dx^\nu + \omega_\nu (\nabla_{\partial_\mu} dx^\nu) = (\partial_\mu \omega_\nu - \Gamma^\lambda_{\mu\nu} \omega_\lambda) dx^\nu
+      \end{align}
+      \rmk{
+        为了记号方便我们会写$ \nabla_\mu \omega_\nu \equiv (\nabla_{\partial_\mu} \omega)_\nu $。也就是$ \nabla_\mu \omega $在$ \partial_{\mu} $所在的坐标系下面的分量。
+      }
+\end{enumerate}
+
+\bigskip
+\hlr{协变导数作用在一般张量上的形式}
+
+类似上面的情况我不想多说了，直接写出$ \nabla_\mu $作用之后在对应坐标系下的分量形式
+\begin{align}
+ \begin{aligned}\nabla_\lambda T_{\nu_1...\nu_l}^{\mu_1...\mu_k}&=\partial_\lambda T_{\nu_1...\nu_l}^{\mu_1...\mu_k}\\&+\Gamma_{\lambda\rho}^{\mu_1}T_{\nu_1...\nu_k}^{\rho\mu_2...\mu_k}+\Gamma_{\lambda\rho}^{\mu_2}T_{\nu_1...\nu_k}^{\mu_1\rho...\mu_k}+\cdots\\&-\Gamma_{\lambda\nu_1}^\rho T_{\rho\nu_2...\nu_l}^{\mu_1...\mu_k}-\Gamma_{\lambda\nu_2}^\rho T_{\nu_1\rho...\nu_l}^{\mu_1...\mu_k}-\cdots.\end{aligned} 
+\end{align}
+
+
+\subsubsection{parallel transport}
+
+有了协变导数的定义之后，我们可以定义怎么把一个张量沿着流形上面的一个曲线进行平行移动（parallel transport）。我们定义：
+
+\defi{
+  Parallel Transport
+
+  给定一个流形上面的曲线$ C: \mathbb{R} \to \mathcal{M}, C(t) \in \mathcal{M} $选择一个coordinate system之后我们可以给出一个切向量：$ t^\mu = \displaystyle\frac{dx^\mu}{d t}  =  \displaystyle\frac{d (\psi \circ C(t))^\mu}{dt}$。于是我们可以定义，如果一个张量场$ T $满足：
+  \begin{align}
+    \nabla_{t} T = 0 
+  \end{align}
+  那么我们说这个张量场$ T $沿着曲线$ C $是平行移动的。
+}
+我们使用分量的语言写下来平行移动也就是在某个坐标系下面满足：
+\begin{align}
+  t^\mu\partial_\mu v^\nu+t^\mu\Gamma_{\mu\alpha}^\nu v^\alpha=\frac{dv^\nu}{dt}+t^\mu\Gamma_{\mu\alpha}^\nu v^\alpha=0.
+\end{align}
+
+
+
+\subsubsection{Physical Covariant Derivative}
+
+满足上面的性质的协变导数并不是唯一的。但是物理世界我们用来描述世界的导数必然是唯一的。我们会发现上面的要求缺失了对于【距离】的要求。
+
+真是的物理世界为了描述时空我们需要引入metric tensor作为距离的概念。所以我们需要metric对于协变导数有一个兼容性要求。
+
+下面我们给出两个物理上的要求，确定协变导数的具体形式
+
+\bigskip
+\hlr{Torsion Free协变导数}
+
+物理上我们一般要求协变导数满足下面的限制条件：
+\begin{itemize}
+  \item \textbf{Torsion Free: }对于任意的标量场$ f \in \mathcal{F} $，我们有：
+    \begin{align}
+      \nabla_a \nabla_b f = \nabla_b \nabla_a f
+    \end{align}
+\end{itemize}
+\rmk{
+  注意，torsion free的要求仅仅针对于光滑的标量场。对于一般的张量，torsion是不会为0的，我们后面知道这个会包含时空本身的curvature信息。
+}
+这个要求给出了一个很重要的结论。
+\begin{enumerate}
+  \item connection是对称的：
+\begin{align}
+  \Gamma^\lambda_{\mu\nu} = \Gamma^\lambda_{\nu\mu}
+\end{align}
+\item 对易子的另一种形式：
+  \begin{align}
+    [\mathbf{v},\mathbf{w}]^\nu=\left(v^\mu\nabla_\mu w^\nu-w^\mu\nabla_\mu v^\nu\right). 
+  \end{align}
+  这是因为我们的connection是对称的，所以对于一个反对称的对易子加入connection这种东西只会产出0。所以我们可以把对易子定义的导数直接写作协变导数，这样对易子的形式就更加协变了。
+\end{enumerate}
+
+\bigskip
+\hlr{Metric Compatible协变导数}
+
+物理上我们不仅仅需要平行移动的时候向量的方向不变，我们还需要距离是不变的。所以如果一个流形上我们赋予一个metric tensor $ g_{ab} $，我们还需要协变导数满足下面的限制条件：
+\begin{align}
+  t^\alpha\nabla_\alpha\left(g_{\mu\nu}v^\mu w^\nu\right)=0.
+\end{align}
+也就是如果两个向量场沿着一个曲线平行移动，那么它们的内积也是不变的。这个条件等价于：
+\begin{align}
+  t^\alpha v^\mu w^\nu\nabla_\alpha g_{\mu\nu}=0.
+\end{align}
+所以我们为了保证这个需求还需要协变导数满足：
+\begin{itemize}
+  \item \textbf{Metric Compatible: }对于任意的metric tensor $ g_{ab} $，我们有：
+    \begin{align}
+      \nabla_a g_{bc} = 0
+    \end{align}
+\end{itemize}
+当然这个条件还可以推出一些重要的结论：
+\begin{enumerate}
+  \item Metic不论是上指标还是下指标的协变导数都是0（见question部分的证明）
+  \item 协变导数可以和升降指标操作交换顺序！！我们可以随意的【升降协变导数内部的指标 $ \nabla_\mu V^\nu \to \nabla_\mu V_\nu $】也可以【升降协变导数本身的指标$ \nabla^\mu $】
+\end{enumerate}
+
+
+\bigskip
+\hlr{Levi-Civita Connection}
+
+给出了上面的两个物理要求之后，我们可以唯一的确定协变导数的connection的形式，这个connection叫做Levi-Civita Connection，形式如下：
+\begin{align}
+  \Gamma_{\mu\nu}^\rho=\frac{1}{2}g^{\rho\sigma}\left(\frac{\partial g_{\nu\sigma}}{\partial x^\mu}+\frac{\partial g_{\mu\sigma}}{\partial x^\nu}-\frac{\partial g_{\mu\nu}}{\partial x^\sigma}\right)
+\end{align}
+
+\subsection{Curvature of Manifolds}
+
+\subsubsection{Riemann Curvature Tensor}
+
+\bigskip
+\hlr{无限小平行移动的差距}
+
+一个自然的观察就是，如果我们在一个有曲率的流形上面沿着一个闭合曲线进行平行移动一个向量的话，最终得到的向量和原来的向量并不一样。这并非我们的「平行移动」非良定，而是流形本身的曲率导致的。
+
+因此我们考虑一个无限小的loop进行平行移动，那么我们只用考虑两个方向的导数算符的对易子：
+\begin{align}
+  [\nabla_\mu,\nabla_\nu]v^\rho 
+\end{align}
+一通计算之后我们给出结论：
+\begin{align}
+  [\nabla_\mu,\nabla_\nu]v^\rho =\quad\left(\partial_\mu\Gamma_{\nu\sigma}^\rho-\partial_\nu\Gamma_{\mu\sigma}^\rho+\Gamma_{\mu\lambda}^\rho\Gamma_{\nu\sigma}^\lambda-\Gamma_{\nu\lambda}^\rho\Gamma_{\mu\sigma}^\lambda\right)v^\sigma.
+\end{align}
+\rmk{
+  其中计算我们需要选择一个坐标系（不妨选择$ \partial_{\mu}, \partial_{\nu} $对应的那个坐标系）。然后从外到内的计算分量。【特别值得注意的是，我们外面的导数算符的Connection作用里面的$ \nabla_\nu v^\rho $是一个(1,1)张量需要作用两下】就像这样：
+  \begin{align}
+    \partial_\mu\left(\nabla_\nu v^\rho\right)-\Gamma_{\mu\nu}^\lambda\nabla_\lambda v^\rho+\Gamma_{\mu\sigma}^\rho\nabla_\nu v^\sigma
+  \end{align}
+}
+
+
+\bigskip
+\hlr{Riemann Curvature Tensor的定义}
+
+在上面计算讨论之后我们定义Riemann Curvature Tensor如下：
+\defi{
+  Riemann Curvature Tensor坐标定义
+
+  给定一个流形上面的一个coordinate system。并且给出这个coordinate system上面的Levi-Civita Connection $ \Gamma_{\mu\nu}^\rho $，我们定义Riemann Curvature Tensor为：
+  \begin{align}
+    \large[\nabla_\mu,\nabla_\nu]v^\rho=R^\rho{} _{\sigma\mu\nu}v^\sigma.
+  \end{align}
+  其中我们可以直接计算出来：
+  \begin{align}
+    R^\rho{}_{\sigma\mu\nu}=\partial_\mu\Gamma_{\nu\sigma}^\rho-\partial_\nu\Gamma_{\mu\sigma}^\rho+\Gamma_{\mu\lambda}^\rho\Gamma_{\nu\sigma}^\lambda-\Gamma_{\nu\lambda}^\rho\Gamma_{\mu\sigma}^\lambda.
+  \end{align}
+
+}
+
+如果我们希望协变的定义Riemann Curvature Tensor的话，我们可以使用下面的视角：
+
+\defi{Riemann Curvature Tensor协变定义
+
+  给定一个流形上面的协变导数$ \nabla $，我们定义Riemann Curvature Tensor为下面的映射：
+\begin{align}
+  R(*,*) * :& TM \times TM \times TM \to TM\\ 
+  R(X,Y)Z =& \nabla_X \nabla_Y Z - \nabla_Y \nabla_X Z - \nabla_{[X,Y]} Z
+\end{align}
+可以看到Riemann Curvature Tensor是一个$(1,3)$张量。如果上面的$ X, Y $正好是基矢量$ \partial_\mu, \partial_\nu $。我们知道基矢量是commute的（毕竟一眼看上去导数算符是commute的）所以可以得到之前坐标依赖的定义。
+}
+\rmk{
+  为什么会有最后一项$ \nabla_{[X,Y]} Z $呢？这是因为计算$ \nabla_X \nabla_Y Z $的时候会出现$ \partial_{a}\nabla_Y Z^\nu $这样的项。这样$ \partial_{a} $需要对于$ Y^\mu $有一个导数，这个我们需要通过对易子进行消除。
+}
+
+如果把这个定义用坐标的形式写出来我们可以得到：
+\begin{align}
+  R_{\sigma\mu\nu}^\rho X^\mu Y^\nu Z^\sigma=X^\mu\nabla_\mu\left(Y^\nu\nabla_\nu Z^\rho\right)-Y^\mu\nabla_\mu\left(X^\nu\nabla_\nu Z^\rho\right)-(X^\mu\nabla_\mu Y^\nu-Y^\mu\nabla_\mu X^\nu)\nabla_\nu Z^\rho,
+\end{align}
+
+\rmk{
+  对于Riemann Curvature Tensor的计算我们一定要注意，如果出现$ \partial_{a}\nabla_\mu X^\nu$这样的东西我们务必先把$ \nabla $作用完再进行导数算符的作用。
+}
+
+\bigskip
+\hlr{协变导数的对易子作用在一般张量}
+
+我们使用协变导数的对易子作用在矢量上面给出了Riemann Curvature Tensor的定义。那么我们可以推广到一般的张量上面。我们给出下面的结论：
+\begin{itemize}
+  \item \textbf{作用在vector上：}
+    \begin{align}
+      [\nabla_\mu,\nabla_\nu]v^\rho=R^\rho{}_{\sigma\mu\nu} v^\sigma.
+    \end{align}
+  \item \textbf{作用在covector上：}
+    \begin{align}
+      [\nabla_\mu,\nabla_\nu]\omega_\rho=-R^\sigma{}_{\rho\mu\nu} \omega_\sigma.
+    \end{align}
+  \item \textbf{作用在一般张量上：}
+    \begin{align}
+      [\nabla_\mu,\nabla_\nu]T^{\sigma_1...\sigma_k}{}_{\rho_1...\rho_l}=\sum_{i=1}^k R^{\sigma_i}{}_{\lambda\mu\nu} T^{\sigma_1...\lambda...\sigma_k}{}_{\rho_1...\rho_l}-\sum_{j=1}^l R^\lambda{}_{\rho_j\mu\nu} T^{\sigma_1...\sigma_k}{}_{\rho_1...\lambda...\rho_l}.
+    \end{align} 
+\end{itemize}
+因此我们会发现Riemann Curvature Tensor本身就仿佛完全决定了所有这样的流形上的曲率的信息。而不是一个仅仅对于vector有用的量。
+
+\subsubsection{Properties of Riemann Curvature Tensor}
+
+Riemann Curvature Tensor标main上有着很多指标也有海量的分量。但是其实有着很多很好的对称性保证其独立的分量其实没有多少。我们下面结果这些对称性结果：
+\begin{enumerate}
+  \item \textbf{反对称性1: }Riemann Curvature Tensor在最后两个指标上是反对称的：
+    \begin{align}
+      R^\rho{}_{\sigma\mu\nu} = - R^\rho{}_{\sigma\nu\mu}
+    \end{align}
+    如果是使用协变的定义我们也可以写作：
+    \begin{align}
+      R(X,Y)=-R(Y,X)
+    \end{align}
+  \item \textbf{反对称性2: }Riemann Curvature Tensor在前两个指标是反对称的（如果把指标降下来）【本性质仅仅适用于「Levi-Civita Connection」】
+    \begin{align}
+      R_{\rho\sigma\mu\nu} = - R_{\sigma\rho\mu\nu}
+    \end{align}
+  \item \textbf{三指标全反对称：}对于后三个指标其实是全反对称的：【本性质仅仅适用于「Levi-Civita Connection」】
+    \begin{align}
+      R_{\rho[\sigma\mu\nu]} = 0
+    \end{align}
+    也就是：
+    \begin{align}
+      R_{\rho\sigma\mu\nu} + R_{\rho\mu\nu\sigma} + R_{\rho\nu\sigma\mu} = 0
+    \end{align}
+  \item \textbf{交换对称性： }Riemann Curvature Tensor交换前两个指标和后两个指标是对称的：【本性质仅仅适用于「Levi-Civita Connection」】
+    \begin{align}
+      R_{\rho\sigma\mu\nu} = R_{\mu\nu\rho\sigma}
+    \end{align}
+    \item \textbf{Bianchi Identity: }Riemann Curvature Tensor满足Bianchi Identity：
+      \begin{align}
+        \nabla_{[\lambda} R_{\rho\sigma]\mu\nu} = 0
+      \end{align}
+\end{enumerate}
+
+对于Bianchi Identity我们展开的写出来意味着下面的等式成立：
+\begin{align}
+  \begin{aligned}[[\nabla_\lambda,\nabla_\rho],\nabla_\sigma]+[[\nabla_\rho,\nabla_\sigma],\nabla_\lambda]+[[\nabla_\sigma,\nabla_\lambda],\nabla_\rho]=0,\end{aligned}
+\end{align}
+这很像是一个导数算子的Jacobi Identity。
+
+
+\subsubsection{Riemann Curvature Tensor相关的张量}
+
+\hlr{Ricci Tensor and Ricci Scalar}
+
+我们考虑从Riemann Curvature Tensor中contract出一些新的张量。我们发现很多的contraction会给出0 因为对称性。所以最终发阿羡合法的contraction只有下面一个：
+\defi{Ricci Tensor and Ricci Scalar
+
+我们定义Ricci Tensor为Riemann Curvature Tensor的contraction：
+\begin{align}
+  R_{\mu\nu} = R^\lambda{}_{\mu\lambda\nu}.
+\end{align}
+我们定义Ricci Scalar为Ricci Tensor的contraction：
+\begin{align}
+  R = g^{\mu\nu} R_{\mu\nu}.
+\end{align}
+}
+我们可以显然的知道Ricci Tensor是一个【对称的】$(0,2)$张量，Ricci Scalar是一个标量场。
+
+
+
+\bigskip
+\hlr{
+Einstein Tensor
+}
+
+根据Bianchi Identity我们其实还可以知道另一个很好玩的张量。我们把bianchi Identity进行一个contraction可以得到：
+\begin{align}
+  \nabla_\alpha R_\mu^\alpha+\nabla_\beta R_\mu^\beta-\nabla_\mu R=0
+\end{align}
+为此我们可以自然定义一个协变导数为0的张量：
+\defi{
+  Einstein Tensor
+
+  我们定义Einstein Tensor为：
+  \begin{align}
+    G_{\mu\nu} = R_{\mu\nu} - \frac{1}{2} R g_{\mu\nu}.
+  \end{align}
+  自然满足：
+  \begin{align}
+    \nabla^\alpha G_{\alpha\beta}=0,\quad G_{\alpha\beta}=R_{\alpha\beta}-\frac{1}{2}g_{\alpha\beta}R.
+  \end{align}
+}
+
+
+\bigskip
+\hlr{Riemann Tensor的Decomposition}
+
+Riemann tensor作为一个巨大的张量，显然可以decompose成为一些其他张量的组合。一个组合就是：
+\begin{align}
+  R_{\mu\nu\sigma\rho}=C_{\mu\nu\sigma\rho}+\frac{2}{n-2}\left(g_{\mu[\sigma}R_{\rho]\nu}-g_{\nu[\sigma}R_{\rho]\mu}\right)-\frac{2}{(n-1)(n-2)}Rg_{\mu[\sigma}g_{\rho]\nu}.
+\end{align}
+具体的讨论请参考各种教材。这里并不作详细展开了。
+
+
+\subsection{Geodesic I}
+
+\subsubsection{Geodesic Equation definition}
+
+我们试图推广「直线」的概念。我们会发现，一个很自然的定义就是，如果一个曲线的切向量场沿着这个曲线是平行移动的，那么我们就说这个曲线是一个「测地线（geodesic）」。
+
+\defi{
+  Geodesic
+
+  给定一个流形上面的曲线$ C: \mathbb{R} \to \mathcal{M}, C(t) \in \mathcal{M} $选择一个coordinate system之后我们可以给出一个切向量：$ t^\mu = \displaystyle\frac{dx^\mu}{d t}  =  \displaystyle\frac{d (\psi \circ C(t))^\mu}{dt}$。于是我们可以定义，如果这个切向量场满足：
+  \begin{align}
+    \nabla_{t} t = 0 
+  \end{align}
+  那么我们说这个曲线$ C $是一个测地线。
+}
+对于这个定义我们使用分量形式写出来就是：
+\begin{align}
+  T^\alpha\nabla_\alpha T^\beta=0. 
+\end{align}
+然后我们再展开协变导数写出来就是：
+\begin{align}
+  \frac{dT^\alpha}{dt}+\Gamma_{\beta\gamma}^\alpha T^\beta T^\gamma=0,
+\end{align}
+在带入切向量的定义之后我们可以得到测地线方程的最终形式：
+\begin{align}
+  \frac{d^2x^\alpha}{dt^2}+\Gamma_{\beta\gamma}^\alpha\frac{dx^\beta}{dt}\frac{dx^\gamma}{dt}=0. 
+\end{align}
+\rmk{
+  注意，虽然一般我们对于任意的参数化都可以定义这样的方程。但是！！【只有用affine Parameter定义的Geodesic Equation是有物理意义的】！！！
+}
+
+\subsubsection{Geodesic as Extremal of Length}
+
+下面我们就可以体现【Levi-Civita Connection的物理意义】的部分。因为我们发现这样的协变导数给出的geodesic其实就是极值距离曲线。
+
+\bigskip
+\hlr{流形上曲线长度}
+
+我们可以通过metric和切向量的定义赋予流形上的一个曲线【长度】的概念。我们定义：
+\defi{
+  Curve Length on Manifold
+
+  给定一个流形上面的曲线$ C: \mathbb{R} \to \mathcal{M}, C(t) \in \mathcal{M} $我们把可以定义下面的长度：
+  \begin{align}
+    l=\int\sqrt{g_{\mu\nu}T^\mu T^\nu}dt.
+  \end{align}
+}
+我们会发现这个曲线长度的定义很合理并且满足下面的要求：
+\begin{enumerate}
+  \item \textbf{Parameterization Invariance: }如果我们对曲线进行一个reparameterization $ t \to t'(t) $，那么曲线的长度是不变的。
+  \item \textbf{Coordinate Invariance: }如果我们对流形进行一个coordinate transformation $ x^\mu \to x^{\prime\mu}(x) $，那么曲线的长度是不变的。
+  \item \textbf{Norm Preserve along curve:} 【如果研究的curve是一个geodesic】那么根据定义模长：$ \nabla_{\mathbf{T}}(g_{\mu\nu}T^\mu T^\nu)=0. $在曲线方向守恒的。
+\end{enumerate}
+
+\rmk{
+  这个模长守恒其实根据Blau的说法，体现了参数化平移不变性的对称性！！
+}
+
+\bigskip
+\hlr{Lorentz Signiture下的曲线}
+
+在Lorentz Signiture下我们需要区分三种不同的曲线：
+\begin{itemize}
+  \item \textbf{Timelike Curve: }如果一个曲线的切向量满足$ g_{\mu\nu}T^\mu T^\nu < 0 $，那么我们说这个曲线是一个timelike curve。
+  \item \textbf{Spacelike Curve: }如果一个曲线的切向量满足$ g_{\mu\nu}T^\mu T^\nu > 0 $，那么我们说这个曲线是一个spacelike curve。
+  \item \textbf{Null Curve: }如果一个曲线的切向量满足$ g_{\mu\nu}T^\mu T^\nu = 0 $，那么我们说这个曲线是一个null curve。
+\end{itemize}
+狭义相对论已经告诉我们，timelike curve对应的物体是有质量的粒子的世界线，所以如果要描述time like curve的长度我们一般定义另一个也就是proper time：
+\begin{align}
+  \tau=\int\sqrt{-g_{\mu\nu}T^\mu T^\nu}dt.
+\end{align}
+
+
+\subsection{Questions and Thoughts}
+\question{我们要求协变导数是metric compatible的，能不能同时说明对于metric两个上和两个下指标都是0？}
+
+我们一般只证明了$ \nabla_a g_{bc} = 0 $我们应该怎么证明$ \nabla_a g^{bc} = 0 $。这个涉及一点点计算技巧：
+
+首先我们证明delta函数的协变导数是0。我们有：
+\begin{align}
+  \nabla_a(\delta^b{}_cV^c)=\nabla_aV^b. 
+\end{align}
+所以可以根据lebniz rule推导出来：
+\begin{align}
+  (\nabla_a\delta_c^b)V^c+\delta_c^b(\nabla_aV^c)=\nabla_aV^b.
+\end{align}
+对比两边的式子，delta张量的协变导数就是0。
+
+下一步我们知道张量的逆矩阵$ g_{ab}g^{bc} = \delta_{a}{}^{c} $所以我们可以给出：
+\begin{align}
+  \left(\nabla_ag^{bd}\right)g_{dc}+g^{bd}\left(\nabla_ag_{dc}\right)=0.
+\end{align}
+由于我们已经知道$ \nabla_ag_{bc} = 0 $所以我们有：
+\begin{align}
+  \left(\nabla_ag^{bd}\right)g_{dc}=0.
+\end{align}
+由于$ g_{ab} $是非退化的，所以我们可以乘上$ g^{ce} $得到：
+\begin{align}
+  \nabla_ag^{be}=0.
+\end{align}
+所以我们证明了metric的两个上指标的协变导数也是0。
+
+\rmk{
+  在这样的证明之后，我们知道协变导数的规则之中。我们可以【随意在协变导数内进行升降指标】也可以【升降协变导数的指标】！随意的写各种$ \nabla^\mu $之类的东西。
+}
+
+\bigskip
+\question{为什么我们的Covariant derivative形式上确实从(k,l)张量变成了(k,l+1)张量，但是我们怎么形式化的写出基变多了一个呢？}
+
+\bigskip
+\textbf{协变导数观点1: }确定一个向量场作为输入，然后把一个(k,l)张量映射成一个(k,l)张量。
+\bigskip
+
+这种观点下面我们已经确定了一个向量场$ V $，然后对于这个向量场的协变导数被定义为：$ \nabla: V \times F_M(k,l) \to F_M(k,l) $，其中$ V $是确定的。
+
+在这种观点下，表面上我们可以多一个下标记（当然更一般的这个下标应该写作一个张量，$ \nabla_\mu $的意思其实是$ \nabla_{\partial_{\mu}} $也就是$ x^\mu $坐标系的一个基矢量）。但是其实我们并没有真正多出一个基。因为我们写$ \nabla_\mu $的意思其实是在说$ \nabla(\partial_{\mu}, * ) $所以，其实相当于放了一个协变的向量进去。
+
+但是根据我们的规则：$ \nabla(V , *) = v^\mu \nabla(\partial_\mu,*) $所以其实这个协变导数的形式在不同基下面是不一样的，可以形式化的书写这个观点下的协变导数在不同基下面的变换：
+\begin{align}
+  \nabla_a = \nabla(\partial_a, *) = \nabla(\displaystyle\frac{\partial x^\mu}{\partial y^a}\partial_\mu, *) = \displaystyle\frac{\partial x^\mu}{\partial y^a}\nabla_\mu
+\end{align}
+这样的观点下面我们有的时候仿佛多了一个指标但实际上没有。给出的张量还是一个(k,l)张量。
+
+\rmk{这个观点下我们也经常写作基矢量分量形式展开，这是因为我们基矢量的covariant derivative是可以计算的。我们可以给出$ \partial + \Gamma $的形式。}
+
+\bigskip
+\textbf{协变导数观点2: }把一个(k,l)张量映射成一个(k,l+1)张量。
+\bigskip
+
+
+这种观点下面我们协变导数被定义为：$ \nabla : F_M(k,l) \to F_M(k,l+1) $。在这样的观点下面。我们可以形式化的写出被一个对应于$ \partial_{\mu} $基矢量，的协变导数的分量：
+\begin{align}
+  (\nabla_\mu T)^{a_1,...,a_k}_{b_1,...,b_l}
+\end{align}
+有的时候我们会有下面的这个记号，并且这个分量数值可以很直接的被计算：
+\begin{align}
+  \nabla_{\mu} V^\nu \equiv (\nabla_\mu V)^\nu = \partial_\mu V^\nu + \Gamma^\nu_{\mu\lambda}V^\lambda
+\end{align}
+我们根据之前的讨论，协变导数的指标会在不同基下面展开满足张量的变换。所以这个分量其实完全可以理解为一个(k,l+1)张量的分量。所以我们说协变导数形式上确实是一个(k,l+1)张量。
+
+\rmk{
+
+由于协变导数是【会作用在基上的】，所以我们单独写协变导数的时候数学形式上很不好像张量这样的，写出来这个东西$ \nabla_\mu dx^\mu $这个太让人误解了。虽然我们协变导数本身很难写出这样的东西，但是【作用在张量之后的协变导数】就是一个合法的(k,l+1)张量，所以我们可以这样写：
+\begin{align}
+  (\nabla_\mu v^\nu) dx^\mu \otimes \partial_\nu
+\end{align}
+这样再来进行运算就很舒服了！并且这个分量的数值是根据第一种观点讨论我们已经知道的，可以计算的！！
+}
+
+\bigskip
+\question{协变导数的计算怎么用纯粹分量形式进行，而且不出错？？}
+
+首先我们讨论一个记号混淆的问题。特别是我们简化写作分量形式之后。
+
+\imp{协变导数记号混淆}{
+  我们常常会碰上这样的记号 $ \nabla_\nu v^\mu $这个记号似乎有两种理解：
+  \begin{enumerate}
+    \item 把$ v^\mu $作为一个标量场来看待，然后协变导数作用在这个标量场上面，得到一个标量场。其实就是$ \partial_\nu v^\mu $
+    \item 把$ v^\mu $作为一个向量场来看待，然后协变导数作用在这个向量场上面，得到一个(1,1)张量。其实就是$ \partial_\nu v^\mu + \Gamma^\mu_{\nu\lambda} v^\lambda $
+  \end{enumerate}
+  注意【第一种理解仅仅在把基和分量张量积起来的视角下考虑】。如果我们没有explicitly写出来基矢量。也就是【分量计算】我们永远使用第二种理解
+}
+这个讨论也就涉及一个很重要的问题，我们在计算协变导数的时候，协变导数是需要作用在基矢量上面的！！但是我们写作分量形式进行计算的话其实我们没有explicitly写出基矢量。我们应该怎么办：
+
+\imp{分量形式的协变导数计算}{
+
+使用我们的$ \nabla_\mu v^\nu $的记号，然后形式化书写
+\begin{itemize}
+  \item 使用lebniz rule形式化的每一个部分（务必加入Chris Symbol！！）的协变导数分量$ \nabla_\mu v^\nu $
+  \item 最后进行contraction
+\end{itemize}
+下面就是一个使用分量形式化书写的例子：
+\begin{align}
+  \begin{aligned}\nabla_\mu\left(\omega_\lambda v^\lambda\right)&\begin{array}{rcl}=&\left(\nabla_\mu\omega_\lambda\right)v^\lambda+\omega_\lambda\left(\nabla_\mu v^\lambda\right)\end{array}\\&=\quad(\partial_\mu\omega_\lambda)v^\lambda+\tilde{\Gamma}_{\mu\lambda}^\sigma\omega_\sigma v^\lambda+\omega_\lambda\left(\partial_\mu v^\lambda\right)+\omega_\lambda\Gamma_{\mu\rho}^\lambda v^\rho\end{aligned}
+\end{align}
+这样分量计算的结果一定是对的。但是是形式化的，我们真正在干的事情是补回来基矢量，然后先作用张量积的协变导数lebniz rule再进行contraction！！
+}
+
+\bigskip
+\question{对于metric的计算物理上怎么通过$ ds^2 $形式化的进行计算？}
+
+这个源自于习题之中的计算。我们已经知道一个metric写作：
+\begin{align}
+  ds^2 = g_{\mu\nu} dx^\mu dx^\nu 
+\end{align}
+然后我们希望形式化的做一个坐标变换：$ x^\mu(y^a) $。我们怎么快速的得到这样的变换的metric呢？所以我们需要形式化的写：$ dx^{\mu 2} $和$ dy^{a 2} $的关系我们使用下面的式子：
+\begin{align}
+  dy^2=(adx+dz)^2=a^2dx^2+2adxdz+dz^2
+\end{align}
+这个其实就是把两个基矢量变换放在了一起【务必这么数学上理解】但是形式上真的很超然。我把这个结果整理写到上一章的question and Thoughts里面了，请看\cref{dis:metrictrans}里面的讨论
+\qed
+
+

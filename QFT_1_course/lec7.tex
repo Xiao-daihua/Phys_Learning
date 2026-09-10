@@ -1,0 +1,804 @@
+\subsection{Symmetry变换的定义}
+
+\subsubsection{Symmetry Transformation for Lagrangian Formalism}
+
+\bigskip
+\hlr{对称性的定义「对于场的lagrangian formalism」}
+
+我们之前有定义对称性为一个coordinate transformation，使得EoM不变。下面我们从Lagrangian formalism出发重新定义：
+
+\defi{Global Symmetry Transformation
+
+  首先考虑一个Lie Group给出的Coordinate Transformation。【正如之前claim的，并不一定是坐标变换，这里只是粗浅的理解为坐标变换和场的协变】对于一个Lie Group $ G $，我们选择其coordinate system是$ \{\alpha_i\} $。我们考虑这个群在一个Field上面的表示。我们有：
+  \begin{align}
+    \left\{\begin{array}{lll}x^{\prime\mu}=f^\mu(x,\alpha)\\\phi_a^{\prime}(x^{\prime})=F_a(\phi(x),\alpha)\end{array}\right.
+  \end{align}
+ 如果这个变化满足下面的方程：
+ \begin{align}
+  d^4x\left[\mathcal{L}(\phi(x),\partial\phi(x))\right]=d^4x^{\prime}\left[\mathcal{L}(\phi^{\prime}(x^{\prime}),\partial^{\prime}\phi^{\prime}(x^{\prime}))+\partial_\mu^{\prime}K^\mu(\phi^{\prime})\right]
+ \end{align}
+那么我们称之为Symmetry Transformation。
+}
+\rmk{
+注意我们这个定义的细节是，对于同样的一个Lagrangian的形式，我们输入两种场函数$ \phi(x), \partial \phi(x) $以及 $ \phi'(x), \partial' \phi'(x') $。【注意，不是同点比较！！】但是$ \mathrm{L} $的函数形式是一样的！！
+}
+我们对比其与最一般的定义的关系，\cref{def:Symmetry}。我们发现：
+\begin{itemize}
+  \item 这显然就是一个coordinate transformation。我们之前讨论了坐标变换可以通过一个群表示 
+  \item 这个变换保证了EoM不变。我们下面证明:
+    \begin{enumerate}
+      \item 首先注意到作用量需要满足：
+        \begin{align}
+          S=\int_\Omega d^4x\mathcal{L}(\phi(x),\partial\phi(x))=\int_{f(\Omega,\alpha)}d^4x^{\prime}\mathcal{L}(\phi^{\prime}(x^{\prime}),\partial^{\prime}\phi^{\prime}(x^{\prime}))+\int_{\partial f(\Omega,\alpha)}d\sigma^{\prime\mu}K^\mu(\phi^{\prime}).
+        \end{align}
+        \item 下面我们对这个作用量分别对于$ \phi_a(x) $以及$ \phi_z^\prime (x^\prime) $进行变分得到结果为：
+          \begin{align}
+            \delta S=\int_\Omega d^4x \  \Gamma(\phi,\partial)^a\delta\phi_a=\int_{f(\Omega,\alpha)}d^4x^{\prime}\  \Gamma(\phi^{\prime},\partial^{\prime})^a\delta\phi_a^{\prime}
+          \end{align}
+    \end{enumerate}
+    我们会发现两个坐标系下，EoM的函数形式是完全一样的！「虽然输入的场是不一样的」都是$ \Gamma(*) $，其中$ * $代表的就是对应坐标系下输入的场。
+\end{itemize}
+
+因此我们证明了这个定义其实就是Symmetry最一般定义 \cref{def:Symmetry} 的一个特例。
+
+
+\bigskip
+\hlr{对称性变换的interpretation}
+
+此外我们还会发现:
+\begin{itemize}
+  \item 如果$ \phi_a(x) $是一个解的话，那么做一个对称性变换之后$ \phi_a'(x') = F_a(\phi(f^{-1}(x^{\prime},\alpha)),\alpha) $也是一个解。这两个函数形式都是运动方程的解。
+\end{itemize}
+这个也就意味着
+\begin{itemize}
+  \item Symmetry意味着存在一组observer，他们描述的系统是完全一样的。
+\end{itemize}
+
+\bigskip
+\hlr{例子：标量场的平移对称性}
+
+我们考虑一个标量场的lagrangian：
+\begin{align}
+  \mathcal{L}=\frac{1}{2}(\partial\phi)^2-\frac{1}{2}m^2\phi^2
+\end{align}
+可以证明下面的变换是一个symmetry transformation：
+\begin{align}
+  \left\{\begin{array}{lll}x^{\prime\mu}=x^\mu-a^\mu\\\phi^{\prime}(x^{\prime})=\phi(x)\end{array}\right.
+\end{align}
+这个是一个只有时空坐标变换的对称性变换。
+
+\bigskip
+\hlr{例子：复标量场的全局U(1)对称性}
+
+考虑下面这个Lagrangian：
+\begin{align}
+  \mathcal{L}=\partial_\mu\phi\partial^\mu\phi^*-m^2\phi\phi^*
+\end{align}
+我们可以证明下面的变换是一个symmetry transformation：
+\begin{align}
+  \left\{\begin{array}{lll}x^{\prime\mu}=x^\mu\\\phi^{\prime}(x^{\prime})=e^{i\alpha}\phi(x)\end{array}\right.
+\end{align}
+
+\bigskip
+\hlr{某个函数在Transformation下变换}
+
+我们物理上会很随意的使用一个名词【求解一个量在xxx Transformation之下的变换】，但是从来没说过这个词到底是什么意思。我现在给一个严格说法：
+\defi{某个函数在Transformation下变换
+
+  考虑一个coordinate transformation：
+  \begin{align}
+    \left\{\begin{array}{lll}x^{\prime\mu}=f^\mu(x,\alpha)\\\phi_a^{\prime}(x^{\prime})=F_a(\phi(x),\alpha)\end{array}\right.
+  \end{align}
+  我们考虑一个函数$ G(\phi(x),\partial\phi(x)) $，那么我们定义这个函数在这个coordinate transformation下的变换为：
+  \begin{align}
+    G'= G(\phi^{\prime}(x^{\prime}),\partial^{\prime}\phi^{\prime}(x^{\prime}))
+  \end{align}
+}
+也就是说，我们在保证函数形式完全不变的情况下，把场完全替换成变换之后的场$ \phi'(x') $把坐标导数也完全直接替换乘变换之后的坐标导数$ \partial'  $。
+
+
+\subsubsection{无限小坐标变换以及场构型空间变分}
+
+显然使用坐标变换和场的协变的描述Coordinate Transformation很不方便。我们会发现，如果考虑无穷小坐标变换还有一个更简单的描述的方式。
+
+当我们考虑无限小Coordinate Transformation的时候，我们可以把其当作场构型空间的一个特殊的变分来研究。这样子我们就可以使用熟悉的变分的方法来研究啦！
+
+\bigskip
+\hlr{Infinitesimal Coordinate Transformation}
+
+我们考虑一个任意的群generate的一个coordinate transformation，可以写作：
+\begin{align}
+    \left\{\begin{array}{lll}x^{\prime\mu}=f^\mu(x,\alpha)\\\phi_a^{\prime}(x^{\prime})=F_a(\phi(x),\alpha)\end{array}\right.
+\end{align}
+我们考虑Lie Parameter无限趋于0的情况，也就是变换无限小的情况，并考虑一阶近似。我们有：
+\begin{align}
+  x^{\prime\mu}&=x^\mu-\epsilon_i^\mu(x)\alpha^i \equiv x^\mu-\epsilon^\mu(x)\\
+\phi_a^{\prime}(x^{\prime})&=\phi_a(x)+\mathcal{E}_{ai}(\phi(x))\alpha^i\equiv\phi_a(x)+\mathcal{E}_a(x)
+\end{align}
+在这个情况下我们下面进行一个trick，首先对于$ \phi_a'(x') $这个函数在$ x $点进行Taylor展开：
+\begin{align}
+  \phi_a^{\prime}(x^{\prime})=\phi_a^{\prime}(x)-\epsilon^\mu(x)\partial_\mu\phi_a^{\prime}(x)
+\end{align}
+然后我们再把场的协变的无限小变换带入进去，消去$ \phi_a'(x') $，我们得到：
+\begin{align}
+  \phi_a^{\prime}(x)=\phi_a(x)+\left(\mathcal{E}_{ai}(\phi(x))+\epsilon_i^\mu(x)\partial_\mu\phi_a(x)\right)\alpha^i\equiv\phi_a(x)+\Delta_{ai}(\phi(x))\alpha^i\equiv\phi_a(x)+\Delta_a(x)
+\end{align}
+所以我们的结论是：
+
+\thm{
+  无限小坐标变换作为变分
+
+  对于无限小对称性变换，我们可以等价的写作一个场构型的变分：
+  \begin{align}
+    \phi_a'(x) = \phi_a(x)+\Delta_a(x)
+  \end{align}
+  并且其中：
+  \begin{align}
+    \Delta_a(x)= \Delta_{ai}(\phi(x))\alpha^i = \left(\mathcal{E}_{ai}(\phi(x))+\epsilon_i^\mu(x)\partial_\mu\phi_a(x)\right)\alpha^i
+  \end{align}
+}
+
+
+\rmk{
+  其实等价的，对称性变换从这个视角下，就是：
+  \begin{itemize}
+    \item 某一个特殊的无限小变分，保证作用量的变分在off-shell情况下是不变的！！
+  \end{itemize}
+  Weinberg的书之中就是使用这个视角来定义对称性的！！
+}
+
+\bigskip
+\hlr{例子：标量场的平移变换以及复标量场的全局U(1)变换}
+
+对于标量场的平移变换，我们有：
+\begin{align}
+  \epsilon^\mu=a^\mu, \quad\mathcal{E}_a=0, \quad \Delta_a=a^\mu\partial_\mu\phi_a 
+\end{align}
+对于复标量场的全局U(1)变换，我们有：
+\begin{align}
+  \begin{aligned}
+x^{\prime\mu}&=x^\mu&&\Longrightarrow\epsilon^\mu=0\\
+\phi^{\prime}&=e^{i\alpha}\phi\approx(1+i\alpha)\phi&&\Longrightarrow\mathcal{E}=i\alpha\phi\\
+\phi^{\prime*}&=e^{-i\alpha}\phi^*\approx(1-i\alpha)\phi^{\prime}&&\Longrightarrow\mathcal{E}^*=-i\alpha\phi^*\\
+\Delta&=\mathcal{E}
+\end{aligned}
+\end{align}
+
+
+
+
+\bigskip
+\hlr{无穷小对称性变换下Boundary Term}
+
+之前我们一直考虑的是【一般坐标变换】，现在我们开始考虑【对称性变换】。我们考虑对称性变换的定义我们会发现，很显然我们有：
+\begin{align}
+  \lim_{\alpha\to0}\mathcal{L}(\phi^{\prime}(x^{\prime}),\partial^{\prime}\phi^{\prime}(x^{\prime}))d^4x^{\prime}=\mathcal{L}(\phi(x),\partial\phi(x))d^4x
+\end{align}
+因此对于多出来的Boundary Term我们有：
+\begin{align}
+  \lim_{\alpha\to0}\partial_\mu^{\prime}K^\mu=0 
+\end{align}
+所以我们可以把$ K^\mu(x) $如下进行展开
+\begin{align}
+  K^\mu=\alpha^iK_i^\mu+\mathcal{O}(\alpha^2)\equiv\tilde{K}^\mu+\mathcal{O}(\alpha^2)
+\end{align}
+
+
+
+
+\subsection{Noether's Theorem}
+
+\subsubsection{Noether's Theorem的陈述与证明}
+
+\bigskip
+\hlr{Noether's Theorem的陈述}
+
+在上面的讨论基础上我们现在可以证明Noether's Theorem了！！我们给出定理：
+
+\defi{
+  Noether's Theorem
+
+  对于一个给定的Lie Group $ G $，我们选择一个coordinate system之后存在N个Lie Parameters $ \{\alpha_i\}_{i=1}^N $。如果这个群对于我们研究的系统是一个Symmetry Transformation，那么对于每一个Lie Parameter $ \alpha_i $，我们都可以定义一个守恒流$ J_i^\mu $，【在onshell的情况下】满足：
+  \begin{align}
+    \partial_\mu J_i^\mu=0
+  \end{align}
+  其中守恒量$ J_i^\mu $定义为：
+  \begin{align}
+    J_i^\mu\equiv\frac{\partial\mathcal{L}}{\partial(\partial_\mu\phi_a)}\Delta_{ai}-\epsilon_i^\mu\mathcal{L}+K_i^\mu 
+  \end{align}
+  其中$ \Delta_{ai} $是无限小对称性变换下的场的变分提出$ \alpha_i $的系数，$ \epsilon_i^\mu $是无限小对称性变换下的坐标变换提出$ \alpha_i $的系数，$ K_i^\mu $是无穷小对称性变换下的boundary term提出$ \alpha_i $的系数。
+}
+\rmk{虽然这个定理explicitly给出了守恒流的形式，但是我们一般不会直接使用这个形式来计算守恒流。我们一般会使用后面讨论的一个更简单的方法计算守恒流；所以不必纠结这些奇奇怪怪的项是什么东西。}
+
+
+\bigskip
+\hlr{Noether's Theorem的证明}
+
+下面我们给出证明。首先我们考虑对称性的定义式在无穷小对称性变换下面的形式：
+\begin{align}
+  d^4x\left[\mathcal{L}(\phi(x),\partial\phi(x))\right]=d^4x^{\prime}\left[\mathcal{L}(\phi^{\prime}(x^{\prime}),\partial^{\prime}\phi^{\prime}(x^{\prime}))+\partial_\mu^{\prime}K^\mu(\phi^{\prime})\right]
+\end{align}
+我们对上面这个式子右边的部分进行一个无穷小的展开我们。
+\begin{itemize}
+  \item Volume Element的展开：我们知道体元是按照Jacobi Matrix的行列式进行变换的。所以我们有：
+    \begin{align}
+      \left|\frac{\partial x^{\prime\mu}}{\partial x^{\nu}}\right|=\det\left(\delta_{\nu}^{\mu}-\partial_{\nu}\epsilon^{\mu}\right)=1-\mathrm{Tr}\left(\partial_{\nu}\epsilon^{\mu}\right)=1-\partial\epsilon
+    \end{align} 
+    \item Lagrangian的展开，我们直接在$ x $处进行Taylor展开：
+      \begin{align}
+        \begin{aligned}\mathcal{L}(\phi^{\prime}(x^{\prime}),\partial^{\prime}\phi^{\prime}(x^{\prime}))&=\mathcal{L}(\phi^{\prime}(x),\partial\phi^{\prime}(x))-\epsilon^\mu\partial_\mu\mathcal{L}(\phi^{\prime},\partial\phi^{\prime})\\&=\mathcal{L}(\phi^{\prime}(x),\partial\phi^{\prime}(x))-\epsilon^\mu\partial_\mu\mathcal{L}(\phi,\partial\phi)\end{aligned}
+      \end{align}
+      其中第二行，因为我们只考虑线性项；由于已经有了$ \epsilon $是对于$ \alpha $一阶的！所以直接把$ \phi' $替换成$ \phi $。
+
+      然后我们进一步展开$  \mathcal{L}(\phi^{\prime}(x),\partial\phi^{\prime}(x))$这一部分，我们发现可以使用变分的视角来进行展开，得到：
+      \begin{align}
+        \mathcal{L}(\phi^{\prime}(x^{\prime}),\partial^{\prime}\phi^{\prime}(x^{\prime}))=\mathcal{L}(\phi(x)+\Delta(x),\partial(\phi(x)+\Delta(x))-\epsilon^\mu\partial_\mu\mathcal{L}(\phi,\partial\phi)
+      \end{align}
+    然后RHS的第一项可以展开得到：
+    \begin{align}
+      \mathcal{L}(\phi(x),\partial\phi(x))+\Delta_a\frac{\partial\mathcal{L}}{\partial\phi_a}+\partial_\mu\Delta_a\frac{\partial\mathcal{L}}{\partial(\partial_\mu\phi_a)}
+    \end{align}
+\end{itemize}
+
+在上面的两个展开的结果带入原式，我们有：
+\begin{align}
+  \mathcal{L}(\phi,\partial\phi)d^4x=\left[\mathcal{L}(\phi,\partial\phi)+\Delta_a\frac{\partial\mathcal{L}}{\partial\phi_a}+\partial_\mu\Delta_a\frac{\partial\mathcal{L}}{\partial(\partial_\mu\phi_a)}-\epsilon^\mu\partial_\mu\mathcal{L}+\partial_\mu K^\mu\right](1-\partial_\nu\epsilon^\nu)d^4x
+\end{align}
+进过化简我们发现：
+\begin{align}
+  0 =\partial_\mu\left(-\epsilon^\mu\mathcal{L}+\Delta_a\frac{\partial\mathcal{L}}{\partial(\partial_\mu\phi_a)}+\tilde{K}^\mu\right)+\Delta_a\left(\frac{\partial\mathcal{L}}{\partial\phi_a}-\partial_\mu\frac{\partial\mathcal{L}}{\partial(\partial_\mu\phi_a)}\right)
+\end{align}
+注意到上面的第二项正好是EoM的形式，所以在onshell的情况下，这一项为0。我们就得到了Noether定理的结论。
+\begin{align}
+  0=\alpha_i\partial_\mu\left[-\epsilon_i^\mu\mathcal{L}+\Delta_{ai}\frac{\partial\mathcal{L}}{\partial(\partial_\mu\phi_a)}+K_\mu^i\right]
+\end{align}
+
+\bigskip
+\hlr{Noether Charge}
+
+我们发现有了conserve current之后我可以给出一个等时面上的物理量，这个物理量在时间是守恒的。
+\defi{Noether Charge
+
+  对于一个守恒流$ J_i^\mu $，我们可以定义一个等时面上的守恒量：
+  \begin{align}
+    Q_i(t)=\int d^3x J_i^0(\mathbf{x},t)
+  \end{align}
+  这个量在时间上是守恒的：
+  \begin{align}
+    \frac{dQ_i}{dt}=0
+  \end{align}
+}
+证明很简单，也就是计算：
+\begin{align}
+  \frac{dQ_i}{dt}=\int d^3x \partial_0 J_i^0 = -\int d^3x \nabla\cdot J_i =-1
+\end{align}
+
+\subsubsection{Noether Current的计算方法}
+
+\bigskip
+\hlr{使用Local Transformation计算Noether Current}
+
+虽然Noether定理之中给出了守恒流的形式，但是这个形式其实并不好用。我们一般不会直接使用这个形式来计算守恒流。我们一般会使用下面的一个trick！！我们可以使用一个symmetry lift出来的local transformation来计算Noether Current！！具体步骤如下：
+
+\begin{itemize}
+  \item \textbf{Step 1: 计算无限小变分} 
+
+    首先我们需要根据对称性变换计算出无限小变分：
+    \begin{align}
+      \delta\phi_a=\phi_a'(x)-\phi_a(x)=\Delta_{ai}(\phi(x))\alpha^i
+    \end{align}
+    \item \textbf{Step 2: Lift to Local Transformation} 
+
+      然后我们把这个无限小变分提升为一个local transformation，也就是如果我们现在认为Lie Parameter是和时空有关的，我们可以把这个transformation lift成为对应的local transformation：
+      \begin{align}
+        \delta\phi_a(x)&\equiv\phi_a^{\prime}(x)-\phi_a(x)=\Delta_{ai}\alpha^i(x)\\
+        \delta\partial_\mu\phi_a(x)&\equiv\partial_\mu(\Delta_{ai}\alpha^i(x))=(\partial_\mu\Delta_{ai})\alpha^i(x)+\Delta_{ai}\partial_\mu\alpha^i(x)
+      \end{align}
+      其中$ \alpha^i(x) $是任意的时空函数。
+    \item \textbf{Step 3: 计算作用量的变分} 
+
+      接下来我们计算这个local transformation下作用量的变分，然后使用on shell的条件会发现我们的变分结果会变得非常简单：
+      \begin{align}
+        \Delta S\equiv\int d^4x\left[\mathcal{L}(\phi^{\prime},\partial\phi^{\prime})-\mathcal{L}(\phi,\partial\phi)\right]=\int_\Omega J_i^\mu\partial_\mu\alpha^id^4x\mathrm{~+~boundary~term}
+      \end{align}
+      \item \textbf{Step 4: 读出Noether Current} 
+
+        最后我们就可以直接从上面的式子读出Noether Current了！！
+\end{itemize}
+
+\rmk{
+  上面的计算之中，我们不一定使用运动方程进行Noether Current的计算。但是有的时候也是需要带入运动方程进行简化计算的。
+
+  但是无论如何，我们可以知道$ J^\mu $是守恒的，是因为运动方程满足的时候$ \delta S = 0 $恒成立。因此我们分部积分得到$ \partial_{\mu} J^\mu = 0 $。
+
+  但是有的时候会发现，没有使用运动方程条件，推导一堆之后 $ \delta S $自动就是0。这个时候就说明没有守恒流存在，也很可能就是一个Gauge Symmetry！！
+}
+
+\subsection{Noether Current变分计算技巧}
+
+使用变分计算Noether Current是一个路径依赖的过程。因为，很可能推导着就变成了变分原理的恒等式，也就是带入运动方程之后$ \delta S = 0 $恒成立了，看不出守恒流的情况。所以我们会有一些奇技淫巧来帮助我们计算Noether Current。
+
+\begin{itemize}
+  \item \textbf{拼凑Lie Parameter乘以全导数}
+
+    我们一般带入变分后的定义会产生 $ a f[\phi] $这样的项，一个思路就是尽可能的将$ f[\phi] $拼凑成为一个全导数的形式。这样分部积分后就会给出一个对于Noether Current的贡献。
+
+    例子：标量场的时空平移
+
+  \item \textbf{无质量波色子Lagrangian全微分变形}
+\end{itemize}
+
+
+
+
+
+\subsection{Symmetry and Conservation of Poincare}
+
+下面我们讨论一个Poincare协变场的理论。如果Poincare群是这个理论的一个对称性变换构成的群的话有什么结果。
+
+\subsubsection{时空平移对称性}
+
+首先我们考虑时空平移对称性对应的对称荷和守恒量。由于我们知道，对于Poincare协变场，场的协变都是随着Lorentz变换协变的，而在时空平移变换下按照标量场进行变换。
+
+所以我们列出一般Poincare协变场的时空平移变换下的无限小变换：
+\begin{align}
+  \begin{array}{lcl}x^{\prime\mu}=x^\mu-a^\mu\equiv x^\mu-\epsilon_i^\mu(x)\alpha^i\\
+\phi_a^{\prime}(x^{\prime})=\phi_a(x)\equiv\phi_a(x)+\mathcal{E}_{ai}(\phi(x))\alpha^i\end{array}
+\end{align}
+对于这样的结果我们可以计算出对应的场构型空间的无限小变分：
+\begin{align}
+    &\epsilon^\mu=a^\mu=a^\nu\delta_\nu^\mu\Rightarrow\epsilon_\nu^\mu\equiv\delta_\nu^\mu,\\
+    &\mathcal{E}_a=0\\
+    &\Delta_a=a^\nu\partial_\nu\phi_a\Rightarrow\Delta_{a\nu}\equiv\partial_\nu\phi_a
+\end{align}
+如果我们假定平移变换对于这个Lagrangian系统并不产生boundary term的话，那么我们有$ K_i^\mu=0 $。「平移变换的Jacobi自然是0」。也就是说对称性条件更强了是：
+\begin{align}
+  \mathcal{L}(\phi(x),\partial\phi(x))=\mathcal{L}(\phi^\prime(x^\prime),\partial^\prime\phi^\prime(x^\prime))
+\end{align}
+我们可以推导出守恒流，定义为能动量张量！
+\defi{能动量张量
+
+对于一个Poincare协变场的Lagrangian系统，如果时空平移变换是其对称性变换，并且没有产生Boundary term的情况下，其对应的守恒流是：
+\begin{align}
+  T^\mu{}_\nu\equiv\frac{\partial\mathcal{L}}{\partial(\partial_\mu\phi_a)}\partial_\nu\phi_a-\delta_\nu^\mu\mathcal{L}
+\end{align}
+将其定义为能动量张量。
+}
+自然的我们也可以给出对应的守恒荷，也就是能动量4-vector：
+\begin{align}
+  P_\mu\equiv\int T^0{}_\mu d^3\mathbf{x}
+\end{align}
+\rmk{
+  我们上面只是对于一个数学上的守恒流取了一个名字。但是上面的推导之中我们完全不能知道其物理意义。我们是通过研究很多已知的系通发现这个量就是对应的物理上的能动量，才以后interprate它为能动量张量的！！
+}
+
+\subsubsection{Lorentz对称性}
+
+\bigskip
+\hlr{一般Poincare协变场的Lorentz变换}
+
+对于lorentz变换，我们知道，Poincare协变场在Lorentz变换下不仅仅有时空坐标系的变换还有场的非平凡协变。我们考虑一个Poincare协变场的Lorentz变换：
+\begin{align}
+  &x^{\prime\mu}={\Lambda^\mu}_\nu x^\nu\\
+&\phi_a^{\prime}(x^{\prime})={D(\Lambda)}_a{}^b\phi_b(x)
+\end{align}
+其中矩阵：
+\begin{align}
+  D{\left(\Lambda\right)_{a}}^{b}\equiv\left(\exp\left.-\frac{i}{2}\omega_{\mu\nu}\Sigma^{\mu\nu}\right)_{a}^{b}\right.
+\end{align}
+这里$ \Sigma^{\mu\nu} $是这个Poincare协变场对应的一个lorentz代数的表示。
+
+
+\bigskip
+\hlr{无限小Lorentz变换下的场构型空间变分}
+
+我们继续考虑无限小变换的情况。我们有：  
+\begin{align}
+  &x^{\prime\mu}=x^\mu+\omega^\mu{}_\nu x^\nu\\
+&\phi_a^{\prime}(x^{\prime})=\phi_a(x)-\frac{i}{2}(\omega_{\mu\nu}\Sigma^{\mu\nu})_a{}^b\phi_b(x)
+\end{align}
+我们可以计算出在无限小Lorentz变换下的场构型空间变分：
+\begin{align}
+  \begin{aligned}\delta \phi_a(x) = \Delta_{a}&=-\frac{i}{2}(\omega_{\mu\nu}\Sigma^{\mu\nu})_a^b\phi_b(x)-\omega^{\mu\nu}x_\nu\partial_\mu\phi_a(x)\\&=-\frac{i}{2}\omega^{\mu\nu}\left(\Sigma_{\mu\nu}+i(x_\mu\partial_\nu-x_\nu\partial_\mu)\delta\right)_a^b\phi_b(x)\\&\equiv-\frac{i}{2}\omega^{\mu\nu}\left(\Sigma_{\mu\nu}+\mathrm{J}_{\mu\nu}\right)_a^b\phi_b(x).\end{aligned}
+\end{align}
+这里我们使用了$ J_{\mu\nu}{}_a{}^b $的定义是：
+\begin{align}
+  [J_{\mu\nu}{}]_a{}^b\equiv i(x_\mu\partial_\nu-x_\nu\partial_\mu)\delta_a^b
+\end{align}
+
+\bigskip
+\hlr{标量场的Lorentz对称性守恒流}
+
+为了简单，我们现在考虑标量场的情况。对于标量场，$ \Sigma^{\mu\nu} = 0$，也就是Trivial表示。所以我们知道守恒流是：
+\begin{align}
+  J^\rho{}_{\mu\nu} = (x_\mu T^\rho{}_\nu-x_\nu T^\rho{}_\mu)
+\end{align}
+
+
+\bigskip
+\hlr{能动量张量对称性}
+
+
+我们发现这个守恒流方程外加上能动量张量守恒流方程可以推导出来一个特别的结论：
+\begin{align}
+  T_{\mu\nu}\equiv\eta_{\mu\rho}T^\rho{}_\nu=\eta_{\nu\rho}T^\rho{}_\mu\equiv T_{\nu\mu}
+\end{align}
+但很可惜，只有标量场的情况才自然满足这个条件。但是对于一般的Poincare协变场来说，能动量张量并不一定是对称的！但我们可以通过一个叫做Belinfante-Rosenfeld procedure的方法把能动量张量改造成对称的形式！！
+
+因为我们发现，如果对于能动量张量进行一个Modify，其依旧是守恒流：
+\begin{align}
+  \large\Theta^{\mu\nu}\equiv T^{\mu\nu}+\partial_\sigma A^{\sigma\mu\nu}
+\end{align}
+其中$ A^{\sigma\mu\nu} $满足$ A^{\sigma\mu\nu}=-A^{\mu\sigma\nu} $，那么我们发现$ \Theta^{\mu\nu} $依旧是一个守恒流。
+
+\bigskip
+\hlr{从表示空间分析能动量张量对称化}
+
+我们从表示空间的角度分析，我们把能动量张量对称化到底意味着什么？能动量张量存在两个Lorentz指标，所以其可以看作是$ \mathbb{R}^4 $到一个$ (1/2,1/2) \otimes (1/2,1/2) $表示空间的映射。我们知道这个表示空间可以分解为：
+\begin{align}
+  \begin{aligned}(1/2,1/2)\otimes(1/2,1/2)&=(1/2\otimes1/2,1/2\otimes1/2)\\&=(0\oplus1,0\oplus1)\\&=(0,0)\oplus(0,1)\oplus(1,0)\oplus(1,1)\end{aligned}
+\end{align}
+所以我们发现能动量张量的分量可以分为三个部分：
+\begin{itemize}
+  \item $ (0,0) $部分：这个部分对应的就是能动量张量的trace部分。
+  \item $ (0,1)\oplus(1,0) $部分：这个部分对应的就是能动量张量的antisymmetric部分。
+  \item $ (1,1) $部分：这个部分对应的就是能动量张量的symmetric部分。
+\end{itemize}
+\rmk{对于所有rank 2的张量我们都可以进行这样的分解！！}
+我们意识到，如果一个系统只有时空平移对称性的话，我们可以有任意形式的能动量张量；但是如果一个标量场系统同时具有Lorentz对称性的话，我们发现antisymmetric部分必须为0！如果不是标量场，我们也可以通过Belinfante-Rosenfeld procedure把antisymmetric部分去掉！
+\rmk{
+  所以我们发现其实能动量张量包含的信息比我们想象的要多。Lorentz Symmetry的信息实际上包含在其中。
+}
+
+\bigskip
+\hlr{Lorentz对称性的守恒荷}
+
+
+考虑一个已经被对称化之后的能动量张量。我们的守恒荷是：
+\begin{align}
+  J_{\mu\nu}\equiv\int d^3\mathbf{x}J_{\mu\nu}^0=\int d^3\mathbf{x}\left(x_\mu T^0{}_\nu-x_\nu T^0{}_\mu\right)
+\end{align}
+我们分两个进行讨论：
+\begin{enumerate}
+  \item \textbf{空间旋转部分$ J_{ij} $}
+
+    这个部分对应的守恒荷是：
+    \begin{align}
+      J_{ij}=\int d^3\mathbf{x}\left(x_i T^0{}_j - x_j T^0{}_i\right)
+    \end{align}
+    这个量对应的物理意义是角动量算符！！
+  \item \textbf{Boost部分$ J_{0i} $}
+
+    这部分对应守恒荷是：
+    \begin{align}
+      K_i\equiv J_{i0}=\int d^3\mathbf{x}(x_i\rho-x_0p_i)
+    \end{align}
+    其中$ \rho = T^0{}_0 $我们理解为能量密度。如果我们定义一个坐标是质心位置，我们将其改写Boost守恒荷：
+    \begin{align}
+      X_i^{CM}&\equiv\frac{\int d^3\mathbf{x}x_i\rho}{\int d^3\mathbf{x}\rho},\quad K_i\equiv P_0X_i^{CM}-tP_i
+    \end{align}
+    我们发现Boost守恒意味着质心沿直线进行运动！
+\end{enumerate}
+\rmk{
+  一个很重要的事实，就是守恒荷不一定和Hamiltonian对易。就像Boost的守恒荷和Hamiltonian并不是对易的。但是这个守恒荷显含时间，所以多出了一项，保证是守恒的！
+}
+\subsection{补充：对称性和守恒流的另一种定义}
+
+对于对称性以及Moether Theorem我们存在另一种等价的定义方式，下面进行讨论。下方内容复制自我的TP4的笔记里面的讨论，所以是英语的。
+
+
+
+\subsubsection{Symmetry and Conserved Current}
+
+\hl{A more standard definition of Symmetry}
+
+In Prof. Rattazzi's lecture the symmetry of a field theory is defined as:
+\defi{
+  \textbf{Symmetry(QFT EPFL)}
+
+  Consider a field theory with a series of dynamical fields $ \phi_a(x) $ and a dynamical Lagrangian $ \mathcal{L}[\phi] $. A symmetry of the action is a transformation with parameters $ \alpha $:
+  \begin{align}
+    &x^{\prime\mu}=f^{\mu}(x,\alpha)\\ 
+    &\phi_a^{\prime}(x^{\prime})=F_a(\phi(x),\alpha)
+  \end{align}
+  so that satisfy that:
+  \begin{align}
+  d^4x\left[\mathcal{L}(\phi_a(x),\partial\phi_a(x))\right]=d^4x^{\prime}\left[\mathcal{L}(\phi_a^{\prime}(x^{\prime}),\partial^{\prime}\phi_a^{\prime}(x^{\prime}))+\partial_\mu^{\prime}K^\mu(\phi^{\prime})\right]
+  \end{align}
+}
+\rmk{
+  We haven't say anything about what \textbf{transformation} means. Because it has 2 understandings with exactly the same mathematical expression:
+  \begin{itemize}
+    \item \textbf{Active Transformation}: The coordinates are fixed, but the fields are transformed.
+    \item \textbf{Passive Transformation}: The coordinates are transformed, and the field transform covariantly.
+  \end{itemize}
+}
+This definition can be rewrite a bit more elegantly when we define the change of Action under this coordinate transformtaion:
+\defi{
+  \textbf{Induced Change of Field and Acton under Transformation}
+
+  Consider a field theory with dynamical fields $ \phi_a $ and a action $ S $ that takes the form:
+\begin{align}
+    S=\int d^dx\ \mathcal{L}(\phi(x),\partial_\mu\phi(x))
+\end{align}
+Form a transformation:
+  \begin{align}
+    &x^{\prime\mu}=f^{\mu}(x,\alpha)\\ 
+    &\phi^{\prime}(x^{\prime})=F(\phi(x),\alpha)
+  \end{align}
+We can induce a change of the field configuration:
+\begin{align}
+  \phi(x)\to \phi^{\prime}(x)=F(\phi(f^{-1}(x)),\alpha)
+\end{align}
+We define the action after the as:
+  \begin{align}
+    S^{\prime}=\int d^dx\ \mathcal{L}(\phi^{\prime}(x),\partial_\mu\phi^{\prime}(x))
+  \end{align}
+}
+ We define Symmetry as:
+\defi{
+  \textbf{Symmetry(QFT standard)}
+
+  A transformation is a symmetry of the action if the action is invariant up to a total derivative:
+  \begin{align}\label{eq:Symmetry definition standard}
+    S^{\prime}=S+\int d^dx\ \partial_\mu K^\mu
+  \end{align}
+  Pluging in the definition of action we have:
+  \begin{align}
+    \delta S[\phi] = \text{Boundary Term}
+  \end{align}
+  For we can see that $ S^\prime - S $ is the standard definition of variation of action functional induced by the transformation.Thus we can rephrase as:
+  \textbf{A transformation is a symmetry if the induced variation of the action functional is a boundary term.}
+}
+We can Prove that these two definitions are equivalent.We consider \cref{eq:Symmetry definition standard} and do a variable substitution $ x\to x^{\prime} $, we have:
+\begin{align}
+  S^{\prime}=\int d^dx^{\prime} \mathcal{L}(\phi^{\prime}(x^{\prime}),\partial_\mu^{\prime}\phi^{\prime}(x^{\prime}))+\int d^dx^{\prime}\ \partial_\mu^{\prime} K^\mu = S = \int d^dx\ \mathcal{L}(\phi(x),\partial_\mu\phi(x))
+\end{align}
+Thus we compare the integrands and get the first definition.
+
+\rmk{
+  Why do we use the Second definition?
+  Because in the path integral formalism this is more natural and make the derivation more clean. However, the first definition is more intuitive easier to understand.
+}
+
+\bigskip
+\hl{Noether's Theorem and Conserved Current}
+
+Consider a transformation that is a \textbf{Symmetry of Rigid Parameters}, we can have a Coserved Current and the form of the current is related to the variation of action functional. 
+
+\thm{
+  \textbf{Noether's Theorem(Field Theory Standard)}
+
+  Consider a field theory with dynamical fields $ \phi_a $ and a action $ S $ that takes the standard form. Assume that we have a transformation that is a symmetry:
+  \begin{align}
+    x^{\prime\mu}&=x^\mu+\omega_a\frac{\delta x^\mu}{\delta\omega_a}\\ 
+    \phi^{\prime}(x^{\prime})&=\phi(x)+\omega_a\frac{\delta\mathcal{F}}{\delta\omega_a}(x)
+  \end{align}
+  where $ \omega_a $ are \textbf{rigid parameters}. Then there exists a conserved current $ J^\mu{}_{a} $ that satisfies, if we \textbf{lift the rigid parameters to local parameters} $ \omega_a(x) $:
+  \begin{align}
+    \delta S=-\int dxJ^\mu{}_a\partial_\mu\omega_a + \text{Boundary Terms}
+  \end{align}
+  We only have the derivative term $ \partial_{\mu} \omega_a $ this is because the transformation is a symmetry for rigid parameters. One explicit form of $ J^\mu{}_a $ is (\textbf{Canonical Form}):
+  \begin{align}
+    J^\mu{}_a=\left\{\frac{\partial\mathcal{L}}{\partial(\partial_\mu\phi)}\partial_\nu\phi-\delta_\nu^\mu\mathcal{L}\right\}\frac{\delta x^\nu}{\delta\omega_a}-\frac{\partial\mathcal{L}}{\partial(\partial_\mu\phi)}\frac{\delta\mathcal{F}}{\delta\omega_a}
+  \end{align}
+If the EoM is satisfied, we have the conservation equation:
+  \begin{align}
+    \partial_\mu J^\mu{}_a =0
+  \end{align}
+}
+\textbf{Proof:}
+
+\YL{[leave it for later.]}
+
+
+\hl{Series of Conserved Currents}
+
+  The Conserved Current is not Unique. We can always add a term of the form:
+  \begin{align}
+    J^\mu{}_a\to J^\mu{}_a + \partial_\nu B^{\mu\nu}{}_a \quad \text{where}\quad B^{\mu\nu}{}_a = -B^{\nu\mu}{}_a
+  \end{align}
+  Then it is also a conserved current and Satisfy the relation with the variation of action functional. This is because:
+  \begin{align}
+    \int d^dx\ \partial_\nu B^{\mu\nu}{}_a \partial_\mu \omega_a = \int d^dx\ \partial_\mu\left(B^{\mu\nu}{}_a \partial_\nu \omega_a\right) - \int d^dx\ B^{\mu\nu}{}_a \partial_\mu\partial_\nu \omega_a
+  \end{align}
+  The first term is a boundary term and the second term is symmetric in $ \mu\nu $ while $ B^{\mu\nu}{}_a $ is antisymmetric in $ \mu\nu $ thus it vanishes.  
+
+\subsubsection{Energy-Momentum Tensor}
+
+\hl{Canonical Energy-Momentum Tensor}
+
+Consider the spacetime translation symmetry:
+\begin{align}
+  &x^{\prime\mu}=x^\mu + \epsilon^\mu\\ 
+  &\phi^{\prime}(x^{\prime})=\phi(x)
+\end{align}
+We can construct its Canonical Conserved Current which is defined as the canonical
+\defi{
+  \textbf{Canonical Energy-Momentum Tensor}
+
+  The Canonical Energy-Momentum Tensor is defined as the conserved current of spacetime translation symmetry:
+  \begin{align}
+    T_c^\mu{}_\nu = \frac{\partial\mathcal{L}}{\partial(\partial_\mu\phi)}\partial_\nu\phi - \delta^\mu_\nu \mathcal{L}
+  \end{align}
+}
+According to the Noether's Theorem, we can see that if a theory has translation symmetry, we lift the rigid translation parameters $ \epsilon^\mu $ to local parameters $ \epsilon^\mu(x) $, we have:
+\begin{align}
+  \delta S = -\int d^dx\ T_c^\mu{}_\nu \partial_\mu \epsilon^\nu + \text{Boundary Terms}
+\end{align}
+and if the EoM is satisfied, we have the conservation equation:
+\begin{align}
+  \partial_\mu T_c^\mu{}_\nu =0
+\end{align}
+This is generally, the canonical E-M tensor is \textbf{not symmetric} in its indices and has a \textbf{non-vanishing trace}.
+
+\bigskip
+\hl{Symmetric Traceless Energy-Momentum Tensor}
+
+If the theory has Lorentz Symmetry and Scale Symmetry, we can always construct a symmetric traceless energy-momentum tensor from the canonical one by adding an improvement term. 
+
+\thm{
+  \textbf{Symmetric Traceless Energy-Momentum Tensor}
+
+  Consider a field theory with Lorentz and Scale Symmetry. We can construct a \textbf{Symmetric and Traceless} Energy-Monentum Tensor:
+  \begin{align}
+    T^{\mu\nu}=T_c^{\mu\nu}+\partial_\rho B^{\rho\mu\nu}+\frac{1}{2}\partial_\lambda\partial_\rho X^{\lambda\rho\mu\nu}
+  \end{align}
+  where $ B $ and $ X $ are constructed tensors. Moreover, the Lorentz and Scale Conserved Currents can be constructed from this symmetric traceless energy-momentum tensor as:
+  \begin{align}
+    J_{Lorentz}^{\mu\rho\sigma} &= T^{\mu\rho}x^\sigma - T^{\mu\sigma}x^\rho\\ 
+    J_{Scale}^\mu &= T^{\mu\nu}x_\nu
+  \end{align}
+}
+Proof: See yellow book chap 4.2.2 and chap 2.5.1. 
+
+
+\subsection{补充：Noether Charge 在Hamiltonian力学的意义}\label{sec:Noetherinham}
+
+我们发现前面的讨论都是基于Lagrangian力学的视角的。但是对于量子力学我们希望研究这些对称性和守恒荷在Hamiltonian力学中的意义。这样我们可以直接使用代数力学的方法量子化变成量子力学。
+
+\bigskip
+\hlr{Hamiltonian与时间平移对称Noether Charge}
+
+我们可以从两者的定义出发推导发现这两者【在没有边界term $ K $的情况下】必然是一个东西。有的时候一个视角方便计算我们就使用一个视角进行计算！！
+
+我们观察场论的能动量张量的定义：
+\begin{align}
+  T^\mu{}_\nu\equiv\frac{\partial\mathcal{L}}{\partial(\partial_\mu\phi_a)}\partial_\nu\phi_a-\delta_\nu^\mu\mathcal{L}
+\end{align}
+我们会意识到，$ T^0{}_0 $的形式和Hamiltonian Density：
+\begin{align}
+  \mathcal{H}\equiv\pi(x)\dot{\phi}(x)-\mathcal{L}(\phi,\pi)
+\end{align}
+的定义的形式是完全一样的。所以其实这就证明了，时间平移对称性的守恒荷也就是守恒流在等时面上的积分就是Hamiltonian。
+
+
+\bigskip
+\hlr{守恒荷与Hamiltonian对易关系}
+
+守恒荷是守恒的，所以我们根据Hamiltonian力学之中代数时间演化方程，知道：
+    \begin{align}
+      \frac{dQ}{dt}=\{Q,H\}=0.
+    \end{align}
+所以我们知道守恒荷和Hamiltonian在代数上很可能是对易的。
+\begin{itemize}
+  \item 注意！！如果守恒荷显含时间的话，那么我们有：
+    \begin{align}
+      \frac{dQ}{dt}=\frac{\partial Q}{\partial t}+\{Q,H\}=0
+    \end{align}
+    这个时候守恒荷和Hamiltonian不一定对易！！
+\end{itemize}
+一个最典型的例子就是Boost守恒荷和Hamiltonian不对易！！
+
+
+\bigskip
+\hlr{守恒荷代数与Lagrangian Formalism生成元算符代数}
+
+这两个代数是一样的。所以我们如果想找到守恒荷的代数结构，我们可以直接从Lagrangian Formalism的视角下找到生成元算符然后计算其代数结构。我们给出Lagrangian Formalism里面生成元的定义：
+\defi{生成元定义：
+
+对于一个对称性变换$ \omega $，我们可以induce一个场构型空间的无限小变分。这个变分可以写作；
+\begin{align}
+  \delta_\omega\phi(x)\equiv\phi^{\prime}(x)-\phi(x)\equiv-i\omega_aG_a\phi(x)
+\end{align}
+其中$ G_a $是一个微分算符(一般包含一些函数和导数算符的组合)，我们把这个算符叫做这个对称性变换的生成元算符。
+}
+对称性变换的生成元可以通过导数算符互相作用的方式给出一个李代数。我们会发现这个李代数和守恒荷在Poisson Bracket下面构成的代数是一致的。我们给出证明：
+
+首先对于两个对称性变换，我们可以计算不同作用顺序的差值：
+\begin{align}
+  \{\{F,Q_a\},Q_b\}-\{\{F,Q_b\},Q_a\}=\delta_b(\delta_aF)-\delta_a(\delta_bF)=[\delta_b,\delta_a]F.
+\end{align}
+然后根据Poisson Bracket的Jacobi Identity，我们有：
+\begin{align}
+  \{F,\{Q_a,Q_b\}\}=\{\{F,Q_a\},Q_b\}-\{\{F,Q_b\},Q_a\}.
+\end{align}
+因此我们得到：
+\begin{align}
+  [\delta_b,\delta_a]F=\delta_{[b,a]}F=f_{ab}^c\delta_cF=f_{ab}^c\{F,Q_c\}.
+\\\{F,\{Q_a,Q_b\}\}={f_{ab}}^c\{F,Q_c\}.
+\end{align}
+这就意味着生成元在算符作用下构成的李代数的结构常数和守恒荷在Poisson Bracket下面构成的李代数的结构常数是一样的！！因此两个李代数在数学结构上是一样的！！
+
+\bigskip
+\hlr{守恒荷作为对称性变换下动力学变量构型变换的生成元}
+
+我们知道任意的相空间上的函数都可以Generate一个场构型的变换。那么我们想问守恒荷也是一个相空间上的函数。其Generate了什么样子的变换呢？答案是：守恒荷Generate了对应的对称性变换！！
+
+我们会发现如果我们的场构型的无限小变分是$ \delta \phi_a $的话，那么这个无限小变换可以写作下面的形式：
+\begin{align}
+  \delta_\alpha\phi_a(x)\equiv\phi_a^{\prime}(x)-\phi_a(x)=\alpha^i\left\{Q_i,\phi_a(x)\right\}=\alpha^i\Delta_{ai}(x).
+\end{align}
+这个证明过程可以看作业，其实就是把守恒荷的定义带入Poisson Bracket的定义之中。然后使用functional derivative的定义进行计算就好。
+
+所以我们知道：
+\begin{itemize}
+  \item 对称性变换对应的守恒荷和对称性变换generator这个相空间的函数，是一个东西的两种定义方法！
+\end{itemize}
+
+特殊的一个经典的说法就是：\textbf{Hamiltonian = 时间平移变换生成元 = 时间平移对称性守恒荷}
+
+\subsection{Questions and thoughts}
+
+
+\question{对于对称性，Weinberg的定义和这里的定义是怎么对应的？}
+
+我们对称性有两种定义方式：
+\begin{itemize}
+  \item 课程的定义：定义对称性作为一个coordinate transformation。这个变换保证EoM不变。也就是【Lagrangian的【形式不变】】
+  \item Weinberg的定义：定义对称性作为一个field variation。这个变换如果在任何情况下【不需要on-shell】都保证【作用量取值】不变。
+\end{itemize}
+这两种定义方式是完全等价的。因为coordinate transformation可以完全induce出来一个field variation。反过来field variation也可以induce出来一个coordinate transformation。并且我们可以证明：
+\begin{itemize}
+  \item 两种定义下对应给出的守恒荷是完全一样的！！
+\end{itemize}
+第一种定义更加physical给予了丰富的物理诠释；第二种定义更加计算concrete，方便判断symmetry以及求解计算守恒流。
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{p{0.45\textwidth} | p{0.45\textwidth}}
+\hline
+\textbf{课程中的定义} & \textbf{Weinberg 的定义} \\
+\hline\hline
+对称性\textbf{坐标变换以及场的协变}（coordinate transformation） &
+对称性被定义为\textbf{场的变分}（field variation）\\
+\hline
+要求：作用量的形式不变的情况下plug in 变换前后的场和导数算符，取值相同；等价于运动方程形式不变 &
+要求：作用量在变分前后的数值不变 \\
+\hline
+Local symmetry是群参数依赖于时空点的对称性变换 &
+Local symmetry是无限小变分系数$ \epsilon(x) $依赖于时空点的场变分 \\
+\hline\hline
+\end{tabular}
+\caption{两种对称性定义的比较与对应关系}
+\end{table}
+
+
+
+\qed 
+
+
+\bigskip
+\question{为什么对于经典力学（并非场论）的时间平移对称性的推导之中不需要使用运动方程呢？}
+
+我们注意！！！
+\begin{itemize}
+  \item 我们需要【满足运动方程】来证明守恒流是守恒的！！
+  \item 但是推导守恒流的形式的时候没有必要使用运动方程！！
+\end{itemize}
+比如，经典力学的时间平移对称性的推导之中，我们并没有使用运动方程就可以读出守恒流：
+\begin{align}
+  \delta S = \int dt \dot{a} (\dot{q} \displaystyle\frac{L}{\dot{q}} - L) +\partial_{t}(aL)
+\end{align}
+我们自然可以直接读出守恒流是：
+\begin{align}
+  H = \dot{q} \displaystyle\frac{L}{\dot{q}} - L 
+\end{align}
+如果需要证明这个流是守恒的，我们需要运动方程满足，这个时候：
+\begin{align}
+  \delta S = 0 \Rightarrow \frac{dH}{dt} = 0
+\end{align}
+如果存在一个对称性，不论运动方程是否满足我们发现$ \delta S = 0$，那么才是Gauge Symmetry。
+\qed
+
+

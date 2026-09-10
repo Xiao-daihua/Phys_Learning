@@ -1,0 +1,88 @@
+\subsection{半经典波函数以及近似条件}
+
+\hlr{WKB 近似基本定义}
+
+我们希望解决一个一维的stationary schrodinger
+Equation，保证势能是任意的，并且得到一个合理的近似解应该怎么办捏？我们对于波函数进行下面改写：
+\begin{align}
+  \psi(x,t)=e^{\frac{i}{\hbar}S(x,t)}
+\end{align}
+带入定态方程之后得到结果是：
+\begin{align}
+  -i\frac{\hbar}{2m}S^{\prime\prime}+\frac{1}{2m}S^{\prime2}=E-V\mathrm{~.}
+\end{align}
+这就意味着我们的S必然是包含$ \hbar $的，我们将$ S $进行一个$ \hbar $的级数展开：
+\begin{align}
+  S=\sum_{n=0}^\infty\left(\frac{\hbar}{i}\right)^nS_n\mathrm{~.}
+\end{align}
+展开之后对比阶数给出一系列方程：
+\begin{enumerate}
+  \item \textbf{0 阶方程}
+    \begin{align}
+      \frac{1}{2m}\left(S_0^{\prime}\right)^2=E-V.
+    \end{align}
+    这个方程解出来的结果是：
+    \begin{align}
+      S_0=\pm\int dxp(x)\mathrm{~,~}\quad p(x)=\sqrt{2m(E-V(x))}\mathrm{~.}
+    \end{align}
+  \item \textbf{1 阶方程}
+    \begin{align}
+      -i\frac{\hbar}{2m}S_0^{\prime\prime}+\frac{\hbar}{i}\frac{1}{2m}2S_0^{\prime}S_1^{\prime}=0\quad\Rightarrow\quad
+      S_1^{\prime}=-\frac{S_0^{\prime\prime}}{2S_0^{\prime}}.
+    \end{align}
+\end{enumerate}
+最后结合一下前两阶近似给出的结果是：
+\begin{align}
+  \psi(x)=\frac{C_1}{\sqrt{p(x)}}\mathrm{exp}\left(\frac{i}{\hbar}\int
+  p(x)dx\right)+\frac{C_2}{\sqrt{p(x)}}\mathrm{exp}\left(-\frac{i}{\hbar}\int
+  p(x)dx\right).
+\end{align}
+\rmk{我们一定要记住对于两个$ \int p dx $务必选择同样的积分上下限！！}
+
+\bigskip
+\hlr{WKB 近似的适用条件}
+
+最重要的有两个方面的适用条件；
+\begin{enumerate}
+  \item 前后项之间的差距很大 $ \hbar^nS_{n+1}(x)$ 远大于$\hbar^{n-1}S_n(x), $
+  \item 每一项都足够趋于0，因此$ \hbar^iS_{i+1}(x) << 1 ,\quad\text{for all }i>k $
+\end{enumerate}
+对于LO Approximation上面的条件可以写作【虽然我们一般仅仅验证后面两个，这个是最重要的！毕竟前两项都是要留下来的】：
+\begin{align}
+  |S_{1}|<<|S_{0}/\hbar|\mathrm{~,~}\quad|\hbar
+  S_{2}|<<|S_{1}|\mathrm{~,~}\quad|\hbar S_{2}|<<1.
+\end{align}
+
+\line
+还有一个有直接物理意义的适用条件也就是，我们对比1阶和0阶的方程。如果能忽略一阶的方程那么就需要一阶方程远小于0阶的。我们找到leading
+term分别是$ S_0'' $和$ \hbar S_0'^2 $。
+所以如果近似合理，我们需要满足：$ \left|\hbar S_{0}^{\prime\prime}\right|
+>>\left|S_{0}^{\prime2}\right|. $这就意味着德布罗伊波长要变化不大！这给出了另一个重要的近似条件：
+\begin{align}
+  |\lambda(x)'| << 1 \quad \text{where } \lambda(x) = \frac{2\pi\hbar}{p(x)}.
+\end{align}
+
+\bigskip
+\hlr{WKB近似在不同区域的求解}
+
+这里比较复杂的推导不进行说明，但是我们可以知道类似简单的定态方程的求解。WKB近似给出；
+\begin{enumerate}
+  \item 对于classically allowed region $ E>V(x) $，可以有类似平面波的解，并且有两个待定的系数
+  \item 对于classically forbidden region $ E<V(x)
+    $，可以有类似指数衰减的解，并且有两个待定的系数；但是\textbf{有一个系数必然是0因为可以通过物理不能爆炸来决定}
+  \item 最后对于turning point的连接。我们这里不能适用WKB近似，但是可以适用线性势能近似。给出的结果就是Airy
+    Function。我们用这个方程连接两边，给出系数之间的关系。最后只剩下一个通过归一化待定的系数！！
+\end{enumerate}
+
+\subsection{Questions and thoughts}
+
+\question{WKB近似我们选择$ S_0 $的积分区间是什么？我们似乎很随意？？}
+
+一个事实就是我们考虑一个波函数是：$ \psi(x,t)  = e^{i/\hbar
+S(x,t)}$所以我们积分上下限不同其实就是一个相位因子而已，而对于一个波函数来说差一个相位对于物理完全没有影响。
+
+值得注意的是，有影响的是相位差。所以我们务必要保证所有出现的$ S_0 $选择同样的一个常数，也就是我们把积分上或者下限选择成了$ x
+$，另一个上或者下限务必选择成【同一个位置！】
+
+一个很好的选择就是turning point的位置捏！！
+\qed

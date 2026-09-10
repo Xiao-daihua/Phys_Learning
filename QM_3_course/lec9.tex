@@ -1,0 +1,302 @@
+
+
+求解S矩阵十分困难，但是我们可以通过一个变形把求解的困难转化为对于一个成为Green函数的求解。进一步我们会发现，可以使用Born近似以微扰展开的方法处理整个散射的问题！
+
+\subsection{Moller Operator的Green Function方法}
+
+\hlr{有限时间Moller算子}
+
+对于有闲时间的Moller算符我们可以使用求导再进行定积分的方式进行改写：
+\begin{align}
+  U^\dagger(t)U_0(t)=1+\int_0^tdt^{\prime}\frac{d}{dt^{\prime}}\left[U^\dagger(t^{\prime})U_0(t^{\prime})\right]
+\end{align}
+我们带入时间演化算符的定义，然后进行形式化的求导计算可以得到：
+\begin{align}
+  U^\dagger(t)U_0(t)
+  =1+i\int_0^tdt^{\prime}U^{\dagger}(t^{\prime})VU_0(t^{\prime}).
+\end{align}
+
+\bigskip
+\hlr{Moller 算子作用在out state}
+
+我们考虑Moller算子作用在out state上面的形式：
+\begin{align}
+  |\psi_0\rangle= &\lim_{t \to \infty}
+  U^\dagger(t)U_0(t)|\psi_{\mathrm{out}}\rangle \\
+  = &|\psi_{\mathrm{out}}\rangle+i\int_0^\infty d\tau
+  U^\dagger(\tau)VU_0(\tau)|\psi_{\mathrm{out}}\rangle
+\end{align}
+上面的积分发散，所以我们需要使用一个数学Trick：
+\begin{itemize}
+  \item 在积分之中引入一个衰减因子，并认为只有这样处理才是物理的：$ e^{-\epsilon \tau} $
+\end{itemize}
+于是我们得到：
+\begin{align}
+  \ket{\psi_0} =
+  |\boldsymbol{\psi}_{\mathrm{out}}\rangle\boldsymbol{+}\lim_{\boldsymbol{\varepsilon}\to0}\int
+  d^{3}\mathbf{p}\frac{1}{E_{p}\boldsymbol{-}H\boldsymbol{-}i\boldsymbol{\varepsilon}}V\left|\mathbf{p}\right\rangle\left\langle\mathbf{p}\left|\boldsymbol{\psi}_{\mathrm{out}}\right\rangle\right..
+\end{align}
+其中我们虽然H写在了分母上面，我们的意思其实是这个算符的线性组合的逆算符，对于这样的算符我们称之为\hlr{Green函数}。
+\defi{
+  Green Function
+
+  给定一个Hamiltonian $ H $，我们定义：
+  \begin{align}
+    G(z)=\frac{1}{z - \hat{H}}\mathrm{~.}
+  \end{align}
+  $ z $是一个复数变量。我们称之为Hamiltonian对应的\hlr{Green函数}。
+
+  特别的对于自由粒子Hamiltonian $ H_0 $，我们定义：
+  \begin{align}
+    G_0(z)=\frac{1}{z - \hat{H}_0}\mathrm{~.}
+  \end{align}
+}
+因此我们可以使用Green Function改写Moller算子。对于out state我们有：
+\begin{align}
+  |\psi_0\rangle=|\psi_\mathrm{out}\rangle+\lim_{\boldsymbol{\varepsilon}\to0}\int
+  d^3\mathbf{p}\ G(E_p-i\boldsymbol{\varepsilon})V|\mathbf{p}\rangle\langle\mathbf{p}|\psi_\mathrm{out}\rangle.
+\end{align}
+类似的我们也可以得到in state的结果：
+\begin{align}
+  |\psi_0\rangle=|\psi_{\mathrm{in}}\rangle+\lim_{\varepsilon\to0}\int
+  d^3\mathbf{p}\ G(E_p+i\varepsilon)V|\mathbf{p}\rangle\langle\mathbf{p}|\psi_{\mathrm{in}}\rangle.
+\end{align}
+因此我们有结论：
+\thm{\label{thm:Moller_Green}
+  Moller Operator的Green函数表示
+
+  两个Moller Operator可以使用Green函数表示为：
+  \begin{align}
+    \Omega_{\pm}=1+\lim_{\boldsymbol{\varepsilon}\to0}\int
+    d^{3}\mathbf{p}\ G(E_{p}\pm
+    i\boldsymbol{\varepsilon})V|\mathbf{p}\rangle\langle\mathbf{p}|\mathrm{~.}
+  \end{align}
+}
+
+\subsection{Green 函数到T矩阵再到散射振幅}
+
+\subsubsection{Green函数的结构}
+
+\hlr{Green函数的解析性质}
+
+根据之前Hilbert Space结构的讨论，我们可以使用第二种完备性关系对Green函数进行展开。我们知道Hilbert Space包含了两部分：
+\begin{itemize}
+  \item \textbf{离散的束缚态谱}：$ E_n < 0 $对应$ \ket{n} $
+  \item \textbf{连续的散射态谱}：$ E_p \geq 0 $对应$ \ket{\mathbf{p}_+} =
+    \Omega_+\ket{\mathbf{p}}  $
+\end{itemize}
+所以，我们可以把Green函数进行本征展开：
+\begin{align}
+  G(z)=\sum_{n=1}^N\frac{|n\rangle\langle n|}{z-E_n}+\int
+  d^3\mathbf{q}\frac{|\mathbf{q}_+\rangle\langle\mathbf{q}_+|}{z-E_q}.
+\end{align}
+观察函数形式，会发现这是一个复变函数，在实轴上面有一系列的极点以及割线：
+\begin{itemize}
+  \item \textbf{束缚态极点}：$ z=E_n<0 $，并对应留数$
+    \mathrm{res}_{z=E_n}G(z)=|n\rangle\langle n|\mathrm{~.} $
+  \item \textbf{散射态割线}：$ z\in[0,+\infty) $
+\end{itemize}
+同样的对于自由粒子Hamiltonian $ H_0 $，我们也可以得到类似的结果。只不过没有束缚态极点，只有散射态割线。通过这个分析我们有一个很重要的结论：
+\thm{
+  Green函数与Spectrum
+
+  对于一个散射理论的set up，如果我们清楚了Green函数的形式也就是知道了解析形式，那么就等价于我们知道了这个理论的Hamiltonian谱的信息。
+}
+所以我们研究散射理论可以把Green函数作为整个理论的核心对象。
+
+\bigskip
+\hlr{自由粒子Green函数}
+
+求解Green函数十分困难，但是自由粒子的Green Function十分容易求解，我们不妨先分析自由粒子Green函数的性质:
+\begin{itemize}
+  \item \textbf{自由粒子Green函数的本征展开}：
+    \begin{align}
+      G_0(z)=\int
+      d^3\mathbf{q}\frac{|\mathbf{q}\rangle\langle\mathbf{q}|}{z-E_q}\mathrm{~.}
+    \end{align}
+  \item \textbf{空间表象展开：}
+    自由粒子Green函数在空间表象下的形式为：
+    \begin{align}\label{eq:free_particle_green_function}
+      \langle\mathbf{x}|\hat{G}_{0}(z)|\mathbf{x}^{\prime}\rangle=\frac{m}{2\pi}\frac{e^{i\sqrt{2mz}|\mathbf{x}-\mathbf{x}^{\prime}|}}{|\mathbf{x}-\mathbf{x}^{\prime}|}.
+    \end{align}
+\end{itemize}
+所以我们发现自由粒子Green函数的形式是非常简单，可以解析的计算的。
+
+\bigskip
+\hlr{Lippmann-Schwinger方程}
+
+Green函数本身十分复杂。但是我们会发现自由粒子Green函数和势能形式都很简单。所以一个求解思路就是使用自由粒子Green函数和势能线性的构造出完整的Green函数。这个可以通过Lippmann-Schwinger方程进行实现：
+\thm{
+  Lippmann-Schwinger方程
+
+  给定一个Hamiltonian $ H=H_0+V $，其对应的Green函数满足下面的方程：
+  \begin{align}
+    G(z)=G_0(z)+G_0(z)VG(z)=G_0(z)+G(z)VG_0(z)\mathrm{~.}
+  \end{align}
+}
+证明使用了下面的数学公式并选择了特殊的算符$ A,B $：
+\begin{align}
+  A^{-1}=B^{-1}+B^{-1}(B-A)A^{-1}.
+\end{align}
+我们选择$ A=z-H, B=z-H_0 $，就可以得到上面的第一个Lippmann-Schwinger方程。如果选择$ A
+=z-H_0, B=z-H $，就可以得到第二个Lippmann-Schwinger方程。
+
+\subsubsection{T矩阵与散射振幅}
+
+\bigskip
+\hlr{T矩阵改写Green函数}
+
+我们知道真正的可观测量是散射振幅，所以我们需要一个方法把Green函数和散射振幅联系起来。我们定义T矩阵：
+\defi{
+  T-Matrix
+
+  给定一个Hamiltonian $ H=H_0+V $，我们定义T矩阵为：
+  \begin{align}
+    T(z)=V+VG(z)V\mathrm{~.}
+  \end{align}
+  同时有逆变换：
+  \begin{align}
+    G(z)=G_0(z)+G_0(z)T(z)G_0(z)\mathrm{~.}
+  \end{align}
+}
+我们会发现这个函数和Green函数有一样的解析结构，因此其也包含了Hamiltonian的谱信息。同时我们类似的可以使用Lippmann-Schwinger方程对T矩阵进行改写。先引入两个恒等式，可以直接根据T矩阵的定义以及Lippmann-Schwinger方程得到：
+\begin{align}\label{eq:T_matrix_identities}
+  G_0(z)T(z)=G(z)V,\\
+  T(z)G_0(z)=VG(z),
+\end{align}
+第一个恒等式加上Lippmann-Schwinger方程的形式我们可以得到拟变换。
+\begin{itemize}
+  \item 我们知道T矩阵如同Green函数的一个变形改写，几乎包含了类似的信息。
+\end{itemize}
+所以我们同样可以构造一个类似的Lippmann-Schwinger方程：
+\thm{
+  T矩阵的Lippmann-Schwinger方程
+
+  给定一个Hamiltonian $ H=H_0+V $，其对应的T矩阵满足下面的方程：
+  \begin{align}
+    T(z)=V+VG_0(z)T(z).
+  \end{align}
+}
+
+\bigskip
+\hlr{S矩阵与T矩阵的关系}
+
+我们使用T矩阵等价的改写Green函数是因为其可以很好的和S矩阵联系起来。从而我们可以得到散射振幅的信息。回顾S矩阵的定义是：
+\begin{align}
+  S=\lim_{t\to\infty}e^{iH_0t}e^{-2iHt}e^{iH_0t}.
+\end{align}
+同样的我们可以使用求导再\textbf{引入衰减因子}再积分的技巧进行改写：
+\begin{align}
+  S=1-i\lim_{\varepsilon\to+0}\int_0^\infty dte^{-\varepsilon
+  t}\left[e^{iH_0t}Ve^{-2iHt}e^{iH_0t}+e^{iH_0t}e^{-2iHt}Ve^{iH_0t}\right],
+\end{align}
+我们考虑如果一个散射in and out态是动量本征态$ |\mathbf{p}\rangle $，那么我们有：
+\begin{align}
+  \bra{\mathbf{p'}}S
+  \ket{\mathbf{p}}=\delta^{(3)}(\mathbf{p}-\mathbf{p}^{\prime})+
+  \frac{1}{2}\lim_{\varepsilon\to+0}\langle\mathbf{p}^{\prime}|VG\left(\frac{E_{\mathbf{p}^{\prime}}+E_{\mathbf{p}}}{2}+i\boldsymbol{\varepsilon}\right)+G\left(\frac{E_{\mathbf{p}^{\prime}}+E_{\mathbf{p}}}{2}+i\boldsymbol{\varepsilon}\right)V|\mathbf{p}\rangle\mathrm{~.}
+\end{align}
+我们使用前面的恒等式将Green函数改写为T矩阵形式:
+\begin{align}
+  \bra{\mathbf{p'}}S
+  \ket{\mathbf{p}}=\delta^{(3)}\left(\mathbf{p}^{\prime}-\mathbf{p}\right)+\frac{1}{2}\lim_{\varepsilon
+  \to+0}\left\langle\mathbf{p}^{\prime}\right|T\left(\frac{E_{\mathbf{p}^{\prime}}+E_{\mathbf{p}}}{2}+i\boldsymbol{\varepsilon}\right)|\mathbf{p}\rangle\left[\frac{2}{E_{\mathbf{p}^{\prime}}-E_{\mathbf{p}}+i\boldsymbol{\varepsilon}}+\frac{2}{E_{\mathbf{p}}-E_{\mathbf{p}^{\prime}}+i\boldsymbol{\varepsilon}}\right]
+\end{align}
+这里我们使用一个极其重要的数学技巧处理分母上面的复变函数；
+\begin{align}
+  \frac{1}{x+i\varepsilon}=\mathscr{P}\left(\frac{1}{x}\right)-i\pi\delta(x)\mathrm{~,}
+\end{align}
+\thm{\label{thm:S_T_relation}
+  S矩阵，T矩阵和散射振幅的关系
+
+  给定一个Hamiltonian $ H=H_0+V $，其对应的S矩阵和平面波本征态之间的关系为：
+  \begin{align}
+    \left\langle\mathbf{p}^{\prime}\right|S\left|\mathbf{p}\right\rangle=
+    \delta^{(3)}\left(\mathbf{p}^{\prime}-\mathbf{p}\right)-2\pi i
+    \delta\left(E_{\mathbf{p}}-E_{\mathbf{p}^{\prime}}\right)\langle\mathbf{p}|T\left(E_{\mathbf{p}}+i\varepsilon\right)\left|\mathbf{p}^{\prime}\right\rangle.
+  \end{align}
+  对于散射振幅以及T矩阵的关系为：
+  \begin{align}
+    t(p' \leftarrow p)
+    = \langle p' | T(E_p + i\varepsilon) | p \rangle
+    = -\frac{1}{(2\pi)^2 m} f(p' \leftarrow p), \quad \text{if } E_{p'} = E_p.
+  \end{align}
+}
+
+\bigskip
+\hlr{On shell讨论}
+
+我们对于散射振幅，t振幅的定义都是在on shell的基础上的，也就是说$ E_{p'}=E_p
+$。但是T矩阵的定义本身并没有这个限制，所以我们可以考虑T矩阵的off shell推广。然后使得对于一些能量的入射是on shell的。
+
+\subsection{Born近似}
+
+T矩阵以及散射振幅我们很难进行解析求解。所以我们会使用一个近似手段也就是Born近似进行处理。我们假设相互作用相对于自由粒子Hamiltonian来说是一个微扰，那么我们可以使用微扰论的方法处理。
+
+\bigskip
+\hlr{T矩阵的微扰展开}
+
+考虑系统的Hamiltonian呈现：
+\begin{align}
+  H=H_0+\lambda V\mathrm{~.}
+\end{align}
+我们改写T矩阵的Lippmann-Schwinger方程：
+\begin{align}
+  T(z)=\lambda V+\lambda VG_0(z)T(z)\quad \Rightarrow \quad
+  T(z)=(1-\lambda V G_0(z))^{-1}\lambda V\mathrm{~.}
+\end{align}
+因此我们对于$ (1- \lambda V G_0(z))^{-1} $进行微扰展开：
+\begin{align}
+  T=\lambda V+\lambda^2VG_0V+\lambda^3VG_0VG_0V+...
+\end{align}
+
+\bigskip
+\hlr{一阶Born近似}
+
+对于一阶的Born近似，我们只保留T矩阵展开的第一项：
+\begin{align}
+  T^{(1)}=\lambda V\mathrm{~.}
+\end{align}
+我们根据T矩阵和散射振幅的关系\cref{thm:S_T_relation}可以得到:
+\begin{align}
+  f^{(1)}(\mathbf{p^{\prime}\leftarrow
+  p})&=-(2\pi)^2m\left\langle\mathbf{p}^{\prime}|V|\mathbf{p}\right\rangle\\
+  &=-(2\pi)^2m\int
+  d^3\mathbf{x}\left\langle\mathbf{p}^{\prime}|V|\mathbf{x}\right\rangle\left\langle\mathbf{x}|\mathbf{p}\right\rangle\\
+  &=-\frac{m}{2\pi}\int
+  d^3\mathbf{x}e^{-i\mathbf{q}\cdot\mathbf{x}}V(\mathbf{x})\mathrm{~,}
+\end{align}
+这里我们使用第一章的量子力学的convention进行计算：
+\begin{align}\label{eq:plane_wave_convention}
+  \bra{p'} V \ket{p} = \int d^3x \bra{p'} x \rangle \langle x | V | p
+  \rangle = \int d^3x \frac{e^{-i p' \cdot x}}{(2\pi)^{3/2}} V(x)
+  \frac{e^{i p \cdot x}}{(2\pi)^{3/2}} = \frac{1}{(2\pi)^3} \int d^3x
+  e^{-i (p' - p) \cdot x} V(x).
+\end{align}
+其中我们使用了$ \mathbf{q}=\mathbf{p}^{\prime}-\mathbf{p}
+$表示动量转移。注意，动量转移如果我们使用入射和散射角度表示的话，有：
+\begin{align}
+  |\mathbf{q}|=2p\sin\left(\frac{\theta}{2}\right)\mathrm{~.}
+\end{align}
+如果是求解径向对称的势能$ V(\mathbf{x})=V(r) $，我们可以很方便的得到散射振幅以及微分散射截面。
+
+\bigskip
+\hlr{二阶Born近似}
+
+对于二阶的Born近似，我们保留T矩阵展开的前两项：
+\begin{align}
+  T^{(1)}+T^{(2)}=\lambda V+\lambda^2VG_0V\mathrm{~,}
+\end{align}
+第一项上面已经完成讨论，对于第二项我们有：
+\begin{align}
+  f^{(2)}(\mathbf{p^{\prime}\leftarrow
+  p})&=-(2\pi)^2m\left\langle\mathbf{p}^{\prime}|VG_0V|\mathbf{p}\right\rangle\\
+  &=-(2\pi)^2m\int
+  d^3\mathbf{q}\left\langle\mathbf{p}^{\prime}|V|\mathbf{q}\right\rangle\left\langle\mathbf{q}|G_0(E_p+i\varepsilon)|\mathbf{q}\right\rangle\left\langle\mathbf{q}|V|\mathbf{p}\right\rangle\\
+  &=-(2\pi)^2m\int
+  d^3\mathbf{q}\left\langle\mathbf{p}^{\prime}|V|\mathbf{q}\right\rangle\left\langle\mathbf{q}|V|\mathbf{p}\right\rangle\frac{1}{E_p-E_q+i\varepsilon}\mathrm{~,}
+\end{align}
+\rmk{
+  注意，我们的t-振幅和散射振幅都需要$ E_p = E_p' $成立才有意义，所以我们在这里默认这两个是一样的！
+}
+这里我们可以使用之前一阶结果\cref{eq:plane_wave_convention}进行进一步计算！

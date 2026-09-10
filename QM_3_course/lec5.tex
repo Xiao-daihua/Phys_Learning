@@ -1,0 +1,234 @@
+\subsection{WKB近似的应用}
+
+\subsubsection{应用1:Planck Formula}
+
+\hlr{Bohr-Sommerfield的理解}
+
+当我们写出Bohr-Sommerfield能级条件的时候，我们其实存在一个interpretation，我们考虑一个周期的运动的积分：
+\begin{align}
+  \oint pdx=2\pi\hbar\left(n+\frac{1}{2}\right),
+\end{align}
+这个其实是在说，我们的相空间的轨道并不是连续存在的，而是这个轨道包住的相空间的大小是量子化的。并且最小的一份是：$ 2 \pi \hbar$
+
+\bigskip
+\hlr{WKB近似给出能级差：Plank Formula}
+
+我们首先知道轨道包围相空间的大小正比于一些单位元。并且对于谐振子的计算，我们发现这个会告诉我们能量的条件。我们现在希望具体计算单位包住的相空间意味着多少能量。我们计算有；
+\begin{align}
+  \frac{\partial}{\partial E}\int_{x_1}^{x_2}pdx=p(x_2)\frac{\partial
+  x_2}{\partial E}-p(x_1)\frac{\partial x_1}{\partial
+  E}+\int_{x_1}^{x_2}\frac{\partial p}{\partial E}dx.
+\end{align}
+\rmk{很不常用所以几乎都忘了的公式：对于积分求导！我们需要对于上下限求导然后再加上对被积函数求导}
+然后我们知道turning point处动量为0，所以第一个两项为0。然后我们有：
+\begin{align}
+  \begin{aligned}\frac{\partial}{\partial
+    E}\int_{x_1}^{x_2}pdx&=\int_{x_1}^{x_2}\frac{\partial}{\partial
+    E}\sqrt{2m(E-V)}dx\\&=\int_{x_1}^{x_2}\sqrt{\frac{m}{2(E-V)}}dx.
+  \end{aligned}
+\end{align}
+下面我们量子的不知道怎么做了，就使用经典的动量的定义进行一个换元：
+\begin{align}
+  m\frac{dx}{dt}=\sqrt{2m(E-V)}\quad\Rightarrow\quad
+  dx=dt\sqrt{\frac{2(E-V)}{m}}.
+\end{align}
+
+于是我们给出了一个时间和能量相关的关系：
+\begin{align}
+  \frac{\partial}{\partial E}\oint pdx=T.
+\end{align}
+带入Bohr-Sommerfield能级条件我们有：
+\begin{align}
+  2\pi\hbar\frac{\partial n}{\partial E}=T\quad\Rightarrow\quad\Delta
+  E=\hbar\omega\cdot\Delta n\mathrm{~,}
+\end{align}
+
+\subsubsection{应用2:一般势垒隧穿}
+
+\bigskip
+\hlr{一般势垒隧穿的概念}
+
+我们研究过方形的势垒的隧穿，现在希望通过WKB近似研究更一般的隧穿问题。下面在WKB近似语境下面考虑一些基本概念，我们研究下面这个图之中的一般势垒。
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.5\textwidth]{assets/barrier.png}
+  \caption{一般势垒隧穿}
+  \label{fig:barrier}
+\end{figure}
+
+对于一般的势垒在远离势垒的情况我们可以认为是平面波的形式：
+\begin{align}
+  \psi_{x\to-\infty}=e^{\frac{i}{\hbar}px}+Re^{-\frac{i}{\hbar}px},\quad\psi_{x\to\infty}=De^{\frac{i}{\hbar}px}.
+\end{align}
+\begin{itemize}
+  \item 注意，这个解的形式是我们考虑物理意义之后选择的，排除了没有physical inerpretation的解。
+  \item 对于系数的选择我们定义入射波的系数为1，反射波的系数为$ R $，透射波的系数为$ D $。然后透射出来的概率就是$
+    |D|^2 $，反射的概率是$ |R|^2 $。并且我们有概率守恒条件：
+    \begin{align}
+      |R|^2+|D|^2=1.
+    \end{align}
+\end{itemize}
+
+\bigskip
+\hlr{WKB解析延拓方法求解系数关系}
+
+下面我们在一般讨论的基础上使用WKB近似条件研究turning point
+附近的行为从而对上这些系数之间的关系，求出反射和透射的概率。先对于$ x > b $的区域我们设波函数是：
+\begin{align}
+  \psi_{III}
+  &=\frac{C}{\sqrt{p}}\text{exp}{(\frac{i}{\hbar}\int_{b}^{x}dx^{\prime}p)}.\\
+  \int_b^xdx^{\prime}p &=\frac{2}{3}(-2mV^{\prime}(b))^{1/2}(x-b)^{3/2}.
+\end{align}
+其中使用了线性近似的条件，并且注意我们的积分是要求对于实函数进行积分的。然后我们延拓到复平面并绕过b点研究$ x \in (a,b)
+$区间之内的情况。得到【上半平面】延拓后的函数是：
+\begin{align}
+  \psi_{II} =
+  \left.\tilde{\psi}_{III}(x)\right|_{x<b}=\text{exp}{(-\frac{i\pi}{4}})\frac{C}{\sqrt{|p|}}e^{\frac{1}{\hbar}\int_{x}^{b}dx^{\prime}|p|}
+\end{align}
+\rmk{
+  注意，我们不考虑下半平面转过去，只考虑上半平面转过去；是因为只有这个是physical的！！是物理的！！所以我们认为这个就是II区间的波函数。
+}
+
+然后我们希望把这个波函数延拓到I区间，这里我们玩了一个trick：
+\begin{align}
+  \psi_{II}(x)
+  =\text{exp}{(-\frac{i\pi}{4}})\frac{C}{\sqrt{|p|}}\text{exp}{(\frac{1}{\hbar}\int_{a}^{b}dx|p|})\text{exp}({-\frac{1}{\hbar}\int_{a}^{x}dx^{\prime}|p|}).
+\end{align}
+也就是积分分成两段，第一段给出了一个常数。第二段正是我们一般延拓的样子。然后我们继续绕过a点到达I区间：
+\begin{align}
+  \psi_I(x)
+  &=
+  \frac{2C}{\sqrt{p(x)}}\,
+  e^{-\,\frac{i\pi}{4}}\,
+  \exp\!\left(\frac{1}{\hbar}\int_a^b |p(x)|\,dx\right)
+  \cos\!\left(
+    \frac{1}{\hbar}\int_x^a p(x)\,dx - \frac{\pi}{4}
+  \right)
+  \\
+  &=
+  \frac{C}{\sqrt{p(x)}}\,
+  \exp\!\left(\frac{1}{\hbar}\int_a^b |p(x)|\,dx\right)
+  \left[
+    \exp\!\left(
+      \frac{i}{\hbar}\int_x^a p(x)\,dx - i\frac{\pi}{2}
+    \right)
+    +
+    \exp\!\left(
+      -\frac{i}{\hbar}\int_x^a p(x)\,dx
+    \right)
+  \right].
+\end{align}
+
+\bigskip
+\hlr{Match 系数}
+
+我们对一下I，III区间的波函数和远离势垒的波函数，我们给出的结论是，注意是我们使用统一的归一化导致的系数：
+\begin{align}
+  R=e^{\frac{i\pi}{2}},\quad
+  D=e^{\frac{i\pi}{2}}e^{-\frac{1}{\hbar}\int_{a}^{b}dx|p|}.
+\end{align}
+所以我们知道反射率就是1也就是几乎不可能存在透射的情况。但是透射的概率存在一个特别小的数值：
+\begin{align}
+  P=|D|^2=e^{-\frac{2}{\hbar}\int_a^bdx|p|}.
+\end{align}
+
+\bigskip
+\hlr{近似适用条件}
+
+首先我们使用了LOWKB的近似，这也就是意味着我们动量变化要很小。同样的这也等价于意味着我们的透射概率特别特别小，因为下面两个条件基本一致：
+\begin{align}
+  \frac{1}{\hbar}\int_a^bdx\left|p\right|\gg 1\mathrm{~,} , \quad
+  \frac{b-a}{\lambda}\gg 1\mathrm{~,}
+\end{align}
+也就是说potential barrier需要足够宽远大于波长。
+
+同时也注意到，我们的近似完全没有使用势能在无穷的aymptotic
+condition，所以这个结果是非常general的。适用于在无穷各种趋近的方式的势垒（不包含趋近正无穷大的）
+
+\subsubsection{应用3:metastable state的lifetime}
+
+考虑一个束缚态的势阱，我们知道这个势阱有一个势垒，这个势垒允许粒子隧穿出去。我们希望计算这个束缚态的lifetime。我们可以定义单位时间穿梭出去的概率：
+\begin{align}
+  \frac{dP}{dt}=\frac{|D|^2}{T},
+\end{align}
+根据这个公式我们可以计算出来一个时间：
+\begin{align}
+  \tau=\frac{T}{|D|^2}\mathrm{~,}
+\end{align}
+
+Naively使用能量数量级进行估算是特别不准确的 $ \tau_{nai\nu
+e}\sim1\mathrm{~Ме}V^{-1}\thicksim10^{-21}\mathrm{~s~},
+$于是我们可以假设下面的模型用WKB进行估算，一波骚操作之后更准确了一点点但不多：
+\begin{align}
+  |D|^2\approx\exp\left(-\frac{\pi\beta}{\hbar}\sqrt{\frac{2m}{E}}\right)=\exp\left(-\frac{2\pi\beta}{\hbar\nu}\right)\mathrm{~,}
+\end{align}
+
+\hlr{细节可以看讲义，但我不觉得很好玩}
+
+\subsubsection{应用4: Double Well potential的本征态能级差}
+
+我们考虑下面的一个势能，我们研究其对称和反对称解之间的能级差。
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.5\textwidth]{assets/doublewell.png}
+  \caption{Double Well potential}
+  \label{fig:doublewell}
+\end{figure}
+
+\bigskip
+\hlr{波函数形式分析}
+
+显然一个自然的想法是分别考虑两个well的波函数。但是问题是，在一维情况下，不存在简并「可以数学证明」，我们不可以简并的考虑两个well之中叠加，务必整体的考虑。
+
+并且根据对称性分析能量算符和parity算符对易，我们选择共同对角化的基，所以本征态是parity算符的本征态。所以由下面两种情况：
+\begin{align}
+  \psi(-x)=\psi(x),\text{ or odd }\psi(-x)=-\psi(x)
+\end{align}
+
+\bigskip
+\hlr{基态附近的波函数形式}
+\rmk{这里我们才引入，我们考虑的是基态，前面的讨论都是一般的}
+
+下面我们希望研究【最低能量态的能极差】，所以我们假设一个波函数是$ \psi_0(x)
+$是一个类似于单个well基态波函数的函数localized在右边的well，我们物理上假设整体波函数是：
+\begin{align}
+  \psi_{1}(x)=\frac{1}{\sqrt{2}}(\psi_{0}(x)+\psi_{0}(-x))\mathrm{~,~}\quad\psi_{2}(x)=\frac{1}{\sqrt{2}}(\psi_{0}(x)-\psi_{0}(-x))\mathrm{~.}
+\end{align}
+我们物理上，根据函数形式的观察以及解schrodinger方程的经验\YL{[可以仔细讨论一下为什么是基态，但是我懒]}认为$
+\psi_1 $是整体的基态波函数，$ \psi_2 $是第一激发态波函数。
+
+\bigskip
+\hlr{定态薛定谔方程以及能级差}
+
+我们试图计算能极差，给出schrodinger equation：
+\begin{align}
+  \psi_1^{\prime\prime}+\frac{2m}{\hbar^2}(E_1-V)\psi_1=0\mathrm{~,~}\quad\psi_2^{\prime\prime}+\frac{2m}{\hbar^2}(E_2-V)\psi_2=0\mathrm{~.}
+\end{align}
+并且对其进行一个组合：
+\begin{align}
+  \psi_{1}^{\prime\prime}\psi_{2}-
+  \psi_{2}^{\prime\prime}\psi_{1}+\frac{2m}{\hbar^{2}}(E_{1}-E_{2})\psi_{1}\psi_{2}=0\mathrm{~.}
+\end{align}
+然后进行一个积分。并且利用了$ \psi_0 $的归一化。一通计算我们使用$ \psi_0 $表示的结果是：
+\begin{align}
+  2{\psi}_{0}(0){\psi}_{0}^{\prime}(0)+\frac{{m}}{{\hbar}^{2}}(E_{1}{-}E_{2})=0\mathrm{~.}
+\end{align}
+
+\bigskip
+\hlr{WKB近似计算能级差}
+
+我们下面利用WKB近似计算$ \psi_0(0),\psi_0'(0) $。我们知道在classical forbidden
+region里面【考虑$ x \in (x, x_0) $的区域】波函数是：
+\begin{align}
+  \psi_{0}(x)=\sqrt{\frac{m{\omega}}{2\pi
+  p}}e^{-\frac{1}{\hbar}\int_{x}^{a}dx|p|},
+\end{align}
+\rmk{这里我们使用了之前计算的半经典的归一化条件，对于一个well内波函数进行归一化。同时我们选择$ a \in (0, x_0)
+$就是$ \phi_0 $对应态的turning point}
+最后得出结论：
+\begin{align}
+  E_{2}{-}E_{1}=\frac{{\omega\hbar}}{{\pi}}e^{-\frac{1}{\hbar}\int_{-a}^{a}dx|p|}.
+\end{align}
+
+\subsection{Questions and Thoughts}

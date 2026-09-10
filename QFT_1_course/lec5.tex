@@ -1,0 +1,253 @@
+\subsection{Lie Group Representations}
+
+\subsubsection{一般李代数，李群表示的构造}
+
+\hlr{从代数表示构建群表示}
+
+为了之后的代数和群的讨论做铺垫，我们发现，如果给定一个代数的矩阵表示之后，我们可以通过一个操作得到整个群的表示。
+
+\defi{
+  Exponential Map 
+
+  给定一个Lie代数的矩阵表示$ T^i $，我们可以通过如下的操作得到Lie群的矩阵表示：
+  \begin{align}
+    D[g(\alpha)]=\exp\left(i\alpha^iT^i\right).
+  \end{align}
+  其中$ \alpha_i $是一些实参数，Lie Parameters。
+}
+
+\bigskip
+\hlr{群表示找到代数}
+
+
+同样的一波观察，根据第一个Lie Theorem的操作，我们发现我们对于任何李群表示我们在$ e $附近进行展开有：
+\begin{align}
+  D(\alpha)=1+i\alpha^iX_i
+\end{align}
+其中$ X_i $是某些矩阵构成了这个李群的一个李代数的表示。【这个结论可以在Lie Theorem 1-2之中看出来】我们也可以通过群的乘法法则得到这些矩阵的对易关系，从而得到这个李代数的结构常数。这个显然是一个李代数的表示，并且正好就是群对应的
+
+
+\bigskip
+\hlr{任意群表示都可以写成Exponential Map的形式}
+
+所以，对于任意的表示，我们可以把它写成某个李代数的表示Exponential Map的形式。上面的代数表示和群表示的关系告诉我们了一个操作，分为两个步骤：
+\begin{enumerate}
+  \item 先把某个群表示在单位元附近展开，得到代数表示$ \tilde{X}_i $。
+  \item 通过代数表示exp map重构群表示。
+\end{enumerate}
+
+\thm{
+  Convert to Exp Map
+
+  对于任意Lie群的矩阵表示$ D[g(\alpha)] $，都可以通过某种方式写成Exponential Map的形式。下面具体构造就是：
+  \begin{align}
+    D(\alpha)\equiv\lim_{n\to\infty}\tilde{D}(\alpha/n)^n=\lim_{n\to\infty}\left(1+i\frac{\alpha_i}{n}\tilde{X}_i+\mathcal{O}(1/n^2)\right)^n\equiv e^{i\alpha_i\tilde{X}_i}
+  \end{align}
+}
+
+\bigskip
+\hlr{一般表示空间李群的表示}
+
+\imp{
+一般表示空间李群的表示
+}{
+
+我们在研究物理的时候一般希望能够构建一般表示空间上李群的表示。下面给出一个general的方法：
+\begin{enumerate}
+  \item 从李群的defining representation出发，通过在$ e $附近的展开，给出defining representation对应的李代数表示$ X_i $。
+    \begin{align}
+      D(\alpha)=1+i\alpha^iX_i
+    \end{align}
+  \item 通过李代数的表示$ X_i $，给出李代数的结构。并且使用李代数的表示理论给出李代数不同维度，在各种表示空间上的表示。
+  \item 通过exp map的方法，给出这些表示空间上李群的表示：
+    \begin{align}
+      D[g(\alpha)]=e^{i\alpha^i\tilde{X}_i}
+    \end{align}
+\end{enumerate}
+}
+
+
+\subsubsection{Adjoint Representation}
+
+
+\bigskip
+\hlr{Adjoint Representation}
+
+李代数的空间也是一个线性空间。我们发现这个空间可以很自然的作为一个表示空间构造一个群或者代数的表示，称为Adjoint Representation。
+
+给定一个Lie群$ G $，它的李代数是$ \mathfrak{g} $。我们考虑李代数空间之中的一组基础$ X_i $，任意李代数的元素都可以写成$ X=\alpha^iX_i $的形式。现在我们考虑群作用在李代数空间之中的效果：
+\begin{align}
+  &D(\alpha)=e^{i\alpha^iX_i}\\
+  &v\mapsto e^{i\alpha^jX_j}ve^{-i\alpha^jX_j}
+\end{align}
+发现这个操作给出了一个新的李代数元素。这个映射相当于在李代数的线性空间内给出了一个李群的表示。
+
+\defi{
+  Adjoint Representation
+
+  给定一个Lie群$ G $，它的李代数是$ \mathfrak{g} $。我们考虑李代数空间之中的一组基础$ X_i $，任意李代数的元素都可以写成$ v= v^iX_i $的形式。定义Adjoint Representation为：
+  \begin{align}
+    D_{Adj}(g(\alpha)):\left.v\mapsto D(g(\alpha))\right.v\left.D(g(\alpha))^{-1}\right.
+  \end{align}
+  其中$ D(g(\alpha))=e^{i\alpha^iX_i} $是群的表示。
+}
+
+\bigskip
+\hlr{李代数的Adjoint Representation}
+
+我们考虑一个$ \alpha_i \to 0 $的情况下的群元素作用在李代数空间的元素$ v $上面的效果。我们有：
+\begin{align}
+  \begin{aligned}(1+i\alpha^jX_j)v(1-i\alpha^jX_j)&=v+i\alpha^j[X_j,v]\\&=v+i\alpha^jv^k[X_j,X_k]\\&=v^iX_i+i\alpha^jv^kif_{jk}^lX_l\\&=(v^i-\alpha^jv^kf_{jk}^i)X_i\\&\equiv v^{\prime i}X_i\end{aligned}
+\end{align}
+于是我们发现:
+\begin{align}
+  v^i\mapsto v^i-\alpha^jv^kf_{jk}^i=(\delta_k^i-\alpha^jf_{jk}^i)v^k
+\end{align}
+使用之前李群的表示给出李代数的表示的方法，我们知道李代数的adjoint表示是：
+\begin{align}
+  (\tilde{X}_j)_k^i=if_{jk}^i,
+\end{align}
+其中$ f_{jk}^i $是李代数的结构常数。回顾定义是：
+\begin{align}
+[X_i,X_j]=if_{ij}^kX_k,  
+\end{align}
+
+\bigskip
+\hlr{Adjoint Representation的exp形式}
+
+我们之前知道任意表示我们可以写成exp map的形式。那么Adjoint Representation自然也可以写成exp map的形式，我们可以自然的exp：
+\begin{align}
+  v^i\mapsto D_{Adj}(g(\alpha))_j^iv^j\equiv(e^{i\alpha^k\tilde{X}_k})_j^iv^j.
+\end{align}
+
+\bigskip
+\hlr{Adjoint Representation作用在李代数的基}
+
+下面考虑Adjoint Representation作用在李代数的基$ X_i $上面的效果：
+\begin{align}
+  g(\alpha):X_i\mapsto e^{i\alpha^jX_j}X_ie^{-i\alpha^jX_j}=X_iD_{Adj}(g(\alpha))_j^i
+\end{align}
+对于无限小变换，左边的基本定义下是：
+\begin{align}
+  X_i\mapsto X_i+i\alpha^j[X_j,X_i]+\ldots. 
+\end{align}
+然后根据之前讨论的exp map形式的Adjoint Representation，我们发现：
+\begin{align}
+  [X_j,X_i]=if_{ji}^kX_k
+\end{align}
+也就是李代数的结构常数的定义，我们发现这些都是consistent的。
+
+
+\bigskip
+\hlr{李群作用在李代数上}
+
+我们在物理上经常使用到李群作用在自己的李代数上面的情况。Adjoint Representation就给了一个自然的数学语言来描述这个过程。我们发现李群作用在李代数上面可以描述为：
+\begin{align}
+  v\mapsto D(g(\alpha))v\left.D(g(\alpha))^{-1}\right.
+\end{align}
+然后考虑无限小的情况下，对于李代数的基$ X_i $，我们有：
+\begin{align}
+  X_i\mapsto X_i+i\alpha^j[X_j,X_i]+...
+\end{align}
+我们认为commutator可以描述李代数作用在其自己上面：
+\begin{align}
+  [X_j,X_i]=if_{ji}^kX_k
+\end{align}
+
+\subsection{Lorentz and Poincare Group}
+
+\hlr{Poincare Group的定义}
+
+Poincare Group是描述Lorentz转动+平移的群。定义为
+\defi{Poincare Group(ISO(3,1))
+
+  Poincare Group定义为满足下面的关系的流形上的坐标变换构成的群：
+  \begin{align}
+    x^\mu\mapsto x^{\prime\mu}=\Lambda^\mu{}_\nu x^\nu+a^\mu,\quad\eta^{\mu\nu}\Lambda^\rho{}_\mu\Lambda^\sigma{}_\nu=\eta^{\rho\sigma}
+  \end{align}
+}
+这个群的参数一共有10个，自由度。4个来自平移部分$ a^\mu $，6个来自Lorentz转动部分$ \Lambda^\mu{}_\nu $。
+
+\bigskip
+\hlr{Lorentz Group的分类}
+
+Lorentz Group是Poincare Group的一个子群，我们记作O(3,1)，包含了所有不包含平移的坐标变换。我们下面发现Lorantz Group存在分区。
+\begin{itemize}
+  \item \textbf{行列式分类}：$ \det(\Lambda)=\pm1 $
+\end{itemize}
+根据Lorentz Group的定义，我们发现行列式只能是1或者-1。于是我们可以把Lorentz Group分成两个部分，分别是$ \det(\Lambda)=1 $的部分和$ \det(\Lambda)=-1 $的部分。
+\begin{enumerate}
+  \item $ \det(\Lambda)=1 $的部分称为\textbf{Proper Lorentz Group}，记为$ SO(3,1) $。
+  \item $ \det(\Lambda)=-1 $的部分称为\textbf{Improper element}。这部分不含identity，所以并不构成一个子群。
+\end{enumerate}
+
+\begin{itemize}
+  \item \textbf{时间方向分类}：$ \Lambda^0{}_0\geq1 $或者$ \Lambda^0{}_0\leq-1 $
+\end{itemize}
+
+我们根据$ \eta_{00} = 1 $以及定义可以推导：
+\begin{align}
+  1=\left(\Lambda^0{}_0\right)^2-\sum_i\left(\Lambda^i{}_0\right)^2\Rightarrow\left(\Lambda^0{}_0\right)^2\geq1
+\end{align}
+于是我们可以根据$ \Lambda^0{}_0 $的符号把Lorentz Group再分成两个部分：
+\begin{enumerate}
+  \item $ \Lambda^0{}_0\geq1 $的部分称为\textbf{orthochronous Lorentz Group}，记为$ SO(3,1)^\uparrow $。
+  \item $ \Lambda^0{}_0\leq-1 $的部分称为\textbf{non-orthochronous 部分}。
+\end{enumerate}
+
+概括上面的分类我们有：
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.6\textwidth]{assets/lorentzgroup.png}
+  \caption{Lorentz Group的分类}
+  \label{fig:lorentzgroup}
+\end{figure}
+
+我们发现洛伦兹群有三个子群，其中最小的是：
+\begin{align}
+  \mathscr{L}_+^\uparrow\equiv SO^\uparrow(1,3)
+\end{align}
+也就是proper orthochronous Lorentz group。同时包含这个群的还有两个子群：
+\begin{align}
+  \mathscr{L}_+^\uparrow\oplus\mathscr{L}_+^\downarrow=SO(1,3)\mathrm{~and~}\mathscr{L}_+^\uparrow\oplus\mathscr{L}_-^\uparrow=O^\uparrow(1,3)
+\end{align}
+
+
+\bigskip
+\hlr{Parity and Time Reversal}
+
+Lorentz群存在这么多个分支的一个原因是因为其中存在离散的变换。而分成四个部分就是因为两个离散变换以及其组合。
+\begin{align}
+  P:(t,\vec{x})\mapsto(t,-\vec{x})\in\mathscr{L}_-^\uparrow\\ 
+T:(t,\vec{x})\mapsto(-t,\vec{x})\in\mathscr{L}_-^\downarrow\\
+ PT:(t,\vec{x})\mapsto(-t,-\vec{x})\in\mathscr{L}_+^\downarrow
+\end{align}
+我们最后会发现，其实Lorantz Group就是Proper orthochronous Lorentz Group和这两个离散变换生成的群。
+\begin{align}
+  O(1,3)=\mathscr{L}_+^\uparrow\circ\{1,P,T,PT\}
+\end{align}
+
+
+
+\subsection{Questions and thoughts}
+
+\question{作业之中O(N)和SO(N)的维度是一样的，是怎么导致群不一样的？}
+
+给出这两个群的定义：
+\begin{align}
+  &O(N)\equiv\left\{R\in GL(N,\mathbb{R}){\large|}RR^T=R^TR=1_N\right\}.\\ 
+  &SO(N)\equiv\left\{R\in GL(N,\mathbb{R})|RR^T=R^TR=1_N,\det(R)=1\right\}.
+\end{align}
+我们使用物理学家常用的exp map的形式：
+\begin{align}
+  D[g(\alpha)]=1+i\alpha^iT^i+O(\alpha^2). 
+\end{align}
+然后会发现这两个群对应的代数都是so(N)，也就是$ N\times N $维度的全反对称纯虚数矩阵空间。但是两者的群结构是不一样的。这是因为O(N)包含了SO(N)的一个离散部分，也就是行列式为-1的那些矩阵。这个离散部分无法通过连续变化从单位元到达，因此O(N)和SO(N)是不同的群，尽管它们的李代数是相同的。
+
+离散部分的生成元是这样的三个很像是Parity变换的矩阵：
+\begin{align}
+  \left.P_x=\left[\begin{array}{ccc}-1&0&0\\0&1&0\\0&0&1\end{array}\right.\right],\quad P_y=\begin{bmatrix}1&0&0\\0&-1&0\\0&0&1\end{bmatrix},\quad P_z=\begin{bmatrix}1&0&0\\0&1&0\\0&0&-1\end{bmatrix}.
+\end{align}
+由于他们是离散的，不可以被切空间和exp map这样的构造包含进去，所以O(N)和SO(N)的群结构是不一样的，但是李代数是可以一样的。
+\qed

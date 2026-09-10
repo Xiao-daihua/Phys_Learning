@@ -1,0 +1,706 @@
+\subsection{Spinor的指标记号}
+
+根据前面Complex Conjugate的讨论我们可以使用一种指标记号标记left handed和right
+handed的spinor。一个思路就是我们使用$ \epsilon $作为类似metric来升降指标。
+\rmk{
+  指标记号有很多种convention，我们这里使用的是和David Tong的SUSY讲义完全不一样的一种。之后学习的时候要注意区分！！
+}
+
+\bigskip
+\hlr{标准指标定义}
+
+我们之前一直使用向量和矩阵的形式表示spinor，下面我们为这些向量和矩阵赋予一个标准的指标记号。我们定义：
+\defi{
+  Weyl Spinor标准指标记号
+
+  \begin{itemize}
+    \item \textbf{Weyl Spinor}：对于spinor向量我们赋予指标：
+      \begin{align}
+        \left(\psi_L\right)_\alpha,\left(\psi_R\right)^{\dot{\alpha}}
+      \end{align}
+    \item \textbf{Lorentz Transformation}：对于Lorentz变换在Spinor空间的表示矩阵我们赋予指标：
+      \begin{align}
+        \left(\Lambda_{L}\right)_{\alpha}{}^{\beta} =
+        e^{-\frac{1}{2}(\vec{\eta}+i\theta)\cdot\sigma}
+        ,\quad\left(\Lambda_{R}\right)^{\dot{\alpha}}{}_{\dot{\beta}}=
+        e^{-\frac{1}{2}(-\vec{\eta}+i\theta)\cdot\sigma}
+      \end{align}
+  \end{itemize}
+  注意：指标的前后顺序对应着矩阵的行和列！
+}
+在这个标准指标记号下，场本身的Lorentz变换写作：
+\begin{align}
+  (\psi_L)_\alpha\to(\Lambda_L)_\alpha{}^\beta(\psi_L)_\beta,\quad(\psi_R)_{\dot{\alpha}}\to(\Lambda_R)^{\dot{\alpha}}{}_{\dot{\beta}}(\psi_R)^{\dot{\beta}}
+\end{align}
+
+\bigskip
+\hlr{指标的升降}
+
+我们定义使用$ \epsilon $作为类似metric的对象来进行指标的升降。具体定义如下：
+\defi{
+  $ \epsilon $指标规则
+
+  对于$ \epsilon $矩阵我们定义指标：
+  \begin{align}
+    \epsilon_{\alpha\beta}=-\epsilon_{\beta\alpha}=\epsilon^{\alpha\beta},\quad\epsilon_{\dot{\alpha}\dot{\beta}}=-\epsilon_{\dot{\beta}\dot{\alpha}}=\epsilon^{\dot{\alpha}\dot{\beta}},\quad\epsilon_{12}=-\epsilon_{\dot{1}\dot{2}}=1.
+  \end{align}
+  注意其中矩阵形式：
+  \begin{align}
+    \epsilon_{\alpha\beta} =
+    \begin{pmatrix}
+      0 & 1\\
+      -1 & 0
+    \end{pmatrix}=- \epsilon^{-1} = - \epsilon^T\mathrm{~.}
+  \end{align}
+}
+下面我们使用$ \epsilon $来进行指标的升降：
+\defi{
+  Weyl Spinor指标升降规则
+
+  对于Weyl Spinor我们定义标准指标进行升降（正变换）的结果为：
+  \begin{align}
+    \left(\psi_{L}\right)^{\alpha}\equiv\epsilon^{\alpha\beta}\left(\psi_{L}\right)_{\beta},\quad\left(\psi_{R}\right)_{\dot{\alpha}}\equiv\epsilon_{\dot{\alpha}\dot{\beta}}\left(\psi_{R}\right)^{\dot{\beta}}.
+  \end{align}
+  注意！正变换升降指标是对于$ \epsilon $的\textbf{第二个指标}进行contract！！
+
+  逆变换回到标准指标的结果为：
+  \begin{align}
+    \left(\psi_L\right)^\beta\epsilon_{\beta\alpha}=\left(\psi_L\right)_\alpha,\quad\left(\psi_R\right)_\beta\epsilon^{\dot{\beta}\dot{\alpha}}=\left(\psi_R\right)^{\dot{\alpha}}
+  \end{align}
+  注意！逆变换降指标是对于$ \epsilon $的\textbf{第一个指标}进行contract！！
+}
+注意！我们需要固定正变换和逆变换contract不同的指标，是因为$ \epsilon $是\textbf{反对称矩阵}！因此$
+\epsilon $两个上指标和两个下指标是一样的而非metric一样的逆的关系，真正的逆是交换两个指标的顺序因为$
+\epsilon^{-1} = \epsilon^{T} $，因此正变换和逆变换求和指标是不同的！
+
+\bigskip
+\hlr{Levi-Civita符号的性质}
+
+\begin{itemize}
+  \item \textbf{自身contraction}： Levi-civita符号自身contraction满足：
+    \begin{align}
+      \epsilon^{\gamma\alpha}\epsilon^{\delta\beta}\epsilon_{\alpha\beta}=\epsilon^{\gamma\delta}\quad\epsilon_{\dot{\alpha}\dot{\beta}}\epsilon^{\dot{\alpha}\dot{\gamma}}\epsilon^{\dot{\beta}\dot{\delta}}=\epsilon^{\dot{\gamma}\dot{\delta}}.
+    \end{align}
+\end{itemize}
+进一步我们可以定义一个上一个下指标的Levi-Civita符号：
+\defi{
+  混合指标Levi-Civita符号
+
+  我们定义一个上一个下指标的Levi-Civita符号：
+  \begin{align}
+    \epsilon_\alpha{}^\beta\equiv\epsilon^{\gamma\beta}\epsilon_{\gamma\alpha}\mathrm{~and~}\epsilon^\beta{}_\alpha\equiv\epsilon^{\beta\gamma}\epsilon_{\gamma\alpha}
+  \end{align}
+  根据前面的定义我们有：
+  \begin{align}
+    \epsilon_\alpha{}^\beta=-\epsilon^\beta{}_\alpha=\delta_\alpha^\beta
+  \end{align}
+  以及
+  \begin{align}
+    \epsilon_{\dot{\alpha}}{}^{\dot{\beta}}\equiv\epsilon_{\dot{\alpha}\dot{\gamma}}\epsilon^{\dot{\gamma}\dot{\beta}}\mathrm{~and~}\epsilon^{\dot{\beta}}{}_{\dot{\alpha}}\equiv\epsilon_{\dot{\gamma}\dot{\alpha}}\epsilon^{\dot{\gamma}\dot{\beta}}
+  \end{align}
+  根据前面的定义我们有：
+  \begin{align}
+    \epsilon^{\dot{\beta}}{}_{\dot{\alpha}}=-\epsilon_{\dot{\alpha}}{}^{\dot{\beta}}=\delta_{\dot{\alpha}}^{\dot{\beta}}
+  \end{align}
+}
+
+\bigskip
+\hlr{Conplex Conjugate的指标记号}
+
+在上面指标定义的基础上，我们可以很简洁的书写两个complex conjugate关系。对于Spinor Field自己的complex
+conjugate \cref{thm:WeylComplexConjugate}我们可以改写：
+\begin{align}
+  [(\psi_L)_\alpha]^*=(\psi_L^*)_{\dot{\alpha}},\quad[(\psi_L)^\alpha]^*=(\psi_L^*)^{\dot{\alpha}},\quad[(\psi_R)^{\dot{\alpha}}]^*=(\psi_R^*)^\alpha,\quad[(\psi_R)_{\dot{\alpha}}]^*=(\psi_R^*)_\alpha
+\end{align}
+这也就可以理解为把指标从复共轭之中提出来会变换指标的类型。同样的Lorentz变换矩阵的complex
+conjugate关系\cref{thm:WeylLeviCivitaConnection}也可以改写为：
+\begin{align}
+  (\Lambda_R)_{\dot{\alpha}\dot{\beta}}\equiv\epsilon_{\dot{\alpha}\dot{\gamma}}\left(\Lambda_R\right)_{\dot{\beta}}^{\dot{\gamma}}=\left[\left(\Lambda_L\right)_\alpha^\delta\right]^*\epsilon_{\dot{\delta}\dot{\beta}}=\left[-\left(\Lambda_L\right)_\alpha^\delta\epsilon_{\delta\beta}\right]^*\equiv-\left[\left(\Lambda_L\right)_{\alpha\beta}\right]^*
+\end{align}
+
+\subsection{(1/2,1/2)表示}
+如果我们希望讨论Weyl Spinor是怎么构建Invariant的EoM以及有Lorentz
+Symmetry的Lagrangian的，我们需要用到一些特殊技术。为此我们需要先讨论一下(1/2,1/2)表示的构造以及它和Defining
+Representation的关系。
+
+\subsubsection{表示空间基本构造}
+
+讨论完Weyl
+Spinor的(1/2,0)和(0,1/2)表示之后，我们可以讨论一下(1/2,1/2)表示。这个表示对应的就是四维矢量表示，我们探讨如何使用标准的Lorentz表示来看这个。
+
+\bigskip
+\hlr{(1/2,1/2)表示的构造}
+
+我们先给出这个表示的定义是什么：
+\defi{
+  (1/2,1/2)表示定义
+
+  这个表示空间定义为两个Weyl Spinor的表示的张量积空间，其空间基底为：
+  \begin{align}
+    \hat{v}_\alpha{}^{\dot{\beta}} = (\psi_L)_\alpha(\psi_R)^{\dot{\beta}}.
+  \end{align}
+  在Lorentz变换下其变换规则为：
+  \begin{align}
+    \hat{v}_\alpha{}^{\dot{\beta}}\to(\Lambda_L)_\alpha{}^\gamma(\Lambda_R)^{\dot{\beta}}{}_{\dot{\delta}}\hat{v}_\gamma{}^{\dot{\delta}}
+  \end{align}
+}
+这里的讨论我们使用矩阵语言更加方便也好计算，我们重新定义：
+\defi{
+  (1/2,1/2)表示(矩阵形式)
+
+  我们定义一个表示，表示空间的基是一个$ 2 \times 2 $矩阵，在Lorentz变换下其变换规则为：
+  \begin{align}
+    v\to \Lambda_L v \Lambda_R^T
+  \end{align}
+  其中矩阵：
+  \begin{align}
+    \Lambda_L(\omega)=e^{-\frac{1}{2}(\vec{\eta}+i\theta)\cdot\sigma},\quad\Lambda_R(\omega)=e^{-\frac{1}{2}(-\vec{\eta}+i\theta)\cdot\sigma}
+  \end{align}
+}
+简单的计算可以知道，这个定义等价于上面的定义，所以自然就是(1/2,1/2)表示。
+
+\bigskip
+\hlr{标准表示形式}
+
+实际上我们可以使用一个modified的表示空间的定义，从而看出这个变换等价于四矢量的变换形式。我们定义：
+\defi{
+  (1/2,1/2)表示(左右手形式)
+
+  \begin{itemize}
+    \item \textbf{左手} 我们定义$ v = \hat{v} \epsilon^{-1} $，Lorentz变换下其变换规则为：
+      \begin{align}
+        v \to \Lambda_Lv\Lambda_L^\dagger
+      \end{align}
+    \item \textbf{右手} 我们定义$ \bar{v} = \hat{v}^T\epsilon $，Lorentz变换下其变换规则为：
+      \begin{align}
+        \bar{v} \to \Lambda_R\bar{v}\Lambda_R^\dagger
+      \end{align}
+  \end{itemize}
+}
+
+\bigskip
+\hlr{表示空间分析}
+
+我们分析表示空间会发现：
+\begin{itemize}
+  \item $ \hat{v},v,\bar{v} $都是属于$ M(2,\mathbb{C}) $空间(2x2复矩阵空间)。
+  \item $ v, \bar{v} $在Lorentz变换下，如果是Hermite则Lorentz变换下仍然是Hermite的。
+\end{itemize}
+如果我们假设这两个表示是不可约表示，则我们可以进一步假设$ v, \bar{v} $全部都是Hermite矩阵：
+\begin{align}
+  v,\mathrm{~}\bar{v}\in MH(2,\mathbb{C})\mathrm{~.}
+\end{align}
+\rmk{
+  注意，这是一个并不严谨但是work的合理的假设！！
+}
+\begin{itemize}
+  \item 由于群论上$ MH(2,\mathbb{C}) \cong \mathbb{R}^4 $，因此这个表示空间是四维实空间。
+\end{itemize}
+
+\subsubsection{Defining Representation等价于(1/2,1/2)表示}
+我们下面讨论这个表示和Lorentz群的Definig Representation的关系。我们会发现其实两个表示是完全等价的。
+
+\bigskip
+\hlr{Pauli Basis展开}
+
+对于所有的$ 2 \times 2 $和Hermite矩阵我们存在一个Trick也就是使用Pauli Basis进行展开，展开系数必然是实数。我们定义：
+\defi{
+  Pauli Basis标准展开
+
+  \begin{itemize}
+    \item $ v $的Pauli Basis展开基为：
+      $
+      \sigma^\mu=(\sigma^0,\sigma^i),\quad\sigma^0=1,\quad\sigma^i=\mathrm{~Pauli}\operatorname{matrices}$
+      标准展开结果为：
+      \begin{align}
+        \left.v=\eta_{\mu\nu}v^\mu\sigma^\nu=\left(
+          \begin{array}{cc}v^0-v^3&-v^1+iv^2\\-v^1-iv^2&v^0+v^3
+        \end{array}\right.\right)
+      \end{align}
+    \item $ \bar{v} $的Pauli Basis展开基为：$ \bar{\sigma}^\nu=(\sigma^0,-\sigma^i)$
+      标准展开结果为：
+      \begin{align}
+        \bar{v}=\eta_{\mu\nu}v^\mu\bar{\sigma}^\nu
+      \end{align}
+  \end{itemize}
+}
+这里我们注意记号$ v $是一个$ 2 \times 2 $的Hermite矩阵，而$ v^\mu $是四维实矢量是Pauli
+Basis展开的系数。Pauli Basis下面有一个特别常用的性质：
+\begin{align}
+  \sigma_\mu\bar{\sigma}_\nu+\sigma_\nu\bar{\sigma}_\mu=2\eta_{\mu\nu}=\bar{\sigma}_\mu\sigma_\nu+\bar{\sigma}_\nu\sigma_\mu
+\end{align}
+
+\bigskip
+\hlr{Determinant不变在Pauli Basis下的表现}
+
+我们很容易意识到一个性质，也就是(1/2,1/2)表示的基如果使用左右手形式$ v, \bar{v} $那么其行列式在Lorentz变换下是不变的。我们有：
+\begin{align}
+  \det v^{\prime}=\det v|\det\Lambda_L|^2=\det v
+\end{align}
+这个性质在Pauli Basis下的表现为：
+\begin{align}
+  v^{\prime\mu}v_\mu^{\prime}=\det V^{\prime}=\det
+  V=(v^0)^2-(v^1)^2-(v^2)^2-(v^3)^2\equiv v^\mu v_\mu
+\end{align}
+也就是说：
+\begin{itemize}
+  \item Pauli Basis下面展开系数$ v^\mu $满足Minkowski度规下的内积不变性。
+\end{itemize}
+
+\bigskip
+\hlr{Pauli Basis展开系数作为四矢量}
+
+我们可以推测展开系数在Lorentz变换下满足四矢量变换规则，事实的确如此。我们首先计算Pauli Basis的基矢量在Lorentz变换下的变换规则：
+\begin{align}
+  \Lambda_L(\omega)\sigma^\mu\Lambda_L^\dagger(\omega)=\Lambda(\omega)^\mu{}_\nu
+  \sigma^\nu\mathrm{~,} \\
+  \Lambda_R(\omega)\bar{\sigma}^\mu\Lambda_R^\dagger(\omega)=\Lambda(\omega)^\mu{}_\nu
+  \bar{\sigma}^\nu\mathrm{~.}
+\end{align}
+
+\thm{
+  Pauli Basis展开系数变换规则
+
+  Pauli Basis展开系数$ v^\mu $在Lorentz变换下满足四矢量的变换规则：
+  \begin{align}
+    \Lambda_L(\omega)v^\mu\sigma_\mu\Lambda_L^\dagger(\omega)=\Lambda(\omega)^\mu{}_\nu
+    v^\nu\sigma_\mu\mathrm{~,} \\
+    \Lambda_R(\omega)v^\mu\bar{\sigma}_\mu\Lambda_R^\dagger(\omega)=\Lambda(\omega)^\mu{}_\nu
+    v^\nu\bar{\sigma}_\mu\mathrm{~.}
+  \end{align}
+  其中$ \Lambda_L,\Lambda_R $分别是(1/2,0)和(0,1/2)表示的Lorentz变换矩阵，$ \Lambda
+  $是Defining Representation的Lorentz变换矩阵。
+}
+也就是说：
+\begin{itemize}
+  \item (1/2,1/2)表示的基在Pauli Basis下展开系数变换规则和Defining Representation的基的变换法则完全一致。
+\end{itemize}
+
+\bigskip
+\hlr{群的意义}
+
+上面表示的结论其实反应了两个群的关系：
+\begin{align}
+  \mathscr{L}_+^\uparrow\simeq SL(2,\mathbb{C})/\mathbb{Z}_2
+\end{align}
+
+\subsection{Covariant 运动方程}
+
+上面我们讨论了场构型空间作为表示空间的各种协变场，下面我们希望讨论这些协变场可以存在的各种【不变的】运动方程！我们回顾一下【不变】的意思，也就是运动方程的形式“长得一样”，但是把所有场和坐标全部替换成变换后的形式之后，运动方程依然成立！
+
+\subsubsection{Weyl Spinor的运动方程}
+
+\hlr{运动方程构造}
+
+对于一个Lorentz变换来说，我们有Weyl Spinor的变换关系：
+\begin{align}
+  \psi_l(x) \to \psi_L^{\prime}(x')=\Lambda_L(\omega)\psi_L(x) \\
+  \psi_R(x) \to \psi_R^{\prime}(x')=\Lambda_R(\omega)\psi_R(x)
+\end{align}
+为此我们可以构造对应的协变的微分算符一起构造运动方程。我们定义：
+\begin{align}
+  \partial = \partial_\mu \sigma^\mu \quad \bar{\partial} =
+  \partial_\mu \bar{\sigma}^\mu
+\end{align}
+我们根据Pauli Basis的性质可以知道这个微分算符满足性质：
+\begin{align}
+  \partial'  = \Lambda(\omega)^\mu{}_\nu \partial_\mu \sigma^\nu=
+  \Lambda_L(\omega) \partial \Lambda_L^\dagger(\omega) \\
+  \bar{\partial}' = \Lambda(\omega)^\mu{}_\nu \partial_\mu
+  \bar{\sigma}^\nu = \Lambda_R(\omega) \bar{\partial} \Lambda_R^\dagger(\omega)
+\end{align}
+\rmk{
+  注意！这里的$ \sigma^\mu $仅仅是一个矩阵。只是不小心和四矢量的指标进行求和了！这样的神奇操作导致了一些神奇结果！
+}
+因此我们可以构造协变的运动方程：
+\defi{
+  Weyl Spinor的协变运动方程
+
+  对于Weyl Spinor我们可以构造协变的运动方程：
+  \begin{align}
+    i \bar{\partial}\psi_L = 0, \quad i \partial \psi_R = 0
+  \end{align}
+}
+Proof: 我们证明这两个方程是Lorentz不变的。根据lorentz不变的定义我们计算方程变换后应有的形式和变换前应有的形式的关系，由于数学上我们有：
+\begin{align}
+  \bar{\partial}' = \Lambda_R(\omega) \partial
+  \Lambda_R^\dagger(\omega), \quad \psi_L' = \Lambda_L(\omega) \psi_L
+\end{align}
+根据前面讨论的性质我们有$ \Lambda_R^\dagger(\omega)\Lambda_L(\omega) = I $，因此我们有：
+\begin{align}
+  \bar{\partial}'\psi_L'  = \Lambda_R(\omega) \bar{\partial} \psi_L
+\end{align}
+因此如果$ \bar{\partial}\psi_L = 0 $成立，则在Lorentz变换下仍然成立。同理可以证明$ \partial
+\psi_R = 0 $也是Lorentz不变的。
+
+\bigskip
+\hlr{运动方程物理诠释}
+
+我们可以通过研究运动方程的二阶导数形式来理解这个方程蕴含的物理。我们研究下面方程：
+\begin{align}
+  \partial \bar{\partial} \psi_L = \partial_\mu \partial_\nu
+  \sigma^\mu \bar{\sigma}^\nu \psi_L = \displaystyle\frac{1}{2}
+  \partial_\mu \partial_\nu (\sigma^\mu \bar{\sigma}^\nu + \sigma^\nu
+  \bar{\sigma}^\mu) \psi_L = \partial_\mu \partial^\mu \psi_L = \Box \psi_L
+\end{align}
+\rmk{
+  这是一个极其重要的常用的结论也就是$ \partial \bar{\partial} = \Box $！这个结论在后面会经常使用！
+}
+这也就说明：
+\begin{align}
+  \bar{\partial} \psi_L = 0 \implies \Box \psi_L = 0
+\end{align}
+我们类比对于标量场的运动方程$ \Box \phi = 0 $，可以理解为Weyl Spinor的运动方程实际上是描述质量为零的粒子的运动方程。
+
+\bigskip
+\hlr{Weyl Spinor运动方程的解与粒子interpretation}
+
+求解运动方程我们一般进行mode expansion，然后求解运动方程允许的mode！当然从标量场量子化那里我们也有发现mode
+expansion之后的mode具有实际的物理意义也就是单粒子态的产生湮灭算符，所以研究经典的mode来理解场所代表的粒子种类！我们进行mode
+expansion：
+\begin{align}
+  \psi_L(p)=\int d^4xe^{ipx}\psi_L(x) \quad \psi_L(x)=\int
+  \frac{d^4p}{(2\pi)^4}e^{-ipx}\psi_L(p)
+\end{align}
+我们将其带入运动方程得到结果为：
+\begin{align}
+  \bar{P}\psi_L(p)=0 , \quad \bar{P} = p_\mu \bar{\sigma}^\mu
+\end{align}
+这是一个代数方程，数学上可以证明对于这个方程来说非零解，也就是mode存在，等价于方程的行列式为零：
+\begin{align}
+  \det(\bar{P})=0\Leftrightarrow p^2=0
+\end{align}
+也就是说我们的Weyl Spinor运动方程给出的mode的on shell条件是动量的模长为0。如果类比标量场我们期望：
+\begin{itemize}
+  \item Weyl Spinor描述质量为0的粒子！
+\end{itemize}
+
+\subsubsection{Majorana Spinor的运动方程}
+Weyl
+Spinor的运动方程告诉我们其描述的是质量为0的spin-1/2粒子，但是我们依旧希望能够描述有质量的spin-1/2粒子。于是我们研究其他的spinor
+field的运动方程来推测其描述的粒子种类。
+
+\hlr{Majorana Spinor的运动方程构造}
+
+上面的讨论之中我们已经知道$ \bar{\partial} \psi_L $在Lorentz变换下按照$ \Lambda_R
+$变换。对于Chiral的Weyl Spinor来说我们无法自然存在$ \Lambda_R $变换的项，但是对于Majorana
+Spinor来说$ \epsilon \psi_L^*$在Lorentz变换下正好按照$ \Lambda_R
+$变换，因此我们可以构造一个Majorana Spinor的运动方程。
+\defi{
+  Majorana Spinor的运动方程
+
+  Majorana Spinor的运动方程定义为：
+  \begin{align}
+    i\bar{\partial}\psi_L(x)=m\epsilon\psi_L^*(x)
+  \end{align}
+  其中$ m $是一个复数常数。
+}
+这个运动方程还有一个等价的形式，我们可以对上面的方程进行complex conjugate然后使用$ \epsilon $升降指标，我们得到：
+\begin{align}
+  i\sigma^\mu\partial_\mu\epsilon\psi_L^*(x)=m^*\psi_L(x)
+\end{align}
+如果我们认为$ m $是实数，这个方程完全等价的可以写成4维的Majorana Spinor的形式：
+\begin{align}
+  (i\gamma^\mu\partial_\mu-m)\psi_M=0 , \quad \gamma^\mu\equiv
+  \begin{pmatrix}0&\sigma^\mu\\\bar{\sigma}^\mu&0
+  \end{pmatrix}
+\end{align}
+其中$ \gamma^\mu $是Weyl表示下的Gamma矩阵。
+
+\bigskip
+\hlr{运动方程的物理诠释}
+
+同样的我们考虑二阶导数的形式。对于第一个方程两边进行$ \partial $的导数，然后带入第二个方程，我们得到：
+\begin{align}
+  (\square+|m|^2)\psi_L(x)=0
+\end{align}
+这完全和标量场的Klein-Gordon方程形式一样，因此我们可以理解为：
+\begin{itemize}
+  \item Majorana Spinor的运动方程描述质量为$ |m| $的spin-1/2粒子！
+\end{itemize}
+
+\bigskip
+\hlr{No Charge Interpretation}
+
+但是我们Majorana Fermion会自然的发现这个运动方程没有任何的$ U(1) $对称性：
+\begin{align}
+  \psi_L(x)\mathrm{~}\mapsto\mathrm{~}e^{i\alpha}\psi_L(x)
+\end{align}
+这个变换下运动方程并不能保持形式，因为两边的相位不一样。因此我们会意识到这个粒子没有对应的守恒流！因此我们可以理解为：
+\begin{itemize}
+  \item Majorana Fermion描述的是没有电荷的spin-1/2有质量粒子！
+\end{itemize}
+
+\subsubsection{Dirac Spinor的运动方程}
+最后！我们希望有一个粒子既有质量又有电荷！我们发现Dirac Spinor来构造运动方程正好满足这个需求！
+
+\bigskip
+\hlr{Dirac Spinor的运动方程构造}
+
+类比Majorana Spinor的情况我们同时包含两个Weyl Spinor来构造Dirac Spinor的运动方程。我们定义：
+\defi{
+  Dirac Spinor的运动方程
+
+  Dirac Spinor的运动方程定义为：
+  \begin{align}
+    \bar\partial\psi_L(x)=m\psi_R(x), \quad i\partial\psi_R(x)=m\psi_L(x)
+  \end{align}
+  其中$ m $是一个实数。同时我们可以将其写成4维Dirac Spinor的形式：
+  \begin{align}
+    (i\ds{\partial}-m)\Psi_D(x)=0, \quad
+    \ds{\partial}\equiv\gamma^\mu\partial_\mu \quad \gamma^\mu\equiv
+    \begin{pmatrix}0&\sigma^\mu\\\bar{\sigma}^\mu&0
+    \end{pmatrix}
+  \end{align}
+}
+稍微note一下Gamma矩阵满足4维的Clifford代数：
+\begin{align}
+  \{\gamma^\mu,\gamma^\nu\}=2\eta^{\mu\nu}
+\end{align}
+我们可以根据Gamma矩阵的构造和之前的讨论验证这个运动方程是Lorentz
+Invariant的，我们根据Gamma矩阵的构造和之前讨论的(1/2,1/2)表示的结论有：
+\begin{align}
+  \Lambda_D(\theta,\eta)\ds{p}\Lambda_D(\theta,\eta)^{-1}=\Lambda^\mu{}_\nu
+  p^\nu\gamma_\mu=\ds{\Lambda p}.
+\end{align}
+因此这个运动方程在Lorentz变换下依旧成了$ F = 0 \Rightarrow F' = F(\psi'(x'),x') = 0 $。
+
+\hlr{运动方程的物理诠释}
+
+首先，我们发现U(1)对称性是存在的：
+\begin{align}
+  \psi_L(x)\mapsto e^{i\alpha}\psi_L(x), \quad \psi_R(x)\mapsto
+  e^{i\alpha}\psi_R(x)
+\end{align}
+的变换下运动方程形式完全不变。其次，我们考虑二阶导数形式：
+\begin{align}
+  (\square + m^2)\psi_L(x)=0, \quad (\square + m^2)\psi_R(x)=0
+\end{align}
+当然这个结果我们也可以直接从4维Dirac Spinor的形式推导出来:
+\begin{align}
+  (i\ds{\partial}+m)(i\ds{\partial}-m)\Psi_D(x)=(\square + m^2)\Psi_D(x)=0
+\end{align}
+其中使用了Clifford Algebra的性质$ \{\gamma^\mu,\gamma^\nu\}=2\eta^{\mu\nu}
+$。和$ \{\sigma^\mu,\bar{\sigma}^\nu\}=2\eta^{\mu\nu} $类似我们可以对称化导数给出上面的结果。
+对于这个结论我们可以理解为：
+\begin{itemize}
+  \item Dirac Spinor的运动方程描述质量为$ m $的有电荷粒子！
+\end{itemize}
+\bigskip
+
+\hlr{Parity变换性质}
+
+我们特殊note一下这个运动方程在Parity变换下形式依旧不变！！回顾一下我们之前定义的Parity变换下Dirac Spinor的变换为：
+\begin{align}
+  \Psi_D(x) \to \gamma^0 \Psi_D(Px), \quad x \to Px = (x^0,-x)
+\end{align}
+对于这个变换我们有：
+\begin{align}
+  (i\ds{\partial}-m)\Psi_D(x) \to (i\gamma^\mu \partial_\mu' - m)
+  \gamma^0 \Psi_D(Px) = \gamma^0 (i\gamma^\nu \partial_\nu - m) \Psi_D(Px)
+\end{align}
+变换后的形式正好是变换前形式乘以一个$ \gamma^0 $，因此如果变换前形式为0，则变换后形式依旧为0！
+
+\subsection{Lagrangian Formulation of Spinor Fields}
+
+在有了运动方程的基础上，我们构造Lagrangian来得到这些运动方程。对于Lagrangian，我们需要满足：
+\begin{itemize}
+  \item Lagrangian有Lorentz对称性，在Lorentz变换下形式是不变的！
+  \item 给出的Euler-Lagrange方程正好是我们想要的运动方程！
+\end{itemize}
+
+\bigskip
+\hlr{Spinor Field不变量}
+
+对于Spinor Field来说我们可以构造一些Lorentz变换的不变量保证对称性：
+\begin{align}
+  S_1(x)&\equiv\psi_L(x)^\dagger\psi_R(x),&S_1^\dagger(x)&\equiv\psi_R(x)^\dagger\psi_L(x),\\
+  S_2(x)&\equiv\psi_L^\dagger
+  (x)\partial\cdot\bar{\sigma}\psi_L(x),&S_3(x)&\equiv\psi_R^\dagger
+  (x)\partial\cdot\sigma\psi_R(x).
+\end{align}
+我们发现有这样的四种！我们注意对于变换矩阵满足： $ \Lambda_L^\dagger \Lambda_R = 1 $这两个并非Unitary表示！
+
+\subsubsection{Weyl Spinor的Lagrangian}
+
+\defi{
+  Weyl Spinor的Lagrangian
+
+  Weyl Spinor的Lagrangian定义为：
+  \begin{align}
+    S_W=\int d^4x\mathcal{L}_W=\int
+    d^4x\left.i\psi_L^\dagger(x)\bar{\partial}\psi_L(x)\right.
+  \end{align}
+}
+给出运动方程正好是：
+\begin{align}
+  0=\frac{\delta S_W}{\delta\psi_L^\dagger}=i\bar{\sigma}\cdot\partial\psi_L(x)
+\end{align}
+
+\subsubsection{Dirac Spinor的Lagrangian}
+
+我们使用上面的不变量进行拼凑得到：
+\begin{align}
+  \int
+  d^4x\left(i\psi_L^\dagger(x)\bar{\sigma}\cdot\partial\psi_L(x)+i\psi_R^\dagger(x)\sigma\cdot\partial\psi_R(x)-m\psi_L^\dagger(x)\psi_R(x)-m\psi_R^\dagger(x)\psi_L(x)\right)
+\end{align}
+如果使用4维Dirac Spinor的形式我们可以写成：
+\defi{
+  Dirac Spinor的Lagrangian
+
+  Dirac Spinor的Lagrangian定义为：
+  \begin{align}
+    S_D=\int d^4x\mathcal{L}_D=\int
+    d^4x\mathrm{~}\bar{\Psi}_D(i\slashed{\partial}-m)\Psi_D, \quad
+    \bar{\Psi}_D\equiv\Psi_D^\dagger\gamma^0
+  \end{align}
+}
+给出的运动方程为Dirac方程：
+\begin{align}
+  0=\frac{\delta S_D}{\delta\bar{\Psi}_D}=(i\ds{\partial}-m)\Psi_D
+\end{align}
+
+\subsubsection{Majorana Spinor的Lagrangian}
+
+表面上Majorana Spinor的Lagrangian和Dirac Spinor的Lagrangian形式一样。只不过是把$
+\psi_R $替换成$ \epsilon\psi_L^* $。我们定义：
+\begin{align}
+  S_M=\int d^4x\mathcal{L}_M=\int
+  d^4x\left(i\psi_L^\dagger(x)\bar{\sigma}\cdot\partial\psi_L(x)-\frac{m}{2}\psi_L^T\epsilon\psi_L-\frac{m^*}{2}\psi_L^\dagger\epsilon^T\psi_L^*\right)
+\end{align}
+使用变分原理我们认为的独立变量其实是$ \psi_L $以及$ \psi^*
+$我们可以对于这两个量分别进行变分。对于质量项两个独立变量是decoupled的，第一项是$ \psi_L $的质量项，第二项是$
+\psi_L^* $的质量项。但问题是如果我们看质量项的话会发现：
+\begin{align}
+  \psi_L^T\epsilon\psi_L = - \phi_L^T \epsilon^T \psi_L =  -
+  \psi_L^T\epsilon\psi_L
+\end{align}
+所以我们使用一般的数字是无法经典的写出一个Majorana
+Spinor的Lagrangian的！只能使用Grassmann数！我们变分也需要使用Grassmann number的规则。
+
+\YL{[等等！！为什么这个质量项是Lorentz Invariant的？？看起来完全构造不出来啊？？哦哦哦（（还是比较好看出来的，主要是我们要转置！]}
+注意如果使用$ A^T B = B^T A $的性质我们可以很自然的验证这个质量项是Lorentz Invariant的。
+
+\subsection{补充讨论: Internal Symmetry以及场论构造}
+
+\hlr{Invariant Tensor 构造}
+
+我们现在有了标量场和Dirac Field。我们现在希望考虑如果很多的标量场和Dirac Field存在于一个理论。
+\begin{align}
+  \phi_i(x),\quad i=1,2,\cdots,N, \quad \Psi_a(x),\quad a=1,2,\cdots,M
+\end{align}
+并且我们希望赋予这个理论一些Internal
+Symmetry，也就是让场之间可以进行某种变换但是不影响Lagrangian的形式。我们应该怎么构造Interaction Terms呢？
+\begin{itemize}
+  \item 核心是利用\textbf{Invariant Tensor}来构造不变量！
+\end{itemize}
+所有的Internal Symmetry的指标都需要使用Invariant Tensor来进行contract从而保证不变量的形式。
+\rmk{
+  注意Invariant Tensor是表示dependent的！不同的表示有不同的Invariant
+  Tensor！我们选择Internal Symmetry是某个群的时候，需要确定这个是哪个表示，再通过这个表示的Invariant
+  Tensor来构造不变量！
+}
+\rmk{
+  注意其实我们的场论想构造SU(2)的internal symmetry的时候使用的是两个复标量场，因此我们其实有四个实标量场的自由度！
+}
+
+\bigskip
+\hlr{常用Internal Symmetry Group}
+
+我们常用的Internal Symmetry Group有：
+\begin{itemize}
+  \item SU(N)： $  \delta_{ij} $，$ \epsilon_{i_1 i_2 \cdots i_N} $
+    ；SU(2)Exp map形式：$  U(\theta) = e^{i\theta^i \sigma^i/2 } $
+  \item SO(N) ：$ \delta_{ij} $，$ \epsilon_{i_1 i_2 \cdots i_N} $；
+    SU(2) Triplet或者说SO(3)(注意，我们一般说SU(2) Triplet的时候其实是SO(3)的定义表示) Exp
+    map 形式：$  R(\theta) = e^{i\theta^i J^i } $其中$ (J^i)^a_b = -i\epsilon^{iab} $
+  \item U(1)：$ 1 $ Exp map形式：$  e^{i\alpha} $
+  \item U(2)：$ \delta_{ij} $ ；Exp map形式：$  U(\theta,\phi) =
+    e^{i\theta^\mu \sigma^\mu/2 } e^{i\phi} $这里有一个I的加入！
+  \item O(N)：$ \delta_{ij} $
+\end{itemize}
+
+\bigskip
+\hlr{不止一个按照Internal Symmetry变换的场}
+
+如果我们存在两套场按照某一个Internal Symmetry的两个表示变换。我们可以类似Dirac
+Spinor构造Lorantz变换Defining Representation变换的量一样，通过某个internal
+Symmetry的某个表示的多个场组合出按照另一个表示变换的量（其实就是一种张量积表示约化）。
+
+比如对于SU(2)来说，我们可以使用Pauli Matrix以及Doublet构建出Triplet变换(也就是SO(3)的定义表示)的量。因为我们有
+
+\subsection{补充：Gamma Matrix in Weyl Representation}
+
+\hlr{Gamma矩阵的Weyl表示}
+
+我们这里使用的Gamma矩阵是Weyl表示下的Gamma矩阵。我们来梳理一下其一些性质。首先定义上矩阵元素为：
+\begin{align}
+  \gamma^{\mu}\equiv
+  \begin{pmatrix}0&\sigma^{\mu}\\\bar{\sigma}^{\mu}&0
+  \end{pmatrix} \quad \sigma^{\mu}=(\sigma^0,\sigma^i),\quad
+  \bar{\sigma}^{\mu}=(\sigma^0,-\sigma^i)
+\end{align}
+基本性质就是满足4D的Clifford Algebra：$
+\{\gamma^{\mu},\gamma^{\nu}\}=2\eta^{\mu\nu} $这个矩阵对应了Dirac
+Spinor表示空间，我们可以写出一些性质，比如Dirac Spinor的Lorentz变换矩阵为：
+\begin{align}
+  &\Lambda_{D}(\omega)=
+  \begin{pmatrix}\Lambda_{L}(\omega)&0\\0&\Lambda_{R}(\omega)
+  \end{pmatrix}=\exp\left(-\frac{i}{2}\omega_{\mu\nu}S^{\mu\nu}\right)
+  , \quad S^{\mu\nu}\equiv\frac{i}{4}[\gamma^{\mu},\gamma^{\nu}]  \\
+  &\Lambda_D^{-1}(\omega)=
+  \begin{pmatrix}\Lambda_{L}^{-1}(\omega)&0\\0&\Lambda_{R}^{-1}(\omega)
+  \end{pmatrix}=
+  \begin{pmatrix}\Lambda_{R}^\dagger(\omega)&0\\0&\Lambda_{L}^\dagger(\omega)
+  \end{pmatrix}
+\end{align}
+
+\bigskip
+\hlr{S矩阵的性质}
+
+我们会发现一个很好用的矩阵$ S^{\mu\nu} = \frac{i}{4}[\gamma^\mu,\gamma^\nu] $，我们计算其矩阵形式为：
+\begin{align}
+  S^{0i}=-\frac{i}{2}
+  \begin{pmatrix}\sigma^i&0\\0&-\sigma^i
+  \end{pmatrix},\quad S^{ij}=\frac{1}{2}\varepsilon^{ijk}
+  \begin{pmatrix}\sigma^k&0\\0&\sigma^k
+  \end{pmatrix}
+\end{align}
+由于我们知道$
+\Lambda_D(\omega)=\exp\left(-\frac{i}{2}\omega_{\mu\nu}S^{\mu\nu}\right)
+$，因此我们可以看到$ S^{\mu\nu} $实际上就是Dirac
+Spinor表示空间的Lie代数生成元。我们可以证明其确实构成了Lorentz代数的一个旋量空间的表示：
+\begin{align}
+  [S^{\mu\nu},S^{\rho\sigma}]=i(\eta^{\nu\rho}S^{\mu\sigma}-\eta^{\mu\rho}S^{\nu\sigma}+\eta^{\mu\sigma}S^{\nu\rho}-\eta^{\nu\sigma}S^{\mu\rho})
+\end{align}
+更多性质需要更多的讨论捏！
+
+\bigskip
+\hlr{Lorentz矩阵作用下}
+
+我们之前知道Weyl Spinor的Lorentz变换矩阵作用下$ \sigma^\mu v_\mu $以及$
+\bar{\sigma}^\mu v_\mu $的变换规则。我们可以利用其得到Dirac
+Spinor的Lorentz变换矩阵作用下的Gamma矩阵contraction的量$ v_\mu \gamma^\mu = \ds{v} $的变换规则：
+\begin{align}
+  \Lambda_{D}(\omega)\ds{v}\Lambda_{D}^{-1}(\omega)=\Lambda(\omega)^\mu{}_\nu
+  v_\mu \gamma^\nu
+\end{align}
+注意！Gamma矩阵是一个永远不变的东西，变的是$ v_\mu $！
+
+\subsection{Questions and Thoughts}
+
+\question{
+  确认讲义中的convention是不是有问题啊！！
+}
+指标是没有问题的！！但是最后化成矩阵的形式的时候出错了！
+\qed
+
+\question{关于$ sl(2,\mathbb{C}) $以及其与$ so(1,3) $,$ su(2) $，群和代数到底是什么关系捏？？}
+
+\question{
+  Lorentz群的元素的矩阵形式的Notation到底是什么意思？？务必回顾一下！
+}
+我感觉不需要过度纠结这个形式，只需要记住一个神奇的转制和逆矩阵的关系就好:
+\begin{align}
+  \Lambda^T=\eta\Lambda^{-1}\eta
+\end{align}

@@ -1,0 +1,305 @@
+本章我们试图回答一个问题：
+\begin{itemize}
+  \item Poincare群在Hilbert Space上面的表示如何分类？
+\end{itemize}
+我们研究这个问题的motivation是因为:
+\begin{itemize}
+  \item Wigner Theorem告诉我们： 对于一个量子力学系统，Hilbert Space必然承载着系统的对称性群的一个幺正表示(或者反幺正表示)；
+    \item 量子场论我们把Hilbert Space Interpret作为粒子态的空间；
+\end{itemize}
+因此Poincare代数在Hilbert Space上面的表示的分类等价于\textbf{拥有Poincare对称性的理论可以描述什么样的粒子}
+
+\subsection{Poincare群在Hilbert Space上一般表示}
+\subsubsection{Poincare群的表示一般研究}
+回顾一下拿到一个群进行研究我们通常采取下面的步骤：
+\begin{itemize}
+  \item 使用一个好用的表示开始研究；(之前Lorentz群我们使用了Defining Representation)
+  \item 定义一个Exp Map形式进而得到群的生成元(根据一些李群的定理这一步一定可以实现)，通过群乘法规则给出生成元的对易关系从而得到群对应的Lie代数结构；
+  \item 通过Lie代数结构给出Lie代数的表示
+  \item 进行Exp Map得到Lie群的表示
+\end{itemize}
+
+
+\hlr{假设Hilbert Space上存在Poincare群的Unitary Representation}
+
+之前我们讨论了Lorentz群的表示理论，我们使用的是其Defining Representation，而现在Poincare群不存在一个很自然的矩阵形式的Defining Representation。同时，我们也不追求寻找有限维表示，因为对于non-compact群来说，有限维Unitary表示必然是trivial的。
+因此我们直接假设Poincare群在Hilbert Space上面存在一个Unitary Representation，记为$ U(\Lambda,a) $。根据表示的定义，其满足群的乘法规则：
+\begin{align}
+  U(\Lambda_1,a_1)U(\Lambda_2,a_2)=U(\Lambda_1\Lambda_2,\Lambda_1 a_2 + a_1)\mathrm{~.}
+\end{align}
+
+\bigskip
+\hlr{Exp map以及Poincare Lie代数}
+
+如果这个表示存在，根据很多李群李代数的定理其必然可以通过Exp Map从一个代数给出。我们现在希望定义一个Exp Map然后研究Poincare代数的结构：
+\defi{
+  Poincare群标准Exp Map
+
+  我们定义Poincare群的Exp Map如下：
+  \begin{align}
+    U(\Lambda,a) = U(a) U(\Lambda) =\exp\left(i a_\mu P^\mu\right) \exp\left(-\frac{i}{2}\omega_{\mu\nu}J^{\mu\nu}\right)\mathrm{~,}
+  \end{align}
+  其中我们定义：
+  \begin{align}
+    U(a) = \exp\left(i a_\mu P^\mu\right),\quad U(\Lambda) = \exp\left(-\frac{i}{2}\omega_{\mu\nu}J^{\mu\nu}\right)\mathrm{~.}
+  \end{align}
+  其中$ J^{\mu\nu} $是Lorentz代数的生成元，$ P^\mu $是平移生成元。
+}
+通过无限小的变换以及Poincare群的乘法规则，我们可以得到生成元的对易关系。这也就是Poincare代数的对易关系。于是我们得到了Poincare代数结构：
+\defi{
+  Poincare代数: 通过10个生成元$ \{P^\mu,J^{\mu\nu}\} $以及上面的对易关系构成的Lie代数。
+\begin{align}
+  &[P^\mu,P^\nu]=0,\quad [P^\mu,J^{\rho\sigma}]=i(\eta^{\mu\rho}P^\sigma-\eta^{\mu\sigma}P^\rho),\\
+&[J^{\mu\nu},J^{\rho\sigma}]=i(\eta^{\nu\rho}J^{\mu\sigma}+\eta^{\mu\sigma}J^{\nu\rho}-\eta^{\mu\rho}J^{\nu\sigma}-\eta^{\nu\sigma}J^{\mu\rho})
+\end{align}
+}
+
+\bigskip
+\hlr{Poincare群的Adjoint Representation}
+
+上面的研究已经可以给出一个Poincare群的特殊的表示也就是Adjoint Representation，我们可以通过群乘法关系计算群元素作用在Lie代数生成元上的结果：
+\begin{align}
+  &U^\dagger(a)P^\mu U(a)=P^\mu,\quad U^\dagger(\Lambda)P^\mu U(\Lambda)=\Lambda_\nu^\mu P^\nu,\\&U^\dagger(\Lambda)J^{\mu\nu}U(\Lambda)=\Lambda_\rho^\mu\Lambda_\sigma^\nu J^{\rho\sigma}.
+\end{align}
+这就是Poincare群的Adjoint Representation。同时我们会发现生成元本身在群元素作用下按照Lorentz Vector和Lorentz Tensor的方式变换。
+
+\subsubsection{Poincare代数不可约表示Casimir算符分类}
+
+\bigskip
+\hlr{Casimir Operator方法寻找不可约表示}
+
+显然长成上面这样的表示有很多很多很多种，我们怎么找到其中各种不可约的表示呢？我们回忆Shur's Lemma告诉我们：对于一个不可约表示，所有和表示作用交换的算符必然是$ \lambda I $。因此，我们给出下面一个操作：
+\begin{itemize}
+  \item 寻找一些算符$ C_i $使得对于任意的Poincare群元素$ (\Lambda,a) $我们有：
+    \begin{align}
+      U(\Lambda,a) C_i U^\dagger(\Lambda,a) = C_i\mathrm{~.}
+    \end{align}
+    \item 这些算符给出相同本征值的态必然构成一个不可约表示空间，可以使用其本征值来标记不可约表示。
+\end{itemize}
+我们下面使用这个方法寻找Poincare代数的不可约表示。
+
+
+\bigskip
+\hlr{Poincare代数的Casimir Operator}
+
+
+\begin{enumerate}
+  \item 寻找Lorentz子群$ U(\Lambda) $的Casimir
+\end{enumerate}
+之前的Adjoint Representation已经告诉我们群元素作用在生成元上面的结果。因此我们知道Poincare生成元在Lorentz群表示$ U(\Lambda) $作用下按照Lorentz Vector和Tensor的方式变换，也就是说他们是Lorentz群Defining Representation的张量算符！数学家告诉我们：
+\begin{itemize}
+  \item 张量算符可以通过和Invariant Tensor进行contracting得到标量算符，也就是我们想要的对于$ U(\Lambda) $的Casimir
+\end{itemize}
+我们知道Lorentz群的Invariant Tensor只有$ \eta_{\mu\nu} $和$ \epsilon_{\mu\nu\rho\sigma} $两种。因此我们可以使用这些不变量张量对生成元进行contracting得到标量算符：
+\begin{align}
+  P^{\mu}P_{\mu},\quad J^{\mu\nu}J_{\mu\nu},\quad \epsilon^{\mu\nu\rho\sigma}J_{\mu\nu}J_{\rho\sigma},\quad W^{\mu}W_{\mu}
+\end{align}
+\begin{enumerate}
+  \item 寻找整个Poincare群的Casimir
+\end{enumerate}
+下面再筛选一下那些算符在平移群$ U(a) $作用下也是不变的。我们发现只有下面两个：
+\thm{
+  Poincare代数的Casimir算符
+
+  Poincare代数有且仅有两个Casimir算符：
+  \begin{align}
+    C_1 = P^\mu P_\mu,\quad C_2 = W^\mu W_\mu\mathrm{~,}
+  \end{align}
+  其中$ W^\mu $是Pauli-Lubanski矢量，定义为：
+  \begin{align}
+    W^\mu = \frac{1}{2}\epsilon^{\mu\nu\rho\sigma}J_{\nu\rho}P_\sigma\mathrm{~.}
+  \end{align}
+}
+
+\bigskip
+\hlr{Pauli-Lubanski矢量性质}
+
+其中我们使用了一个新的矢量算符$ W^\mu $，我们来研究一下它的性质。主要就是对易关系为：
+\begin{align}
+  &W_\mu P^\mu=0,\\
+&[P^\mu,W^\nu]=0,\\
+&[J^{\mu\nu},W^\rho]=i(\eta^{\nu\rho}W^\mu-\eta^{\mu\rho}W^\nu)\\
+&[W^\mu,W^\nu]=i\varepsilon^{\mu\nu\rho\sigma}W_\rho P_\sigma
+\end{align}
+
+\bigskip
+\hlr{Poincare代数不可约表示分类}
+
+对于Poicare代数的不等价不可约表示，我们可以使用Casimir算符的本征值进行分类：
+\thm{
+  Poincare代数不可约表示分类
+
+  Poincare代数表示空间也被成为Hilbert Space必然可以约化为Casimir算符本征值固定的子表示空间的直和：
+  \begin{align}
+    \mathcal{H}=\bigoplus_{m^2,w^2}\mathcal{H}(m^2,w^2).
+  \end{align}
+}
+下面我们要研究这些不可约表示空间$ \mathcal{H}(m^2,w^2) $的结构。
+\rmk{
+  注意！我们虽然使用了一个完全平方来书写Casimir的本征值，但是不意味着本征值一定是大于等于0的！$ m^2,w^2 $可以是负数！
+}
+
+\subsection{固定$ m^2, w^2 $不可约表示}
+
+下面我们讨论固定$ m^2,w^2 $的这些不可约表示的分类以及试图求解这些表示的具体形式。
+
+\subsubsection{不可约表示基本讨论}
+
+\bigskip
+\hlr{表示空间的基在Poincare群作用下的变换}
+
+我们希望标记这些不可约表示空间的基矢量，我们通常选择\textbf{Maxmally Commuting Set of Operators}的本征值来标记这些基矢量。我们知道Poincare代数的生成元中，$ P^\mu $是相互对易的，因此我们可以选择$ P^\mu $的本征值为$ p^\mu $的基矢量标记为： $ \ket{p^\mu, \sigma} $其中$ \sigma $是标记其余的自由度的！
+
+我们考虑Poincare群的元素作用在这样的基矢量上面的结果。对于平移变换十分trivial，毕竟我们选择了$ P^\mu $的本征值作为标记，因而有：
+\begin{align}
+  U(a)\ket{p^\mu,\sigma} = e^{i a_\mu p^\mu}\ket{p^\mu,\sigma},
+\end{align}
+下面我们考虑Lorentz变换$ U(\Lambda) $作用在基矢量上面的结果。我们发现：
+\begin{align}
+  P^\mu\left(U(\Lambda)\ket{p^\mu,\sigma}\right) = \Lambda_\nu^\mu p^\nu \left(U(\Lambda)\ket{p^\mu,\sigma}\right).
+\end{align}
+也就是说Lorentz变换会把本征值$ p^\mu $变换为$ \Lambda_\nu^\mu p^\nu $。也就是说对于一般的某个不等价不可约表示空间$ \mathcal{H}(m^2,w^2) $，其基矢量在Lorentz变换作用下为：
+\begin{align}
+  U(\Lambda)\ket{p^\mu,\sigma} = \sum_{\sigma'} C_{\sigma'\sigma}(\Lambda,p) \ket{\Lambda_\nu^\mu p^\nu,\sigma'}\mathrm{~.}
+\end{align}
+这里$ C_{\sigma'\sigma}(\Lambda,p) $是某个矩阵元，我们仍然未知。
+
+\bigskip
+\hlr{表示空间按照动量的初步分类}
+
+于是我们会发现，使用$ p^\mu $为本征值的态在Poincare群的作用下只会变成本征值为$ \Lambda_\nu^\mu p^\nu $的态。因此我们可以按照$ \Lambda $作用在$ p^\mu $上面的轨道来分类这些表示空间。也就是说我们考虑所有可能的动量$ p^\mu $，然后按照Lorentz变换的作用把这些动量分成不同的轨道，每一个轨道对应一个不可约表示空间。我们会发现对于所有$ p^\mu \in \mathbb{R}^4 $，其轨道可以分为下面四类，并且我们希望研究每一类轨道选择一个代表元素：
+\begin{itemize}
+  \item \textbf{有质量粒子表示} $ m^2= p^\mu p_\mu >0 $并且$ p^0 >0 $的轨道，代表元素$ k^\mu = (m,0,0,0) $
+  \item \textbf{无质量粒子表示} $ m^2= p^\mu p_\mu =0 $并且$ k\neq0 $的轨道，代表元素$ k^\mu = (k,0,0,k) $
+  \item \textbf{真空表示} $ m^2= p^\mu p_\mu =0 $并且$ k <0 $的轨道，代表元素$ k^\mu = (0,0,0,0)$
+  \item $ m^2= p^\mu p_\mu >0 $并且$ p^0 <0 $的轨道，代表元素$ k^\mu = (-m,0,0,0) $
+\end{itemize}
+物理上我们认为前三种表示是physical的，并且给出interpretation：第一种为有质量粒子表示，第二种为无质量粒子表示，第三种为真空表示。第四种表示我们认为是unphysical的，因为其对应的能量是负的。
+\rmk{
+  其实我们这里研究的Lorentz群并不是SO(3,1)而是$ \mathcal{L}^\uparrow_+ $，也就是proper orthochronous Lorentz群。在此并未考虑parity以及time-reversal变换。
+}
+
+\subsubsection{Wigner Little Group方法构建不可约表示}
+下面我们试图构建一个Poincare群的表示。然后我们证明这样构建出来的表示是不可约的也就是拥有两个Casimir算符的确定本征值。
+
+\bigskip
+\hlr{Wigner Little Group的定义}
+
+对于Lorentz群来说，我们给定一个固定的动量$ k^\mu $，我们定义Wigner Little Group如下：
+\defi{
+  Wigner Little Group
+
+  我们定义Wigner Little Group为：
+  \begin{align}
+    G_L(k^\mu) = \{\Lambda \in \mathcal{L}^\uparrow_+ | \Lambda_\nu^\mu k^\nu = k^\mu\}\mathrm{~.}
+  \end{align}
+}
+我们可以证明这些Lorentz群的元素构成了一个子群。因此对于Wigner Little Group的元素对应的Hilbert Space上面的表示满足：
+\begin{align}
+  U(W)\ket{k^\mu,\sigma} = \sum_{\sigma'} C_{\sigma'\sigma}(W) \ket{k^\mu,\sigma'}\mathrm{~,}\quad W \in G_L(k^\mu)\mathrm{~.}
+\end{align}
+
+\bigskip
+\hlr{Wigner Little Group表示诱导Poincare群表示}
+
+下面我们介绍一种使用一个标准动量$ k^\mu $的Wigner Little Group $ G_L(k^\mu) $的表示来诱导Poincare群表示的方法。我们首先假设我们对于某个表示空间的一个标准动量$ k^\mu $已经知道了其Wigner Little Group的不可约表示，其表示空间为$ \ket{k^\mu, \sigma} $。表示为：
+\begin{align}
+  U(W)\ket{k^\mu,\sigma} = \sum_{\sigma'} C_{\sigma'\sigma}(W) \ket{k^\mu,\sigma'}\mathrm{~,}\quad W \in G_L(k^\mu)\mathrm{~.}
+\end{align}
+\rmk{
+  注意这里的$ \sigma $标记的是Wigner Little Group的表示空间的基矢量不再是任意并不知道的指标。
+}
+我们现在可以使用下面步骤构建Poincare群的表示：
+\begin{enumerate}
+  \item \textbf{定义标准boost：}对于任意的动量$ p^\mu $，我们选择一个Lorentz变换$ \Lambda(p) $使得：
+    \begin{align}
+      \Lambda(p) k^\mu = p^\mu\mathrm{~.}
+    \end{align}
+    我们称之为\textbf{标准boost}。
+\rmk{
+  注意：标准boost的选择显然不是唯一的，不同选择给出了同一个表示空间的不同的基矢量。
+}
+\item \textbf{定义标准boost的表示：}我们要求标准boost的表示矩阵$ H(p) = U(\Lambda(p))  $完全不影响Wigner Little Group的指标$ \sigma $，也就是说：
+  \begin{align}
+    H(p)\ket{k^\mu,\sigma} = \ket{p^\mu,\sigma}\mathrm{~.}
+  \end{align}
+\item \textbf{诱导构建Lorentz变换的表示：}我们构建的表示的基由一个on shell的四动量$ p^\mu $以及Wigner Little Group的指标$ \sigma $进行标记，在Lorentz变换作用下：
+  \begin{align}
+    U(\Lambda)\ket{p^\mu,\sigma} &= U(\Lambda)H(p)\ket{k^\mu,\sigma} \\
+                                 & = H(\Lambda p) H^{-1}(\Lambda p) U(\Lambda) H(p) \ket{k^\mu,\sigma} 
+  \end{align}
+  我们会发现$ H^{-1}(\Lambda p) U(\Lambda) H(p) = U(W(\Lambda,p)) $，其中$ W(\Lambda,p) = \Lambda^{-1}(\Lambda p) \Lambda(p) \in G_L(k^\mu) $。因此我们知道：
+\begin{align}
+  U(\Lambda)\ket{p^\mu,\sigma} = \sum_{\sigma'} C_{\sigma'\sigma}(W(\Lambda,p)) \ket{\Lambda_\nu^\mu p^\nu,\sigma'}\mathrm{~.}
+\end{align}
+\end{enumerate}
+
+\bigskip
+\hlr{Wigner Little Group诱导表示的不可约性}
+
+我们上面构建出了一个表示，但是我们并不知道这个表示是不是不可约的。我们需要证明这个表示是不可约的，证明方法就是保证这个表示空间对于Casimir算符存在确定的数值。
+\begin{itemize}
+  \item 对于$ P^2 $ Casimir十分trivial，因为上面构造的表示作用在表示空间只会把$ p^\mu $变换为$ \Lambda_\nu^\mu p^\nu $，并不会改变其本征值$ m^2 $，因此这样构造的表示空间必然是$ P^2 = m^2 $的本征子空间。
+\end{itemize}
+但是对于$ W^2 $ Casimir来说我们需要更深入的理解。为此我们需要先理解其与Wigner Little Group的关系。我们可以计算Pauli-Lubanski矢量和动量对易关系发现：
+\begin{align}
+  [W^\mu,P^\nu]=0\mathrm{~.}
+\end{align}
+也就是说其作用在一个态上面并不会改变其动量本征值。并且我们考虑其作用在一个态上面的形式：
+\begin{align}
+  W^\mu \ket{p^\mu,\sigma} = \frac{1}{2}\epsilon^{\mu\nu\rho\sigma}J_{\nu\rho}P_\sigma \ket{p^\mu,\sigma} = -\frac{1}{2}\epsilon^{\mu\nu\rho\sigma}p_\sigma J_{\nu\rho} \ket{p^\mu,\sigma}\mathrm{~.}
+\end{align}
+这也就是说其作用在动量本征态上面给出了一个不改变动量的Lorentz变换的生成元组合。这也给我们了一个hint，经过数学上的严格证明【这里并不讨论】我们发现：
+\thm{
+  Pauli-Lubanski是确定动量下Wigner Little Group的生成元!
+}
+一个例子是对于动量$ k^\mu = (m,0,0,0) $，我们分析任何三维转动都不改变其数值所以Wigner Little Group为SO(3)。然后我们计算Pauli-Lubanski矢量：$  W^0 = 0 $，$ W^i = -m J^i $，其中$ J^i $是三维转动的生成元。因此我们发现Pauli-Lubanski矢量的空间部分正好给出了Wigner Little Group SO(3)的生成元。
+
+因此我们需要证明表示空间有固定的$ w^2 $也就是需要证明$ W^2 \ket{p,\sigma} $存在固定的本征值。我们如果之前构建的是Wigner Little Group的不可约表示，那么：
+\begin{align}
+  W^2 \ket{k^\mu,\sigma} = w^2 \ket{k^\mu,\sigma}\mathrm{~.}
+\end{align}
+必然有唯一确定的$ w^2 $。然后我们考虑对于任意的动量$ p^\mu $，我们有：
+\begin{align}
+  W^2 \ket{p^\mu,\sigma} &= W^2 H(p) \ket{k^\mu,\sigma} \\
+                         & = H(p) H^{-1}(p) W^2 H(p) \ket{k^\mu,\sigma} \\
+                         & = w^2 \ket{p^\mu,\sigma}\mathrm{~.}
+\end{align}
+其中第二步我们使用了$ W^2 $作为Casimir的定义，也就是在任何群元素表示作用下不变。因此确实我们构建的表示空间是$ W^2 = w^2 $的本征子空间。
+
+\YL{[感觉这一部分内容没有一本书讲清楚，我写的也不是很严谨省略了一些重要的数学证明。之后有精力可以补充。]}
+
+我们现在知道，求解Poincare群在Hilbert Space上面的表示的问题，等价于求解Wigner Little Group的不可约表示的问题。我们下面分别讨论前三种physical的表示对应的Wigner Little Group以及其不可约表示以及其分类。
+
+
+\subsection{有质量粒子表示}
+
+\hlr{Wigner Little Group: SO(3)}
+
+对于有质量粒子我们选择标准动量$ k^\mu = (m,0,0,0) $，我们发现Wigner Little Group为SO(3)。因此我们需要研究SO(3)的不可约表示。我们可以直接抽象的求解，当然也可以直接使用Pauli-Lubanski矢量这组生成元进行求解。我们知道SO(3)的不可约表示由一个非负整数或者半整数$ j $进行标记，表示空间的维度为$ 2j+1 $。因此我们得到了有质量粒子的Poincare群不可约表示由两个数值进行标记。
+
+因此我们发现有质量的粒子的不等价不可约表示由两个数值进行标记：
+\begin{itemize}
+  \item $ m^2 >0 $：我们interpret为粒子的质量平方；
+  \item $ j = 0, \frac{1}{2}, 1, \frac{3}{2}, \ldots $：我们interpret为粒子的自旋。
+\end{itemize}
+物理上这告诉我们拥有Poincare对称性的理论可以描述任意质量以及任意自旋的粒子！
+
+btw Hilbert Space一般要求是有一个合理的内积结构的，我们可以选择一个Lorentz不变内积的定义：
+\begin{align}
+  \langle p,\sigma|\bar{p},\sigma^{\prime}\rangle=(2\pi)^32E_{\bar{\mathbf{p}}}\delta^{(3)}(\mathbf{p}-\bar{\mathbf{p}})\delta_{\sigma\sigma^{\prime}}.
+\end{align}
+
+\bigskip
+\hlr{Spin Basis}
+
+一个常用的表示空间Basis的选择是Spin Basis。我们定义这个Basis的标准Boost为之前讨论Dirac Field的时候就是用的标准Boost \cref{def:standard_boost}。使用这个Basis我们有：
+\begin{align}
+  U(R_\theta)|p,\sigma\rangle =\sum_{\sigma'}\mathcal{D}_{\sigma^{\prime}\sigma}^{(s)}(R_\theta)|R_\theta\mathbf{p},\sigma^{\prime}\rangle.
+\end{align}
+我们可以极其清晰的看见轨道角动量和自旋角动量的区分。这个Basis一般用于描述非相对论极限下的粒子，毕竟这个Basis下粒子的行为和非相对论量子力学之中的概念完全一致！
+
+
+
+
+

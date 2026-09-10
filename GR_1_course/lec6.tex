@@ -1,0 +1,474 @@
+\subsection{Formulation of Linearized Gravity}
+
+\subsubsection{基础理论框架}
+为了研究弱引力场我们使用一套线性引力的近似方法。仅仅考虑GR在一个特定参考系下的一阶扰动近似。我们下面逐步讨论：
+
+\bigskip
+\hlr{线性引力架构}
+
+\defi{
+  线性引力架构
+
+  假设对于引力很弱的情况下，我们\textbf{选择一个特定的参考系}，其中metric可以呈现如下形式：
+  \begin{align}
+    g_{\mu\nu}=\eta_{\mu\nu}+h_{\mu\nu}\mathrm{~,~}\quad\left|h_{\mu\nu}\right|<<1.
+  \end{align}
+}
+下面我们讨论\textbf{这个特定参考系下}线性引力理论的方方面面。我们研究Chris Symbol, Ricci
+Tensor等等，但是都只保留到$ h_{\mu\nu} $的一阶项。
+\begin{itemize}
+  \item \textbf{升降算符：} 我们在升降指标的时候使用$ \eta_{\mu\nu}
+    $来进行升降，但是一个特例除外！！也就是metric自己，我们使用：
+    \begin{align}
+      g^{\mu\nu}=\eta^{\mu\nu}-h^{\mu\nu}
+    \end{align}
+    作为metric的逆的线性近似，其中$ h^{\mu\nu} = \eta^{\mu\alpha}\eta^{\nu\beta}
+    h_{\alpha\beta} $。
+  \item \textbf{Christoffel Symbol}
+
+    我们知道metric的导数只包含$ h_{\mu\nu} $的导数，因此Christoffel Symbol可以写成
+    \begin{align}
+      \Gamma_{\mu\nu}^\alpha=\frac{1}{2}\eta^{\alpha\beta}\left(\partial_\nu
+      h_{\mu\beta}+\partial_{\mu}h_{\beta\nu}-\partial_{\beta}h_{\mu\nu}\right)\mathrm{~.}
+    \end{align}
+    注意第一项本身是$ g^{\mu\nu} = \eta^{\mu\nu} - h^{\mu\nu} $，但是$
+    h^{\mu\nu} $乘以$ \partial h $是二阶小量，因此被忽略掉了。
+  \item \textbf{Riemman Tensor}
+
+    根据定义Riemann Tensor可以写作：
+    \begin{align}\label{eq:riemannlinear}
+      R_{\mu\nu\rho\sigma}=\frac{1}{2}(\partial_\nu\partial_\rho
+        h_{\mu\sigma}+\partial_\mu\partial_\sigma
+        h_{\nu\rho}-\partial_\mu\partial_\rho
+      h_{\nu\sigma}-\partial_\nu\partial_\sigma h_{\mu\rho}).
+    \end{align}
+    \textbf{Invariant of Riemann Tensor:} 在线性引力近似框架下 Riemann
+    Tensor在保持线性的坐标变换下【\textbf{是一个标量}】！！可以证明对于任意坐标变换，保持线性近似满足：
+    \begin{align}
+      R_{\mu\nu\rho\sigma}'(x')=R_{\mu\nu\rho\sigma}(x)\mathrm{~.}
+    \end{align}
+  \item \textbf{Ricci Tensor}
+
+    我们知道Ricci Tensor的定义是：
+    \begin{align}
+      R_{\mu\nu}=\partial_\rho\Gamma_{\mu\nu}^\rho-\partial_\nu\Gamma_{\mu\rho}^\rho+\Gamma_{\mu\nu}^\sigma\Gamma_{\sigma\rho}^\rho-\Gamma_{\mu\rho}^\sigma\Gamma_{\sigma\nu}^\rho.
+    \end{align}
+    但是最后两项是二阶小量，因此被忽略掉了。因此我们有:
+    \begin{align}
+      R_{\mu\nu}=&\partial_\rho\Gamma_{\mu\nu}^\rho-\partial_\nu\Gamma_{\mu\rho}^\rho.\\
+      =&\frac{1}{2}\left(\partial_{\lambda}\partial_{\nu}h_{\ \mu}^\lambda-\square
+      h_{\mu\nu}-\partial_{\mu}\partial_{\nu}h_{\ \lambda}^\lambda+\partial_{\lambda}\partial_{\mu}h_{\ \nu}^\lambda\right)\mathrm{~,}
+    \end{align}
+    其中$ \square=\partial_{\lambda}\partial^{\lambda}. $
+
+    \rmk{
+      本章之中，我们所有使用到的 $ \square=\partial_{\lambda}\partial^{\lambda}.
+      $全部都是Minkowski空间下的d'Alembert算符。
+    }
+  \item \textbf{Ricci Scalar}
+
+    我们对于Ricci Tensor进行contraction最终可以得到：
+    \begin{align}
+      R = \partial_\lambda \partial_\sigma h^{\lambda\sigma} - \Box h \,
+    \end{align}
+    其中$ h = h_\lambda^{\ \lambda} = \eta^{\lambda\sigma}
+    h_{\lambda\sigma} $。也就是用$ \eta^{\mu\nu} $进行升降指标的tr.
+  \item \textbf{Einstein Tensor}
+
+    最终这个是Ricci Tensor和Ricci Scalar的线性组合，因此我们有：
+    \begin{align}
+      2 G_{\mu\nu} = -\Box h_{\mu\nu} - \partial_\mu \partial_\nu h
+      + \partial_\lambda \partial_\nu h_{\mu}^{\ \lambda}
+      + \partial_\lambda \partial_\mu h_{\nu}^{\ \lambda}
+      + \eta_{\mu\nu} \Box h
+      - \eta_{\mu\nu} \partial_\lambda \partial_\sigma h^{\lambda\sigma} \, .
+    \end{align}
+  \item \textbf{Einstein Field Equation}
+
+    最终我们可以将上面的Einstein Tensor代入Einstein Field Equation中，得到线性引力下的EFE：
+    \begin{align}
+      \Box h_{\mu\nu} + \partial_\mu \partial_\nu h
+      - \partial_\lambda \partial_\nu h_{\mu}^{\ \lambda}
+      - \partial_\lambda \partial_\mu h_{\nu}^{\ \lambda}
+      - \eta_{\mu\nu} \Box h
+      + \eta_{\mu\nu} \partial_\lambda \partial_\sigma h^{\lambda\sigma}
+      = -16\pi G\, T_{\mu\nu} \, .
+    \end{align}
+\end{itemize}
+\rmk{我们意识到我们一直使用正常的导数，是因为covariant derivative包含$ h_{\mu\nu}
+$一阶的Christoffel Symbol，因此会产生二阶小量，我们忽略掉了。就变成了普通的偏导数。}
+
+\bigskip
+\hlr{Bianchi Identity的讨论}
+
+我们知道Bianchi Identity是：
+\begin{align}
+  \nabla^\mu G_{\mu\nu} = 0 \, . \Rightarrow \nabla^\mu T_{\mu\nu} = 0 \, .
+\end{align}
+左边的式子是几何的式子右边的则是根据EFE得到的。对于线性引力来说：
+\begin{align}
+  \partial^{\mu} G_{\mu\nu} = 0 \, .\Rightarrow \partial^{\mu}
+  T_{\mu\nu} = 0 \, .
+\end{align}
+这说明运动方程在线性引力的情况下\textbf{不受引力场的影响}，和平直时一样。所以我们的线性引力不存在能动量张量变化对于引力场的反馈。
+
+比如对于dust，能动量张量是$ T^{\mu\nu} = \rho u^\mu u^\nu $，因此我们有：
+\begin{align}
+  u^\mu \partial_\mu u^\nu = 0 \, .
+\end{align}
+这说明dust的质点沿着直线运动，不受引力场的影响。
+
+\subsubsection{线性引力在Hilbert Gauge下框架}
+
+我们知道metric是一个规范场。
+\begin{itemize}
+  \item 对于Linearized
+    Gravity，我们也发现对于任何满足线性条件的坐标变换来说，我们的理论都是不变的，也就是说这是一个Gauge Symmetry。
+  \item 在求解之前我们需要fix这个gauge freedom。希望选择一个gauge来简化Einstein Field Equation。
+\end{itemize}
+本章就讨论这个gauge fixing的过程。
+
+\bigskip
+\hlr{gamma metric简化}
+
+我们可以redefine一个新的变量：
+\begin{align}
+  \gamma_{\mu\nu}\equiv h_{\mu\nu}-\frac{1}{2}\eta_{\mu\nu}h \quad
+  h_{\mu\nu}=\gamma_{\mu\nu}-\frac{1}{2}\eta_{\mu\nu}\gamma\mathrm{~,}
+\end{align}
+其中$ \gamma = \gamma_\lambda^{\ \lambda} = -h $。对于这个变量，我们可以将Einstein
+Field Equation写成：
+\begin{align}
+  -\Box \gamma_{\mu\nu}
+  - \eta_{\mu\nu} \partial_\alpha \partial_\beta \gamma^{\alpha\beta}
+  + \partial_\nu \partial_\alpha \gamma_{\mu}^{\ \alpha}
+  + \partial_\mu \partial_\alpha \gamma_{\nu}^{\ \alpha}
+  = 16\pi G\, T_{\mu\nu} \, .
+\end{align}
+我们自然发现后面三项都是依赖于$ \partial_\alpha \gamma_{\mu}^{\ \alpha}
+$的，因此我们可以选择一个gauge来简化这个方程。
+
+\bigskip
+\hlr{Lorantz Transformation}
+
+我们先研究Lorentz坐标变换下面metric的行为。得到结论：
+\begin{align}
+  g_{\mu\nu}' = \eta_{\mu\nu} + h_{\mu\nu}' \, , \quad h_{\mu\nu}' =
+  h_{\alpha\beta} \Lambda^{\alpha}_{\ \mu} \Lambda^{\beta}_{\ \nu} \, .
+\end{align}
+也就相当于我们的$ h_{\mu\nu} $作为一个tensor进行变换。并且，我们要求linearize条件，也就是$
+|h_{\mu\nu}'| << 1 $。
+
+\bigskip
+\hlr{一般坐标变换下的gauge变换}
+
+我们考虑一般坐标变换下metric的变化。我们考虑一个infinitesimal的坐标变换：
+\begin{align}
+  x^{\prime\mu}=x^\mu-\xi^\mu(x)\mathrm{~,}
+\end{align}
+我们对于metric一般的协变进行无限小变换以及线性近似，得到：
+\begin{align}
+  h'_{\mu\nu}(x) = h_{\mu\nu}(x) + \partial_\mu \xi_\nu +
+  \partial_\nu \xi_\mu \, .
+\end{align}
+也就是说$ h_{\mu\nu} $发生了一个类似于电磁场规范变换的变化。【这里类比电磁场就特别好理解】。
+
+\bigskip
+\hlr{Hilbert Gauge}
+
+我们特别希望选取下面这个Gauge来简化Einstein Field Equation：
+\defi{
+  Hilbert Gauge
+
+  我们选择一个gauge使得：
+  \begin{align}
+    \partial^\mu \gamma_{\mu\nu} = 0 \, .
+  \end{align}
+  也就是Hilbert Gauge。
+}
+我们证明其是可以选取的。我们考虑一个一般的坐标变换下$ \gamma_{\mu\nu} $的变化：
+\begin{align}\label{eq:gammatransform}
+  \begin{aligned}\gamma_{\mu\nu}^{\prime}&=h_{\mu\nu}^{\prime}-\frac{1}{2}\eta_{\mu\nu}h^{\prime}\\&=\left(h_{\mu\nu}+\partial_\mu\xi_\nu+\partial_\nu\xi_\mu\right)-\frac{1}{2}\eta_{\mu\nu}\left(h+2\partial_\lambda\xi^\lambda\right)\\&=\underbrace{h_{\mu\nu}-\frac{1}{2}\eta_{\mu\nu}h}_{\gamma_{\mu\nu}}+\partial_\mu\xi_\nu+\partial_\nu\xi_\mu-\eta_{\mu\nu}\partial_\lambda\xi^\lambda.
+  \end{aligned}
+\end{align}
+因此如果坐标变换后满足:
+\begin{align}\label{eq:hilbertgaugecondition}
+  \partial^\mu \gamma_{\mu\nu}^{\prime} = 0 \quad \Rightarrow \quad
+  \partial^\nu \gamma_{\mu\nu} + \Box \xi_\mu = 0 \, .
+\end{align}
+那么就可以变换到Hilbert Gauge。
+
+\bigskip
+\hlr{Einstein Field Equation在Hilbert Gauge下}
+
+\thm{
+  Linearied Einstein Field Equation在Hilbert Gauge下的形式
+
+  在Hilbert Gauge下，Einstein Field Equation大大简化为：
+  \begin{align}
+    \Box \gamma_{\mu\nu} = -16\pi G\, T_{\mu\nu} \, .
+  \end{align}
+  Gauge condition为：
+  \begin{align}
+    \partial^\mu \gamma_{\mu\nu} = 0 \, .
+  \end{align}
+}
+我们在Hilbert Gauge下面进行求解。得知解必然是特解+通解。通解我们在引力波部分讨论，下面讨论特解：
+\begin{align}
+  \gamma_{\mu\nu}=16\pi G \times D_R*T_{\mu\nu}
+\end{align}
+其中$ D_R $是Minkowski空间下的retarded Green function。然后$ * $表示卷积。$ D_R $具体形式为：
+\begin{align}
+  D_R(x)=\frac{1}{4\pi|\mathbf{x}|}\delta(x^0-|\mathbf{x}|)\mathrm{~.}
+\end{align}
+我们把卷积写开，然后仅仅考虑推迟的解就是：
+\begin{align}
+  \gamma_{\mu\nu}(x)=4G\int\frac{\delta(x^0-y^0-|\mathbf{x}-\mathbf{y}|)}{|\mathbf{x}-\mathbf{y}|}T_{\mu\nu}(y)d^4y=4G\int\frac{T_{\mu\nu}(x^0-|\mathbf{x}-\mathbf{y}|,\mathbf{y})}{|\mathbf{x}-\mathbf{y}|}d^3y
+\end{align}
+这就很像是经典电动力学我们的源给出场的解。但是场在这里是$ \gamma_{\mu\nu} $，源是$ T_{\mu\nu} $。
+
+\subsection{Nearly Newtonian Field}
+
+\bigskip
+\hlr{Nearly Newtonian Field}
+
+下面我们在线性引力的框架上给出更多的近似。考虑最类似牛顿引力近似的情况。我们知道对于牛顿引力要说有下面条件：
+\begin{itemize}
+  \item Static and Stationary：stationary说的是存在类时Killing
+    Vector，可以理解为metric不显含一个「时间坐标」；static说的是不存在cross term $ g_{0i} $；
+  \item Non-relativistic source：能动量张量的主要成分是$ T_{00} $，其他成分都很小。
+    \begin{align}
+      T_{00}\gg|T_{0j}|,|T_{ij}|
+    \end{align}
+\end{itemize}
+\thm{
+  Nearly Newtonian Einstein Field Equation
+
+  在Nearly Newtonian Field下，Einstein Field Equation的解满足：
+  \begin{align}
+    \Box \gamma_{00} = -16\pi G\, T_{00} \, , \quad \Box \gamma_{0j}
+    = 0 \, , \quad \Box \gamma_{ij} = 0 \, .
+  \end{align}
+}
+所以我们的EFE的解就是：
+\begin{align}
+  \gamma_{00}=-4\phi\mathrm{~,~}\quad\gamma_{0j}=\gamma_{ij}=0 \quad
+  \phi(\mathbf{x})=-G\int\frac{T_{00}(t,\mathbf{y})}{|\mathbf{x}-\mathbf{y}|}d^3y.
+\end{align}
+这里$ \phi(\mathbf{x}) $就是经典的牛顿引力势。我们可以将metric写成：
+\begin{align}
+  \large ds^2=-(1+2\phi)dt^2+(1-2\phi)d\mathbf{x}^2.
+\end{align}
+对于一个点源来说，$ T_{00} = M \delta(\mathbf{x}) $，因此我们有：
+\begin{align}\label{eq:nearlynewtonianmetric}
+  ds^2=-\left(1-2\frac{GM}{r}\right)dt^2+\left(1+2\frac{GM}{r}\right)d\mathbf{x}^2.
+\end{align}
+
+\bigskip
+\hlr{Test Particle的运动方程}
+
+我们考虑一个test particle在这个metric下面的运动方程（也就是geodesic equation）。我们使用下面两个非相对论近似：
+\begin{align}
+  dx^\mu/dt=(1,0,0,0) \quad \tau\approx x^0=t.
+\end{align}
+因此geodesic equation变成：
+\begin{align}
+  \ddot{x}^\mu=-\Gamma_{00}^\mu
+\end{align}
+对于空间维度的运动方程来说，我们有：
+\begin{align}
+  \Gamma_{00}^i=-\frac{1}{2}\partial^ih_{00}=\partial^i\phi\mathrm{~.}
+  \Rightarrow \ddot{x}^i=-\partial^i\phi
+\end{align}
+这就是经典牛顿引力的运动方程！！
+
+\bigskip
+\hlr{一般引力下电磁波运动}
+
+我们试图研究引力下电磁波的运动。我们知道电磁场在引力下(lorenz Gauge)的运动方程是：
+\begin{align}
+  \nabla_\mu \nabla^\mu A^\nu - R_{\ \mu}^\nu A^\mu = 0 \, .
+\end{align}
+我们考虑下面的ansatz来描述电磁场：
+\begin{align}
+  A_\mu=C_\mu e^{iS}.
+\end{align}
+其中$ C_\mu $是慢变的振幅，$ S $是快速变化的相位是时空的函数。我们带入EoM之中得到：
+\begin{align}
+  \nabla^\mu [ C_\nu i e^{iS} \nabla_\mu S ] = -C_\nu e^{2iS}
+  (\nabla_\mu S) (\nabla^\mu S) + C_\nu i e^{iS} \nabla^\mu\nabla_\mu S  \, .
+\end{align}
+其中我们忽略掉了$ \nabla_\mu C_\nu $的项，因为$ C_\nu $是慢变的。我们也忽略掉了$ R_{\ \mu}^\nu
+A^\mu $的项，因为引力场很弱。我们发现上面的方程可以分为实部和虚部两部分：
+\begin{align}
+  \nabla_\mu S\nabla^\mu S=0. \quad \nabla^\mu\nabla_\mu S=0.
+\end{align}
+定义电磁波的波矢为：
+\begin{align}
+  k_\mu \equiv \nabla_\mu S \, .
+\end{align}
+第一个运动方程我们知道$ k_\mu k^\mu = 0 $，也就是说电磁波是沿着null geodesic传播的。第二个方程进行一个协变导数结果为：
+\begin{align}
+  0=\nabla_\mu(k^\nu k_\nu)=2k^\nu\nabla_\mu k_\nu. \Rightarrow
+  k^\nu\nabla_\nu k^\mu=0=\nabla_\mathbf{k}\mathbf{k}.
+\end{align}
+中间的推导之中我们使用了$ \nabla_\mu \nabla_\nu S = \nabla_\nu \nabla_\mu S
+$的torsion free条件。这证明了，Maxwell Equation可以推出电磁波的波矢是类光测地线的切矢量，也符合电磁波以光速传播的事实。
+
+\bigskip
+\hlr{Gauge condition}
+
+上面的求解并不是完整的，我们还有很多对于$ C_\mu $的冗余自由度。我们使用Lorenz Gauge来fix这个gauge freedom：
+\begin{align}
+  \nabla_\mu A^\mu = 0 \, .
+\end{align}
+我们带入ansatz得到：
+\begin{align}
+  k_\mu C^\mu = 0 \, .
+\end{align}
+这说明，在Lorentz Gauge下面，电磁波的振幅和波矢是正交的，符合电磁波横波的性质。
+
+\bigskip
+\hlr{波矢和可观测量}
+
+我们类比经典的电动力学，定义弯曲时空下面一个观测者以$ u^\mu $运动，那么观测者测量到的电磁波频率为：
+\begin{align}
+  \omega = -k_\mu u^\mu  = - u^\mu \nabla_\mu S\, .
+\end{align}
+
+\bigskip
+\hlr{光在Nearly Newtonian Field下的运动}
+
+下面我们考虑光在Nearly Newtonian Field下的运动。我们focus一阶的线性的运动方程也就是：
+\begin{align}
+  \nabla_\mu S \nabla^\mu S = 0 \, .
+\end{align}
+选择\cref{eq:nearlynewtonianmetric}的metric，我们有：
+\begin{align}
+  -(1-2\phi)(\partial_tS)^2+(1+2\phi)(\nabla S)^2=0.
+\end{align}
+考虑一个「静止」观察者$ u^\mu = (1,0,0,0) $，其观察到的频率为$ \omega = -k_0 =
+-\partial_{t}S $，所以我们给出下面的ansatz：
+\begin{align}
+  S(\mathbf{x},t) = -\omega t + u(\mathbf{x}) \, .
+\end{align}
+带入上面的EoM得到：
+\begin{align}
+  (\nabla u)^2=n^2\omega^2,\quad n=1-2\phi.
+\end{align}
+注意：原本$ n = \sqrt{1-4 \phi} $这里我们保留到了一阶的展开。这个方程给出了光在Nearly Newtonian
+Field下的运动方程。我们发现光在引力场下的运动就像是在一个折射率为$ n = 1 - 2\phi $的介质中传播一样。
+
+\subsection{Lense-Thirring Effect}
+
+\hlr{Lense-Thirring Field}
+
+我们考虑linearized Gravity的语境下面，放松Nearly Newtonian
+Field的static条件，考虑stationary但是并非static的情况:
+\begin{itemize}
+  \item Stationary: 存在类时Killing Vector，可以理解为metric不显含一个「时间坐标」；
+  \item Non-relativistic non-static source：能动量张量的主要成分是$ T_{00} ,
+    T_{0,i} $，其他成分都很小。
+\end{itemize}
+\thm{
+  Lense-Thirring Field
+
+  对于stationary 但并非static的linearized Gravity的类Neqwtonian Field，我们有：
+  \begin{align}
+    \square\gamma_{ij}=0,\quad\square\gamma_{0\mu}=-16\pi GT_{0\mu}.
+  \end{align}
+}
+
+\bigskip
+\hlr{等效电动力学}
+
+我们发现这个时候我们可以将引力场和电动力学进行类比。我们定义，等效矢量势与等效电流：
+\begin{align}
+  A_\mu\equiv\frac{1}{4}\gamma_{0\mu} \quad j_{\mu}=GT_{0\mu}
+\end{align}
+所以我们得到Einstein Field Equation变成：
+\begin{align}
+  \square A_\mu = -4\pi j_\mu \quad \square \gamma_{ij} = 0
+\end{align}
+正是电动力学在弱引力的情况下$ R = 0 $有源运动方程。解得：
+\begin{align}
+  A_0=-\phi,\quad
+  A_i(\mathbf{x})=G\int\frac{T_{0i}(\mathbf{y})}{|\mathbf{x}-\mathbf{y}|}d^3y.\quad
+  \gamma_{ij}=0
+\end{align}
+最后一个是因为我们认为metric stationary所以没有时间导数，对于空间导数为0一个平凡的解就是0。变换回metric得到：
+\begin{align}
+  g_{00}=-1+2A_0,\quad g_{0i}=4A_i,\quad g_{ij}=(1+2A_0)\delta_{ij}.
+\end{align}
+
+\bigskip
+\hlr{Test Particle的运动方程}
+
+考虑一个test particle在这个metric下面的运动方程（也就是geodesic
+equation）。我们使用Lagrangian formalism描述：
+\begin{align}
+  S = - m \int\sqrt{-g_{\mu\nu}\frac{dx^\mu}{dt}\frac{dx^\nu}{dt}}dt
+\end{align}
+我们考虑非相对论近似，所以给出ansatz：
+\begin{align}
+  \displaystyle\frac{d x^\mu}{d t} = u^\mu = (1, v^i) \, , \quad |v^i| << 1 \, .
+\end{align}
+并且我们忽略所有$ v^2 $项进行讨论，在这个近似下带入ansatz：
+\begin{align}
+  g_{\mu\nu}\frac{dx^\mu}{dt}\frac{dx^\nu}{dt}=-1+\mathbf{v}^2+2A_0+8\mathbf{A}\cdot\mathbf{v}.
+\end{align}
+因此Lagrangian变成：
+\begin{align}
+  - \displaystyle\frac{1}{m}\mathcal{L} = \sqrt{-g_{\mu\nu} u^\mu
+  u^\nu} & = 1- \displaystyle\frac{1}{2} \mathbf{v}^2 - A_0 - 4
+  \mathbf{A} \cdot \mathbf{v} \, .\\
+  &= 1- \displaystyle\frac{1}{2} \mathbf{v}^2 +\phi - 4 \mathbf{A}
+  \cdot \mathbf{v}
+\end{align}
+我们写出lagrangian的形式就是：
+\begin{align}
+  \mathcal{L} = \displaystyle\frac{1}{2} m \mathbf{v}^2 - m \phi + 4
+  m \mathbf{A} \cdot \mathbf{v} \, .
+\end{align}
+
+\bigskip
+\hlr{类比电动力学}
+
+\rmk{
+  补充信息，电动力学之中自由粒子的lagrangian以及运动方程：
+  \begin{itemize}
+    \item 电磁场中粒子的lagrangian：$
+      \mathcal{L}=-mc^2\sqrt{1-v^2/c^2}+q\mathbf{A}\cdot\mathbf{v}-q\phi $
+  \end{itemize}
+}
+对比电动力学和引力的情况我们发现：
+\begin{itemize}
+  \item $ e \sim m $也就是电荷相当于质量，并永远是正数；
+  \item 对于磁场作用多了一个正数4的系数，因此引力场中的「磁场」效应更强。
+\end{itemize}
+类比电动力学我们定义对于引力的「电场」和「磁场」：
+\begin{align}
+  \mathbf{E}_g = -\nabla \phi \, , \quad \mathbf{B}_g = \nabla \wedge
+  \mathbf{A} \, .
+\end{align}
+我们可以给出运动方程为：
+\begin{align}
+  \ddot{\mathbf{x}} = \mathbf{E}_g + 4 \dot{\mathbf{x}} \wedge \mathbf{B}_g \, .
+\end{align}
+相当于牛顿引力加上一个类似于洛伦兹力的修正项。
+
+\bigskip
+\hlr{Spin Precession}
+
+类似洛伦兹里，如果我们有一个转动的物质，那么就会有进动的效应。
+
+\YL{[回头仔细补充捏]}
+
+\subsection{Questions and thoughts}
+
+\question{
+  线性引力我们升降指标的时候什么时候使用$ \eta $什么时候使用$ \eta \pm h $？？
+}
+
+我们对于线性引力的研究有下面的规定只有在升降metric的时候才使用$ h $相关的，其他时候都使用$ \eta $进行升降指标。
+\qed

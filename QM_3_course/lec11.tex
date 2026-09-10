@@ -1,0 +1,399 @@
+Follow上一section的思路，散射振幅可以通过求解Stationary
+Schrodinger方程，找到符合合理渐近行为的散射态波函数。从而通过渐近行为读出散射振幅。这个过程我们可以使用partial
+wave的数学技巧进行实现。并且得到一个意想不到的结论：
+\begin{itemize}
+  \item 散射的势能的信息完全包含在各个partial wave的相位移中，并从中可以给出散射振幅
+\end{itemize}
+
+\rmk{
+  一个需要澄清的事实：
+
+  Partial Wave是整个散射理论Hamiltonian的解空间的基；而Stationary Scattering
+  State是「散射态」空间的基。后者的空间是前者的一个子空间，因此我们可以使用前者展开后者的。
+}
+\rmk{
+  这个方法其实仅仅适用于\textbf{中心势场}的情况。如果势场不是中心势场，那么角动量算符就不再和Hamiltonian对易，Partial
+  Wave Expansion就不再适用。
+}
+
+\subsection{Partial Wave Expansion数学技巧}
+
+\subsubsection{基本定义}
+\bigskip
+\hlr{Partial Wave Expansion基本思路}
+
+Partial Wave
+Expansion本身是一个求解定态Schrodinger方程的数学技巧。在此我们使用求解散射Hamiltonian对应的定态Schrodinger方程。我们假设只考虑中心势场$
+V(r) $，因此：
+\begin{itemize}
+  \item Hamiltonian在坐标表象的微分算符和角动量算符是对易的
+\end{itemize}
+这也就是说明：
+\begin{itemize}
+  \item 在坐标表象下可以使用角动量微分算符的本征函数进行展开求解定态Schrodinger方程
+\end{itemize}
+\defi{
+  角动量微分算符
+
+  在坐标表象下，角动量算符的表示为：
+  \begin{align}
+    &\hat{L}_{z}=-i\hbar\frac{\partial}{\partial\varphi}\\&\hat{L}^{2}=-\hbar^{2}\left(\frac{1}{\sin\theta}\frac{\partial}{\partial\theta}\left(\sin\theta\frac{\partial}{\partial\theta}\right)+\frac{1}{\sin^{2}\theta}\frac{\partial}{\partial\phi^{2}}\right)
+  \end{align}
+}
+\rmk{
+  上面这些话虽然用的名词很物理，但是我们其实干的事情就是用一个数学技巧找到一个比较复杂的偏微分方程解空间的一个完备基底，然后使用这个完备基底进行展开求解而已。
+}
+于是我们发现定态Schrodinger方程的解空间呈现下面的结构：
+\thm{
+  Partial Wave
+
+  对于中心势场$ V(r) $，定态Schrodinger方程的解空间可以使用角动量算符的本征函数进行展开。其函数基为：
+  \begin{align}
+    \varphi_{klm}(\mathbf{r})=R_{kl}(r)Y_l^m(\theta,\varphi),
+  \end{align}
+  这个函数同时是Hamiltonian以及角动量算符$ \hat{L}^2,\hat{L}_z $的共同本征函数，满足：
+  \begin{align}
+    &H\varphi_{klm}(\mathbf{r})=\displaystyle\frac{\hbar^2
+    k^2}{2m}\varphi_{klm}(\mathbf{r})\\
+    &\hat{L}^2\varphi_{klm}(\mathbf{r})=\hbar^2
+    l(l+1)\varphi_{klm}(\mathbf{r})\\
+    &\hat{L}_z\varphi_{klm}(\mathbf{r})=\hbar m\varphi_{klm}(\mathbf{r})
+  \end{align}
+  其中$ Y_l^m(\theta,\varphi) $为球谐函数「函数形式完全固定」;$ R_{kl}(r) $为径向函数「由势能$
+  V(r) $具体形式决定」。并且$ R_{kl}(r) $满足径向Schrodinger方程：
+  \begin{align}
+    &\left[-\frac{\hbar^2}{2m}\frac{1}{r}\frac{d^2}{dr^2}r+\frac{\hbar^2
+    l(l+1)}{2mr^2}+V(r)\right]R_{kl}(r)=E R_{kl}(r)\\
+    &E=\frac{\hbar^2 k^2}{2m}\mathrm{~.}
+  \end{align}
+}
+我们可以使用上面的函数基进行展开任意定态Schrodinger方程的解。我们下面将研究怎样展开散射解。
+
+\subsubsection{自由粒子波函数的Partial Wave Expansion}
+
+\hlr{自由粒子Hamiltonian的Partial Wave}
+
+首先考虑没有势能的情况下Partial Wave的形式。我们已经知道球谐函数的形式，待定的只有径向函数$ R_{kl}(r)
+$。在没有势能的情况下，径向Schrodinger方程为：
+\begin{align}
+  &\left[-\frac{\hbar^2}{2m}\frac{1}{r}\frac{d^2}{dr^2}r+\frac{\hbar^2
+  l(l+1)}{2mr^2}\right]R_{kl}(r)=E R_{kl}(r)\\
+  &E=\frac{\hbar^2 k^2}{2m}\mathrm{~.}
+\end{align}
+一个基本技巧为，我们定义$ u_{kl}(r)=rR_{kl}(r) $，那么上面的方程可以化为：
+\begin{align}
+  \left[\frac{\mathrm{d}^2}{\mathrm{d}r^2}-\frac{l(l+1)}{r^2}+k^2
+  \right]u_{kl}(r)=0,
+\end{align}
+通过数学技巧的计算我们得到：
+\thm{
+  自由粒子Hamiltonian的Partial Wave
+
+  没有势能的情况下，自由粒子定态Schrodinger方程的解空间的Partial Wave为：
+  \begin{align}
+    \varphi_{klm}^0(\mathbf{r})=R_{kl}(r)Y_m^l(\theta,\varphi)=\sqrt{\frac{2k^2}{\pi}}j_l(kr)Y_m^l(\theta,\varphi).
+  \end{align}
+  其中$ j_l(kr) $为第$l$阶的Spherical Bessel函数。定义为：
+  \begin{align}
+    j_l(\rho):=(-1)^l\rho^l\left(\frac{1}{\rho}\frac{\mathrm{d}}{\mathrm{d}\rho}\right)^l\frac{\sin\rho}{\rho},
+  \end{align}
+}
+
+\bigskip
+\hlr{自由粒子Partial Wave的性质}
+\begin{itemize}
+  \item \textbf{正交完备情况}
+\end{itemize}
+这一组函数满足正交完备关系：
+\begin{align}
+  \left[\int_0^\infty
+  r^2drR_{kl}(r)R_{k^{\prime}l}(r)\right]\left[\int d\Omega
+  Y_{l^{\prime}}^{m*}(\Omega)Y_{l^{\prime}}^{m^{\prime}}(\Omega)\right]=\delta(k-k^{\prime})\delta_{ll^{\prime}}\delta_{mm^{\prime}}.
+\end{align}
+完备关系为：
+\begin{align}
+  \int_0^\infty
+  dk\sum_{l=0}^\infty\sum_{m=-l}^l\varphi_{klm}^0(\mathbf{x})\left(\varphi_{klm}^0(\mathbf{x}^{\prime})\right)^*=\delta^{(3)}(\mathbf{x}-\mathbf{x}^{\prime}).
+\end{align}
+我使用坐标表象explicitly写出来为了保证计算更加方便「毕竟我们在讨论具体的解微分方程的问题」
+
+\begin{itemize}
+  \item \textbf{径向函数特殊情况}
+\end{itemize}
+
+对于$ l = 0 $的情况，我们有：
+\begin{align}
+  \varphi_{k00}^0(r)=\sqrt{\frac{2k^2}{\pi}}\frac{1}{\sqrt{4\pi}}\frac{\sin(kr)}{kr}.
+\end{align}
+
+\bigskip
+\hlr{Partial Wave渐进形式}
+
+\begin{itemize}
+  \item 0附近渐近行为
+\end{itemize}
+相比于波函数，我们更关心概率密度的渐进行为，我们知道一个微元内的概率密度为：
+\begin{align}
+  \frac{2(kr)^2}{\pi}|j_l(kr)|^2|Y_m^l(kr)|^2\sin\theta_0\mathrm{~d}r\mathrm{d}\theta\mathrm{d}\varphi.
+\end{align}
+数学上Spherical Bessel函数在0附近的渐近行为为：
+\begin{align}
+  j_l(\rho)\underset{\rho\to0}{\operatorname*{\operatorname*{\to}}}\frac{\rho^l}{(2l+1)!!}.
+\end{align}
+这也就说明0附近概率密度十分的小，并且随着$l$的增大概率密度在0附近衰减的越快，速度大致为$ r^{2l+2} $。
+
+\begin{itemize}
+  \item 无穷远处渐近行为【十分重要】
+\end{itemize}
+为了研究散射态行为，更重要的是研究整个波函数在无穷远处的渐近行为。我们知道Spherical Bessel函数在无穷远处的渐近行为为：
+\begin{align}
+  j_l(\rho)\underset{\rho\to\infty}{\operatorname*{\operatorname*{\sim}}}\frac{1}{\rho}\sin(\rho-l\frac{\pi}{2}).
+\end{align}
+于是我们有：
+\thm{
+  自由粒子Partial Wave无穷远处渐近行为
+
+  自由粒子Partial Wave在无穷远处的渐近行为为：
+  \begin{align}
+    \varphi_{klm}^{0}(\mathbf{r})\underset{r\to\infty}{\sim}-\sqrt{\frac{2k^{2}}{\pi}}Y_{l}^{m}(\theta,\varphi)\frac{e^{-ikr}e^{il\frac{\pi}{2}}-e^{ikr}e^{-il\frac{\pi}{2}}}{2ikr},
+  \end{align}
+}
+一个物理的理解就是无穷远附近partial wave解就是有相位差的一个入射波和出射波的叠加。
+
+\bigskip
+\hlr{平面波的Partial Wave Expansion}
+
+一个和散射相关的具体例子，对于没有势能来说。我们Stationary Scattering
+State的波函数也就是平面波，我们不妨假设所有粒子都沿着$ z $轴正方向入射，那么平面波为：
+\begin{align}
+  \langle r|k\rangle=\frac{1}{(2\pi)^{3/2}}e^{ikz}
+\end{align}
+下面我们使用Partial Wave进行展开。不妨先分析：
+\begin{itemize}
+  \item 平面波形式和$ \varphi $方向无关所以我们只需要考虑$ m=0 $的情况
+\end{itemize}
+我们可以通过正交性关系给出展开系数
+\thm{
+  平面波的Partial Wave Expansion
+
+  平面波可以使用Partial Wave进行展开，展开形式为：
+  \begin{align}
+    e^{ikz}=& \sum_{l=0}^\infty
+    i^l\sqrt{4\pi(2l+1)}\sqrt{\displaystyle\frac{\pi}{2 k^2}}
+    \varphi^0_{kl0}(\mathbf{r})\\
+    =&\sum_{l=0}^\infty i^l\sqrt{4\pi(2l+1)}j_l(kr)Y_l^0(\theta)\\
+    =&\sum_{l=0}^\infty i^l(2l+1)j_l(kr)P_l(\cos\theta)
+  \end{align}
+}
+其中我们使用了Legendre多项式，其与球谐函数的关系为：
+\begin{align}
+  Y_l^0(\theta)=\sqrt{\frac{2l+1}{4\pi}}P_l(\cos\theta).
+\end{align}
+
+\bigskip
+\hlr{平面波的无穷远处渐近行为}
+
+我们使用上面的展开式以及Spherical Bessel函数的无穷远处渐近行为，可以得到平面波在无穷远处的渐近行为为：
+\begin{align}
+  e^{ikz}\underset{r\to\infty}{\sim} - \sum_{l=0}^\infty
+  i^l\sqrt{4\pi(2l+1)}
+  Y^0_l(\theta,\varphi)\frac{e^{-ikr}e^{il\frac{\pi}{2}}-e^{ikr}e^{-il\frac{\pi}{2}}}{2ikr},
+\end{align}
+这对于后面的散射态的无穷远处渐近行为分析十分重要。
+
+\subsubsection{散射Hamiltonian的Partial Wave Expansion}
+
+\bigskip
+\hlr{散射Hamiltonian的Partial Wave形式}
+
+下面我们考虑更一般的散射Hamiltonian的Partial Wave形式。我们假设势能形式为中心势场$ V(r) $，那么径向Schrodinger方程为：
+\begin{align}
+  \left[-\frac{\hbar^{2}}{2m}\frac{d^{2}}{dr^{2}}+\frac{l(l+1)\hbar^{2}}{2m
+  r^{2}}+V(r)\right]u_{kl}(r)=\frac{\hbar^{2}k^{2}}{2m}u_{kl}(r)
+\end{align}
+其中$ u_{kl}(r)=rR_{kl}(r) $。Partial Wave形式为：
+\begin{align}
+  \varphi_{klm}(\mathbf{r})=R_{kl}(r)Y_l^m(\theta,\varphi)=\frac{1}{r}u_{kl}(r)Y_l^m(\theta,\varphi),
+\end{align}
+
+\bigskip
+\hlr{散射Hamiltonian的Partial Wave无穷远处渐近行为}
+
+具体的求解会是Model dependent的，但是如果我们只关心无穷远的渐近行为，我们会发现有统一的形式。因为我们的$
+l(l+1)/r^2 $项在无穷远处会消失，势能也在无穷远处逐渐消失，所以方程在无穷远处会化为下面的径向Schrodinger方程：
+\begin{align}
+  \left[\frac{d^2}{dr^2}+k^2\right]u_{kl}(r)\operatorname*{\sim}_{r\to\infty}0
+\end{align}
+解也就是：
+\begin{align}
+  u_{kl}(r)\underset{r\to\infty}{\sim}Ae^{ikr}+Be^{-ikr}.
+\end{align}
+我们分析：
+\begin{itemize}
+  \item 在$ r = 0 $的时候，我们认为势能趋近于无穷大，因此波函数在$ r = 0 $附近满足边界条件$ |A| = |B| $
+\end{itemize}
+所以径向波函数在无穷远的渐近行为为：
+\begin{align}
+  u_{k,l}(r)\operatorname*{\sim}_{r\to\infty}C\sin\left(kr-l\frac{\pi}{2}+\delta_l\right).
+\end{align}
+其中$ \delta_l $为相位移。写作散射态Partial Wave的形式为：
+\thm{
+  散射Hamiltonian的Partial Wave无穷远处渐近行为
+
+  散射Hamiltonian的Partial Wave在无穷远处的渐近行为为：
+  \begin{align}
+    \varphi_{klm}(\mathbf{r})&\operatorname*{\sim}_{r\to\infty}C\ \frac{\sin(kr-l\pi/2+\delta_l)}{r}Y_l^m(\theta,\varphi)\\
+    &\operatorname*{\sim}_{r\to\infty}-Ck
+    \ Y_l^m(\theta,\varphi)\frac{e^{-ikr}e^{i(l\pi/2-\delta_l)}-e^{ikr}e^{-i(l\pi/2-\delta_l)}}{2ikr}
+  \end{align}
+}
+我们可以直接观察到这个和自由粒子Partial Wave的无穷远处渐近行为的区别就在于相位移$ \delta_l $。说明：
+\begin{itemize}
+  \item 散射势能的信息完全包含在各个Partial Wave的相位移$ \delta_l $中
+\end{itemize}
+为了方便散射的讨论，我们可以选择Partial Wave的一个合适的归一化常数$ C $，使得：
+\thm{
+  散射Hamiltonian的Partial Wave无穷远处渐近行为（归一化形式）
+
+  散射Hamiltonian的Partial Wave在无穷远处的渐近行为可以归一化为：
+  \begin{align}
+    \tilde{\varphi}_{klm}(\mathbf{r})\underset{r\to\infty}{\operatorname*{\operatorname*{\sim}}}-Y_l^m(\theta,\varphi)\frac{e^{-ikr}e^{il\pi/2}-e^{ikr}e^{-il\pi/2}e^{2i\delta_l}}{2ikr}.
+  \end{align}
+}
+
+\subsection{Stationary Scattering State的Partial Wave Expansion}
+
+\bigskip
+\hlr{Stationary Scattering State的Partial Wave Expansion}
+
+在上面准备的基础上我们可以讨论Stationary Scattering State的Partial Wave
+Expansion。我们知道一个合理的Stationary Scattering State的波函数在无穷远处的渐近行为为：
+\begin{align}
+  \Psi_k^{scatt}(\mathbf{r})\underset{r\to\infty}{\sim}e^{i
+  \mathbf{k} \cdot \mathbf{r}}+f_k(\theta)\frac{e^{ikr}}{r}
+\end{align}
+\rmk{
+  更严格的说我们换了个归一化 $ \Psi_k^{scatt} = (2 \pi )^{3/2} \braket{x}{k_+} $
+}
+考虑Stationary Scattering State的性质我们知道：
+\begin{itemize}
+  \item 其为Hamiltonian的本征值为$ \displaystyle\frac{\hbar^2 k^2}{2m}
+    $的本征态；同时与$ \varphi $无关。因此我们可以使用Partial Wave进行展开$ k $是固定的，$ m=0 $也是固定的。
+\end{itemize}
+也就是说我们仅仅需要对于$ l $进行展开：
+\begin{align}
+  \Psi_k^{scatt}(\mathbf{r})=\sum_{l=0}^\infty c_l
+  \tilde{\varphi}_{kl0}(\mathbf{r}).
+\end{align}
+\begin{itemize}
+  \item Stationary Scattering State的无穷远处渐近行为可以知道第一项必须是平面波，为此我们知道$ c_l $的形式也是固定的：
+    \begin{align}
+      c_l =  i^l\sqrt{4\pi(2l+1)}
+    \end{align}
+\end{itemize}
+Proof: 算一算就知道了，下面我会算。因此我们给出定理：
+\thm{
+  Stationary Scattering State的Partial Wave Expansion
+
+  Stationary Scattering State的波函数可以使用Partial Wave进行展开，展开形式为：
+  \begin{align}
+    \Psi_k^{scatt}(\mathbf{r})=\sum_{l=0}^\infty
+    i^l\sqrt{4\pi(2l+1)}\tilde{\varphi}_{kl0}(\mathbf{r}).
+  \end{align}
+}
+
+\bigskip
+\hlr{Stationary Scattering State的渐近行为}
+
+我们研究这个展开形式在无穷远处的渐近行为：
+\begin{align}
+  \Psi_k^{scatt}(\mathbf{r}) &=
+  \sum_{l=0}^{\infty}i^{l}\sqrt{4\pi(2l+1)}\tilde{\varphi}_{kl0}(\mathbf{r})\\
+  &\operatorname*{\sim}_{r\to\infty}-\sum_{l=0}^{\infty}i^{l}\sqrt{4\pi(2l+1)}Y_{l}^{0}(\theta)\times\frac{1}{2
+    i k
+  r}\left[e^{-ikr}e^{i\frac{l\pi}{2}}-e^{ikr}e^{-i\frac{l\pi}{2}}e^{2i\delta_{l}}\right].
+\end{align}
+我们进行变形：$ e^{2i\delta_l}=1+2ie^{i\delta_l}\sin\delta_l $，因此上式可以写作：
+\begin{align}
+  \Psi_k^{scatt}(\mathbf{r})\operatorname*{\sim}_{r\to\infty}-\sum_{l=0}^{\infty}
+  i^{\,l}\sqrt{4\pi(2l+1)}\,Y_l^{0}(\theta)
+  \left[
+    \frac{e^{-ikr} e^{i\pi/2 l} - e^{ikr} e^{-i\pi/2 l}}{2ikr}
+    \;-\;
+    e^{ikr}\frac{1}{k}\,e^{-i\frac{l\pi}{2}}\,e^{i\delta_l}\sin\delta_l
+  \right].
+\end{align}
+观察这个形式以及和平面波的Partial Wave Expansion的对比，我们会发现第一项正好就是平面波的无穷远处渐近行为
+\rmk{
+  这也证明了我们前面的展开系数是正确的！！
+}
+因此我们发现，Scattering State的渐近行为可以使用Partial
+Wave的信息给出。并且散射振幅可以唯一的通过Partial Wave的相位移给出：
+\thm{
+  Stationary Scattering State的渐近行为(Partial Wave形式)
+
+  Stationary Scattering State的波函数在无穷远处的渐近行为为：
+  \begin{align}
+    \Psi_k^{scatt}(\mathbf{r}) \operatorname*{\sim}_{r\to\infty}
+    e^{ikz} + f_k(\theta)\frac{e^{ikr}}{r}
+  \end{align}
+  其中：
+  \begin{align}
+    f_k(\theta)=\frac{1}{k}\sum_{l=0}^\infty\sqrt{4\pi(2l+1)}e^{i(\delta_l-
+    \pi/2 l)}\sin\delta_lY_l^0(\theta).
+  \end{align}
+  也就是我们的散射振幅
+}
+
+\bigskip
+\hlr{散射振幅，截面与相位移的关系}
+
+我们改写一下上面的定理提取一下关键结论：
+\thm{
+  散射振幅与相位移的关系
+
+  散射振幅与各个Partial Wave的相位移的关系为：
+  \begin{align}
+    f_k(\theta)=\frac{1}{k}\sum_{l=0}^\infty\sqrt{4\pi(2l+1)}e^{i\delta_l}\sin\delta_lY_l^0(\theta).
+  \end{align}
+}
+因此散射截面也可以通过相位移给出：
+\thm{
+  散射截面与相位移的关系
+
+  散射截面与各个Partial Wave的相位移的关系为：
+  \begin{align}
+    \left.\frac{\mathrm{d}\sigma}{\mathrm{d}\Omega}\right|_{\theta}
+    = \bigl| f_k(\theta) \bigr|^{2}
+    = \frac{1}{k^{2}}
+    \left|
+    \sum_{l=0}^{\infty}
+    \sqrt{4\pi(2l+1)}\,
+    e^{i\delta_l}\sin\delta_l\;
+    Y_l^{0}(\theta)
+    \right|^{2}.
+  \end{align}
+  积分得到总截面为：
+  \begin{align}
+    \sigma=\frac{4\pi}{k^2}\sum_{l=0}^\infty(2l+1)\sin^2\delta_l
+  \end{align}
+}
+
+\bigskip
+\hlr{散射问题}
+
+这个关系告诉我们正反两面：
+\begin{itemize}
+  \item 正向：给定势能，我们可以通过求解微分方程比较无穷远的行为给出$ \delta_l $进一步给出散射振幅
+  \item 反向：通过实验测量散射截面，我们可以反推出各个$ \delta_l $，进而反推出势能的信息
+\end{itemize}
+
+\subsection{特殊函数性质}
+
+\bigskip
+\hlr{球谐函数性质}
+
+\bigskip
+\hlr{Legendre多项式性质}
+
+\subsection{Questions and Thoughts}

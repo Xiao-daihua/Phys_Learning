@@ -1,0 +1,394 @@
+\subsection{GR验证II：引力红移解}
+
+这里我们考虑一个有质量的粒子在schwarzschild metric之中观测到光的频率变化。
+
+\bigskip
+\hlr{观测到的光波频率}
+
+我们首先需要推广狭义相对论之中对于光的频率的定义，这个定义需要最终被check满足物理观测。我们给出下面的满足物理观测的定义：
+\defi{
+  弯曲时空观测到的光波频率
+
+  对于一个弯曲时空中的观察者，其四速度为$ u^\mu $。作为物理粒子需要满足$ -1 = u^\mu u_\mu
+  $归一化条件，作为物理的光也需要满足$ k^\mu = p^\mu $的条件。在此基础上，观测到的光波频率定义为：
+  \begin{align}
+    \omega = -k_\mu u^\mu,
+  \end{align}
+}
+
+\bigskip
+\hlr{引力红移计算}
+
+对于一个「静止」在schwarzschild坐标系下的观察者，其四速度为：$ u^0 =
+\left(1-\frac{R_s}{r}\right)^{-\frac{1}{2}} $，其他分量为0。我们计算其观测到的光波频率与坐标系之中的位置的关系：
+\begin{align}
+  \omega &= -k_\mu u^\mu = -k_0 u^0 = -g_{00} k^0 u^0 \\
+  &=
+  \left(1-\frac{R_s}{r}\right)\left(1-\frac{R_s}{r}\right)^{-\frac{1}{2}}
+  k^0 = \left(1-\frac{R_s}{r}\right)^{\frac{1}{2}} k^0.
+\end{align}
+同时我们知道光应该沿着null geodesics上运动，对于同一束光子，其Killing Vector方向的$ k^\mu
+$分量是守恒的，考虑类时方向的Killing Vector \cref{eq:conservedquantities}我们有：
+\begin{align}
+  E = -K_\mu k^\mu = \left(1-\frac{R_s}{r}\right) k^0 = \text{const}.
+\end{align}
+于是我们可以得到：
+\begin{align}
+  \omega = \left(1-\frac{R_s}{r}\right)^{\frac{1}{2}} k^0 =
+  \left(1-\frac{R_s}{r}\right)^{-\frac{1}{2}} E.
+\end{align}
+
+\bigskip
+\hlr{计算不同点测量的频率比值}
+
+我们计算同一束光被两个不同点的观察者测量到的频率比值。假设两个观察者分别位于$ r_1 $和$ r_2 $，则我们有：
+\begin{align}
+  \frac{\omega_2}{\omega_1}=\left(\frac{1-\frac{2GM}{r_1}}{1-\frac{2GM}{r_2}}\right)^{1/2}
+\end{align}
+对于$ r>> 2GM $的情况下，我们可以近似得到：
+\begin{align}
+  z\equiv\frac{\lambda_2-\lambda_1}{\lambda_1}=\frac{\omega_1}{\omega_2}-1\simeq\frac{GM}{r_1}-\frac{GM}{r_2}=\phi_2-\phi_1=\Delta\phi
+\end{align}
+
+\subsection{Star Interior Spacetime and Collapse}
+
+之前我们研究的都是$ r > 2GM $的情况，毕竟Schwarzschild
+Metric仅仅在这个区域的行为是良好的。如果我们希望穿过$ r = 2GM $研究下去我们有两种思路：
+\begin{itemize}
+  \item 1. 认为世界其实不是真空的，在$ r $比较小的时候其实有一个球状物质分布，也就是star interior
+    solution。我们可以得到一个有物质分布的metric然后外面刚好就是Schwarzschild Metric。正好用来描述完整的恒星结构。
+  \item 2.
+    认为世界存在奇点，真的是纯纯真空，这样的天体也就是黑洞。但是我们不可以再用Schwarzschild坐标系描述这个黑洞内部的结构了，我们需要引入新的坐标系来描述这个区域的结构。
+\end{itemize}
+本小节我们先讨论第一种情况。并且这个讨论也可以motivate黑洞可能的形成过程，也就说明黑洞解可能物理上是存在的。
+
+\subsubsection{EFE for a Star Interior}
+
+\bigskip
+\hlr{EFE与Metric Ansatz}
+
+我们现在希望研究一个stationary static spherically symmetric的【有质量的EFE
+Solution】。根据之前讨论我们的metric ansatz为：
+\begin{align}
+  ds^2 = -e^{2\alpha(r)}dt^2+e^{2\beta(r)}dr^2+r^2d\Omega^2
+\end{align}
+其中$ \alpha(r),\beta(r) $是两个待定函数。我们需要求解的EFE为：
+\begin{align}
+  G_{\mu\nu} = 8\pi G T_{\mu\nu}
+\end{align}
+下面我们进行天体的假设:
+\begin{itemize}
+  \item 假设天体是一个perfect fluid并且其质心的四速度为$ u^\mu = (u^0,0,0,0)
+    $，也就是仅仅有time like Killing Vector方向的分量。
+  \item 并且作为一个物理上存在的流体，我们需要满足归一化条件$ -1 = u^\mu u_\mu $也就是说 $ u^0 =
+    e^{-\alpha(r)}, \quad u_0 = -e^{\alpha(r)}$
+\end{itemize}
+根据上方假设我们给出其能量动量张量为：
+\begin{align}
+  T_{\mu\nu} = (\rho + P) u_\mu u_\nu + P g_{\mu\nu} \quad
+  \Rightarrow \quad
+  T_{\mu\nu}=\mathrm{diag}\left(e^{2\alpha}\rho,e^{2\beta}P,r^2P,r^2\sin^2\theta
+  P\right)\mathrm{~.}
+\end{align}
+于是在上方ansatz的基础上我们可以列出EFE方程组，一共是四个方程对应着$ tt, rr, \theta \theta $和$
+\phi \phi $分量。但由于我们会发现$ \theta \theta $和$ \phi \phi $分量是一样的，所以我们实际上只有三个方程：
+\begin{align}
+  \frac{1}{r^2}e^{-2\beta}\left(2r\partial_r\beta-1+e^{2\beta}\right)&=8\pi
+  G\rho,\\
+  \frac{1}{r^2}e^{-2\beta}\left(2r\partial_r\alpha+1-e^{2\beta}\right)&=8\pi
+  GP,\\
+  e^{-2\beta}\left[\partial_r^2\alpha+(\partial_r\alpha)^2-\partial_r\alpha\partial_r\beta+\frac{1}{r}(\partial_r\alpha-\partial_r\beta)\right]&=8\pi
+  GP,
+\end{align}
+
+\subsubsection{Solving EFE for Star Interior}
+
+\bigskip
+\hlr{EFE的求解 I：tt方程求解}
+
+我们希望这个解能够和Schwarzschild Metric在$ r=R
+$处连续匹配上去，这样获得一个完整描述天体内部和外部的metric。我们选择下面的ansatz：
+\begin{align}
+  e^{2\beta(r)}=\left(1-\frac{2Gm(r)}{r}\right)^{-1} \quad
+  \Rightarrow \quad \frac{dm}{dr}=4\pi r^2\rho\mathrm{~,}
+\end{align}
+其中$ m(r) $是一个待定函数。我们将这个ansatz带入第一个EFE方程中，得到：
+\begin{align}
+  \frac{dm}{dr}=4\pi r^2\rho \quad \Rightarrow \quad
+  m(r)=4\pi\int_0^r\rho(r^{\prime})r^{\prime2}dr^{\prime}.
+\end{align}
+
+\bigskip
+\hlr{Schwarzschild M与Gravitational Binding}
+
+如果我们认为天体的质量分布是有限的，比如天体只有$ r = R $的半径。那么我们希望给出一个解，保证在$ r > R
+$的时候metric是Schwarzschild Metric。并且和上面的解在$ r = R $处连续匹配。我们发现这个条件要求：
+\begin{align}
+  m(R) = M = 4\pi \int_0^R \rho(r) r^2 dr.
+\end{align}
+这也印证了，Schwarzschild Metric中的$ M
+$确实物理上可以interpret作为天体的【Newtonian】的总质量。\textbf{注意！其实并不是总质量！}因为我们$
+\rho(r) $是定义在弯曲时空之中的能量密度，对于弯曲时空的积分要使用弯曲时空的体元$ d^3 \sqrt{g^3} $其中$ g^3
+$是三维的面上面induce的metric。为此真正的弯曲时空的总质量应该是：
+\begin{align}
+  M=4\pi\int_0^R\rho(r)r^2e^{\beta(r)}dr=4\pi\int_0^R\rho(r)\left(1-\frac{2Gm(r)}{r}\right)^{-1/2}r^2dr.
+\end{align}
+对于两个能量之差我们interpret为gravitational binding energy:
+\begin{align}
+  E_B=\tilde{M}-M>0,
+\end{align}
+也就是说有一部分能量用来对抗引力让物质不形成天体而是分散在空间。
+
+\bigskip
+\hlr{EFE的求解 II：rr方程求解}
+
+我们将上方的$ e^{2\beta(r)} $的ansatz带入第二个EFE方程中，得到：
+\begin{align}
+  \frac{d\alpha}{dr}=\frac{Gm(r)+4\pi Gr^3P}{r[r-2Gm(r)]}\mathrm{~.}
+\end{align}
+对于牛顿引力极限$ r^3 P << m $以及$ Gm(r) << r $的情况，我们可以近似得到：
+\begin{align}
+  \frac{d\alpha}{dr} \simeq \frac{Gm(r)}{r^2} \quad \Rightarrow \quad
+  \alpha(r) \simeq \int_\infty^r \frac{Gm(r^{\prime})}{r^{\prime2}}
+  dr^{\prime} = -\phi(r),
+\end{align}
+我们认为$ \alpha(r) $是引力势能的一个推广！严格的求解这个方程需要使用第三个EFE方程但是比较麻烦。我们使用下面的trick来简化问题。
+
+\bigskip
+\hlr{EFE的求解 III：能动量张量守恒}
+
+对于EFE，由于根据几何的Bianchi Identity，EM Tensor必然是守恒的。也就是说我们的EFE其实隐含了下面的方程：
+\begin{align}
+  \nabla_\mu T^{\mu\nu} = 0. \quad \Rightarrow \quad \frac{dP}{dr} =
+  -(\rho + P) \frac{d\alpha}{dr}.
+\end{align}
+上面的推导是$ r $方向分量的结果！我们将上方的$ \frac{d\alpha}{dr}
+$的表达式带入上方的方程中，得到著名的\textbf{Tolman-Oppenheimer-Volkoff (TOV) Equation}：
+
+\bigskip
+\hlr{TOV Equation与constant density star}
+
+\thm{
+  TOV Equation
+
+  对于一个静止球对称天体的质量分布，其满足下面的TOV方程：
+  \begin{align}
+    \frac{dP}{dr} = -(\rho + P) \frac{Gm(r)+4\pi Gr^3P}{r[r-2Gm(r)]}.
+  \end{align}
+}
+我们对这个方程进行求解发现：
+\begin{itemize}
+  \item 这个方程独立不能求解，我们还需要知道构成天体的物质的一些状态方程信息，比如$ P(\rho) $才能够完全确定一个天体的内部时空结构。
+\end{itemize}
+一个最简单的例子是考虑一个constant density star，我们认为$ \rho(r) = \rho_0 $是一个常数，并且在$
+r = R $处突然变为0。我们可以得到：
+\begin{align}
+  m(r) = \frac{4\pi}{3} \rho_0 r^3, \quad r < R.
+\end{align}
+带入TOV方程我们可以严格求解出$ P(r) $:
+\begin{align}
+  P(r) = \rho_0 \frac{\left(1-\frac{2GM r^2}{R^3}\right)^{1/2} -
+  \left(1-\frac{2GM}{R}\right)^{1/2}}{3\left(1-\frac{2GM}{R}\right)^{1/2}
+  - \left(1-\frac{2GM r^2}{R^3}\right)^{1/2}}, \quad r < R.
+\end{align}
+进一步给出$ \alpha(r) $的表达式:
+\begin{align}
+  e^{2\alpha(r)} =
+  \left[\frac{3}{2}\left(1-\frac{2GM}{R}\right)^{1/2} -
+  \frac{1}{2}\left(1-\frac{2GMr^2}{R^3}\right)^{1/2}\right]^2, \quad r < R.
+\end{align}
+这个时候我们就得到了一个完整的描述恒星内部和外部时空结构的metric：
+\begin{align}
+  ds^2 =
+  \begin{cases}
+    -\left[\frac{3}{2}\left(1-\frac{2GM}{R}\right)^{1/2} -
+    \frac{1}{2}\left(1-\frac{2GMr^2}{R^3}\right)^{1/2}\right]^2 dt^2
+    + \left(1-\frac{2GMr^2}{R^3}\right)^{-1} dr^2 + r^2 d\Omega^2, & r < R \\
+    -\left(1-\frac{2GM}{r}\right) dt^2 +
+    \left(1-\frac{2GM}{r}\right)^{-1} dr^2 + r^2 d\Omega^2, & r > R
+  \end{cases}
+\end{align}
+
+\subsubsection{Stellar Collapse to a Black Hole}
+
+\hlr{Stellar Collapse}
+
+对于上面给出的constant density star的解，我们会发现一个现象对于$ P(r = 0) $来说当:
+\begin{align}
+  M \to \frac{4R}{9G},
+\end{align}
+这个极限下，$ P(0) \to \infty $。也就是说如果一个恒星的质量足够大，并且半径足够小，那么其中心的压力会变得无限大。
+\begin{itemize}
+  \item 说明当恒星的质量足够大并且半径足够小的时候，引力过大会导致物质无法通过压力来对抗引力塌缩。
+\end{itemize}
+
+\subsection{Kruskal Extension I}
+
+下面我们开始研究第二种情况，也就是时空纯粹是真空，但是0点存在奇点的特性。为此我们首先讨论关于Schwarzschild
+Metric的坐标奇异性问题，并进一步选择更好的坐标系来描述时空结构。
+
+\subsubsection{Schwarzschild Coordinate Singularity}
+
+\hlr{Schwarzschild Metric下类光运动}
+
+\textbf{坐标系时间描述光：}
+我们不妨考虑这个坐标系下光的运动，求解null geodesics $ ds^2 = 0 $可以给出：
+\begin{align}
+  \frac{dt}{dr}=\pm\left(1-\frac{2GM}{r}\right)^{-1}.
+\end{align}
+我们会发现当$ r \to 2GM $的时候，$ \frac{dt}{dr} \to \infty $，也就是说光在这个坐标系下观察在$
+t \to \infty $也无法到达$ r = 2GM $。
+
+\textbf{固有时间描述光：}
+下面我们再考虑之前研究的schwarzschild的有质量物体的Geodesics，径向方程给出了：
+\begin{align}
+  \dot{r}^2=\frac{2GM}{r}+E^2-1.
+\end{align}
+注意我们使用$ \dot{r} $表示对于固有时间的导数。我们假设初始条件是$ \tau = 0, r = R $并且$ \dot{r}
+= 0 $，也就是说物体从$ r = R $开始自由落体。我们可以得到$ E^2 - 1 = -\frac{2GM}{R} $，于是我们有：
+\begin{align}
+  d\tau=\left(\frac{2GM}{r}-\frac{2GM}{R}\right)^{-1/2}dr,
+\end{align}
+这个方程可以存在一个参数化的解：
+\begin{align}
+  r=\frac{R}{2}(1+\cos\eta)\quad \tau=\sqrt{\frac{R^3}{8GM}}(\eta+\sin\eta).
+\end{align}
+也就是说对于$ r = 0 $只需要$ \tau = \pi \sqrt{\frac{R^3}{8GM}} < \infty $的有限固有时间就可以到达。
+
+\bigskip
+\hlr{坐标奇异性讨论}
+
+对比两个描述的结果我们会发现，类光粒子必然可以在有限的固有时间内到达$ r = 2GM
+$，但是在Schwarzschild坐标系下这个过程需要无限的coordinate时间，是因为这个coordinate不能够很好地描述这个区域的时空结构。我们认为schwarzschild
+coordinate描述的是无穷远处的观察者测量到的时空结构。也就是说：
+\begin{itemize}
+  \item 对于无限远的观察者，会看到光永远不能达到$ r = 2GM $，停留在其表面；
+  \item 但是对于自由落体的观察者，其实可以在有限的固有时间内穿过$ r = 2GM $，到达奇点$ r = 0 $。
+\end{itemize}
+
+\subsubsection{Eddington-Finkelstein Coordinates}
+
+为此我们需要选择新的坐标系来描述这个区域的时空结构。首先我们引入一个tortoise coordinate。
+
+\bigskip
+\hlr{Tortoise Coordinate}
+
+我们希望引入一个新的径向坐标$ r_* $，使得光锥永远是45度，这样的话我们的causal
+structure就很清楚，但代价就是时空本身会变形。为此考虑$ r> 2GM $类光曲线的解：
+\begin{align}
+  \frac{dt}{dr}=\pm\left(1-\frac{2GM}{r}\right)^{-1} \quad
+  \Rightarrow \quad t = \pm \left(r + 2GM \ln\left(\frac{r}{2GM} -
+  1\right)\right) + \text{const}. \quad r>2GM
+\end{align}
+我们形式化的定义一个新的径向坐标：
+\defi{
+  Tortoise Coordinate
+
+  定义tortoise coordinate $ r_* $为：
+  \begin{align}
+    r^* = r + 2GM \ln\left(\frac{r}{2GM} - 1\right).
+  \end{align}
+}
+注意这个坐标系下面我们只能覆盖$ r > 2GM $的区域，并且当$ r \to 2GM $的时候，$ r^* \to -\infty
+$。在这个坐标系下我们的光的运动轨迹exactly是45度的：
+\begin{align}
+  t = \pm r^* + \text{const}.
+\end{align}
+并且Schwarzschild Metric变为：
+\begin{align}
+  ds^2=\left(1-\frac{2GM}{r}\right)(-dt^2+dr^{*2})+r^2d\Omega^2.
+\end{align}
+
+\bigskip
+\hlr{Light Cone Coordinates}
+
+在这个操作之下我们进一步引入Light Cone Coordinates：
+\defi{
+  Light Cone Coordinates
+
+  定义light cone coordinates为：
+  \begin{align}
+    u = t - r^*, \quad v = t + r^*.
+  \end{align}
+}
+这个坐标系的两个坐标描述着光沿着光锥的两个方向传播的「轨迹长度」。这两个坐标系之中任意一个都可以很好的替代时间坐标成为新的时间坐标，从而避免光在$
+r = 2GM $处需要无穷的时间的问题，因为我们$ v $是直接follow光自己运动的轨迹的！
+
+\bigskip
+\hlr{Ingoing Eddington-Finkelstein Coordinates:}
+
+我们选择$ v $作为新的时间坐标，定义新的坐标系：
+\defi{
+  Ingoing Eddington-Finkelstein Coordinates
+  \begin{align}
+    v = t + r^*, \quad r = r, \quad \theta = \theta, \quad \phi = \phi.
+  \end{align}
+}
+在这个坐标系下Schwarzschild Metric变为：
+\begin{align}
+  ds^2=-\left(1-\frac{2GM}{r}\right)dv^2+(dvdr+drdv)+r^2d\Omega^2.
+\end{align}
+对于这个坐标系下的类光曲线我们有：
+\begin{align}
+  \frac{dr}{dv}=
+  \begin{cases}
+    0 , & \text{ingoing}\\
+    \frac{1}{2}\left(1-\frac{2GM}{r}\right)^{-1}, & \text{outgoing}
+  \end{cases}
+\end{align}
+我们可以使用$ (v,r) $图中画出Light Cone会发现：
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.3\textwidth]{assets/inlightcone.png}
+  \caption{Ingoing Eddington-Finkelstein Light Cone Diagram}
+  \label{fig:inlightcone}
+\end{figure}
+我们考虑$ v = $const 的曲线会发现这个坐标系光锥一直在收缩。但是在$ r = 2GM
+$的面变成了一个类光的面，进入了这个区域之后光锥就完全向内收缩了。也就是说一旦进入了$ r < 2GM $的区域，任何物质都无法逃脱这个区域。
+\rmk{
+  注意！这个坐标系的选择其实已经意味着我们做了一个延拓。因为之前对于$ r < 2GM $的区域$ r^* $是没有定义的，所以$ v
+  = t + r^* $这个坐标系其实并不能覆盖整个时空结构。但现在我们可以证明这个坐标系下$ r = 2GM
+  $是没有奇异的，我们不妨直接延拓到$ r < 2GM $的区域。
+}
+\rmk{
+  我们注意，Horizon是一个global的概念，Local的observer是看不见Horizon的存在的。
+}
+
+\bigskip
+\hlr{Outgoing Eddington-Finkelstein Coordinates:}
+
+类似的我们也可以选择$ u $作为新的时间坐标，定义新的坐标系：
+\defi{
+  Outgoing Eddington-Finkelstein Coordinates
+  \begin{align}
+    u = t - r^*, \quad r = r, \quad \theta = \theta, \quad \phi = \phi.
+  \end{align}
+}
+在这个坐标系下Schwarzschild Metric变为：
+\begin{align}
+  ds^2=-\left(1-\frac{2GM}{r}\right)du^2-(dudr+drdu)+r^2d\Omega^2.
+\end{align}
+这个坐标系下的类光曲线和之前正好相反
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.3\textwidth]{assets/outgogeo.png}
+  \caption{Outgoing Eddington-Finkelstein Light Cone Diagram}
+  \label{fig:outgogeo}
+\end{figure}
+也就是说光只能向外逃逸，无法进入$ r < 2GM $的区域。这个解给出了一个white hole的解。
+
+\bigskip
+\hlr{物理说明}
+
+我们观察这两个coordinate system对于Schwarzschild Metric的extension：
+\begin{itemize}
+  \item Ingoing Eddington-Finkelstein Coordinates其实extend的是时间在接近$ r =
+    2GM $处的正无穷远的行为，因为$ v = t + r^* $，当$ r \to 2GM $的时候，$ r^* \to
+    -\infty $，所以$ v $取值有限对应着$ t \to +\infty $。也就是说这个坐标系extend的是未来的无穷远。
+  \item Outgoing Eddington-Finkelstein Coordinates其实extend的是时间在接近$ r
+    = 2GM $处的$ t $发散到负无穷远的行为，因为$ u = t - r^* $，当$ r \to 2GM $的时候，$
+    r^* \to -\infty $，所以$ u $取值有限对应着$ t \to -\infty $。也就是说这个坐标系extend的是过去的无穷远。
+\end{itemize}
+对于物理上的黑洞研究来说，我们认为黑洞在过去就是天体，不存在Schwarzschild
+Solution。的过去无穷远延拓，所以我们更关心Ingoing Eddington-Finkelstein
+Coordinates的extension，也就是黑洞的未来无穷远延拓。

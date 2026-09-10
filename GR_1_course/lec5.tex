@@ -1,0 +1,497 @@
+\subsection{Einstein Field Equation}
+
+\subsubsection{构造Einstein Field Equation的思路}
+
+\bigskip
+\hlr{经典引力的Geodesic Deviation}
+
+在牛顿引力之中，我们知道如果存在引力场那么两个相邻的例子会因为引力势能轨道逐渐偏移。在GR之中，我们也知道两个自由运动的粒子会因为时空曲率的存在而逐渐偏移。
+
+经典引力之中我们考虑两个相邻的test particle:
+\begin{align}
+\ddot{x}^i(t)&=\quad-\left.\frac{\partial\phi}{\partial x^i}\right|_{\mathbf{x}(t)}\\
+\ddot{x}^i(t)+\ddot{d}^i(t)&=\quad-\left.\frac{\partial\phi}{\partial x^i}\right|_{\mathbf{x}(t)+\mathbf{d}(t)}=-\left.\frac{\partial\phi}{\partial x^i}\right|_{\mathbf{x}(t)}-\left.\frac{\partial^2\phi}{\partial x^i\partial x^j}\right|_{\mathbf{x}(t)}d^j(t)  
+\end{align}
+我们计算这两个trajectory的deviation得到下面的结论：
+\begin{align}
+  \ddot{d}^i(t)=-\frac{\partial^2\phi}{\partial x^i\partial x^j}d^j(t).
+\end{align}
+我们对比这个和Geodesic Deviation Equation:
+\begin{align}
+  A^\nu =-R_{\mu\lambda\sigma}^\nu X^\lambda T^\mu T^\sigma. 
+\end{align}
+我们会发现曲率和引力势能的二阶导师是有对应关系的。
+
+\bigskip
+\hlr{Newton引力理论联系质量和曲率}
+
+但是我们希望新的理论是不存在引力势能这个东西的。我们又发现，根据牛顿引力定律，引力势能和质量存在关系：
+\begin{align}
+  \nabla^2\phi=4\pi\rho\mathrm{~.}
+\end{align}
+同时在相对论框架下面，对于质量密度我们理解为：
+\begin{align}
+  T_{\mu\nu}u^\mu u^\nu\leftrightarrow\rho\mathrm{~.}
+\end{align}
+所以自然的给出了能动量张量和曲率(Ricci Tensor)的对应：
+\begin{align}
+  R_{\mu\nu\sigma}^\nu u^\mu u^\sigma\sim\nabla^2\phi\sim\rho\sim T_{\mu\nu}u^\mu u^\nu
+\end{align}
+
+\subsubsection{Einstein Field Equation以及求解}
+
+\bigskip
+\hlr{Einstein Field Equation}
+
+直观的猜测是能动量张量和Ricci Tensor成正比，但是我们希望能动量张量的守恒是自然成立的。所以我们考虑真正和能动量张量正比的是一个根据几何上的恒等式Bianchi Identity决定协变导数一定为0的Einstein Tensor。所以其实真正的猜测也就是我们的结论，Einstein Field Equation:
+
+\thm{
+ Einstein Field Equation 
+
+对于一个时空来说，时空的曲率由时空中分布的能动量张量进行决定。数学表达为：
+\begin{align}
+  G_{\mu\nu}\equiv R_{\mu\nu}-\frac{1}{2}Rg_{\mu\nu}=8\pi G T_{\mu\nu}
+\end{align}
+}
+\rmk{
+  这里的常数$ 8\pi $是通过让这个方程在弱引力极限下退化到牛顿引力方程得到的！
+}
+
+\bigskip
+\hlr{求解问题建立}
+
+我们set up一下我们求解Einstein Field Equation这个问题，以及讨论一下方程是否足够我们求解metric？
+
+对于引力来说，虽然这是一个关于时空的理论，我们可以“强行给出一个时间维度”。对于初始状态，我们用下面的“初始条件子流形(initial condition hypersurface)”来描述：
+\begin{itemize}
+  \item 已知时空中嵌入了一个三维子流形 $ \Sigma $，其上的metric确定为 $ \gamma_{\ij} $ 
+  \item 同时已知这个子流形在四维时空中的embedding的一些形式：$ \gamma_{0\mu}\mathrm{~and~}\partial_{0}\gamma_{\mu\nu} $
+\end{itemize}
+我们希望知道，知道这些初始条件以及Einstein Field Equation。我们能不能给出一个时空$ (\mathcal{M},g) $以及一个embedding $ i:\Sigma\to\mathcal{M} $使得$ i(\Sigma) $是和initial condition hypersurface一致的？
+
+\bigskip
+\hlr{分析方程和变量}
+
+由于我们希望找到一个四维的metric $ g_{\mu\nu} $，所以我们有10个未知量。同时Einstein Field Equation给出了10个方程。表面上看似方程和未知量是匹配的。
+
+但是其实Einstein Field Euqation并不是完全独立的10个方程。因为根据Bianchi Identity我们知道Einstein Tensor的协变导数一定为0，所以我们有4个约束条件：
+\begin{align}
+  \nabla^\mu G_{\mu\nu}=0
+\end{align}
+我们写开来分析一下Bianchi Identity意味着什么：
+\begin{align}
+  \partial_0G^{\mu0}=-\partial_iG^{\mu i}-\Gamma_{\nu\lambda}^\mu G^{\lambda\nu}-\Gamma_{\nu\lambda}^\nu G^{\mu\lambda}.
+\end{align}
+等式右边最多包含metric对于选定的“时间”的二阶导数！所以我们知道等式左边也顶多是metric对于时间的二阶导数。因此：
+\begin{align}
+  \partial_{0}G^{\mu 0}
+\end{align}
+最多包含metric对于时间的一阶导数！所以我们发现Einstein Field Equation之中的4个方程$ G^{\mu0}=8\pi GT^{\mu0} $其实是一阶微分方程。
+
+通过数学结构的分析，我们给出了下面的结论：
+\begin{itemize}
+  \item Einstein Field Equation之中四个方程：
+    \begin{align}
+      G^{\mu0}=8\pi GT^{\mu0}
+    \end{align}
+    被称为\textbf{Constraint Equations}，它们描述了初始条件应该满足的约束关系。并不提供动力学演化的信息。
+    \item 另外六个方程：
+    \begin{align}
+      G^{ij}=8\pi GT^{ij}
+    \end{align}
+    提供了metric的动力学演化信息。并且它们是二阶微分方程。被称为\textbf{Evolution Equations}。
+\end{itemize}
+那么我们怎么求解Einstein Field Equation呢？我们需要取一个Gauge。有的时候我们会选择\textbf{Harmonic Gauge}：
+\begin{align}
+  \partial_\nu \left(\sqrt{-g}g^{\mu\nu}\right)=0
+\end{align}
+
+
+\subsection{Lagrangian Formulation of GR}
+
+下面我们讨论一下GR的Lagrangian Formulation。我们的一个期望是我们有理论的一个作用量可以写作：
+\begin{align}
+  s = \int \mathcal{L}_g + \int \mathcal{L}_m
+\end{align}
+第一部分是引力部分，其对于metric的变分给出了Einstein Tensor；第二部分是广义相对论推广到物质场部分，其对于metric的变分给出了能动量张量。
+
+这样思路构造的理论被称为Minimal Coupling Theory。因为我们没有引入任何额外的耦合项。只有自身本征的互相耦合！！
+
+\bigskip
+\hlr{如何在流形上积分}
+
+由于物理理论全部是定义在一个Manifold上面的。那么给出一个作用量需要面临的数学问题是：\textbf{如何在流形上进行积分}？
+
+我们发现我们可以使用differential form来进行积分。但是这里我们不进行讨论。由于Lagrangian是一个标量场，所以我们不妨研究一下\textbf{流形上标量积分}的问题。
+\defi{
+  流形上标量积分
+
+  设$ (\mathcal{M},g) $是一个带有度规的流形，$ f:\mathcal{M}\to \mathbb{R} $是一个标量场。那么我们定义$ f $在$ \mathcal{M} $上的积分为：
+  \begin{align}
+    \int_{\mathcal{M}}fd\mu_g\equiv\int_Uf(x)\sqrt{|g(x)|}d^4x
+  \end{align}
+}
+这个定义下我们就把流形上的积分问题转化成了在$ \mathbb{R}^4 $上的积分问题。也就是我们熟悉的积分问题。特别的，对于$ g $是Lorentzian Metric的情况，$ \sqrt{|g|} = \sqrt{-g} $，我们之后默认都是这个情况。
+
+
+\subsubsection{Einstein-Hilbert Action}
+
+\hlr{Einstein-Hilbert Action的构造}
+
+我们希望构造一个引力的作用量$ S_g $，使得对于metric的变分给出Einstein Tensor。一个最最最简单的猜测是作用量和ricci scalar成正比，this turns out to be correct!
+
+\defi{
+  Einstein-Hilbert Action
+
+  设$ (\mathcal{M},g) $是一个四维时空流形。那么Einstein-Hilbert Action定义为：
+  \begin{align}
+    S_g=\frac{1}{16\pi G}\int_{\mathcal{M}}Rd\mu_g
+  \end{align}
+}
+前面的系数是为了和Einstein Field Equation匹配，同时我们不希望在经典常用的物质场作用量前面再有一个系数，所以我们加在引力作用量前面了。
+
+\bigskip
+\hlr{变分原理计算}
+
+我们计算Einstein-Hilbert Action对于metric的变分，我们发现这个metric有三个部分需要变分，我们在一个坐标系下计算：
+\begin{align}
+  \int_U\sqrt{-g}R_{\mu\nu} g^{\mu\nu}d^4x
+\end{align}
+这里需要对三个东西变分：
+\begin{itemize}
+  \item $ \delta\sqrt{-g} $ 对于其变分有下面的结论：
+    \begin{align}
+      \delta\left(\sqrt{-g}\right)=-\frac{1}{2}\sqrt{-g}g_{\mu\nu}\delta g^{\mu\nu}.
+    \end{align} 
+  \item $ \delta g^{\mu\nu} $ 这个直接写出来就行了。
+  \item $ \delta R_{\mu\nu} $ 这个比较复杂。我们使用Palatini Identity:
+    \begin{align}
+      \delta R_{\mu\nu}=\nabla_\lambda\left(\delta\Gamma_{\nu\mu}^\lambda\right)-\nabla_\nu\left(\delta\Gamma_{\lambda\mu}^\lambda\right).
+    \end{align}
+\end{itemize}
+\rmk{
+  我们注意一个事实，Christoffel Symbol并不是一个tensor。但是我们回粉惊人的发现，其变分$ \delta\Gamma_{\mu\nu}^\rho $是一个tensor！所以我们可以对其进行协变导数。
+
+  我们可以从Christoffel Symbol的变换法则出发验证，其变换法则是tensorial的变换加上一个坐标变换dependent的项。后面加入的项是和metric没有任何关系的，所以在变分的时候会被消掉。所以剩下的部分是tensorial的变换法则。
+}
+对于第三部分我们计算会发现它是一个total derivative，所以我们可以把它变成一个boundary term丢掉。
+\begin{align}
+  g^{\mu\nu}\delta R_{\mu\nu}=\nabla_\rho W^\rho, \quad W^\rho=g^{\mu\nu}\delta\Gamma_{\mu\nu}^\rho-g^{\rho\nu}\delta\Gamma_{\mu\nu}^\mu.
+\end{align}
+
+丢掉Boundary Term之后我们得到：
+\begin{align}
+  \delta S_{EH} = \int_U\left(R_{\mu\nu}-\frac{1}{2}Rg_{\mu\nu}\right)\delta g^{\mu\nu}\sqrt{-g}d^4x
+\end{align}
+也就是说我们的EoM正好是$ G_{\mu\nu} = 0 $，也就是没有外源的Einstein Field Equation！
+
+
+\subsection{引入物质场}
+
+\bigskip
+\hlr{加入物质场}
+
+如果希望给出有物质的Einstein Field Equation，我们需要给定物质场在有Explicit的metric couple时候的作用量。
+
+我们现在通过自由标量场以及电磁场的例子来进行推广，我们知道这个推广需要满足一些条件：
+\begin{itemize}
+  \item 作用量在没有曲率的时候退化到平直时空的形式，并且：
+    \begin{enumerate}
+      \item 对动力学场的变分给出EoM 
+      \item 对metric $ g_{\mu\nu} $的变分$ \times 2 $给出能动量张量的推广：
+        \begin{align}
+          \displaystyle\frac{\delta S}{\delta g_{\mu\nu}} = \displaystyle\frac{1}{2} T^{\mu\nu} \sqrt{-g}
+        \end{align}
+        或者换一下上下指标：
+        \begin{align}
+          \displaystyle\frac{\delta S}{\delta g^{\mu\nu}} = -\displaystyle\frac{1}{2} T_{\mu\nu} \sqrt{-g}
+        \end{align}
+    \end{enumerate}
+  \item 运动方程在没有曲率的时候退化到平直时空的形式，也就几乎是$ \partial_{\mu} \to \nabla_\mu $然后加入一些曲率相关的项。
+  \item 对于metric的变分给出一个量，这个量需要在平直时空下退化到能动量张量的形式。【或者说就是给出弯曲时空推广的能动量张量】
+\end{itemize}
+\rmk{
+  需要注意一下$ \delta g^{\mu\nu} $和$ \delta g_{\mu\nu} $并不是简单的上升下降指标关系。我们可以推出较之普通的上升和下降指标多了一个负号：
+  \begin{align}
+    \delta g^{\mu\nu} = -g^{\mu\alpha}g^{\nu\beta}\delta g_{\alpha\beta}.
+  \end{align}
+}
+\rmk{
+  上面我们使用能动量张量的定义是因为只有这样定义，我们自然推广的能动量张量才能和狭义相对论下的能动量张量对应上。所以我们有那个$ 1/2 $的系数。
+}
+我们发现可以很自然的找到这样的推广。这里我们先对于标量场的EoM和EM Tensor进行一个直接的推广保证后面两条条件成立。然后我们再给出合适的作用量保证第一条条件成立。
+
+
+\subsubsection{EoM和能动量张量直接推广}
+
+本章之中蓝色的部分介绍广义相对论的推广！！
+
+\bigskip
+
+首先考虑标量场的情况！
+
+\bigskip
+\hlr{狭义相对论下标量场}
+
+对于狭义相对论，我们标量场是酱紫的：
+\begin{itemize}
+  \item 标量场的作用量为：
+    \begin{align}
+      S_\phi=\int_{\mathcal{M}}\mathcal{L}_\phi. \quad \mathcal{L}_\phi=-\frac{1}{2}\left(\partial_\mu\phi\partial^\mu\phi+m^2\phi^2\right),
+    \end{align}
+    \item 标量场的EoM为，Klein-Gordon方程：
+      \begin{align}
+        \partial^\mu\partial_\mu\phi-m^2\phi=0.
+      \end{align}
+      \item 标量场的能动量张量为：
+        \begin{align}
+          T_{\mu\nu}=\partial_\mu\phi\partial_\nu\phi-\frac{1}{2}\eta_{\mu\nu}\left(\partial_\lambda\phi\partial^\lambda\phi+m^2\phi^2\right).
+        \end{align}
+\end{itemize}
+
+\bigskip
+\hlb{弯曲时空下标量场EoM和能动量张量的推广}
+
+对于弯曲时空我们直接推广为：
+\begin{itemize}
+  \item 标量场的EoM为：
+    \begin{align}
+      \nabla^\mu\nabla_\mu\phi-m^2\phi=0.
+    \end{align}
+  \item 标量场的能动量张量为：
+    \begin{align}
+      T_{\mu\nu}=\nabla_\mu\phi\nabla_\nu\phi-\frac{1}{2}g_{\mu\nu}\left(\nabla^\lambda\phi\nabla_\lambda\phi+m^2\phi^2\right)
+    \end{align}
+\end{itemize}
+我们其实注意，由于标量场是一个标量。所以协变导数和普通导数是一样的。所以实际上EoM和能动量张量和狭义相对论下是一样的形式，只不过把$ \eta_{\mu\nu} $换成了$ g_{\mu\nu} $。
+
+当然我们也可以这样推广EoM：
+\begin{align}
+  \nabla^\mu\nabla_\mu\phi-m^2\phi-\xi R\phi=0,
+\end{align}
+但是，我们会发现如果希望Action是对应的话。那么会违反我们的minimal coupling的ansatz。所以暂时不予考虑。
+
+
+下面考虑电磁场的情况！
+
+\bigskip
+\hlr{狭义相对论下电磁场}
+
+狭义相对论下电磁场可以通过电磁Tensor进行描述，$ F_{\mu\nu} $。其运动方程，也就是Maxwell Equation是：
+\begin{align}
+  \partial^\mu F_{\mu\nu}&=-4\pi j_\nu,\\
+\partial_{[\mu}F_{\nu\lambda]}&=0
+\end{align}
+其性质下面列出
+\begin{itemize}
+  \item 对于一个4-vector $ v^\mu $的观察者来说测量到的电磁场分别是：
+    \begin{enumerate}
+      \item 电场：
+        \begin{align}
+          E_\mu=F_{\mu\nu}v^\nu
+        \end{align}
+      \item 磁场：
+        \begin{align}
+          B_\mu=-\frac{1}{2}{\epsilon_{\mu\nu}}^{\alpha\beta}F_{\alpha\beta}v^\nu
+        \end{align}
+    \end{enumerate}
+    \item 电磁场中带电粒子的运动方程是：
+      \begin{align}
+        u^\mu\partial_\mu u^\nu=\frac{q}{m}F_\lambda^\nu u^\lambda.
+      \end{align}
+\end{itemize}
+在此基础上，电动力学的研究之中我们也知道其Physical的能动量张量是：
+\begin{align}
+  T_{\mu\nu}=\frac{1}{4\pi}\left(F_{\mu\lambda}F_{\nu}^{\lambda}-\frac{1}{4}\eta_{\mu\nu}F_{\lambda\rho}F^{\lambda\rho}\right).
+\end{align}
+
+\bigskip
+\hlr{矢量势作为动力学场}
+
+对于电动力学我们使用矢量势$ A_\mu $作为动力学场。电磁Tensor和矢量势的关系为：
+\begin{align}
+  F_{\mu\nu}=\partial_\mu A_\nu-\partial_\nu A_\mu,
+\end{align}
+对于最一般的情况下Maxwell Equation可以写作：
+\begin{align}
+  \partial^\mu\left(\partial_\mu A_\nu-\partial_\nu A_\mu\right)=-4\pi j_\nu.
+\end{align}
+矢量势是一个规范场，也就是说我们只有在选择一个合理的规范之后才能讨论场的动力学演化。我们一般选择Lorenz Gauge:
+\begin{align}
+  \partial^\mu A_\mu=0\mathrm{~,}
+\end{align}
+所以Maxwell Equation变成了：
+\begin{align}
+  \partial^\mu\partial_\mu A_\nu=-4\pi j_\nu.
+\end{align}
+\rmk{
+  注意，我们这里使用了两个导数算符的顺序交换。平直时空无所谓，但是如果在弯曲时空下，我们推广到协变导数就需要特别额外注意！！
+}
+
+\bigskip
+\hlr{电磁场的Lagrangian}
+
+如果我们使用$ A_\mu $作为动力学场，那么电磁场的Lagrangian可以写作：
+\begin{align}
+  \mathcal{L}_{\mathrm{EM}}=-\frac{1}{16\pi}F_{\mu\nu}F^{\mu\nu}=-\partial_{[\mu}A_{\nu]}\partial^{[\mu}A^{\nu]},\quad\mathcal{L}_{\mathrm{int}}=A^\mu j_\mu,
+\end{align}
+前一部分是电磁场的自由部分，后一部分是电磁场和电流的相互作用部分。
+
+\bigskip
+\hlb{弯曲时空下电磁场EoM和能动量张量的推广}
+
+同样的我们考虑弯曲时空下的推广。对于动力学方程的推广我们需要小心。因为我们知道动力学场是一个Gauge Field。所以我们需要同时推广Gauge Condition和EoM。我们使用lorenz Gauge的推广：
+\begin{itemize}
+  \item 对于一般的EoM我们直接使用协变导数进行推广：
+    \begin{align}
+      &\nabla^\mu F_{\mu\nu}=-4\pi j_\nu,\\
+&\nabla_{[\mu}F_{\nu\lambda]}=0
+    \end{align}
+    其中我们使用推广的电磁Tensor：
+    \begin{align}
+      F_{\mu\nu}=\nabla_\mu A_\nu-\nabla_\nu A_\mu.
+    \end{align}
+    \item 对于Gauge Condition我们也使用协变导数进行推广：
+      \begin{align}
+        \nabla^\mu A_\mu=0.
+      \end{align}
+\end{itemize}
+这样我们可以得到推广的EoM：
+\begin{align}
+  \nabla^\mu\nabla_\mu A_\nu-R_\nu{}^\lambda A_\lambda=-4\pi j_\nu.
+\end{align}
+\rmk{
+  注意这里我们使用了协变导数的交换关系：
+  \begin{align}
+    \left[\nabla_\mu,\nabla_\nu\right]A_\lambda=R_{\mu\nu\lambda}{}^\rho A_\rho.
+  \end{align}
+  这就是为什么我们会多出一个曲率耦合项！
+}
+对于能动量张量的推广我们直接把$ \eta_{\mu\nu} $换成$ g_{\mu\nu} $：
+\begin{align}
+  T_{\mu\nu}=\frac{1}{4\pi}\left(F_{\mu\lambda}F_{\nu}^{\lambda}-\frac{1}{4}g_{\mu\nu}F_{\lambda\rho}F^{\lambda\rho}\right).
+\end{align}
+以及我们也可以推广GR之中，受“引力”和电磁场共同作用的带电粒子的运动方程：
+\begin{align}
+  u^\mu\nabla_\mu u^\nu=\frac{q}{m}F_\rho^\nu u^\rho,
+\end{align}
+
+\subsubsection{Lagrangian的推广}
+
+为了推广Lagrangian，我们需要知道一个一般的GR中物质场Lagrangian是怎么样子对于物质场和metric进行变分的。这样子我们更能掌控推广的过程保证正好变分后给出我们想要的EoM和能动量张量。
+
+\bigskip
+\hlr{Lagrangian的对于物质场变分}
+
+我们考虑一个最一般的物质场和metric耦合的Lagrangian：
+\begin{align}
+  S_m=\int_{\mathcal{M}}\mathcal{L}_m(\psi,g)d\mu_g. \quad \mathcal{L}_m = \mathcal{L}(\psi, \nabla\psi, g)
+\end{align}
+首先我们考虑对于物质场本身的变分，我们得到：
+\begin{align}
+  \delta\int_D\mathcal{L}d\mu=\int_D(\delta\mathcal{L})d\mu=\int_D\left(\frac{\partial\mathcal{L}}{\partial\psi}\delta\psi+\frac{\partial\mathcal{L}}{\partial(\nabla\psi)}\delta(\nabla\psi)\right)d\mu.
+\end{align}
+我们对于协变导数依旧可以使用分部积分(这本身就是Lebniz Rule)，并且可以证明变分和协变导数是可以交换的。所以：
+\begin{align}
+  \frac{\partial\mathcal{L}}{\partial(\nabla\psi)}\delta(\nabla\psi)=\nabla\left(\frac{\partial\mathcal{L}}{\partial(\nabla\psi)}\delta\psi\right)-\left(\nabla\frac{\partial\mathcal{L}}{\partial(\nabla\psi)}\right)\delta\psi.
+\end{align}
+所以我们知道，GR之中Lagrangian Equation是：
+\thm{
+  Lagrangian Equation in GR
+
+  物质场对于一般动力学场的变分给出Lagrangian Equation:
+  \begin{align}
+    \frac{\partial\mathcal{L}}{\partial\psi_a}-\nabla_\mu\frac{\partial\mathcal{L}}{\partial(\nabla_\mu\psi_a)}=0,
+  \end{align}
+}
+
+\bigskip
+\hlr{Lagrangian的对于metric变分}
+
+我们希望计算Lagrangian对于metric的变分。我们有：
+\begin{align}
+  \delta\int_D\mathcal{L}d\mu=\int_D\left[\left(\frac{\partial\mathcal{L}}{\partial(\nabla_\lambda\psi)}\delta(\nabla_\lambda\psi)+\frac{\partial\mathcal{L}}{\partial g_{\mu\nu}}\delta g_{\mu\nu}\right)d\mu+\mathcal{L}\delta d\mu\right]\mathrm{~.}
+\end{align}
+第一项对于$ \delta_g \nabla \psi_a $一般是非0的，但是不幸的是这个项非常难以计算。但是\textbf{对于电磁场和标量场都可以不考虑，因为其为0！！}这是因为：
+\begin{itemize}
+  \item 对于标量场来说，GR的Lagrangian根本不包含协变导数，因为标量场的协变导数和普通导数是一样的！！
+  \item 对于电磁场来说，GR的Lagrangian $ F_{\mu\nu} = \nabla_\mu A_\nu - \nabla_\nu A_\mu = \partial_\mu A_\nu - \partial_\nu A_\mu $，那么GR的Lagrangian也不包含协变导数！！
+\end{itemize}
+对于这两种情况我们可以直接丢掉这个项。然后后面的计算就分情况进行。得到：
+\begin{align}
+  \delta\int_D\mathcal{L}d\mu=\frac{1}{2}\int_DT^{\mu\nu}\delta g_{\mu\nu}d\mu
+\end{align}
+其中我们需要保证$ T^{\mu\nu} $正好就是前面推广的能动量张量！！
+
+
+\bigskip
+\hlb{标量场Lagrangian的推广}
+
+标量场的推广十分直接：
+\begin{align}
+  S_\phi=\int_D\mathcal{L}_\phi d\mu=\int_D-\frac{1}{2}\left(\nabla_\mu\phi\nabla^\mu\phi+m^2\phi^2\right)\sqrt{-g}d^4x.
+\end{align}
+我们可以证明EoM和能动量张量正好是前面推广的形式！！
+\begin{itemize}
+  \item EoM:
+    \begin{align}
+      \nabla^\mu\nabla_\mu\phi-m^2\phi=0.
+    \end{align}
+  \item 能动量张量:
+    \begin{align}
+      T_{\mu\nu}=\nabla_\mu\phi\nabla_\nu\phi-\frac{1}{2}g_{\mu\nu}\left(\nabla^\lambda\phi\nabla_\lambda\phi+m^2\phi^2\right).
+    \end{align}
+\end{itemize}
+
+
+\bigskip
+\hlb{电磁场Lagrangian的推广}
+
+我们Lagrangian的推广极其简单，我们完全不需要动！！
+\begin{align}
+  S_{EM}=\int_D\mathcal{L}_{EM}d\mu=\int_D-\frac{1}{16\pi}F_{\mu\nu}F^{\mu\nu}\sqrt{-g}d^4x.
+\end{align}
+我们下面验证EoM和能动量张量正好是前面推广的形式！！
+\begin{itemize}
+  \item EoM:
+    \begin{align}
+      \delta\int_D\mathcal{L}_{\mathrm{EM}}d\mu=\frac{1}{8\pi}\int_DF^{\mu\nu}\delta(\nabla_\nu A_{\mu}-\nabla_\mu A_{\nu})d\mu=\frac{1}{4\pi}\int_DF^{\mu\nu}\delta \nabla_\nu A_{\mu}d\mu=-\frac{1}{4\pi}\int_D \nabla_\mu F^{\mu\nu}\delta A_\mu d\mu.
+    \end{align}
+    \YL{[凑合看吧，我懒得改这个鬼畜记号了]}
+    \item 能动量张量：
+      \begin{align}
+        \delta\int_D\mathcal{L}d\mu=\int_D\left(\delta\mathcal{L}+\frac{1}{2}\mathcal{L}g^{\mu\nu}\delta g_{\mu\nu}\right)d\mu=\int_D\left(-\frac{1}{8\pi}F_{\mu\nu}F_{\sigma\rho}g^{\mu\sigma}\delta g^{\nu\rho}+\frac{1}{2}\mathcal{L}g^{\mu\nu}\delta g_{\mu\nu}\right)d\mu
+      \end{align}
+      我们注意对于上指标metric和下指标metric是不一样的，我们带入关系：
+      \begin{align}
+        \delta g^{\nu\rho}=-g^{\nu\beta}g^{\alpha\rho}\delta g_{\alpha\beta}\mathrm{~,}
+      \end{align}
+      最终可以读出：
+      \begin{align}
+        T^{\alpha\beta}=\frac{1}{4\pi}\left(F^{\sigma\beta}F_\sigma^\alpha-\frac{1}{4}F_{\mu\nu}F^{\mu\nu}g^{\alpha\beta}\right)
+      \end{align}
+\end{itemize}
+
+\subsection{GR的唯一性}
+
+Lovelock Theorem告诉我们，是几乎唯一的，除了一个宇宙学常数。
+
+
+\subsection{Questions and thoughts}
+
+\question{
+电磁场进行对于metric变分的时候，为什么我们可以认为$ F_{\mu\nu} $和metric没有关系？
+}
+
+因为我们会意识到其实我们写作：
+\begin{align}
+  F_{\mu\nu}=\nabla_\mu A_\nu - \nabla_\nu A_\mu = \partial_\mu A_\nu - \partial_\nu A_\mu,
+\end{align}
+这个是一样的，因为我们的反对称特性会自然的把Christoffel Symbol抵消掉。所以$ F_{\mu\nu} $其实和metric没有关系！！
+\qed
+
+
+
+
+
+

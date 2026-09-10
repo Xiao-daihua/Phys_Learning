@@ -1,0 +1,243 @@
+这一章介绍的是古人对于相对论和量子力学结合的早期探索。内容从现在的观点是错误的，dirac
+equation是场方程而非波函数的Schrodinger方程。而真正本质的应该是相对论量子场论。
+
+\subsection{Relativistic Schrodinger Equation}
+
+\subsubsection{Failed Attempts}
+古人的理想是使用协变的语言书写量子力学。因此进行了一些尝试。但是一些naive的尝试都最终失败了！
+
+\bigskip
+\hlr{直接使用相对论粒子能量}
+
+我们知道对于相对论点粒子能量是$ E=\sqrt{p^2+m^2}
+$。因此我们可以尝试直接将Schrodinger方程中的Hamiltonian替换为这个相对论的形式：
+\begin{align}
+  i\frac{\partial\psi}{\partial
+  t}=\sqrt{m^2c^4-\hbar^2c^2\nabla^2}\psi\mathrm{~.}
+\end{align}
+但遇到的问题是这个方程右手边可以改写为：
+\begin{align}
+  \sqrt{m^2c^4-\hbar^2c^2\nabla^2}\psi(x)=\int
+  d^3\mathbf{x}^{\prime}F(\mathbf{x},\mathbf{x}^{\prime})\psi(\mathbf{x}^{\prime})
+  \quad \text{where} \quad
+  F(\mathbf{x},\mathbf{x}^{\prime})\propto\int
+  d^3\mathbf{p}e^{i\mathbf{p}\cdot(\mathbf{x}-\mathbf{x}^{\prime})}\sqrt{\mathbf{p}^2c^2+m^2c^4}.
+\end{align}
+这意味着波函数一点的时间演化会被整个空间的分布影响。这违反了相对论的locality原则！
+
+\bigskip
+\hlr{Klein-Gordon Equation}
+
+由于上面的方程之中存在算符的平方根，很难处理。因此古人尝试将Schrodinger方程两边平方，得到：
+\begin{align}
+  -\square\psi=\frac{m^2c^4}{\hbar^2}\psi
+\end{align}
+也就是Klein-Gordon Equation。但是会发现这个方程存在两个问题：
+\begin{itemize}
+  \item 负能量解：这个方程显然存在平面波解但是其能量为： $
+    E=\pm\sqrt{\mathbf{p}^2c^2+m^2c^4}\mathrm{~.} $这表示能量没有下界。
+  \item 概率密度无法定义：普通的Schrodinger Equation的概率密度是守恒的也就是说：
+    \begin{align}
+      \partial_{t} \int d^3\mathbf{x} |\psi|^2 = 0\mathrm{~.} \quad
+      \text{with} \quad \psi^* \psi \geq 0\mathrm{~.}
+    \end{align}
+    这是因为Schrodinger方程是1阶时间导数的方程。但是Klein-Gordon
+    Equation是二阶方程，如果我们希望定义一个概率的interpretation必然不是$ |\psi|^2
+    $这个形式。因此我们需要重新定义概率密度。古人定义了：
+    \begin{align}
+      \rho = \frac{i\hbar}{2m}(\psi^*\partial_t\psi -
+      \psi\partial_t\psi^*)\mathrm{~.} \quad \text{satisfying} \quad
+      \partial_t \int d^3\mathbf{x} \rho = 0\mathrm{~.}
+    \end{align}
+    但是这个密度并不是正定的，也就是说这个流并不是永远大于0的，因此不能作为概率密度来解释。
+\end{itemize}
+
+\subsubsection{Dirac Equation}
+
+\bigskip
+\hlr{强行构造「Hamiltonian」}
+
+为了强行构造一个协变的方程，另一个思路就是我们保留时间导数是一阶，但是强行要求Hamiltonian也是线性的，并且不要使用什么平方根的形式。也就是说我们要求：
+\begin{align}
+  H=c\sum_{i=1}^3\alpha_ip^i+\beta mc^2. \quad \text{where }
+  p^i=-i\hbar \partial_i
+\end{align}
+但为了能够和相对论量子力学匹配我们要求这个形式化的Hamiltonian的平方应该给出相对论的能量的平方。$ H^2 = p^2c^2 + m^2c^4 $。
+\rmk{
+  这个构造就相当于严格的定义了什么叫「开平方」！
+}
+\textbf{给出Hamiltonian和经典力学合理：}
+对于这个构造我们会发现如果$ \alpha_i, \beta $是数字的话永远不能满足这个关系。因为我们计算会发现：
+\begin{align}
+  H^2 = c^2\sum_{i,j}\alpha_i\alpha_j p_ip_j +
+  mc^3\sum_i(\alpha_i\beta+\beta\alpha_i)p_i + m^2c^4\beta^2 = p^2c^2 + m^2c^4
+\end{align}
+因此我们需要满足下面的关系：
+\begin{align}
+  \left\{\alpha_i,\alpha_j\right\}=2\delta_{ij},\quad\left\{\alpha_i,\beta\right\}=0,\quad\beta^2=1,
+\end{align}
+
+\textbf{Hermite条件：}
+同时我们还需要满足Hamiltonian作为客观测量量应该是Hermite的。因此我们要求：
+\begin{align}
+  H = H^\dagger \quad \Rightarrow \quad \alpha_i = \alpha_i^\dagger,
+  \quad \beta = \beta^\dagger.
+\end{align}
+
+\bigskip
+\hlr{Gamma Matrices}
+
+我们寻找有什么样子的结构满足上面的两条关系。首先一般复数完全不能满足反对易关系，我们需要寻找矩阵的描述。数学上其实我们在寻找Clifford
+Algebra的表示。我们发现四维Clifford Algebra的最小表示是4维的矩阵。因此我们需要4维的矩阵来表示$
+\alpha_i, \beta $。我们发现下面的表示满足要求：
+\begin{align}
+  \alpha_i=
+  \begin{pmatrix}0&\sigma_i\\ \sigma_i&0
+  \end{pmatrix},\quad\beta=
+  \begin{pmatrix}I&0\\0&-I
+  \end{pmatrix}
+\end{align}
+一般为了方便我们会定义另一组矩阵：
+\defi{
+  Gamma Matrices
+  \begin{align}
+    \gamma^0 = \beta =
+    \begin{pmatrix}I&0\\0&-I
+    \end{pmatrix},\quad \gamma^i = \beta \alpha_i =
+    \begin{pmatrix}0&\sigma_i\\ -\sigma_i&0
+    \end{pmatrix}.
+  \end{align}
+}
+
+\bigskip
+\hlr{Dirac Equation}
+
+这样我们把上面的结果带入Schrodinger方程我们就得到了Dirac Equation：
+\begin{align}
+  i\frac{\partial\psi_D}{\partial t}=H_D\psi_D,\quad H_D=c \alpha_i
+  p^i+\beta mc^2.
+\end{align}
+或者说更加标准的使用gamma矩阵的协变形式写作：
+\begin{align}
+  (i\gamma^\mu \partial_\mu - m)\psi_D=0\mathrm{~.}
+\end{align}
+\rmk{
+  这么写出来我们已经用了$ (+,-,-,-) $的metric了！我们使用了$ p^i = - p_i = -i \partial_i
+  $以及$ p^0 = p_0 = i \partial_t $的convention。
+}
+我们对于波函数$ \psi_D $现在有四个分量，因此我们称之为spinor。也就是其实描述了四种不同的粒子的态：
+\begin{itemize}
+  \item 分别有两种自旋以及正反粒子！
+\end{itemize}
+并且我们这里可以定义一个概率密度：$ \rho = \psi_D^\dagger \psi_D \geq 0 $，并且满足守恒条件$
+\partial_t \int d^3\mathbf{x} \rho = 0
+$。虽然我们最终发现这个方程其实描述的是场而非单粒子的波函数，这个interpretation其实也是错误的。
+
+\subsubsection{Dirac Equation的能谱}
+
+\hlr{定态Schrodinger Equation}
+
+我们考虑Dirac Hamiltonian的定态Schrodinger Equation：$ H_D \psi = E \psi
+$。我们发现如果使用平面波的形式假设$ \psi $是某个向量$ \times e^{i kx} $的话。我们会发现对角化之后矩阵存在两个本征值：
+\begin{align}
+  E_1=+\sqrt{k^2c^2+m^2c^4},\quad E_2=-\sqrt{k^2c^2+m^2c^4}.
+\end{align}
+这就表示对于Dirac
+Equation描述的四个粒子，存在两个正能量态和两个负能量态。在一个合理的basis下面，作为向量上面两个分量的波函数给出了正能量态，下面两个分量的波函数给出了负能量态。
+
+\bigskip
+\hlr{Dirac Sea}
+
+Dirac给了负能量态一个interpretation。他认为这些负能量态都是被填满的，而负能量态的hole是一个正能量态。但是modern
+QFT的观点下不存在dirac sea的概念。
+
+\subsection{Pauli Equation}
+
+在Dirac Equation的基础上，我们可以给出一个等效的非相对论费米子在电磁场之中的波函数的运动方程。
+
+\bigskip
+\hlr{加入电磁场的Dirac Equation}
+
+我们从Dirac Equation出发，如果希望在量子力学之中加入电磁场我们可以把动量算符替换为canoncial momentum：
+\begin{align}
+  p^\mu \rightarrow p^\mu - e/c A^\mu.
+\end{align}
+具体的分量写出来就是$  p^0 = i \partial_t \rightarrow \pi^0 = i \partial_t - e
+\Phi $以及$ p^i = -i \nabla \rightarrow \pi^i =  -i\nabla - e/c
+\mathbf{A} $。因此我们得到在电磁场之中的Dirac Equation：
+\begin{align}
+  i \partial_t \psi = c \alpha_i \pi^i + \beta m c^2 + e \Phi \psi\mathrm{~.}
+\end{align}
+
+\bigskip
+\hlr{Ansatz变形}
+
+我们研究这个方程的非相对论极限。也就是要求：
+\begin{align}
+  pc<< mc^2,\quad e\Phi << mc^2,\quad|e\mathbf{A}| << mc^2.
+\end{align}
+对于非相对论极限，我们选择下面的波函数作为我们的ansatz：
+\begin{align}
+  \psi = e^{-i mc^2/\hbar t}
+  \begin{pmatrix}\phi\\ \chi
+  \end{pmatrix}\mathrm{~.}
+\end{align}
+将ansatz带入Dirac Equation我们得到两个耦合方程：
+\begin{align}
+  i \hbar \frac{\partial \phi}{\partial t} = c \sigma^i \pi^i \chi +
+  e \Phi \phi, \quad i \hbar \frac{\partial \chi}{\partial t} = c
+  \sigma^i \pi^i \phi - 2 m c^2 \chi + e \Phi \chi.
+\end{align}
+\rmk{这里是真没办法所以两个上指标求和了呜呜呜呜（（（convention 迫不得已}
+
+\bigskip
+\hlr{非相对论极限 I: 下分量消去}
+
+由于我们考虑非相对论极限，相比之下$ e \Phi $的势能对于第二个方程来说是微小的，因此我们可以忽略掉。给出变形的第二个方程我们得到：
+\begin{align}
+  \chi=\frac{c\sigma^i \pi^i
+  }{2mc^2}\phi+\frac{\hbar}{i}\frac{1}{2mc^2}\frac{\partial\chi}{\partial
+  t}\mathrm{~.}
+\end{align}
+我们考虑右边两项，对于光速都是同一阶的，但是对于plank常数来说第二项是高阶小量。因此对于第二项进行微扰：
+\begin{align}
+  \chi^{(0)}=\frac{c\sigma^i \pi^i}{2mc^2}\phi\mathrm{~,} \quad
+  \chi^{(1)}=\frac{c\sigma^i \pi^i}{2mc^2}\phi +
+  \frac{\hbar}{i}\frac{1}{2mc^2}\frac{\partial}{\partial
+  t}\left(\frac{c\sigma^i \pi^i}{2mc^2}\boldsymbol{\phi}\right)
+\end{align}
+我们会明显发现一阶的多出来的项是$ c^{-4} $是高阶小量因此我们保留零阶近似:
+\begin{align}\label{eq:chi-approx}
+  \chi = \frac{c\sigma^i \pi^i}{2mc^2}\phi\mathrm{~.}
+\end{align}
+这里我们会得出结论$ \chi << \phi $，也就是说在非相对论极限下Dirac spinor的下分量远小于上分量。
+
+\bigskip
+\hlr{非相对论极限 II: Pauli Equation}
+
+我们将上面的结果\cref{eq:chi-approx}带入第一个方程我们得到：
+\begin{align}
+  -\frac{\hbar}{i}\frac{\partial\phi}{\partial
+  t}=\left(\frac{(\mathbf{\sigma} \cdot \mathbf{\pi})(\mathbf{\sigma}
+  \cdot \mathbf{\pi})}{2m}+e\Phi\right) \phi
+\end{align}
+我们对于pauli矩阵的乘积可以使用恒等式：
+\begin{align}
+  (\sigma \cdot A)(\sigma \cdot B) = A \cdot B + i \sigma \cdot (A \times B)
+\end{align}
+因此我们得到Pauli Equation:
+\thm{
+  Pauli Equation
+
+  对于非相对论费米子在电磁场之中的运动方程为：
+  \begin{align}
+    -\frac{\hbar}{i}\frac{\partial\phi}{\partial
+    t}=\left[\frac{1}{2m}\left(\mathbf{p}-\frac{e}{c}A\right)^{2}-\frac{e\hbar}{2mc}\sigma
+    \cdot B+e\Phi\right]\phi
+  \end{align}
+}
+对于这个方程我们有下面的comment：
+\begin{itemize}
+  \item 本身$ \phi $是一个而分量的spinor，Pauli Euqtion描述了两个粒子的波函数的耦合演化！
+\end{itemize}
+特别的对于动量我们使用的是$ p^i = - i \nabla $。

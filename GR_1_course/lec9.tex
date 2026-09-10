@@ -1,0 +1,422 @@
+
+\subsection{E-M Tensor of Gravitational Wave}
+上一章我们已经知道引力波可以传递能量让物体从静止动起来。那么现在问题是，有没有一种方法描述引力波自身携带的能动量张量。对于这个研究存在两种思路：
+\begin{itemize}
+  \item 把线性引力理解为一个平直时空的经典场论，使用Noether定理得到能动量张量。
+  \item 认为引力波能动量张量的存在会扰动背景时空，因此我们不可以使用线性引力而是需要在一个被引力波弯曲的时空之中讨论。
+\end{itemize}
+我们现在使用第二种思路进行讨论。
+
+\subsubsection{Set up of Back Effect}
+
+\hlr{基本set up}
+
+下面我们给出第二种思路的基本set up！我们考虑下面的metric ansatz：
+\begin{align}
+  g_{\mu\nu}(x)=\bar{g}_{\mu\nu}(x)+h_{\mu\nu}(x)\quad |h_{\mu\nu}|<<1
+\end{align}
+这里$ \bar{g}_{\mu\nu} $是背景时空的metric，$ h_{\mu\nu} $是引力波的扰动。
+
+\bigskip
+\hlr{区分背景与波动}
+
+下面问题是我们如何「区分开」背景的弯曲时空和引力波的波动，也就是想说这样的区分为什么是合理的。对于一般的情况我们完全是无法进行区分的。但是如果我们考虑一种情况，背景和波动的尺度相差很大则是可以的。
+
+比如我们考虑背景$ \bar{g}_{\mu \nu} $存在typical viration length $ L_B
+$，2️⃣引力波的typical length scale 为$ \bar{\lambda} = \frac{\lambda}{2
+\pi}$ ，并且满足$ \bar{\lambda} << L_B $。也就是说引力波的波动尺度远小于背景时空的变化尺度。
+我们也可以考虑时间尺度的区分，如果背景时空以一个typical frequency $ f_B $进行变换，而引力波的频率$ t \sim
+1/f $满足$ f >> f_B $。也就是说引力波的频率远大于背景时空的变化频率。
+
+总之就是说满足$ \bar{\lambda} << L_B $和$ f >> f_B $的情况我们就可以区分背景时空和引力波的波动。
+
+\subsubsection{Averaging Procedure and EM Tensor}
+
+\bigskip
+\hlr{分离引力波和背景}
+
+下面我们要讨论，我们怎么分离出引力波的部分以及背景的部分。我们会发现可以使用平均的方法。对于一个特定的尺度，我们对于一切物理量取平均，这样，比这个尺度远小的波动都会被平均掉，而比这个尺度大的变化则会被保留下来。这样我们可以过滤掉$
+h_{\mu \nu} $的部分仅仅保留$ \bar{g}_{\mu \nu} $的部分。
+
+我们考虑一个某一个特征的长度与频率满足：
+\begin{itemize}
+  \item 空间尺度: $ \bar{\lambda} << \bar{l} << L_B $ ； 时间尺度： $ f_B <<
+    \bar{f} << f $
+\end{itemize}
+对于这个特征的尺度我们进行平均！这样我们可以定义任何时空相关的量$ A(x) $的平均为$ \langle
+A(x)\rangle_{\bar{l}\bar{t = 1/\bar{f}}} $。我们会发现$ \langle h_{\mu \nu}
+\rangle = 0 $，而$ \langle \bar{g}_{\mu \nu} \rangle = \bar{g}_{\mu
+\nu} $。因此我们可以使用这个平均操作将背景和波动分离开来。
+
+\bigskip
+\hlr{引力波的能动量张量}
+
+我们对于Einstein Field Equation进行平均操作我们会发现其形式为：
+\begin{align}
+  \langle R_{\mu\nu}-\frac{1}{2}\bar{g}_{\mu\nu}R\rangle=\frac{8\pi
+  G}{c^4}\left(\langle T\rangle_{\mu\nu}+t_{\mu\nu}^{GW}\right).
+\end{align}
+这里$ t_{\mu\nu}^{GW} $是引力波的能动量张量，而$  \langle T\rangle_{\mu\nu}
+$是背景物质的能动量张量。我们发现引力波的能动量张量是：
+\thm{
+  Gravitational Wave Energy-Momentum Tensor
+
+  引力波的能动量张量为：
+  \begin{align}
+    t_{\mu\nu}^{GW}=\frac{1}{32\pi G}\langle\partial_\mu
+    h_{\alpha\beta}\partial_\nu h^{\alpha\beta}\rangle.
+  \end{align}
+}
+Proof: 可以参考Gravitational Wave书中1.4.2的讨论。
+
+我们发现这个结果十分的合理：
+\begin{itemize}
+  \item 对于$ h_{\mu \nu} $的dependence是二阶的，因为一阶的平均就变成0了。
+\end{itemize}
+
+\subsubsection{GW能量密度与辐射功率}
+
+有了能懂连张量的形式我们可以分析引力波携带的能量。前面的讨论都是选择某个坐标系的研究，如果我们假设\textbf{恰好TT
+Gauge能够很好区分背景和波动}，那么我们不妨使用TT Gauge进行讨论。
+
+\bigskip
+\hlr{TT Gauge的能量密度}
+
+根据TT Gauge里里面$ h_{ij}^{TT} $的一般形式我们写出来引力波的能量密度：
+\begin{align}
+  t_{00}^{GW} = t^{GW 00} = \frac{1}{32\pi G}\langle \partial_0
+  h_{ij}^{TT} \partial_0 h_{ij}^{TT} \rangle = \frac{1}{32\pi
+  G}\langle \dot{h}_{ij}^{TT} \dot{h}_{ij}^{TT} \rangle.
+\end{align}
+这里我们使用$ \dot{h} = \partial_t h $是对于\textbf{Coordinate
+Time}的导数(很多时候我们默认是对于proper
+time的，这里并不是)。并且注意，对于线性引力，我们空间方向升降指标是无所谓的。我们会发现，平均是必要的，因为如果不平均的化，我们总能找到一个LLF保证$
+\dot{h}_{ij}^{TT} = 0 $，那么能量密度就变成0了。
+
+如果我们使用TT Gauge引力波的一般形式，我们之前已经知道可以通过$ h_+ $和$ h_\times $两个极化态进行描述：
+\begin{align}
+  h_{ij}^{TT} = h_+(x) e_{ij}^+ + h_\times(x) e_{ij}^\times  \quad
+  \Rightarrow \quad \dot{h}_{ij}^{TT} \dot{h}_{ij}^{TT} =
+  2(\dot{h}_+^2 + \dot{h}_\times^2)
+\end{align}
+那么我们有能量密度为：
+\begin{align}
+  t^{GW 00}=\frac{1}{16\pi
+  G}\langle\dot{h}_+^2+\dot{h}_\times^2\rangle\mathrm{~.}
+\end{align}
+
+\bigskip
+\hlr{TT Gauge 引力波的辐射功率}
+
+根据能量守恒我们知道引力波的能量流密度为：
+\begin{align}
+  \int_Vd^3x\left(\partial_0t^{00}+\partial_it^{i0}\right)=0\mathrm{~,}
+  \quad \Rightarrow \quad \frac{dE}{dt}=-\int_{\partial V}t^{i0}dS_i\mathrm{~.}
+\end{align}
+如果我们考虑某一个曲面内单位面积辐射出来的引力波的功率为：
+\begin{align}
+  \frac{dE}{dtdA}=t^{i0}n_i = -n_i t_{i0}
+\end{align}
+第二个等式我们由于需要下降一个时间指标，因此多了一个负号。这里$ n_i $是曲面的法向量。因此我们知道：
+\thm{
+  Gravitational Wave Power Flux
+
+  引力波通过法向量为$ n_i $单位面积的功率为：
+  \begin{align}
+    \frac{dE}{dtdA} = - \frac{n_i}{32\pi G}\langle \partial_t
+    h_{ij}^{TT} \partial_i h_{ij}^{TT}  \rangle.
+  \end{align}
+}
+
+\bigskip
+\hlr{传播方向的辐射功率}
+
+如果我们假设引力波传播方向和法向量一致$ n_i = \hat{k}_i $，并且根据 TT Gauge下面引力波是一种无质量的方程满足$
+k^\mu k_\mu = 0 $，我们有：
+\begin{align}
+  n_l \partial_l h_{ij}^{TT}(k (\hat{\mathbf{k}} \cdot \mathbf{x} -
+  t)) = n_l \frac{\partial h_{ij}^{TT}}{ \partial (\hat{\mathbf{k}}
+  \cdot \mathbf{x} - t)} \frac{\partial (\hat{\mathbf{k}} \cdot
+  \mathbf{x} - t)}{\partial x^l} = -\partial_t h_{ij}^{TT}
+  \hat{\mathbf{k}}_l n_l = -\partial_t h_{ij}^{TT}
+\end{align}
+因此我们发现：
+\thm{
+  传播方向的引力波的单位面积辐射功率
+  \begin{align}
+    \frac{dE}{dtdA} = \frac{1}{32\pi G} \langle \partial_t
+    h_{ij}^{TT} \partial_t h^{TT ij} \rangle
+  \end{align}
+}
+带入TT Gauge之中引力波的一般形式，我们有：
+\begin{align}
+  \frac{dE}{dtdA} = \frac{1}{16\pi G} \langle \dot{h}_+^2 +
+  \dot{h}_\times^2 \rangle
+\end{align}
+同样可以写作单位立体角的辐射功率，由于$ dA = R^2 d \Omega $，我们有：
+\begin{align}\label{eq:gwpowerfluxsolidangle}
+  \frac{dE}{dtd\Omega} = \frac{R^2}{16\pi G} \langle \dot{h}_+^2 +
+  \dot{h}_\times^2 \rangle.
+\end{align}
+\rmk{
+  如果我们选择的积分面的法向量和传播方向并不垂直，那么必然会出现一个夹角保证只有「垂直的面积」才会收到辐射。
+}
+
+\subsection{Linear Order of Emission from a Source}
+
+下面我们研究引力波是如何产生的，考虑时空中的任意一个变动的物质分布，其变化会导致时空弯曲进一波产生引力波。我们在一定牛顿极限的set up下研究引力波的辐射。
+
+\subsubsection{Set up}
+
+\hlr{基本set up}
+
+General的研究这个问题会过于复杂，因为相对论的能动量张量产生引力波进一步会影响原先的物质场，无法进行解析描述。因此我们需要考虑类似牛顿的近似，并且给出一些假设，才能够解析的研究这个问题。我们考虑如下的set
+up：
+\begin{itemize}
+  \item weak gravitational field: 系统自身并不产生引力场！也就是说我们假设background
+    metric是平直的$ \eta_{\mu \nu} $。系统自身的引力相互作用纯粹用牛顿力学描述，不考虑时空弯曲。
+  \item No back react: 系统产生的引力波不影响系统自身运动！也就是我们不考虑系统产生引力波自身的能量消耗。
+  \item Self-Gravitating: 系统没有收到任何外力的作用是self-gravitating system。
+\end{itemize}
+并且值得注意的是，其实weak field的等价说法是系统经典的$ v<<1 $。假设我们会发现经典的一个binary
+system的总能量为$ E \sim M + \frac{1}{2}Mv^2 - \frac{GM^2}{R}  \sim -
+\frac{GM^2}{2R} $，而引力场的典型强度为$ h \sim \frac{GM}{R} $。因此我们有$ h \sim
+\frac{v^2}{c^2} $。所以弱引力场等价于经典低速近似，也和我们说的用newton定律描述consist。
+
+\bigskip
+\hlr{EFE的Hilbert Gauge解}
+
+我们回顾EFE在Hilbert Gauge下面的解决，我们经常使用 $ \gamma^{\mu \nu} $的形式进行描述metric，其满足：
+\begin{align}
+  \gamma_{\mu \nu} = 4G\int d^3 y
+  \frac{1}{|\mathbf{x}-\mathbf{y}|}T_{\mu\nu}\left(x^0-|\mathbf{x}-\mathbf{y}|,\mathbf{y}
+  \right).
+\end{align}
+我们考虑下面的能动量张量的分布以及我们关心的metric的区域为：
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.6\textwidth]{assets/setupgew.png}
+  \caption{Set up of Gravitational Wave Emission from a Source}
+  \label{fig:setupgew}
+\end{figure}
+也就是能动量张量分布于一个比较小的半径为$ d $的区域，我们研究的metric则是在很远很远半径为$ R $的区域。并且我们假设$ d << R $。
+
+\subsubsection{远场近似下Metric形式}
+
+在上面的set up的基础上我们可以通过分析和近似给出引力波辐射的quadrupole公式。
+
+\bigskip
+\hlr{TT Gauge的使用}
+
+我们之前知道对于有源的EFE使用TT Gauge会导致矛盾，但是由于我们set up考虑引力波距离源特别特别远，因此我们可以近似的使用TT
+Gauge进行研究问题。为了从Hilbert Gauge变换到TT
+Gauge我们需要利用一个投影算符\cref{sec:ttgaugeprop}。我们给出TT Gauge下面引力波的解为：
+\begin{align}
+  h_{ij}^{TT}(x)= 4G\Lambda_{ij,kl}(\hat{\mathbf{n}})\int
+  d^3 y
+  \frac{1}{|\mathbf{x}-\mathbf{y}|}T_{kl}\left(x^0-|\mathbf{x}-\mathbf{y}|,\mathbf{y}
+  \right)
+\end{align}
+注意，这里$ \hat{\mathbf{n}} = \frac{\mathbf{x}}{|\mathbf{x}|}
+$是观察者位置的单位向量。因为作为观察者，我们只能观测到引力波向自己方向传播的部分！
+\rmk{
+  我们这里直接对于$ \gamma_{ij} $进行project而不是$ h_{ij} $是因为，他们相差的是$
+  \eta_{\mu\nu} h $这部分在projector作用之后是0的！
+}
+
+\bigskip
+\hlr{远场近似}
+
+对于远场我们可以近似的给出计算$ | \mathbf{x} = \mathbf{y} | $的结果，我们有：
+\begin{align}
+  |\mathbf{x}-\mathbf{y}| = \sqrt{R^2 + y^2 - 2 R \mathbf{y} \cdot
+  \hat{n}} \approx R - \mathbf{y} \cdot \hat{n}
+\end{align}
+我们对于这一项不妨近似为$ R $因此分母之中有：
+\begin{align}
+  h_{ij}^{TT}(t,\mathbf{x}) = \frac{4G}{R}
+  \Lambda_{ij,kl}(\hat{\mathbf{n}}) \int d^3 y T_{kl}\left(t - R +
+  \mathbf{y} \cdot \hat{n}, \mathbf{y} \right).
+\end{align}
+\rmk{
+  注意！我们可以直接近似$ |\mathbf{x} - \mathbf{y} | $但是当其作为函数自变量的时候不可以直接替换，需要展开捏！！
+}
+下面我们考虑不同位置的源对于引力波的metric的贡献，会发现需要$ T_{kl} $时间项对于$ \mathbf{y} \cdot
+\hat{n} $进行展开：
+\begin{align}
+  T_{kl}\left(t - R + \mathbf{y} \cdot \hat{n}, \mathbf{y} \right) =
+  T_{kl}(t - R, \mathbf{y}) + \left. \frac{\partial T_{kl}}{\partial
+  t} \right|_{t-R,\mathbf{y}} \mathbf{y} \cdot \hat{n} + \frac{1}{2}
+  \left. \frac{\partial^2 T_{kl}}{\partial t^2}
+  \right|_{t-R,\mathbf{y}} (\mathbf{y} \cdot \hat{n})^2 + \cdots
+\end{align}
+naively，我们不能argue说$ \mathbf{y} \cdot \hat{n}
+$是一个小量。但是我们会发现对于一阶展开，其实意味着 $ y/t << 1
+$。因此我们argue这样的展开是对于低速近似的展开是合理的。我们最终保留第一阶的展开！因此我们有：
+\begin{align}
+  h_{ij}^{TT}(t,\mathbf{x}) = \frac{4G}{R}
+  \Lambda_{ij,kl}(\hat{\mathbf{n}}) \int d^3 y T_{kl}(t - R, \mathbf{y}).
+\end{align}
+
+\subsubsection{Quadrupole表示引力波的Metric}
+
+为了研究物质的能动量张量的分布是如何影响引力波的，我们假设物质场能动量张量\textbf{满足能量守恒}并且\textbf{物质场的能量密度是}$
+T^{00} = \rho $。
+
+\bigskip
+\hlr{多极展开分析}
+
+研究依托物质对于metric的影响，我们需要可以使用多极展开的方法进行研究。我们首先定义一些物质能量分布的moments：
+\begin{itemize}
+  \item Mass: $ M = \int d^3 x \rho(t,\mathbf{x}) $
+  \item Dipole Moment: $ M^i = \int d^3 x \rho(t,\mathbf{x}) x^i $
+  \item Moment of Inertia: $ M^{ij} = \int d^3 x \rho(t,\mathbf{x}) x^i x^j $
+\end{itemize}
+下面我们希望通过moment展开的形式研究$ \int d^3 y T_{ij} $的形式。我们使用能量守恒$ \partial_\mu
+T^{\mu \nu} = 0 $，通过海量分部积分的计算我们发现：
+\begin{align}
+  \int d^3 y T^{ij} = \frac{1}{2} \frac{d^2}{dt^2} \int d^3 y T^{00}
+  y^i y^j = \frac{1}{2} \ddot{M}^{ij}
+\end{align}
+\rmk{
+  我们知道多级展开之后的量是一个仅仅和时间相关的，因为空间维度已经被积分掉了！
+}
+
+\bigskip
+\hlr{引力波的Quadrupole公式}
+
+最终我们给出引力波的metric其实可以通过物质场的moment of inertia的二阶导数进行描述：
+\thm{
+  Moment of Inertia Formula of Gravitational Wave Metric
+
+  引力波的metric可以通过物质场的moment of inertia的二阶导数进行描述：
+  \begin{align}
+    h_{ij}^{TT}(t,\mathbf{x}) = \frac{2G}{R} \ddot{M}^{kl}(t - R)
+    \Lambda_{ij,kl}(\hat{\mathbf{n}}).
+  \end{align}
+}
+我们会发现引力波的存在取决于物质场的moment of inertia的二阶导数！如果物质场的moment of inertia不变则不会产生引力波。
+
+同时我们根据$ \Lambda_{ij,kl} $的性质我们知道其对于后面两个指标是traceless的，因此有关系：
+\begin{align}
+  \Lambda_{ij,kl}(\hat{\mathbf{n}}) \ddot{M}^{kl} =
+  \Lambda_{ij,kl}(\hat{\mathbf{n}}) \left( \ddot{M}^{kl} -
+  \frac{1}{3} \delta^{kl} \ddot{M} \right).
+\end{align}
+其中$ M $是$ M^{kk} $。因此我们定义物质场的\textbf{quadrupole moment}为：
+\begin{align}
+  Q^{ij} = M^{ij} - \frac{1}{3} \delta^{ij} M^{ii}
+\end{align}
+\rmk{
+  注意这里$ M^{ii} $是trace！！！
+}
+使用这个公式表达引力波的metric有：
+\thm{
+  Quadrupole Formula of Gravitational Wave Metric
+
+  引力波的metric可以通过物质场的quadrupole moment的二阶导数进行描述：
+  \begin{align}
+    h_{ij}^{TT}(t,\mathbf{x}) = \frac{2G}{R} \ddot{Q}^{kl}(t - R)
+    \Lambda_{ij,kl}(\hat{\mathbf{n}}).
+  \end{align}
+}
+我们会发现，引力波产生需要下面两个条件：
+\begin{itemize}
+  \item 物质场的quadrupole moment不为0。
+  \item 物质场的quadrupole moment发生变化也就是其二阶导数不为0。
+\end{itemize}
+
+\rmk{
+  注意！上面所有讨论，虽然我们口头说的都是引力波(毕竟这个set up下面我们这个interpret
+  metric是引力波)。但是其实计算的就是一个TT Gauge下metric的远场形式！
+}
+
+\bigskip
+\hlr{Monopole and Dipole}
+
+一个有趣的问题就是Monopole和Dipole既然不会影响TT
+Gauge下面的metric，那么他们对于metric的贡献体现在哪里。我们会发现其体现在静态的Metirc里面：
+\begin{itemize}
+  \item Monopole : Near Newtonian Gravity的set up里面给出了贡献
+  \item Dipole: Lense Thirring Effect的set up里面给出了贡献
+\end{itemize}
+所以其实是我们对于metric的ansatz其实forbid了monopole和dipole的贡献。而这个set
+up我们interpret说是描述引力波，所以我们认为引力波的metric不包含monopole和dipole的贡献。(所以set up很重要捏)
+
+并且我们发现，Dipole和Monopole在能量守恒的前提下其实是不会变化的。因为：
+\begin{align}
+  M = \int d^3 x T^{00}, \quad P^i = \int d^3 x T^{0i}
+\end{align}
+这两个量是monopole和dipole给出的，而根据能量守恒条件，这两个量的时间导数恒定为0。这也告诉我们了这个set
+up下面，任何波动解都不会包含monopole和dipole的贡献。
+
+\subsubsection{z方向观察者的Metric}
+
+\bigskip
+\hlr{z方向传播的Quadrapole}
+
+我们补充上一小节的内容。如果我们考虑一个任意的质量$ M(x) $分布变换生成的引力波。然后，我们假设观察者的位置在这个坐标系下为 $
+\mathbf{x} = R \hat{z} $。于是，我们关心z方向传播的引力波的quadral
+pole表示。也就是我们考虑投影算符之中$ \hat{n} = (0,0,1) $的情况。我们有：
+\begin{align}
+  P_{ij} = \delta_{ij} - \hat{n}_i \hat{n}_j =
+  \begin{pmatrix}1&0&0\\0&1&0\\0&0&0
+  \end{pmatrix},
+\end{align}
+根据投影算符公式$ \Lambda_{ij,kl} = P_{ik}P_{jl} - \frac{1}{2}P_{ij}P_{kl}
+$，我们使用下面矩阵形式进行计算。对于投影算符作用在一般的矩阵$ A_{ij} $上面我们有：
+\begin{align}
+  \Lambda_{ij,kl}A_{kl}=\left[P_{ik}P_{jl}-\frac{1}{2}P_{ij}P_{kl}\right]A_{kl}=(PAP)_{ij}-\frac{1}{2}P_{ij}\mathrm{Tr}\left(PA\right).
+\end{align}
+带入最一般的$ \ddot{M}_{ij}(t) $的形式我们知道：
+\begin{align}
+  \Lambda_{ij,kl}\ddot{M}_{kl}=
+  \begin{pmatrix}(\ddot{M}_{11}-\ddot{M}_{22})/2&\ddot{M}_{12}&0\\\ddot{M}_{21}&-(\ddot{M}_{11}-\ddot{M}_{22})/2&0\\0&0&0
+  \end{pmatrix}_{ij}
+\end{align}
+
+\bigskip
+\hlr{z方向观察者观测到的metric}
+
+根据上面的计算我们可以给出z方向观察者观测到的引力波metric为：
+\begin{align}
+  h_{ij}(t,R\hat{z})=\frac{G}{R}\frac{d^2}{dt^2}
+  \begin{pmatrix}M_{11}(t-R)-M_{22}(t-R)&2M_{12}(t-R)&0\\2M_{21}(t-R)&-(M_{11}(t-R)-M_{22}(t-R))&0\\0&0&0
+  \end{pmatrix}_{ij}.
+\end{align}
+这个和我们之前讨论的$ h_+, h_\times
+$的形式完全相符，说明我们讨论是合理的。我们分别给出这两个Polarization对应的quadrupole矩阵形式：
+\begin{align}\label{eq:gwquadrupolepluscross}
+  h_{+}&=\frac{G}{R}\left(\ddot{M}_{11}-\ddot{M}_{22}\right), \quad
+  h_{\times}=\frac{2G}{R}\ddot{M}_{12}\mathrm{~,}
+\end{align}
+
+\bigskip
+\hlr{More on Quadrupole}
+
+需要讨论的是，如果我们之前的展开进行更高阶的展开是否会有monopole或者dipole的贡献呢？答案是永远不会的！存在定理：
+\begin{itemize}
+  \item Spin of Field和Multipole Moment是对应的！！也就是说，只有Quadrupole
+    moment是由引力波自身形式spin-2完全决定的，是非微扰的效应
+\end{itemize}
+实际上之前的对于$ \mathbf{y} \cdot \hat{n}
+$的展开如果展开更高阶，也仅仅会得到更高阶的moment的贡献，而不会得到monopole和dipole的贡献。
+
+\subsubsection{Quadualpole表示引力波的Power}
+
+我们考虑引力波的辐射功率和源的关系。我们根据\cref{eq:gwpowerfluxsolidangle}我们知道$ P \sim
+\dot{h} \sim \dddot{Q} $。最终我们给出公式为：
+\thm{\label{thm:gwpowerquadruple}
+  Quadrupole Formula for Gravitational Wave Power
+
+  引力波的辐射功率和源的关系为：
+  \begin{align}
+    P_{quad} = \int d \Omega \frac{G}{8 \pi}
+    \Lambda_{ij,kl}(\hat{\mathbf{n}}) \langle \dddot{Q}^{ij}(t - R)
+    \dddot{Q}^{kl}(t - R) \rangle = \frac{G}{5} \langle
+    \dddot{Q}_{ij}(t - R) \dddot{Q}^{ij}(t - R) \rangle.
+  \end{align}
+}
+注意，这个公式是对于所有方向传播的引力波的传播方向的面积进行积分得到的总功率！！这个积分结果可以通过Quadralpole
+moment的三阶导数的contract得到。我们注意，这个cointract之后，如果固定观察者的位置$ R
+$这是一个仅仅和时间相关的量。我们对于时间平均之后得到的了一个常数功率！

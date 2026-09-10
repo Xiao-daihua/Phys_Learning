@@ -1,0 +1,518 @@
+\subsection{Binar System的引力波辐射}
+
+\subsubsection{垂直转动平面观察结果}
+
+下面我们研究如下set up的观测着观察到的双星系统的引力波metrix。我们假设双星系统在$ x-y $平面上互相绕着转动，并且我们在$
+z $轴很远的位置观测到引力波。
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.15\textwidth]{assets/doublestar.png}
+  \caption{双星系统引力波辐射示意图}
+  \label{fig:doublestar}
+\end{figure}
+
+\bigskip
+\hlr{经典双星系统力学}
+
+我们考虑两个质量分别为$ m_1, m_2 $的点粒子在相互引力作用下绕着质心做圆周运动。我们设定质心在原点，并且两个粒子在$ x-y
+$平面上做圆周运动。我们可以定义两个粒子的位置和相对位置$ x_0 $以及质心位置$ x_{cm} $为：
+\begin{align}
+  x_1, \quad x_2 \quad x_0 = x_1 - x_2, \quad x_{cm} =
+  \displaystyle\frac{m_1 x_1 + m_2 x_2}{m_1 + m_2}
+\end{align}
+并且我们定义总质量$ m = m_1 + m_2 $以及约化质量$ \mu = \displaystyle\frac{m_1
+m_2}{m_1 + m_2} $。我们会发现由于我们选择质心是原点，因此$ x_{cm} = 0 $。我们可以把两个粒子的位置表示为：
+\begin{align}
+  x_1 = \displaystyle\frac{m_2}{m} x_0, \quad x_2 =
+  -\displaystyle\frac{m_1}{m} x_0
+\end{align}
+
+\bigskip
+\hlr{质量分布计算}
+
+下面我们计算两个粒子的质量分布。对于相对论点粒子系统，我们的能量密度可以近似的认为是$ m(x)c^2 $乘以一个delta函数分布:
+\begin{align}
+  m(x) =  T^{00}=\sum_Am_Ac^2\delta^{(3)}(\mathbf{x}-\mathbf{x}_A(t))\mathrm{~,}
+\end{align}
+因此，moment of inertia给出：
+\begin{align}
+  M_{ij}(t) = \int d^3x\, m(x) x_i x_j = m_1 x_{1i}(t) x_{1j}(t) +
+  m_2 x_{2i}(t) x_{2j}(t) = \mu x_{0i}(t) x_{0j}(t)
+\end{align}
+我们会意识到，moment of inertia可以等效的认为是一个质量为$ \mu $的粒子在位置$ x_0 $处的moment of inertia。
+
+\bigskip
+\hlr{牛顿力学计算Moment of Inertia}
+
+根据牛顿力学的计算我们知道两个粒子在相互引力作用下绕着质心做圆周运动。我们设定两个粒子在$ x-y
+$平面上绕着质心做圆周运动，并且角速度为$ \omega_s $。我们可以把相对位置表示为：
+\begin{align}
+  x_{01}(t) = R \cos(\omega_s t + \pi/2) \quad x_{02}(t) = R \sin(\omega_s
+  t + \pi/2) \quad x_{03}(t) = 0
+\end{align}
+我们带入moment of inertia的关系可以得到:
+\begin{align}\label{eq:binarymomentofinertia}
+  &\dot{M}_{11}=\frac{\mu R^{2}}{2}2w_{s}\sin(2w_{s}t)\quad
+  \ddot{M}_{11}=\mu R^{2}2w_{s}^{2}\cos(2w_{s}t)\quad
+  \dddot{M}_{11}=-\mu R^{2}4w_{s}^{3}\sin(2w_{s}t)\\
+  &\dot{M}_{12}=\frac{\mu R^{2}}{2}2w_{s}(-\cos (2w_{s}t))\quad
+  \ddot{M}_{12}=\mu R^{2}2w_{s}^{2}\sin(2w_{s}t)\quad
+  \dddot{M}_{12}=\mu R^{2}4w_{s}^{3}\cos(2w_{s}t) \\
+\end{align}
+并且我们知道$ \dot{M}_{22} = -\dot{M}_{11} $，以及$ M_{12} = M_{21} $。因此我们可以求出所有的分量的三阶导数。
+
+\bigskip
+\hlr{引力波极化分量计算}
+
+根据\cref{eq:gwquadrupolepluscross}我们可以得到引力波的plus和cross极化分量：
+\begin{align}\label{eq:binarygwpluscross}
+  h_+(t,r) &= \displaystyle\frac{G}{r} \left(\ddot{M}_{11}(t-r) -
+  \ddot{M}_{22}(t-r/c)\right) = \displaystyle\frac{4G\mu R^2
+  \omega_s^2}{r} \cos(2\omega_s(t-r)) \\
+  h_\times(t,r) &= \displaystyle\frac{2G}{r}
+  \left(\ddot{M}_{12}(t-r)\right) = \displaystyle\frac{2G\mu R^2
+  \omega_s^2}{r} \sin(2\omega_s(t-r))
+\end{align}
+注意这里的讨论$ R $是两个粒子之间的距离，而$ r $是观察者距离双星系统质心的距离。
+
+\subsubsection{一般观察方向的结果}
+
+对于一般观测来说我们的观察者必然不是垂直于双星系统的转动平面的。因此我们需要考虑一般观察者的观测结果。由于我们知道计算$ z
+$方向的观察者比较简单，因此我们需要进行一个坐标变换，把沿着某个平面转动的$ M_{ij} $变换到观察者是$ z $轴方向的坐标系下。如下图所示：
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.5\textwidth]{assets/coor.png}
+  \caption{一般观察方向的坐标变换示意图}
+  \label{fig:coor}
+\end{figure}
+
+\bigskip
+\hlr{Moment of Inertia的坐标变换}
+
+考虑Moment of Inertia的定义$  M_{ij} = \int d^3x\, m(x) x_i x_j
+$，我们考虑一个坐标变换$ x_i' = R_{ij} x_j $，其中$ R_{ij} $是一个正交矩阵。另一个坐标系下面的Moment
+of Inertia为$ M_{ij}' = \int d^3x'\, m'(x') x_i' x_j'
+$。由于质量分布是一个标量满足$ m'(x') = m(x) $。我们可以把新的坐标系下的Moment of
+Inertia表示为旧的坐标系下的Moment of Inertia：
+\begin{align}
+  M_{ij}' &= \int d^3x'\, m'(x') x_i' x_j' = \int d^3x\, m(x) (R_{ik}
+  x_k)(R_{jl} x_l) = R_{ik} R_{jl} \int d^3x\, m(x) x_k x_l = R_{ik}
+  R_{jl} M_{kl}
+\end{align}
+\rmk{我们注意一般$ T^{00} $也是要在坐标变换下联系的，但是这里由于我们考虑的是纯空间坐标的旋转，因此$ T^{00}
+$是不变的，因此我们直接使用了$ m(x) $不变的关系。}
+对于坐标转动我们的选择并不唯一，我们仅仅要求观察这方向 $
+n_i=\left(\sin\theta\sin\phi,\sin\theta\cos\phi,\cos\theta\right),
+$在新的坐标系下是$ z' $轴方向即可。也就是说：$ (0,0,1) = R (
+\sin\theta\sin\phi,\sin\theta\cos\phi,\cos\theta) $或者说$ R^T (0,0,1) =
+( \sin\theta\sin\phi,\sin\theta\cos\phi,\cos\theta)$。我们可以选择如下的旋转矩阵：
+\begin{align}
+  R^T=
+  \begin{pmatrix}\cos\phi&\sin\phi&0\\-\sin\phi&\cos\phi&0\\0&0&1
+  \end{pmatrix}
+  \begin{pmatrix}1&0&0\\0&\cos\theta&\sin\theta\\0&-\sin\theta&\cos\theta
+  \end{pmatrix}
+\end{align}
+因此我们有：
+\begin{align}
+  M'_{ij} = R_{ik} R_{jl} M_{kl} = (R M R^T)_{ij}
+\end{align}
+\rmk{
+  这里我们的convention和GW书中3.3不一样，我们选择书中的$ \mathcal{R} $作为$ R^T $。
+}
+
+\bigskip
+\hlr{引力波极化分量计算}
+
+下面我们带入Binary System的$ M_{ij} $计算引力波的极化分量。我们有：
+\begin{align}
+  &h_{+}(t,\theta,\phi)=\frac{4G}{r}\mu
+  \omega_{s}^{2}R^{2}\frac{1+\cos^{2}\theta}{2}\cos(2\omega_{s}(t-r)+2\phi)\\
+  &h_{\times}(t,\theta,\phi)=\frac{4G}{r}\mu
+  \omega_{s}^{2}R^{2}\cos\theta\sin(2\omega_{s}(t-r)+2\phi)
+\end{align}
+我们对比之前$ z
+$方向的结果\cref{eq:binarygwpluscross}可以发现多了一个角度相关的衰减。也就是说在z方向我们能够接收到最大的引力波信号，而在平行于转动平面的方向我们接收到的引力波信号是最小的。
+
+\bigskip
+\hlr{引力波信号的性质}
+
+我们可以发现引力波信号的一些性质：
+\begin{itemize}
+  \item 引力波的波动频率是$ 2 \omega_s $，也就是说引力波的频率是双星系统转动频率的两倍。
+  \item 我们可以通过引力波的极化分量的大小来判断观测着相对于双星系统转动平面的角度。
+  \item 我们计算引力波的波长$ \bar{\lambda} = 1/2 \omega_s \sim R/2v >> R
+    $，因此我们可以认为引力波的波长远大于双星系统的尺度。
+\end{itemize}
+
+\subsubsection{Binary System能量辐射}
+
+我们下面计算这个系统的引力波的对于所有角度的能量辐射。根据辐射公式\cref{thm:gwpowerquadruple}我们知道计算Quadrupole
+Moment的三阶导数的平方的平均值即可。使用公式：\cref{eq:binarymomentofinertia}我们可以计算出Quadral
+Pole Moment的三阶导数的平均值。然后给出：
+\begin{align}
+  P_{GW} = \displaystyle\frac{32}{5} G \mu^2 R^4 \omega_s^6
+\end{align}
+最后在平均的时候我们使用了：
+\begin{align}
+  \langle \sin^2(2\omega_s t) \rangle = \langle \cos^2(2\omega_s t)
+  \rangle = \displaystyle\frac{1}{2}
+\end{align}
+
+\subsection{Binary System的Inspiral}
+
+下面我们讨论对于一个Binary System如果一定程度考虑back reaction的话会发生什么。由于直接解Einstein
+Field Equation十分困难，我们选择使用一种半经典的方式进行讨论。
+
+\subsubsection{Inspiral基本set up}
+
+\bigskip
+\hlr{经典轨道与能量损失}
+
+我们考虑一个经典的双星系统研究其能量和轨道之间的关系。根据经典力学我们知道：
+\begin{align}
+  a = v^2/R = \omega_s^2 R = F= \displaystyle\frac{GM}{R^2} \quad
+  \Rightarrow \quad \omega_s^2 = \displaystyle\frac{GM}{R^3}
+\end{align}
+而如果我们计算系统的总能量的话我们有：
+\begin{align}
+  E = K + V = \displaystyle\frac{1}{2} \mu v^2 - \displaystyle\frac{G
+  m_1 m_2}{R} = - \displaystyle\frac{G m_1 m_2}{2R}
+\end{align}
+也就是说：
+\begin{itemize}
+  \item 系统能量的损失会导致轨道半径减小，轨道的振动频率增大，而根据引力波辐射公式，$ P_{GW} $会随着频率增大而增大。
+\end{itemize}
+
+\bigskip
+\hlr{准静态近似}
+
+我们假设我们的体系处于准静态的轨道收缩，也就是说：
+\begin{align}
+  |\dot{R}| << \omega_s R
+\end{align}
+我们寻找一个等价的角速度条件，根据$ \omega_s^3 \sim R^{-3} $我们知道：
+\begin{align}
+  R \sim \omega_s^{-2/3} \quad \Rightarrow \quad \dot{R} \sim
+  -\displaystyle\frac{2}{3} \omega_s^{-5/3} \dot{\omega}_s <<
+  \omega_s R \sim \omega_s^{1/3} \quad \Rightarrow \quad
+  |\dot{\omega}_s| <<  \omega_s^2
+\end{align}
+因此我们知道准静态近似条件等价于\textbf{角速度变化率远小于角速度的平方}。
+
+\bigskip
+\hlr{能量损失导致轨道收缩}
+
+下面在上面的讨论基础上我们给出最重要的假设我们认为：
+\begin{itemize}
+  \item 经典系统的能量损失完全由引力波辐射导致。
+    \begin{align}\label{eq:energylossgw}
+      \Delta E_{classic} = - P_{GW} \Delta t \quad \Rightarrow \quad
+      \displaystyle\frac{dE}{dt} = - P_{GW}
+    \end{align}
+\end{itemize}
+
+\subsubsection{频率的Inspiral 演化}
+
+下面在上方假设基础上我们讨论由于系统能量损失导致的引力波以及轨道频率的变化。
+
+\bigskip
+\hlr{频率演化方程}
+
+我们将频率与能量的关系带入\cref{eq:energylossgw}中，我们有：
+\begin{align}
+  \dot{f}_{GW} = \displaystyle\frac{96}{5} \pi^{8/3}
+  \left(\displaystyle\frac{GM_c}{c^3}\right)^{5/3} f_{GW}^{11/3}
+\end{align}
+其中$ M_c = \mu^{3/5} m^{2/5} $是chirp mass。而$ f_{GW} = \omega_s/\pi $是引力波频率。
+
+\bigskip
+\hlr{Time to coalescence表示}
+
+我们上面的方程分析会知道，引力波的频率会随着时间越来越大到无穷发散，这个时候两个天体coalescence。我们可以假设在某个时间$
+t_{coal} $两个天体coalesce，那么我们可以使用\textbf{还有多久coalescence}来表示时间，我们定义$
+\tau = t_{coal} - t $。我们有：
+\begin{align}
+  \int_{f_{GW}(t)}^{\infty} \displaystyle\frac{df_{GW}}{f_{GW}^{11/3}}
+  = \displaystyle\frac{96}{5} \pi^{8/3}
+  \left(\displaystyle\frac{GM_c}{c^3}\right)^{5/3} \int_{t}^{t_{coal}} dt
+\end{align}
+由于我们知道$ \int_t^{t_{coal}} dt = \tau $，我们可以解出：
+\thm{
+  引力波频率和距离coalescence时间的关系为：
+  \begin{align}
+    f_{GW}(\tau) = \displaystyle\frac{1}{\pi}
+    \left(\displaystyle\frac{5}{256 }\right)^{3/8}
+    \left(\displaystyle\frac{c^3}{GM_c}\right)^{5/8}
+    \left(\frac{1}{\tau}\right)^{3/8}
+  \end{align}
+}
+对于这个公式我们可以分析:
+\begin{itemize}
+  \item 如果$ \tau \to 0 $ 频率$ f \to \infty $，频率的数值明显取决于天体还有多久就coalescence。
+  \item
+    对于一个给定的仪器，如果其能够敏感测量的频率处在某个范围，那么对于一个确定的天体，我们如果测量到了其引力波的信号可以推算其距离coalescence还有多久！同样的，如果是给定一个仪器测量coalescence的信号发现在一段时间coalensence了，那么我们可以反过来计算这个天体的chirp
+    mass！
+\end{itemize}
+
+\bigskip
+\hlr{不同测量设备的频率范围以及天体分析}
+
+对于不同的测量设备我们有不同的频率范围：
+\begin{itemize}
+  \item \textbf{Earth based detectors} 其频率范围为$ 10 \mathrm{Hz} - 10^2
+    \mathrm{Hz} $。假设其观测到了$ f = 35Hz $的信号。
+    \begin{itemize}
+      \item 对于一个$ M_c = 28 M_s $的黑洞系统，我们信号仅仅能持续$ \sim 0.2s $。
+      \item 对于一个$ M_c = 1.2 M_s $的中子星系统，我们信号能持续$ \sim 30s $。
+    \end{itemize}
+  \item \textbf{Lisa Spaced based detectors} 其频率范围为$ 10^{-3}
+    \mathrm{Hz} - 10^{-1} \mathrm{Hz} $。假设其观测到了$ f = 10^{-2} \mathrm{Hz} $的信号。
+    \begin{itemize}
+      \item 对于一个$ M_c = 25 M_s $的天体，我们信号能持续$ \sim 10 $
+        year。才会coalescence。【当然后面也观测不到因为频率高】
+      \item 对于一个$ M_c = 10^6 M_s $的大质量黑洞系统，试图观测$ f \sim 10^{-3} Hz
+        $，我们或许可以观测到coalescence事件，信号能持续$ \sim 1 $ hour。
+    \end{itemize}
+  \item \textbf{Pulsar Timing Arrays} 其频率范围能观测$ 10^{-9} \mathrm{Hz}
+    $。因此如果观测到了coalescence事件的话，那么其chirp mass必须非常大。
+\end{itemize}
+
+\subsubsection{振幅的Inspiral 演化}
+
+下面我们考虑能量损失的情况下引力波的振幅演化。
+
+\bigskip
+\hlr{更小轨道的运动}
+
+由于能量损失，轨道半径变小，我们需要给出这个准静态变化下$ x_0 $的表达式，进一步计算moment of
+inertia然后计算引力波的metric。但是我们可以进行一个简化。我们依旧假设系统在$ x-y $平面上绕着质心做圆周运动，但是$
+R(t) $和$ \omega_s(t) $不再是确定的数，而是会随着时间缓慢变化，我们有：
+\begin{align}
+  x_0(t) = R(t) \cos(\phi(t)/2) \quad y_0(t) = R(t) \sin(\phi(t)/2)
+  \quad z_0(t) = 0 \quad \phi(t) = 2 \int_{t_0}^t \omega_s(t') dt'
+\end{align}
+
+\bigskip
+\hlr{引力波振幅演化}
+
+在这个ansatz的基础上我们计算moment of
+inertia的各阶导数进一步计算引力波的metric。但，\textbf{由于我们考虑的是准静态近似}，我们可以忽略掉$ R(t)
+$和$ \phi(t) $的高阶导数。可以直接替换$ \omega_s $以及$ R $为时间的函数即可。因此我们有对于某个$
+\theta $方向的观察者观测到的引力波极化分量为：
+\begin{align}
+  & h_{+}(t)
+  = \frac{4}{r}
+  \left(\frac{GM_c}{c^2}\right)^{5/3}
+  \left(\pi f_{\mathrm{GW}}(t_{ret})/c\right)^{2/3}
+  \frac{1+\cos^{2}\theta}{2}
+  \cos \bigl(\phi(t_{ret})\bigr),\\
+  & h_{\times}(t)
+  = \frac{4}{r}
+  \left(\frac{GM_c}{c^2}\right)^{5/3}
+  \left(\pi f_{\mathrm{GW}}(t_{ret})/c\right)^{2/3}
+  \cos\theta
+  \sin\bigl(\phi(t_{ret})\bigr).
+\end{align}
+其中时间$ t_{ret} = t - r/c $是retarded time。并且$ r $是观察者距离双星系统质心的距离。以及$
+f_{GW}(t) $是引力波的频率，我们知道频率随着时间变大，因此引力波的振幅也即是随着时间变大。最后我们可以计算$ \phi(t)
+$，我们依旧喜欢使用距离coalescence的时间$ \tau = t_{coal} - t $来表示时间，我们有：
+\begin{align}
+  \phi(\tau) = -2 \left(\displaystyle\frac{5GM_c}{c^3}\right)^{-5/8}
+  \tau^{5/8} + \phi_0
+\end{align}
+其中$ \phi_0 $是常数相位表示coalescence时的相位。
+
+\bigskip
+\hlr{引力波信号的Chirp Signal}
+
+我们分析上面的metric随着时间的变化。可以知道随着 $ \tau \to 0
+$，引力波的频率和振幅都会变大，并且频率的变化率也会变大。因此我们会观测到一个\textbf{频率和振幅都随着时间变大的信号}，这个信号被称为Chirp
+Signal。如下图所示：
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.75\textwidth]{assets/hdaisdho.png}
+  \caption{Chirp Signal示意图}
+  \label{fig:hdaisdho}
+\end{figure}
+
+\subsection{Gravitational Lensing}
+我们知道光在有引力场的情况下会发生弯曲。我们希望定量的研究这个现象。我们在空间和时间上进行研究，在空间上我们计算光的路径的弯曲，在时间上我们计算光到达的延迟。
+
+\subsubsection{Gravitational Lensing基本setup}
+
+为了简单的研究这个问题，我们使用\textbf{Near Newtonian Approximation}来研究引力透镜现象。下面是set up
+
+\bigskip
+\hlr{基本set up}
+
+我们考虑near newtonian approximation下的metric:$ g_{\mu\nu} = \eta_{\mu\nu}
++ h_{\mu\nu} $，并且假设时空之中引力势能为$ \phi(x) $。满足：$  \Delta \phi(x) = 4 \pi
+G \rho(x)$。对于线性引力我们有metric：
+\begin{align}
+  ds^2 = -(1+2\phi) dt^2 + (1-2\phi) d\mathbf{x}^2 \quad h_{\mu\nu} =
+  Diag(-2\phi,-2\phi,-2\phi,-2\phi)
+\end{align}
+可以计算Christoffel符号为：
+\begin{align}\label{eq:christoffellensing}
+  \Gamma_{0i}^0=\Gamma_{i0}^0=\Gamma_{00}^i=\partial_i\phi,\quad\Gamma_{jk}^i=\delta_{jk}\partial_i\phi-\delta_{ik}\partial_j\phi-\delta_{ij}\partial_k\phi.
+\end{align}
+我们使用微扰来考虑光的传播路径：
+\begin{align}
+  x^\mu(\lambda) = x_0^\mu(\lambda) + x_1^\mu(\lambda)
+\end{align}
+其中$ x_0^\mu(\lambda) $是平坦时空下的光传播路径，$ x_1^\mu(\lambda) $是由于引力势能导致的微扰。示意图是：
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.5\textwidth]{assets/deahsd.png}
+  \caption{引力透镜示意图}
+  \label{fig:deahsd}
+\end{figure}
+为此我们可以引入wave vector以及一个deviation vector:
+\begin{align}
+  k^\mu = \displaystyle\frac{dx^\mu}{d\lambda},\quad l^\mu =
+  \displaystyle\frac{dx_1^\mu}{d\lambda}
+\end{align}
+
+\bigskip
+\hlr{光的传播运动方程}
+
+这个$ x^\mu $需要满足null方程以及general的geodesic方程:
+\begin{align}
+  g_{\mu\nu}\frac{dx^\mu}{d\lambda}\frac{dx^\nu}{d\lambda}=0,\quad
+  \frac{d^2x^\mu}{d\lambda^2}+\Gamma_{\rho\sigma}^\mu\frac{dx^\rho}{d\lambda}\frac{dx^\sigma}{d\lambda}=0
+\end{align}
+
+\subsubsection{空间上的Lensing: 光线弯曲}
+
+\bigskip
+\hlr{Null Equation}
+
+我们求解null方程。首先考虑
+
+\textbf{0阶的方程}，我们有：
+\begin{align}
+  \eta_{\mu\nu} k^\mu k^\nu = 0 \quad \Rightarrow \quad - (k^0)^2 +
+  k^2 = 0 \quad \Rightarrow \quad k = |\mathbf{k}| = k^0
+\end{align}
+
+\textbf{对于一阶方程}，我们有：
+\begin{align}
+  2 \eta_{\mu\nu} k^\mu l^\nu + h_{\mu\nu} k^\mu k^\nu = 0 \quad
+  \Rightarrow \quad -2 k^0 l^0 + 2 \mathbf{k} \cdot \mathbf{l} + 2
+  \phi (k^0)^2 - 2 \phi k^2 = 0
+\end{align}
+由于0阶方程给出的$ k^0 = k $，我们有：
+\begin{align}
+  -2 k^0 l^0 + 2 \mathbf{k} \cdot \mathbf{l} - 2 \phi k^2 = 0
+\end{align}
+注意我们的点乘都是$ \mathbf{k} = \{k^i\} $的上标形式。
+
+\bigskip
+\hlr{Geodesic Equation}
+
+对于0阶形式是trivial的也就是直线运动$ \frac{d^2 x_0^\mu}{d \lambda^2} = \frac{d
+k^\mu}{d \lambda} = 0 $。我们考虑一阶形式带入Christoffel Symbol
+\cref{eq:christoffellensing}进行整理得到：
+\begin{align}
+  \frac{d l^0}{d\lambda}=-2k(\mathbf{k}\cdot\nabla\phi) =
+  -2k^2\nabla_\parallel\phi
+  ,\quad\frac{d l^i}{d\lambda}=-2k^2\nabla_\perp\phi\mathrm{~.}
+\end{align}
+注意，我们使用了垂直方向的梯度定义为：
+\begin{align}
+  \nabla_\parallel\phi = (\hat{\mathbf{k}}\cdot\nabla\phi)\hat{\mathbf{k}} \quad
+  \nabla_\perp\phi\equiv\nabla\phi-\nabla_\parallel\phi=\nabla\phi-(\hat{\mathbf{k}}\cdot\nabla\phi)\hat{\mathbf{k}}
+\end{align}
+为了求解这个geodesic equation我们使用一个integral trick：
+\begin{align}
+  l^0=\int\frac{d\ell^0}{d\lambda}d\lambda=-2k\int(\mathbf{k}\cdot\nabla\phi)d\lambda=-2k\int\left(\frac{d\mathbf{x}}{d\lambda}\cdot\nabla\phi\right)d\lambda
+\end{align}
+这个式子等价为对于$ \phi $的梯度沿着一个特殊的路径进行积分积分结果必然为$ \phi_f - \phi_i
+$。我们不妨假设积分的边界条件对于$ l^0 = 0 $的时候$ \phi
+= 0 $因此我们得到关系：
+\begin{align}
+  l^0 = -2k \phi
+\end{align}
+带入null equation的结果我们会发现给出：$ \mathbf{k} \cdot \mathbf{l} = 0 $。也就是说$
+\mathbf{l} $是垂直于$ \mathbf{k} $的。
+
+\bigskip
+\hlr{Deflection Angle计算}
+
+如果希望描述光线的弯曲，我们可以定义一个角度就是一个geodesic前后光线反光的夹角。由于空间上$ \mathbf{l} $是垂直于$
+\mathbf{k} $的，因此我们可以定义：
+\defi{
+  Deflection Angle为：
+  \begin{align}
+    &\alpha = -\frac{\Delta \mathbf{l}}{ k} \quad \Delta \mathbf{l}= -2 k^2
+    \int \nabla_\perp \phi d\lambda \\
+    &\alpha = 2 \int \nabla_\perp \phi ds
+  \end{align}
+  我们注意\textbf{deflection angle是一个向量}，其方向是垂直于光线传播方向的。最后一个积分是我们常用的其中$ s
+  = k \lambda $，也就是我们光传播的spacial长度，因为我们的$ k $是一个常数。
+}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.4\textwidth]{assets/deflangle.png}
+  \caption{Deflection Angle示意图}
+  \label{fig:deflangle}
+\end{figure}
+
+\bigskip
+\hlr{点质量透镜的Deflection Angle}
+
+假设我们在距离光线很远的地方存在一个点质量$ M $，我们可以计算其引力势能为：$ \phi = - \frac{GM}{r}
+$。我们假设智利那个的impact parameter为$ b $，我们有：
+\begin{align}
+  \nabla_\perp \phi = \displaystyle\frac{GM }{(b^2 + z^2)^{3/2}} \mathbf{b}
+\end{align}
+其中$ \mathbf{b} $是transverse vector是最短方向的长度为$ b $的向量。我们带入的deflect angle的公式之中我们有：
+\begin{align}
+  \alpha = -\displaystyle\frac{4GM}{b} \hat{\mathbf{b}}
+\end{align}
+
+\subsubsection{时间上的Lensing：时间延迟}
+
+\hlr{时间延迟计算}
+
+我们可以计算时间方向的情况：
+\begin{align}
+  t = \int \frac{d x^0}{d \lambda} d \lambda
+\end{align}
+因此我们会发现相较于没有引力场的情况下多出了一个对于$ l^0 = -2k \phi $的积分：
+\begin{align}
+  \Delta t = -2 k \int \phi d \lambda = -2 k \int \phi ds
+\end{align}
+这里我使用了$ s = k \lambda $表征没有引力场的情况下光的传播路径。
+
+\subsection{Questions and thoughts}
+
+\question{为什么点粒子的E-M Tensor正文讨论的那样？？？}
+
+注意哦！我们考虑的是相对论的情况，是经典力学的推广！我们对此需要知道能量动量什么的定义是：$ p^\mu = m u^\mu
+$。我们不可以naive的从经典的定义给过去，只能从相对论的定义取低速度极限变回去！
+
+对于能动量张量，我们定义为\textbf{时空平移对称性的守恒流}只有这个定义是合理的。然后考虑一个单粒子我们有：
+\begin{align}
+  S=-m\int d\tau \quad \Rightarrow \quad T^{\mu\nu} =
+  \displaystyle\frac{p^\mu p^\nu}{p^0}  \delta^{(3)}(\mathbf{x} -
+  \mathbf{x}(t))
+\end{align}
+或者说使用4速度进行书写：
+\begin{align}
+  T^{\mu\nu}(t,\mathbf{x})=m\left.\frac{u^\mu
+  u^\nu}{u^0}\right.\delta^{(3)}(\mathbf{x}-\mathbf{x}(t))
+\end{align}
+对于经典极限的情况下的点粒子我们认为$ u^\mu = (1, \vec{v}) $，因此我们有：
+\begin{align}
+  T^{00} = m \delta^{(3)}(\mathbf{x} - \mathbf{x}(t)) \quad T^{0i} =
+  m v^i \delta^{(3)}(\mathbf{x} - \mathbf{x}(t)) \quad T^{ij} = m v^i
+  v^j \delta^{(3)}(\mathbf{x} - \mathbf{x}(t))
+\end{align}
+对于空间之中的质量分布我们有：
+\begin{align}
+  T^{\mu\nu}(t,\mathbf{x})=\rho(t,\mathbf{x})u^\mu u^\nu
+\end{align}
+可以显然发现点粒子的情况其实就是$  \rho(t,\mathbf{x}) = m/u^0 \delta^{(3)}(\mathbf{x} -
+\mathbf{x}(t)) $的情况。

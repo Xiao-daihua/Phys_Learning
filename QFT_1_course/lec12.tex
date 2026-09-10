@@ -1,0 +1,455 @@
+\subsection{Classical Dirac Spinor Field的On Shell Solution}
+
+在自由标量场量子化里面虽然我们没有先讨论on shell mode
+expansion。但是在量子化研究之中我们希望对角化Hamiltonian，所以我们依旧进行了mode
+expansion，并且通过算符Heisenberg Picture下的变换给出了on shell的条件。我们已经意识到:
+\begin{itemize}
+  \item 对于物理Interpretation; Hilbert Space构造来说，on shell mode expansion是必要的；
+  \item On shell expansion的形式由经典场的结构完全决定
+\end{itemize}
+因此，在量子化Dirac场之前，我们需要先研究经典Dirac场的on shell mode expansion。On shell Mode
+expansion的操作方法为
+\begin{itemize}
+  \item 使用Forier Transformation的方法得到经典场的动量空间表达式；
+  \item 根据运动方程，给出非0的互相独立的mode也就是on shell equation $ p^2- m^2 = 0 $之类的
+\end{itemize}
+我们下面进行这个过程
+
+\subsubsection{On shell Mode Expansion}
+\hlr{Mode Expansion以及Mode Equation}
+
+下面我们使用$ \psi $来表示Dirac Spinor Field。满足运动方程$ (i\ds{\partial} -m ) \psi
+= 0 $我们为了求解这个方程，我们使用Fourier Transformation的方法，假设：
+\begin{align}
+  \psi(x)=\int\frac{d^4p}{(2\pi)^4}e^{-ip_\mu x^\mu}\hat{\psi}(p),
+  \quad \hat{\psi}(p)=\int d^4x\left.e^{ip_\mu x^\mu}\psi(x)\right.
+\end{align}
+其中$ p_\mu x^\mu =  p^0 t - p^i x^i  $。
+\rmk{
+  我们注意！这里和标量场使用三维Fourier Transform不一样，我们使用了四维的。因为我们要求运动方程。
+}
+将Fourier Transform代入运动方程，我们得到mode的约束方程：
+\begin{align}
+  (\ds{p}-m)\hat{\psi}(p)=0\mathrm{~.}
+\end{align}
+
+\bigskip
+\hlr{Mode Solution}
+
+一个经典的Trick是：
+\begin{align}
+  (\ds{p}-m)\psi(p)=0 \Rightarrow (\ds{p}+m)
+  (\ds{p}-m)\psi(p)=0 \Rightarrow (p^2 -
+  m^2)^2 = 0 \Rightarrow p^0 = \omega_p =\pm\sqrt{m^2+p^2}
+\end{align}
+其中我们使用关系 $ \ds{p}\ds{p}=p_\mu
+p_\nu(\gamma^\mu\gamma^\nu+\gamma^\nu\gamma^\mu)/2=p^2. $。因此on
+shell的mode可以通过设计下面的$ \hat{\psi}(p) $形式给出来：
+\begin{align}
+  \hat{\psi}(p)=2\pi\delta(p^2-m^2)\left(\theta(p_0)u(p)+\theta(-p_0)v(-p)\right)
+\end{align}
+对于所有$ p^0 = \omega_p = \sqrt{p^2 + m^2} $的展开系数我们计作$ u(p) $；对于所有$ p^0
+= \omega_p = -\sqrt{p^2 + m^2} $的展开系数我们计作$ v(-p) $。这里的$ u(p),v(p)
+$是四分量的Spinor，并且必然是\textbf{on shell的}。我们将这个形式Fourier Transform回到时空空间：
+\begin{align}
+  \psi(x)&=\int\frac{d^4p}{(2\pi)^4}\left.2\pi\delta(p^2-m^2)e^{-ip_\mu
+  x^\mu}\left(\theta(p_0)u(p)+\theta(-p_0)v(-p)\right)\right.\\
+  &= \int d\Omega_{\mathbf{p}}\left(e^{-ip_\mu x^\mu}u(p)+e^{ip_\mu
+  x^\mu}v(p)\right)
+\end{align}
+其中我们回顾$ \Omega_p $这个measure的性质$  \int d\Omega_{\mathbf{p}} = \int
+\frac{d^3p}{(2\pi)^3 2\omega_{\mathbf{p}}} =\int
+\frac{d^4p}{(2\pi)^4}2 \pi \delta(p^2-m^2)\theta(p_0)
+$。特别注意的是，由于我们的mode expansion\textbf{全部是on shell的}，因此我们这里$ px = p^0 t
+- p^i x^i $中的$ p^0 = \omega_{\mathbf{p}} = \sqrt{m^2 + \mathbf{p}^2} $。
+
+\bigskip
+\hlr{Spinor进一步Expansion}
+
+我们现在已经使用on shell mode $ u(p), v(p) $
+进行展开了。但是这两个量都是四分量的旋量，我们希望进一步简化使得展开系数是纯纯的数字。我们假设这两个旋量满足下面的展开：
+\begin{align}
+  u(p)=\sum_ia_i(p)u_i(p)\mathrm{~,}\quad v(p)=\sum_ib_i(p)v_i(p)
+\end{align}
+其中$ u_i(p), v_i(p) $是某一组线性无关的旋量基，$ a_i(p), b_i(p)
+$是纯数字的展开系数。我们知道，不同动量mode满足的dirac方程和动量的形式是有关系的，所以基必然也是依赖于动量的，为了简洁的讨论，我们使用方法：
+\begin{itemize}
+  \item 先选择一个参考动量$ p_0^\mu = (m,0,0,0) $，在这个动量下求解Dirac方程，得到一组基$
+    u_i(m), v_i(m) $；
+  \item 然后对于任意动量$ p^\mu $，使用Lorentz变换将参考动量变换到$ p^\mu
+    $，然后使用这个Lorentz变换作用在参考动量下的基上，得到任意动量下的基$ u_i(p), v_i(p) $。
+\end{itemize}
+
+\subsubsection{展开旋量mode $ u(p) $}
+
+\hlr{参考动量下的基解}
+
+我们选择参考动量$ p^\mu = (m,0,0,0) $，代入Dirac方程$ (\ds{p_0}-m)U(p_0) = 0 $：
+\begin{align}
+  m\left(\gamma^0-1\right)u(p_0)=m
+  \begin{pmatrix}-1&1\\1&-1
+  \end{pmatrix}
+  \begin{pmatrix}\xi_L\\\xi_R
+  \end{pmatrix}=0 \quad \Rightarrow\quad\xi_L=\xi_R=\sqrt{m}\xi\quad
+  u(p_0)=\sqrt{m}
+  \begin{pmatrix}\xi\\\xi
+  \end{pmatrix}
+\end{align}
+其中$ \xi $是任意的二分量旋量。我们发现Dirac Equation仅仅告诉我们对于这个on shell
+mode，左旋量和右旋量是相等的。我们可以任意选择一个二分量旋量$ \xi $，都可以满足Dirac Equation。因此我们选择二分量旋量的标准基：
+\begin{align}
+  \xi_1=
+  \begin{pmatrix}1\\0
+  \end{pmatrix},\quad \xi_2=
+  \begin{pmatrix}0\\1
+  \end{pmatrix} , \quad u_1(p_0)=\sqrt{m}
+  \begin{pmatrix}\xi_1 \\ \xi_1
+  \end{pmatrix},\quad u_2(p_0)=\sqrt{m}
+  \begin{pmatrix}\xi_2 \\ \xi_2
+  \end{pmatrix}
+\end{align}
+因此on shell的mode在参考动量下的基解就是上面的两个。总之表示为：
+\begin{align}
+  \xi = a_1(p_0)\xi_1 + a_2(p_0)\xi_2 \quad \Rightarrow \quad
+  u(p_0)=a_1(p_0)u_1(p_0)+a_2(p_0)u_2(p_0)
+\end{align}
+
+\bigskip
+\hlr{从参考动量Boost到任意动量}
+
+现在我们选择一种方式将参考动量$ p_0^\mu = (m,0,0,0) $ Boost到任意动量$ p^\mu =
+(\omega_{\mathbf{p}},\mathbf{p}) $。我们选择标准Boost为：
+\defi{\label{def:standard_boost}
+  Standard Boost
+
+  对于任意动量$ p^\mu = (\omega_{\mathbf{p}},\mathbf{p}) $，我们定义将参考动量$
+  p_0^\mu = (m,0,0,0) $ Boost到$ p^\mu $的Lorentz变换为：
+  \begin{align}
+    \Lambda_{\mathbf{p}}=e^{i\eta_{\mathbf{p}}\cdot\mathbf{K}},\quad\eta_{\mathbf{p}}=\left(\tanh^{-1}\left(\frac{|\mathbf{p}|}{\omega_{\mathbf{p}}}\right)\right)\frac{\mathbf{p}}{|\mathbf{p}|},
+    \quad K^i = J^{0i}
+  \end{align}
+  注意！这里的$ K^i $是Lorentz群Defining Representation下的Boost
+  Generator。三维的求和是直接Euclidean的求和$ p^i K^i = p^i J^{0i} $
+}
+btw我们一般使用$\tanh^{-1}\left(\frac{|\mathbf{p}|}{\omega_{\mathbf{p}}}\right)
+= \eta $来表示rapidity。当然一般还有其他完全一样的写法：
+\begin{align}
+  \eta=\sinh^{-1}\left(\frac{|\mathbf{p}|}{m}\right)=\cosh^{-1}\left(\frac{\omega_{\mathbf{p}}}{m}\right)=\tanh^{-1}\left(\frac{|\mathbf{p}|}{\omega_{\mathbf{p}}}\right)
+\end{align}
+
+\bigskip
+\hlr{证明Boost之后满足Dirac Equation}
+
+我们还需要证明如果$ u(p_0) $满足参考动量下的Dirac Equation，那么$ u(p) =
+\Lambda_D(\eta_p) u(p_0) $也满足任意动量下的Dirac Equation。我们已知参考动量下的Dirac Equation为：
+\begin{align}
+  (\ds{p_0}-m)u(p_0)=0\quad \Rightarrow \quad
+  \Lambda_D(\eta_p)(\ds{p_0}-m)u(p_0)=0
+\end{align}
+我们插入$  \Lambda_D^{-1}(\eta_p)\Lambda_D(\eta_p) = I $，得到：
+\begin{align}
+  (\Lambda_D(\eta_p)\ds{p_0}\Lambda_D^{-1}(\eta_p)-m)u(p)=0 \quad
+  \Rightarrow \quad (\ds{p}-m)u(p)=0
+\end{align}
+其中我们使用了$ \Lambda_D(\eta_p)\ds{p_0}\Lambda_D^{-1}(\eta_p) = \ds{p}
+$。因此Lorentz变换之后的旋量依然满足Dirac Equation。Lorentz变换后的基也就是一个合法的on shell基。
+
+\bigskip
+\hlr{任意动量下的基解}
+
+我们现在给出一个任意动量的$ u(p) $的形式。我们计算：
+\begin{align}
+  u(p_0) = \sqrt{m}
+  \begin{pmatrix}\xi \\ \xi\\
+  \end{pmatrix} \quad \Rightarrow \quad u(p) = \Lambda_D(\eta_p)u(p_0) =
+  \begin{pmatrix}\sqrt{\sigma^\mu p_\mu}\xi\\\sqrt{\bar{\sigma}^\mu p_\mu}\xi
+  \end{pmatrix}
+\end{align}
+其中我们使用了形式化的定义：
+\begin{align}
+  &\sqrt{\sigma^\mu p_\mu} = \displaystyle\frac{1}{2} \left(
+    \sqrt{\omega_{\mathbf{p}}+m} I - \frac{\mathbf{p}\cdot
+  \sigma}{\sqrt{\omega_{\mathbf{p}}+m}} \right) \\
+  & \sqrt{\bar{\sigma}^\mu p_\mu} =
+  \frac{1}{2}\left(\sqrt{\omega_{\mathbf{p}}+m}+\frac{\mathbf{p}\cdot\sigma}{\sqrt{\omega_{\mathbf{p}}+m}}\right)
+\end{align}
+我们可以证明这个定义满足$ (\sqrt{\sigma^\mu p_\mu})^2 = \sigma^\mu p_\mu =
+\omega_p - \sigma \cdot \mathbf{p} $，$ (\sqrt{\bar{\sigma}^\mu
+p_\mu})^2 = \bar{\sigma}^\mu p_\mu = \omega_p + \sigma \cdot
+\mathbf{p} $。注意我们这里的$ \mathbf{p} \cdot \sigma = p^i \sigma^i
+$。因此我们可以得到任意动量下的基，我们展开：
+\begin{align}
+  \xi_1=
+  \begin{pmatrix}1\\0
+  \end{pmatrix},\quad \xi_2=
+  \begin{pmatrix}0\\1
+  \end{pmatrix} , \quad u_1(p)=
+  \begin{pmatrix}\sqrt{\sigma^\mu p_\mu}\xi_1\\\sqrt{\bar{\sigma}^\mu
+    p_\mu}\xi_1
+  \end{pmatrix},\quad u_2(p)=
+  \begin{pmatrix}\sqrt{\sigma^\mu p_\mu}\xi_2\\\sqrt{\bar{\sigma}^\mu
+    p_\mu}\xi_2
+  \end{pmatrix}
+\end{align}
+使得最终结果满足：
+\begin{align}
+  \xi = a_1(p)\xi_1 + a_2(p)\xi_2 \quad \Rightarrow \quad
+  u(p)=a_1(p)u_1(p)+a_2(p)u_2(p)
+\end{align}
+
+\subsubsection{展开旋量mode $ v(p) $}
+
+我们可以重复上面的过程，给出$ v(p) $的展开。其对应的Dirac Equation为$ (\ds{p}+m)v(p)=0 $。我们重复过程得到：
+\begin{align}
+  \xi_i =
+  \begin{pmatrix}1\\0
+  \end{pmatrix},\quad \xi_2=
+  \begin{pmatrix}0\\1
+  \end{pmatrix} , \quad v_1(p)=
+  \begin{pmatrix}\sqrt{\sigma^\mu
+    p_\mu}\xi_1\\-\sqrt{\bar{\sigma}^\mu p_\mu}\xi_1
+  \end{pmatrix},\quad v_2(p)=
+  \begin{pmatrix}\sqrt{\sigma^\mu
+    p_\mu}\xi_2\\-\sqrt{\bar{\sigma}^\mu p_\mu}\xi_2
+  \end{pmatrix}
+\end{align}
+使得最终结果满足：
+\begin{align}
+  v(p) = b_1(p)v_1(p) + b_2(p)v_2(p)
+\end{align}
+
+\subsubsection{On Shell Mode Expansion总结}
+
+在上面基础上我们给出On Shell Mode Expansion的最终形式：
+\thm{
+  Dirac Spinor Field的On Shell Mode Expansion
+
+  Dirac Spinor Field $ \psi(x) $的On Shell Mode Expansion为：
+  \begin{align}
+    \psi(x)=\int d\Omega_{p}\sum_s\left(a_s(p)u_s(p)e^{-ip_\mu
+    x^\mu}+b_s(p)v_s(p)e^{ip_\mu x^\mu}\right)\mathrm{~.}
+  \end{align}
+  基解为：
+  \begin{align}
+    &u_1(p)=
+    \begin{pmatrix}\sqrt{\sigma^\mu
+      p_\mu}\xi_1\\\sqrt{\bar{\sigma}^\mu p_\mu}\xi_1
+    \end{pmatrix},\quad u_2(p)=
+    \begin{pmatrix}\sqrt{\sigma^\mu
+      p_\mu}\xi_2\\\sqrt{\bar{\sigma}^\mu p_\mu}\xi_2
+    \end{pmatrix}\\
+    &v_1(p)=
+    \begin{pmatrix}\sqrt{\sigma^\mu
+      p_\mu}\xi_1\\-\sqrt{\bar{\sigma}^\mu p_\mu}\xi_1
+    \end{pmatrix},\quad v_2(p)=
+    \begin{pmatrix}\sqrt{\sigma^\mu
+      p_\mu}\xi_2\\-\sqrt{\bar{\sigma}^\mu p_\mu}\xi_2
+    \end{pmatrix}
+  \end{align}
+  其中$ \xi_1=
+  \begin{pmatrix}1\\0
+  \end{pmatrix},\quad \xi_2=
+  \begin{pmatrix}0\\1
+  \end{pmatrix} $，并且$ \sqrt{\sigma^\mu p_\mu}, \sqrt{\bar{\sigma}^\mu
+  p_\mu} $的定义见上文。
+}
+
+\subsection{Spinor Basis性质}\label{sec:spinor_basis_properties}
+
+为了后续研究方便，我们会讨论很多$ u_s, v_s $这些Basis的性质。
+
+\bigskip
+\hlr{Dirac Conjugation}
+
+我们先复习一下Dirac Field是怎么定义共轭的：
+\begin{align}
+  \bar{v} = v^\dagger \gamma^0
+\end{align}
+
+\bigskip
+\hlr{Basis的正交归一化}
+
+我们通过根据定义进行直接计算会发现这些Basis满足下面的正交归一化关系。对于相同的$ u,v $我们有归一化关系：
+\begin{align}
+  \bar{u}_r(p)u_s(p)=-\bar{v}_r(p)v_s(p)=2m\delta_{rs} , \quad
+  \bar{u}_r(p)\gamma^\mu u_s(p)=\bar{v}_r(p)\gamma^\mu v_s(p)=2p^\mu\delta_{rs}
+\end{align}
+对于不同的$ u,v $我们有正交关系：
+\begin{align}
+  \bar{u}_r(p)v_s(p)=\bar{v}_r(p)u_s(p)=0,\quad
+  u_r^\dagger(p)v_s(-p)=v_r^\dagger(-p)u_s(p)=0.
+\end{align}
+特别的我们注意到对于$ \gamma^\mu $选择$ \gamma^0 $的时候：
+$  u_r^\dagger(p)u_s(p)=v_r^\dagger(p)v_s(p)= 2\omega_{\mathbf{p}}\delta_{rs}$
+
+\bigskip
+\hlr{Basis的完备关系}
+
+我们可以根据$ \xi_i $向量的完备关系： $ \sum_r\xi_r\xi_r^\dagger=1_{2\times2}.
+$进一步通过计算得到$ u_s, v_s $的完备关系：
+\begin{align}
+  \sum_s u_s(p)\bar{u}_s(p) = \ds{p} + m , \quad \sum_s
+  v_s(p)\bar{v}_s(p) = \ds{p} - m.
+\end{align}
+其中我们使用了关系： $ (\sqrt{p_\mu \sigma^\mu})^2=p_\mu\sigma^\mu,\
+(\sqrt{p_\mu \bar{\sigma}^\mu})^2=p_\mu\bar{\sigma}^\mu. $以及还有$
+\sqrt{p_\mu \sigma^\mu}\sqrt{p_\mu \bar{\sigma}^\mu}= \sqrt{p_\mu
+\bar{\sigma}^\mu}\sqrt{p_\mu \sigma^\mu} = m I. $
+
+\subsection{Chirality, Helicity性质}
+
+\rmk{
+  强调！本章全部内容都是\textbf{经典的！}这里完全不涉及任何量子化的内容，全部是经典的Dirac Spinor Field的性质！！
+}
+
+\subsubsection{Chirality}
+
+\hlr{Chirality定义}
+
+我们知道Dirac Spinor Field其实是通过两个Weyl Spinor
+Field直和得到的，我们希望定义一个量来描述这个场可以分成两个Chiral Weyl Spinor Field的程度。我们先定义一个新的Gamma矩阵：
+\begin{align}
+  \gamma^5 = i\gamma^0\gamma^1\gamma^2\gamma^3 =
+  \begin{pmatrix} -I & 0 \\ 0 & I
+  \end{pmatrix}
+\end{align}
+我们定义Chirality：
+\defi{
+  Chirality 为某一个Dirac Field的$ \gamma^5 $的本征值！
+}
+如果这个场完全只有左手Weyl Spinor Field组成$ \psi = (\psi_L,0) $，那么它的Chirality为$
+-1 $；如果这个场完全只有右手Weyl Spinor Field组成 $ \psi = (0, \psi_R) $，那么它的Chirality为$ +1 $。
+
+\bigskip
+\hlr{Chiral Projector}
+
+一般一个Dirac Spinor Field不可能仅仅由左手或者右手Weyl Spinor
+Field组成。但是我们可以通过一个Projector把Dirac Spinor Field投影到左手或者右手Weyl Spinor
+Field上。我们定义Chiral Projector：
+\defi{
+  Left/Right Chiral Projector
+
+  我们可以通过下面两个投影算符把Dirac Spinor Field投影到左手或者右手Weyl Spinor Field上：
+  \begin{align}
+    P_L = \frac{1-\gamma^5}{2} =
+    \begin{pmatrix} I & 0 \\ 0 & 0
+    \end{pmatrix}, \quad P_R = \frac{1+\gamma^5}{2} =
+    \begin{pmatrix} 0 & 0 \\ 0 & I
+    \end{pmatrix}
+  \end{align}
+}
+
+\bigskip
+\hlr{Chirality和运动方程}
+
+\begin{itemize}
+  \item 我们知道如果一个Dirac Spinor Field满足\textbf{有质量的Dirac
+    Equation}，那么它的\textbf{左右手部分必然不是独立的}，因此它不可能是Chirality的本征态。
+  \item 如果一个Dirac Spinor Field满足\textbf{无质量的Dirac
+    Equation}，那么它的左右手部分是独立的，因此它可以是Chirality的本征态。也就是可以\textbf{有纯左手和右手的Weyl
+    Spinor Field解}。
+\end{itemize}
+
+\subsubsection{Helicity}
+
+\hlr{Helicity定义}
+
+我们可以定义另一个描述Spinor Field的性质的量，叫做Helicity。Helicity矩阵定义为自旋在动量方向的投影：
+\begin{align}
+  h = \frac{\mathbf{S}\cdot \mathbf{p}}{|\mathbf{p}|}
+\end{align}
+其中$ \mathbf{S} $是Spin Operator。这里的点乘依旧是三维的Euclidean求和。
+\defi{
+  Helicity 定义为某个Field的Helicity Operator的本征值！
+}
+\begin{itemize}
+  \item \textbf{Weyl Spinor的Helicity}
+
+    对于Weyl Spinor来说，其Spin是通过Pauli矩阵定义的$ S^i = \frac{1}{2} \sigma^i
+    $。所以对于Weyl Spinor来说，Helicity的定义为：
+    \begin{align}
+      h_W = \frac{1}{2}\frac{\sigma\cdot \mathbf{p}}{|\mathbf{p}|}
+    \end{align}
+  \item \textbf{Dirac Spinor的Helicity}
+
+    同样的Dirac Spinor在Weyl Basis下是两个Weyl Spinor的直和，因此我们可以定义Dirac
+    Spinor的Helicity Operator为：
+    \begin{align}
+      h_D =
+      \begin{pmatrix} h_W & 0 \\ 0 & h_W
+      \end{pmatrix}
+      =
+      \begin{pmatrix} \frac{1}{2}\frac{\sigma\cdot
+        \mathbf{p}}{|\mathbf{p}|} & 0 \\ 0 &
+        \frac{1}{2}\frac{\sigma\cdot \mathbf{p}}{|\mathbf{p}|}
+      \end{pmatrix}
+    \end{align}
+    特别的这个矩阵满足$ h_D^2 = 1/4 I $
+\end{itemize}
+我们注意，Helicity的定义是依赖于动量的。因此并非一个Lorentz
+Invariant的良定的量。同时对于有质量的粒子来说，我们可以总是通过一个Boost把粒子Boost到静止系，这个时候完全不可以定义Helicity。因此\textbf{Helicity只有对于无质量粒子才是一个良定的量}。
+
+\bigskip
+\hlr{Helicity和运动方程}
+
+我们考虑Dirac Spinor Field的on shell mode $ u(p) $我们回忆：
+\begin{align}
+  u(p)=
+  \begin{pmatrix}\sqrt{\sigma^{\mu}p_{\mu}}\xi\\\sqrt{\bar{\sigma}^{\mu}p_{\mu}}\xi
+  \end{pmatrix}
+\end{align}
+我们考虑无质量极限$ m\rightarrow 0 $，我们有：
+\begin{align}
+  u(p)=\sqrt{\frac{\omega_\mathbf{p}}{2}}
+  \begin{pmatrix}(1-2h_W)\xi\\(1+2h_W)\xi
+  \end{pmatrix},
+\end{align}
+我们发现on shell mode可以使用Helicity矩阵进行写出来！
+
+\subsubsection{Massless Limit下Chirality和Helicity的关系}
+
+给出上面的定义之后我们可以讨论这两个量的关系。由于我们对于经典的场论仅仅关心on shell的情况，因此我们讨论on shell
+mode下Chirality和Helicity的关系。但是由于Chirality 对于有质量的Dirac Field的on shell
+mode是不可以被对角化的，所以我们考虑\textbf{Massless Limit} $ m\rightarrow 0 $下的关系。
+
+\bigskip
+\hlr{无质量On shell粒子的Chirality和Helicity}
+
+我们考虑无质量极限$ m\rightarrow 0 $下面的on shell mode $ u(p) $，我们有：
+\begin{align}
+  h_D u(p) =
+  \begin{pmatrix}-\frac{1}{2}&0\\0&\frac{1}{2}
+  \end{pmatrix}u(p)=\frac{1}{2}\gamma^5u(p),
+\end{align}
+这给出了一个非常重要的关系：
+\thm{
+  对于物质量On shell的Dirac Spinor Field，其Chirality和Helicity满足关系：
+  \begin{align}
+    h_D = \frac{1}{2}\gamma^5
+  \end{align}
+  两者是完全等价的！！这也意味着 Helicity对于物质量粒子是一个Lorentz Invariant的良定量！！
+}
+
+\bigskip
+\hlr{Massless Dirac Spinor Field的on shell mode}
+
+我们简短的说明，对于Massless的Dirac Spinor Field来说，我们的Dirac Equation的在Mode
+Expand之后的结果为 $  \ds{p}u(p)=0  $。
+\rmk{note 这里我们使用$ u(p) $写出之前的$ \hat{\psi}(p) $}
+通过之前massless极限我们已经意识到， on shell的$ u(p)
+$可以使用Chirality和Helicity的本征态进行写出，并且\textbf{On shell
+条件告诉我这两者的本征态务必一样！}。因此我们的on shell mode其实是：
+\begin{align}
+  u_-(p)=\sqrt{\frac{\omega_p}{2}}
+  \begin{pmatrix}\xi_-(p)\\0
+  \end{pmatrix},\quad u_+(p)=\sqrt{\frac{\omega_p}{2}}
+  \begin{pmatrix}0\\\xi_+(p)
+  \end{pmatrix}
+\end{align}
+其中$ \xi_\pm(p) $是Weyl Spinor的Helicity本征态：
+\begin{align}
+  \hat{h}\xi_\pm=\pm\frac{1}{2}\xi_\pm
+\end{align}
+\rmk{
+  这里只是给个hint！！严格的mode expansion需要严格的讨论！！
+}

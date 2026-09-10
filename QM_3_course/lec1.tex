@@ -1,0 +1,157 @@
+\subsection{自由粒子与谐振子的量子经典对应}
+\hlr{量子体系经典对应}
+\begin{itemize}
+  \item 自由粒子对应着一个波包！
+    \begin{itemize}
+      \item 这玩意实在不是人算的，也没啥讨论意义
+    \end{itemize}
+  \item 谐振子需要对应一个量子态，满足两个条件。
+    \begin{itemize}
+      \item 对于动量和位置算符的期望值，满足经典谐振子的运动方程。
+      \item 对于能量值期望满足经典关系
+    \end{itemize}
+\end{itemize}
+这样的两个约束条件下，我们可以形式化的写出来是：
+\begin{align}
+  \left\langle\psi_{\alpha_{0}}|\hat{a}|\psi_{\alpha_{0}}\right\rangle&=\alpha_{0}.\\
+  \langle\psi_{\alpha_0}|\hat{H}|\psi_{\alpha_0}\rangle&=\hbar\omega\left(|\alpha_0|^2+\frac{1}{2}\right).
+\end{align}
+我们之后推导这样的量子态的具体形式。
+
+\bigskip
+\hlr{一维量子系统的归一化定义}
+
+我们定义归一化是这样的，对于所有基态都是满足：
+\begin{align}
+  \int dx |x\rangle\langle x|&=1,\\
+  \int dp |p\rangle\langle p|&=1.
+\end{align}
+并且在此基础上我们根据动量算符的定义，解本征方程会给出：
+\begin{align}
+  -i\hbar\frac{d}{dx}\langle x|p\rangle=p\langle x|p\rangle.
+\end{align}
+解出：
+\begin{align}
+  \langle x|p\rangle&=\frac{1}{\sqrt{2\pi\hbar}}e^{ipx/\hbar}.
+\end{align}
+所以我们有傅立叶变换正反变换的关系是：
+\begin{align}
+  \tilde{{\psi}}(p)=\frac{1}{\sqrt{2\pi\hbar}}\int_{-\infty}^{\infty}dx{\psi}(x)e^{-\frac{i}{\hbar}px}.\\
+  \tilde{{\psi}}(x)=\frac{1}{\sqrt{2\pi\hbar}}\int_{-\infty}^{\infty}dp{\psi}(p)e^{\frac{i}{\hbar}px}
+\end{align}
+接下来我们也可以定义合理的delta函数：
+\rmk{注意！delta函数的形式和我们选择的归一化没有任何关系！}
+\begin{align}
+  \int_{-\infty}^\infty dpe^{\frac i\hbar pz}&=2\pi\hbar\delta(z)\mathrm{~,}\\
+  \int_{-\infty}^\infty dz\operatorname{\delta}(z)&=1\mathrm{~.}
+\end{align}
+对于三维的情况我们也有：
+\begin{align}
+  \int
+  d^3\mathbf{x}e^{i(\mathbf{k-p})\cdot\mathbf{x}}=(2\pi)^3\delta^3(\mathbf{k-p})
+\end{align}
+
+\subsection{量子态的完备性条件和归一化的两种convention}
+
+对于QFT和QM我们一般使用两个布艺样的动量本征态的定义，虽然两者仅仅差了一个系数，同时使用了不一样的归一化条件，导致是等价的，但我们下面列举其区别：
+
+\bigskip
+\hlr{QM使用}
+
+\begin{table}[H]
+  \centering
+  \begin{tabular}{ccc}
+    \toprule
+    \textbf{项目} & \textbf{位置表象 $|\mathbf{x}\rangle$} & \textbf{动量表象
+    $|\mathbf{p}\rangle$} \\
+    \midrule
+    归一化条件 &
+    $\langle \mathbf{x}|\mathbf{x}'\rangle =
+    \delta^{(3)}(\mathbf{x}-\mathbf{x}')$ &
+    $\langle \mathbf{p}|\mathbf{p}'\rangle =
+    \delta^{(3)}(\mathbf{p}-\mathbf{p}')$ \\
+    完备性条件 &
+    $\displaystyle \int d^3x\,|\mathbf{x}\rangle\langle \mathbf{x}| =
+    \mathbf{1}$ &
+    $\displaystyle \int d^3p\,|\mathbf{p}\rangle\langle \mathbf{p}| =
+    \mathbf{1}$ \\
+    本征态在另一个表象下的表示 &
+    $\langle \mathbf{x}|\mathbf{p}\rangle = \frac{1}{(2\pi)^{3/2}}
+    e^{i\mathbf{p}\cdot\mathbf{x}}$ &
+    $\langle \mathbf{p}|\mathbf{x}\rangle = \frac{1}{(2\pi)^{3/2}}
+    e^{-i\mathbf{p}\cdot\mathbf{x}}$ \\
+    空间表象下波函数 $\phi(\mathbf{x})$ &
+    $\phi(\mathbf{x}) = \langle \mathbf{x}|\phi\rangle$ &
+    $\phi(\mathbf{x}) = \frac{1}{(2\pi)^{3/2}}\int d^3p\,
+    e^{i\mathbf{p}\cdot\mathbf{x}} \tilde{\phi}(\mathbf{p})$ \\
+    动量表象波函数 $\tilde{\phi}(\mathbf{p})$ &
+    $\tilde{\phi}(\mathbf{p}) = \frac{1}{(2\pi)^{3/2}} \int d^3x\,
+    e^{-i\mathbf{p}\cdot \mathbf{x}} \phi(\mathbf{x})$ &
+    $\tilde{\phi}(\mathbf{p}) = \langle \mathbf{p}|\phi\rangle$ \\
+    \bottomrule
+  \end{tabular}
+  \caption{量子力学（QM）常用规范下位置与动量表象对照}
+\end{table}
+
+\bigskip
+\hlr{QFT使用}
+
+\begin{table}[h!]
+  \centering
+  \begin{tabular}{ccc}
+    \toprule
+    \textbf{项目} & \textbf{位置/场算符表象 $|\mathbf{x}\rangle$ /
+    $\phi(\mathbf{x})$} & \textbf{动量表象 $|\mathbf{p}\rangle$ /
+    $\tilde{\phi}(\mathbf{p})$} \\
+    \midrule
+    归一化条件 &
+    $\langle \mathbf{x}|\mathbf{x}'\rangle =
+    \delta^{(3)}(\mathbf{x}-\mathbf{x}')$ &
+    $\langle \mathbf{p}|\mathbf{p}'\rangle = (2\pi)^3
+    \delta^{(3)}(\mathbf{p}-\mathbf{p}')$ \\
+    完备性条件 &
+    $\displaystyle \int d^3x\,|\mathbf{x}\rangle\langle \mathbf{x}| =
+    \mathbf{1}$ &
+    $\displaystyle \int
+    \frac{d^3p}{(2\pi)^3}\,|\mathbf{p}\rangle\langle \mathbf{p}| =
+    \mathbf{1}$ \\
+    本征态在另一个表象下的表示 &
+    $\langle \mathbf{x}|\mathbf{p}\rangle = e^{i\mathbf{p}\cdot\mathbf{x}}$ &
+    $\langle \mathbf{p  }|\mathbf{x}\rangle =
+    e^{-i\mathbf{p}\cdot\mathbf{x}}$ \\
+    空间表象下波函数or场算符 &
+    $\phi(\mathbf{x}) = \langle \mathbf{x}|\phi\rangle$ &
+    $\phi(\mathbf{x}) = \int \frac{d^3p}{(2\pi)^3}
+    e^{i\mathbf{p}\cdot\mathbf{x}} \tilde{\phi}(\mathbf{p})$ \\
+    动量表象下波函数or场算符 &
+    $\tilde{\phi}(\mathbf{p}) = \int d^3x\, e^{-i\mathbf{p}\cdot
+    \mathbf{x}} \phi(\mathbf{x})$ &
+    $\tilde{\phi}(\mathbf{p}) = \langle \mathbf{p}|\phi\rangle$ \\
+    \bottomrule
+  \end{tabular}
+  \caption{QFT 常用 \((2\pi)^3\) 归一化规范下的位置/动量表象对照}
+\end{table}
+
+对于这两种convention，我们的delta函数的定义是完全一样的：
+\begin{align}
+  \int
+  d^3\mathbf{x}e^{i(\mathbf{k-p})\cdot\mathbf{x}}&=(2\pi)^3\delta^3(\mathbf{k-p})\mathrm{~,}\\
+  \int
+  d^3\mathbf{p}e^{-i(\mathbf{k-p})\cdot\mathbf{x}}&=(2\pi)^3\delta^3(\mathbf{k-p})\mathrm{~.}
+\end{align}
+
+\subsection{Questions and thoughts}
+
+\question{实正定矩阵有什么对角化性质，有什么相似变换性质？}
+
+所有实正定矩阵都可以进行对角化，对角化之后的矩阵是实对角矩阵，并且所有的特征值都是正实数。并且将其对角化的矩阵是正交矩阵，也就是满足：
+\begin{align}
+  \det Q=\pm1 \quad Q^{-1}=Q^T
+\end{align}
+对角化不会改变矩阵的特征值捏！！
+
+但是，我们可以通过一个变换让所有对角元素都是1.就是两边乘上对角元素是$
+\displaystyle\frac{1}{\sqrt{\lambda_i}}
+$的矩阵，但是这个已经不是对角化了捏！！但是这是一个合理的坐标变换呀呀呀，更具体的说，其实就是一个rescaling！！
+
+\qed

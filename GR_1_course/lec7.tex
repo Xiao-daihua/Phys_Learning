@@ -1,0 +1,194 @@
+\subsection{引力波}
+\subsubsection{TT Gauge下的Einstein Field Equation}
+
+前面我们研究了有源的Einstein Field Equation在Hilbert
+Gauge下面的求解。下面我们希望求解无源的Einstein Field Equation在Hilbert Gauge下面的解，也就是引力波的解。
+
+\bigskip
+\hlr{homogenious EFE in Hilbert Gauge}
+
+我们考虑之前讨论的EFE在Hilbert Gauge下面的形式：
+\begin{align}
+  \square\gamma_{\mu\nu}=0\mathrm{~.} \quad \partial^\nu
+  \gamma_{\mu\nu}=0\mathrm{~.}
+\end{align}
+我们计算变量和方程的数目。
+\begin{itemize}
+  \item 变量$ \gamma_{\mu\nu} $，作为对称张量一共是10个变量
+  \item \textbf{Gauge Condition}：Hilbert Gauge提供了4个约束条件
+\end{itemize}
+所以我们总共有10-4=6个自由度。但是这其实并没有完全固定我们的gauge condition。因为对于free field来说，我们还可以要求更多的条件。
+
+\bigskip
+\hlr{Tranceless-Transverse Gauge}
+
+我们可以在Hilbert Grauge的基础上再要求更多的条件，我们给出下面这个gauge condition：
+\defi{
+  Transverse-Tranceless Gauge
+
+  对于无源的Einstein Field Equation，我们可以对于metric要求满足：
+  \begin{align}
+    h_{\mu0}=0,\quad\sum_kh_{kk}=0,\quad \partial_j h_{kj}=0.
+  \end{align}
+}
+我们可以证明永远可以找到一个coordinate transformation对于无源的metric满足这个条件。
+
+\bigskip
+\hlr{TT Gauge选择证明}
+
+首先复习一般坐标变换前后在线性近似成立的基础上满足\cref{eq:gammatransform}的关系，并且Hilbert
+Gauge左手边的项满足\cref{eq:hilbertgaugecondition}的要求。我们会发现，如果选择一个坐标变换满足：
+\begin{align}
+  \square\xi_\mu = 0\mathrm{~,}
+\end{align}
+那么Hilbert
+Gauge条件依然成立。说明有一些自由度并没有被固定，我们没有完整的选择一个坐标系，也就是一个gauge。我们发现对于一个$
+\square \xi^\mu = 0 $可以根据求道和$ \square $算符对易知道：
+\begin{align}
+  \Box\, \delta\gamma_{\mu\nu}
+  &= \Box\, \xi_{\mu\nu}
+  = \Box\!\left( \partial_\mu \xi_\nu + \partial_\nu \xi_\mu
+  - \eta_{\mu\nu} \partial_\rho \xi^\rho \right)
+  = 0 .
+\end{align}
+对于无源系统，我们总能够选择一个坐标保证变量部分是0。
+\rmk{
+  对于有源系统，我们不能够这样选择。因为比如选择$ \gamma_{0i} = 0 $但是$ T_{0i} \neq 0 $，那么我们就不能够满足EFE了。
+}
+
+我们可以进一步在Hilbert Gauge的基础上选择一个坐标变换满足上面的方程，然后选择合适的$ \xi_\mu $保证：
+\begin{itemize}
+  \item $ \xi_0 $的选择保证$ \gamma = 0 $
+  \item $ \xi_i $的选择保证$ \gamma_{0i} = 0 $
+\end{itemize}
+根据hilbert gauge条件，我们有$ \partial_{0}h^{00} = 0 $我们不妨选择$ h_{00} = 0
+$就得到了TT gauge的条件。这里我们比Hilbert Gauge多选择了4个约束条件，所以自由度为：
+\begin{align}
+  10 - 4 - 4 = 2\mathrm{~.}
+\end{align}
+
+\subsubsection{引力波的解}
+
+\bigskip
+\hlr{EFE在TT Gauge下的解}
+
+\thm{
+  EFE in TT Gauge
+
+  对于无源的EFE在TT Gauge下面，我们有：
+  \begin{align}
+    \square h_{ij}^{TT} = 0\mathrm{~,}
+  \end{align}
+}
+对于这个方程我们有一个自然的ansatz：
+\begin{align}
+  h_{ij}^{\mathrm{TT}}(x)=e_{ij}(\mathbf{k})e^{ik^\mu x_\mu}
+\end{align}
+我们选择$ k^\mu = (\omega, k^i) $。并且$ e_{ij}(\mathbf{k})
+$是极化张量，我们把这个ansatz带入EFE以及TT Gauge条件，我们有：
+\begin{itemize}
+  \item \textbf{EFE条件}：$ k^\mu k_\mu = 0 $也就是说引力波是以光速传播的 $
+    \Rightarrow \omega = k = |\vec{k}| $
+  \item \textbf{TT Gauge条件}
+    \begin{itemize}
+      \item \textbf{Hilbert Gauge条件}：$ \partial^jh_{ij}=0 \Rightarrow
+        n^ih_{ij}=0. $其中$ \hat{\mathbf{n}}=\mathbf{k}/|\mathbf{k}| $
+      \item \textbf{Tranceless条件}：$ h^i_i = 0 $
+    \end{itemize}
+\end{itemize}
+我们考虑一个引力波沿着$ \hat{n} $方向进行传播，可以找到一个和$ \hat{n} $方向正交的两个单位向量$ \hat{u},
+\hat{v} $，那么我们可以构造出两个极化张量：
+\begin{align}
+  e_{ij}^+ = u_iu_j - v_iv_j\mathrm{~,} \quad e_{ij}^\times =
+  u_iv_j + v_iu_j\mathrm{~.}
+\end{align}
+那么我们可以写出引力波的解的一般形式为：
+\begin{align}
+  h_{ij}^{\mathrm{TT}}(t,\mathbf{x})&=\left\{h_+e_{ij}^+ + h_\times
+  e_{ij}^\times\right\}e^{i(k \hat{n} \cdot \mathbf{x} - \omega t)}
+\end{align}
+如果在一个坐标系之中我们的引力波沿着$ z $方向传播，EFE告诉我们$ k_z = k = \omega $，那么我们可以写出极化张量的形式：
+\begin{align}
+  \left.h_{ij}^{\mathrm{TT}}(t,z)=\left(
+    \begin{array}{ccc}h_+&h_\times&0\\h_\times&-h_+&0\\0&0&0
+  \end{array}\right.\right)_{ij}e^{i\omega (z- t)}\mathrm{~,}
+\end{align}
+其中$ h_+ $和$ h_\times $是两个独立的极化态，也就是之前讨论的两个独立自由度。
+最后添加上平直时空的项给出完整的metric perturbation：
+\thm{\label{thm:ttwave}
+  TT Gauge下面z方向传播的引力波解
+
+  对于一个沿着$ z $方向传播的引力波，在TT Gauge下面我们有metric：
+  \begin{align}
+    ds^2&=-dt^2+dz^2 \\
+    &+\{1+h_+\text{exp}[i(kz-\omega t)]\}dx^2+\{1-h_+\text{exp}[i(kz -
+  \omega t)]\}dy^2+2h_\times\text{exp}[i(kz- \omega )t]\}dxdy.
+\end{align}
+其中on shell条件$ \omega = k $成立。
+}
+
+\subsubsection{TT Gauge一些性质}\label{sec:ttgaugeprop}
+\bigskip
+\hlr{投影到TT Gauge之中}
+
+对于一个Hilbert Gauge下面的解，我们可以使用一个系统方法投影到TT Gauge之中。我们定义一个投影算符：
+\defi{
+pre TT Projection Operator
+
+考虑Hilbert Gauge下面的波动解沿着$ \mathbf{n} $方向进行传播，我们定义投影算符：
+\begin{align}
+  P_{ij}(\hat{\mathbf{n}})=\delta_{ij}-n_in_j\mathrm{~.}
+\end{align}
+}
+我们发现这个投影算符满足： 对称的；Transverse的(也就是$ n^iP_{ij} = 0 $)；Trance 2的。并且满足投影算符的定义：
+\begin{align}
+P_{ik}P_{kj}=P_{ij}\mathrm{~.}
+\end{align}
+我们可以使用这个投影算符定义TT投影算符：
+\defi{
+TT Projection Operator
+
+对于一个Hilbert Gauge下面的波动解$ h_{ij} $，我们定义TT投影算符：
+\begin{align}
+  \Lambda_{ij,kl}(\hat{\mathbf{n}})=P_{ik}(\hat{\mathbf{n}})P_{jl}(\hat{\mathbf{n}})-\frac{1}{2}P_{ij}(\hat{\mathbf{n}})P_{kl}(\hat{\mathbf{n}})\mathrm{~.}
+\end{align}
+}
+对于这个投影算符我们很明显发现有下面的性质：
+\begin{itemize}
+\item 这依旧是一个投影算符 ： $
+  \Lambda_{ij,kl}\Lambda_{kl,mn}=\Lambda_{ij,mn}\mathrm{~.} $
+\item 对于所有index都是transverse的：$ n^i\Lambda_{ij,kl}=0\mathrm{~.} $
+\item Tranceless性质：$ \Lambda_{ii,kl}=0 = \Lambda_{ij,kk}\mathrm{~.} $
+\item 对于同时变换前后两个指标是对称的：$ (i,j)\leftrightarrow(k,l). $
+\item 具体用$ n $写出来形式是：
+  \begin{align}
+    \Lambda_{ij,kl}(\hat{\mathbf{n}})&=\delta_{ik}\delta_{jl}-\frac{1}{2}\delta_{ij}\delta_{kl}-n_jn_l\delta_{ik}-n_in_k\delta_{jl}\\&\left.+\frac{1}{2}n_kn_l\delta_{ij}+\frac{1}{2}n_in_j\delta_{kl}+\frac{1}{2}n_in_jn_kn_l\right..
+  \end{align}
+\end{itemize}
+
+\thm{
+投影到TT Gauge
+
+对于一个Hilbert Gauge下面的波动解 $ h_{\mu\nu} $，我们选择其空间部分$ h_{ij} $，那么其在TT
+Gauge下面的形式为：
+\begin{align}
+  h_{ij}^{\mathrm{TT}}=\Lambda_{ij,kl}(\hat{\mathbf{n}}) h_{kl}\mathrm{~.}
+\end{align}
+当然根据定义我们有$ h_{0\mu}^{\mathrm{TT}}=0. $其中$ \hat{\mathbf{n}}
+$是波动传播的方向。【注意是n方向的，并不一定是z方向传播！！】
+}
+\rmk{
+注意！这个投影相当于丢掉了$ h_{0\mu} $的部分仅仅投影$ h_{ij} $。并且投影之后就是沿着$
+\hat{\mathbf{n}} $方向transverse的，并不一定是z方向transverse的！！
+}
+
+\bigskip
+\hlr{spin-2性质}
+
+\YL{[并不是特别重要，有需要补充]}
+
+\subsection{Questiona and thoughts}
+
+\question{为什么有源系统我们不能选择TT gauge？？有源系统为什么不需要进一步gauge fixing}
+
+\YL{[目前没有完全理解捏]}

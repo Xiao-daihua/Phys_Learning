@@ -1,0 +1,53 @@
+\contentsline {section}{\numberline {1}Week 1 Reading}{3}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Take home messages for Week 1}{3}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Explanations and Questions for Week 1}{6}{subsection.1.2}%
+\contentsline {section}{\numberline {2}Week 2 Reading}{11}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Take home messages for Week 2}{11}{subsection.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}对称群以及其表示}{11}{subsubsection.2.1.1}%
+\contentsline {subsubsection}{\numberline {2.1.2}Continuous Groups and Lie Algebras}{11}{subsubsection.2.1.2}%
+\contentsline {subsubsection}{\numberline {2.1.3}SU(2) Algebra}{16}{subsubsection.2.1.3}%
+\contentsline {subsection}{\numberline {2.2}Explanation and Questions for Week 2}{17}{subsection.2.2}%
+\contentsline {section}{\numberline {3}Extra: Formal Formalism of Lie Algebra}{19}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Lie Group和Lie Algebra定义}{19}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}su(2)李代数数学，物理定义}{19}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}复化以及半单李代数表示}{20}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}实化以及不同李代数关系}{21}{subsection.3.4}%
+\contentsline {section}{\numberline {4}Week 3 Reading: Tensor Operators and Wigner-Eckart Thm}{22}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Take home messages for Week 3}{22}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Explanations and Questions for Week 3}{25}{subsection.4.2}%
+\contentsline {section}{\numberline {5}Week 4 Reading: Isospin and Physics}{28}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Take Home Messages}{28}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Questions and Thoughts}{28}{subsection.5.2}%
+\contentsline {section}{\numberline {6}Week 5 Reading: Root and Weight \& SU(3)}{29}{section.6}%
+\contentsline {subsection}{\numberline {6.1}数学补充知识}{29}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Root and Weights (Georgi)}{30}{subsection.6.2}%
+\contentsline {subsubsection}{\numberline {6.2.1}Cartan子代数以及weight}{31}{subsubsection.6.2.1}%
+\contentsline {subsubsection}{\numberline {6.2.2}Adjoint Representation and Root}{32}{subsubsection.6.2.2}%
+\contentsline {subsubsection}{\numberline {6.2.3}Cartan-Weyl Basis对于一般表示}{34}{subsubsection.6.2.3}%
+\contentsline {subsubsection}{\numberline {6.2.4}Root Vector的图像表达}{35}{subsubsection.6.2.4}%
+\contentsline {subsection}{\numberline {6.3}Examples: SU(3) Lie Algebra (Georgi)}{36}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}SU(3) Lie Algebra (Ramond)}{38}{subsection.6.4}%
+\contentsline {subsection}{\numberline {6.5}Questions and thoughts}{38}{subsection.6.5}%
+\contentsline {section}{\numberline {7}Extra 2: Simple Lie Algebra and Representation}{40}{section.7}%
+\contentsline {section}{\numberline {8}Week 6-7 Reading: Simple Root}{41}{section.8}%
+\contentsline {subsection}{\numberline {8.1}从Simple Root到Cartan Matrix}{41}{subsection.8.1}%
+\contentsline {subsubsection}{\numberline {8.1.1}Preliminary知识}{41}{subsubsection.8.1.1}%
+\contentsline {subsubsection}{\numberline {8.1.2}Simple Root的定义与性质}{42}{subsubsection.8.1.2}%
+\contentsline {subsubsection}{\numberline {8.1.3}Cartan Matrix表达Simple Root}{45}{subsubsection.8.1.3}%
+\contentsline {subsection}{\numberline {8.2}从Cartan Matrix重构李代数}{46}{subsection.8.2}%
+\contentsline {subsubsection}{\numberline {8.2.1}Cartan矩阵重构Root System}{46}{subsubsection.8.2.1}%
+\contentsline {subsubsection}{\numberline {8.2.2}从Root System重构李代数}{49}{subsubsection.8.2.2}%
+\contentsline {subsection}{\numberline {8.3}从Root System结构重构表示}{50}{subsection.8.3}%
+\contentsline {subsubsection}{\numberline {8.3.1}fundamental Weight and Representation}{50}{subsubsection.8.3.1}%
+\contentsline {subsubsection}{\numberline {8.3.2}fundamental weight and fundamental representation}{52}{subsubsection.8.3.2}%
+\contentsline {subsection}{\numberline {8.4}Questions and thoughts}{53}{subsection.8.4}%
+\contentsline {section}{\numberline {9}Week 8: Representation of Lie Algebra}{54}{section.9}%
+\contentsline {subsection}{\numberline {9.1}例子：Fundamental Repesentation of su(3)}{54}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}表示空间结构与Weight}{55}{subsection.9.2}%
+\contentsline {subsection}{\numberline {9.3}Weyl Group}{56}{subsection.9.3}%
+\contentsline {subsection}{\numberline {9.4}Conjugate Representation}{56}{subsection.9.4}%
+\contentsline {subsection}{\numberline {9.5}Questions and thoughts}{56}{subsection.9.5}%
+\contentsline {section}{\numberline {10}Week 9: Tensor Method}{59}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Tensor Methods for SU(3)}{59}{subsection.10.1}%
+\contentsline {subsection}{\numberline {10.2}Questions and Thoughts}{59}{subsection.10.2}%
+\contentsline {section}{\numberline {11}Scratch book}{60}{section.11}%

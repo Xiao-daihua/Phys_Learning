@@ -1,0 +1,459 @@
+\subsection{Weyl Spinor Field}
+
+我们下面考虑按照Lorentz群的$ (1/2,0) $以及$ (0,1/2) $表示变换的场，也就是Weyl Spinor
+Field。我们首先复习一下两个表示。
+
+\bigskip
+\hlr{Lorentz群的旋量表示}
+
+对于Lorentz群的表示，我们把生成元线性组合为：
+\begin{align}
+  J_\pm^i\equiv\frac{J^i\pm
+  iK^i}{2},\quad[J_\pm^i,J_\pm^j]=i\epsilon^{ijk}J_\pm^k
+\end{align}
+也就是两个$ su(2) $代数。我们可以使用$ (j_+,j_-) $来标记Lorentz群的表示，其中$ j_\pm $是两个$
+su(2) $代数的自旋。对于Weyl Spinor Field来说，我们有两种表示：
+\begin{itemize}
+  \item \textbf{左手旋量表示}$ (1/2,0) $表示
+    \begin{align}
+      \left.(1/2,0)\Rightarrow\left\{
+        \begin{array}{ll}J_-^i&=\frac{\sigma^i}{2}\\J_+^i&=0
+        \end{array}\right.\right.\Rightarrow\left.
+        \begin{array}{ll}J^i&=\frac{\sigma^i}{2}\\K^i&=+i\frac{\sigma^i}{2}
+        \end{array}\right.
+      \end{align}
+    \item \textbf{右手旋量表示}$ (0,1/2) $表示
+      \begin{align}
+        \left.\left(0,1/2\right)\right.\Rightarrow\left\{
+          \begin{array}{ll}J_-^i&=0\\J_+^i&=\frac{\sigma^i}{2}
+          \end{array}\right.\Rightarrow
+          \begin{array}{ll}J^i&=\frac{\sigma^i}{2}\\K^i&=-i\frac{\sigma^i}{2}
+          \end{array}
+        \end{align}
+        其中$ \sigma^i $是Pauli矩阵。
+    \end{itemize}
+    对于两个旋量表示，我们可以从代数的表示使用exp map构建Lorentz群的表示。我们回顾角动量的标准exp map形式为：
+    \begin{align}
+      \large
+      D(\Lambda(\omega))=e^{-\frac{i}{2}\omega_{\mu\nu}J^{\mu\nu}}=e^{-i\vec{\theta}\cdot\vec{J}+i\vec{\eta}\cdot\vec{K}}
+    \end{align}
+    因此我们得到两个旋量表示的Lorentz群表示为：
+    \begin{itemize}
+      \item \textbf{左手旋量表示}$ (1/2,0) $表示
+        \begin{align}
+          \Lambda_L(\omega)\equiv
+          D_{(1/2,0)}=e^{-\frac{1}{2}(\vec{\eta}+i\theta)\cdot\sigma}
+        \end{align}
+      \item \textbf{右手旋量表示}$ (0,1/2) $表示
+        \begin{align}
+          \Lambda_R(\omega)\equiv
+          D_{(0,1/2)}=e^{-\frac{1}{2}(-\vec{\eta}+i\theta)\cdot\sigma}
+        \end{align}
+    \end{itemize}
+
+    \bigskip
+    \hlr{Weyl Spinor Field的定义}
+
+    通过这两个旋量表示我们可以定义Weyl Spinor Field：
+    \defi{
+      Weyl Spinor Field
+
+      我们定义在Lorentz变换下按照下面方式变换的场为Weyl Spinor Field：
+      \begin{itemize}
+        \item \textbf{左手Weyl Spinor Field: } $ \psi_L(x) $
+          \begin{align}
+            \psi_L(x)\to\psi_L'(x')=\Lambda_L(\omega)\psi_L(\Lambda^{-1}x')
+          \end{align}
+        \item \textbf{右手Weyl Spinor Field: }$ \psi_R(x) $
+          \begin{align}
+            \psi_R(x)\to\psi_R'(x')=\Lambda_R(\omega)\psi_R(\Lambda^{-1}x')
+          \end{align}
+      \end{itemize}
+    }
+
+    \bigskip
+    \hlr{旋量表示的性质}
+
+    由于下面开始讨论旋量表示的一些性质：
+    \begin{itemize}
+      \item Spinor Representation \textbf{不是Unitary的表示！！}
+        这是因为Lorentz群是非紧群，所以其有限维表示除了trivial
+        representation之外一般来说都是Non-Unitary的表示！！
+        \rmk{对于标量场因为是trivial representation所以是unitary的表示}
+      \item 左右手表示互为彼此的conjugate inverse：
+        $ \Lambda_L=\left(\Lambda_R^\dagger\right)^{-1}$
+      \item 左右手旋量表示都是属于$ SL(2,\mathbb{C}) $群的表示！！
+        $ \Lambda_L,\Lambda_R\in SL(2,\mathbb{C}) $
+        实际上，$ SL(2,\mathbb{C}) $是Lorentz群的双覆盖群！也就是说正好两套Lorentz
+        群的表示可以使用$ SL(2,\mathbb{C}) $群的表示来描述！
+        \begin{align}
+          SO(3,1)\cong SL(2,\mathbb{C})/\mathbb{Z}_2
+        \end{align}
+      \item 左右手旋量表示在空间旋转变化下的变换是相同的！！
+        $
+        \Lambda_L(R)=\Lambda_R(R)=e^{-i\frac{\vec{\theta}\cdot\sigma}{2}},\quad
+        R\in SO(3)$
+        所以旋量场构型的变化是：
+        \begin{align}
+          e^{-i\vec{\theta}\cdot\vec{\sigma}/2}\psi_{L/R}(R_\theta^{-1}x)
+        \end{align}
+    \end{itemize}
+    \rmk{
+      我们会发现旋量场构型的协变，很像是量子力学里面spin-1/2粒子的转动。但是我们注意！！
+      \textbf{旋量场是一个经典的场！！上方的讨论和量子力学没有任何关系！！}所以我们也不放可以认为\textbf{spin本身并不是一个量子力学的概念！}
+      Spin只是Lorentz群的一个表示而已！！
+    }
+
+    \subsection{Parity and Dirac Field}
+
+    \hlr{Motivation}
+
+    我们上面讨论了两个Weyl Spinor Field。这两个场的构型空间分别构成了$ SO(3,1) $群的表示。但是！我们回忆：
+    \begin{itemize}
+      \item SO(3,1)群并不是完整的Lorentz群，其中并不包含Parity变换和Time Reversal变换!!
+    \end{itemize}
+    我们真正希望找到的不是SO(3,1)群的表示作为我们的场，而是完整的Lorentz群的表示作为我们的场！！因此我们需要考虑Parity变换和Time
+    Reversal变换的表示是什么？「由于Parity变换更重要一点所以我们先考虑这个」
+
+    \subsubsection{Parity变换的表示}
+
+    \bigskip
+    \hlr{Parity 变换的定义}
+
+    我们定义Parity变换，也就是使用其Defining Representation上面的形式：
+    \defi{
+      Parity变换
+
+      Parity变换$ P $定义为：
+      \begin{align}
+        P =
+        \begin{pmatrix}
+          1 & 0 & 0 & 0 \\
+          0 & -1 & 0 & 0 \\
+          0 & 0 & -1 & 0 \\
+          0 & 0 & 0 & -1
+        \end{pmatrix} \in O(3,1)\mathrm{~.}
+      \end{align}
+    }
+    我们下面考虑其在不同表示空间的表示。我们会使用一个Trick，也就是先考虑其在Adjoint
+    Representation上的表示，然后利用Adjoint Representation足够抽象的性质来求解其在一般表示空间下的表示。
+    \rmk{
+      之后我们使用$ P $表示Parity在Defining Representation上面的形式，使用$ \mathrm{P}
+      $表示Parity在一般表示空间下的表示！！至于一般representation是场构型空间还是Hilbert空间需要靠语境决定！
+    }
+
+    \bigskip
+    \hlr{Parity 在Adjoint Representation上的作用}
+
+    我们计算其在SO(3,1)Algebra表示空间的表示。
+    我们现考虑Defining Representation下面的情况，Parity作用在Lorentz
+    Alegbra的Defining Representation上面形式为：$ P \mathcal{J}^{\mu\nu}
+    P^{-1} $，其中$ \mathcal{J}^{\mu\nu} $是Lorentz群的Lie
+    Algebra的生成元在Defining Representation上面的形式，我们回忆为：
+    \begin{align}
+      (\mathcal{J}^{\mu\nu})^\rho{}_\sigma = i(\eta^{\mu \rho}
+      \delta^\nu_\sigma - \eta^{\nu \rho} \delta^\mu_\sigma)
+    \end{align}
+    我们计算结果为：
+    \begin{align}
+      P \mathcal{J}^{\mu \nu} P^{-1} = P^\mu{}_\rho
+      P^\nu{}_\sigma\mathcal{J}^{\rho\sigma}
+    \end{align}
+    \rmk{
+      注意这个等式左边的P是作用在没写出来的指标上，右边是直接作用在生成元的指标上！这个关系我们可以直接验证！！
+    }
+    \begin{itemize}
+      \item 我们记住！！！\textbf{Adjoint
+        Representation}是一个抽象的Representation！！！其中李代数$ J^{\mu\nu}
+        $是一个抽象的元素。所以我们有上面的关系对于一切表示空间都是成立的！！！
+    \end{itemize}
+    \thm{
+      Parity作用在Adjoint Representation
+
+      Parity作用在Lorentz群Lie Algebra的抽象的生成元上面的形式为：
+      \begin{align}
+        \mathrm{P} J^{\mu\nu} \mathrm{P}^{-1} = P^\mu{}_\rho
+        P^\nu{}_\sigma J^{\rho\sigma}
+      \end{align}
+    }
+    这个关系可以帮助我们求解Parity在一般表示空间下的表示。因为一般的表示空间下，Parity的表示和Lorentz
+    Algebra的表示的生成元之间都需要满足：
+    \begin{align}
+      \mathrm{P} J^{\mu\nu} \mathrm{P}^{-1} = P^\mu{}_\rho
+      P^\nu{}_\sigma J^{\rho\sigma}
+    \end{align}
+    的关系。
+
+    \bigskip
+    \hlr{Parity在Adjoint Representation上表示「补充」}
+
+    上面我们仅仅使用了Lorentz
+    Algebra作为表示空间。我们很难不思考能否使用Poincare代数作为Parity的表示空间？答案是可以的！但是一个难点是：
+    \begin{itemize}
+      \item 我们尚未定义Parity变换作用在平移生成元上面！因为平移生成元不能够使用Lorentz
+        Group的Defining Representation来表示！！需要进行扩充。
+    \end{itemize}
+    在合理的扩充和定义下我们有下面的结论，我们不妨当作定义来进行处理：
+    \defi{
+      Parity作用在Poincare代数
+
+      对于Poicare群的表示来说，Parity作用其上的结果为：
+      \begin{align}
+        \mathrm{P}U\left(\Lambda,a\right)\mathrm{P}^{-1}=U\left(P\Lambda
+        P^{-1},Pa\right),
+      \end{align}
+      其中左手边的$ P $在这个表示空间下的表示。右手边的$ P $是Defining Representation下的Parity矩阵。
+    }
+    \YL{[这个是抄Weinberg之中的讨论的！]}
+
+    如果对于上面的式子考虑微小变换我们就可以得到Parity作用在Poincare代数生成元上的表示：
+    \thm{
+      Parity作用在Poincare代数生成元上
+
+      Parity作用在Poincare代数生成元上面的表示为：
+      \begin{align}
+        \mathrm{P} P^\mu \mathrm{P}^{-1} &= P^\mu{}_\nu P^\nu, \\
+        \mathrm{P} J^{\mu\nu} \mathrm{P}^{-1} &= P^\mu{}_\rho
+        P^\nu{}_\sigma J^{\rho\sigma}.
+      \end{align}
+    }
+
+    \bigskip
+    \hlr{Parity在Lorentz群一般表示空间直和空间的表示}
+
+    我们根据Parity作用在Poicare代数的生成元的结果知道，Parity作用在转动算符和boost算符上面的结果为：
+    \begin{align}
+      \mathrm{P} J^i \mathrm{P}^{-1} &= J^i, \\
+      \mathrm{P} K^i \mathrm{P}^{-1} &= -K^i.
+    \end{align}
+    我们考虑Parity作用在一般的Lorentz群表示空间$ (j_1,j_2) $上面的结果。我们发现：
+    \begin{align}
+      \mathrm{P} J_\pm^i \mathrm{P}^{-1} = \frac{\mathrm{P} J^i
+      \mathrm{P}^{-1} \pm i \mathrm{P} K^i \mathcal{P}^{-1}}{2} =
+      \frac{J^i \mp i K^i}{2} = J_\mp^i.
+    \end{align}
+    也就是说，Parity作用在$ (j_1,j_2) $表示空间上面会把$ J_+^i $和$ J_-^i
+    $交换掉！！从而变成一个$ (j_2,j_1) $表示空间！！所以我们总结两点：
+    \begin{itemize}
+      \item 单独的$ (j_1,j_2) , j_1 \neq j_2$表示空间\textbf{不闭合}，不能作为Parity变换的表示空间！！
+      \item 但是$ (j_1,j_2) \oplus (j_2,j_1) $表示空间\textbf{闭合}，可以作为Parity变换的表示空间！！
+    \end{itemize}
+    因此如果我们希望构造一个场构型空间作为完整的Lorentz群表示的话，我们需要考虑$ (j_1,j_2) \oplus
+    (j_2,j_1) $表示空间！！
+
+    \bigskip
+    \hlr{求Parity表示的思路}
+
+    我们整理一下Parity变换表示的思路。我们其实是：
+    \begin{enumerate}
+      \item 通过定义找到其在Adjoint Representation上的表示
+      \item 利用生成元在不同表示空间下的具体形式，给出Parity在不同表示空间下的表示
+    \end{enumerate}
+
+    \subsubsection{Dirac Spinor Field}
+
+    对于Weyl
+    Spinor来说我们如果希望不仅仅表示SO(3,1)群而是完整的Lorentz群的话，我们需要把左手旋量表示和右手旋量表示合并起来！！也就是说我们考虑$
+    (1/2,0) \oplus (0,1/2) $表示空间！！按照这个表示空间进行变换的场我们称为Dirac Spinor Field。
+
+    \bigskip
+    \hlr{Parity作用在(1/2,0)以及(0,1/2)表示上面}
+
+    我们考虑Parity作用在(1/2,0)表示以及(0,1/2)表示上面的形式，我们有：
+    \begin{align}
+      \mathrm{P}\Lambda_{L/R}(\vec{\theta},\vec{\eta})\mathrm{P}=\Lambda_{L/R}(\vec{\theta},-\vec{\eta})
+      = \Lambda_{R/L}(\vec{\theta},\vec{\eta})
+    \end{align}
+    note 我们右边没有写$ P^{-1} $是因为经典的情况下我们有$ P^2=1 $。一个合理的理论需要这个关系保持的！！
+
+    \bigskip
+    \hlr{Dirac Spinor Field的定义}
+
+    在上方准备的基础上我们可以定义Dirac Spinor Field：
+    \defi{
+      Dirac Spinor Field
+
+      我们定义两个Weyl Spinor Field的直和作为Dirac Spinor Field：
+      \begin{align}
+        \Psi_D(x)\equiv
+        \begin{pmatrix}\psi_L(x)\\\psi_R(x)
+        \end{pmatrix}.
+      \end{align}
+      Dirac Spinor Field在Lorentz变换下的变换为：
+      \begin{align}
+        \Psi_D(x)\to\Psi_D'(x)=
+        \begin{pmatrix}\Lambda_L(\omega) & 0 \\ 0 & \Lambda_R(\omega)
+        \end{pmatrix}\Psi_D(\Lambda^{-1}x).
+      \end{align}
+      其变换矩阵即为两个Weyl Spinor Field的变换矩阵的直和:
+      \begin{align}
+        \left.\Lambda_D\equiv\left(
+          \begin{array}{cc}\Lambda_L(\theta,\eta)&0\\0&\Lambda_R(\theta,\eta)
+        \end{array}\right.\right)
+      \end{align}
+      Dirac Spinor Field在Parity变换下的变换为：
+      \begin{align}
+        \Psi_D(x)=
+        \begin{pmatrix}\psi_L(x)\\\psi_R(x)
+        \end{pmatrix}\mapsto\Psi_D'(x'=Px)\equiv
+        \begin{pmatrix}\psi_R(x)\\\psi_L(x)
+        \end{pmatrix}= \gamma^0 \Psi_D(x)
+      \end{align}
+      其中变换矩阵为：
+      \begin{align}
+        \gamma^0\equiv
+        \begin{pmatrix}0&\mathbb{I}\\\mathbb{I}&0
+        \end{pmatrix}.
+      \end{align}
+    }
+    对于Dirac Spinor Field来说在Lorentz变换下的变换矩阵和Parity变换下的变换矩阵之间正好满足：
+    \begin{align}
+      \gamma_0\Lambda_D(\vec{\theta},\vec{\eta})=\Lambda_D(\vec{\theta},-\vec{\eta})\gamma_0.
+    \end{align}
+
+    \subsection{Complex Conjugate and Majorana Spinor}
+
+    \subsubsection{2D Levi-Civita符号}
+
+    \bigskip
+    \hlr{2D Levi-Civita符号}
+
+    我们定义2D Levi-Civita符号：
+    \defi{
+      2D Levi-Civita符号
+
+      我们定义2D Levi-Civita符号为：
+      \begin{align}
+        \epsilon\equiv i\sigma_2=
+        \begin{pmatrix}0&1\\-1&0
+        \end{pmatrix},
+      \end{align}
+    }
+    显然我们有这个符号的性质：
+    \begin{align}
+      \epsilon^T=\epsilon^{-1}=-\epsilon\quad\epsilon^2=-1.
+    \end{align}
+
+    \bigskip
+    \hlr{Levi-Civita符号作用在Pauli矩阵上}
+
+    我们考虑Levi-Civita符号作用在Pauli矩阵上面的结果：
+    \begin{align}
+      \epsilon^{-1}\sigma_i\epsilon=\epsilon\sigma_i\epsilon^{-1}=-\sigma_i^*=-\sigma_i^T\quad\epsilon^{-1}\sigma_i^*\epsilon=\epsilon\sigma_i^*\epsilon^{-1}=-\sigma_i.
+    \end{align}
+    之后我们会定义$ \sigma^\mu = (I, \sigma^i) $以及$ \bar{\sigma}^\mu = (I,
+    -\sigma^i) $，我们有：
+    \begin{align}
+      \epsilon^{-1}\sigma^\mu\epsilon=\bar{\sigma}^{\mu*} =
+      \bar{\sigma}^{\mu
+      T},\quad\epsilon^{-1}\bar{\sigma}^\mu\epsilon=\sigma^{\mu*} =
+      \sigma^{\mu T}.
+    \end{align}
+
+    \subsubsection{Complex Conjugate Representation}
+
+    \bigskip
+    \hlr{su(2)的Complex Conjugate Representation}
+
+    我们发现如果一个表示的基和矩阵形式我们使用的是复数的话，那么我们可以通过一个表示构建另一个表示。我们使用su(2)代数的spin-1/2表示来说明这个过程。对于这个表示我们可以有两个表示：
+    \begin{align}
+      T^i=\frac{\sigma^i}{2},\quad T^{i*}=- \frac{\sigma^{i*}}{2}.
+    \end{align}
+    这两个构成了两个等价的表示，我们称后者为前者的Complex Conjugate
+    Representation。其等价性在前面的Levi-Civita符号作用在Pauli矩阵上的结果中已经体现出来了。
+
+    考虑这个两个代数表示给出的群表示分别为：
+    \begin{align}
+      H\to e^{-i\frac{i}{2}\vec{\sigma}\cdot\vec{\theta}}, \quad
+      H^*\to e^{\frac{i}{2}\vec{\sigma}^*\cdot\vec{\theta}}H^*
+    \end{align}
+    我们会发现这两个群表示也是等价的，因为我如果考虑一个表示空间进行变换$ H^* \to \epsilon H^* $的话，我们有：
+    \begin{align}
+      \large\epsilon H^*\to\epsilon
+      e^{\frac{i}{2}\vec{\sigma}^*\cdot\vec{\theta}}H^*=e^{i\frac{i}{2}\epsilon\vec{\sigma}^*\cdot\epsilon^{-1}\vec{\theta}}\epsilon
+      H^*=e^{-\frac{i}{2}\vec{\sigma}\cdot\vec{\theta}}\epsilon H^*.
+    \end{align}
+    我们会发现变形后的表示空间在群作用下和原来的表示空间是一样的！！所以这两个表示是等价的！！
+
+    \bigskip
+    \hlr{Lorentz群的Complex Conjugate Representation}
+
+    下面我们考虑Lorentz群的(1/2,0)表示和(0,1/2)表示的Complex Conjugate
+    Representation以及其等价性。我们有：
+    \begin{align}
+      \Lambda_R^T=e^{\frac{1}{2}(\vec{\eta}-i\vec{\theta})\vec{\sigma}^T}=e^{-\frac{1}{2}(\vec{\eta}-i\vec{\theta})\epsilon^{-1}\vec{\sigma}\epsilon}=\epsilon^{-1}\Lambda_R^{-1}\epsilon=\epsilon^{-1}\Lambda_L^\dagger\epsilon
+    \end{align}
+    对比左右我们可以推出第一个小结论：
+    \thm{\label{thm:WeylLeviCivitaConnection}
+      Levi-Civita 符号连接(1/2,0)和(0,1/2)表示
+
+      对于left和right spinor representation我们有：
+      \begin{align}
+        \Lambda_R=\epsilon^{-1}\Lambda_L^*\epsilon
+      \end{align}
+    }
+    于是我们进一步给出结论：
+    \thm{\label{thm:WeylComplexConjugate}
+      Weyl Spinor的Complex Conjugate Representation等价性
+
+      (1/2,0)表示的complex conjugate
+      representation和(0,1/2)表示是等价的，二者之间的联系由Levi-Civita符号给出：
+      \begin{align}
+        \epsilon\psi_{L/R}^*\sim\psi_{R/L}
+      \end{align}
+      抽象的写出来就是：
+      \begin{align}
+        (1/2,0)\thicksim(0,1/2)^*
+      \end{align}
+    }
+
+    Proof：我们不妨考虑一个(1/2,0)表示空间$ \psi_L $，进行一个变换之后在Lorentz群作用下的变换为：
+    \begin{align}
+      \epsilon\psi_L^* \to
+      \epsilon\Lambda_L^*\psi_L^*=\epsilon\Lambda_L^*\epsilon^{-1}\epsilon\psi_L^*=\Lambda_R(\epsilon\psi_L^*)
+    \end{align}
+    说明左手的complex conjugate表示在Levi-Civita符号作用下正好变成了右手表示！！所以二者是等价的表示！！
+    \qed
+
+    \rmk{
+      这里我们使用$ \sim $记号的意思是，这两个东西在表示论意义上给出了等价的表示空间。也就是说两者在Lorentz变换下变换矩阵形式一模一样！
+    }
+
+    \subsubsection{Majorana Spinor Field}
+
+    \hlr{Majorana Spinor Field的定义}
+
+    这样我们意识到仅仅使用Left Weyl Spinor Field我们就可以构造出来一个能够表示Parity变换的场构型空间！！我们定义：
+    \defi{
+      Majorana Spinor Field
+
+      我们通过$ \psi_L $以及其complex conjugate $ \epsilon \psi_L^*
+      $构造Majorana Spinor Field：
+      \begin{align}
+        \Psi_M(x)\equiv
+        \begin{pmatrix}\psi_L(x)\\\epsilon\psi_L^*(x)
+        \end{pmatrix}.
+      \end{align}
+      这样构造的spinor field在在Lorentz变换和Parity变换下和Dirac Spinor满足一样的协变关系！
+    }
+
+    \bigskip
+    \hlr{Charge Conjugation}
+
+    Majorana Spinor Field与Dirac Spinor Field有一个重要的区别，也就是如果我们定义Charge
+    Conjugation变换。这个场在变换下是不变的！！这里不多加讨论了！
+
+    \subsection{Questions and Thoughts}
+
+    \question{为什么经典场构型作为Lorentz群表示是Non-Unitary的？？}
+
+    我们知道lorentz群是非紧群，所以它的有限维表示一般来说是不可约的非酉表示！！但是！！我们作用在Hilbert
+    Space上面的表示是Unitary的！！这是两个表示捏！！务必区分。
+    \qed
+
+    \question{
+      作业之中为什么我们强调了Normal
+      Ordering？这个和正常ordering有什么区别，为什么我们不是自然给出的normal ordering？
+    }
+    根据Wick定理我们可以有更General的结果。但是对于标量场来说相当于我们忽略了一个无穷大的常数项。这个常数项一般计算下我们不认为是物理上有意义的东西，所以我们直接忽略掉了。
+    \qed

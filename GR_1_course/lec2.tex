@@ -1,0 +1,305 @@
+\subsection{Tensor Field}
+
+\subsubsection{Tangent Field}
+
+\hlr{Tangent Field}
+
+我们之前定义了某一个点上面的切空间以及切向量。下面我们希望对于manifold上面每一个点都做同样的定义。
+\defi{Tangent Field
+
+  对于manifold $ \mathcal{M} $上面每一个点$ p $，对于其切空间$ T_p \mathcal{M} $赋予一个切向量$ \mathbf{v}(p) \in T_p\mathcal{M} $，那么我们称这个映射$ p \to \mathbf{v}(p) $为一个Tangent Field。
+}
+tangent field我们可以定义一些特质：
+\begin{enumerate}
+  \item Smooth Tangent Field: 如果对于任意$ f \in \mathcal{F} $，$ \mathbf{v}(f) : \mathcal{M} \to \mathbb{R} $是一个smooth function，那么我们称这个tangent field是smooth的。
+\end{enumerate}
+对于这一点我们可以证明
+\lmm{对于一个coordinate system $ (O, \psi) $，如果一个tangent field在这个chart下面的分量 $ v^\mu : \mathbb{R}^n \to \mathbb{R}^n $是一个smooth function，那么这个tangent field是一个smooth tangent field。}
+\lmm{
+  定义上一个coordinate system的基矢量，$ \partial_{\mu} $，都是smooth tangent field。因为坐标系的定义上给出了$ f $的导数，并且$ f \in C^\infty (\mathcal{M}) $
+}
+
+\bigskip
+\hlr{单参数微分同胚群}
+
+我们发现manifold上面的tangent field和manifold之间的diffeomorphism存在天然的联系。首先我们定义一个群描述一组diffeo；
+\defi{One-parameter group of diffeomorphisms
+  
+  我们定义一个映射$ \phi : \mathbb{R} \times \mathcal{M} \to \mathcal{M} $满足：
+  \begin{enumerate}
+    \item 对于任意$ \lambda \in \mathbb{R} $，$ \phi_\lambda : \mathcal{M} \to \mathcal{M} $是一个diffeomorphism
+    \item 对于任意$ \lambda, \mu \in \mathbb{R} $，$ \phi_{\lambda+\mu} = \phi_\lambda\circ\phi_\mu $
+    \item $ \phi_0 = id $
+  \end{enumerate}
+  那么我们称这个映射为一个one-parameter group of diffeomorphisms。
+}
+
+\bigskip
+\hlr{单参数微分同胚群诱导的切向量场}
+
+我们下面考虑这样的一个群，每一个$ t $给出的$ \phi_t $把manifold上面的一个确定的点$ p $映射到另一个点$ \phi_t(p) $。
+\begin{itemize}
+  \item 如果我们固定点$ p $，并且允许选择不同的$ t $，那么我们就得到了一个curve $ C(t) = \phi_t(p) :\mathbb{R} \to \mathcal{M}$。
+  \item 显然这个curve是经过点$ p $的，根据群的定义$ \phi_0 = id $，所以$ C(0) = p $。
+  \item 我们可以定义这个curve在点$ p $处的切向量
+    \begin{align}
+      v_p(f)=\left.\frac{d}{dt}(f\circ\phi_t(p))\right|_{t=0}\mathrm{~,~for~any~}f\in\mathcal{F}\mathrm{~.}
+    \end{align}
+\end{itemize}
+我们对于manifold上面每一个点重复同样的过程，我们就得到了一个tangent field。我们说这个tangent fiels是这个群的一个infinitesimal generator。
+
+并且根据curve induce的向量场的定义，我们可以把这个向量场作用在一个function上面写作：
+\begin{align}
+  \mathbf{v}(f)=\lim_{t\to0}\frac{f[\phi_t(p)]-f[p]}{t}\mathrm{~,}
+\end{align}
+
+
+\bigskip
+\hlr{切向量场generate单参数微分同胚群}
+
+我们想问【一个smooth tangent field能不能生成一个one parameter diffeo group】，答案是肯定的。我们选择一个manifold上面的coordinate system进行讨论：
+\begin{itemize}
+  \item 对于任何smooth tangent field $ \mathbf{v} $，我们可以在这个chart下面写作$ \mathbf{v} = v^\mu \partial_\mu $，其中$ v^\mu : \mathbb{R}^n \to \mathbb{R} $是一个smooth function。
+  \item 在这个坐标系下，我们可以考虑下面这个ODE：
+    \begin{align}
+      \large\frac{dx^\mu}{dt}=v^\mu(x^1,\ldots,x^n)\mathrm{~.}
+    \end{align}
+  \item 我们给定流形上面某一个点 $ p $, $ x_0^\mu = \psi(p) $。选择这个ODE的初始条件是$ x^\mu(0)=x_0^\mu $，可以得到一个解（积分曲线）。
+  \item 我们根据这个积分曲线定义一个one parameter diffeo group，作用在这个点$ p $的结果$ \phi_t(p): \mathbb{R} \to \mathcal{M} $：
+    \begin{align}
+      \phi_t(p)=\psi^{-1}(x^1(t),\ldots,x^n(t))
+    \end{align}
+\end{itemize}
+在manifold所有的点重复这个过程，我们就得到了一个one parameter diffeo group。
+
+
+\bigskip
+\hlr{Commutation Relation of Vector Fields}
+
+我们考虑两个smooth tangent field $ u, v $，我们可以定义一个新的映射，把一个function映射到一个function：
+\begin{align}
+  [\mathbf{u},\mathbf{v}](f)=\mathbf{u}(\mathbf{v}(f))-\mathbf{v}(\mathbf{u}(f))\mathrm{~,}
+\end{align}
+我们可以证明这个新的映射满足：1. 线性；2. Leibniz rule。所以这个新的映射是一个tangent field，我们称之为$ u,v $的Lie bracket，记为$ [u,v] $。
+
+下面给出一些性质：
+\begin{itemize}
+  \item 反对称性：$ [u,v] = -[v,u] $
+  \item Jacobi identity: $ [u,[v,w]]+[v,[w,u]]+[w,[u,v]]=0 $
+\end{itemize}
+单纯这两点，我们会意识到所有的tangent field构成了一个Lie algebra。
+
+\begin{enumerate}
+  \item 根据反对称性，我们显然有对于基矢量：$ [\partial_{\mu}, \partial_{\nu}] = 0 $。
+  \item 在一个coordinate system下面写出这个Lie bracket的具体形式：
+\begin{align}
+  \left[\mathbf{u},\mathbf{v}\right]=\left[\sum_{\mu}u^{\mu}\boldsymbol{\partial}_{\mu},\sum_{\nu}v^{\nu}\boldsymbol{\partial}_{\nu}\right]=\sum_{\mu,\nu}(u^{\mu}\partial_{\mu}v^{\nu}-v^{\mu}\partial_{\mu}u^{\nu})\boldsymbol{\partial}_{\nu}.
+\end{align}
+\end{enumerate}
+
+
+
+\subsubsection{Tensors and Tensor Fields}
+
+\hlr{一般线性空间的Dual Space}
+
+为了构建张量，我们需要给出一个线性空间的对偶空间的概念。
+\defi{Dual Space
+
+  对于一个线性空间$ V $，我们定义所有从$ V $到$ \mathbb{R} $的线性映射$ f : V \to \mathbb{R} $的集合，记为$ V^* $，这个集合也是一个线性空间，我们称之为$ V $的对偶空间。
+}
+
+Dual Space的basis有一个特别方便的构造方法。我们选择$ V $线性空间的一组基$ \{e_\mu\} $，那么我们可以定义$ V^* $的一组基$ \{e^\mu\} $满足：
+\begin{align}
+  e^\mu(e_\nu)=\delta^\mu_\nu\mathrm{~.}
+\end{align}
+
+在上面的构造基础上，我们给出一个线性空间的dual space的一些性质
+\begin{enumerate}
+  \item Dual Space自身构成了一个线性空间，其维度是$ dim(V^*) = dim(V) $
+  \item 存在一个natural isomorphism $ V \cong V^{**} $，也就是$ V $和其double dual是自然同构的。
+\end{enumerate}
+
+我们发现，选定一个basis dual space和原来空间存在一个模糊的对应，并且是basis dependent的。但是后面我们知道，如果给出了一些额外结构，我们可以完整的构造dual space和原来空间的【唯一】一一映射。
+
+\bigskip
+\hlr{Tangent Space的Dual Space: Cotangent Space}
+
+我们考虑manifold上面某一点$ p $的切空间$ T_p\mathcal{M} $，我们定义这个切空间的dual space，记为$ T_p^*\mathcal{M} $，称之为这个点的cotangent space。
+
+显然我们可以选择一组基进行cotangent space的构造。我们选择：
+\begin{align}
+  \boldsymbol{d}x^\mu\left(\frac{\partial}{\partial x^\nu}\right)=\boldsymbol{d}x^\mu(\boldsymbol{\partial}_\nu)=\delta_\nu^\mu.
+\end{align}
+
+显然这个会给出很多的性质：
+\begin{enumerate}
+  \item 线性空间: $ T_p^*\mathcal{M} $是一个线性空间，维度是$ dim(T_p^*\mathcal{M})=dim(T_p\mathcal{M})=dim(\mathcal{M})=n $ 
+  \item Basis Transformation: 如果我们换一个coordinate system，那么这个basis的变换是：
+    \begin{align}
+      \boldsymbol{d}x^{\prime\nu}=\frac{\partial x^{\prime\nu}}{\partial x^\mu}\boldsymbol{d}x^\mu\mathrm{~.}
+    \end{align}
+    这个变换和tangent space的基变换是完全不同的！【注意！！】并且这个变换是一个covariant的变换。
+\end{enumerate}
+
+\bigskip
+\hlr{切空间以及余切空间的第二种视角}
+
+其实根据上面的构造，我们的Tangent Vector可以从两个角度定义：
+  \begin{enumerate}
+    \item 可以作为一个从$ \mathcal{F} \to \mathbb{R} $的映射
+    \item 可以作为一个从$ T_p^*\mathcal{M} \to \mathbb{R} $的映射
+  \end{enumerate}
+  这两个视角是等价的。同时在不同的情况下有不同的优势。下面我们考虑第二种视角的理解。
+
+我们现在在manifold上面的一个点$ p $构造出来了两个线性空间：$ T_p \mathcal{M} $以及$ T_p^*\mathcal{M} $。并且这两个线性空间的元素，其实把另一个线性空间的元素映射到了$ \mathbb{R} $。
+\begin{enumerate}
+  \item Tangent Vector $ v \in T_p\mathcal{M} $把$ T_p^*\mathcal{M} \to \mathbb{R} $
+  \item Cotangent Vector $ \omega \in T_p^*\mathcal{M} $把$ T_p\mathcal{M} \to \mathbb{R} $
+\end{enumerate}
+这个视角下面我们如果按照delta函数的方式构造这两个空间的基，我们可以发现，对于某个基下面的分量有两种写法：
+\begin{align}
+  v^\mu = v(dx^\mu) \quad v = v^\mu \partial_\mu\mathrm{~,}
+\end{align}
+之后我们就经常混乱的使用其中的一种理解形式。
+
+
+\bigskip
+\hlr{Tensors on a point}
+
+上面的视角下面，我们可以构造出一个更广义的geometric object: Tensor:
+\defi{
+  Tensor 
+
+  对于一个点$ p $，我们定义一个$(k,l)$-type tensor是一个多线性映射，我们选择$ V = T_p \mathcal{M}, V^* = T_p^*\mathcal{M} $：
+  \begin{align}
+    \mathbf{T}:V^*\times\ldots\times V^*\times V\times\ldots\times V\to\mathbb{R}.
+  \end{align}
+}
+下面给出一些tensor的性质：
+\begin{enumerate}
+  \item 线性空间: 所有的$(k,l)$-type tensor构成了一个线性空间，记为$ T_p(k,l) $。并且这个空间的维度是$ dim(T_p(k,l)) = n^{k+l} $，其中$ n = dim(\mathcal{M}) $。
+  \item Tensor Product运算: 我们对于任意rank的tensor都可以互相定义一个non-commute的运算：$ T \otimes S $我们称之为tensor product。结果是其rank进行一波相加。
+    \item Basis of Tensor Space: 有了tensor product的概念之后我们可以很自然的定义一组$ (j,k) $rank tensor的basis from Tangent and Cotangent Space basis:
+      \begin{align}
+        \mathbf{T}=T_{\nu_1...\nu_k}^{\mu_1...\mu_j}\mathbf{e}_{\mu_1}\otimes\cdots\otimes\mathbf{e}_{\mu_j}\otimes\mathbf{e}^{*\nu_1}\otimes\cdots\otimes\mathbf{e}^{*\nu_k}
+      \end{align}
+\end{enumerate}
+\rmk{
+和vector以及covector的分量一样，tensor的分量我们也是有第二种写法的，我们经常随意使用任意一种理解书写方法：
+\begin{align}
+  T_{\nu_1...\nu_k}^{\mu_1...\mu_j} = \mathbf{T}(\mathbf{e}^{*\mu_1},\ldots,\mathbf{e}^{*\mu_j},\mathbf{e}_{\nu_1},\ldots,\mathbf{e}_{\nu_k})\mathrm{~,} 
+\end{align}
+}
+
+\bigskip
+\hlr{Tensor Properties}
+
+下面我们给出更多很重要的Tenor的性质。显然我们知道如果manifold上面每一个点都给出了一个tensor，那么我们就得到了一个tensor field。我们下面有的时候会使用tensor field的概念。
+
+\begin{itemize}
+  \item Basis Transformation of Tensor：根据tensor的构造方式我们可以证明所有index是按照坐标变换的矩阵进行变换的。
+  \item Contraction of Tensor：我们可以把一个$(k,l)$-type tensor的一个上指标和一个下指标contract掉，得到一个$(k-1,l-1)$-type tensor。【注意！！只有上下指标能够进行contraction！】
+  \item Smooth Tensor Field：对于smooth的tangent field以及cotangent field，我们可以定义一个smooth tensor field是对于任意的$ k $个smooth cotangent field以及$ l $个smooth tangent field，我们定义下面的映射$ T(\omega_1, ... , \omega_j ; v^i ,... v^k) : \mathcal{M} \to \mathbb{R}$映射到$ \mathbb{R} $的映射是一个smooth function。那么我们说这个是一个smooth tensor field。
+    \begin{itemize}
+      \item 同样的，我们可以在一个chart下面给出一个sufficient condition：如果一个tensor field在一个chart下面的分量是一个smooth function，那么这个tensor field是一个smooth tensor field。
+    \end{itemize}
+\end{itemize}
+
+\bigskip
+\hlr{Symmetric and Antisymmetric Tensor}
+
+对于一个tensor我们可以定义symmetric或者antisymmetric tensor。我们定义一个tensor是symmetric的如果对于任意两个上指标或者任意两个下指标交换位置tensor不变。我们定义一个tensor是antisymmetric的如果对于任意两个上指标或者任意两个下指标交换位置tensor变号。
+
+同时我们可以对称化和反对称化所有的(0,k)或者(k,0)的tensor。或者对称化or反对称化部分（上下一致）的指标：
+\begin{align}
+  \begin{aligned}&T_{(\mu_1...\mu_k)}&&=\quad\frac{1}{k!}\sum_\pi T_{\pi(\mu_1)...\pi(\mu_k)},\\&T_{[\mu_1...\mu_k]}&&=\quad\frac{1}{k!}\sum_\pi\sigma_\pi T_{\pi(\mu_1)...\pi(\mu_k)},\end{aligned}
+\end{align}
+
+\subsubsection{Metric Tensor Field}
+
+\hlr{Metric Tensor Field}
+
+我们可以赋予一个流形一个额外的结构：Metric Tensor Field。这个结构会给出很多更加重要的距离相关的性质：
+\defi{Metric Tensor Field
+
+  我们定义一个symmetric, non-degenerate的(0,2)-type tensor field $ g $，我们称之为这个manifold的metric tensor field。
+  \begin{enumerate}
+    \item Symmetric: $ g(X,Y)=g(Y,X) $
+    \item Non-degenerate: $ g(X,Y)=0 $ for any $ Y \to X=0 $ 
+  \end{enumerate}
+同时，我们可以定义一个(2,0)-type tensor field $ g^{-1} $。在任意基下面我们有：
+\begin{align}
+  g^{\mu\alpha}g_{\alpha\nu}=\delta_\nu^\mu.
+\end{align}
+}
+这个张量场我们一般还会有一些特殊的记号：
+\begin{align}
+  ds^2=g_{\mu\nu}dx^\mu dx^\nu.
+\end{align}
+
+
+
+
+\bigskip
+\hlr{Metric Tensor Field的性质}
+
+给定这样的一个metric tensor field，我们可以定义很多重要的概念：
+\begin{enumerate}
+  \item 确定metric会给出一套特殊的coordinate system：orthonormal coordinate system满足：
+    \begin{align}
+     g(e_\mu,e_\nu)=\pm \delta_{\mu\nu}\mathrm{~.}
+  \end{align}
+  
+  \item Metric可以给出一个natural isomorphism between tangent space and cotangent space。我们定义：
+    \begin{align}
+      g_p: T_p\mathcal{M} \to T_p^*\mathcal{M},\quad g_p(v)(w)=g_p(v,w)\mathrm{~,~for~any~}v,w\in T_p\mathcal{M}\mathrm{~.}
+    \end{align}
+    这个映射是一个isomorphism，因为metric是non-degenerate的。并且这个映射是natural的，因为这个映射不依赖于任何basis的选择。
+    \begin{itemize}
+      \item 这个映射可以让我们把一个tangent vector变成一个cotangent vector，我们称之为lowering the index。
+      \item 这个映射的逆映射可以让我们把一个cotangent vector变成一个tangent vector，我们称之为raising the index。
+      \item 这个映射可以让我们把一个$(k,l)$-type tensor变成一个$(k-1,l+1)$-type tensor，或者$(k+1,l-1)$-type tensor。
+    \end{itemize}
+\end{enumerate}
+
+\imp{Raising and Lowering Index的坐标表示}{
+
+关于为什么这个操作叫\textbf{Lowering and Raising Index}，这是因为我们对偶出来的tangent vector 或者cotangent vector我们一般使用一样的符号$ u $进行标记分量，只是让指标位置改变。然后我们发现下面的关系：
+  \begin{align}
+    v_\mu^*=g_{\mu\nu}v^\nu. \quad \omega^{*\mu}=g^{\mu\nu}\omega_\nu.
+  \end{align}
+  也就是通过metric tensor isomorphism过去的vector的分量等于原来的vector的分量乘以metric的分量。所以我们称之为lowering and raising the index。
+
+}
+
+
+
+\subsection{Questions and thoughts}
+
+
+\imp{计算不同坐标系下的metric}{\label{dis:metrictrans}
+  显然metric是一个(0,2)-type tensor，我们可以根据tensor的坐标变换规则计算不同坐标系下的metric。也就是找到两个坐标系的变换矩阵，然后计算：
+  \begin{align}
+    g_{\mu'\nu'}=\frac{\partial x^\mu}{\partial x^{\prime\mu}}\frac{\partial x^\nu}{\partial x^{\prime\nu}}g_{\mu\nu}\mathrm{~.} 
+  \end{align}
+  但有的时候这样的计算会非常复杂，而且矩阵乘法很容易搞错指标。所以考虑有没有更加简单的方法。于是我们介绍下面形式化的书写。
+
+  我们可以把metric形式化的写作：
+  \begin{align}
+    ds^2=g_{\mu\nu}dx^\mu dx^\nu\mathrm{~.}
+  \end{align}
+  然后我们形式化的考虑一个坐标变换，我们不认为分量发生变换而是基矢量发生了变换。对于co-vector的基矢量变换我们存在一个特别自然的形式化规则：
+  \begin{align}
+    dx^{\prime\mu}=\frac{\partial x^{\prime\mu}}{\partial x^\nu}dx^\nu\mathrm{~.}
+  \end{align}
+  然后我们把变换矩阵带进去然后乘起来就好！！
+}
+
+
+
+
+
+
+
+

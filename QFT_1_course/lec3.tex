@@ -1,0 +1,205 @@
+\subsection{对称性与群}
+
+\hlr{群和物理的坐标变换}
+
+给出了群的基本概念，值得注意的是我们会发现，所有某一个集合到自己的双射都构成了一个群结构。
+
+我们不妨考虑一个群，也就是一个流形上面不同的坐标系之间的映射：
+\begin{align}
+  q_i\mapsto q_i^{\prime}=f_i\left(\{q_i\}\right)
+\end{align}
+所以我们知道\textbf{物理上的坐标系变换其实就是一个群的作用}
+
+下文之中我们只考虑那些变换前后的空间是一样的，比如用$ \mathbb{R}^2 $描述和用$ [0,2 \pi) \times \mathbb{R}_+  $就是不一样的，我们不考虑这样的捏！
+
+\bigskip
+\hlr{对称性的定义}
+
+但是我们并不在乎全部的坐标系变换。我们只在乎少量特殊的坐标变换。
+\defi{Symmetry\label{def:Symmetry}
+
+  我们把Symmetry定义为一个【坐标变换】保证了EoM的基本形式不变的变换。数学上就是EoM的形式替换成新的坐标的coordinate之后依然成立！
+}
+\rmk{
+  这里坐标变换需要特别提醒，有的时候Symmetry仅仅是对于场的形式作用。所以其实我们更严格的应该是使用jet bundle的语言来描述这个Symmetry变换。
+}
+\rmk{几个重要的说明：
+  \begin{enumerate}
+    \item 存在一个Symmetry也就意味着我们不可能通过实验区分Symmetry变换前后的物理系统。
+    \item Symmetry是一个坐标变换不是变分，这就意味着对于Symmetry Transformation。但是这个坐标变换在无限小的情况下对于场来说可以induce出一个场的构型空间的变分。
+  \end{enumerate}
+}
+
+\bigskip
+\hlr{Lie Group}
+
+\defi{Lie Group
+
+我们这里定义Lie Group需要满足下面的性质：
+\begin{itemize}
+  \item N dim analytical manifold，以及其所有元素都可以通过一个N维的坐标系进行描述
+  \item 群的乘法和逆元在坐标系下是analytical function也就是；
+    \begin{align}
+      \begin{aligned}g(\alpha)g(\beta)&=g(p(\alpha,\beta)),\\g^{-1}(\alpha)&=g(r(\alpha)),\end{aligned}
+    \end{align}
+\end{itemize}
+
+}
+我们会发现所有的连续群都是Lie Group。我们对于这个manifold显然可以选择一个坐标系进行描述，但是坐标系我们有个convention是：
+\begin{align}
+  g(\vec{0})=e
+\end{align}
+
+\bigskip
+\hlr{Lie Group Realization}
+
+我们希望考虑一个群元素作用在某一个空间上面的结果【这其实就是群在这个空间上面的表示】我们严格化的写出就是：
+\defi{Lie Group Representation
+
+  首先定义GL(V)是一个【线性空间V】上，所有【可逆线性映射】构成的空间。我们定义一个Lie Group Representation是一个映射：
+  \begin{align}
+    \begin{aligned}D:G \to & GL(V)\\g \mapsto & D(g)\end{aligned}
+  \end{align}
+  并且这个映射需要满足：
+  \begin{enumerate}
+    \item $ D(g_1)D(g_2)=D(g_1g_2),\quad\forall\mathrm{~}g_1,g_2\in G $
+    \item $ D(e)=I $
+  \end{enumerate}
+}
+
+\bigskip
+\hlr{表示的分类}
+
+我们可以把representation分成主要两类：
+\begin{itemize}
+  \item Reducible Representation：存在一个非平凡子空间$ W \subset V $使得$ D(g)W \subset W $，也就是这个子空间在群作用下不变。
+  \item Irreducible Representation：不存在这样的子空间。
+\end{itemize}
+并且对于reducible reprensentation我们或许可以进行complete reduction也就是把V分解成一系列invariant subspace的直和
+\rmk{注意！并不是所有的representation都可以complete reduction！！有的时候我们的矩阵仅仅是上三角矩阵，这样子可以有一个不变子空间但是不能complete reduction！！}
+
+考虑reprensentation的其他性质也可以有分类：
+\begin{itemize}
+  \item Equivalent Representation：存在一个可逆线性映射$ S:V \to V' $使得$ D'(g)=S D(g) S^{-1} $【对于$ V = V' $的情况下也就是线性映射可以通过相似变换进行变换，这个在矩阵的意义上就是换了一个基】
+  \item Unitary Representation：存在一个内积$ \langle\cdot|\cdot\rangle $使得对于任意的$ g \in G $我们有$ D(g)^\dagger D(g)=I $【注意，对于Unitary的定义我们务必先定义一个内积结构才能讨论，因为dagger的定义就是$ \langle Ux,y\rangle=\langle x,U^\dagger y\rangle. $】
+  \item Faithful Representation：$ D $是单射，也就是$ g_1\neq g_2\Longrightarrow D(g_1)\neq D(g_2)\mathrm{~.} $
+\end{itemize}
+
+\bigskip
+\hlr{Shur's Lemma}
+
+对于irreducible representation我们有下面三个很强的结论。考虑下面的set up：
+\begin{itemize}
+  \item $ D_1, D_2 $是某一个群$ G $的两个irreducible representation，分别作用在$ V_1,V_2 $上面。
+  \item 如果存在一个线性映射$ A:V_1 \to V_2 $使得对于任意的$ g \in G $我们有：
+    \begin{align}
+      A D_1(g)=D_2(g) A
+    \end{align}
+    也就是$ A $把$ D_1 $和$ D_2 $联系起来。
+\end{itemize}
+\begin{enumerate}
+  \item \textbf{Shur's Lemma 1}： $ A $只有两个选择 是零映射或者是一个invertible mapping
+    \begin{itemize}
+      \item 对于第二种情况，$ V_1 $和$ V_2 $空间有一个相同的维度，并且$ D_1 $和$ D_2 $是equivalent representation
+    \end{itemize}
+  \item \textbf{Shur's lemma 2}: 如果$ V_1 = V_2 = V $并且$ D_1 = D_2 = D $那么$ A $需要满足：$  A = \lambda Id$。
+  \item \textbf{Shur's lemma 3}：如果上面的$ D $并非一个irrrep 而是一堆irrrep的直和，那么$ A $可以是一个block diagonal matrix，每一个block对应一个irrrep，并且每一个block是$ \lambda_i Id $。【注意，每一个block拥有一个$ \lambda_i $】
+    
+\end{enumerate}
+
+
+\subsection{Questions and Thoughts}
+
+\question{对称性定义到底是什么？}
+
+注意！我们把对称性比较简单的定义为：\textbf{所有保证EoM不变的reparametration变换！}。
+\bigskip
+
+\rmk{对称性是坐标变换不是变分。但是对于无穷小对称性变换，我们可以把它写作一个场构型的无穷小变分！！}
+
+但是在我研究diffeo的时候有一些困扰。因为diffeo似乎是local的变换。但是不完全是local的，似乎Killing Vector给出的是global的？这个又是为什么呢？
+\qed 
+
+\bigskip
+\question{存在diffeomorphism的时候，我们怎么理解和研究对称性？}
+
+我终于终于理解了【25.9.25】。首先，我们说对称性是坐标变换而不是变分。但是，坐标变换不意味着是local的：我们考虑各种不一样的diffeo坐标变换：
+\begin{itemize}
+  \item 如果这个坐标变换是Killing Vector Generate的，那么我们会发现这些坐标变换是global的symmetry。
+  \item 如果这个坐标变换不是Killing Vector Generate的，那么我们会发现这些坐标变换是local的symmetry。
+\end{itemize}
+我们只是挑出来了一些坐标变换，并且说这些是global的！！
+
+\qed 
+
+
+\bigskip
+\question{场论之中我们怎么确定一个连续变换是一个global symmetry还是gauge symmetry？}
+
+请看我们的附录！！部分！！！
+\qed
+
+
+\bigskip
+\question{怎么理解Killing Vector生成的变换是Global Symmetry Transformation的？或者说怎么理解Killing Vector给出了一个Global Symmetry？}
+
+\bigskip
+差一嘴：Killing Vector在主动变换和被动变换下面是怎么理解的：
+\begin{enumerate}
+  \item 主动变换下也就是metric不变的变换$ \mathscr{L}_V g = 0 $
+  \item 被动变换我们理解为不同坐标分量，也就是$ \bar{g}_{ab}(y) = g_{\mu\nu}(x) $，对于Killing Vector生成的坐标变换$ x \to y $。也就是函数形式完全没有变换捏，只是直接把自变量替换一下！
+\end{enumerate}
+
+已经在上上面的问题之中给出了回答捏！！\qed
+
+
+\bigskip
+\question{同样的，我们能不能从场论的角度理解Diffeo变换是一个Gauge Symmetry？直接从引力的action出发研究对称性？}
+
+首先我们知道Diffeo是引力理论的gauge symmetry。我们可以说明，引力方程EoM给出的$ G_{\mu\nu} = 0 $这个对于所有的diffeo都是不变的。所以我们知道这是一个类似于gauge symmetry的东西。同时，很好理解其实Diffeo必然是local的，因为我们可以随便变换无限小量！！
+
+\qed
+
+\bigskip
+\question{能不能证明量子场论的Gauge变换都类似于diffeo这种换一个坐标描述的意思？？而不是一个正经的物理变换，只不过是长得很像动力学场的变换而已？}
+
+似乎某种意义下面应该是可以的，但是可能和Diffeo完全不是一个概念。可以去看看Gauge Field的书对于那些已经研究明白的gauge theory有什么性质。看看这些Gauge Field有没有几何的描述【似乎是有的！！】。但是这个讨论有一点点大了！
+
+\YL{感觉是一个特别有意思的问题捏！！甚至可以问是不是所有的Gauge Symmetry都有一个几何interpretation!不仅仅是我们一般讨论的Yang-Mills}
+
+\bigskip
+\question{
+ Diffeo会改变时空的结构「曲率」吗？
+}
+
+不会！！Diffeo只是一个坐标变换而已！它不会改变任何物理量！所以曲率不变！！Diffeo对应一个李导数的作用，曲率在这个操作下是不会变换的。
+
+如果我们想变分这个$ S = \int \sqrt{g} d^4 x R $我们做的是对于$ g_{\mu\nu} $进行一个perturbation，而不是做一个diffeo！而是强行进行一个加！！【variation】不被任何diffeo induce的variation！
+\qed
+
+\bigskip
+\question{为什么对于$ t \to t' = \lambda t $的变换我们有自由度的协变是$ q \to q'(t') = \lambda^p q(t)$}
+
+这是来自于，我们强行希望这是一个对称性！也就是EoM不变，为此只有特殊的$ q(t) $协变才能做到这个。我们请从这个思路理解！\qed
+
+
+\bigskip
+\question{技术上，$ \epsilon^{\mu\nu \rho \sigma} $是怎么退化到三阶的？？}
+
+存在这么一个好用的关系捏：
+\begin{align}
+  \epsilon_{0ijk}=\epsilon_{ijk},\quad i,j,k=1,2,3
+\end{align}
+
+
+
+
+
+
+
+
+
+
+
+
+
