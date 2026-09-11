@@ -2,12 +2,12 @@
 #import "env/lib.typ": *
 
 #show: notetemp.with(
-  title: [Modern Topics in QFT],
+  title: [Modern Lectures on QFT],
   author: [Yu Liu],
   abstract: [],
 )
 
-#include "doc/lec1.typ"
+#include "doc/sec1.typ"
 
 #pagebreak()
 #bibliography("references.bib")
