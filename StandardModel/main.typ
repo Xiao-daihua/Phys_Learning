@@ -2,13 +2,18 @@
 #import "env/lib.typ": *
 
 #show: notetemp.with(
-  title: [Template of Typst Note],
-  author: [Yu Liu],
-  abstract: [This is a template of Typst note ],
+    title: [Standard Model],
+    author: [Yu Liu],
+    abstract: [],
 )
-Main Text 
 
 #include "doc/sec1.typ"
+
+#pagebreak()
+#include "doc/sec2.typ"
+
+#pagebreak()
+#include "doc/sec3.typ"
 
 #pagebreak()
 #bibliography("references.bib")
