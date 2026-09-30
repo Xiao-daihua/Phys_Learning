@@ -9,7 +9,7 @@
         This is a note on the topic of Modular Tensor Categories. It
         is mainly based on the discussion in
         @fuchsTFTConstructionRCFT2002. We assume readers have basic
-        understandings of 2D CFT.
+        understandings of 2D CFT. #YL([This is a note on Tensor Categories, Yet its better to stop cause I have a better reference, but the finished content is still useful.])
     ],
 )
 

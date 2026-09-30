@@ -38,10 +38,10 @@ $
 - ...
 
 Remember the slogan we introduced before, we can generalize to
-characterize symmetries with *symmetry generators*. Imposing consistency
-conditions and observing the relation with Ward identities, we can
-find out all these symmetry generators and identify them with
-symmetries.
+characterize symmetries with *symmetry generators*. Imposing
+consistency conditions and observing the relation with Ward
+identities, we can find out all these symmetry generators and identify
+some of them with traditional symmetries.
 
 == BF Approach to Discrete Gauge Field
 
@@ -188,7 +188,6 @@ $a$ field as a $ZZ_n$ gauge field.
 
 == Cohomology Approach to Discrete Gauge Field
 
-=== Basic Homology and Cohomology
 
 
 

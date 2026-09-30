@@ -293,18 +293,18 @@ represented by unitary operators on the Hilbert space (and generators
 are Hermite operators, at least for Lorenzian Theory a theory in
 Euclidean spacetime may be more subtle to consist with the Wick
 rotation).
-#remark([
-    In fact the Hermite conjugation's definition is dependent on the
-    quantization. For lorentizan theory, we usually don't have this
-    subtleties (one may think of Unrul effect in Rindler spacetime but
-    this is not quite a same problem.). In Euclidean signature,
-    different choice of time will lead to different consist definition
-    of Hermite conjugation and in this case we may not really have the
-    generators to be Hermite.
-
-    Here we naively assume unitary, we can think of this as we're
-    working in Lorentzian theory.
-])
+// #remark([
+//     In fact the Hermite conjugation's definition is dependent on the
+//     quantization. For lorentizan theory, we usually don't have this
+//     subtleties (one may think of Unrul effect in Rindler spacetime but
+//     this is not quite a same problem.). In Euclidean signature,
+//     different choice of time will lead to different consist definition
+//     of Hermite conjugation and in this case we may not really have the
+//     generators to be Hermite.
+//
+//     Here we naively assume unitary, we can think of this as we're
+//     working in Lorentzian theory.
+// ])
 Consider a field that transforms under some transformation as:
 $
     x' = F(x),
@@ -312,8 +312,8 @@ $
     phi'(x') = F(phi(x)),
 $
 #definition[Quantum generator][
-    For a quantum operator, it is assumed to be unitary operator and
-    it act on local fields as:
+    For a quantum operator, it is assumed to be operator (maybe
+    unitary or not) and it act on local fields as:
     $
         phi'(x) = U^(-1) phi(x) U,
         qquad
@@ -323,16 +323,26 @@ $
     assumed to be a Hermite operator.
 ]
 #remark([
-    A more general definition is that the quantum generators transform
-    local operators as:
-    $
-        phi'(x') = O^(-1) phi(x) O,
-        qquad
-        O = e^(-i omega_a hat(G)_a).
-    $
-    where $O$ may not be unitary under certain quantization time
-    choice.
+    In lorentzian theory, the requirement of the probability
+    conservation will tell us that the quantum operators should be
+    unitary. However, in Euclidean theory we don't have a notion of
+    time, thus we don't need requirement of unitary. However, we often
+    want the Euclidean theory to have a consist wick rotate lorentzian
+    conterpart. Such requirement will impose conditions on the
+    properties of the quantum operators.
 ])
+
+// #remark([
+//     A more general definition is that the quantum generators transform
+//     local operators as:
+//     $
+//         phi'(x') = O^(-1) phi(x) O,
+//         qquad
+//         O = e^(-i omega_a hat(G)_a).
+//     $
+//     where $O$ may not be unitary under certain quantization time
+//     choice.
+// ])
 
 
 Here we will define $omega_a$ just as the parameters we used for the
@@ -554,7 +564,7 @@ SCT covariance requires $Delta_1=Delta_2$. In an orthonormal basis of
 scalar primaries,
 
 $
-    chevron.l cal(O)_i(x_1) cal(O)_j(x_2) chevron.r
+    chevron.l cal(O)_i (x_1) cal(O)_j (x_2) chevron.r
     = (C_i delta_(i j))/(x_12^2)^(Delta_i).
 $
 
@@ -591,14 +601,12 @@ $
 $
 Notice that the definition of $z$ and $overline(z)$ is conventionally
 not the same for Euclidean and Lorentzian theory (though the corrator
-will always take the same form).
-
-In Euclidean signature $overline(z)=z^*$. In Lorentzian signature $z$
-and $overline(z)$ are independent real variables in the standard
-kinematic region.
+will always take the same form). One can see that in Euclidean
+signature $overline(z)=z^*$. In Lorentzian signature $z$ and
+$overline(z)$ are independent real variables in the standard kinematic
+region due to the contraction definition difference.
 
 A standard Lorentzian configuration is
-
 $
     x_1=0,
     qquad
@@ -607,6 +615,13 @@ $
     x_3=(0,1,0,dots),
     qquad
     x_4=infinity.
+$
+One should be careful with what we mean by $x_4=infinity$. In fact, we
+can take a limit of $x_4$ to infinity, and the correlation function
+will be defined as:
+$
+    chevron.l cal(O)(x_1) cal(O)(x_2) cal(O)(x_3) cal(O)(x_4) chevron.r
+    = lim_(x_4->infinity) (x_4^2)^(Delta) chevron.l cal(O)(x_1) cal(O)(x_2) cal(O)(x_3) cal(O)(x_4) chevron.r.
 $
 
 Then
@@ -620,3 +635,6 @@ $
     qquad
     overline(z)=x+t.
 $
+
+We can explicitly see that in the case $z$ and $overline(z)$ are
+independent real variables.

@@ -5,10 +5,8 @@
     title: [Gauging Discrete Symmetry],
     author: [X. D. H.],
     abstract: [
-        This note is about gauging a discrete symmetry. We will first
-        review what gauging is in a continuous case and then try to
-        define a counterpart for a discrete symmetry. Then we try to
-        derive some general consequences of theory after gauging.
+        This note is about gauging a discrete symmetry. 
+  #YL([This note will not be finished temporarily. I'll try to finish Kaidi's note which is a main reference of this note, and make a handwritten note of it. However, the content of this note and personal understanding within it is still valuable.])
     ],
 )
 
