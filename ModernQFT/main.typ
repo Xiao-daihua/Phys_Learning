@@ -19,5 +19,8 @@
 #include "doc/sec4.typ"
 
 #pagebreak()
+#include "doc/sec5.typ"
+
+#pagebreak()
 #bibliography("references.bib")
 

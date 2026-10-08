@@ -261,6 +261,25 @@ formalism purely on the plane but gives the exactly same Hilbert space
 as the Unitary lorentzian theory on the cylinder. This approach is
 called the *radial quantization*.
 
+#remark([
+    One may wonder doesn't that mean that the analytical continuation
+    to a lorentzian CFT is uniquely fixed by the Euclidean time
+    choice? Indeed, different choice of a Euclidean time in fact is
+    correlated with different analytical continuation to a lorentzian
+    CFT. Radial quantization is correspond to the analytical
+    continuation of the cylinder coordinate. In one naively try to do
+    an analytical continuation of the $x^0$ coordinate, the result
+    won't be unitary therefore won't be a consistent CFT.
+
+    This note only focus on the radial quantization and the
+    consequently Euclidean theory. And we will not discuss lorentzian
+    CFT.
+])
+
+Currently, I would understand the radial quantization is a canonical
+formalism of CFT that gives a Unitary theory in the cylinder
+coordinate in lorentzian time.
+
 
 // A unitary CFT is one for which radial quantization produces a Hilbert
 // space with a positive-definite inner product and a self-adjoint
@@ -317,21 +336,29 @@ we then define a primary operator in this Hilbert space as:
         O_i (0)|0⟩ = |O_i⟩,
     $
 ]
-#remark([This relation is more of a axiom that such operator exists
-    not merely if it exist we can do such identification.])
+#remark([This relation is more of a axiom that such operator always
+    exists not merely if it exist we can do such identification.])
 
 Then one can find that these operator indeed have the correct
 commutation relation with the conformal generators as the ordinary
-conformal primary fields. More importantly, this construction tells us
-that a CFT should have a one-to-one correspondence between the primary
-operators and the primary states in the Hilbert space. This is called
-the *state-operator correspondence*.
+conformal primary fields acting on the vaccum state at least (A
+natural generalization can be the commutation holds everywhere). More
+importantly, this construction tells us that a CFT can have a
+one-to-one correspondence between the primary operators and the
+primary states in the Hilbert space. This is called the
+*state-operator correspondence*.
 
-#YL([The discussion here deserves more rigorous consideration.
-    However, I believe all these statements are arguments the true
-    rigorous statement should be discussed in axiomatic approach to
-    CFT not just arguing what a universal behavior should be like, we
-    can't derive this without sufficient axioms.])
+#remark([
+    One may encounter the statement that "state lives on a equal time
+    slice". However, I don't think this statement is precise enough. I
+    think what is truly means is that the Hilbert space is dependent
+    on the choice of time coordinate. Different choice of time will
+    lead to different inner product and all sort of structures.
+])
+
+#YL([The discussion here should not be understand as a prove or
+    something, but an argument of universal structure. A rigourous
+    treatment should be done in axiomatic CFTs.])
 
 
 === Correlation Functions
@@ -350,6 +377,39 @@ course, they should consistent with the same action $S$)
 
 #YL([This certainly needs proof. However, one can convince themselves
     this is true.])
+
+From now on, we will always use the simple notation of
+$
+    ⟨cal(O)_1 (x_1) ... cal(O)_n (x_n)⟩
+$
+for the correlation function. However, the formalism we use may
+interchange between the path integral formalism and the canonical
+formalism due to the above equivalence.
+
+=== What is "time" dependent
+
+#YL([Discussion here is personal, I believe it needs further
+    clarification.])
+
+- Path Integral Formalism
+
+In the path integral formalism, in Euclidean formalism, nothing is
+time dependent. The Euclidean path integral and correlation functions
+are only theory dependent unique object.
+
+If we want to get a lorentzian theory from the Euclidean theory. We
+need to specify an analytical continuation. The choice of analytical
+continuation should depend on what we call "time" direction.
+
+- Canonical Formalism
+
+In the canonical formalism, in Euclidean formalism. The Hilbert space
+depends on what we called an Euclidean time direction. However, all
+choice of time should give us the exact same correlation functions
+that matches the path integral formalism.
+
+If we want to get a lorentzian theory from a Euclidean theory, we only
+get the one that the Euclidean time specified us for.
 
 === Radial Conjugation
 
@@ -442,9 +502,35 @@ Conformal symmetry fixes this differential operator in terms of the
 dimensions and spins, up to the theory-dependent OPE coefficient
 $lambda_(12 cal(O))$.
 
-#remark([In fact OPE should be defined within the Radial ordering of
-    the operators. Here it is implicit cause we choose $x$ and 0
-    points.])
+#remark([
+    In fact, a general OPE should be defined within the Radial
+    ordering of the operators.
+    $
+        cal(R) phi_1 (x) phi_2 (y)
+        = sum_(cal(O))
+        lambda_(12 cal(O))
+        C_cal(O) (x,y,partial)
+        cal(O) (y).
+    $
+    Here it is implicit cause we choose $x$ and 0 points. Field at
+    different radius can't generally assumed to commute, as we care
+    mostly on correlators, we defined OPE by the radial ordering,
+    whose action on the vaccum directly give the correlator.
+])
+Due to the identification of correlation functions in the path
+integral formalism and the canonical formalism, we can also define OPE
+equivalently in the path integral formalism:
+$
+    phi_1 (x)phi_2 (0)
+    = sum_(cal(O))
+    lambda_(12 cal(O))
+    C_cal(O) (x,partial)
+    cal(O) (0).
+$
+here we don't have operators and states (and of course radial
+ordering). This expansion make sense only insider the correlation
+function.
+
 
 // The OPE converges whenever a spVhere can be drawn around the expanded
 // operators without enclosing any other insertion. It is therefore a
