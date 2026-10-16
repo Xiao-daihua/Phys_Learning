@@ -355,6 +355,11 @@ $
 must describe the same physical state.
 
 == Two-component Spinors
+
+#YL([The lecture in this section is chaotic, if you feel unconfortable
+    with the logic flow, it is totally normal. I tried my best to make
+    it in a smooth way.])
+
 === Spinor Representations
 
 We have discussed the representation of Lorentz group on the Hilbert
@@ -726,18 +731,30 @@ $
     p^mu = E (1, sin theta cos phi, sin theta sin phi, cos theta),
 $
 one may choose the following spinors to represent the momentum:
+// $
+//     |p]
+//     = sqrt(2 E)
+//     vec(
+//         cos(theta / 2),
+//         sin(theta / 2) e^(-i phi),
+//     ),quad
+//     ket(p)
+//     = sqrt(2 E)
+//     vec(
+//         cos(theta / 2),
+//         sin(theta / 2) e^(i phi),
+//     ).
+// $
+
 $
-    |p]
-    = sqrt(2 E)
-    vec(
+    ket(p) = sqrt(2 E) vec(
+        -e^(-i phi) sin(theta / 2),
         cos(theta / 2),
-        sin(theta / 2) e^(-i phi),
-    ),quad
-    ket(p)
-    = sqrt(2 E)
-    vec(
+    ),
+    quad
+    |p] = sqrt(2 E) vec(
         cos(theta / 2),
-        sin(theta / 2) e^(i phi),
+        e^(i phi) sin(theta / 2),
     ).
 $
 remember the difference between bras and kets are raising and lowering
@@ -753,9 +770,11 @@ $
     quad
     p_alpha = epsilon_(alpha beta) p^beta.
 $
-
-A little-group rotation around the direction of $p$ acts as
-
+Though the momentum is invariant under little group transformations,
+the spinor that constructs the momentum should be not. And it will in
+fact transform covariantly under the little group by the definition of
+spinor transformation. A little-group rotation around the direction of
+$p$ acts as
 $
     ket(p) arrow.r e^(i phi.alt / 2) ket(p),
     quad
@@ -775,15 +794,14 @@ around a certain direction (most probabaly the momentum direction).
         quad
         |p] arrow.r e^(-i phi.alt )|p].
     $
-    This is the action of the rotational SO(2) subgroup of the
-    massless little group ISO(2), corresponding to rotations around
-    the direction of $p$.
+    one may see that this corresponds to the little group
+    transformation of rotation around the momentum direction.
 ])
 
-One now may also realize that the spinors constructed here can
-natually be the wave function of spin 1/2 particles (i.e. when Weyl
-fermion act on vaccum gives a spinor wave function) in the helicity
-basis. The result is that:
+One now may realize that the spinors constructed here can natually be
+the wave function of spin 1/2 particles (i.e. when Weyl fermion act on
+vaccum gives a spinor wave function) with fixed chiralities and
+helicities $u_+, u_-$.The result is that:
 #remark([
     Here we use the 4 component spinors notation for convenience in
     calculation. Though it can understand as 2 Weyl spinors combined
@@ -792,12 +810,12 @@ basis. The result is that:
 
 $
     u_-(p) &= ket(p), quad
-    u_+(p) &= | p bracket.r, quad
+    u_+(p) &= |p bracket.r, quad
     v_+(p) &= ket(p), quad
-    v_-(p) &= | p bracket.r, \
-    overline(u)_-(p) &= bracket.l p |, quad
+    v_-(p) &= |p bracket.r, \
+    overline(u)_-(p) &= bracket.l p|, quad
     overline(u)_+(p) &= bra(p), quad
-    overline(v)_+(p) &= bracket.l p |, quad
+    overline(v)_+(p) &= bracket.l p|, quad
     overline(v)_-(p) &= bra(p).
 $
 Here we abuse the notation to use 2 component spinors to represent 4
@@ -838,7 +856,7 @@ $
     =
     (
         0,
-        bracket.l p |
+        bracket.l p|
     ),
     quad
     overline(u)_+(p)
@@ -854,7 +872,7 @@ $
     =
     (
         0,
-        bracket.l p |
+        bracket.l p|
     ),
     quad
     overline(v)_-(p)
@@ -1013,7 +1031,7 @@ Under a rotation by an angle $phi.alt$ around $bold(n)$, the two null
 momenta $l_1$ and $l_2$ remain invariant. Using the spinor
 transformation rules, we find
 $
-    |1] arrow.r e^(-i phi.alt / 2) |1],
+    |1] arrow.r e^(-i phi.alt / 2)|1],
     quad
     ket(1) arrow.r e^(i phi.alt / 2) ket(1),
     quad
@@ -1021,7 +1039,7 @@ $
     quad
     ket(2) arrow.r e^(-i phi.alt / 2) ket(2).
 $
-Thus we say that the spinors have the helicity of:
+Thus we say that the spinors have the "helicity" of:
 
 - $|1]$: $h = +1/2$ $ket(1)$: $h = -1/2$ $|2]$: $h = -1/2$ $ket(2)$:
     $h = +1/2$
@@ -1037,26 +1055,57 @@ associated with $l_2$ have opposite helicity.
     axis as the momentum direction, thus we call it helicity.
 ])
 
-Before we notice that the momentum spinors naturally give us the
-"wavefunction" (sorry for not having a better phrase) of the Weyl
-fermions in helicity basis. Now we can also see that the massive
-momentum spinors naturally give us the "wavefunction" of the Dirac
-fermions in helicity basis. They are:
+Before we notice that the massless momentum spinors naturally give us
+the "wavefunction" $u_+, u_-$ (sorry for not having a better phrase)
+of the Weyl fermions. Now we can also see that the massive momentum
+spinors naturally give us the "wavefunction" of the Dirac fermions
+with spin quantized around $n$ direction. They are:
 $
-    u_+ (k) = vec(ket(2), |1]),
+    u_+ (k) = vec(-ket(2), |1]),
     quad
     u_- (k) = vec(ket(1), |2]).
 $
-One can prove that they solve the Dirac equation in the rest frame.
-Both Weyl components describe the same "helicity" state. In fact, this
-relation can be generalized to all momentum and we will discuss about
-it below.
 #remark([
-    One should keep in mind that helicity is not well defined for
-    massive particles. Nevertheless, here we means helicity along some
-    hand chosen axis where the massive particle is combined by two
-    massless particles.
+    Quantized around $n$ direction means that the spinor we take is
+    eigenstate of the rotational generator along $n$ direction of the
+    spinor representation of lorentz group.
 ])
+
+Taking $n$ direction as
+$bold(n) = (sin theta cos phi, sin theta sin phi, cos theta),$
+we have the explicit from (up to a relative phase factor):
+$
+    u_+(k) = sqrt(m) vec(
+        cos(theta / 2),
+        e^(i phi) sin(theta / 2),
+        cos(theta / 2),
+        e^(i phi) sin(theta / 2),
+    ),
+    quad
+    u_-(k) = sqrt(m) vec(
+        -e^(-i phi) sin(theta / 2),
+        cos(theta / 2),
+        -e^(-i phi) sin(theta / 2),
+        cos(theta / 2),
+    ).
+$
+
+One can prove that they solve the Dirac equation in the rest frame.
+Moreover, the commonly used basis for dirac spinors which is:
+$
+    u_+(k) = sqrt(m) vec(1, 0, 1, 0), quad u_-(k) = sqrt(m) vec(0, 1, 0, 1)
+$
+is just the special case of $bold(n) = (0, 0, 1)$.
+
+// Both Weyl components describe the same "helicity" state. In fact, this
+// relation can be generalized to all momentum and we will discuss about
+// it below.
+// #remark([
+//     One should keep in mind that helicity is not well defined for
+//     massive particles. Nevertheless, here we means helicity along some
+//     hand chosen axis where the massive particle is combined by two
+//     massless particles.
+// ])
 
 In the rest frame,
 
@@ -1113,11 +1162,16 @@ $
         m/[l q]|q],
     ).
 $
-#remark([With suitable choice, we can recover the standard
-    wavefunction in Helicity basis. For generic $q$ choice, we get
-    different basis, using direction of $q$ to define spin up and spin
-    down.
-])
+We know that the Basis of "wavefunction" is not unique and depend on
+the rest frame spinor basis choice and a boost choice. This choice of
+$l,q$ decomposition implicitly chooses a basis.
+
+// #remark([
+//     This wavefunction is at decomposed in basis such that the spinor
+//     are eigenvector of the spinor space rotation along $q$ direction.
+//     If we choose $q$ have same spacial direction as $p$, we get the
+//     helicity basis.
+// ])
 Now we consider the massless limit. For any fixed $q$,
 
 $
